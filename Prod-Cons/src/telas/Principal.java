@@ -18,7 +18,7 @@ import javax.swing.JTable;
 import processos.*;
 
 /**
- *
+ *teste
  * @author zerokol
  */
 public class Principal extends javax.swing.JFrame implements Runnable {
