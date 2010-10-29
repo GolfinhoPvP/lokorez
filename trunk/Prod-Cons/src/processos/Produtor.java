@@ -22,10 +22,12 @@ public class Produtor extends Thread {
     ArrayList<Item> bf = new ArrayList<Item>();
     private boolean pausado;
     private double variacao;
+    private int tamanho;
 
-    public Produtor(String str, ArrayList<Item> arl) {
+    public Produtor(String str, ArrayList<Item> arl, int tam) {
         super(str);
         bf = arl;
+        tamanho = tam;
         pausado = false;
         variacao = 2.5;
     }
@@ -36,7 +38,7 @@ public class Produtor extends Thread {
         while (1 == 1) {
             try {
                 dormir();
-                if (bf.size() < 8) {
+                if (bf.size() < tamanho) {
                     i = f.produzirItem();
                     bf.add(i);
                     //System.out.print("\nProd: " + i.getTempo() + "bf: " + bf.size());
