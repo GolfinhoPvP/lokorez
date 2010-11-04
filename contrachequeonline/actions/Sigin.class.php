@@ -17,7 +17,10 @@
 			
 			if(!$connect->start())
 				echo("Impossible to star connection in Sigin.");
-				
+			
+			//encoding to md5 hash
+			$this->password = md5($this->password);
+			
 			if(!$connect->execute("INSERT INTO Administradores (usuario, senha) VALUES ('$this->userName', '$this->password')"))
 				echo("Impossible to execute MySQL query.");
 			
