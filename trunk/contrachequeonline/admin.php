@@ -6,10 +6,17 @@
 	</head>
 		
 	<body>
+		<?php
+			if(isset($_GET["sigin"]) == "true"){
+				echo('<p>Cadastro efetivado!</p>');
+			}elseif(isset($_GET["sigin"]) == "false"){
+				echo('<p>Cadastro não efetivado!</p>');
+			}
+		?>
 		<p>&Aacute;rea administrativa</p>
 		<p>Conectar ao sistema:
 		</p>
-		<form id="form1" name="form1" method="post" action="login.php">
+		<form id="form1" name="form1" method="post" action="actions/Login.class.php">
 			  <label>
 				Nome de usu&aacute;rio:
 				<input name="tfUserName" type="text" id="tfUserName" size="25" maxlength="50" />
@@ -21,7 +28,7 @@
 			  </label>
 		      <p>
 		        <label>
-		        <input name="btConectar" type="submit" id="btConectar" value="Conectar" />
+		        <input name="btLogin" type="submit" id="btLogin" value="Conectar" />
 		        </label>
 	      </p>
 		</form>
