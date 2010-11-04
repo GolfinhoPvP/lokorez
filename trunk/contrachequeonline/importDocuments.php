@@ -15,7 +15,7 @@
 <script language="javascript" src="javascript/functions.js"></script>
 <script language="javascript">
 	window.onload = function(){
-		document.forms[1].date.value = getUserDate();
+		document.forms[1].date.value = getUserDate()
 	}
 </script>
 </head>
@@ -33,7 +33,7 @@
 <table width="384" border="1">
   <tr>
     <td width="324">Confirme a data de valida&ccedil;&atilde;o das tabelas: 
-      <form id="form3" name="form3" method="post" action="">
+      <form id="form3" name="form3" method="post" action="utils/DateVerifier.class.php">
         <label>
           <input name="tfDate" type="text" id="tfDate" size="12" maxlength="10" />
         </label>
