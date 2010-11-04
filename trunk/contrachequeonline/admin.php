@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	$_SESSION["usuario"] 	= NULL;
+	$_SESSION["senha"] 		= NULL;
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -11,6 +16,8 @@
 				echo('<p>Cadastro efetivado!</p>');
 			}elseif(isset($_GET["sigin"]) == "false"){
 				echo('<p>Cadastro não efetivado!</p>');
+			}elseif(isset($_GET["login"]) == "false"){
+				echo('<p>Login não efetivado!</p>');
 			}
 		?>
 		<p>&Aacute;rea administrativa</p>
