@@ -35,7 +35,7 @@
 			  </label>
 		      <p>
 		        <label>
-		        <input name="btLogin" type="submit" id="btLogin" value="Conectar" />
+		        <input name="btLogin" type="submit" id="btLogin" value="Conectar"/>
 		        </label>
 	      </p>
 		</form>
