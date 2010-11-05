@@ -25,8 +25,8 @@
 		
 		function dirNameMake(){
 			//12-12-1212
-			$month	= substr($this->dateUser, 3, -5);
-			$year	= substr($this->dateUser, 6, 9);
+			$month	= substr($this->dateUser, -7, -5);
+			$year	= substr($this->dateUser, -4);
 			return $year."-".$month;
 		}
 	}
