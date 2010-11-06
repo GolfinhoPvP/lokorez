@@ -11,6 +11,7 @@
 			<region id="rgPrincipal">
 				<region id="rgFundo" height="100%" width="100%"></region>
 				<region id="rgBotao" height="50" width="50" top="10%" left="10%"></region>
+				<region id="rgLua"></region>
 			</region>
 		</regionBase>
 		
@@ -19,6 +20,7 @@
 				<descriptorParam name="transparency" value="40%"/>
 			</descriptor>
 			<descriptor id="dsBotao" region="rgBotao"></descriptor>
+			<descriptor id="dsLua" region="rgLua"></descriptor>
 		</descriptorBase>
 		
 		<connectorBase>
@@ -33,6 +35,7 @@
 			<area id="interationOportunity" begin="3s" end="10s"/>
 		</media>
 		<media id="mdBotao" type="image/gif" src="media/images/vermelho.gif" descriptor="dsBotao"/>
+		<media id="mdLua" type="application/x-ginga-NCLua" src="teste.lua" descriptor="dsLua"/>
 		
 		<context id="extra" refer="extra#body"></context>
 		
@@ -40,20 +43,21 @@
 			<bind role="onBegin" component="mdFundo" interface="interationOportunity"></bind>
 			<bind role="start" component="mdBotao"></bind>			
 		</link>
-		<link xconnector="connectors#onEndStop">
-			<bind role="onEnd" component="mdFundo" interface="interationOportunity"></bind>
-			<bind role="stop" component="mdBotao"></bind>
-			<bind role="stop" component="extra"></bind>
-		</link>
-		<link xconnector="connectors#onEndStop">
-			<bind role="onEnd" component="mdFundo"></bind>
-			<bind role="stop" component="extra"></bind>
-		</link>
 		<link xconnector="connectors#onSelectionStart">
 			<bind role="onSelection" component="mdBotao">
 				<bindParam name="key" value="RED"/>
 			</bind>
 			<bind role="start" component="extra"></bind>
+			<bind role="start" component="mdLua"></bind>
+		</link>
+		<link xconnector="connectors#onEndStop">
+			<bind role="onEnd" component="mdFundo" interface="interationOportunity"></bind>
+			<bind role="stop" component="mdBotao"></bind>
+		</link>
+		<link xconnector="connectors#onEndAbortStop">
+			<bind role="onEnd" component="mdFundo"></bind>
+			<bind role="abort" component="extra"></bind>
+			<bind role="stop" component="mdLua"></bind>
 		</link>
 	</body>
 </ncl>

@@ -9,7 +9,7 @@
 		</regionBase>
 		
 		<descriptorBase>
-			<descriptor id="dsAj" region="rgAj" explicitDur="10s"></descriptor>
+			<descriptor id="dsAj" region="rgAj" explicitDur="3s"></descriptor>
 		</descriptorBase>
 		
 		<connectorBase>
@@ -21,9 +21,18 @@
 		<port id="prAj" component="mdAj"/>
 		
 		<media id="mdAj" type="image/jpeg" src="media/images/aj.jpg" descriptor="dsAj" />
+		<media id="mdIory" type="image/gif" src="media/images/iory.gif" descriptor="dsAj" />
 		
 		<link xconnector="connectors#onEndStart">
 			<bind role="onEnd" component="mdAj"></bind>
+			<bind role="start" component="mdIory"></bind>
+		</link>
+		<link xconnector="connectors#onAbortAbort">
+			<bind role="onAbort" component="mdAj"></bind>
+			<bind role="abort" component="mdIory"></bind>
+		</link>
+		<link xconnector="connectors#onEndStart">
+			<bind role="onEnd" component="mdIory"></bind>
 			<bind role="start" component="mdAj"></bind>
 		</link>
 	</body>

@@ -5,17 +5,25 @@
 		<connectorBase>
 			<causalConnector id="onBeginStart">
 				<simpleCondition role="onBegin"/>
-				<simpleAction role="start"/>
+				<simpleAction role="start" max="unbounded"/>
 			</causalConnector>
 			
 			<causalConnector id="onEndStart">
 				<simpleCondition role="onEnd"/>
-				<simpleAction role="start"/>
+				<simpleAction role="start" max="unbounded"/>
 			</causalConnector>
 			
 			<causalConnector id="onEndStop">
 				<simpleCondition role="onEnd"/>
 				<simpleAction role="stop" max="unbounded"/>
+			</causalConnector>
+			
+			<causalConnector id="onEndAbortStop">
+				<simpleCondition role="onEnd"/>
+				<compoundAction operator="par">	
+					<simpleAction role="abort" max="unbounded"/>
+					<simpleAction role="stop" max="unbounded"/>
+				</compoundAction>
 			</causalConnector>
 			
 			<causalConnector id="onEndAbort">
@@ -31,7 +39,7 @@
 			<causalConnector id="onSelectionStart">
 				<connectorParam name="key"/>
 				<simpleCondition role="onSelection" key="$key"/>
-				<simpleAction role="start"/>
+				<simpleAction role="start" max="unbounded"/>
 			</causalConnector>
 		</connectorBase>
 	</head>
