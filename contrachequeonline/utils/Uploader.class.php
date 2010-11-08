@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	require_once("Handler.class.php");
 	
 	class Uploader{
 		private $archive;
@@ -67,5 +68,5 @@
 	
 	$up = new Uploader($_SESSION["path"]);
 	
-	$up->upload() ? header("Location: ../importDocuments.php?upl=true") : header("Location: ../importDocuments.php?upl=false");
+	$up->upload() ? new Handler($this->path) : header("Location: ../importDocuments.php?upl=false");
 ?>
