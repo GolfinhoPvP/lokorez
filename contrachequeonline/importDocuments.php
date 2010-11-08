@@ -20,6 +20,16 @@
 		$msgVisibility	= "visible";
 		$DCRVisibility 	= "visible";
 	}
+	
+	if(isset($_GET["upl"])){
+		switch($_GET["upl"]){
+			case "true" : $message = "Arquivo upado com sucesso.";
+							break;
+			case "false" : $message = "Erro, arquivo não upado.";
+							break;
+		}
+		$msgVisibility	= "visible";
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -73,7 +83,7 @@
 		  <tr>
 			<td><form id="form2" name="form2" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
 			  <label> Enviar tabela DCR:
-				<input name="file1" type="file" id="file1" size="50" />
+				<input name="archive" type="file" id="archive" size="50" />
 			  </label>
 			  <label>
 			  <input name="submit1" type="submit" id="submit1" value="Enviar DCR" />
