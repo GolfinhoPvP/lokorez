@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	class DateVerifier{
 	
 		private $dateUser = NULL;
@@ -11,12 +13,12 @@
 			$this->dirName = $this->dirNameMake();
 			if($this->dirVerifier($this->dirName)){
 				header("Location: ../importDocuments.php?dir=true");
-				die();
 			}else{
 				mkdir($this->uploadDirectory.$this->dirName, 0777);
 				header("Location: ../importDocuments.php?dir=false");
-				die();
 			}
+			$_SESSION["path"] = $this->dirName;
+			die();
 		}
 		
 		function dirVerifier($dir){

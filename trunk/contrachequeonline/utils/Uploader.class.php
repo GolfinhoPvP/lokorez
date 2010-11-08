@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	class Uploader{
 		private $archive;
 		private $path = "../uploads/";
@@ -10,15 +12,23 @@
 	
 		function upload(){
 		
-			empty($this->archive) ? return false;
-			extensionVerifier() ? return false;
-			maxSize()  ? return false;
+			if(empty($this->archive))
+				return false;
+			
+			if($this->extensionVerifier())
+				return false;
+				
+			if($this->maxSize())
+				return false;
 			
 			$arquivo1 = $arquivo;
 			
-			formatArchive();
+			$this->formatArchive();
 			
-			move_uploaded_file($this->archive['tmp_name'],$this->path) ? return true : return false;
+			if(move_uploaded_file($this->archive['tmp_name'],$this->path))
+				return true;
+			else
+				return false;
 		}
 		
 		function sizeVerifier(){
@@ -39,20 +49,18 @@
 			$lowName = strtolower($this->archive["name"]);
 			$chars = array("ç","~","^","]","[","{","}",";",":","´",",",">","<","-","/","|","@","$","%","ã","â","á","à","é","è","ó","ò","+","=","*","&","(",")","!","#","?","`","ã"," ","©");
 			$newName = str_replace($chars,"",$lowName);
-			$this->path = $this->path.$newName;
+			$this->path = $this->path."/".$newName;
 		}
 		
 		function maxSize(){
-			if($this->archive["size"] > 5242880) { //Limit: 5MB
-				return false;
-			}
-			return true;
+			if($this->archive["size"] > 5242880) //Limit: 5MB
+				return true;
+			return false;
  		}
 		
 		function extensionVerifier(){
-			if (!eregi(".dbf", $this->archive["name"])){
+			if (!stristr(".dbf", $this->archive["name"]))
 				return false;
-			}
 			return true;
 		}
 	}
