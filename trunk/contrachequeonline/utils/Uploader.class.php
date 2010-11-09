@@ -3,12 +3,18 @@
 	require_once("Handler.class.php");
 	
 	class Uploader{
-		private $archive;
+		private $archive = NULL;
 		private $path = "../uploads/";
+		private $tableID = NULL;
 		
 		function __construct($dir){
 			$this->archive = isset($_FILES["archive"]) ? $_FILES["archive"] : NULL;
+			$this->tableID = isset($_POST["table"]) ? $_POST["table"] : NULL;
 			$this->path = $this->path.$dir;
+		}
+		
+		function __get($name){
+			return $this->$name;
 		}
 	
 		function upload(){
@@ -67,6 +73,5 @@
 	}
 	
 	$up = new Uploader($_SESSION["path"]);
-	
-	$up->upload() ? new Handler($this->path) : header("Location: ../importDocuments.php?upl=false");
+	$up->upload() ? new Handler($up->tableID, $up->path) : header("Location: ../importDocuments.php?upl=false");
 ?>

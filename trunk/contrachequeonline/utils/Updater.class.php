@@ -1,4 +1,6 @@
 <?php
+	echo ($_POST);
+	die();
 	class Updater{
 		function __construct(){
 			foreach($_POST as $fieldName => $value){
@@ -9,7 +11,14 @@
 		
 		for($x=0; $x<$numRows; $x++){
 			for($y=0; $y<$numFields; $y++){
-				$DB[$x][$y] = $tf.$x.$y;
+				$str = "tf$x$y";
+				eval("\$aux = \"$$str\";");
+				$DB[$x][$y] = $aux;
+			}
+			$str = "checkbox$x";
+			eval("\$opt = \"$$str\";");
+			if($opt = "yes"){
+				$DB[$x][$$numFields] = $opt;
 			}
 		}
 	}

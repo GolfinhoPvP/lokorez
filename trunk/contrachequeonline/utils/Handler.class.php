@@ -7,15 +7,16 @@
 		private $tableId;
 		private $columnNames;
 		
-		function __construct($path, $tableId){
+		function __construct($t, $path){
 			$this->path = $path;
-			$this->tableId = $tableId;
+			$this->tableId = $t;
 			$this->execute();
 		}
 		
 		function execute(){
 			$toFix = false;
 			$archiveDBFname = $this->path;
+			$DB;
 			
 			$variables = new Variables();
 			$MySQLconnect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
@@ -28,20 +29,22 @@
 			//get number of files of dbf table
 			$numFields = dbase_numfields($DFBconnect);
 			
-			for($x=0; $x<$numRows; $x++){
+			//the DBF registers begins with 1
+			for($x=1; $x<=$numRows; $x++){
 				$DBFrow = dbase_get_record($DFBconnect, $x); //Get DBF archive rows
-				for($y=0; $y<$numFields; $y++){
-					$matrizRow[$x] = $DBFrow[$y];
-				}
-				$DB[$x] = $matrizRow;
+				$DB[$x-1] = $DBFrow;
 			}
 			
 			for($x=0; $x<$numRows; $x++){
+				echo($this->getQueryInsert());
+				die();
 				if(!$MySQLconnect->execute($this->getQueryInsert())){
+					echo("erro".$x." -");
 					$toFix = true;
-					$DB[$x][$numFields+1] = false;
+					$DB[$x][$numFields] = false;
 				}else{
-					$DB[$x][$numFields+1] = true;
+					echo("ok");
+					$DB[$x][$numFields] = true;
 				}
 			}
 			$MySQLconnect->close();
@@ -49,11 +52,12 @@
 			if($toFix){
 				$this->fixProblems($DB, $numFields, $numRows);
 			}
+			header("Location: ../importDocuments.php?upl=true");
 		}
 		
 		function getQueryInsert(){
 			switch($this->tableId){
-				case "dcr" : return "INSERT INTO Cargos VALUES ('$DB[$x][0]', '$DB[$x][1]', '$DB[$x][2]', '$DB[$x][3]')";
+				case "dcr" : return "INSERT INTO cargos VALUES ('$DB[$x][0]', '$DB[$x][1]', '$DB[$x][2]', '$DB[$x][3]')";
 								break;
 			}
 		}

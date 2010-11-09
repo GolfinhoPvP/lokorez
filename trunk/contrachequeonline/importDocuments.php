@@ -84,6 +84,7 @@
 			<td><form id="form2" name="form2" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
 			  <label> Enviar tabela DCR:
 				<input name="archive" type="file" id="archive" size="50" />
+				<input name="table" type="text" id="table" style="visibility:hidden" value="dcr" size="5" maxlength="3"/>
 			  </label>
 			  <label>
 			  <input name="submit1" type="submit" id="submit1" value="Enviar DCR" />
