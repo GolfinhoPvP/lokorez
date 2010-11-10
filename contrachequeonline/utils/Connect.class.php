@@ -19,7 +19,7 @@
 		public function start(){		
 			if(!($this->connectionStarted = mysql_pconnect($this->dbHost, $this->dbUser, $this->dbPassword)))
 				return false; // Impossible to connect to server.
-								
+				
 			//Select the database
 			if(!(mysql_select_db($this->dbName, $this->connectionStarted)))
 				return false; // Impossible to select the database.
@@ -31,11 +31,15 @@
 		public function execute($query){
 			$result;
 			
-			if(empty($query) || ($this->connectionStarted == NULL))
+			if(empty($query) || ($this->connectionStarted == NULL)){
+				//die($this->connectionStarted."- Error, ivalid arguments");
 				return false; //Error, ivalid arguments
+			}
 
-			if(!($result = mysql_query($query, $this->connectionStarted)))
+			if(!($result = mysql_query($query, $this->connectionStarted))){
+				//die("Error in the consult".mysql_error($this->connectionStarted));
 				return false; //Error in the consult
+			}
 							
 			return $result;
    		}
