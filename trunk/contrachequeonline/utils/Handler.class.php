@@ -5,7 +5,7 @@
 	class Handler{
 		private $path;
 		private $tableId;
-		private $columnNames;
+		private $DB;
 		
 		function __construct($t, $path){
 			$this->path = $path;
@@ -16,7 +16,6 @@
 		function execute(){
 			$toFix = false;
 			$archiveDBFname = $this->path;
-			$DB;
 			
 			$variables = new Variables();
 			$MySQLconnect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
@@ -32,78 +31,83 @@
 			//the DBF registers begins with 1
 			for($x=1; $x<=$numRows; $x++){
 				$DBFrow = dbase_get_record($DFBconnect, $x); //Get DBF archive rows
-				$DB[$x-1] = $DBFrow;
+				$this->DB[$x-1] = $DBFrow;
 			}
 			
+			if(!$MySQLconnect->start())
+				echo("Impossible to star connection in Handler.");
+			
 			for($x=0; $x<$numRows; $x++){
-				echo($this->getQueryInsert());
-				die();
-				if(!$MySQLconnect->execute($this->getQueryInsert())){
-					echo("erro".$x." -");
+			
+				switch($this->tableId){
+					case "dcr" : $aux = "INSERT INTO Cargos VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."', '".$this->DB[$x][2]."', ".$this->DB[$x][3].")";
+								break;
+				}
+				
+				if(!$MySQLconnect->execute($aux)){
 					$toFix = true;
-					$DB[$x][$numFields] = false;
+					$this->DB[$x][$numFields] = "true";
 				}else{
-					echo("ok");
-					$DB[$x][$numFields] = true;
+					$this->DB[$x][$numFields] = "false";
 				}
 			}
+			
 			$MySQLconnect->close();
 			dbase_close($DFBconnect);
+			
 			if($toFix){
-				$this->fixProblems($DB, $numFields, $numRows);
-			}
-			header("Location: ../importDocuments.php?upl=true");
-		}
-		
-		function getQueryInsert(){
-			switch($this->tableId){
-				case "dcr" : return "INSERT INTO cargos VALUES ('$DB[$x][0]', '$DB[$x][1]', '$DB[$x][2]', '$DB[$x][3]')";
-								break;
+				$this->fixProblems($numFields, $numRows);
+			}else{
+				header("Location: ../importDocuments.php?upl=true");
 			}
 		}
 		
-		function getQuerySelect(){
-			switch($this->tableId){
-				case "dcr" : return "SELECT * FROM Cargos WHERE codigo='$DB[$x][0]";
-								$this->columnNames = array("Codigo","Descicao","Tipo","Vencimento");
-								break;
-			}
-		}
-		
-		function getQueryUpdate(){
-			switch($this->tableId){
-				case "dcr" : 	return "UPDATE INTO Cargos SET descicao = '$DB[$x][1]', tipo='$DB[$x][2]', vencimento='$DB[$x][3]' WHERE codigo='$DB[$x][0]'";
-								break;
-			}
-		}
-		
-		function fixProblems($DB, $numFields, $numRows){
+		function fixProblems($numFields, $numRows){
 			$variables = new Variables();
 			$nR = 0;
 			$MySQLconnect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
-			echo('<form id="form1" name="form1" method="post" action="Updater.class.php"><label></label>');
+			
+			if(!$MySQLconnect->start())
+				echo("Impossible to star connection in Handler.");
+				
+			echo('<script language="javascript" type="text/javascript">
+					function setField(param, cont){
+						for(x=0; x<cont; x++){
+							eval("if(document.form."+param+x+".disabled == true){document.form."+param+x+".disabled = false;}else{ document.form."+param+x+".disabled = true;}");
+						}
+						return true;
+					}
+				</script>
+				<form id="form" name="form" method="post" action="Updater.class.php">');
 			for($x=0; $x<$numRows; $x++){
-				if($DB[$x][$numFields+1] == false){
+				if($this->DB[$x][$numFields] == "true"){
 					echo('<table width="100%" border="1"><tr><td width="62">Modificar:</td><td width="586"><table width="100%" border="1"><tr><td width="43">Antigo:</td>');
-					$result = $MySQLconnect->execute($this->getQuerySelect());
+					switch($this->tableId){
+						case "dcr" : 	$aux = "SELECT * FROM Cargos WHERE cargo='".$this->DB[$x][0]."'";
+										$columnNames = array("Cargo","Descicao","Tipo","Vencimento");
+										break;
+					}
+					
+					$row = mysql_fetch_array($MySQLconnect->execute($aux));
 					for($y=0; $y<$numFields; $y++){
-						echo('<td>'.$this->columnNames[$y].': '.$result[$y].'</td>');
+						echo('<td>'.$columnNames[$y].': '.$row[$y].'</td>');
 					}
 					echo('</tr><tr><td>Novo:</td>');
 					for($y=0; $y<$numFields; $y++){
-						echo('<td><label>'.$this->columnNames[$y].': <input name="tf'.$x.$y.'" type="text" disabled="disabled" id="tf'.$x.$y.'" value="'.$DB[$x][$y].'"/></label></td>');
+						echo('<td>'.$columnNames[$y].': <input name="tf'.$x.$y.'" disabled="disabled" type="text" id="tf'.$x.$y.'" value="'.$this->DB[$x][$y].'"/></td>');
 					}
-					echo('</tr></table></td><td width="96"><label>Marcar: <input type="checkbox" name="checkbox'.$x.'" value="checkbox'.$x.'" /></label></td></tr></table>');
+					echo('</tr></table></td><td width="96">Marcar: <input type="checkbox" name="checkbox'.$x.'" value="checkbox'.$x.'" onchange="javascript: return setField('."'".'tf'.$x."'".', '.$numFields.');"/></td></tr></table>');
 					$nR++;
 				}
 			}
-			echo('<label><input name="query" type="text" id="query" style="visibility:hidden" value="'.$this->getQueryUpdate().'"/><label><input name="numFields" type="text" id="numFields" style="visibility:hidden" value="'.$numFields.'"/><label><input name="numRows" type="text" id="numRows" style="visibility:hidden" value="'.$nR.'"/><input name="update" type="submit" id="update" value="Atualizar" /></label></form>');
+			echo('<input name="tableId" type="text" id="tableId" style="visibility:hidden" value="'.$this->tableId.'"/><input name="numFields" type="text" id="numFields" style="visibility:hidden" value="'.$numFields.'"/><input name="numRows" type="text" id="numRows" style="visibility:hidden" value="'.$nR.'"/><input name="update" type="submit" id="update" value="Atualizar" /></form>');
+			$MySQLconnect->close();
 		}
 	}
 ?>
 
 <!-- <form id="form1" name="form1" method="post" action="">
-  <label>  </label>
+    
   <table width="100%" border="1">
     <tr>
       <td width="62">Modificar:</td>
@@ -114,19 +118,19 @@
         </tr>
         <tr>
           <td>Antigo:</td>
-          <td><label>
+          <td>
             <input name="tf" type="text" disabled="disabled" id="tf" value="err" />
-          </label></td>
+          </td>
         </tr>
       </table></td>
-      <td width="96"><label>
+      <td width="96">
         Marcar:
         <input type="checkbox" name="checkbox" value="checkbox" />
-      </label></td>
+      </td>
     </tr>
   </table>
-  <label>
+  
   <input name="query" type="text" id="query" style="visibility:hidden" value=""/>
   <input name="update" type="submit" id="update" value="Atualizar" />
-  </label>
+  
 </form> -->
