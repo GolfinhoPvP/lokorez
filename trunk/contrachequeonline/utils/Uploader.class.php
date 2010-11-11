@@ -11,6 +11,10 @@
 			$this->archive = isset($_FILES["archive"]) ? $_FILES["archive"] : NULL;
 			$this->tableID = isset($_POST["table"]) ? $_POST["table"] : NULL;
 			$this->path = $this->path.$dir;
+			if(!$this->archive["name"]){
+				header("Location: ../importDocuments.php?upl=yet&tab=$this->tableID");
+				die();
+			}
 		}
 		
 		function __get($name){

@@ -8,10 +8,14 @@
 	$dateVisibility = "visible";
 	$DCRVisibility 	= "invisible";
 	$msgVisibility	= "invisible";
+	$DLTVisibility	= "invisible";
+	$especialVisibility	= "invisible";
+	$eventosVisibility	= "invisible";
 	
 	if(isset($_GET["dir"])){
 		switch($_GET["dir"]){
 			case "true" : $message = "Cuidado, estas tabelas possivelmente já existem, continue as verificações.";
+							$_SESSION["dir"] = "show";
 							break;
 			case "false" : $message = "O sistema está pronto para receber as novas tabelas.";
 							break;
@@ -27,8 +31,46 @@
 							break;
 			case "false" : $message = "Erro, arquivo não upado.";
 							break;
+			case "yet" : $message = "Ok, arquivo já upado.";
+							break;
 		}
 		$msgVisibility	= "visible";
+	}
+	
+	if(isset($_GET["tab"])){
+		switch($_GET["tab"]){
+			case "dcr" 		: $_SESSION["dcr"] = "show";
+							break;
+			case "dlt" : $_SESSION["dlt"] = "show";
+							break;
+							
+			case "especial" : $_SESSION["especial"] = "show";
+							break;
+							
+			case "eventos" : $_SESSION["eventos"] = "show";
+							break;
+		}
+	}
+	if(isset($_SESSION["dir"])== "show"){
+		$dateVisibility = "invisible";
+		$_SESSION["dir"] = "hide";
+	}
+	
+	if(isset($_SESSION["dcr"])== "show"){
+		$DLTVisibility = "visible";
+		$_SESSION["dcr"] = "hide";
+	}
+	
+	if(isset($_SESSION["dlt"])== "show"){
+		$DLTVisibility = "invisible";
+		$especialVisibility = "visible";
+		$_SESSION["dlt"] = "hide";
+	}
+	
+	if(isset($_SESSION["especial"])== "show"){
+		$especialVisibility = "invisible";
+		$eventosVisibility = "visible";
+		$_SESSION["eventos"] = "hide";
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -73,7 +115,7 @@
 				  <input name="tfDate" type="text" id="tfDate" size="12" maxlength="10" />
 				</label>
 				<label>
-				<input type="submit" name="Submit" value="Confirmar Data" />
+				<input name="confirmDate" type="submit" id="confirmDate" value="Confirmar Data" />
 				</label>
 			  </form>
 			</td>
@@ -81,16 +123,55 @@
 	</table>
 		<table width="100%" class="<?php echo($DCRVisibility); ?>">
 		  <tr>
-			<td><form id="form2" name="form2" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+			<td><form id="dcr" name="dcr" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
 			  <label> Enviar tabela DCR:
 				<input name="archive" type="file" id="archive" size="50" />
 				<input name="table" type="text" id="table" style="visibility:hidden" value="dcr" size="5" maxlength="3"/>
 			  </label>
 			  <label>
-			  <input name="submit1" type="submit" id="submit1" value="Enviar DCR" />
+			  <input name="submitDCR" type="submit" id="submitDCR" value="Enviar DCR" />
 			  </label>
 			</form></td>
 		  </tr>
 	</table>
+	    <table width="100%" class="<?php echo($DLTVisibility); ?>">
+          <tr>
+            <td><form id="DLT" name="DLT" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+                <label> Enviar tabela DLT:
+                  <input name="archive" type="file" id="archive" size="50" />
+                <input name="table" type="text" id="table" style="visibility:hidden" value="dlt" size="5" maxlength="3"/>
+                </label>
+                <label>
+                <input name="submitDLT" type="submit" id="submitDLT" value="Enviar DLT" />
+                </label>
+            </form></td>
+          </tr>
+        </table>
+	    <table width="100%" class="<?php echo($especialVisibility); ?>">
+          <tr>
+            <td><form id="especial" name="especial" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+                <label> Enviar tabela Especial:
+                  <input name="archive" type="file" id="archive" size="50" />
+                <input name="table" type="text" id="table" style="visibility:hidden" value="especial" size="5" maxlength="3"/>
+                </label>
+                <label>
+                <input name="submitEspecial" type="submit" id="submitEspecial" value="Enviar Especial" />
+                </label>
+            </form></td>
+          </tr>
+        </table>
+		<table width="100%" class="<?php echo($eventosVisibility); ?>">
+          <tr>
+            <td><form id="eventos" name="eventos" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+                <label> Enviar tabela Eventos:
+                  <input name="archive" type="file" id="archive" size="50" />
+                <input name="table" type="text" id="table" style="visibility:hidden" value="eventos" size="5" maxlength="3"/>
+              </label>
+                <label>
+                <input name="submitEventos" type="submit" id="submitEventos" value="Enviar Eventos" />
+                </label>
+            </form></td>
+          </tr>
+        </table>
 	</body>
 </html>

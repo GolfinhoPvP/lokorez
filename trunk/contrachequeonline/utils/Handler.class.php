@@ -40,8 +40,18 @@
 			for($x=0; $x<$numRows; $x++){
 			
 				switch($this->tableId){
-					case "dcr" : $aux = "INSERT INTO Cargos VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."', '".$this->DB[$x][2]."', ".$this->DB[$x][3].")";
+					case "dcr" : $aux = "INSERT INTO Cargos (cargo, descricao , tipo, vencimento) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."', '".$this->DB[$x][2]."', ".$this->DB[$x][3].")";
 								break;
+								
+					case "dlt" : $aux = "INSERT INTO Lotacoes (lotacao, descricao_lotacao , secretaria) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."', '".$this->DB[$x][2]."')";
+								break;
+								
+					case "especial" : $aux = "INSERT INTO Especialidades (codigo, descricao , cargo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."', '".$this->DB[$x][2]."')";
+								break;
+								
+					case "eventos" : $aux = "INSERT INTO Eventos (codigo, descricao, IRRF, IPMT, FAL, FIXO, TEMP, valor, GRAT, FGTS, desconto, nivel, INSS) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."',  '".$this->DB[$x][2]."',  '".$this->DB[$x][3]."',  '".$this->DB[$x][4]."',  '".$this->DB[$x][5]."',  '".$this->DB[$x][6]."',  ".$this->DB[$x][7].",  '".$this->DB[$x][8]."',  '".$this->DB[$x][9]."',  ".$this->DB[$x][10].", '".$this->DB[$x][11]."', '".$this->DB[$x][12]."')";
+								break;
+
 				}
 				
 				if(!$MySQLconnect->execute($aux)){
@@ -56,9 +66,10 @@
 			dbase_close($DFBconnect);
 			
 			if($toFix){
+				die("aqui");
 				$this->fixProblems($numFields, $numRows);
 			}else{
-				header("Location: ../importDocuments.php?upl=true");
+				header("Location: ../importDocuments.php?upl=true&tab=$this->tableId");
 			}
 		}
 		
@@ -86,6 +97,18 @@
 						case "dcr" : 	$aux = "SELECT * FROM Cargos WHERE cargo='".$this->DB[$x][0]."'";
 										$columnNames = array("Cargo","Descicao","Tipo","Vencimento");
 										break;
+										
+						case "dlt" : $aux = "SELECT * FROM Lotacoes WHERE lotacao='".$this->DB[$x][0]."'";
+									$columnNames = array("Lotação","Descicao","Secretaria");
+									break;
+									
+						case "especial" : $aux = "SELECT * FROM Especialidades WHERE codigo='".$this->DB[$x][0]."'";
+									$columnNames = array("Código","Descicao","Cargo");
+									break;
+									
+						case "eventos" : $aux = "SELECT * FROM Eventos WHERE codigo='".$this->DB[$x][0]."'";
+									$columnNames = array("Código", "Descrição", "IRRF", "IPMT", "FAL", "FIXO", "TEMP", "Valor", "Gratifição", "FGTS", "Desconto", "Nível", "INSS");
+									break;
 					}
 					
 					$row = mysql_fetch_array($MySQLconnect->execute($aux));
