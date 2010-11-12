@@ -17,7 +17,7 @@
 		
 		//Connect to MySQL server
 		public function start(){		
-			if(!($this->connectionStarted = mysql_pconnect($this->dbHost, $this->dbUser, $this->dbPassword)))
+			if(!($this->connectionStarted = mysql_connect($this->dbHost, $this->dbUser, $this->dbPassword)))
 				return false; // Impossible to connect to server.
 				
 			//Select the database

@@ -1,4 +1,5 @@
 <?php
+	require_once("utils/Connect.class.php");	
 	session_start();
 	
 	if((isset($_SESSION["usuario"]) == NULL) && (isset($_SESSION["senha"]) == NULL))
@@ -169,6 +170,63 @@
               </label>
                 <label>
                 <input name="submitEventos" type="submit" id="submitEventos" value="Enviar Eventos" />
+                </label>
+            </form></td>
+          </tr>
+        </table>
+		<p><a href="addFolha.php">Adicionar epécie de folha. </a></p>
+		<table width="100%" class="<?php echo($cadcalcVisibility); ?>">
+          <tr>
+            <td><form id="cadcalc" name="cadcalc" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+              <label> Esp&eacute;cie da Tabela:
+              <select name="select">
+                <option>Escolha</option>
+				<?php
+					$connect = new Connect("localhost", "viewer", "123", "contrachequeonline");
+					$connect->start();
+					$result = $connect->execute("SELECT nome FROM Folhas");
+					
+					while($row = mysql_fetch_assoc($result)) {
+						echo("<option>".$row["nome"]."</option>");
+					}
+					$connect->close();
+				?>
+              </select> 
+              <br />
+              Enviar tabela Cadastro:
+                  <input name="archive" type="file" id="archive" size="50" />
+                  <input name="table" type="text" id="table" style="visibility:hidden" value="cadastro" size="5" maxlength="3"/>
+              </label>
+                <label>
+                <input name="submitCadastro" type="submit" id="submitCadastro" value="Enviar Cadastro" />
+                </label>
+            </form></td>
+          </tr>
+        </table>
+		<table width="100%" class="<?php echo($cadcalcVisibility); ?>">
+          <tr>
+            <td><form id="calculo" name="calculo" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+              <label> Esp&eacute;cie da Tabela:
+              <select name="select">
+                <option>Escolha</option>
+				<?php
+					$connect = new Connect("localhost", "viewer", "123", "contrachequeonline");
+					$connect->start();
+					$result = $connect->execute("SELECT nome FROM Folhas");
+					
+					while($row = mysql_fetch_assoc($result)) {
+						echo("<option>".$row["nome"]."</option>");
+					}
+					$connect->close();
+				?>
+              </select>
+              <br />
+                  Enviar tabela C&aacute;lculo:
+                  <input name="archive" type="file" size="50" />
+                  <input name="table" type="text" id="table" style="visibility:hidden" value="calculo" size="5" maxlength="3"/>
+              </label>
+                <label>
+                <input name="submitCalculo" type="submit" id="submitCalcalculo" value="Enviar C&aacute;lculo" />
                 </label>
             </form></td>
           </tr>

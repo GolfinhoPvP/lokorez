@@ -6,10 +6,12 @@
 		private $archive = NULL;
 		private $path = "../uploads/";
 		private $tableID = NULL;
+		private $folhaType = NULL;
 		
 		function __construct($dir){
 			$this->archive = isset($_FILES["archive"]) ? $_FILES["archive"] : NULL;
 			$this->tableID = isset($_POST["table"]) ? $_POST["table"] : NULL;
+			$this->folhaType = isset($_POST["select"]) ? $_POST["select"] : NULL;
 			$this->path = $this->path.$dir;
 			if(!$this->archive["name"]){
 				header("Location: ../importDocuments.php?upl=yet&tab=$this->tableID");
@@ -77,5 +79,5 @@
 	}
 	
 	$up = new Uploader($_SESSION["path"]);
-	$up->upload() ? new Handler($up->tableID, $up->path) : header("Location: ../importDocuments.php?upl=false");
+	$up->upload() ? new Handler($up->tableID, $up->path, $up->folhaType) : header("Location: ../importDocuments.php?upl=false");
 ?>

@@ -25,8 +25,6 @@
 			
 			if(!($result = $connect->execute("SELECT * FROM Administradores WHERE usuario = '$this->userName' and senha = '$this->password'")))
 				echo("Impossible to execute MySQL query.");
-				
-			$connect->close();
 			
 			if($connect->counterResult($result) > 0){
 				$_SESSION["usuario"] 	= $this->userName;
@@ -34,6 +32,8 @@
 				header("Location: ../importDocuments.php");
 				die();
 			}
+			
+			$connect->close();
 			
 			header("Location: ../admin.php?login=false");
 			die();
