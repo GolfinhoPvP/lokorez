@@ -59,16 +59,17 @@
 					case "eventos" : $aux = array("INSERT INTO Eventos (codigo, descricao, IRRF, IPMT, FAL, FIXO, TEMP, valor, GRAT, FGTS, desconto, nivel, INSS) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."',  '".$this->DB[$x][2]."',  '".$this->DB[$x][3]."',  '".$this->DB[$x][4]."',  '".$this->DB[$x][5]."',  '".$this->DB[$x][6]."',  ".$this->DB[$x][7].",  '".$this->DB[$x][8]."',  '".$this->DB[$x][9]."',  ".$this->DB[$x][10].", '".$this->DB[$x][11]."', '".$this->DB[$x][12]."')");
 								break;
 								
-					case "cadastro" :	$aux = array("INSERT INTO Cadastros (matricula, cargo, lotacao, data_admissao, vinculo, previdencia, nivel, dep_imp_re, hora_sem, instrucao, data_afastamento, sindical, dp_sal_fam, hora_ponto, vale_transporte, data_promocao, tipo, situacao, descontar, receber, funcao, maior_360, prof_40hs, vlt_ver, val_niv, data_FGTS, permanente, remuneracao_bruto, vencimento, flag, entrada, liquido, sobregrat, assistencia, medico, senha, codigo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][8]."',  '".$this->DB[$x][1]."',  '".$this->DB[$x][4]."',  '".$this->DB[$x][5]."',  '".$this->DB[$x][7]."',  '".$this->DB[$x][9]."',  '".$this->DB[$x][11]."',  '".$this->DB[$x][13]."',  '".$this->DB[$x][14]."',  '".$this->DB[$x][18]."', '".$this->DB[$x][19]."', '".$this->DB[$x][20]."', '".$this->DB[$x][21]."', '".$this->DB[$x][22]."', '".$this->DB[$x][24]."', '".$this->DB[$x][27]."', '".$this->DB[$x][28]."', '".$this->DB[$x][29]."', '".$this->DB[$x][30]."', '".$this->DB[$x][31]."', '".$this->DB[$x][33]."', '".$this->DB[$x][34]."', '".$this->DB[$x][35]."', ".$this->DB[$x][36].", '".$this->DB[$x][37]."', '".$this->DB[$x][38]."', ".$this->DB[$x][39].", ".$this->DB[$x][40].", '".$this->DB[$x][41]."', '".$this->DB[$x][42]."', ".$this->DB[$x][45].", '".$this->DB[$x][46]."', '".$this->DB[$x][47]."', '".$this->DB[$x][48]."', '".$this->passwordMaker()."', ".$code.")", "INSERT INTO Pessoal (matricula, nome, sexo, CPF, PIS_PASEP, data_nascimento, ultimo_nome, codigo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][1]."',  '".$this->DB[$x][3]."',  '".$this->DB[$x][12]."',  '".$this->DB[$x][15]."',  '".$this->DB[$x][16]."',  '".$this->DB[$x][17]."',  ".$this->DB[$x][32].",  ".$code.")", "INSERT INTO RG (matricula, identidade, orgão_expedidor, codigo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][25]."',  '".$this->DB[$x][26]."', ".$code.")", "INSERT INTO Inf_Bancaria (matricula, conta, banco, numero, codigo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][6]."', '".$this->DB[$x][43]."',  '".$this->DB[$x][44]."', ".$code.")");
+					case "cadastro" :	$aux = array("INSERT INTO Cadastros (matricula, cargo, lotacao, data_admissao, vinculo, previdencia, nivel, dep_imp_re, hora_sem, instrucao, data_afastamento, sindical, dp_sal_fam, hora_ponto, vale_transporte, data_promocao, tipo, situacao, descontar, receber, funcao, maior_360, prof_40h, vlt_ver, val_niv, data_FGTS, permanente, remuneracao_bruto, vencimento, flag, entrada, liquido, sobregrat, assistencia, medico, senha, codigo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][8]."',  '".$this->DB[$x][1]."',  '".$this->dateFormater($this->DB[$x][4])."',  '".$this->DB[$x][5]."',  '".$this->DB[$x][7]."',  '".$this->DB[$x][9]."',  '".$this->DB[$x][11]."',  '".$this->DB[$x][13]."',  '".$this->DB[$x][14]."',  '".$this->dateFormater($this->DB[$x][18])."', '".$this->DB[$x][19]."', '".$this->DB[$x][20]."', '".$this->DB[$x][21]."', '".$this->DB[$x][22]."', '".$this->dateFormater($this->DB[$x][24])."', '".$this->DB[$x][27]."', '".$this->DB[$x][28]."', '".$this->DB[$x][29]."', '".$this->DB[$x][30]."', '".$this->DB[$x][31]."', '".$this->DB[$x][33]."', '".$this->DB[$x][34]."', '".$this->DB[$x][35]."', ".$this->valueFormater($this->DB[$x][36]).", '".$this->dateFormater($this->DB[$x][37])."', '".$this->DB[$x][38]."', ".$this->valueFormater($this->DB[$x][39]).", ".$this->valueFormater($this->DB[$x][40]).", '".$this->DB[$x][41]."', '".$this->DB[$x][42]."', ".$this->valueFormater($this->DB[$x][45]).", '".$this->DB[$x][46]."', '".$this->DB[$x][47]."', '".$this->DB[$x][48]."', '".$this->passwordMaker()."', ".$code.")", "INSERT INTO Pessoal (matricula, nome, sexo, CPF, PIS_PASEP, data_nascimento, ultimo_nome, codigo) VALUES ('".$this->DB[$x][0]."',  '".$this->DB[$x][3]."',  '".$this->DB[$x][12]."',  '".$this->DB[$x][15]."',  '".$this->DB[$x][16]."',  '".$this->dateFormater($this->DB[$x][17])."',  '".$this->DB[$x][32]."',  ".$code.")", "INSERT INTO RG (matricula, identidade, orgao_expedidor, codigo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][25]."',  '".$this->DB[$x][26]."', ".$code.")", "INSERT INTO Inf_Bancaria (matricula, conta, banco, numero, codigo) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][6]."', '".$this->DB[$x][43]."',  '".$this->DB[$x][44]."', ".$code.")");
 										break;
 
 				}
-				foreach($aux as $query){
-					echo $query;
-				}
-				die($this->tableId);
+				/*foreach($aux as $query){
+					echo $query."<br>";
+				}*/
+				
 				foreach($aux as $query){
 					if(!$MySQLconnect->execute($query)){
+						echo $query."<br>";
 						$toFix = true;
 						$this->DB[$x][$numFields] = "true";
 					}else{
@@ -79,7 +80,7 @@
 			
 			$MySQLconnect->close();
 			dbase_close($DFBconnect);
-			die();
+			
 			if($toFix){
 				$this->fixProblems($numFields, $numRows);
 			}else{
@@ -87,14 +88,40 @@
 			}
 		}
 		
+		function dateFormater($d){
+			if(!is_numeric($d) || (strlen($d) < 8))
+				return "0000-00-00";
+			
+			$date = NULL;
+			/*
+			echo($d."<br>");
+			$date = substr($d,-4)."-";
+			echo($date."<br>");
+			$date .= substr($d,strpos($d,"/")+1, (strrpos($d,"/")-(strpos($d,"/")+1)))."-";
+			echo($date."<br>");
+			$date .= substr($d,0,strpos($d,"/"));
+			die($date);
+			*/
+			$date = substr($d, 0, 4)."-";
+			$date .= substr($d, 4, 2)."-";
+			$date .= substr($d,6,2);
+			
+			return $date;
+		}
+		
+		function valueFormater($v){
+			if($v == "" || $v == NULL)
+				$v = 0;
+			return $v;
+		}
+		
 		function passwordMaker(){
 			$password = "xxxxx";
-			$password[0] = rand(65,90); //Upcase word
-			$password[1] = rand(97,122); //Lowcase word
-			$password[2] = rand(97,122); //Lowcase word
-			$password[3] = rand(48,57); //number
-			$password[4] = rand(48,57); //number
-			
+			$password[0] = chr(rand(65,90)); //Upcase word
+			$password[1] = chr(rand(97,122)); //Lowcase word
+			$password[2] = chr(rand(97,122)); //Lowcase word
+			$password[3] = chr(rand(48,57)); //number
+			$password[4] = chr(rand(48,57)); //number
 			return base64_encode($password); //return an encoded password in base64
 			//echo base64_decode($texto1);
 		}
@@ -134,6 +161,10 @@
 									
 						case "eventos" : $aux = "SELECT * FROM Eventos WHERE codigo='".$this->DB[$x][0]."'";
 									$columnNames = array("Código", "Descrição", "IRRF", "IPMT", "FAL", "FIXO", "TEMP", "Valor", "Gratifição", "FGTS", "Desconto", "Nível", "INSS");
+									break;
+									
+						case "cadastro" : $aux = "SELECT * FROM Cadastros c INNER JOIN inf_bancaria ib ON c.matricula = ib.matricula INNER JOIN pessoal p ON c.matricula = p.matricula INNER JOIN rg ON c.matricula = rg.matricula ORDER BY c.matricula";
+									$columnNames = array();
 									break;
 					}
 					
