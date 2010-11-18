@@ -42,16 +42,16 @@
 				if($DB[$x][0] == NULL)
 					continue;
 				switch($tableId){
-					case "dcr" : 	$aux = "UPDATE Cargos SET descricao = '".$DB[$x][1]."', tipo='".$DB[$x][2]."', vencimento=".$DB[$x][3]." WHERE cargo='".$DB[$x][0]."'";
+					case "dcr" : 	$aux = "UPDATE Cargos SET descricao_cargo = '".$DB[$x][1]."', tipo='".$DB[$x][2]."', vencimento=".$DB[$x][3]." WHERE cargo='".$DB[$x][0]."'";
 									break;
 									
-					case "dlt" : $aux = "UPDATE Lotacoes SET descricao = '".$this->DB[$x][1]."', secretaria = '".$this->DB[$x][2]."' WHERE lotacao='".$this->DB[$x][0]."'";
+					case "dlt" : $aux = "UPDATE Lotacoes SET descricao_lotacao = '".$this->DB[$x][1]."', secretaria = '".$this->DB[$x][2]."' WHERE lotacao='".$this->DB[$x][0]."'";
 								break;
 								
-					case "especial" : $aux = "UPDATE Especialidades SET descricao = '".$this->DB[$x][1]."', cargo = '".$this->DB[$x][2]."' WHERE codigo='".$this->DB[$x][0]."'";
+					case "especial" : $aux = "UPDATE Especialidades SET descricao_especialidade = '".$this->DB[$x][1]."', cargo = '".$this->DB[$x][2]."' WHERE codigo_esp='".$this->DB[$x][0]."'";
 								break;
 								
-					case "eventos" : $aux = "UPDATE Eventos SET descricao='".$this->DB[$x][1]."', IRRF='".$this->DB[$x][2]."', IPMT='".$this->DB[$x][3]."', FAL='".$this->DB[$x][4]."', FIXO='".$this->DB[$x][5]."', TEMP='".$this->DB[$x][6]."', valor=".$this->DB[$x][7].", GRAT='".$this->DB[$x][8]."', FGTS='".$this->DB[$x][9]."', desconto=".$this->DB[$x][10].", nivel='".$this->DB[$x][11]."', INSS='".$this->DB[$x][12]."' WHERE codigo='".$this->DB[$x][0]."'";
+					case "eventos" : $aux = "UPDATE Eventos SET descricao_evento='".$this->DB[$x][1]."', IRRF='".$this->DB[$x][2]."', IPMT='".$this->DB[$x][3]."', FAL='".$this->DB[$x][4]."', FIXO='".$this->DB[$x][5]."', TEMP='".$this->DB[$x][6]."', valor_eve=".$this->DB[$x][7].", GRAT='".$this->DB[$x][8]."', FGTS='".$this->DB[$x][9]."', desconto=".$this->DB[$x][10].", nivel_eve='".$this->DB[$x][11]."', INSS='".$this->DB[$x][12]."' WHERE codigo_eve='".$this->DB[$x][0]."'";
 								break;
 				}
 				if($MySQLconnect->execute($aux))
