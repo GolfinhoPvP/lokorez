@@ -18,6 +18,7 @@
 				header("Location: ../importDocuments.php?dir=false");
 			}
 			$_SESSION["path"] = $this->dirName;
+			$_SESSION["day"] = $this->dateUser;
 			die();
 		}
 		
