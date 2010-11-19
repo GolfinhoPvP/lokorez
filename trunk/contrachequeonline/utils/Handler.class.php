@@ -144,6 +144,16 @@
 			$nR = 0;
 			$MySQLconnect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
 			
+			if($this->tableId == "cadstro"){
+				for($x=0; $x<$numRows; $x++){
+					$aux = array("UPDATE Cadastros SET cargo='".$this->DB[$x][8]."', lotacao='".$this->DB[$x][1]."', data_admissao='".$this->dateFormater($this->DB[$x][4])."', vinculo='".$this->DB[$x][5]."', previdencia'".$this->DB[$x][7]."', nivel='".$this->DB[$x][9]."', dep_imp_re='".$this->DB[$x][11]."', hora_sem='".$this->DB[$x][13]."', instrucao='".$this->DB[$x][14]."', data_afastamento='".$this->dateFormater($this->DB[$x][18])."', sindical='".$this->DB[$x][19]."', dp_sal_fam='".$this->DB[$x][20]."', hora_ponto='".$this->DB[$x][21]."', vale_transporte='".$this->DB[$x][22]."', data_promocao='".$this->dateFormater($this->DB[$x][24])."', tipo='".$this->DB[$x][27]."', situacao='".$this->DB[$x][28]."', descontar='".$this->DB[$x][29]."', receber='".$this->DB[$x][30]."', funcao='".$this->DB[$x][31]."', maior_360='".$this->DB[$x][33]."', prof_40h='".$this->DB[$x][34]."', vlt_ver='".$this->DB[$x][35]."', val_niv=".$this->valueFormater($this->DB[$x][36]).", data_FGTS='".$this->dateFormater($this->DB[$x][37])."', permanente='".$this->DB[$x][38]."', remuneracao_bruto=".$this->valueFormater($this->DB[$x][39]).", vencimento=".$this->valueFormater($this->DB[$x][40]).", flag='".$this->DB[$x][41]."', entrada='".$this->DB[$x][42]."', liquido=".$this->valueFormater($this->DB[$x][45]).", sobregrat='".$this->DB[$x][46]."', assistencia='".$this->DB[$x][47]."', medico='".$this->DB[$x][48]."', codigo_fol=".$code." WHERE matricula='".$this->DB[$x][0]."'", "UPDATE Pessoal SET nome='".$this->DB[$x][3]."', sexo='".$this->DB[$x][12]."', CPF='".$this->DB[$x][15]."', PIS_PASEP='".$this->DB[$x][16]."',  data_nascimento='".$this->dateFormater($this->DB[$x][17])."', ultimo_nome='".$this->DB[$x][32]."', codigo_fol=".$code." WHERE matricula='".$this->DB[$x][0]."'", "UPDATE RG SET identidade='".$this->DB[$x][25]."', orgao_expedidor='".$this->DB[$x][26]."', codigo_fol=".$code." WHERE matricula='".$this->DB[$x][0]."'", "UPDATE Inf_Bancaria SET conta='".$this->DB[$x][6]."', banco='".$this->DB[$x][43]."',  numero='".$this->DB[$x][44]."', codigo_fol=".$code." WHERE matricula='".$this->DB[$x][0]."'");
+					foreach($aux as $temp){
+						$MySQLconnect->execute($temp);
+					}
+				}
+			}else if($this->tableId == "calculo"){
+			}
+			
 			if(!$MySQLconnect->start())
 				echo("Impossible to star connection in Handler.");
 				
@@ -176,43 +186,23 @@
 									$columnNames = array("Código", "Descrição", "IRRF", "IPMT", "FAL", "FIXO", "TEMP", "Valor", "Gratifição", "FGTS", "Desconto", "Nível", "INSS");
 									break;
 									
-						case "cadastro" : $aux = "SELECT * FROM Pessoal p INNER JOIN Cadastros c ON p.matricula = c.matricula INNER JOIN inf_bancaria ib ON c.matricula = ib.matricula INNER JOIN rg ON c.matricula = rg.matricula WHERE c.matricula='".$this->DB[$x][0]."'";
-									$columnNames = array("matricula", "nome", "sexo", "CPF", "PIS_PASEP", "data_nascimento","ultimo_nome","Codigo", "Matricula", "Cargo", "Lotacao", "Data admissão", "Vínculo", "Previdência", "Nível", "dep_imp_re", "hora_sem", "instrução", "data_afastamento", "sindical", "dp_sal_fam", "hora_ponto", "vale_transporte", "data_promocao", "tipo", "situação", "descontar", "receber", "funcao", "maior_360", "prof_40h", "vlt_ver", "val_niv", "data_FGTS", "permanente", "remuneracao_bruto", "vencimento", "flag", "entrada", "liquido", "sobregrat", "assistencia","medico", "senha", "Código", "Matricula", "conta", "banco", "numero", "código", "matricula", "identidade", "orgão_expedidor", "código");
+						/*case "cadastro" : $aux = "SELECT * FROM Pessoal p INNER JOIN Cadastros c ON p.matricula = c.matricula INNER JOIN inf_bancaria ib ON c.matricula = ib.matricula INNER JOIN rg ON c.matricula = rg.matricula WHERE c.matricula='".$this->DB[$x][0]."'";
+									$columnNames = array("matricula", "nome", "sexo", "CPF", "PIS_PASEP", "data_nascimento","ultimo_nome","Codigo", "Matricula", "Cargo", "Lotacao", "Data admissão", "Vínculo", "Previdência", "Nível", "dep_imp_re", "hora_sem", "instrução", "data_afastamento", "sindical", "dp_sal_fam", "hora_ponto", "vale_transporte", "data_promocao", "tipo", "situação", "descontar", "receber", "funcao", "maior_360", "prof_40h", "vlt_ver", "val_niv", "data_FGTS", "permanente", "remuneracao_bruto", "vencimento", "flag", "entrada", "liquido", "sobregrat", "assistencia","medico", "senha", "Código", "Matricula", "conta", "banco", "numero", "código", "matricula", "identidade", "orgão_expedidor", "código");*/
 									/*matricula, cargo, lotacao, data_admissao, vinculo, previdencia, nivel, dep_imp_re, hora_sem, instrucao, data_afastamento, sindical, dp_sal_fam, hora_ponto, vale_transporte, data_promocao, tipo, situacao, descontar, receber, funcao, maior_360, prof_40h, vlt_ver, val_niv, data_FGTS, permanente, remuneracao_bruto, vencimento, flag, entrada, liquido, sobregrat, assistencia, medico, senha, codigo, matricula, nome, sexo, CPF, PIS_PASEP, data_nascimento, ultimo_nome, codigo, matricula, identidade, orgao_expedidor, codigo, matricula, conta, banco, numero, codigo*/
-									$ar = array(0, 3, 12, 15, 16, 17, 32, "x", 0, 8, 1, 4, 5, 7, 9, 11, 13, 14, 18, 19, 20, 21, 22, 24, 27, 28, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 45, 46, 47, 48, "x", "x", 0, 6, 43, 44, "x", 0, 25, 26, "x");
-									break;
+									/*$ar = array(0, 3, 12, 15, 16, 17, 32, "x", 0, 8, 1, 4, 5, 7, 9, 11, 13, 14, 18, 19, 20, 21, 22, 24, 27, 28, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 45, 46, 47, 48, "x", "x", 0, 6, 43, 44, "x", 0, 25, 26, "x");
+									break;*/
+						default : $aux = "autoUp";
 					}
 					
 					$row = mysql_fetch_array($MySQLconnect->execute($aux));
-					if($this->tableId != "cadastro"){
-						for($y=0; $y<$numFields; $y++){
-							echo('<td>'.$columnNames[$y].': '.$row[$y].'</td>');
-						}
-						echo('</tr><tr><td>Novo:</td>');
-						for($y=0; $y<$numFields; $y++){
-							echo('<td>'.$columnNames[$y].': <input name="tf'.$x.$y.'" disabled="disabled" type="text" id="tf'.$x.$y.'" value="'.$this->DB[$x][$y].'"/></td>');
-						}
-						echo('</tr></table></td><td width="96">Marcar: <input type="checkbox" name="checkbox'.$x.'" value="checkbox'.$x.'" onchange="javascript: return setField('."'".'tf'.$x."'".', '.$numFields.');"/></td></tr></table>');
-					}else{
-						$z = 0;
-						foreach($columnNames as $y){
-							echo('<td>'.$y.': '.$row[$z].'</td>');
-							$z++;
-						}
-						echo('</tr><tr><td>Novo:</td>');
-						$z = 0;
-						foreach($ar as $y){
-							if(!is_int($y)){
-								echo('<td>'.$columnNames[$z].': <input name="tf'.$x.$z.'" disabled="disabled" type="text" id="tf'.$x.$z.'" value="---"/></td>');
-								$z++;
-								continue;
-							}
-							echo('<td>'.$columnNames[$z].': <input name="tf'.$x.$z.'" disabled="disabled" type="text" id="tf'.$x.$z.'" value="'.$this->DB[$x][$y].'"/></td>');
-							$z++;
-						}
-						echo('</tr></table></td><td width="96">Marcar: <input type="checkbox" name="checkbox'.$x.'" value="checkbox'.$x.'" onchange="javascript: return setField('."'".'tf'.$x."'".', '.$z.');"/></td></tr></table>');
+					for($y=0; $y<$numFields; $y++){
+						echo('<td>'.$columnNames[$y].': '.$row[$y].'</td>');
 					}
-					$nR++;
+					echo('</tr><tr><td>Novo:</td>');
+					for($y=0; $y<$numFields; $y++){
+						echo('<td>'.$columnNames[$y].': <input name="tf'.$x.$y.'" disabled="disabled" type="text" id="tf'.$x.$y.'" value="'.$this->DB[$x][$y].'"/></td>');
+					}
+					echo('</tr></table></td><td width="96">Marcar: <input type="checkbox" name="checkbox'.$x.'" value="checkbox'.$x.'" onchange="javascript: return setField('."'".'tf'.$x."'".', '.$numFields.');"/></td></tr></table>');
 				}
 			}
 			echo('<input name="tableId" type="text" id="tableId" style="visibility:hidden" value="'.$this->tableId.'"/><input name="numFields" type="text" id="numFields" style="visibility:hidden" value="'.$numFields.'"/><input name="numRows" type="text" id="numRows" style="visibility:hidden" value="'.$nR.'"/><input name="update" type="submit" id="update" value="Atualizar" /></form>');
