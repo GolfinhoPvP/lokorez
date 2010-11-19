@@ -27,8 +27,15 @@
 		function printCC($connect){
 			$c = $this->dateCounterDiff($this->date1, $this->date2);
 			$date = explode("-",$this->date1);
+			
+			echo('<form id="desconectForm" name="desconectForm" method="post" action="../actions/Logout.class.php">
+	<label>
+	<input name="desconect" type="submit" id="desconect" value="Desconectar" />
+	</label>
+</form>');
+			
 			for($x=0; $x < $c; $x++){
-				if(!($result = $connect->execute("SELECT * FROM Calculos cl INNER JOIN Cadastros cd ON cl.matricula = cd.matricula INNER JOIN Lotacoes lo ON cd.lotacao = lo.lotacao INNER JOIN Cargos cg ON cd.cargo = cg.cargo INNER JOIN Pessoal ps	ON cd.matricula = ps.matricula INNER JOIN Eventos ev ON cl.eve_codigo = ev.codigo_eve WHERE cl.matricula = '".$_SESSION["user"]."' AND cl.data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31'")))
+				if(!($result = $connect->execute("SELECT * FROM Calculos cl INNER JOIN Cadastros cd ON cl.matricula = cd.matricula INNER JOIN Lotacoes lo ON cd.lotacao = lo.lotacao INNER JOIN Cargos cg ON cd.cargo = cg.cargo INNER JOIN Pessoal ps	ON cd.matricula = ps.matricula INNER JOIN Eventos ev ON cl.eve_codigo = ev.codigo_eve WHERE cl.matricula = '".$_SESSION["user"]."' AND cl.data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31' ORDER BY cl.eve_codigo")))
 					echo("Impossible to execute MySQL query.");
 				
 				$row = mysql_fetch_array($result);
@@ -65,14 +72,157 @@
 				
 				$infos["liquido"] = $infos["proventos"] - $infos["descontos"];
 				
-				foreach($infos as $temp){
-					echo("#".$temp."#<br>");
-				}
+				echo('<style type="text/css">
+<!--
+.style1 {font-family: "Times New Roman", Times, serif}
+.style3 {font-size: 12px; }
+.style4 {font-size: 12}
+-->
+</style>');
+				// 595, 842
+				echo('<table width="595" border="1" bordercolor="#000000">
+  <tr>
+    <td width="638" class="style1"><div align="center">Prefeitura Municipal de Teresina<br />
+    Secretaria Municipal de Administra&ccedil;&atilde;o</div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><br />
+      Divis&atilde;o de folha de Pagameto - Nucleo de Informatica<br />
+    Espelho do Contra-cheque referente ao mes de '.$this->appDateMaker('00-'.$date[1]."-".$date[2]).'</div></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0">
+        <tr>
+          <td width="43"><div align="right" class="style3">Nome </div></td>
+          <td width="10"><div align="center" class="style3">:</div></td>
+          <td colspan="3"><span class="style3">'.$infos['nome'].'</span></td>
+          <td width="62"><div align="right" class="style3">Matr&iacute;cula:</div></td>
+          <td width="125"><span class="style3">'.$infos['matricula'].'</span></td>
+        </tr>
+        <tr>
+          <td><div align="right" class="style3">'.$infos['lotacao'].'</div></td>
+          <td><div align="center" class="style3">-</div></td>
+          <td width="248"><span class="style3">'.$infos['secretaria'].'</span></td>
+          <td width="7"><span class="style3">-</span></td>
+          <td colspan="3"><span class="style3">'.$infos['descricao_secretaria'].'</span></td>
+        </tr>
+        <tr>
+          <td><div align="right" class="style3">Cargo </div></td>
+          <td><div align="center" class="style3">:</div></td>
+          <td colspan="3"><span class="style3">'.$infos['descricao_cargo'].'</span></td>
+          <td><div align="right" class="style3">N&iacute;vel:</div></td>
+          <td><span class="style3">'.$infos['nivel'].'</span></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td>');
+	$h = 0;
+	while($h<$z){
+		echo('<table width="100%" border="0">
+      <tr class="style4">
+        <td width="12%%"><div align="right">'.$infos[$h++].'</div></td>
+        <td width="2%"> <div align="center">-</div></td>
+        <td width="54%">'.$infos[$h++].'</td>
+        <td width="32%">R$ '.$infos[$h++].'</td>
+      </tr>
+    </table>');
+	}	
+	echo('</td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0">
+      <tr>
+        <td width="63%" class="style4"><div align="right">Proventos:</div></td>
+        <td width="37%" class="style4">R$ '.$infos['proventos'].'</td>
+      </tr>
+      <tr>
+        <td class="style4"><div align="right">Descontos:</div></td>
+        <td class="style4">R$ '.$infos['descontos'].'</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0">
+      <tr>
+        <td width="63%" class="style4"><div align="right">L&iacute;quido:</div></td>
+        <td width="37%" class="style4">R$ '.$infos['liquido'].'</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><div align="right"><br />
+      <br />
+      <br />
+    Gerado via WEB. </div></td>
+  </tr>
+</table><br><br>');
 				
-				if(strcmp($date[1],"12")){
+/*				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Prefeitura Municipal de Teresina<br>");
+				echo("| Secretaria Municipal de Administração<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Divisão de folha de Pagameto - Nucleo de Informatica<br>");
+				echo("| Espelho do Contra-cheque referente ao mes de ".$this->appDateMaker($this->date1)."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Nome: ".$infos["nome"]."   Matricula: ".$infos["matricula"]."<br>");
+				echo("| ".$infos["lotacao"]." - ".$infos["secretaria"]." - ".$infos["descricao_secretaria"]."<br>");
+				echo("| Cargo: ".$infos["descricao_cargo"]."     Nível: ".$infos["nivel"]."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				$h = 0;
+				while($h<$z){
+					echo("| ".$infos[$h++]." - ".$infos[$h++]."     ".$infos[$h++]."<br>");
+				}
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Proventos: ".$infos["proventos"]."<br>");
+				echo("| Descontos: ".$infos["descontos"]."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Liquido: ".$infos["liquido"]."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("|<br>");
+				echo("|<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");*/
+/*				foreach($infos as $temp){
+					echo("#".$temp."#<br>");
+				}*/
+				if($date[1] == 12){
 					$date[1] = "01";
 					$date[2] += 1;
+				}else{
+					$date[1] += 1;
 				}
+			}
+		}
+		
+		function appDateMaker($d){
+			$d = explode("-",$d);
+			switch($d[1]){
+				case 1 : 	return "JAN/".$d[2];
+							break;
+				case 2 : 	return "FEV/".$d[2];
+							break;
+				case 3 : 	return "MAR/".$d[2];
+							break;
+				case 4 : 	return "ABR/".$d[2];
+							break;
+				case 5 : 	return "MAI/".$d[2];
+							break;
+				case 6 : 	return "JUN/".$d[2];
+							break;
+				case 7 : 	return "JUL/".$d[2];
+							break;
+				case 8 : 	return "AGO/".$d[2];
+							break;
+				case 9 : 	return "SET/".$d[2];
+							break;
+				case 10 : 	return "OUT/".$d[2];
+							break;
+				case 11 : 	return "NOV/".$d[2];
+							break;
+				case 12 : 	return "DEZ/".$d[2];
+							break;
+							
+				default : "ERRO";
 			}
 		}
 		
