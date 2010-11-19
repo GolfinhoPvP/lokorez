@@ -1,5 +1,12 @@
 <?php
 	session_start();
+	
+	require_once("utils/Connect.class.php");
+	include_once("beans/Variables.class.php");
+	
+	$variables = new Variables();
+	$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
+	$connect->start();
 
 	$login	= "visible";
 	$search = "hidden";
@@ -19,8 +26,26 @@
 
 <body>
 <div><?php echo($mesage); ?></div>
+<form id="desconectForm" name="desconectForm" method="post" action="actions/Logout.class.php">
+	<label>
+	<input name="desconect" type="submit" id="desconect" value="Desconectar" />
+	</label>
+</form>
 <form id="login" name="form1" method="post" action="actions/UserLogin.class.php" style="visibility:<?php echo($login); ?>">
-  <label>Matr&iacute;cula:
+  <label>
+  <select name="select">
+	<option>Escolha</option>
+	<?php
+		$result = $connect->execute("SELECT nome FROM Folhas");
+		
+		while($row = mysql_fetch_assoc($result)) {
+			echo("<option>".$row["nome"]."</option>");
+		}
+		
+		$connect->close();
+	?>
+  </select><br />
+  Matr&iacute;cula:
   <input name="tfMatricula" type="text" id="tfMatricula" size="20" maxlength="50" />
   </label>
   <br />

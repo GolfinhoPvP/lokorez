@@ -1,5 +1,11 @@
 <?php
-	require_once("utils/Connect.class.php");	
+	require_once("utils/Connect.class.php");
+	include_once("beans/Variables.class.php");
+	
+	$variables = new Variables();
+	$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
+	$connect->start();
+	
 	session_start();
 	
 	if((isset($_SESSION["usuario"]) == NULL) && (isset($_SESSION["senha"]) == NULL))
@@ -182,14 +188,11 @@
               <select name="select">
                 <option>Escolha</option>
 				<?php
-					$connect = new Connect("localhost", "viewer", "123", "contrachequeonline");
-					$connect->start();
 					$result = $connect->execute("SELECT nome FROM Folhas");
 					
 					while($row = mysql_fetch_assoc($result)) {
 						echo("<option>".$row["nome"]."</option>");
 					}
-					$connect->close();
 				?>
               </select> 
               <br />
@@ -210,14 +213,11 @@
               <select name="select">
                 <option>Escolha</option>
 				<?php
-					$connect = new Connect("localhost", "viewer", "123", "contrachequeonline");
-					$connect->start();
 					$result = $connect->execute("SELECT nome FROM Folhas");
 					
 					while($row = mysql_fetch_assoc($result)) {
 						echo("<option>".$row["nome"]."</option>");
 					}
-					$connect->close();
 				?>
               </select>
               <br />
@@ -233,3 +233,4 @@
         </table>
 	</body>
 </html>
+<?php $connect->close(); ?>
