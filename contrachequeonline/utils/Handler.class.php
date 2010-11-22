@@ -62,7 +62,14 @@
 					case "cadastro" :	$aux = array("INSERT INTO Cadastros (matricula, cargo, lotacao, data_admissao, vinculo, previdencia, nivel, dep_imp_re, hora_sem, instrucao, data_afastamento, sindical, dp_sal_fam, hora_ponto, vale_transporte, data_promocao, tipo, situacao, descontar, receber, funcao, maior_360, prof_40h, vlt_ver, val_niv, data_FGTS, permanente, remuneracao_bruto, vencimento, flag, entrada, liquido, sobregrat, assistencia, medico, senha, codigo_fol) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][8]."', '".$this->DB[$x][1]."', '".$this->dateFormater($this->DB[$x][4])."', '".$this->DB[$x][5]."', '".$this->DB[$x][7]."', '".$this->DB[$x][9]."', '".$this->DB[$x][11]."', '".$this->DB[$x][13]."', '".$this->DB[$x][14]."', '".$this->dateFormater($this->DB[$x][18])."', '".$this->DB[$x][19]."', '".$this->DB[$x][20]."', '".$this->DB[$x][21]."', '".$this->DB[$x][22]."', '".$this->dateFormater($this->DB[$x][24])."', '".$this->DB[$x][27]."', '".$this->DB[$x][28]."', '".$this->DB[$x][29]."', '".$this->DB[$x][30]."', '".$this->DB[$x][31]."', '".$this->DB[$x][33]."', '".$this->DB[$x][34]."', '".$this->DB[$x][35]."', ".$this->valueFormater($this->DB[$x][36]).", '".$this->dateFormater($this->DB[$x][37])."', '".$this->DB[$x][38]."', ".$this->valueFormater($this->DB[$x][39]).", ".$this->valueFormater($this->DB[$x][40]).", '".$this->DB[$x][41]."', '".$this->DB[$x][42]."', ".$this->valueFormater($this->DB[$x][45]).", '".$this->DB[$x][46]."', '".$this->DB[$x][47]."', '".$this->DB[$x][48]."', '".$this->passwordMaker()."', ".$code.")", "INSERT INTO Pessoal (matricula, nome, sexo, CPF, PIS_PASEP, data_nascimento, ultimo_nome, codigo_fol) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][3]."', '".$this->DB[$x][12]."', '".$this->DB[$x][15]."', '".$this->DB[$x][16]."',  '".$this->dateFormater($this->DB[$x][17])."', '".$this->DB[$x][32]."', ".$code.")", "INSERT INTO RG (matricula, identidade, orgao_expedidor, codigo_fol) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][25]."', '".$this->DB[$x][26]."', ".$code.")", "INSERT INTO Inf_Bancaria (matricula, conta, banco, numero, codigo_fol) VALUES ('".$this->DB[$x][0]."', '".$this->DB[$x][6]."', '".$this->DB[$x][43]."',  '".$this->DB[$x][44]."', ".$code.")");
 										break;
 										
-					case "calculo" : $aux = array("INSERT INTO Calculos (valor, fol_codigo, eve_codigo, matricula, data) VALUES (".$this->valueFormater($this->DB[$x][2]).", ".$code.", '".$this->DB[$x][1]."', '".$this->DB[$x][0]."', '".$this->dateFormater2($_SESSION["day"])."')");
+					case "calculo" : $date = explode("-",$_SESSION["day"]);
+									$query = "SELECT * FROM Calculos WHERE matricula='".$this->DB[$x][0]."' AND fol_codigo=".$code." AND data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31'";
+									$result = $MySQLconnect->execute($query);
+									if($MySQLconnect->counterResult($result) > 0){
+										$aux = array("UPDATE Calculos SET valor=".$this->valueFormater($this->DB[$x][2])." WHERE matricula='".$this->DB[$x][0]."' AND fol_codigo=".$code." AND eve_codigo='".$this->DB[$x][1]."' AND data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31'");
+									}else{
+										$aux = array("INSERT INTO Calculos (valor, fol_codigo, eve_codigo, matricula, data) VALUES (".$this->valueFormater($this->DB[$x][2]).", ".$code.", '".$this->DB[$x][1]."', '".$this->DB[$x][0]."', '".$this->dateFormater2($_SESSION["day"])."')");
+									}
 									break;
 
 				}
@@ -72,8 +79,8 @@
 				
 				foreach($aux as $query){
 					if(!$MySQLconnect->execute($query)){
-						echo $query."<br>";
-						die();
+						/*echo $query."<br>";
+						die();*/
 						$toFix = true;
 						$this->DB[$x][$numFields] = "true";
 					}else{
@@ -151,7 +158,6 @@
 						$MySQLconnect->execute($temp);
 					}
 				}
-			}else if($this->tableId == "calculo"){
 			}
 			
 			if(!$MySQLconnect->start())

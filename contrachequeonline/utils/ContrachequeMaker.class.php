@@ -21,18 +21,27 @@
 				
 			$this->printCC($connect);
 				
-			$connect->close();
+			//$connect->close();
 		}
 		
 		function printCC($connect){
 			$c = $this->dateCounterDiff($this->date1, $this->date2);
 			$date = explode("-",$this->date1);
 			
-			echo('<form id="desconectForm" name="desconectForm" method="post" action="../actions/Logout.class.php">
-	<label>
-	<input name="desconect" type="submit" id="desconect" value="Desconectar" />
-	</label>
-</form>');
+			echo('<style type="text/css">
+<!--
+.style1 {color: #FFFFFF}
+-->
+</style><table width="555"><tr>
+    <td>&nbsp;</td>
+    <td bgcolor="#0000FF"><a href="../index.php" class="style1">Página Inicial</a></td>
+    <td bgcolor="#0000FF" width="10%>
+	<form id="desconectForm" name="desconectForm" method="post" action="../actions/Logout.class.php">
+      <label>
+      <input name="desconect" type="submit" id="desconect" value="Desconectar" />
+      </label>
+    </form></td>
+  </tr></table><br>');
 			
 			for($x=0; $x < $c; $x++){
 				if(!($result = $connect->execute("SELECT * FROM Calculos cl INNER JOIN Cadastros cd ON cl.matricula = cd.matricula INNER JOIN Lotacoes lo ON cd.lotacao = lo.lotacao INNER JOIN Cargos cg ON cd.cargo = cg.cargo INNER JOIN Pessoal ps	ON cd.matricula = ps.matricula INNER JOIN Eventos ev ON cl.eve_codigo = ev.codigo_eve WHERE cl.matricula = '".$_SESSION["user"]."' AND cl.data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31' ORDER BY cl.eve_codigo")))

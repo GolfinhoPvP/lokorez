@@ -3,7 +3,7 @@
 	class Logout{
 		function __construct(){
 			session_destroy();
-			header("Location: ../user.php");
+			header("Location: ../index.php");
 		}
 	}
 	
