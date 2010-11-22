@@ -18,6 +18,7 @@
 	$DLTVisibility	= "invisible";
 	$especialVisibility	= "invisible";
 	$eventosVisibility	= "invisible";
+	$cadcalcVisibility = "invisible";
 	
 	if(isset($_GET["dir"])){
 		switch($_GET["dir"]){
@@ -30,6 +31,7 @@
 		$dateVisibility = "invisible";
 		$msgVisibility	= "visible";
 		$DCRVisibility 	= "visible";
+		$cadcalcVisibility = "visible";
 	}
 	
 	if(isset($_GET["upl"])){
@@ -180,8 +182,27 @@
             </form></td>
           </tr>
         </table>
-		<p><a href="addFolha.php">Adicionar epécie de folha. </a></p>
-		<table width="100%" class="<?php echo($cadcalcVisibility); ?>">
+		<a href="#" onclick="javascript: show('formFolha');"><br />
+		Adicionar epécie de folha. </a>
+		<table id="formFolha" width="100%" border="0" class="invisible">
+          <tr>
+            <td><form id="folha" name="folha" method="post" action="utils/FolhaSaver.class.php">
+              <label>
+              Nome:
+              <input name="tfNome" type="text" id="tfNome" size="30" maxlength="30" />
+              , descri&ccedil;&atilde;o: 
+              </label>
+              <label>
+              <input name="tdDescricao" type="text" id="tdDescricao" size="50" maxlength="50" />
+              </label>
+              <label>
+              <input type="submit" name="Submit" value="Salvar Folha" />
+              </label>
+            </form><br /></td>
+          </tr>
+        </table>
+	</p>
+		<div><table width="100%" class="<?php echo($cadcalcVisibility); ?>">
           <tr>
             <td><form id="cadcalc" name="cadcalc" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
               <label> Esp&eacute;cie da Tabela:
@@ -230,7 +251,7 @@
                 </label>
             </form></td>
           </tr>
-        </table>
+        </table></div>
 	</body>
 </html>
-<?php $connect->close(); ?>
+<?php //$connect->close(); ?>

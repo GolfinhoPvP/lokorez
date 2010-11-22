@@ -27,3 +27,6 @@ SELECT * FROM Calculos cl
 	INNER JOIN Eventos ev
 	ON cl.eve_codigo = ev.codigo_eve
 	where cl.matricula = "045352" and cl.data BETWEEN "2010-09-31" and "2010-11-01"
+
+
+DELETE FROM calculos WHERE data = '2010-10-22'

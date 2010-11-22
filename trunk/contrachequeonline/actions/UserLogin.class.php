@@ -18,7 +18,7 @@
 			//receinving and striping the variables
 			$this->userMatricula = $connect->antiInjection(isset($_POST["tfMatricula"]) ? $_POST["tfMatricula"] : NULL);
 			$this->password = $connect->antiInjection(isset($_POST["tfPassword"]) ? $_POST["tfPassword"] : NULL);
-			$this->select = $connect->antiInjection(isset($_POST["select"]) ? $_POST["select"] : NULL);
+			$this->select = $connect->antiInjection(isset($_POST["slSelect"]) ? $_POST["slSelect"] : NULL);
 			if(!$connect->start())
 				echo("Impossible to star connection in Sigin.");
 			
@@ -32,13 +32,13 @@
 				$_SESSION["user"] 		= $this->userMatricula;
 				$_SESSION["userPass"] 	= $this->password;
 				$connect->close();
-				header("Location: ../user.php?ok=true");
+				header("Location: ../index.php?ok=true");
 				die();
 			}
 			
 			$connect->close();
 			
-			header("Location: ../user.php?ok=false");
+			header("Location: ../index.php?ok=false");
 			die();
 		}
 	}
