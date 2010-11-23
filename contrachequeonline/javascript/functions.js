@@ -104,3 +104,18 @@ function adminSiginValider(v){
 	}
 	return true;
 }
+
+function folhaValider(v){
+	camp = document.getElementById(v);
+	
+	if(camp.tfNome.value.length == 0){
+		alert("Insira um nome para a folha!");
+		camp.tfNome.focus();
+		return false;
+	}
+	if(camp.tdDescricao.value.length == 0){
+		alert("Insira uma descrição para a folha!");
+		camp.tdDescricao.focus();
+		return false;
+	}
+}

@@ -280,7 +280,8 @@
             <td colspan="2" bgcolor="#0099FF" class="words2"><a href="#" onclick="javascript: show('formFolha');">Adicionar epécie de folha. </a>
               <table id="formFolha" width="81%" border="0" class="invisible">
                 <tr>
-                  <td height="26"><form id="folha" name="folha" method="post" action="utils/FolhaSaver.class.php">
+                  <td height="26">
+				  <form id="folha" name="folha" method="post" action="utils/FolhaSaver.class.php" onsubmit="javascript: return folhaValider('folha')">
                       <label> Nome:
                         <input name="tfNome" type="text" id="tfNome" size="30" maxlength="30" />
                         , descri&ccedil;&atilde;o: </label>
