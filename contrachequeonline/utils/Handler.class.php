@@ -63,7 +63,9 @@
 										break;
 										
 					case "calculo" : $date = explode("-",$_SESSION["day"]);
+					
 									$query = "SELECT * FROM Calculos WHERE matricula='".$this->DB[$x][0]."' AND fol_codigo=".$code." AND data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31'";
+									
 									$result = $MySQLconnect->execute($query);
 									if($MySQLconnect->counterResult($result) > 0){
 										$aux = array("UPDATE Calculos SET valor=".$this->valueFormater($this->DB[$x][2])." WHERE matricula='".$this->DB[$x][0]."' AND fol_codigo=".$code." AND eve_codigo='".$this->DB[$x][1]."' AND data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31'");
