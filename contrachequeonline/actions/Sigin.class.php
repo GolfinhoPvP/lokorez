@@ -6,6 +6,7 @@
 		//Variables
 		private $userName;
 		private $password;
+		private $password2;
 		
 		function __construct(){
 		 	$variables = new Variables();
@@ -14,6 +15,12 @@
 			//receinving and striping the variables
 			$this->userName = $connect->antiInjection(isset($_POST["tfUserName"]) ? $_POST["tfUserName"] : NULL);
 			$this->password = $connect->antiInjection(isset($_POST["tfPassword"]) ? $_POST["tfPassword"] : NULL);
+			$this->password2 = $connect->antiInjection(isset($_POST["tfPassword2"]) ? $_POST["tfPassword2"] : NULL);
+			
+			if($this->password != $this->password2){
+				header("Location: ../importDocuments.php?sigin=false");
+				die();
+			}
 			
 			if(!$connect->start())
 				echo("Impossible to star connection in Sigin.");
@@ -25,9 +32,9 @@
 				echo("Impossible to execute MySQL query.");
 			
 			if($connect->counterAffected() > 0){
-				header("Location: ../admin.php?sigin=true");
+				header("Location: ../importDocuments.php?sigin=true");
 			}else{
-				header("Location: ../admin.php?sigin=false");
+				header("Location: ../importDocuments.php?sigin=false");
 			}
 			
 			$connect->close();
