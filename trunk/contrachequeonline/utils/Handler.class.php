@@ -40,7 +40,7 @@
 				echo("Impossible to star connection in Handler.");
 			
 			if(strlen($this->folhaType) > 0){
-				$row = mysql_fetch_assoc($MySQLconnect->execute("SELECT codigo_fol FROM Folhas where nome='$this->folhaType'"));
+				$row = mysql_fetch_assoc($MySQLconnect->execute("SELECT codigo_fol FROM Folhas where descricao='$this->folhaType'"));
 				$code = $row["codigo_fol"];
 			}
 			

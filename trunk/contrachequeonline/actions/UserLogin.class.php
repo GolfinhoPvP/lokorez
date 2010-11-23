@@ -25,7 +25,7 @@
 			//encoding to md5 hash
 			$this->password = base64_encode($this->password);
 			
-			if(!($result = $connect->execute("SELECT * FROM Cadastros c INNER JOIN Folhas f ON c.codigo_fol = f.codigo_fol WHERE c.matricula = '$this->userMatricula' AND c.senha = '$this->password' AND f.nome = '$this->select'")))
+			if(!($result = $connect->execute("SELECT * FROM Cadastros c INNER JOIN Folhas f ON c.codigo_fol = f.codigo_fol WHERE c.matricula = '$this->userMatricula' AND c.senha = '$this->password' AND f.descricao = '$this->select'")))
 				echo("Impossible to execute MySQL query.");
 			
 			if($connect->counterResult($result) > 0){
