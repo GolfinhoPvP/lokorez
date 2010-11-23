@@ -36,13 +36,13 @@
 <table width="100%" border="0">
   <tr>
     <td width="2%">&nbsp;</td>
-    <td width="88%"><div><?php echo($mesage); ?>Vkn84</div></td>
+    <td width="88%"><div></div></td>
     <td width="9%">&nbsp;</td>
     <td width="1%">&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td bgcolor="#0000FF"><a href="index.php" class="words1">Página Inicial </a></td>
+    <td bgcolor="#0000FF"><p class="alert"><?php echo($mesage); ?></p>Vkn84</td>
     <td bgcolor="#0000FF"><form id="desconectForm" name="desconectForm" method="post" action="actions/Logout.class.php">
       <label>
       <input name="desconect" type="submit" id="desconect" value="Desconectar" />
@@ -55,7 +55,7 @@
     <td>&nbsp;</td>
     <td colspan="2" bgcolor="#0099FF" style="visibility:<?php echo($login); ?>">
 	<form id="login" name="login" method="post" onsubmit="javascript: return userLoginValider('login');" action="actions/UserLogin.class.php">
-      <br />
+	<br />
       <label></label>
       <table width="100%" border="0">
         <tr>
