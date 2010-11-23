@@ -307,10 +307,10 @@
                         <select name="select">
                         <option>Escolha</option>
                         <?php
-					$result = $connect->execute("SELECT nome FROM Folhas");
+					$result = $connect->execute("SELECT descricao FROM Folhas");
 					
 					while($row = mysql_fetch_assoc($result)) {
-						echo("<option>".$row["nome"]."</option>");
+						echo("<option>".$row["descricao"]."</option>");
 					}
 				?>
                       </select>
@@ -332,10 +332,10 @@
                         <select name="select">
                         <option>Escolha</option>
                         <?php
-					$result = $connect->execute("SELECT nome FROM Folhas");
+					$result = $connect->execute("SELECT descricao FROM Folhas");
 					
 					while($row = mysql_fetch_assoc($result)) {
-						echo("<option>".$row["nome"]."</option>");
+						echo("<option>".$row["descricao"]."</option>");
 					}
 				?>
                       </select>
