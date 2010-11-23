@@ -83,7 +83,7 @@
 				
 				echo('<style type="text/css">
 <!--
-.style1 {font-family: "Times New Roman", Times, serif}
+.style2 {font-family: "Times New Roman", Times, serif}
 .style3 {font-size: 12px; }
 .style4 {font-size: 12}
 -->
@@ -91,7 +91,7 @@
 				// 595, 842
 				echo('<table width="595" border="1" bordercolor="#000000">
   <tr>
-    <td width="638" class="style1"><div align="center">Prefeitura Municipal de Teresina<br />
+    <td width="638" class="style2"><div align="center">Prefeitura Municipal de Teresina<br />
     Secretaria Municipal de Administra&ccedil;&atilde;o</div></td>
   </tr>
   <tr>
