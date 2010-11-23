@@ -208,10 +208,11 @@
           </tr>
           <tr>
             <td class="words2">&nbsp;</td>
-            <td colspan="2" bgcolor="#0099FF" class="words2">Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar DCR&quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br />
-              <table width="71%" class="<?php echo($DCRVisibility); ?>">
+            <td colspan="2" bgcolor="#0099FF" class="words2">
+              <table width="88%" class="<?php echo($DCRVisibility); ?>">
               <tr>
                 <td>
+				Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar DCR&quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br />
 				<form id="dcr" name="dcr" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                   <label> Enviar tabela DCR:
                     <input name="archive" type="file" id="archive" size="50" />
@@ -226,10 +227,12 @@
           </tr>
           <tr>
             <td class="words2">&nbsp;</td>
-            <td colspan="2" bgcolor="#0099FF" class="words2">Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar DLT &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br />
-              <table width="73%" class="<?php echo($DLTVisibility); ?>">
+            <td colspan="2" bgcolor="#0099FF" class="words2">
+              <table width="88%" class="<?php echo($DLTVisibility); ?>">
               <tr>
-                <td><form id="DLT" name="DLT" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+                <td>
+				Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar DLT &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br />
+				<form id="DLT" name="DLT" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                   <label> Enviar tabela DLT:
                     <input name="archive" type="file" id="archive" size="50" />
                     <input name="table" type="text" id="table" style="visibility:hidden" value="dlt" size="5" maxlength="3"/>
@@ -243,10 +246,10 @@
           </tr>
           <tr>
             <td class="words2">&nbsp;</td>
-            <td colspan="2" bgcolor="#0099FF" class="words2">Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar Especial &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br />
-              <table width="77%" class="<?php echo($especialVisibility); ?>">
+            <td colspan="2" bgcolor="#0099FF" class="words2">
+              <table width="88%" class="<?php echo($especialVisibility); ?>">
               <tr>
-                <td><form id="especial" name="especial" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+                <td>Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar Especial &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br /><form id="especial" name="especial" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                   <label> Enviar tabela Especial:
                     <input name="archive" type="file" id="archive" size="50" />
                     <input name="table" type="text" id="table" style="visibility:hidden" value="especial" size="5" maxlength="3"/>
@@ -260,10 +263,10 @@
           </tr>
           <tr>
             <td class="words2">&nbsp;</td>
-            <td colspan="2" bgcolor="#0099FF" class="words2">Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar Eventos &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br />
-              <table width="77%" class="<?php echo($eventosVisibility); ?>">
+            <td colspan="2" bgcolor="#0099FF" class="words2">
+              <table width="88%" class="<?php echo($eventosVisibility); ?>">
               <tr>
-                <td><form id="eventos" name="eventos" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
+                <td>Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar Eventos &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. <br /><form id="eventos" name="eventos" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                   <label> Enviar tabela Eventos:
                     <input name="archive" type="file" id="archive" size="50" />
                     <input name="table" type="text" id="table" style="visibility:hidden" value="eventos" size="5" maxlength="3"/>
@@ -278,7 +281,7 @@
           <tr>
             <td class="words2">&nbsp;</td>
             <td colspan="2" bgcolor="#0099FF" class="words2"><a href="#" onclick="javascript: show('formFolha');">Adicionar epécie de folha. </a>
-              <table id="formFolha" width="81%" border="0" class="invisible">
+              <table id="formFolha" width="88%" border="0" class="invisible">
                 <tr>
                   <td height="26">
 				  <form id="folha" name="folha" method="post" action="utils/FolhaSaver.class.php" onsubmit="javascript: return folhaValider('folha')">
@@ -300,7 +303,7 @@
           <tr>
             <td class="words2">&nbsp;</td>
             <td colspan="2" bgcolor="#0099FF" class="words2"><div>
-              <table width="78%" class="<?php echo($cadcalcVisibility); ?>">
+              <table width="88%" class="<?php echo($cadcalcVisibility); ?>">
                 <tr>
                   <td><form id="cadcalc" name="cadcalc" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                       <label> Esp&eacute;cie da Folha:
@@ -325,7 +328,7 @@
                   </form></td>
                 </tr>
               </table>
-              <table width="78%" class="<?php echo($cadcalcVisibility); ?>">
+              <table width="88%" class="<?php echo($cadcalcVisibility); ?>">
                 <tr>
                   <td><form id="calculo" name="calculo" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                       <label> Esp&eacute;cie da Folha:
