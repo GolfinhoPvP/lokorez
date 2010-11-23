@@ -35,8 +35,8 @@
 <body>
 <table width="100%" border="0">
   <tr>
-    <td width="3%">&nbsp;</td>
-    <td width="87%"><div><?php echo($mesage); ?>Vkn84</div></td>
+    <td width="2%">&nbsp;</td>
+    <td width="88%"><div><?php echo($mesage); ?>Vkn84</div></td>
     <td width="9%">&nbsp;</td>
     <td width="1%">&nbsp;</td>
   </tr>

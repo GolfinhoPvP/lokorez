@@ -11,11 +11,17 @@
 			//receinving and striping the variables
 			$this->dateUser = isset($_POST["tfDate"]) ? $_POST["tfDate"] : NULL;
 			$this->dirName = $this->dirNameMake();
+			
+			$temp = explode("-",$this->dateUser);
+			if(!checkdate($temp[1],$temp[0],$temp[2])){
+				header("Location: ../importDocuments.php?dir=false");
+				die();
+			}
 			if($this->dirVerifier($this->dirName)){
-				header("Location: ../importDocuments.php?dir=true");
+				header("Location: ../importDocuments.php?dir=yet");
 			}else{
 				mkdir($this->uploadDirectory.$this->dirName, 0777);
-				header("Location: ../importDocuments.php?dir=false");
+				header("Location: ../importDocuments.php?dir=true");
 			}
 			$_SESSION["path"] = $this->dirName;
 			$_SESSION["day"] = $this->dateUser;

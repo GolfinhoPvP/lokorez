@@ -63,11 +63,44 @@ function dateValider(v, e){
 		}
 		camp = document.getElementById(v);
 		if(camp.value.length == 2 || camp.value.length == 5){
-			camp.value = camp.value+"-";
+			camp.value = camp.value + "-";
 		}
-		if((camp.value.length == 10) && (v == 'tfDate1')){
-			camp.tfDate2.focus();
-		}
+	}
+	return true;
+}
+
+function dateVerifier(v){
+	camp = document.getElementById(v);
+	
+	if(camp.tfDate.value.length == 0){
+		alert("Insira uma data!");
+		camp.tfDate.focus();
+		return false;
+	}
+	return confirm("Tem certeza que essa data é a correta, é muito importante que essa informação esteja correta!");
+}
+
+function adminSiginValider(v){
+	camp = document.getElementById(v);
+	if(camp.tfUserName.value.length == 0){
+		alert("Insira um nome para o usuário!");
+		camp.tfUserName.focus();
+		return false;
+	}
+	if(camp.tfPassword.value.length == 0){
+		alert("Insira uma senha para o usuário!");
+		camp.tfPassword.focus();
+		return false;
+	}
+	if(camp.tfPassword2.value.length == 0){
+		alert("A confirmação de senha é necessária!");
+		camp.tfPassword2.focus();
+		return false;
+	}
+	if(camp.tfPassword.value != camp.tfPassword2.value){
+		alert("A senha e sua confirmação não conferem!");
+		camp.tfPassword.focus();
+		return false;
 	}
 	return true;
 }
