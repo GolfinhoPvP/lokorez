@@ -114,7 +114,8 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td><br />
+      &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido </td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
