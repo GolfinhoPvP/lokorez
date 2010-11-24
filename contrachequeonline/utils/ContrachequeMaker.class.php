@@ -9,12 +9,21 @@
 		private $date1;
 		private $date2;
 		function __construct(){
+		
 			$variables = new Variables();
 			$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
 			$result;
-			
+						
 			$this->date1 = $connect->antiInjection(isset($_POST["tfDate1"]) ? $_POST["tfDate1"] : NULL);
 			$this->date2 = $connect->antiInjection(isset($_POST["tfDate2"]) ? $_POST["tfDate2"] : NULL);
+			
+			$temp1 	= explode("-",$this->date1);
+			$temp2 	= explode("-",$this->date2);
+			$diff 	= $this->dateCounterDiff($this->date1,$this->date2);
+			if(!checkdate($temp1[1],$temp1[0],$temp1[2]) or !checkdate($temp2[1],$temp2[0],$temp2[2]) or ($diff > 1200)){
+				header("Location: ../index.php?date=false");
+				die();
+			}
 			
 			if(!$connect->start())
 				echo("Impossible to star connection in Sigin.");
@@ -46,6 +55,16 @@
 			for($x=0; $x < $c; $x++){
 				if(!($result = $connect->execute("SELECT * FROM Calculos cl INNER JOIN Cadastros cd ON cl.matricula = cd.matricula INNER JOIN Lotacoes lo ON cd.lotacao = lo.lotacao INNER JOIN Cargos cg ON cd.cargo = cg.cargo INNER JOIN Pessoal ps	ON cd.matricula = ps.matricula INNER JOIN Eventos ev ON cl.eve_codigo = ev.codigo_eve WHERE cl.matricula = '".$_SESSION["user"]."' AND cl.data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31' ORDER BY cl.eve_codigo")))
 					echo("Impossible to execute MySQL query.");
+					
+				if($connect->counterResult($result) < 1){
+					if($date[1] == 12){
+						$date[1] = "01";
+						$date[2] += 1;
+					}else{
+						$date[1] += 1;
+					}
+					continue;
+				}
 				
 				$row = mysql_fetch_array($result);
 				$infos["nome"] 					= $row["nome"];
@@ -239,7 +258,7 @@
 			$d1 = explode("-", $d1);
 			$d2 = explode("-", $d2);
 			
-			return (((($d2[2] - $d1[2]) * 12) + ($d2[1] - $d1[1])) + 1);
+			return (int) (((($d2[2] - $d1[2]) * 12) + ($d2[1] - $d1[1])) + 1);
 		}
 	}
 	

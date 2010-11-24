@@ -35,7 +35,7 @@
 <body>
 <table width="100%" border="0">
   <tr>
-    <td width="2%">&nbsp;</td>
+    <td width="2%">&nbsp;</td> 
     <td width="88%"><div></div></td>
     <td width="9%">&nbsp;</td>
     <td width="1%">&nbsp;</td>
@@ -97,7 +97,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2" bgcolor="#0099FF" style="visibility:<?php echo($search); ?>"><div align="center"><form action="utils/ContrachequeMaker.class.php" method="post" name="form2" class="words2" id="search" onsubmit="javascript: return userSearchValider('search');">
+    <td colspan="2" bgcolor="#0099FF" style="visibility:<?php echo($search); ?>"><div align="center"><form action="utils/ContrachequeMaker.class.php" method="post" name="search" class="words2" id="search" onsubmit="javascript: return userSearchValider('search');">
       <label> <span class="style2">Contracheques a partir de:</span>
         <input name="tfDate1" type="text" id="tfDate1" size="15" maxlength="10" onkeydown="javascript: return dateValider('tfDate1', event);"/>
       </label>
@@ -116,6 +116,43 @@
     <td>&nbsp;</td>
     <td><br />
       &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table width="200" border="0" class="movel" style="visibility:<?php echo($search); ?>">
+  <tr>
+    <td width="70">Nome:</td>
+    <td width="567">XXX</td>
+    <td width="83">&nbsp;</td>
+    <td width="83">&nbsp;</td>
+    <td width="85">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Matr&iacute;cula:</td>
+    <td>YYY</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
