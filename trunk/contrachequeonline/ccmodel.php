@@ -15,8 +15,10 @@
 <body>
 <table width="595" border="1" bordercolor="#000000">
   <tr>
-    <td width="638" class="style1"><div align="center">Prefeitura Municipal de Teresina<br />
-    Secretaria Municipal de Administra&ccedil;&atilde;o</div></td>
+    <td width="638" class="style1"><table><tr><td width="105"><div><img src="images/brasao.JPG" width="105" height="135" /></div></td><td width="301"><div align="center">Prefeitura Municipal de Teresina<br />
+    Secretaria Municipal de Administra&ccedil;&atilde;o</div></td><td width="154"><img src="images/fms_logo.JPG" width="197" height="55" /></td>
+    </tr></table>
+      </td>
   </tr>
   <tr>
     <td><div align="center"><br />

@@ -22,3 +22,11 @@
 	font-size: 12px;
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
+
+.movel {
+	position:absolute;
+	left: 46px;
+	top: 109px;
+	width: 910px;
+	height: 130px;
+}
