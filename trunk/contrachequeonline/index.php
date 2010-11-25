@@ -33,7 +33,7 @@
 </head>
 
 <body>
-<table width="100%" border="0">
+<table width="100%" border="0" class="movel">
   <tr>
     <td width="2%">&nbsp;</td> 
     <td width="88%"><div></div></td>
@@ -54,45 +54,7 @@
   
     <td>&nbsp;</td>
     <td colspan="2" bgcolor="#0099FF" style="visibility:<?php echo($login); ?>">
-	<form id="login" name="login" method="post" onsubmit="javascript: return userLoginValider('login');" action="actions/UserLogin.class.php">
-	<br />
-      <label></label>
-      <table width="100%" border="0">
-        <tr>
-          <td width="20%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
-          <td width="80%"><select name="slSelect">
-            <option>Escolha</option>
-            <?php
-			/*
-			FDSC - Funcionários disposição comissionado serviço prestado
-			FMSA - 
-			PACS - 
-			FPUM - 
-			*/
-		$result = $connect->execute("SELECT descricao FROM Folhas");
-		
-		while($row = mysql_fetch_assoc($result)) {
-			echo("<option>".$row["descricao"]."</option>");
-		}
-		
-		//$connect->close();
-	?>
-          </select></td>
-          </tr>
-        <tr>
-          <td class="words2"><div align="right">Informe a sua matr&iacute;cula:</div></td>
-          <td><input name="tfMatricula" type="text" id="tfMatricula" size="20" maxlength="50" /></td>
-          </tr>
-        <tr>
-          <td class="words2"><div align="right">Informe a sua senha:</div></td>
-          <td><input name="tfPassword" type="password" id="tfPassword" size="20" maxlength="25" /></td>
-          </tr>
-        <tr>
-          <td class="words2">&nbsp;</td>
-          <td><br />
-          <input name="connect" type="submit" id="connect" value="Conectar" /></td></tr>
-      </table>
-      </form></td>
+	</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -120,43 +82,62 @@
     <td>&nbsp;</td>
   </tr>
 </table>
-<table width="200" border="0" class="movel" style="visibility:<?php echo($search); ?>">
+<div id="infos">
+<table width="200" border="0" style="visibility:<?php echo($search); ?>">
   <tr>
-    <td width="70">Nome:</td>
-    <td width="567">XXX</td>
-    <td width="83">&nbsp;</td>
-    <td width="83">&nbsp;</td>
-    <td width="85">&nbsp;</td>
+    <td width="71" height="21"><div align="right">Nome:</div></td>
+    <td width="829"><?php echo(isset($_SESSION["nome"])? $_SESSION["nome"] : ""); ?></td>
   </tr>
   <tr>
-    <td>Matr&iacute;cula:</td>
-    <td>YYY</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td><div align="right">Matr&iacute;cula: </div> </td>
+    <td><?php echo(isset($_SESSION["user"])? $_SESSION["user"] : ""); ?></td>
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-<p>&nbsp;</p>
+</table></div>
+		<div id="divBox" align="center">
+			<div id="divFields" style="visibility:<?php echo($login); ?>">
+				<form id="login" name="login" method="post" onsubmit="javascript: return userLoginValider('login');" action="actions/UserLogin.class.php">
+				  <label></label>
+				  <table width="100%" border="0">
+					<tr>
+					  <td width="50%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
+					  <td width="50%"><select name="slSelect">
+						<option>Escolha</option>
+						<?php
+						/*
+						FDSC - Funcionários disposição comissionado serviço prestado
+						FMSA - 
+						PACS - 
+						FPUM - 
+						*/
+					$result = $connect->execute("SELECT descricao FROM Folhas");
+					
+					while($row = mysql_fetch_assoc($result)) {
+						echo("<option>".$row["descricao"]."</option>");
+					}
+					
+					//$connect->close();
+				?>
+					  </select></td>
+				    </tr>
+					<tr>
+					  <td class="words2"><div align="right">Informe a sua matr&iacute;cula:</div></td>
+					  <td><input name="tfMatricula" type="text" id="tfMatricula" size="20" maxlength="50" /></td>
+				    </tr>
+					<tr>
+					  <td class="words2"><div align="right">Informe a sua senha:</div></td>
+					  <td><input name="tfPassword" type="password" id="tfPassword" size="20" maxlength="25" /></td>
+				    </tr>
+					<tr>
+					  <td class="words2">&nbsp;</td>
+					  <td><div align="center"><br />
+				        <input name="connect" type="submit" id="connect" value="Conectar" />
+				      </div></td></tr>
+				  </table>
+			  </form>
+		  </div>
+				  <img src="images/box.png" width="600" height="238" />
+</div>
+<div id="divFMSLogo" align="center"><img src="images/fms_logo.png" alt="Funda&ccedil;&atilde;o Municipal de Saude - FMS" width="274" height="73" /></div>
+<div id="divBrasao" align="center"><img src="images/brasao_2.png" width="77" height="106" /></div>
 </body>
 </html>

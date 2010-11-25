@@ -28,7 +28,7 @@
 			if(empty($this->archive))
 				return false;
 			
-			if($this->extensionVerifier())
+			if(!$this->extensionVerifier())
 				return false;
 				
 			if($this->maxSize())
@@ -72,9 +72,9 @@
  		}
 		
 		function extensionVerifier(){
-			if (!stristr(".dbf", $this->archive["name"]))
-				return false;
-			return true;
+			if (stristr(".dbf", $this->archive["name"]))
+				return true;
+			return false;
 		}
 	}
 	
