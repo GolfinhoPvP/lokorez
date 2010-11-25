@@ -1,3 +1,9 @@
+body {
+	font:Georgia, "Times New Roman", Times, serif;
+	font-size:12px;
+	background-color: #999999;
+}
+
 .invisible {
 	visibility: hidden;
 }
@@ -15,6 +21,7 @@
 .words2 {
 	font-size: 12px;
 	font-family: Georgia, "Times New Roman", Times, serif;
+	color:#FFFFFF
 }
 
 .alert {
@@ -25,8 +32,48 @@
 
 .movel {
 	position:absolute;
-	left: 46px;
-	top: 109px;
-	width: 910px;
-	height: 130px;
+	left: 314px;
+	top: 620px;
+	width: 547px;
+	height: 33px;
+}
+
+#infos{
+	position:absolute;
+	left: 782px;
+	top: 406px;
+	width: 368px;
+	height: 33px;
+}
+
+#divBox {
+	position:absolute;
+	left: 127px;
+	top: 99px;
+	width: 368px;
+	height: 33px;
+}
+
+#divFMSLogo {
+	position:absolute;
+	left: 27px;
+	top: 10px;
+	width: 146px;
+	height: 13px;
+}
+
+#divBrasao {
+	position:absolute;
+	left: 648px;
+	top: 10px;
+	width: 4px;
+	height: 13px;
+}
+
+#divFields {
+	position:absolute;
+	width: 379px;
+	height: 82px;
+	left: 53px;
+	top: 67px;
 }

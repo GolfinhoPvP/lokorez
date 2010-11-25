@@ -27,10 +27,13 @@
 			
 			if(!($result = $connect->execute("SELECT * FROM Cadastros c INNER JOIN Folhas f ON c.codigo_fol = f.codigo_fol WHERE c.matricula = '$this->userMatricula' AND c.senha = '$this->password' AND f.descricao = '$this->select'")))
 				echo("Impossible to execute MySQL query.");
-			
+		
 			if($connect->counterResult($result) > 0){
+				$result = $connect->execute("SELECT * FROM Pessoal WHERE matricula = '$this->userMatricula'");
+				$row = mysql_fetch_assoc($result);
 				$_SESSION["user"] 		= $this->userMatricula;
 				$_SESSION["userPass"] 	= $this->password;
+				$_SESSION["nome"] 		= $row["nome"];
 				$connect->close();
 				header("Location: ../index.php?ok=true");
 				die();
