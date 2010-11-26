@@ -13,7 +13,7 @@
 	
 	$comandoSQL = "INSERT INTO cliente (nome, telefone, ip, endereco_id) VALUES ('$dados[0]','$dados[1]','$dados[2]',1)";
 	
-	$teste = $conexao->salvar( $comandoSQL);
+	$teste = $conexao->salvar($comandoSQL);
 	
 	if($teste == true){
 		/* Essa funçaõ header redireciona para qualquer lugar
