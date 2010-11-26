@@ -10,12 +10,14 @@
 
 	$login	= "visible";
 	$search = "hidden";
+	$messageVs = "hidden";
 	if(/*(isset($_GET["ok"]) == "true") && */isset($_SESSION["user"])){
 		$login	= "hidden";
 		$search = "visible";
 	}else{
 		if(isset($_GET["ok"])){
-			$mesage = "Acesso não permitido!";
+			$message = "Acesso negado, insira corretamente suas informações.";
+			$messageVs = "visible";
 		}
 	}
 ?>
@@ -23,6 +25,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="shortcut icon" href="images/fms.ico">
 <title>FMS - Contracheque On-line</title>
 <style type="text/css">
 <!--
@@ -33,70 +36,17 @@
 </head>
 
 <body>
-<table width="100%" border="0" class="movel">
+<div id="divBox" style="visibility:<?php echo($login); ?>">
+			<table width="607" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="2%">&nbsp;</td> 
-    <td width="88%"><div></div></td>
-    <td width="9%">&nbsp;</td>
-    <td width="1%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td bgcolor="#0000FF"><p class="alert"><?php echo($mesage); ?></p>Vkn84</td>
-    <td bgcolor="#0000FF"><form id="desconectForm" name="desconectForm" method="post" action="actions/Logout.class.php">
-      <label>
-      <input name="desconect" type="submit" id="desconect" value="Desconectar" />
-      </label>
-    </form></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-  
-    <td>&nbsp;</td>
-    <td colspan="2" bgcolor="#0099FF" style="visibility:<?php echo($login); ?>">
-	</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td colspan="2" bgcolor="#0099FF" style="visibility:<?php echo($search); ?>"><div align="center"><form action="utils/ContrachequeMaker.class.php" method="post" name="search" class="words2" id="search" onsubmit="javascript: return userSearchValider('search');">
-      <label> <span class="style2">Contracheques a partir de:</span>
-        <input name="tfDate1" type="text" id="tfDate1" size="15" maxlength="10" onkeydown="javascript: return dateValider('tfDate1', event);"/>
-      </label>
-      at&eacute;
-  <label>
-  <input name="tfDate2" type="text" id="tfDate2" size="15" maxlength="10" onkeydown="javascript: return dateValider('tfDate2', event);"/>
-  </label>
-      .
-  <label>
-  <input name="search" type="submit" id="search" value="Pesquisar" />
-  </label>
-        </form></div></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><br />
-      &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido </td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-<div id="infos">
-<table width="200" border="0" style="visibility:<?php echo($search); ?>">
-  <tr>
-    <td width="71" height="21"><div align="right">Nome:</div></td>
-    <td width="829"><?php echo(isset($_SESSION["nome"])? $_SESSION["nome"] : ""); ?></td>
-  </tr>
-  <tr>
-    <td><div align="right">Matr&iacute;cula: </div> </td>
-    <td><?php echo(isset($_SESSION["user"])? $_SESSION["user"] : ""); ?></td>
-  </tr>
-</table></div>
-		<div id="divBox" align="center">
-			<div id="divFields" style="visibility:<?php echo($login); ?>">
+    <td width="74"><img src="images/box_l.png" /></td>
+    <td width="340" background="images/box_c.png">
+	<div>
 				<form id="login" name="login" method="post" onsubmit="javascript: return userLoginValider('login');" action="actions/UserLogin.class.php">
-				  <label></label>
+				  
+				  <div align="center" class="wordsLabel2">FMS Contracheque On-line
+				  </div>
+				  <br />
 				  <table width="100%" border="0">
 					<tr>
 					  <td width="50%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
@@ -128,16 +78,76 @@
 					  <td><input name="tfPassword" type="password" id="tfPassword" size="20" maxlength="25" /></td>
 				    </tr>
 					<tr>
-					  <td class="words2">&nbsp;</td>
+					  <td class="words2">045352 - Vkn84</td>
 					  <td><div align="center"><br />
 				        <input name="connect" type="submit" id="connect" value="Conectar" />
 				      </div></td></tr>
 				  </table>
 			  </form>
-		  </div>
-				  <img src="images/box.png" width="600" height="238" />
+      </div></td>
+    <td width="193"><img src="images/box_r.png" /></td>
+  </tr>
+</table>
 </div>
 <div id="divFMSLogo" align="center"><img src="images/fms_logo.png" alt="Funda&ccedil;&atilde;o Municipal de Saude - FMS" width="274" height="73" /></div>
 <div id="divBrasao" align="center"><img src="images/brasao_2.png" width="77" height="106" /></div>
+<div id="divBoxMessage" style="visibility:<?php echo($messageVs); ?>">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="21"><img src="images/box2_l.png" width="21" height="50" /></td>
+      <td width="399" align="left" valign="top" background="images/box2_c.png">
+      <p class="alert"><b><?php echo($message); ?></b></p></td>
+      <td width="53"><img src="images/box2_r.png" width="36" height="50" /></td>
+    </tr>
+  </table>
+</div>
+<div id="divLabel" class="wordsLabel">
+  <p align="center">Funda&ccedil;&atilde;o Municipal de Saude - FMS</p>
+  <p align="center">Web Developer: aj.alves@live.com, Antonio Jos&eacute; de O. Alves<br />
+  &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido</p>
+</div>
+
+
+<div id="divBoxLogged" style="visibility:<?php echo($search); ?>">
+  <table width="825" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="74"><img src="images/box_l.png" /></td>
+      <td width="514" background="images/box_c.png"><div>
+          <div align="center" class="wordsLabel2">FMS Contracheque On-line </div>
+          <br />
+		  <table width="100%" border="0">
+			  <tr>
+				<td width="127"><div align="right" class="words2">Seja bem vindo(a) </div></td>
+				<td width="283"><?php echo(isset($_SESSION["nome"])? $_SESSION["nome"] : ""); ?></td>
+				<td width="90"><form id="desconectForm" name="desconectForm" method="post" action="actions/Logout.class.php">
+      <label>
+      <input name="desconect" type="submit" id="desconect" value="Desconectar" />
+      </label>
+    </form></td>
+			  </tr>
+			  <tr>
+				<td><div align="right" class="words2">Matr&iacute;cula:</div></td>
+				<td><?php echo(isset($_SESSION["user"])? $_SESSION["user"] : ""); ?></td>
+				<td>&nbsp;</td>
+			  </tr>
+			  <tr>
+				<td colspan="3"><br /><br /><form action="utils/ContrachequeMaker.class.php" method="post" name="search" class="words2" id="search" onsubmit="javascript: return userSearchValider('search');">Contracheques a partir de:
+        <input name="tfDate1" type="text" id="tfDate1" size="15" maxlength="10" onkeydown="javascript: return dateValider('tfDate1', event);"/>
+
+        at&eacute;
+
+  <input name="tfDate2" type="text" id="tfDate2" size="15" maxlength="10" onkeydown="javascript: return dateValider('tfDate2', event);"/>
+        .
+  <input name="search" type="submit" id="search" value="Pesquisar" />
+
+      </form></td>
+			  </tr>
+		</table>
+
+	  </td>
+      <td width="237"><img src="images/box_r.png" /></td>
+    </tr>
+  </table>
+</div>
 </body>
 </html>
