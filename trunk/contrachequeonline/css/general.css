@@ -21,7 +21,21 @@ body {
 .words2 {
 	font-size: 12px;
 	font-family: Georgia, "Times New Roman", Times, serif;
-	color:#FFFFFF
+	color:#FFFFFF;
+}
+
+.wordsLabel{
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+.wordsLabel2{
+	font-size: 16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-weight:bold;
 }
 
 .alert {
@@ -32,8 +46,8 @@ body {
 
 .movel {
 	position:absolute;
-	left: 314px;
-	top: 620px;
+	left: 378px;
+	top: 567px;
 	width: 547px;
 	height: 33px;
 }
@@ -48,24 +62,41 @@ body {
 
 #divBox {
 	position:absolute;
-	left: 127px;
-	top: 99px;
-	width: 368px;
+	left: 86px;
+	top: 184px;
+	width: 605px;
+	height: 33px;
+	z-index:1;
+}
+#divBoxLogged {
+	position:absolute;
+	left: 9px;
+	top: 181px;
+	width: 787px;
+	height: 33px;
+	z-index:1;
+}
+
+#divBoxMessage {
+	position:absolute;
+	left: 107px;
+	top: 155px;
+	width: 473px;
 	height: 33px;
 }
 
 #divFMSLogo {
 	position:absolute;
-	left: 27px;
-	top: 10px;
+	left: 13px;
+	top: 30px;
 	width: 146px;
 	height: 13px;
 }
 
 #divBrasao {
 	position:absolute;
-	left: 648px;
-	top: 10px;
+	left: 573px;
+	top: 4px;
 	width: 4px;
 	height: 13px;
 }
@@ -76,4 +107,12 @@ body {
 	height: 82px;
 	left: 53px;
 	top: 67px;
+}
+
+#divLabel {
+	position:absolute;
+	width: 513px;
+	height: 47px;
+	left: 65px;
+	top: 436px;
 }
