@@ -37,10 +37,10 @@
 
 <body>
 <div id="divBox" style="visibility:<?php echo($login); ?>">
-			<table width="607" border="0" cellpadding="0" cellspacing="0">
+			<table width="798" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td width="74"><img src="images/box_l.png" /></td>
-    <td width="340" background="images/box_c.png">
+    <td width="531" background="images/box_c.png">
 	<div>
 				<form id="login" name="login" method="post" onsubmit="javascript: return userLoginValider('login');" action="actions/UserLogin.class.php">
 				  
@@ -49,8 +49,8 @@
 				  <br />
 				  <table width="100%" border="0">
 					<tr>
-					  <td width="50%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
-					  <td width="50%"><select name="slSelect">
+					  <td width="35%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
+					  <td width="65%"><select name="slSelect">
 						<option>Escolha</option>
 						<?php
 						/*
@@ -71,7 +71,7 @@
 				    </tr>
 					<tr>
 					  <td class="words2"><div align="right">Informe a sua matr&iacute;cula:</div></td>
-					  <td><input name="tfMatricula" type="text" id="tfMatricula" size="20" maxlength="50" /></td>
+					  <td><input name="tfMatricula" autocomplete="off" type="text" id="tfMatricula" size="20" maxlength="50" /></td>
 				    </tr>
 					<tr>
 					  <td class="words2"><div align="right">Informe a sua senha:</div></td>
@@ -79,9 +79,9 @@
 				    </tr>
 					<tr>
 					  <td class="words2">045352 - Vkn84</td>
-					  <td><div align="center"><br />
+					  <td><div align="left"><br />
 				        <input name="connect" type="submit" id="connect" value="Conectar" />
-				      </div></td></tr>
+					    </div></td></tr>
 				  </table>
 			  </form>
       </div></td>
