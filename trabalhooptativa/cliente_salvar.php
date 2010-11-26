@@ -1,9 +1,9 @@
 <?php
 	include_once("classes/Conexao.class.php");
 	
-	$nome = isset($_POST['tf_nome']) ? $_POST['tf_nome'] : NULL;
-	$telefone = isset($_POST['tf_telefone']) ? $_POST['tf_telefone'] : NULL;
-	$ip = isset($_POST['tf_ip']) ? $_POST['tf_ip'] : NULL;
+	$nome 		= isset($_POST['tf_nome']) ? $_POST['tf_nome'] : NULL;
+	$telefone	= isset($_POST['tf_telefone']) ? $_POST['tf_telefone'] : NULL;
+	$ip 		= isset($_POST['tf_ip']) ? $_POST['tf_ip'] : NULL;
 	
 	$dados[0] = $nome;
 	$dados[1] = $telefone;
