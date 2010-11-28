@@ -35,7 +35,7 @@
 			<area id="interationOportunity" begin="3s" end="10s"/>
 		</media>
 		<media id="mdBotao" type="image/gif" src="media/images/vermelho.gif" descriptor="dsBotao"/>
-		<media id="mdLua" type="application/x-ginga-NCLua" src="teste.lua" descriptor="dsLua"/>
+		<media id="mdLua" type="application/x-ginga-NCLua" src="teste2.lua" descriptor="dsLua"/>
 		
 		<context id="extra" refer="extra#body"></context>
 		
