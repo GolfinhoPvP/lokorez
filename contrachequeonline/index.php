@@ -49,8 +49,8 @@
 				  <br />
 				  <table width="100%" border="0">
 					<tr>
-					  <td width="35%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
-					  <td width="65%"><select name="slSelect">
+					  <td width="44%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
+					  <td width="56%"><select name="slSelect">
 						<option>Escolha</option>
 						<?php
 						/*
@@ -59,7 +59,7 @@
 						PACS - 
 						FPUM - 
 						*/
-					$result = $connect->execute("SELECT descricao FROM Folhas");
+					$result = $connect->execute("SELECT descricao FROM Folhas ORDER BY codigo_fol");
 					
 					while($row = mysql_fetch_assoc($result)) {
 						echo("<option>".$row["descricao"]."</option>");

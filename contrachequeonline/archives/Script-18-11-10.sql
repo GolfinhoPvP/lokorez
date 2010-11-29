@@ -138,7 +138,7 @@ Create table Pessoal (
 Create table Folhas (
 	codigo_fol Int NOT NULL AUTO_INCREMENT,
 	nome Varchar(30) NOT NULL,
-	descricao Varchar(50),
+	descricao Varchar(100),
 	UNIQUE (nome),
  Primary Key (codigo_fol)) ENGINE = MyISAM;
 

@@ -17,7 +17,7 @@ INSERT INTO
 INSERT INTO
 	Folhas
 	VALUES
-	(1, "FDCS", "Folha de desposição, comissionados e serviços prestados"),
+	(1, "FDCS", "Folha de disposição, comissionados e serviços prestados"),
 	(2, "FMSA", "Fundação Municipal de Saúde - Ativo"),
 	(3, "FPUM", "Folha de unidades municipalizadas"),
 	(4, "PACS", "Folha de agentes comunitários de saúde.");
