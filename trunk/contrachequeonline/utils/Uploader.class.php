@@ -25,23 +25,34 @@
 	
 		function upload(){
 		
-			if(empty($this->archive))
+			if(empty($this->archive)){
+				echo("aqui3");
+				die();
 				return false;
+			}
 			
-			if(!$this->extensionVerifier())
+			if(!$this->extensionVerifier()){
+				echo("aqui4");
+				die();
 				return false;
+			}
 				
-			if($this->maxSize())
+			if($this->maxSize()){
+				echo("aqui5");
+				die();
 				return false;
+			}
 			
 			$arquivo1 = $arquivo;
 			
 			$this->formatArchive();
 			
-			if(move_uploaded_file($this->archive['tmp_name'],$this->path))
+			if(move_uploaded_file($this->archive['tmp_name'],$this->path)){
+				chmod($this->path, 0777);
 				return true;
-			else
+			}else{
 				return false;
+			}
 		}
 		
 		function sizeVerifier(){
@@ -72,8 +83,11 @@
  		}
 		
 		function extensionVerifier(){
-			if (stristr(".dbf", $this->archive["name"]))
+			//$temp = stristr($this->archive["name"], ".dbf");
+			//echo($this->archive["name"]."-".$temp);
+			if (stristr($this->archive["name"], ".dbf")){
 				return true;
+			}
 			return false;
 		}
 	}

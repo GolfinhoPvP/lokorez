@@ -1,4 +1,17 @@
 <?php
+
+	
+	/*Value    Permission Level
+	400    Owner Read
+	200    Owner Write
+	100    Owner Execute
+	40    Group Read
+	20    Group Write
+	10    Group Execute
+	4    Global Read
+	2    Global Write
+	1    Global Execute*/
+
 	include_once("../beans/Variables.class.php");
 	require_once("Connect.class.php");
 	
@@ -35,6 +48,32 @@
 				$DBFrow = dbase_get_record($DFBconnect, $x); //Get DBF archive rows
 				$this->DB[$x-1] = $DBFrow;
 			}
+			
+			
+			$host_ftp = "localhost";
+			$user_ftp = "root";
+			$pass_ftp = "";
+			
+			// Faz a conexão com o Servidor
+			$ftp_con = ftp_connect($host_ftp);
+			// Efetua o login com o usuário e senha informados
+			$ftp_log = ftp_login($ftp_con,$user_ftp,$pass_ftp);
+			
+			// Deleta o arquivo informado
+			if(!ftp_delete($ftp_con, $archiveDBFname))
+				die("ERRO CRITICO FTP!");
+			
+			// Encerramos a conexão de FTP previamente estabelecida
+			ftp_close($ftp_con);
+			
+			/*echo(decoct(777)."<br/>");
+			$temp = stat($archiveDBFname);
+			echo(octdec($temp["mode"])."<br/>");
+			echo(octdec(fileperms($archiveDBFname)));
+			if(!unlink($archiveDBFname))
+				die("ERRO CRITICO!");
+				
+			die("OK");*/
 			
 			if(!$MySQLconnect->start())
 				echo("Impossible to star connection in Handler.");
