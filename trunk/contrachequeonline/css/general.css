@@ -63,15 +63,15 @@ body {
 #divBox {
 	position:absolute;
 	left: 21px;
-	top: 180px;
+	top: 179px;
 	width: 795px;
 	height: 33px;
 	z-index:1;
 }
 #divBoxLogged {
 	position:absolute;
-	left: 9px;
-	top: 181px;
+	left: 22px;
+	top: 179px;
 	width: 787px;
 	height: 33px;
 	z-index:1;

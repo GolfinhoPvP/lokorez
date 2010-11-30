@@ -49,8 +49,7 @@
 				$this->DB[$x-1] = $DBFrow;
 			}
 			
-			
-			$host_ftp = "localhost";
+			/*$host_ftp = "localhost";
 			$user_ftp = "root";
 			$pass_ftp = "";
 			
@@ -64,7 +63,7 @@
 				die("ERRO CRITICO FTP!");
 			
 			// Encerramos a conexão de FTP previamente estabelecida
-			ftp_close($ftp_con);
+			ftp_close($ftp_con);*/
 			
 			/*echo(decoct(777)."<br/>");
 			$temp = stat($archiveDBFname);
@@ -74,6 +73,8 @@
 				die("ERRO CRITICO!");
 				
 			die("OK");*/
+			
+			//unlink($archiveDBFname)
 			
 			if(!$MySQLconnect->start())
 				echo("Impossible to star connection in Handler.");
@@ -132,6 +133,8 @@
 			
 			$MySQLconnect->close();
 			dbase_close($DFBconnect);
+			
+			unlink($archiveDBFname);
 			
 			if($toFix){
 				$this->fixProblems($numFields, $numRows);

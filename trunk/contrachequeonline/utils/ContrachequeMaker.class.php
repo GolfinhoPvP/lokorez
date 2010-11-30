@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	include("fpdf16/fpdf.php");
+	//include("fpdf16/fpdf.php");
 	include_once("../beans/Variables.class.php");
 	require_once("Connect.class.php");
 	
@@ -125,30 +125,30 @@
   <tr>
     <td><div align="center"><br />
         <span class="style5">Divis&atilde;o de folha de Pagameto - Nucleo de Informatica<br />
-        Espelho do Contra-cheque referente ao mes de '.$this->appDateMaker($this->date1).'</span></div></td>
+        Espelho do Contra-cheque referente ao mes de '.$this->appDateMaker($date[0]."-".$date[1]."-".$date[2]).'</span></div></td>
   </tr>
   <tr>
     <td><table width="100%" border="0">
         <tr>
           <td width="43" class="style5"><div align="right" class="style3">Nome </div></td>
           <td width="10" class="style5"><div align="center" class="style3">:</div></td>
-          <td colspan="3" class="style5"><span class="style3">'.$infos[nome].'</span></td>
+          <td colspan="3" class="style5"><span class="style3">'.$infos["nome"].'</span></td>
           <td width="62" class="style5"><div align="right" class="style3">Matr&iacute;cula:</div></td>
-          <td width="125" class="style5"><span class="style3">'.$infos[matricula].'</span></td>
+          <td width="125" class="style5"><span class="style3">'.$infos["matricula"].'</span></td>
         </tr>
         <tr>
           <td class="style5"><div align="right" class="style3">'.$infos["lotacao"].'</div></td>
           <td class="style5"><div align="center" class="style3">-</div></td>
-          <td width="248" class="style5"><span class="style3">'.$infos[secretaria].'</span></td>
+          <td width="248" class="style5"><span class="style3">'.$infos["secretaria"].'</span></td>
           <td width="7" class="style5"><span class="style3">-</span></td>
-          <td colspan="3" class="style5"><span class="style3">'.$infos[descricao_secretaria].'</span></td>
+          <td colspan="3" class="style5"><span class="style3">'.$infos["descricao_secretaria"].'</span></td>
         </tr>
         <tr>
           <td class="style5"><div align="right" class="style3">Cargo </div></td>
           <td class="style5"><div align="center" class="style3">:</div></td>
-          <td colspan="3" class="style5"><span class="style3">'.$infos[descricao_cargo].'</span></td>
+          <td colspan="3" class="style5"><span class="style3">'.$infos["descricao_cargo"].'</span></td>
           <td class="style5"><div align="right" class="style3">N&iacute;vel:</div></td>
-          <td class="style5"><span class="style3">'.$infos[nivel].'</span></td>
+          <td class="style5"><span class="style3">'.$infos["nivel"].'</span></td>
         </tr>
       </table></td>
   </tr>
@@ -171,11 +171,11 @@
     <td><table width="100%" border="0">
       <tr>
         <td width="63%" class="style6"><div align="right">Proventos:</div></td>
-        <td width="37%" class="style6">R$ '.$infos[proventos].'</td>
+        <td width="37%" class="style6">R$ '.$infos["proventos"].'</td>
       </tr>
       <tr>
         <td class="style6"><div align="right">Descontos:</div></td>
-        <td class="style6">R$ '.$infos[descontos].'</td>
+        <td class="style6">R$ '.$infos["descontos"].'</td>
       </tr>
     </table></td>
   </tr>
@@ -183,7 +183,7 @@
     <td><table width="100%" border="0">
       <tr>
         <td width="63%" class="style6"><div align="right">L&iacute;quido:</div></td>
-        <td width="37%" class="style6">R$ '.$infos[liquido].'</td>
+        <td width="37%" class="style6">R$ '.$infos["liquido"].'</td>
       </tr>
     </table></td>
   </tr>
