@@ -4,7 +4,7 @@
 	$protocolo 	= isset($_POST['tf_protocolo']) ? $_POST['tf_protocolo']	: NULL;
 	$cliente 	= isset($_POST['tf_cliente']) 	? $_POST['tf_cliente'] 		: NULL;
 	/* não usa Ç ç nas variaveis pô!*/
-	$reclamacao = isset($_POST['ta_reclamaçao'])? $_POST['ta_reclamaçao'] 	: NULL;
+	$reclamacao = isset($_POST['ta_reclamacao'])? $_POST['ta_reclamacao'] 	: NULL;
 
 	$dados[0] = $protocolo;
 	$dados[1] = $cliente;
