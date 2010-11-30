@@ -23,11 +23,11 @@
 <?php echo($mensagem); ?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
 <form name="form1" method="post" action="rac_salvar.php">
   <p> protocolo
-    <input type="text" name="tf_protocolo" id="tf_protocolo">
+    <input name="tf_protocolo" type="text" id="tf_protocolo" size="15">
   </p>
   <p>
     cliente
-    <input type="text" name="tf_cliente" id="tf_cliente">
+    
     <select name="cbCliente" id="cbCliente">
 
 	<?php
@@ -35,7 +35,8 @@
     echo('<option value="'.$dados['cliente_id'].'"> '.$dados['nome'].'</option>');
 
 	}
-	?> </select>
+	?> 
+    </select>
   </p>
   <p>
     status
