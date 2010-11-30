@@ -28,11 +28,12 @@
   <p>
     cliente
     <input type="text" name="tf_cliente" id="tf_cliente">
-    <select name="select" id="select">
+    <select name="cbCliente" id="cbCliente">
+
 	<?php
-	//pegando os dados
 	while($dados = mysql_fetch_array($resultado)){    //mostrando eles (dados) em forma de options
     echo('<option value="'.$dados['cliente_id'].'"> '.$dados['nome'].'</option>');
+
 	}
 	?> </select>
   </p>
