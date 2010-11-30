@@ -13,18 +13,14 @@
 	
 	$comandoSQL = "INSERT INTO cliente (nome, telefone, ip, endereco_id) VALUES ('$dados[0]','$dados[1]','$dados[2]',1)";
 
-	$teste = $conexao->salvar($comandoSQL);
-	
-	if($teste == true){
+	if($teste = $conexao->salvar($comandoSQL)){
 		/* Essa funçaõ header redireciona para qualquer lugar
 		aogra eu vou passar uma variável por GET via URL
 		é feito assim, ex: cliente_cadastro.php eu botaria um ? para
 		para simbolizar que tem variaveis passando depois boto a variavel e o valor dela
 		ficaria assim cliente_cadastro.php?cadastrado=nao*/
-		echo('teste = verdadeiro' );
 		header("Location: cliente_cadastro.php?cadastrado=sim");
 	}else{
-		echo('teste = falso');
 		header("Location: cliente_cadastro.php?cadastrado=nao");
 	}
 ?>
