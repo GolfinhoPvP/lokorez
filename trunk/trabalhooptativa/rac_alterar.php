@@ -17,7 +17,7 @@
   </p>
   <p>
     reclamaçao
-    <textarea name="ta_reclamaçao" disabled id="ta_reclamaçao"></textarea>
+    <textarea name="ta_reclamacao" disabled id="ta_reclamacao"></textarea>
   </p>
   <p>soluçao
     <textarea name="textfield" id="textfield"></textarea>
