@@ -1,5 +1,7 @@
 <?php
-	include_once("classes/Conexao.class.php");		
+	include_once("classes/Conexao.class.php");
+	include_once("utilitarios/funcoes.php");//---------------------------------------------------------------------------ADD A FUNçÂOOOOO
+		
 	// Eu queria fazer uma consulta e retornar num form a lista com os nomes dos clientes
 	$conexao = new Conexao();    
 	$comandoSQL = "SELECT * FROM cliente";
@@ -23,7 +25,7 @@
 <?php echo($mensagem); ?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
 <form name="form1" method="post" action="rac_salvar.php">
   <p> protocolo
-    <input name="tf_protocolo" type="text" id="tf_protocolo" size="15">
+    <input name="tf_protocolo" type="text" disabled id="tf_protocolo" size="15" value="<?php echo(geradorProtocolo()); ?>">
   </p>
   <p>
     cliente
