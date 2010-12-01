@@ -1,7 +1,7 @@
 <?php
 	include_once("classes/Conexao.class.php");
 	
-	$nome 		= isset($_POST['tf_nome']) ? $_POST['tf_nome'] : NULL;
+	$nome 	= isset($_POST['tf_nome']) ? $_POST['tf_nome'] : NULL;
 	$senha	= isset($_POST['tf_senha']) ? $_POST['tf_senha'] : NULL;
 	
 	$dados[0] = $nome;
