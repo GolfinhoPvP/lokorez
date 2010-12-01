@@ -9,6 +9,8 @@ Version
 Database		mySQL 5 
 */
 
+USE rac;
+
 
 drop table IF EXISTS cliente;
 drop table IF EXISTS endereco;
@@ -17,6 +19,13 @@ drop table IF EXISTS status;
 drop table IF EXISTS plano;
 drop table IF EXISTS RA;
 drop table IF EXISTS mensalidade;
+DROP TABLE IF EXISTS admin;
+
+CREATE TABLE admin (
+  admin_id int(11) NOT NULL AUTO_INCREMENT,
+  admin_nome varchar(50) NOT NULL,
+  admin_senha varchar(50) NOT NULL,
+  PRIMARY KEY (admin_id) ) ENGINE = MyISAM;
 
 
 Create table mensalidade (

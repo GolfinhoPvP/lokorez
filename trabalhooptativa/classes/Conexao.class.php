@@ -3,7 +3,7 @@
 		private $host 		= 'localhost';
 		private $db_nome 	= 'rac';
 		private $usuario 	= 'root';
-		private $senha 		= '';
+		private $senha 		= 'root';
 		
 		function salvar($comando){
 			if(!($link = mysql_connect($this->host, $this->usuario, $this->senha))){
@@ -55,13 +55,14 @@
 				return false;
 			}
 						
-			if(mysql_query($comando, $link)){
+			$resultado = mysql_query($comando, $link);	
+			if($resultado == false){
 				#mysql_close();
 				return false;
 			}
-			/* Aqui também é simples, essa função (mysql_affected_rows($link);) retorna quantas linhas foram afetadas pela última ação no banco, seja insert, delete, select, qualquer coisa*/
+			/* Aqui também é simples, essa função (mysql_num_rows($resultado);) retorna quantas linhas foram afetadas pela última ação no banco de select*/
 			#mysql_close();
-			return mysql_affected_rows($link);
+			return mysql_num_rows($resultado);
 		}
 	}
 ?>
