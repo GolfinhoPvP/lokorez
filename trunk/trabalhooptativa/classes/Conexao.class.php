@@ -3,7 +3,7 @@
 		private $host 		= 'localhost';
 		private $db_nome 	= 'rac';
 		private $usuario 	= 'root';
-		private $senha 		= 'root';
+		private $senha 		= '';
 		
 		function salvar($comando){
 			if(!($link = mysql_connect($this->host, $this->usuario, $this->senha))){
@@ -34,8 +34,9 @@
 				#mysql_close();
 				return false;
 			}
-						
-			if($resultado = mysql_query($comando, $link)){
+			
+			$resultado = mysql_query($comando, $link);	
+			if($resultado == false){
 				#mysql_close();
 				return false;
 			}
