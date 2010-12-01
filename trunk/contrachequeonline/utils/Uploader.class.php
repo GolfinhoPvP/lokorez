@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	session_start();		
 	require_once("Handler.class.php");
 	
 	class Uploader{
@@ -90,6 +90,11 @@
 			}
 			return false;
 		}
+	}
+	
+	if(!isset($_SESSION["dir"])){
+		header("Location: ../importDocuments.php?dir=erro");
+		die();
 	}
 	
 	$up = new Uploader($_SESSION["path"]);

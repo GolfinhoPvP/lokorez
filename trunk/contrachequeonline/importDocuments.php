@@ -12,30 +12,20 @@
 		header("Location: admin.php");
 	
 	$message = NULL;
-	$dateVisibility = "visible";
-	$DCRVisibility 	= "invisible";
-	$msgVisibility	= "invisible";
-	$DLTVisibility	= "invisible";
-	$especialVisibility	= "invisible";
-	$eventosVisibility	= "invisible";
-	$cadcalcVisibility = "invisible";
+	$msgVisibility	= "hidden";
 	
 	if(isset($_GET["dir"])){
 		switch($_GET["dir"]){
 			case "false" : $message = "Possivelmente a data que foi passada não é uma data válida, nada foi feito!";
 							break;
 			case "true" : $message = "O sistema está pronto para receber as novas tabelas.";
-							$_SESSION["cadcal"] = "show";
-							$dateVisibility = "invisible";
-							$DCRVisibility 	= "visible";
-							//$cadcalcVisibility = "visible";
+							$_SESSION["dir"] = "true";
 							break;
 			case "yet" : $message = "Cuidado, estas tabelas possivelmente já existem, continue as verificações.";
-							$_SESSION["dir"] = "show";
-							$_SESSION["cadcal"] = "show";
-							$dateVisibility = "invisible";
-							$DCRVisibility 	= "visible";
-							//$cadcalcVisibility = "visible";
+							$_SESSION["dir"] = "true";
+							break;
+							
+			case "erro" : $message = "NÃO INSERIDO - Valide primeiro a data das tabelas!!!";
 							break;
 		}
 		$msgVisibility	= "visible";
@@ -47,7 +37,7 @@
 							break;
 			case "false" : $message = "Erro, arquivo não upado.";
 							break;
-			case "yet" : $message = "Ok, arquivo já upado.";
+			case "yet" : $message = "Ok, arquivo '".strtoupper($_GET["tab"]).".DBF' já upado.";
 							break;
 		}
 		$msgVisibility	= "visible";
@@ -63,53 +53,6 @@
 							break;
 		}
 		$msgVisibility	= "visible";
-	}
-	
-	if(isset($_GET["tab"])){
-		switch($_GET["tab"]){
-			case "dcr" 		: $_SESSION["dcr"] = "show";
-							break;
-			case "dlt" : $_SESSION["dlt"] = "show";
-							break;
-							
-			case "especial" : $_SESSION["especial"] = "show";
-							break;
-							
-			case "eventos" : $_SESSION["eventos"] = "show";
-							break;
-		}
-	}
-	if(isset($_SESSION["dir"]) == "show"){
-		$dateVisibility 	= "invisible";
-		$_SESSION["dir"] 	= "hide";
-	}
-	
-	if(isset($_SESSION["dcr"]) == "show"){
-		$DCRVisibility 		= "invisible";
-		$DLTVisibility 		= "visible";
-		$_SESSION["dcr"] 	= "hide";
-	}
-	
-	if(isset($_SESSION["dlt"]) == "show"){
-		$DLTVisibility 		= "invisible";
-		$especialVisibility = "visible";
-		$_SESSION["dlt"] 	= "hide";
-	}
-	
-	if(isset($_SESSION["especial"]) == "show"){
-		$especialVisibility 	= "invisible";
-		$eventosVisibility 		= "visible";
-		$_SESSION["especial"]	= "hide";
-	}
-	
-	if(isset($_SESSION["eventos"]) == "show"){
-		$eventosVisibility 		= "invisible";
-		$DCRVisibility 			= "visible";
-		$_SESSION["eventos"] 	= "hide";
-	}
-	
-	if(isset($_SESSION["cadcal"]) == "show"){
-		$cadcalcVisibility 		= "visible";
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -127,15 +70,31 @@
 		<script language="javascript" type="text/javascript">
 			window.onload = function(){
 				document.date.tfDate.value = getUserDate();
+				tableShowManager("divBoxData", false);
+			}
+			
+			function tableShowManager(t, n){
+				if(document.getElementById("pMSG").innerHTML == "" || n == true){
+					document.getElementById("divBoxMessageAdmin").style.visibility 	= "hidden";
+				}
+				document.getElementById("divBoxAddAdmin").style.visibility  	= "hidden";
+				document.getElementById("divBoxData").style.visibility  		= "hidden";
+				document.getElementById("divBoxDCR").style.visibility  			= "hidden";
+				document.getElementById("divBoxDLT").style.visibility  			= "hidden";
+				document.getElementById("divBoxEspecial").style.visibility  	= "hidden";
+				document.getElementById("divBoxEventos").style.visibility  		= "hidden";
+				document.getElementById("divBoxFolha").style.visibility  		= "hidden";
+				document.getElementById("divBoxCadCalc").style.visibility  		= "hidden";
+				
+				document.getElementById(t).style.visibility  = "visible"
 			}
 		</script>
 	</head>
 	
 	<body>
-	<a href="#" onclick="javascript: show('formFolha');"><br />
-	</a>
+	<p>Area do Administrador</p>
 		</p>
-<div id="divBoxData"">
+<div id="divBoxData">
   <table width="825" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="74"><img src="images/box_l.png" /></td>
@@ -179,8 +138,8 @@
                   <label class="words2"> Enviar tabela DCR:</label>
                   </span>
                   <label>
-                  <input name="archive2" type="file" id="archive2" size="50" />
-                  <input name="table2" type="text" id="table2" style="visibility:hidden" value="dcr" size="5" maxlength="3"/>
+                  <input name="archive" type="file" id="archive" size="50" />
+                  <input name="table" type="text" id="table" style="visibility:hidden" value="dcr" size="5" maxlength="3"/>
                   </label>
                   <label>
                   <br />
@@ -208,8 +167,8 @@
               <span class="words1">Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar DLT &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. </span><br />
                 <form id="DLT" name="DLT" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                   <label> <span class="words1">Enviar tabela DLT:</span>
-                  <input name="archive3" type="file" id="archive3" size="50" />
-                  <input name="table3" type="text" id="table3" style="visibility:hidden" value="dlt" size="5" maxlength="3"/>
+                  <input name="archive" type="file" id="archive" size="50" />
+                  <input name="table" type="text" id="table" style="visibility:hidden" value="dlt" size="5" maxlength="3"/>
                   </label>
                   <label>
                   <br />
@@ -237,8 +196,8 @@
               <span class="words1">Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar Especial &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. </span><br />
                 <form id="especial" name="especial" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                   <label> <span class="words2">Enviar tabela Especial:</span>
-                  <input name="archive4" type="file" id="archive4" size="50" />
-                  <input name="table4" type="text" id="table4" style="visibility:hidden" value="especial" size="5" maxlength="3"/>
+                  <input name="archive" type="file" id="archive" size="50" />
+                  <input name="table" type="text" id="table" style="visibility:hidden" value="especial" size="5" maxlength="3"/>
                   </label>
                   <label>
                   <br />
@@ -266,8 +225,8 @@
               <span class="words1">Caso o campo de busca for deixado em branco e o bot&atilde;o &quot;Enviar Eventos &quot; seja pressionado, significa que a tabela j&aacute; foi inserida. </span><br />
                 <form id="eventos" name="eventos" enctype="multipart/form-data" method="post" action="utils/Uploader.class.php">
                   <label> <span class="words2">Enviar tabela Eventos:</span>
-                  <input name="archive5" type="file" id="archive5" size="50" />
-                  <input name="table5" type="text" id="table5" style="visibility:hidden" value="eventos" size="5" maxlength="3"/>
+                  <input name="archive" type="file" id="archive" size="50" />
+                  <input name="table" type="text" id="table" style="visibility:hidden" value="eventos" size="5" maxlength="3"/>
                   </label>
                   <label>
                   <br />
@@ -414,23 +373,34 @@
   </table>
 </div>
 
-<div id="divBoxMessageAdmin" style="visibility:<?php echo($messageVs); ?>">
+<div id="divBoxMessageAdmin" style="visibility:<?php echo($msgVisibility); ?>">
   <table width="99%" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="21"><img src="images/box2_l.png" width="21" height="50" /></td>
       <td width="630" align="left" valign="top" background="images/box2_c.png">
-      <p class="alert">Mensagem: <?php echo($message); ?></p>
+      <p id="pMSG" class="alert"><?php echo($message); ?></p>
       </td>
       <td width="36"><img src="images/box2_r.png" width="36" height="50" /></td>
     </tr>
   </table>
 </div>
+
 <div id="divBut">
 <form id="desconect" name="desconect" method="post" action="actions/Logout.class.php">
                     <label>
                     <input name="logout" type="submit" id="logout" value="Desconectar" />
                     </label>
   </form></div>
+  <div id="divMenu">  
+    <p onclick="javascript: tableShowManager('divBoxAddAdmin', true);" style="cursor:pointer">Novo Admin </p>
+    <p onclick="javascript: tableShowManager('divBoxData', true);" style="cursor:pointer">Validar Data</p>
+    <p onclick="javascript: tableShowManager('divBoxDCR', true);" style="cursor:pointer">DCR</p>
+    <p onclick="javascript: tableShowManager('divBoxDLT', true);" style="cursor:pointer">DLT</p>
+    <p onclick="javascript: tableShowManager('divBoxEspecial', true);" style="cursor:pointer">Especial</p>
+    <p onclick="javascript: tableShowManager('divBoxEventos', true);" style="cursor:pointer">Eventos</p>
+    <p onclick="javascript: tableShowManager('divBoxFolha', true);" style="cursor:pointer">Folha</p>
+    <p onclick="javascript: tableShowManager('divBoxCadCalc', true);" style="cursor:pointer">Tabelas de C&aacute;lculo e Cadastro  </p>
+  </div>
 	</body>
 </html>
 <?php //$connect->close(); ?>
