@@ -1,5 +1,5 @@
 <?php
-	include_once("../classes/Conexao.class.php");
+	//include_once("../classes/Conexao.class.php");
 	
 	function geradorProtocolo(){
 		$conector = new Conexao();

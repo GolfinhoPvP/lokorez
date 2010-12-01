@@ -31,13 +31,11 @@
     cliente
     
     <select name="cbCliente" id="cbCliente">
-
-	<?php
-	while($dados = mysql_fetch_array($resultado)){    //mostrando eles (dados) em forma de options
-    echo('<option value="'.$dados['cliente_id'].'"> '.$dados['nome'].'</option>');
-
-	}
-	?> 
+		<?php
+			while($dados = mysql_fetch_array($resultado)){    //mostrando eles (dados) em forma de options
+				echo('<option value="'.$dados['cliente_id'].'">'.$dados['nome'].'</option>');
+			}
+		?> 
     </select>
   </p>
   <p>
