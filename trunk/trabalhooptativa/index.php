@@ -20,20 +20,47 @@
 	<body>
 		<?php echo($mensagem); ?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
 		<form id="form1" name="form1" method="post" action="admin_logar.php">
-		  nome: 
-		<label>
-		  <input name="tf_nome" type="text" id="tf_nome" size="25" maxlength="50" />
-		  </label>
-		<p>senha: 
-		  <label>
-		  <input name="tf_senha" type="password" id="tf_senha" size="25" maxlength="50" />
-		  </label>
-		</p>
-		<p>
-		  <label>
-		  <input name="conectar" type="submit" id="conectar" value="Conectar" />
-		  </label>
-		</p>
-		</form>
+		  <div align="center"></div>
+		  <label></label>
+		  <table width="100%" border="0">
+            <tr>
+              <td width="4%">&nbsp;</td>
+              <td colspan="3">&nbsp;</td>
+              <td width="5%">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td width="26%"><p align="center">&nbsp;</p>
+              </td>
+              <td width="27%"><p>&nbsp;</p>
+                <table width="243" border="1" align="center" bordercolor="#000000">
+                <tr>
+                  <td width="233"><p align="center">nome
+                    <input name="tf_nome" type="text" id="tf_nome" size="25" maxlength="50" />
+                  </p>
+                    <p align="center">senha:
+                      <label>
+                        <input name="tf_senha" type="password" id="tf_senha" size="25" maxlength="50" />
+                        </label>
+                    </p>
+                    <p align="center">
+                      <label>
+                      <input name="conectar" type="submit" id="conectar" value="Conectar" />
+                      </label>
+                    </p></td>
+                </tr>
+              </table>
+                <p align="center">&nbsp;</p>
+              </td>
+              <td width="38%">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td colspan="3">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+    </form>
 	</body>
 </html>
