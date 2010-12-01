@@ -92,7 +92,7 @@
 	</head>
 	
 	<body>
-	<p>Area do Administrador</p>
+	<p align="center">Area do Administrador</p>
 		</p>
 <div id="divBoxData">
   <table width="825" border="0" cellpadding="0" cellspacing="0">
@@ -400,6 +400,7 @@
     <p onclick="javascript: tableShowManager('divBoxEventos', true);" style="cursor:pointer">Eventos</p>
     <p onclick="javascript: tableShowManager('divBoxFolha', true);" style="cursor:pointer">Folha</p>
     <p onclick="javascript: tableShowManager('divBoxCadCalc', true);" style="cursor:pointer">Tabelas de C&aacute;lculo e Cadastro  </p>
+    <a href="show.php">SHOW</a>
   </div>
 	</body>
 </html>
