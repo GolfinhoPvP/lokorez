@@ -1,12 +1,12 @@
 <?php
 	/*agora igualmente as variaveis de POST eu posso pegar do mesmo jeito as variáves por GET
 	e lembre-se do video do professor, variáves por GET não devem ser usada para nada que tenha segurança no meio. só para controle*/
-	$cadastrado = isset($_GET['logar']) ? $_GET['logar'] : NULL;
+	$logar = isset($_GET['logar']) ? $_GET['logar'] : NULL;
 	
 	$mensagem = NULL;
-	if($cadastrado == "sim"){
+	if($logar == "sim"){
 		$mensagem = "";
-	}else if($cadastrado == "nao"){
+	}else if($logar == "nao"){
 		$mensagem = "Usuário não registrado!";
 	}
 ?>
@@ -15,13 +15,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>Untitled Document</title>
-		<style type="text/css">
-		<!--
-			@import url("css/geral.css");
-		-->
-		</style>
-		<script language="javascript" src="scripts/javascript/funcoes.js" type="text/javascript">
-		</script>
 	</head>
 	
 	<body>
