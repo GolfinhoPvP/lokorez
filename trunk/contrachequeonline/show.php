@@ -1,6 +1,11 @@
 <?php
 	session_start();
 	
+	if((isset($_SESSION["usuario"]) == NULL) && (isset($_SESSION["senha"]) == NULL)){
+		header("Location: admin.php");
+		die();
+	}
+	
 	include_once("beans/Variables.class.php");
 	require_once("utils/Connect.class.php");
 	
@@ -22,7 +27,7 @@
 			   echo("Matricula: ".$row["matricula"].", senha: ".base64_decode($row["senha"])."<br/>");
 			}
 			
-			$connect->close();
+			//$connect->close();
 		}
 	}
 	

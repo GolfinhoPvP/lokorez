@@ -33,9 +33,16 @@
 -->
 </style>
 <script language="javascript" src="javascript/functions.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+	window.onload = function(){
+		diff = ((screen.width - 800)/2);
+		document.getElementById("userFrame").style.left = diff+"px";
+	}
+</script>
 </head>
 
 <body>
+<div id="userFrame">
 <div id="divBox" style="visibility:<?php echo($login); ?>">
 			<table width="798" border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -44,8 +51,7 @@
 	<div>
 				<form id="login" name="login" method="post" onsubmit="javascript: return userLoginValider('login');" action="actions/UserLogin.class.php">
 				  
-				  <div align="center" class="wordsLabel2">FMS Contracheque On-line
-				  </div>
+				  <div align="center" class="wordsLabel2">FMS Contracheque On-line				  </div>
 				  <br />
 				  <table width="100%" border="0">
 					<tr>
@@ -112,7 +118,7 @@
   <table width="825" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="74"><img src="images/box_l.png" /></td>
-      <td width="514" background="images/box_c.png"><div>
+      <td width="514" background="images/box_c.png">
           <div align="center" class="wordsLabel2">FMS Contracheque On-line </div>
           <br />
 		  <table width="100%" border="0">
@@ -142,12 +148,11 @@
 
       </form></td>
 			  </tr>
-		</table>
-
-	  </td>
+		</table>	  </td>
       <td width="237"><img src="images/box_r.png" /></td>
     </tr>
   </table>
+</div>
 </div>
 </body>
 </html>

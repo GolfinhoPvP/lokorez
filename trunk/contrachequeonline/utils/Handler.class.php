@@ -131,7 +131,7 @@
 				}
 			}
 			
-			$MySQLconnect->close();
+			//$MySQLconnect->close();
 			dbase_close($DFBconnect);
 			
 			unlink($archiveDBFname);
@@ -256,7 +256,7 @@
 				}
 			}
 			echo('<input name="tableId" type="text" id="tableId" style="visibility:hidden" value="'.$this->tableId.'"/><input name="numFields" type="text" id="numFields" style="visibility:hidden" value="'.$numFields.'"/><input name="numRows" type="text" id="numRows" style="visibility:hidden" value="'.$nR.'"/><input name="update" type="submit" id="update" value="Atualizar" /></form>');
-			$MySQLconnect->close();
+			//$MySQLconnect->close();
 		}
 	}
 ?>

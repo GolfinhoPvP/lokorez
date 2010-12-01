@@ -4,6 +4,12 @@ body {
 	background-color: #999999;
 }
 
+#userFrame{
+	position:absolute;
+	left: 0px;
+	top: 0px;
+}
+
 .invisible {
 	visibility: hidden;
 }
@@ -62,16 +68,16 @@ body {
 
 #divBox {
 	position:absolute;
-	left: 21px;
-	top: 179px;
+	left: 4px;
+	top: 145px;
 	width: 795px;
 	height: 33px;
 	z-index:1;
 }
 #divBoxLogged {
 	position:absolute;
-	left: 22px;
-	top: 179px;
+	left: 3px;
+	top: 145px;
 	width: 787px;
 	height: 33px;
 	z-index:1;
@@ -79,8 +85,8 @@ body {
 
 #divBoxMessage {
 	position:absolute;
-	left: 107px;
-	top: 155px;
+	left: 88px;
+	top: 121px;
 	width: 473px;
 	height: 33px;
 }
@@ -113,6 +119,6 @@ body {
 	position:absolute;
 	width: 513px;
 	height: 47px;
-	left: 65px;
-	top: 436px;
+	left: 64px;
+	top: 394px;
 }
