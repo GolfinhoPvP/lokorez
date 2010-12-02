@@ -2,54 +2,46 @@
 function validarTelefone(idCampo, e){
 	var idTecla = (window.event) ? event.keyCode : e.keyCode;
 	
-	if(idTecla != 8){ //se não for um BACKSPACE ele entra, se for, ele deixa apagar um caracter
-		//116 é o botão F5
-		//37, 38, 39, 40 são as setas direcionais
-		if((idTecla == 116) || (idTecla >= 37 && idTecla <= 40)){
-			return true;
+	//se não for um BACKSPACE ele entra, se for, ele deixa apagar um caracter
+	//116 é o botão F5
+	//37, 38, 39, 40 são as setas direcionais
+	if((idTecla == 116) || (idTecla >= 37 && idTecla <= 40) || (idTecla == 8) || (idTecla == 9)){
+		return true;
+	}
+	
+	if(idTecla < 48 || idTecla > 57){
+		if(idTecla < 96 || idTecla > 105){
+			return false;
 		}
-		if(idTecla < 48 || idTecla > 57){
-			if(idTecla < 96 || idTecla > 105){
-				return false;
-			}
-		}
-		
-		var campo = document.getElementById(idCampo);
-		if(campo.value.length == 0){
-			campo.value = campo.value + "(";
-		}
-		if(campo.value.length == 3){
-			campo.value = campo.value + ") ";
-		}
-		if(campo.value.length == 9){
-			campo.value = campo.value + "-";
-		}
+	}
+	
+	var campo = document.getElementById(idCampo);
+	if(campo.value.length == 0){
+		campo.value = campo.value + "(";
+	}else if(campo.value.length == 3){
+		campo.value = campo.value + ") ";
+	}else if(campo.value.length == 9){
+		campo.value = campo.value + "-";
 	}
 	return true;
 }
 
-/*function validarIP(idCampo, e){
+function validarIP(idCampo, e){
 	idTecla = (window.event) ? event.keyCode : e.keyCode;
 	
-	if(idTecla != 8){ //se não for um BACKSPACE ele entra, se for, ele deixa apagar um caracter
-		//116 é o botão F5
-		//37, 38, 39, 40 são as setas direcionais
-		if((idTecla == 116) || (idTecla >= 37 && idTecla <= 40)){
-			return true;
-		}
-		if(idTecla < 48 || idTecla > 57){
-			if(idTecla < 96 || idTecla > 105){
-				return false;
-			}
-		}
-		
-		campo = document.getElementById(idCampo);
-		if(campo.value.length == 3 || campo.value.length == 7 || campo.value.length == 11){
-			campo.value = campo.value + ".";
+	//se não for um BACKSPACE ele entra, se for, ele deixa apagar um caracter
+	//116 é o botão F5
+	//37, 38, 39, 40 são as setas direcionais
+	if((idTecla == 116) || (idTecla >= 37 && idTecla <= 40) || (idTecla == 8) || (idTecla == 9) || (idTecla == 46)){
+		return true;
+	}
+	if(idTecla < 48 || idTecla > 57){
+		if(idTecla < 96 || idTecla > 105){
+			return false;
 		}
 	}
 	return true;
-}*/
+}
 
 function validarCliente(idCampo){
 	var campo = document.getElementById(idCampo);
@@ -66,11 +58,18 @@ function validarCliente(idCampo){
 		return false;
 	}
 	
-	if(campo.tf_ip.value.length == 0){
-		alert("Insira um ip");
-		campo.tf_ip.focus();
-		return false;
+	var RegExPattern = /^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$/;
+
+	if( (!(campo.tf_ip.value.match(RegExPattern)) && (campo.tf_ip.value!="")) || campo.tf_ip.value=='0.0.0.0' || campo.tf_ip.value=='255.255.255.255' ) {
+	   alert('IP inv&aacute;lido.');
+	   campo.tf_ip.focus();
+	   return false;
 	}
 	
 	return true;
+}
+
+function mostrar(idCampo){
+	campo = document.getElementById(idCampo);
+	campo.style.visibility = "visible";
 }
