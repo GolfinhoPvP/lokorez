@@ -1,6 +1,6 @@
 // JavaScript Document
 function validarTelefone(idCampo, e){
-	idTecla = (window.event) ? event.keyCode : e.keyCode;
+	var idTecla = (window.event) ? event.keyCode : e.keyCode;
 	
 	if(idTecla != 8){ //se não for um BACKSPACE ele entra, se for, ele deixa apagar um caracter
 		//116 é o botão F5
@@ -14,7 +14,7 @@ function validarTelefone(idCampo, e){
 			}
 		}
 		
-		campo = document.getElementById(idCampo);
+		var campo = document.getElementById(idCampo);
 		if(campo.value.length == 0){
 			campo.value = campo.value + "(";
 		}
@@ -52,7 +52,7 @@ function validarTelefone(idCampo, e){
 }*/
 
 function validarCliente(idCampo){
-	campo = document.getElementById(idCampo);
+	var campo = document.getElementById(idCampo);
 	
 	if(campo.tf_nome.value.length == 0){
 		alert("Insira um nome");

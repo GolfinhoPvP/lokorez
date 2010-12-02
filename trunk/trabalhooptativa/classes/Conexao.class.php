@@ -69,17 +69,24 @@
 			if(!($link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->db_nome))){
 				return false;
 			}
+						
+			mysqli_autocommit($link, FALSE);
+			#mysql_query("begin", $link);
 			
 			mysqli_autocommit($link, false);
-			mysqli_query("begin", $link);
 			
 			foreach($comando as $temp){
-				if(!mysqli_query($temp, $link)){
+							
+				if(mysqli_query($link, $temp) == FALSE){
 					#mysql_close();
 					mysqli_rollback($link);
+#					echo 
+					die("deu erro: ".mysqli_error($link). "$temp");
+
 					return false;
 				}
 			}
+			die ("asd");
 			mysqli_commit($link);
 			#mysql_close();
 			return true;
