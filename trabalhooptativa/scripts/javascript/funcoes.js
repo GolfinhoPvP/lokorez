@@ -28,7 +28,7 @@ function validarTelefone(idCampo, e){
 	return true;
 }
 
-function validarIP(idCampo, e){
+/*function validarIP(idCampo, e){
 	idTecla = (window.event) ? event.keyCode : e.keyCode;
 	
 	if(idTecla != 8){ //se não for um BACKSPACE ele entra, se for, ele deixa apagar um caracter
@@ -49,7 +49,7 @@ function validarIP(idCampo, e){
 		}
 	}
 	return true;
-}
+}*/
 
 function validarCliente(idCampo){
 	campo = document.getElementById(idCampo);
