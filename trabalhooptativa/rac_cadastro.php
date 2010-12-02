@@ -28,6 +28,7 @@
   <p>
     cliente
     <select name="cbCliente" id="cbCliente">
+	<option>-----------------------------------------------</option>
 	<?php
 	while($dados = mysql_fetch_array($resultado)){
 	   	echo('<option value="'.$dados['cliente_id'].'"> '.$dados['nome'].'</option>');

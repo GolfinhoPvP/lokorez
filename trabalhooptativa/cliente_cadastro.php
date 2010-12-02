@@ -35,7 +35,7 @@
  <p>Nome
 <input name="tf_nome" type="text" id="tf_nome" size="40" />
  Telefone
-<input name="tf_telefone" type="text" id="tf_telefone" onKeyDown="javascript: return validarTelefone('tf_telefone', event);" size="18" maxlength="14" />
+<input name="tf_telefone" type="text" id="tf_telefone" size="18" maxlength="14" />
 IP  
 <input name="tf_ip" type="text" id="tf_ip" size="20" maxlength="15"/>
  </p>
