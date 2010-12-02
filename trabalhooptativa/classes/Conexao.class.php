@@ -77,16 +77,12 @@
 			
 			foreach($comando as $temp){
 							
-				if(mysqli_query($link, $temp) == FALSE){
-					#mysql_close();
+				if(mysqli_query($link, $temp) == false){
 					mysqli_rollback($link);
-#					echo 
-					die("deu erro: ".mysqli_error($link). "$temp");
-
+					#mysql_close();
 					return false;
 				}
 			}
-			die ("asd");
 			mysqli_commit($link);
 			#mysql_close();
 			return true;

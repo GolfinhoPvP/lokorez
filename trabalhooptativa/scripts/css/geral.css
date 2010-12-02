@@ -1,2 +1,14 @@
 /* CSS Document */
+div{
+	background-color:#000000;
+}
+
+.teste{
+	background-color:#FF0000;
+}
+
+#teste2{
+	visibility:hidden;
+	background-color:#00FF00;
+}
 

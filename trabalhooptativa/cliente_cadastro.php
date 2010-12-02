@@ -2,9 +2,6 @@
 	/*agora igualmente as variaveis de POST eu posso pegar do mesmo jeito as variáves por GET
 	e lembre-se do video do professor, variáves por GET não devem ser usada para nada que tenha segurança no meio. só para controle*/
 	$cadastrado = isset($_GET['cadastrado']) ? $_GET['cadastrado'] : NULL;
-	$logar = isset($_GET['logar']) ? $_GET['logar'] : NULL;
-	$erro = isset($_GET['erro']) ? $_GET['erro'] : NULL;
-	$sql = isset($_GET['sql']) ? $_GET['sql'] : NULL;
 	
 	$mensagem = NULL;
 	if($cadastrado == "sim"){
@@ -22,14 +19,14 @@
 		<title>Inserir Cliente</title>
 		<style type="text/css">
 		<!--
-			@import url("css/geral.css");
+			@import url("scripts/css/geral.css");
 		-->
 		</style>
 		<script language="javascript" src="scripts/javascript/funcoes.js" type="text/javascript">
 		</script>
 	</head>
 	
-	<body>
+	<body class="teste">
 		<?php echo($mensagem); echo($erro); echo($sql); ?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
 <form id="formulario_cliente" name="formulario_cliente" method="post" action="cliente_salvar.php" onSubmit="javascript: return validarCliente('formulario_cliente');">
  <p>Nome
@@ -61,21 +58,25 @@ Estado
 </p>
 <p>
 <label>
-<input type="radio" name="rg_flag" value="n">
+<input name="rg_flag" type="radio" value="n" checked onClick=" javascript: esconder('teste2')">
 Residencial</label>
 <label>
-<input type="radio" name="rg_flag" value="s">
+<input type="radio" name="rg_flag" value="s" onClick=" javascript: mostrar('teste2'); ">
 Condominio</label>
 </p>
-<p>Complemento</p>
-<p>Condominio
-<input name="tf_condominio" type="text" id="tf_condominio" size="40">
-</p>
-<p>Bloco
-<input name="tf_bloco" type="text" id="tf_bloco" size="20">
-Ap
-<input name="tf_ap" type="text" id="tf_ap" size="10">
-</p>
+<div id="teste2">
+	Complemento
+	</p>
+	<p>Condominio
+	<input name="tf_condominio" type="text" id="tf_condominio" size="40">
+	</p>
+	<p>Bloco
+	<input name="tf_bloco" type="text" id="tf_bloco" size="20">
+	Ap
+	<input name="tf_ap" type="text" id="tf_ap" size="10">
+	</p>
+
+</div>
 <p>
   <input type="submit" name="enviar" id="enviar" value="enviar">
   <input type="reset" name="limpar" id="limpar" value="Limpar">
