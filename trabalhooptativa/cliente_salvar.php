@@ -41,10 +41,10 @@
 	$comandoSQL[0] = "INSERT INTO endereco (rua, numero, bairro, cidade, cep, estado, pais, flag) VALUES ('$dados[3]', $dados[4], '$dados[5]', '$dados[6]', '$dados[7]', '$dados[8]', '$dados[9]', '$dados[13]')";
 	
 	//comando inserir condominio do cliente
-	$comandoSQL[1] = "INSERT INTO condominio (nome, bloco, apartamento, endereco_id) VALUES ('$dados[10]', '$dados[11]', $dados[12],  mysql_insert_id())";
+	$comandoSQL[1] = "INSERT INTO condominio (nome, bloco, apartamento, endereco_id) VALUES ('$dados[10]', '$dados[11]', $dados[12], LAST_INSERT_ID())";
 	
 	//comando inserir cliente
-	$comandoSQL[2] = "INSERT INTO cliente (nome, telefone, ip, endereco_id) VALUES ('$dados[0]','$dados[1]','$dados[2]',  mysql_insert_id())";
+	$comandoSQL[2] = "INSERT INTO cliente (nome, telefone, ip, endereco_id) VALUES ('$dados[0]','$dados[1]','$dados[2]', LAST_INSERT_ID())";
 	
 	$teste = $conexao->transacao($comandoSQL);
 	
