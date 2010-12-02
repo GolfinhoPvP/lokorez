@@ -64,5 +64,30 @@
 			#mysql_close();
 			return mysql_num_rows($resultado);
 		}
+		
+		function transacao($comando){
+			if(!($link = mysql_connect($this->host, $this->usuario, $this->senha))){
+				return false;
+			}
+			
+			if(!mysql_select_db($this->db_nome, $link)){
+				#mysql_close();
+				return false;
+			}
+			
+			mysqli_autocommit($link, false);
+			mysql_query("begin", $link);
+			
+			foreach($comando as $temp){
+				if(!mysql_query($temp, $link)){
+					#mysql_close();
+					mysqli_rollback($link);
+					return false;
+				}
+			}
+			mysqli_commit($link);
+			#mysql_close();
+			return true;
+		}
 	}
 ?>
