@@ -18,7 +18,6 @@
 	</head>
 	
 	<body>
-		<?php echo($mensagem); ?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
 		<form id="form1" name="form1" method="post" action="admin_logar.php">
 		  <div align="center"></div>
 		  <label></label>
@@ -32,7 +31,7 @@
               <td>&nbsp;</td>
               <td width="26%"><p align="center">&nbsp;</p>
               </td>
-              <td width="27%"><p>&nbsp;</p>
+              <td width="27%"><p align="center"><?php echo($mensagem); ?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->&nbsp;</p>
                 <table width="243" border="1" align="center" bordercolor="#000000">
                 <tr>
                   <td width="233"><p align="center">nome
@@ -41,13 +40,14 @@
                     <p align="center">senha:
                       <label>
                         <input name="tf_senha" type="password" id="tf_senha" size="25" maxlength="50" />
-                        </label>
+                      </label>
                     </p>
                     <p align="center">
                       <label>
                       <input name="conectar" type="submit" id="conectar" value="Conectar" />
                       </label>
-                    </p></td>
+                    </p>
+                  </td>
                 </tr>
               </table>
                 <p align="center">&nbsp;</p>

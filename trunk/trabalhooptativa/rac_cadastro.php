@@ -1,4 +1,9 @@
 <?php
+	session_start();
+	
+	if(!(isset($_SESSION["administrador"]) == "logado"))
+		header("Location: index.php?logar=nao");
+	
 	include_once("classes/Conexao.class.php");
 	include_once("utilitarios/funcoes.php");
 	$conexao = new Conexao();    

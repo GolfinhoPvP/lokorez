@@ -73,9 +73,11 @@ function validarCliente(idCampo){
 function  mostrar(idCampo){
 	campo = document.getElementById(idCampo);
 	campo.style.visibility = "visible";
+	campo.style.height = "auto";
 }
 
 function  esconder(idCampo){
 	campo = document.getElementById(idCampo);
 	campo.style.visibility = "hidden";
+	campo.style.height = "0px";
 }
