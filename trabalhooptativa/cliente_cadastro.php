@@ -1,7 +1,8 @@
 <?php
 	/*agora igualmente as variaveis de POST eu posso pegar do mesmo jeito as variáves por GET
 	e lembre-se do video do professor, variáves por GET não devem ser usada para nada que tenha segurança no meio. só para controle*/
-	$cadastrado = isset($_GET['cadastrado']) ? $_GET['cadastrado'] : NULL;
+	$cadastrado = isset($_GET['cadastrado'])? $_GET['cadastrado'] 	: NULL;
+	$logar 		= isset($_GET['logar']) 	? $_GET['logar'] 		: NULL;
 	
 	$mensagem = NULL;
 	if($cadastrado == "sim"){
@@ -26,8 +27,8 @@
 		</script>
 	</head>
 	
-	<body class="teste">
-		<?php echo($mensagem); echo($erro); echo($sql); ?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
+	<body >
+		<?php echo($mensagem);?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
 <form id="formulario_cliente" name="formulario_cliente" method="post" action="cliente_salvar.php" onSubmit="javascript: return validarCliente('formulario_cliente');">
  <p>Nome
 <input name="tf_nome" type="text" id="tf_nome" size="40" />
