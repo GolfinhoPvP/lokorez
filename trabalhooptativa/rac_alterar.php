@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if (isset($_SESSION["administrador"] == "logado")
+		header( "Location : index.php?logar=nao")
+
+?> 
 <html>
 <head>
 <title>Relatorio de Atedimento</title>

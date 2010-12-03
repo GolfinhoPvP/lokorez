@@ -10,5 +10,6 @@ div{
 #teste2{
 	visibility:hidden;
 	background-color:#00FF00;
+	height: 0px;
 }
 
