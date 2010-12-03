@@ -32,7 +32,7 @@ function validarIP(idCampo, e){
 	//se não for um BACKSPACE ele entra, se for, ele deixa apagar um caracter
 	//116 é o botão F5
 	//37, 38, 39, 40 são as setas direcionais
-	if((idTecla == 116) || (idTecla >= 37 && idTecla <= 40) || (idTecla == 8) || (idTecla == 9) || (idTecla == 46)){
+	if((idTecla == 116) || (idTecla >= 37 && idTecla <= 40) || (idTecla == 8) || (idTecla == 9) || (idTecla == 46) || (idTecla == 190) || (idTecla == 194)){
 		return true;
 	}
 	if(idTecla < 48 || idTecla > 57){
@@ -73,11 +73,9 @@ function validarCliente(idCampo){
 function  mostrar(idCampo){
 	campo = document.getElementById(idCampo);
 	campo.style.visibility = "visible";
-	
 }
 
 function  esconder(idCampo){
 	campo = document.getElementById(idCampo);
 	campo.style.visibility = "hidden";
-	
 }

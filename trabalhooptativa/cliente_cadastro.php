@@ -1,4 +1,9 @@
 <?php
+	session_start();
+	
+	if(!(isset($_SESSION["administrador"]) == "logado"))
+		header("Location: index.php?logar=nao");
+
 	/*agora igualmente as variaveis de POST eu posso pegar do mesmo jeito as variáves por GET
 	e lembre-se do video do professor, variáves por GET não devem ser usada para nada que tenha segurança no meio. só para controle*/
 	$cadastrado = isset($_GET['cadastrado'])? $_GET['cadastrado'] 	: NULL;
@@ -16,7 +21,7 @@
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>Inserir Cliente</title>
 		<style type="text/css">
 		<!--
@@ -33,9 +38,9 @@
  <p>Nome
 <input name="tf_nome" type="text" id="tf_nome" size="40" />
  Telefone
-<input name="tf_telefone" type="text" id="tf_telefone" size="18" maxlength="14" />
+<input name="tf_telefone" type="text" id="tf_telefone" size="18" maxlength="14" onKeyDown="javascript: return validarTelefone('tf_telefone', event)"/>
 IP  
-<input name="tf_ip" type="text" id="tf_ip" size="20" maxlength="15"/>
+<input name="tf_ip" type="text" id="tf_ip" size="20" maxlength="15" onKeyDown="javascript: return validarIP('tf_ip', event)"/>
  </p>
   <p>
 Endere&ccedil;o</p>
