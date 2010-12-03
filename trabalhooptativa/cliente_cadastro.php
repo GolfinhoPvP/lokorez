@@ -34,9 +34,10 @@
 	
 	<body >
 		<?php echo($mensagem);?><!-- IMPRIMINDO A MENSAGEM PARA O USUÁRIO -->
-<form id="formulario_cliente" name="formulario_cliente" method="post" action="cliente_salvar.php" onSubmit="javascript: return validarCliente('formulario_cliente');">
+        <a href="desconectar.php">Desconectar</a>        
+        <form id="formulario_cliente" name="formulario_cliente" method="post" action="cliente_salvar.php" onSubmit="javascript: return validarCliente('formulario_cliente');">
  <p>Nome
-<input name="tf_nome" type="text" id="tf_nome" size="40" />
+<input name="tf_nome" type="text" id="tf_nome" size="40"/>
  Telefone
 <input name="tf_telefone" type="text" id="tf_telefone" size="18" maxlength="14" onKeyDown="javascript: return validarTelefone('tf_telefone', event)"/>
 IP  

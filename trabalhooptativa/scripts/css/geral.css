@@ -1,6 +1,6 @@
 /* CSS Document */
-div{
-	background-color:#000000;
+body{
+	background-color:#999999;
 }
 
 .teste{
@@ -13,3 +13,69 @@ div{
 	height: 0px;
 }
 
+.texto1{
+	font-size:12px;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+.texto2{
+	font-size:12px;
+	color:#000000;
+	font-weight:bold;
+}
+
+.texto3{
+	font-size:12px;
+	color:#FF0000;
+	font-weight:bold;
+}
+
+
+#divBox{
+	position:absolute;
+	left: 23px;
+	top: 56px;
+}
+
+#divLog{
+	position:absolute;
+	left: 261px;
+	top: 135px;
+	height: 152px;
+	width: 320px;
+}
+
+#divRac{
+	position:absolute;
+	left: 40px;
+	top: 76px;
+	width: 133px;
+	height: 62px;
+}
+
+#divLabel{
+	position:absolute;
+	left: 166px;
+	top: 324px;
+	width: 484px;
+}
+
+#divLogo{
+	position:absolute;
+	left: 529px;
+	top: 0px;
+}
+
+#divMSG{
+	position:absolute;
+	left: 20px;
+	top: -28px;
+	width: 292px;
+}
+
+#divTela{
+	position:absolute;
+	left: 0px;
+	top: 0px;
+}
