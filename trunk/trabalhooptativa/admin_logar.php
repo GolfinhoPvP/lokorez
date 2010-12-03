@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	include_once("classes/Conexao.class.php");
 	
 	$nome 	= isset($_POST['tf_nome']) ? $_POST['tf_nome'] : NULL;
@@ -12,6 +14,8 @@
 	$comandoSQL = "SELECT * FROM admin WHERE admin_nome='$dados[0]' AND admin_senha='$dados[1]'";
 	
 	if($conexao->contadorDeResultado($comandoSQL) > 0){
+		$_SESSION["administrador"] = "logado";
+		
 		/* Essa funçaõ header redireciona para qualquer lugar
 		aogra eu vou passar uma variável por GET via URL
 		é feito assim, ex: cliente_cadastro.php eu botaria um ? para
@@ -19,6 +23,7 @@
 		ficaria assim cliente_cadastro.php?cadastrado=nao*/
 		header("Location: cliente_cadastro.php?logar=sim");
 	}else{
+		$_SESSION["administrador"] = "invalido";
 		header("Location: index.php?logar=nao");
 	}
 ?>
