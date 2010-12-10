@@ -1,4 +1,4 @@
-<?php
+<?php /*@rot.fms#*/
 	session_start();
 	
 	//include("fpdf16/fpdf.php");
@@ -20,7 +20,7 @@
 			$temp1 	= explode("-",$this->date1);
 			$temp2 	= explode("-",$this->date2);
 			$diff 	= $this->dateCounterDiff($this->date1,$this->date2);
-			if(!checkdate($temp1[1],$temp1[0],$temp1[2]) or !checkdate($temp2[1],$temp2[0],$temp2[2]) or ($diff > 1200)){
+			if(!checkdate($temp1[1],$temp1[0],$temp1[2]) or !checkdate($temp2[1],$temp2[0],$temp2[2]) or ($diff > 1200) or ($diff < 0)){
 				header("Location: ../index.php?date=false");
 				die();
 			}
@@ -38,6 +38,8 @@
 			$date = explode("-",$this->date1);
 			
 			echo('<table><tr><td><a href="../index.php">Clique aqui para gerar novos contracheques</a></td><td width="250"><p onclick="javascript: window.print();" align="center">Imprimir<br/><img src="../images/impressora.png" width="35" height="35" style="cursor:pointer";/></p></td><td><a href="../actions/Logout.class.php">Desconectar</a></td></tr></table><br/>');
+			
+			die($this->date1." ".$this->date2." ".$diff);
 			
 			for($x=0; $x < $c; $x++){
 				if(!($result = $connect->execute("SELECT * FROM Calculos cl INNER JOIN Cadastros cd ON cl.matricula = cd.matricula INNER JOIN Lotacoes lo ON cd.lotacao = lo.lotacao INNER JOIN Cargos cg ON cd.cargo = cg.cargo INNER JOIN Pessoal ps	ON cd.matricula = ps.matricula INNER JOIN Eventos ev ON cl.eve_codigo = ev.codigo_eve WHERE cl.matricula = '".$_SESSION["user"]."' AND cl.data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31' ORDER BY cl.eve_codigo")))
