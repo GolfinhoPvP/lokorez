@@ -1,0 +1,323 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="cea1ed30-5f8e-4eea-9c2a-d5666a04ef91" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DW- Deputados</ID>
+  <Name>DW- Deputados</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>DW- Deputados</DataSourceID>
+  <Schema>
+    <xs:schema id="DW-_x0020_Deputados" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="DW-_x0020_Deputados" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="ebd1efe3-689f-47db-adf5-d59aeb4a0cb0">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_ano" msprop:FriendlyName="ano" msprop:DbSchemaName="dbo" msprop:DbTableName="ano" msprop:design-time-name="3bce6807-f188-4d1c-a102-beebf0ac16b2" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ano_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="ano_codigo" msprop:DbColumnName="ano_codigo" msprop:design-time-name="d1297a86-5f8b-4ee5-b75d-18fabccc3fa1" type="xs:int" />
+                  <xs:element name="ano_descricao" msprop:FriendlyName="ano_descricao" msprop:DbColumnName="ano_descricao" msprop:design-time-name="1de9e8be-a11b-4d99-9b1d-5b5a4ed9b5d9" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_candidato" msprop:FriendlyName="candidato" msprop:DbSchemaName="dbo" msprop:DbTableName="candidato" msprop:design-time-name="599f6895-1746-492f-8de6-eebef3f44d6f" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="cand_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="cand_codigo" msprop:DbColumnName="cand_codigo" msprop:design-time-name="02adffb9-9784-4c3e-90ef-eafc58792269" type="xs:int" />
+                  <xs:element name="sexo_codigo" msprop:FriendlyName="sexo_codigo" msprop:DbColumnName="sexo_codigo" msprop:design-time-name="fd3d64fa-74a1-4cfc-b870-bd3181c89fb7" type="xs:int" />
+                  <xs:element name="situ_codigo" msprop:FriendlyName="situ_codigo" msprop:DbColumnName="situ_codigo" msprop:design-time-name="0be8d2bc-3ff9-4e97-8246-c4092b7aae90" type="xs:int" />
+                  <xs:element name="part_codigo" msprop:FriendlyName="part_codigo" msprop:DbColumnName="part_codigo" msprop:design-time-name="739e1bc7-577a-459f-8f22-269a88e0bfa2" type="xs:int" />
+                  <xs:element name="tipo_codigo" msprop:FriendlyName="tipo_codigo" msprop:DbColumnName="tipo_codigo" msprop:design-time-name="d1ef0d97-efb6-4192-9a0a-c1c23fff1a3f" type="xs:int" />
+                  <xs:element name="cand_nome" msprop:FriendlyName="cand_nome" msprop:DbColumnName="cand_nome" msprop:design-time-name="ca5ee1bf-f9b6-45a7-960e-b98751f33122" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="75" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="cand_nome_urna" msprop:FriendlyName="cand_nome_urna" msprop:DbColumnName="cand_nome_urna" msprop:design-time-name="cc08b66c-1b7c-4a37-b5c8-c7f791515997" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="45" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_coligacao" msprop:FriendlyName="coligacao" msprop:DbSchemaName="dbo" msprop:DbTableName="coligacao" msprop:design-time-name="d79e63c7-6b6c-48ae-a074-1abb09ac6e43" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="colig_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="162f6e65-5624-4800-b288-91d44ba66795" type="xs:int" />
+                  <xs:element name="uf_codigo" msprop:FriendlyName="uf_codigo" msprop:DbColumnName="uf_codigo" msprop:design-time-name="5e6fc41c-6c3e-444f-a997-5e5e324cebde" type="xs:int" />
+                  <xs:element name="colig_descricao" msprop:FriendlyName="colig_descricao" msprop:DbColumnName="colig_descricao" msprop:design-time-name="3a68a155-8753-49dd-9c5b-ed7676a8c13d" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="150" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_municipio" msprop:FriendlyName="municipio" msprop:DbSchemaName="dbo" msprop:DbTableName="municipio" msprop:design-time-name="46c88ff0-7dc9-4ab9-adf8-0a0d0ca8ba69" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="mun_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="mun_codigo" msprop:DbColumnName="mun_codigo" msprop:design-time-name="34a9df57-42d6-487b-ba11-d0f1400f9ea0" type="xs:int" />
+                  <xs:element name="mun_descricao" msprop:FriendlyName="mun_descricao" msprop:DbColumnName="mun_descricao" msprop:design-time-name="57e7ae8b-a6bd-4b96-940f-ce10b608e484" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_partido" msprop:FriendlyName="partido" msprop:DbSchemaName="dbo" msprop:DbTableName="partido" msprop:design-time-name="a42d2789-5063-4938-8a22-4321d15bc0df" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="part_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="part_codigo" msprop:DbColumnName="part_codigo" msprop:design-time-name="9a1b3f2d-96df-4b73-b0d0-aea768fb49d9" type="xs:int" />
+                  <xs:element name="uf_codigo" msprop:FriendlyName="uf_codigo" msprop:DbColumnName="uf_codigo" msprop:design-time-name="8e9e8216-979b-412a-ad06-d2803cd058cd" type="xs:int" />
+                  <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="61e0e1a2-949f-4c0c-9886-66b09d8b9ede" type="xs:int" />
+                  <xs:element name="part_sigla" msprop:FriendlyName="part_sigla" msprop:DbColumnName="part_sigla" msprop:design-time-name="92df0d61-e3d3-4db4-be8d-3289e1983a5d" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_sexo" msprop:FriendlyName="sexo" msprop:DbSchemaName="dbo" msprop:DbTableName="sexo" msprop:design-time-name="e79ad53b-4679-4fc1-b6f2-f6de47b6e24b" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="sexo_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="sexo_codigo" msprop:DbColumnName="sexo_codigo" msprop:design-time-name="1805b9bb-92e7-4591-8637-a42b219d4024" type="xs:int" />
+                  <xs:element name="sexo_descricao" msprop:FriendlyName="sexo_descricao" msprop:DbColumnName="sexo_descricao" msprop:design-time-name="9b58aa31-4ffc-431c-81da-89c025386b99" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_situacao" msprop:FriendlyName="situacao" msprop:DbSchemaName="dbo" msprop:DbTableName="situacao" msprop:design-time-name="8c21d68e-8099-4ead-9c3d-2fdffb9af8b8" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="situ_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="situ_codigo" msprop:DbColumnName="situ_codigo" msprop:design-time-name="3f6513ff-67bb-4b82-8304-bf1600a0c213" type="xs:int" />
+                  <xs:element name="situ_descricao" msprop:FriendlyName="situ_descricao" msprop:DbColumnName="situ_descricao" msprop:design-time-name="6b96621e-8e04-4d34-8ec2-1613f5c93d9c" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_tipo" msprop:FriendlyName="tipo" msprop:DbSchemaName="dbo" msprop:DbTableName="tipo" msprop:design-time-name="3f15380f-ebdb-4205-bec1-5ecac2752e53" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="tipo_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="tipo_codigo" msprop:DbColumnName="tipo_codigo" msprop:design-time-name="ae889a0c-c0ef-4eba-b362-bdb89d607f0b" type="xs:int" />
+                  <xs:element name="tipo_classe" msprop:FriendlyName="tipo_classe" msprop:DbColumnName="tipo_classe" msprop:design-time-name="9b7545f4-c291-41eb-abe9-0904fba4504f" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_uf" msprop:FriendlyName="uf" msprop:DbSchemaName="dbo" msprop:DbTableName="uf" msprop:design-time-name="467e46ad-c7de-47bb-bc8c-e36c8b485e64" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="uf_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="uf_codigo" msprop:DbColumnName="uf_codigo" msprop:design-time-name="c2ed5c5f-689a-42a6-947a-480fd0fd5e8d" type="xs:int" />
+                  <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="d32cfe74-7954-459c-87ac-6a9dd4b7ea5f" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="uf-zona_codigo" msprop:FriendlyName="uf-zona_codigo" msprop:DbColumnName="uf-zona_codigo" msprop:design-time-name="c4fcdc3c-4043-4f72-82c8-eb577134d0ed" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_uf-zona" msprop:FriendlyName="uf-zona" msprop:DbSchemaName="dbo" msprop:DbTableName="uf-zona" msprop:design-time-name="0d44b2d5-68f2-4c46-990c-e84c74d885da" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="uf-zona_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="uf-zona_codigo" msprop:DbColumnName="uf-zona_codigo" msprop:design-time-name="c3bd87a0-7c99-45d4-a49a-f681fed86949" type="xs:int" />
+                  <xs:element name="zona_codigo" msprop:FriendlyName="zona_codigo" msprop:DbColumnName="zona_codigo" msprop:design-time-name="f73b01e1-bcc6-447a-80d9-01d7d547f975" type="xs:int" />
+                  <xs:element name="uf_codigo" msprop:FriendlyName="uf_codigo" msprop:DbColumnName="uf_codigo" msprop:design-time-name="dcf7cc86-fb20-4b26-a1ee-ae989c78e157" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_votos" msprop:FriendlyName="votos" msprop:DbSchemaName="dbo" msprop:DbTableName="votos" msprop:design-time-name="fa2b676d-f9d6-491b-aaf8-a17073b22276" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="mun_codigo" msprop:FriendlyName="mun_codigo" msprop:DbColumnName="mun_codigo" msprop:design-time-name="d4d92fc8-bb20-49ff-a6c8-b65fe43fa7b3" type="xs:int" />
+                  <xs:element name="ano_codigo" msprop:FriendlyName="ano_codigo" msprop:DbColumnName="ano_codigo" msprop:design-time-name="90e816d8-d98b-4958-a82d-3315bec89248" type="xs:int" />
+                  <xs:element name="cand_codigo" msprop:FriendlyName="cand_codigo" msprop:DbColumnName="cand_codigo" msprop:design-time-name="96118bdb-1c87-4eac-a023-a3aeb8a8d87b" type="xs:int" />
+                  <xs:element name="votos" msprop:FriendlyName="votos" msprop:DbColumnName="votos" msprop:design-time-name="c05d493b-041c-4cc8-b97f-64c4172d33b2" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_zona" msprop:FriendlyName="zona" msprop:DbSchemaName="dbo" msprop:DbTableName="zona" msprop:design-time-name="e773d14a-0150-4c56-910c-0f52359cffff" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="zona_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="zona_codigo" msprop:DbColumnName="zona_codigo" msprop:design-time-name="855aeed2-1fe2-4e42-b7e8-3f5932a8446e" type="xs:int" />
+                  <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="9996a07d-f622-4a68-a5f0-f1308f10973a" type="xs:int" minOccurs="0" />
+                  <xs:element name="uf-zona_codigo" msprop:FriendlyName="uf-zona_codigo" msprop:DbColumnName="uf-zona_codigo" msprop:design-time-name="f9066c49-a763-48bf-954a-bede20dfd1f2" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_ano" />
+          <xs:field xpath="ano_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_candidato_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_candidato" />
+          <xs:field xpath="cand_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_coligacao_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_coligacao" />
+          <xs:field xpath="colig_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_municipio_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_municipio" />
+          <xs:field xpath="mun_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_partido_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_partido" />
+          <xs:field xpath="part_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_sexo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_sexo" />
+          <xs:field xpath="sexo_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_situacao_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_situacao" />
+          <xs:field xpath="situ_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_tipo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_tipo" />
+          <xs:field xpath="tipo_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_uf_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_uf" />
+          <xs:field xpath="uf_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_uf-zona_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_uf-zona" />
+          <xs:field xpath="uf-zona_codigo" />
+        </xs:unique>
+        <xs:unique name="dbo_zona_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_zona" />
+          <xs:field xpath="zona_codigo" />
+        </xs:unique>
+        <xs:keyref name="FK__zona__uf-zona_co__34C8D9D1" refer="dbo_uf-zona_Constraint1">
+          <xs:selector xpath=".//dbo_zona" />
+          <xs:field xpath="uf-zona_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__votos__mun_codig__286302EC" refer="dbo_municipio_Constraint1">
+          <xs:selector xpath=".//dbo_votos" />
+          <xs:field xpath="mun_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__votos__ano_codig__29572725" refer="Constraint1">
+          <xs:selector xpath=".//dbo_votos" />
+          <xs:field xpath="ano_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__votos__cand_codi__2A4B4B5E" refer="dbo_candidato_Constraint1">
+          <xs:selector xpath=".//dbo_votos" />
+          <xs:field xpath="cand_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__uf-zona__uf_codi__30F848ED" refer="dbo_uf_Constraint1">
+          <xs:selector xpath=".//dbo_uf-zona" />
+          <xs:field xpath="uf_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__uf-zona__zona_co__31EC6D26" refer="dbo_zona_Constraint1">
+          <xs:selector xpath=".//dbo_uf-zona" />
+          <xs:field xpath="zona_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__uf__uf-zona_codi__33D4B598" refer="dbo_uf-zona_Constraint1">
+          <xs:selector xpath=".//dbo_uf" />
+          <xs:field xpath="uf-zona_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__partido__uf_codi__2F10007B" refer="dbo_uf_Constraint1">
+          <xs:selector xpath=".//dbo_partido" />
+          <xs:field xpath="uf_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__partido__colig_c__2E1BDC42" refer="dbo_coligacao_Constraint1">
+          <xs:selector xpath=".//dbo_partido" />
+          <xs:field xpath="colig_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__coligacao__uf_co__300424B4" refer="dbo_uf_Constraint1">
+          <xs:selector xpath=".//dbo_coligacao" />
+          <xs:field xpath="uf_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__candidato__tipo___32E0915F" refer="dbo_tipo_Constraint1">
+          <xs:selector xpath=".//dbo_candidato" />
+          <xs:field xpath="tipo_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__candidato__sexo___2B3F6F97" refer="dbo_sexo_Constraint1">
+          <xs:selector xpath=".//dbo_candidato" />
+          <xs:field xpath="sexo_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__candidato__part___2D27B809" refer="dbo_partido_Constraint1">
+          <xs:selector xpath=".//dbo_candidato" />
+          <xs:field xpath="part_codigo" />
+        </xs:keyref>
+        <xs:keyref name="FK__candidato__situ___2C3393D0" refer="dbo_situacao_Constraint1">
+          <xs:selector xpath=".//dbo_candidato" />
+          <xs:field xpath="situ_codigo" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1" />
+  </Schema>
+</DataSourceView>

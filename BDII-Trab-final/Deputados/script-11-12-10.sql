@@ -9,6 +9,8 @@ Version
 Database		MS SQL 7 
 */
 
+/* Cria um banco com o nome "DW-Deputados"*/
+
 
 Drop table [uf-zona] 
 go
@@ -104,6 +106,7 @@ go
 Create table [uf] (
 	[uf_codigo] Integer Identity(0,1) NOT NULL,
 	[uf_sigla] Char(2) NULL,
+	[uf-zona_codigo] Integer NOT NULL,
 Primary Key  ([uf_codigo])
 ) 
 go
@@ -111,6 +114,7 @@ go
 Create table [zona] (
 	[zona_codigo] Integer Identity(0,1) NOT NULL,
 	[zona_numero] Integer NULL,
+	[uf-zona_codigo] Integer NOT NULL,
 Primary Key  ([zona_codigo])
 ) 
 go
@@ -154,6 +158,10 @@ go
 Alter table [uf-zona] add  foreign key([zona_codigo]) references [zona] ([zona_codigo]) 
 go
 Alter table [candidato] add  foreign key([tipo_codigo]) references [tipo] ([tipo_codigo]) 
+go
+Alter table [uf] add  foreign key([uf-zona_codigo]) references [uf-zona] ([uf-zona_codigo]) 
+go
+Alter table [zona] add  foreign key([uf-zona_codigo]) references [uf-zona] ([uf-zona_codigo]) 
 go
 
 

@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "integracao_base_de_dados", "integracao_base_de_dados\integracao_base_de_dados.dtproj", "{83C6C587-5924-45A5-A6D2-42C0A0E1252E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83C6C587-5924-45A5-A6D2-42C0A0E1252E}.Development|Default.ActiveCfg = Development
+		{83C6C587-5924-45A5-A6D2-42C0A0E1252E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
