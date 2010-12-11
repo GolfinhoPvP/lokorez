@@ -8,8 +8,8 @@ Author
 Version		
 Database		MS SQL 7 
 */
-
-/* Cria um banco com o nome "DW-Deputados"*/
+ 
+/* Cria um banco com o nome "DW-Deputados" */
 
 
 Drop table [uf-zona] 
