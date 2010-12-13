@@ -37,7 +37,15 @@ function userLoginValider(v){
 function userSearchValider(v){
 	camp = document.getElementById(v);
 	
-	if(camp.tfDate1.value.length == 0){
+	if(camp.slDate1.value == 0){
+		alert("Informe um mês.");
+		camp.slDate1.focus();
+		return false;
+	}if(camp.slDate2.value == 0){
+		alert("Informe um mês.");
+		camp.slDate2.focus();
+		return false;
+	}else if(camp.tfDate1.value.length == 0){
 		alert("Informe uma data inicial.");
 		camp.tfDate1.focus();
 		return false;
@@ -46,34 +54,25 @@ function userSearchValider(v){
 		camp.tfDate2.focus();
 		return false;
 	}
-	return camp.submit();
-}
-
-function dateValider(v, e){
-	keyID = (window.event) ? event.keyCode : e.keyCode;
-	//alert(keyID);
-	if(keyID != 8){
-		if((keyID == 116) || (keyID >= 37 && keyID <= 40)){
-			return true;
-		}
-		if(keyID < 48 || keyID > 57){
-			if(keyID < 96 || keyID > 105){
-				return false;
-			}
-		}
-		camp = document.getElementById(v);
-		if(camp.value.length == 2 || camp.value.length == 5){
-			camp.value = camp.value + "-";
-		}
+	
+	if(camp.tfDate1.value > camp.tfDate2.value){
+		alert("A primeira data deve ser menor que a segunda.");
+		camp.tfDate1.focus();
+		return false;
 	}
-	return true;
+
+	return camp.submit();
 }
 
 function dateVerifier(v){
 	camp = document.getElementById(v);
 	
-	if(camp.tfDate.value.length == 0){
-		alert("Insira uma data!");
+	if(camp.slDate.value.length == 0){
+		alert("Insira um mês!");
+		camp.slDate.focus();
+		return false;
+	}else if(camp.tfDate.value.length == 0){
+		alert("Insira um ano!");
 		camp.tfDate.focus();
 		return false;
 	}
@@ -118,4 +117,17 @@ function folhaValider(v){
 		camp.tdDescricao.focus();
 		return false;
 	}
+}
+
+function onlyNums(v, e){
+	keyID = (window.event) ? event.keyCode : e.keyCode;
+	if((keyID == 116) || (keyID >= 37 && keyID <= 40) || (keyID == 8) || (keyID == 9)){
+		return true;
+	}
+	if(keyID < 48 || keyID > 57){
+		if(keyID < 96 || keyID > 105){
+			return false;
+		}
+	}
+	return true;
 }

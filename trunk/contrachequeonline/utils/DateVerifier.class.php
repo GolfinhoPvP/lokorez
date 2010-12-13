@@ -4,12 +4,17 @@
 	class DateVerifier{
 	
 		private $dateUser = NULL;
+		private $monthUser = NULL;
 		private $uploadDirectory = "../uploads/";
 		private $dirName = NULL;
 		
 		function __construct(){
 			//receinving and striping the variables
+			$this->monthUser = isset($_POST["slDate"]) ? $_POST["slDate"] : NULL;
 			$this->dateUser = isset($_POST["tfDate"]) ? $_POST["tfDate"] : NULL;
+			
+			$this->dateUser = "01-".$this->monthUser."-".$this->dateUser;
+			
 			$this->dirName = $this->dirNameMake();
 			
 			$temp = explode("-",$this->dateUser);
@@ -20,6 +25,9 @@
 			if($this->dirVerifier($this->dirName)){
 				header("Location: ../importDocuments.php?dir=yet");
 			}else{
+				if(isset($_SESSION["path"])){
+					rmdir("../uploads/".$_SESSION["path"]);
+				}
 				mkdir($this->uploadDirectory.$this->dirName, 0777);
 				header("Location: ../importDocuments.php?dir=true");
 			}

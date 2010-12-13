@@ -14,6 +14,10 @@
 	if(/*(isset($_GET["ok"]) == "true") && */isset($_SESSION["user"])){
 		$login	= "hidden";
 		$search = "visible";
+		if(isset($_GET["found"])){
+			$message = "Nenhum contracheque a seu respeito foi encontrado.";
+			$messageVs = "visible";
+		}
 	}else{
 		if(isset($_GET["ok"])){
 			$message = "Acesso negado, insira corretamente suas informações.";
@@ -84,7 +88,7 @@
 					  <td><input name="tfPassword" type="password" id="tfPassword" size="20" maxlength="25" /></td>
 				    </tr>
 					<tr>
-					  <td class="words2">033311 - Wbn26</td>
+					  <td class="words2">033311 - Wbn26</br>08781X - Rby90</td>
 					  <td><div align="left"><br />
 				        <input name="connect" type="submit" id="connect" value="Conectar" />
 					    </div></td></tr>
@@ -115,10 +119,10 @@
 
 
 <div id="divBoxLogged" style="visibility:<?php echo($search); ?>">
-  <table width="825" border="0" cellpadding="0" cellspacing="0">
+  <table width="868" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="74"><img src="images/box_l.png" /></td>
-      <td width="514" background="images/box_c.png">
+      <td width="601" background="images/box_c.png">
           <div align="center" class="wordsLabel2">FMS Contracheque On-line </div>
           <br />
 		  <table width="100%" border="0">
@@ -138,18 +142,54 @@
 			  </tr>
 			  <tr>
 				<td colspan="3"><br /><br /><form action="utils/ContrachequeMaker.class.php" method="post" name="search" class="words2" id="search" onsubmit="javascript: return userSearchValider('search');">Contracheques a partir de:
-        <input name="tfDate1" type="text" id="tfDate1" size="15" maxlength="10" onkeydown="javascript: return dateValider('tfDate1', event);"/>
+                    <label>
+                    <select name="slDate1" id="slDate1">
+                      <option value="0" selected="selected">---</option>
+                      <option value="1">janeiro</option>
+                      <option value="2">fevereiro</option>
+                      <option value="3">mar&ccedil;o</option>
+                      <option value="4">abril</option>
+                      <option value="5">maio</option>
+                      <option value="6">junho</option>
+                      <option value="7">julho</option>
+                      <option value="8">agosto</option>
+                      <option value="9">setembro</option>
+                      <option value="10">outubro</option>
+                      <option value="11">novembro</option>
+                      <option value="12">dezembro</option>
+                    </select>
+                    de
+                    </label>
+                    <input name="tfDate1" type="text" id="tfDate1" size="6" maxlength="4" onkeydown="javascript: return onlyNums('tfDate1', event);"/>
 
         at&eacute;
 
-  <input name="tfDate2" type="text" id="tfDate2" size="15" maxlength="10" onkeydown="javascript: return dateValider('tfDate2', event);"/>
+        <label>
+        <select name="slDate2" id="slDate2">
+			<option value="0" selected="selected">---</option>
+                      <option value="1">janeiro</option>
+                      <option value="2">fevereiro</option>
+                      <option value="3">mar&ccedil;o</option>
+                      <option value="4">abril</option>
+                      <option value="5">maio</option>
+                      <option value="6">junho</option>
+                      <option value="7">julho</option>
+                      <option value="8">agosto</option>
+                      <option value="9">setembro</option>
+                      <option value="10">outubro</option>
+                      <option value="11">novembro</option>
+                      <option value="12">dezembro</option>
+        </select>
+        de
+        </label>
+        <input name="tfDate2" type="text" id="tfDate2" size="6" maxlength="5" onkeydown="javascript: return onlyNums('tfDate2', event);"/>
         .
   <input name="search" type="submit" id="search" value="Pesquisar" />
 
       </form></td>
 			  </tr>
 		</table>	  </td>
-      <td width="237"><img src="images/box_r.png" /></td>
+      <td width="193"><img src="images/box_r.png" /></td>
     </tr>
   </table>
 </div>

@@ -102,13 +102,28 @@
         <table width="100%" height="182">
           <tr>
             <td width="640"><p class="wordsLabel2">Confirme a data para valida&ccedil;&atilde;o das tabelas: </p>
-                <p><span class="wordsLabel">Obs:. Esta data &eacute; referente a validade das tabelas, n&atilde;o ao dia atual.<br />
-                  Exemplo: Se as tabelas forem do mes de abril de 2008, insira uma data qualquer do mes de abril de 2008 ex: 14-04-2008 </span><br />
+                <p>
                   <span class="words1">Obs:. A data &eacute; muito importante, principalmente o m&ecirc;s e o ano,  que em hip&oacute;tese alguma podem estar errados!<br />
                   Obs:. O dia n&atilde;o &eacute; usado para efeito de c&aacute;lculos, por isso insignificante. </span></p>
               <form id="date" name="date" method="post" action="utils/DateVerifier.class.php" onsubmit="javascript: return dateVerifier('date')">
                   <label>
-                  <input name="tfDate" type="text" id="tfDate" size="12" maxlength="10" onkeydown="javascript: return dateValider('tfDate', event);"/>
+                  <select name="slDate" id="slDate">
+				  	<option value="0" selected="selected">---</option>
+                      <option value="1">janeiro</option>
+                      <option value="2">fevereiro</option>
+                      <option value="3">mar&ccedil;o</option>
+                      <option value="4">abril</option>
+                      <option value="5">maio</option>
+                      <option value="6">junho</option>
+                      <option value="7">julho</option>
+                      <option value="8">agosto</option>
+                      <option value="9">setembro</option>
+                      <option value="10">outubro</option>
+                      <option value="11">novembro</option>
+                      <option value="12">dezembro</option>
+                  </select>
+                  de
+                  <input name="tfDate" type="text" id="tfDate" size="6" maxlength="4" onkeydown="javascript: return onlyNums('tfDate', event);"/>
                   </label>
                   <label>
                   <input name="confirmDate" type="submit" id="confirmDate" value="Confirmar Data" />
