@@ -1,0 +1,15 @@
+diferença do FDSC para o FMSA
+
+SOBREGRAT, ASSISTENCIveêm depois de PREVIDENC
+
+FMSN não tem o VAL_NIV, VENCIMENTO
+
+o REM_BRUTO é trocado com o PERMANENTE
+
+
+diferença do FDSC para o FPUM
+
+ate o Tipo 27 é igual depois aparece BANCO 28 e BANCO1 29
+igual até VAL_VER 30 -> 37
+
+Banco cai 7 igula mais três pos
