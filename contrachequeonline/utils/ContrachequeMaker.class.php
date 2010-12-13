@@ -8,6 +8,8 @@
 	class ContrachequeMaker{
 		private $date1;
 		private $date2;
+		private $month1;
+		private $month2;
 		function __construct(){
 		
 			$variables = new Variables();
@@ -16,6 +18,11 @@
 						
 			$this->date1 = $connect->antiInjection(isset($_POST["tfDate1"]) ? $_POST["tfDate1"] : NULL);
 			$this->date2 = $connect->antiInjection(isset($_POST["tfDate2"]) ? $_POST["tfDate2"] : NULL);
+			$this->month1 = $connect->antiInjection(isset($_POST["slDate1"]) ? $_POST["slDate1"] : NULL);
+			$this->month2 = $connect->antiInjection(isset($_POST["slDate2"]) ? $_POST["slDate2"] : NULL);
+			
+			$this->date1 = "01-".$this->month1."-".$this->date1;
+			$this->date2 = "31-".$this->month2."-".$this->date2;
 			
 			$temp1 	= explode("-",$this->date1);
 			$temp2 	= explode("-",$this->date2);
@@ -39,7 +46,7 @@
 			
 			echo('<table><tr><td><a href="../index.php">Clique aqui para gerar novos contracheques</a></td><td width="250"><p onclick="javascript: window.print();" align="center">Imprimir<br/><img src="../images/impressora.png" width="35" height="35" style="cursor:pointer";/></p></td><td><a href="../actions/Logout.class.php">Desconectar</a></td></tr></table><br/>');
 			
-			die($this->date1." ".$this->date2." ".$diff);
+			$cont = 0;
 			
 			for($x=0; $x < $c; $x++){
 				if(!($result = $connect->execute("SELECT * FROM Calculos cl INNER JOIN Cadastros cd ON cl.matricula = cd.matricula INNER JOIN Lotacoes lo ON cd.lotacao = lo.lotacao INNER JOIN Cargos cg ON cd.cargo = cg.cargo INNER JOIN Pessoal ps	ON cd.matricula = ps.matricula INNER JOIN Eventos ev ON cl.eve_codigo = ev.codigo_eve WHERE cl.matricula = '".$_SESSION["user"]."' AND cl.data BETWEEN '".$date[2]."-".$date[1]."-01' and '".$date[2]."-".$date[1]."-31' ORDER BY cl.eve_codigo")))
@@ -53,6 +60,8 @@
 						$date[1] += 1;
 					}
 					continue;
+				}else{
+					$cont++;
 				}
 				
 				$row = mysql_fetch_array($result);
@@ -230,6 +239,11 @@
 				}else{
 					$date[1] += 1;
 				}
+			}
+			
+			if($cont == 0){
+				header("Location: ../index.php?found=false");
+				die();
 			}
 		}
 		

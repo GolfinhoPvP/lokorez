@@ -24,9 +24,16 @@
 -->
 </style>
 <script language="javascript" src="javascript/functions.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+	window.onload = function(){
+		diff = ((screen.width - 800)/2);
+		document.getElementById("userFrame").style.left = diff+"px";
+	}
+</script>
 </head>
 
 <body>
+<div id="userFrame">
 <div id="divBox">
 			<table width="798" border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -75,7 +82,7 @@
   <p align="center">Web Developer: aj.alves@live.com, Antonio Jos&eacute; de O. Alves<br />
   &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido</p>
 </div>
-
+</div>
 
 </body>
 </html>
