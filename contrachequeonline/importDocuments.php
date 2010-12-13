@@ -70,7 +70,35 @@
 		<script language="javascript" type="text/javascript">
 			window.onload = function(){
 				/*document.date.tfDate.value = getUserDate();*/
-				tableShowManager("divBoxData", false);
+				dir = upl = tab = null;
+				
+				var vars = new String(document.location.search);
+				vars = vars.substr(1);
+				list = vars.split("&");
+				for(x=0; x < list.length; x++){
+					listAux = list[x].split("=");
+					eval(listAux[0]+" = '"+listAux[1]+"';");
+				}
+				
+				if(dir != null){
+					tableShowManager("divBoxCadCalc", false);
+				}else if(tab != null){
+					if(tab == "dcr"){
+						tableShowManager("divBoxDCR", false);
+					}else if(tab == "dlt"){
+						tableShowManager("divBoxDLT", false);
+					}else if(tab == "especial"){
+						tableShowManager("divBoxEspecial", false);
+					}else if(tab == "eventos"){
+						tableShowManager("divBoxEventos", false);
+					}else if(tab == "folha"){
+						tableShowManager("divBoxFolha", false);
+					}else if(tab == "calculo" || tab == "cadastro"){
+						tableShowManager("divBoxCadCalc", false);
+					}
+				}else{
+					tableShowManager("divBoxData", false);
+				}
 			}
 			
 			function tableShowManager(t, n){
