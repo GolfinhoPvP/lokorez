@@ -69,7 +69,7 @@
 		<script language="javascript" src="javascript/functions.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
 			window.onload = function(){
-				document.date.tfDate.value = getUserDate();
+				/*document.date.tfDate.value = getUserDate();*/
 				tableShowManager("divBoxData", false);
 			}
 			
@@ -122,9 +122,9 @@
                       <option value="11">novembro</option>
                       <option value="12">dezembro</option>
                   </select>
-                  de
+                  de</label>
                   <input name="tfDate" type="text" id="tfDate" size="6" maxlength="4" onkeydown="javascript: return onlyNums('tfDate', event);"/>
-                  </label>
+                  
                   <label>
                   <input name="confirmDate" type="submit" id="confirmDate" value="Confirmar Data" />
                   </label>
