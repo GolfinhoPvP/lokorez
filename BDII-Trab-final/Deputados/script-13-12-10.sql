@@ -1,6 +1,6 @@
 /*
 Created		11/12/2010
-Modified		13/12/2010
+Modified		13/8/2010
 Project		
 Model		
 Company		
@@ -8,7 +8,6 @@ Author
 Version		
 Database		MS SQL 7 
 */
-
 
 use [DW-Deputados]
 
@@ -30,9 +29,7 @@ Drop table [cargo]
 go
 Drop table [coligacao] 
 go
-Drop table [uf] 
-go
-Drop table [macro] 
+Drop table [uf]
 go
 Drop table [zona] 
 go
@@ -50,6 +47,7 @@ go
 Create table [municipio] (
 	[mun_codigo] Integer NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
+	[zona_numero] Integer NOT NULL,
 	[mun_descricao] Varchar(100) NULL,
 Primary Key  ([mun_codigo])
 ) 
@@ -93,6 +91,7 @@ Create table [partido] (
 	[part_codigo] Integer NOT NULL,
 	[colig_codigo] Varchar(50) NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
+	[zona_numero] Integer NOT NULL,
 	[part_sigla] Varchar(10) NULL,
 Primary Key  ([part_codigo],[colig_codigo])
 ) 
@@ -100,22 +99,23 @@ go
 
 Create table [coligacao] (
 	[colig_codigo] Varchar(50) NOT NULL,
-	[colig_descricao] Varchar(150) NULL,
 	[uf_sigla] Char(2) NOT NULL,
+	[zona_numero] Integer NOT NULL,
+	[colig_descricao] Varchar(150) NULL,
 Primary Key  ([colig_codigo])
 ) 
 go
 
 Create table [uf] (
 	[uf_sigla] Char(2) NOT NULL,
-Primary Key  ([uf_sigla])
+	[zona_numero] Integer NOT NULL,
+Primary Key  ([uf_sigla],[zona_numero])
 ) 
 go
 
 Create table [zona] (
 	[zona_numero] Integer NOT NULL,
-	[uf_sigla] Char(2) NOT NULL,
-Primary Key  ([zona_numero],[uf_sigla])
+Primary Key  ([zona_numero])
 ) 
 go
 
@@ -141,13 +141,13 @@ Alter table [candidato] add  foreign key([part_codigo],[colig_codigo]) reference
 go
 Alter table [partido] add  foreign key([colig_codigo]) references [coligacao] ([colig_codigo]) 
 go
-Alter table [coligacao] add  foreign key([uf_sigla]) references [uf] ([uf_sigla]) 
+Alter table [coligacao] add  foreign key([uf_sigla],[zona_numero]) references [uf] ([uf_sigla],[zona_numero]) 
 go
-Alter table [municipio] add  foreign key([uf_sigla]) references [uf] ([uf_sigla]) 
+Alter table [municipio] add  foreign key([uf_sigla],[zona_numero]) references [uf] ([uf_sigla],[zona_numero]) 
 go
-Alter table [partido] add  foreign key([uf_sigla]) references [uf] ([uf_sigla]) 
+Alter table [partido] add  foreign key([uf_sigla],[zona_numero]) references [uf] ([uf_sigla],[zona_numero]) 
 go
-Alter table [zona] add  foreign key([uf_sigla]) references [uf] ([uf_sigla]) 
+Alter table [uf] add  foreign key([zona_numero]) references [zona] ([zona_numero]) 
 go
 Alter table [candidato] add  foreign key([cargo_codigo]) references [cargo] ([cargo_codigo]) 
 go

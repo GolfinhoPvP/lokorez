@@ -31,8 +31,6 @@ Drop table [coligacao]
 go
 Drop table [uf] 
 go
-Drop table [macro] 
-go
 Drop table [zona] 
 go
 
