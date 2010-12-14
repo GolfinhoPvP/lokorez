@@ -1,0 +1,75 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>analise_cubo_deputados</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>YZppdhtLWtk8Fp8EyQbqdQ==14/8/2010 16:45:2414/8/2010 16:24:36</TimeStamp>
+        <ID>
+          <String>DW- Deputados</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>c6YmrjJEtyO8cR1UNFXCAA==14/8/2010 16:41:1214/8/2010 16:25:04</TimeStamp>
+        <ID>
+          <String>DW- Deputados</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>HBODqL+ogAg6syoNMQETow==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <ID>
+          <String>Candidato</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>7m1lr6yWJFWvsnedfu5yEw==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <ID>
+          <String>Ano</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>PUpjB4IR5M0RhDcLQzcv0w==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <ID>
+          <String>Municipio</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>JL9IiqW+4uuoSop/uAgVmw==14/8/2010 16:42:0314/8/2010 16:42:03g67Co3fpMm0r15XwFLGxZw==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <ID>
+          <String>DW- Deputados</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>949KR0V8JOoo+o8hr79pHg==11/12/2010 10:59:3011/12/2010 10:59:28</TimeStamp>
+      <ID>
+        <String>analise_cubo_deputados</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2010-08-14T19:45:35Z</LastDeployed>
+</DeploymentSnapshot>

@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="bde70276-9e88-4de8-9a58-fe5de1797bfc" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="bfd77eda-93dc-4951-8896-6548d2857035" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Candidato</ID>
   <Name>Candidato</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,56 +42,101 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="945238f9-24b7-4aeb-9b89-022bfe865e25">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5ea0bd79-2349-4103-b104-b1e8d9c8e6a9">
     <DataSourceViewID>DW- Deputados</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="cdee29a5-ee1d-4690-8214-42f582d59dc4">
+  <ErrorConfiguration dwd:design-time-name="34bb4f2e-42b1-4269-a81e-a7444ef83e5c">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="ccdf60cc-2e64-4eca-bd43-92dcc85d4633">
-      <ID>Cand Codigo</ID>
-      <Name>Cand Codigo</Name>
+    <Attribute dwd:design-time-name="2d6cec0f-b71a-4a75-8980-86020fb5e34f">
+      <ID>Cand Nome Urna</ID>
+      <Name>Cand Nome Urna</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ce4fcdf5-0886-4e24-bceb-82da529dc8a4">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="55ca3d0e-c9b0-49c4-ae85-e0cb07939251">
+        <KeyColumn dwd:design-time-name="9ac69109-bebb-46d2-a3ac-94a0c013c99a">
+          <DataType>WChar</DataType>
+          <DataSize>45</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bd654211-9b8a-4f48-8c1e-4829b2edd3a8">
             <TableID>dbo_candidato</TableID>
-            <ColumnID>cand_codigo</ColumnID>
+            <ColumnID>cand_nome_urna</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="955bb223-ab97-4208-b7d4-fd2600aee464">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b6768e7b-c22b-48ee-b268-ec97e58f6966">
+            <TableID>dbo_candidato</TableID>
+            <ColumnID>cand_numero</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="b02a5583-e1df-433e-8433-f7a2149ab5cf">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fd3c4c0c-8cab-4d7c-a16b-2b7e52b349f2">
+            <TableID>dbo_candidato</TableID>
+            <ColumnID>part_codigo</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="658ff6fa-124b-4acb-9c18-afe657e1e4ed">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="35f1baf6-8759-4cf2-8187-b8ee0a531731">
+            <TableID>dbo_candidato</TableID>
+            <ColumnID>colig_codigo</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="4b351d8f-f6cc-4662-a4f7-d809cf2566b6">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9707355a-1402-488e-a024-3736cf432efd">
+            <TableID>dbo_candidato</TableID>
+            <ColumnID>uf_sigla</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="851aa9e4-a0e1-4889-9779-a134d0c59c9d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="25a14e52-2410-4a0d-994f-21c6ab8833ae">
+            <TableID>dbo_candidato</TableID>
+            <ColumnID>zona_numero</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn dwd:design-time-name="a368a766-6c47-4812-8d4d-7afa1ebcdb0c">
+        <DataType>WChar</DataType>
+        <DataSize>45</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="641adfbf-dad6-49e1-bc4e-5b213f759c2e">
+          <TableID>dbo_candidato</TableID>
+          <ColumnID>cand_nome_urna</ColumnID>
+        </Source>
+      </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="8b012c58-be7f-41c9-af6d-9c43f61e1ac8">
+        <AttributeRelationship dwd:design-time-name="2d56bae8-8613-4aec-be38-299147389302">
           <AttributeID>Situ Codigo</AttributeID>
           <Name>Situ Codigo</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="cb8ca196-2767-4f15-990f-85bd50b99bf8">
+        <AttributeRelationship dwd:design-time-name="07168f77-ee31-44fc-88b9-5741a53e0282">
+          <AttributeID>Cargo Codigo</AttributeID>
+          <Name>Cargo Codigo</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fc0db66f-56c4-4ead-b31b-04add6bfb3bc">
           <AttributeID>Part Codigo</AttributeID>
           <Name>Part Codigo</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="5aa7fb79-29ef-4ed2-9d34-be26cb736cc2">
+        <AttributeRelationship dwd:design-time-name="26156ef0-5071-47b0-986a-e9306baf4486">
           <AttributeID>Sexo Codigo</AttributeID>
           <Name>Sexo Codigo</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="25b2d919-64fa-4fac-ab7a-2472415dd85f">
-          <AttributeID>Tipo Codigo</AttributeID>
-          <Name>Tipo Codigo</Name>
-        </AttributeRelationship>
       </AttributeRelationships>
-      <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="861274a4-b06f-4d3c-a51b-fea7a4297fdc">
+    <Attribute dwd:design-time-name="6141cc9e-a3f4-46be-b82b-38ed4266c063">
       <ID>Situ Codigo</ID>
       <Name>Situ Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="1eb699c7-7364-4159-9e98-5d74bd022bf4">
+        <KeyColumn dwd:design-time-name="b6763efc-0031-43dd-b4ca-0b9aacafe1bf">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c62fec81-b215-48c5-8020-ca4d80903151">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7d092e2b-b84f-4d5d-b4a5-6ab5fa729548">
             <TableID>dbo_situacao</TableID>
             <ColumnID>situ_codigo</ColumnID>
           </Source>
@@ -99,123 +144,154 @@
       </KeyColumns>
       <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="29207922-c4ad-45e8-9010-7f9780b9936b">
+    <Attribute dwd:design-time-name="9bf6053a-fd94-47e5-85dc-fc4628dee693">
+      <ID>Cargo Codigo</ID>
+      <Name>Cargo Codigo</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c486100a-e8aa-447c-9537-4b86c7122537">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b1825828-baaa-40f4-87f9-362e83c01146">
+            <TableID>dbo_cargo</TableID>
+            <ColumnID>cargo_codigo</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+    </Attribute>
+    <Attribute dwd:design-time-name="e44c0ba3-18fe-4cc5-94fc-a60e1a7ce471">
       <ID>Part Codigo</ID>
       <Name>Part Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="efb3a5c5-c92a-476e-a115-3392c262d3c7">
+        <KeyColumn dwd:design-time-name="7de597ac-2cf1-48ae-8a8e-dfe77035a41f">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5d291ef9-9665-4417-aae1-d5faa76bdb81">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b5a3adbc-ba69-4351-86b3-257cbaf98f5e">
             <TableID>dbo_partido</TableID>
             <ColumnID>part_codigo</ColumnID>
           </Source>
         </KeyColumn>
+        <KeyColumn dwd:design-time-name="3f0bdfe1-eaf3-4c15-94c0-9d0840c1e668">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="14525efe-36ca-43b1-a400-cab02880b02f">
+            <TableID>dbo_partido</TableID>
+            <ColumnID>colig_codigo</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="9c5e34d9-1710-4c7b-96f5-37e3c43209de">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4d239891-bc74-4ddc-9476-79889a9a63d8">
+            <TableID>dbo_partido</TableID>
+            <ColumnID>uf_sigla</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="61ac1a42-3bc5-4b55-98ec-9e5fab4f566f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2640e390-f1b8-4db5-bb22-497154640760">
+            <TableID>dbo_partido</TableID>
+            <ColumnID>zona_numero</ColumnID>
+          </Source>
+        </KeyColumn>
       </KeyColumns>
+      <NameColumn dwd:design-time-name="0fbdd613-c712-46af-b3eb-243577f2c955">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="47e609cd-af84-4234-b9a3-3113e368fe3b">
+          <TableID>dbo_partido</TableID>
+          <ColumnID>part_codigo</ColumnID>
+        </Source>
+      </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="8ba16065-a234-4c61-bdc9-025e422997f5">
+        <AttributeRelationship dwd:design-time-name="6e77e845-112a-48c6-bab5-fbd409c21e80">
           <AttributeID>Colig Codigo</AttributeID>
           <Name>Colig Codigo</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5f4e246d-9bdb-4e79-ab79-55361f5383cc">
+          <AttributeID>Uf Sigla</AttributeID>
+          <Name>Uf Sigla</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
-      <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="ceb3ce35-0d06-4902-9557-1b4ddf83d40e">
+    <Attribute dwd:design-time-name="115a39bb-95cb-4cf4-a55e-de0f452d2eb8">
       <ID>Colig Codigo</ID>
       <Name>Colig Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="4bc500c4-63ec-4102-9966-d5ca7e0cc90d">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5bdb8bbf-8050-4969-adb3-e69f3cf75528">
+        <KeyColumn dwd:design-time-name="c4b39404-b493-43bf-9af5-08afadd7b1ce">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="304bc345-1fe9-4be8-a1bf-d8d58f106b64">
             <TableID>dbo_coligacao</TableID>
             <ColumnID>colig_codigo</ColumnID>
           </Source>
         </KeyColumn>
-      </KeyColumns>
-      <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="76a57fe0-1492-4bcd-a741-6da9fefa9ac2">
-          <AttributeID>Uf Codigo</AttributeID>
-          <Name>Uf Codigo</Name>
-        </AttributeRelationship>
-      </AttributeRelationships>
-      <OrderBy>Key</OrderBy>
-    </Attribute>
-    <Attribute dwd:design-time-name="6e9285e7-f5bb-4bd5-b1a0-2ad654f9cb4b">
-      <ID>Uf Codigo</ID>
-      <Name>Uf Codigo</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="c776ba56-7514-41f8-9d09-a0a1c5ac2b2a">
+        <KeyColumn dwd:design-time-name="5fd28447-28bc-44e1-9abc-485c42ea7cbe">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="540008b4-e88e-4904-b907-da5a06648200">
+            <TableID>dbo_coligacao</TableID>
+            <ColumnID>uf_sigla</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="77271545-e40b-4f06-bf0f-8fad314fdccb">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0e6e9290-e1c2-4271-a3ae-9cf7ab1657e4">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="04237719-f939-457e-aabe-7545944e4476">
+            <TableID>dbo_coligacao</TableID>
+            <ColumnID>zona_numero</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="0eba39ac-00f3-4a90-a395-bcdc532b89e0">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="14f429ac-dee0-41fe-98bd-7dbd4e85bddb">
+          <TableID>dbo_coligacao</TableID>
+          <ColumnID>colig_codigo</ColumnID>
+        </Source>
+      </NameColumn>
+    </Attribute>
+    <Attribute dwd:design-time-name="a27ef665-17d1-402a-972b-4fa9c9092393">
+      <ID>Uf Sigla</ID>
+      <Name>Uf Sigla</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="291ceefd-b5b7-40e7-8471-7c54d72956e1">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55b8cd6d-1734-46d1-b72e-bc160109d4b4">
             <TableID>dbo_uf</TableID>
-            <ColumnID>uf_codigo</ColumnID>
+            <ColumnID>uf_sigla</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="1c1c161b-194a-409a-9ff7-d4a2f566958c">
-          <AttributeID>Uf-zona Codigo</AttributeID>
-          <Name>Uf-zona Codigo</Name>
+        <AttributeRelationship dwd:design-time-name="443738f1-8b33-4561-8116-7557692a8b9e">
+          <AttributeID>Zona Numero</AttributeID>
+          <Name>Zona Numero</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="01c67b9d-122f-4791-a685-4ae90b39119e">
-      <ID>Uf-zona Codigo</ID>
-      <Name>Uf-zona Codigo</Name>
+    <Attribute dwd:design-time-name="3fa95c83-ca80-4ab3-8740-3490c3c95353">
+      <ID>Zona Numero</ID>
+      <Name>Zona Numero</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ec6ddcaf-2be9-44f2-93f5-4c1c32bdab94">
+        <KeyColumn dwd:design-time-name="0d7060e0-ae52-4866-b6f7-68eab5be6523">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b2c3fd43-f88e-4d46-ad30-6436be639dac">
-            <TableID>dbo_uf-zona</TableID>
-            <ColumnID>uf-zona_codigo</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="7fbdd46c-7142-4101-a009-d843b2c63faf">
-          <AttributeID>Zona Codigo</AttributeID>
-          <Name>Zona Codigo</Name>
-        </AttributeRelationship>
-      </AttributeRelationships>
-      <OrderBy>Key</OrderBy>
-    </Attribute>
-    <Attribute dwd:design-time-name="14785431-3cf6-4fe3-b65f-230a4bb6f802">
-      <ID>Zona Codigo</ID>
-      <Name>Zona Codigo</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="88447a37-0166-4da5-8bd9-6bddc9938b35">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c1e6774b-5740-4990-b6c0-2504bdea85cb">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="786a76fd-947c-4db7-8832-b657b8322bd3">
             <TableID>dbo_zona</TableID>
-            <ColumnID>zona_codigo</ColumnID>
+            <ColumnID>zona_numero</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="7e619239-cc5e-4750-b349-473672363ace">
+    <Attribute dwd:design-time-name="9ad03e12-0d04-4b68-ae71-c8fe92d2ca4d">
       <ID>Sexo Codigo</ID>
       <Name>Sexo Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="4b75591c-3089-44b7-8956-2e0c0831d448">
+        <KeyColumn dwd:design-time-name="a59bc019-27b7-436e-9ff0-078d6a35346c">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2f1b277d-0558-411a-bd53-da7d6b102d77">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7449afe7-4216-4980-af53-807214dc9cab">
             <TableID>dbo_sexo</TableID>
             <ColumnID>sexo_codigo</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <OrderBy>Key</OrderBy>
-    </Attribute>
-    <Attribute dwd:design-time-name="c3bc106b-c3ca-4b95-aea1-f8d8db94abfc">
-      <ID>Tipo Codigo</ID>
-      <Name>Tipo Codigo</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="2c0f7ec9-8321-4a8e-bb8b-01abde7d03ad">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="89b447be-41f5-41e4-9e7e-f135fe8aa9d8">
-            <TableID>dbo_tipo</TableID>
-            <ColumnID>tipo_codigo</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
