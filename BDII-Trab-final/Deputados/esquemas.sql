@@ -1,13 +1,9 @@
 /*
-SELECT * FROM detalhe_munzona
-
-SELECT * FROM detalhe_mun
-
 SELECT * FROM vmz_candidato
 
-SELECT * FROM vm_partido
-
 SELECT * FROM uf
+
+SELECT count(*) FROM vmz_candidato
 */
 
 use [DW-Deputados]
