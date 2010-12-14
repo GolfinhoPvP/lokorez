@@ -1,6 +1,6 @@
 /*
 Created		11/12/2010
-Modified		13/8/2010
+Modified		14/8/2010
 Project		
 Model		
 Company		
@@ -29,7 +29,7 @@ Drop table [cargo]
 go
 Drop table [coligacao] 
 go
-Drop table [uf]
+Drop table [uf] 
 go
 Drop table [zona] 
 go
@@ -37,10 +37,15 @@ go
 
 Create table [votos] (
 	[mun_codigo] Integer NOT NULL,
-	[ano_codigo] Varchar(10) NOT NULL,
 	[cand_nome_urna] Varchar(45) NOT NULL,
 	[cand_numero] Integer NOT NULL,
-	[votos] Integer NULL
+	[part_codigo] Integer NOT NULL,
+	[colig_codigo] Varchar(50) NOT NULL,
+	[uf_sigla] Char(2) NOT NULL,
+	[zona_numero] Integer NOT NULL,
+	[ano_codigo] Varchar(10) NOT NULL,
+	[votos] Integer NULL,
+Primary Key  ([mun_codigo],[cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
 ) 
 go
 
@@ -49,7 +54,7 @@ Create table [municipio] (
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
 	[mun_descricao] Varchar(100) NULL,
-Primary Key  ([mun_codigo])
+Primary Key  ([mun_codigo],[uf_sigla],[zona_numero])
 ) 
 go
 
@@ -63,13 +68,15 @@ go
 Create table [candidato] (
 	[cand_nome_urna] Varchar(45) NOT NULL,
 	[cand_numero] Integer NOT NULL,
+	[part_codigo] Integer NOT NULL,
+	[colig_codigo] Varchar(50) NOT NULL,
+	[uf_sigla] Char(2) NOT NULL,
+	[zona_numero] Integer NOT NULL,
 	[sexo_codigo] Integer NOT NULL,
 	[situ_codigo] Integer NOT NULL,
-	[part_codigo] Integer NOT NULL,
 	[cargo_codigo] Integer NOT NULL,
-	[colig_codigo] Varchar(50) NOT NULL,
 	[cand_nome] Varchar(75) NULL,
-Primary Key  ([cand_nome_urna],[cand_numero])
+Primary Key  ([cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
 ) 
 go
 
@@ -93,7 +100,7 @@ Create table [partido] (
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
 	[part_sigla] Varchar(10) NULL,
-Primary Key  ([part_codigo],[colig_codigo])
+Primary Key  ([part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
 ) 
 go
 
@@ -102,7 +109,7 @@ Create table [coligacao] (
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
 	[colig_descricao] Varchar(150) NULL,
-Primary Key  ([colig_codigo])
+Primary Key  ([colig_codigo],[uf_sigla],[zona_numero])
 ) 
 go
 
@@ -127,25 +134,19 @@ Primary Key  ([cargo_codigo])
 go
 
 
-Alter table [votos] add  foreign key([mun_codigo]) references [municipio] ([mun_codigo]) 
-go
 Alter table [votos] add  foreign key([ano_codigo]) references [ano] ([ano_codigo]) 
 go
-Alter table [votos] add  foreign key([cand_nome_urna],[cand_numero]) references [candidato] ([cand_nome_urna],[cand_numero]) 
+Alter table [votos] add  foreign key([cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) references [candidato] ([cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) 
 go
 Alter table [candidato] add  foreign key([sexo_codigo]) references [sexo] ([sexo_codigo]) 
 go
 Alter table [candidato] add  foreign key([situ_codigo]) references [situacao] ([situ_codigo]) 
 go
-Alter table [candidato] add  foreign key([part_codigo],[colig_codigo]) references [partido] ([part_codigo],[colig_codigo]) 
+Alter table [candidato] add  foreign key([part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) references [partido] ([part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) 
 go
-Alter table [partido] add  foreign key([colig_codigo]) references [coligacao] ([colig_codigo]) 
-go
-Alter table [coligacao] add  foreign key([uf_sigla],[zona_numero]) references [uf] ([uf_sigla],[zona_numero]) 
+Alter table [partido] add  foreign key([colig_codigo],[uf_sigla],[zona_numero]) references [coligacao] ([colig_codigo],[uf_sigla],[zona_numero]) 
 go
 Alter table [municipio] add  foreign key([uf_sigla],[zona_numero]) references [uf] ([uf_sigla],[zona_numero]) 
-go
-Alter table [partido] add  foreign key([uf_sigla],[zona_numero]) references [uf] ([uf_sigla],[zona_numero]) 
 go
 Alter table [uf] add  foreign key([zona_numero]) references [zona] ([zona_numero]) 
 go
