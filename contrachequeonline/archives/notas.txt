@@ -13,3 +13,5 @@ ate o Tipo 27 é igual depois aparece BANCO 28 e BANCO1 29
 igual até VAL_VER 30 -> 37
 
 Banco cai 7 igula mais três pos
+
+PACS igual até 35
