@@ -19,42 +19,49 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>YZppdhtLWtk8Fp8EyQbqdQ==14/8/2010 16:45:2414/8/2010 16:24:36</TimeStamp>
+        <TimeStamp>vLi2NtXCh1fj+U8u1F6XYg==15/8/2010 20:00:2315/8/2010 19:56:44</TimeStamp>
         <ID>
           <String>DW- Deputados</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>c6YmrjJEtyO8cR1UNFXCAA==14/8/2010 16:41:1214/8/2010 16:25:04</TimeStamp>
+        <TimeStamp>9tRBQ3DT41WuUGeXnF9tew==15/8/2010 20:03:4915/8/2010 19:56:56</TimeStamp>
         <ID>
           <String>DW- Deputados</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>HBODqL+ogAg6syoNMQETow==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <TimeStamp>wQrua3RmHPv3XbjFBLjflg==15/8/2010 19:58:1115/8/2010 19:58:10</TimeStamp>
         <ID>
           <String>Candidato</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>7m1lr6yWJFWvsnedfu5yEw==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <TimeStamp>k2UZGZq5q61FU24kmzGDXA==15/8/2010 19:58:1115/8/2010 19:58:10</TimeStamp>
+        <ID>
+          <String>Uf2</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZbsJsZfW3wb/JK9m7KTSyg==15/8/2010 19:58:1115/8/2010 19:58:10</TimeStamp>
         <ID>
           <String>Ano</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>PUpjB4IR5M0RhDcLQzcv0w==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <TimeStamp>ZBwhzgkxQVehj2jOAQfmEA==15/8/2010 19:58:1115/8/2010 19:58:10</TimeStamp>
         <ID>
           <String>Municipio</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>JL9IiqW+4uuoSop/uAgVmw==14/8/2010 16:42:0314/8/2010 16:42:03g67Co3fpMm0r15XwFLGxZw==14/8/2010 16:42:0314/8/2010 16:42:03</TimeStamp>
+        <TimeStamp>iIveC7SFNbWnaQen6yw/NQ==15/8/2010 20:04:0915/8/2010 19:58:1001KmQbfQbqXc4rD/ZpFDyg==15/8/2010 19:58:1115/8/2010 19:58:10</TimeStamp>
         <ID>
           <String>DW- Deputados</String>
         </ID>
@@ -71,5 +78,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2010-08-14T19:45:35Z</LastDeployed>
+  <LastDeployed>2010-08-15T23:04:19Z</LastDeployed>
 </DeploymentSnapshot>
