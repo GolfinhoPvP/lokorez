@@ -31,31 +31,27 @@ Drop table [coligacao]
 go
 Drop table [uf] 
 go
+Drop table [uf2] 
+go
 Drop table [zona] 
 go
 
-
-
 Create table [votos] (
-	[mun_codigo] Integer NOT NULL,
 	[cand_nome_urna] Varchar(100) NOT NULL,
 	[cand_numero] Integer NOT NULL,
-	[part_codigo] Integer NOT NULL,
-	[colig_codigo] Varchar(150) NOT NULL,
-	[uf_sigla] Char(2) NOT NULL,
-	[zona_numero] Integer NOT NULL,
+	[mun_codigo] Integer NOT NULL,
 	[ano_codigo] Varchar(10) NOT NULL,
-	[votos] Integer NULL,
-Primary Key  ([mun_codigo],[cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
+	[uf2_sigla] Char(2) NOT NULL,
+	[zona_numero] Integer NOT NULL,
+	[votos] Integer NULL
 ) 
 go
 
 Create table [municipio] (
 	[mun_codigo] Integer NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
-	[zona_numero] Integer NOT NULL,
 	[mun_descricao] Varchar(200) NULL,
-Primary Key  ([mun_codigo],[uf_sigla],[zona_numero])
+Primary Key  ([mun_codigo])
 ) 
 go
 
@@ -70,14 +66,13 @@ Create table [candidato] (
 	[cand_nome_urna] Varchar(100) NOT NULL,
 	[cand_numero] Integer NOT NULL,
 	[part_codigo] Integer NOT NULL,
-	[colig_codigo] Varchar(150) NOT NULL,
-	[uf_sigla] Char(2) NOT NULL,
-	[zona_numero] Integer NOT NULL,
 	[sexo_codigo] Integer NOT NULL,
 	[situ_codigo] Integer NOT NULL,
 	[cargo_codigo] Integer NOT NULL,
+	[colig_codigo] Varchar(150) NOT NULL,
+	[uf_sigla] Char(2) NOT NULL,
 	[cand_nome] Varchar(110) NULL,
-Primary Key  ([cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
+Primary Key  ([cand_nome_urna],[cand_numero])
 ) 
 go
 
@@ -99,25 +94,22 @@ Create table [partido] (
 	[part_codigo] Integer NOT NULL,
 	[colig_codigo] Varchar(150) NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
-	[zona_numero] Integer NOT NULL,
 	[part_sigla] Varchar(50) NULL,
-Primary Key  ([part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
+Primary Key  ([part_codigo],[colig_codigo],[uf_sigla])
 ) 
 go
 
 Create table [coligacao] (
 	[colig_codigo] Varchar(150) NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
-	[zona_numero] Integer NOT NULL,
 	[colig_descricao] Varchar(300) NULL,
-Primary Key  ([colig_codigo],[uf_sigla],[zona_numero])
+Primary Key  ([colig_codigo],[uf_sigla])
 ) 
 go
 
 Create table [uf] (
 	[uf_sigla] Char(2) NOT NULL,
-	[zona_numero] Integer NOT NULL,
-Primary Key  ([uf_sigla],[zona_numero])
+Primary Key  ([uf_sigla])
 ) 
 go
 
@@ -134,31 +126,41 @@ Primary Key  ([cargo_codigo])
 ) 
 go
 
+Create table [uf2] (
+	[uf2_sigla] Char(2) NOT NULL,
+	[zona_numero] Integer NOT NULL,
+Primary Key  ([uf2_sigla],[zona_numero])
+) 
+go
 
+
+Alter table [votos] add  foreign key([mun_codigo]) references [municipio] ([mun_codigo]) 
+go
 Alter table [votos] add  foreign key([ano_codigo]) references [ano] ([ano_codigo]) 
 go
-Alter table [votos] add  foreign key([cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) references [candidato] ([cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) 
+Alter table [votos] add  foreign key([cand_nome_urna],[cand_numero]) references [candidato] ([cand_nome_urna],[cand_numero]) 
 go
 Alter table [candidato] add  foreign key([sexo_codigo]) references [sexo] ([sexo_codigo]) 
 go
 Alter table [candidato] add  foreign key([situ_codigo]) references [situacao] ([situ_codigo]) 
 go
-Alter table [candidato] add  foreign key([part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) references [partido] ([part_codigo],[colig_codigo],[uf_sigla],[zona_numero]) 
+Alter table [candidato] add  foreign key([part_codigo],[colig_codigo],[uf_sigla]) references [partido] ([part_codigo],[colig_codigo],[uf_sigla]) 
 go
-Alter table [partido] add  foreign key([colig_codigo],[uf_sigla],[zona_numero]) references [coligacao] ([colig_codigo],[uf_sigla],[zona_numero]) 
+Alter table [partido] add  foreign key([colig_codigo],[uf_sigla]) references [coligacao] ([colig_codigo],[uf_sigla]) 
 go
-Alter table [municipio] add  foreign key([uf_sigla],[zona_numero]) references [uf] ([uf_sigla],[zona_numero]) 
+Alter table [municipio] add  foreign key([uf_sigla]) references [uf] ([uf_sigla]) 
 go
-Alter table [uf] add  foreign key([zona_numero]) references [zona] ([zona_numero]) 
+Alter table [uf2] add  foreign key([zona_numero]) references [zona] ([zona_numero]) 
 go
 Alter table [candidato] add  foreign key([cargo_codigo]) references [cargo] ([cargo_codigo]) 
+go
+Alter table [votos] add  foreign key([uf2_sigla],[zona_numero]) references [uf2] ([uf2_sigla],[zona_numero]) 
 go
 
 
 Set quoted_identifier on
 go
 
+
 Set quoted_identifier off
 go
-
-

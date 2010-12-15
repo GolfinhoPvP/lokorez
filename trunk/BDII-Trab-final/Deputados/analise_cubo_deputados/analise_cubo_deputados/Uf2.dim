@@ -1,0 +1,106 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2ec19111-0c7f-4d35-8a7e-9d160ebee8ee" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Uf2</ID>
+  <Name>Uf2</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="925d587b-2fe2-4785-aa99-eb8875223f2e">
+    <DataSourceViewID>DW- Deputados</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="89617a68-54bd-4408-9f7d-8aaaa7e9792f">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="a8926942-52f9-4a73-9847-f3874d66087e">
+      <ID>Uf2 Sigla</ID>
+      <Name>Uf2 Sigla</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ea741e7d-eaef-4d0f-b20e-e8e23d50f309">
+          <DataType>WChar</DataType>
+          <DataSize>2</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3072c65b-e076-4575-b293-195cc5324185">
+            <TableID>dbo_uf2</TableID>
+            <ColumnID>uf2_sigla</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="7c5d3451-e2a8-46d7-82e2-a44f91627d37">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fa0c85ba-d23d-41a7-a831-071487098b35">
+            <TableID>dbo_uf2</TableID>
+            <ColumnID>zona_numero</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="00260ecb-cab9-49b6-bb71-f22bef1ccd85">
+        <DataType>WChar</DataType>
+        <DataSize>2</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2a871167-c64a-4a04-b6a2-96d270934884">
+          <TableID>dbo_uf2</TableID>
+          <ColumnID>uf2_sigla</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="9645cbd1-f7ad-4ae1-973c-e03d3c715235">
+          <AttributeID>Zona Numero</AttributeID>
+          <Name>Zona Numero</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+    </Attribute>
+    <Attribute dwd:design-time-name="2176f281-f589-48e0-8854-e005cd0b0949">
+      <ID>Zona Numero</ID>
+      <Name>Zona Numero</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="29793976-6880-4e5b-b029-16940b20865e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e0549296-9483-45d7-9872-6ae6ade6440e">
+            <TableID>dbo_zona</TableID>
+            <ColumnID>zona_numero</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+    </Attribute>
+  </Attributes>
+</Dimension>

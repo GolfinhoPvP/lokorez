@@ -15,6 +15,9 @@
         <ID>Candidato</ID>
       </Dimension>
       <Dimension>
+        <ID>Uf2</ID>
+      </Dimension>
+      <Dimension>
         <ID>Ano</ID>
       </Dimension>
       <Dimension>

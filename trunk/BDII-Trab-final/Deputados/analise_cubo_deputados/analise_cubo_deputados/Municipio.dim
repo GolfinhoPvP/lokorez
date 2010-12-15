@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c169affa-9adc-499a-8880-76abcfbf9be1" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="40fe764c-bf2a-49b1-ae40-65114fa0e2b1" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Municipio</ID>
   <Name>Municipio</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,102 +42,47 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="c6db2846-9da2-4ec1-9d94-b1caae98ab5e">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="0e2ff408-1b19-4af5-90a7-1d00897a7b5f">
     <DataSourceViewID>DW- Deputados</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="ca2100c2-7ae5-431b-bc85-51cc0acc3333">
+  <ErrorConfiguration dwd:design-time-name="78e9a2b8-f0b0-4a11-a49f-167698977e72">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="45ffeec8-385a-4d8f-b495-3175c21e75a9">
+    <Attribute dwd:design-time-name="fb28e957-6df7-4f7d-a6ec-2ee3c16266fb">
       <ID>Mun Codigo</ID>
       <Name>Mun Codigo</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="3c7dd53e-5b50-444c-a4df-7b1939cbc418">
+        <KeyColumn dwd:design-time-name="2d684e02-a680-4c30-9c53-513b03d0bdbd">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="58e28311-4a83-4fae-896f-a6b6eadc559e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0c1698b5-aa34-421b-b7f6-3f202c02ff6e">
             <TableID>dbo_municipio</TableID>
             <ColumnID>mun_codigo</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="3a32fcfb-b43d-4591-9624-3a560e8b4f4f">
-          <DataType>WChar</DataType>
-          <DataSize>2</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="eae7b497-efa6-430e-80d4-12896bd12b9f">
-            <TableID>dbo_municipio</TableID>
-            <ColumnID>uf_sigla</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="681f351b-7c55-4c70-990f-6bcd3f620078">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="58fb0110-9fd4-488d-81d0-33bfe164acba">
-            <TableID>dbo_municipio</TableID>
-            <ColumnID>zona_numero</ColumnID>
-          </Source>
-        </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="d17a95de-fba7-4434-8c6a-36eb7af6fd36">
-        <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="1bc4ada4-398b-45aa-ab4e-aa9f7cc585f0">
-          <TableID>dbo_municipio</TableID>
-          <ColumnID>mun_codigo</ColumnID>
-        </Source>
-      </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="4ddabcb8-5b61-4d55-9f09-5ec483d45f10">
+        <AttributeRelationship dwd:design-time-name="aa1302b1-b2e4-48ff-a00a-0f51983eb01c">
           <AttributeID>Uf Sigla</AttributeID>
           <Name>Uf Sigla</Name>
         </AttributeRelationship>
       </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="7a1bbd59-5677-4031-a421-188ef2d1a55c">
+    <Attribute dwd:design-time-name="ce2c413d-735e-4453-9a68-2b409f1e7f5b">
       <ID>Uf Sigla</ID>
       <Name>Uf Sigla</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="94592db1-02c4-458e-be0b-13ce3ab75295">
+        <KeyColumn dwd:design-time-name="c88abb2a-02d4-4946-9e29-3664ce181250">
           <DataType>WChar</DataType>
           <DataSize>2</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="a20cccbb-c7a1-44cf-870f-993c9f316722">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ddaac4b3-7956-4c48-9cf3-4cde6f80f304">
             <TableID>dbo_uf</TableID>
             <ColumnID>uf_sigla</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="85d7d01f-9aa0-4bc7-a50d-d53a7c90620d">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5dbbf2aa-9335-4713-ba4a-15655cf2f449">
-            <TableID>dbo_uf</TableID>
-            <ColumnID>zona_numero</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <NameColumn dwd:design-time-name="d4e41039-1fb4-4e44-9250-01ef6b0da4c5">
-        <DataType>WChar</DataType>
-        <DataSize>2</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="13d278d0-b401-46e9-b8ed-09b21b33fe71">
-          <TableID>dbo_uf</TableID>
-          <ColumnID>uf_sigla</ColumnID>
-        </Source>
-      </NameColumn>
-      <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="6f109c2c-67b6-434e-90a5-40b0a6265f41">
-          <AttributeID>Zona Numero</AttributeID>
-          <Name>Zona Numero</Name>
-        </AttributeRelationship>
-      </AttributeRelationships>
-    </Attribute>
-    <Attribute dwd:design-time-name="8beb53d4-4fe9-4589-b76e-968e795fdb0a">
-      <ID>Zona Numero</ID>
-      <Name>Zona Numero</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="92380e11-b883-412a-95db-331aa3fd46bd">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1ba85d18-2434-4fc9-bef2-b1ee9ca5e08f">
-            <TableID>dbo_zona</TableID>
-            <ColumnID>zona_numero</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>

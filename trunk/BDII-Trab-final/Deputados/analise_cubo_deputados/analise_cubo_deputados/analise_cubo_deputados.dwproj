@@ -24,6 +24,10 @@
       <FullPath>Candidato.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Uf2.dim</Name>
+      <FullPath>Uf2.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Ano.dim</Name>
       <FullPath>Ano.dim</FullPath>
     </ProjectItem>

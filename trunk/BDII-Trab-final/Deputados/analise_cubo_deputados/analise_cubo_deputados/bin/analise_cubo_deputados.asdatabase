@@ -72,7 +72,7 @@
           <KeyColumns>
             <KeyColumn>
               <DataType>WChar</DataType>
-              <DataSize>45</DataSize>
+              <DataSize>100</DataSize>
               <Source xsi:type="ColumnBinding">
                 <TableID>dbo_candidato</TableID>
                 <ColumnID>cand_nome_urna</ColumnID>
@@ -85,40 +85,10 @@
                 <ColumnID>cand_numero</ColumnID>
               </Source>
             </KeyColumn>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_candidato</TableID>
-                <ColumnID>part_codigo</ColumnID>
-              </Source>
-            </KeyColumn>
-            <KeyColumn>
-              <DataType>WChar</DataType>
-              <DataSize>50</DataSize>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_candidato</TableID>
-                <ColumnID>colig_codigo</ColumnID>
-              </Source>
-            </KeyColumn>
-            <KeyColumn>
-              <DataType>WChar</DataType>
-              <DataSize>2</DataSize>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_candidato</TableID>
-                <ColumnID>uf_sigla</ColumnID>
-              </Source>
-            </KeyColumn>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_candidato</TableID>
-                <ColumnID>zona_numero</ColumnID>
-              </Source>
-            </KeyColumn>
           </KeyColumns>
           <NameColumn>
             <DataType>WChar</DataType>
-            <DataSize>45</DataSize>
+            <DataSize>100</DataSize>
             <Source xsi:type="ColumnBinding">
               <TableID>dbo_candidato</TableID>
               <ColumnID>cand_nome_urna</ColumnID>
@@ -134,12 +104,12 @@
               <Name>Cargo Codigo</Name>
             </AttributeRelationship>
             <AttributeRelationship>
-              <AttributeID>Part Codigo</AttributeID>
-              <Name>Part Codigo</Name>
-            </AttributeRelationship>
-            <AttributeRelationship>
               <AttributeID>Sexo Codigo</AttributeID>
               <Name>Sexo Codigo</Name>
+            </AttributeRelationship>
+            <AttributeRelationship>
+              <AttributeID>Part Codigo</AttributeID>
+              <Name>Part Codigo</Name>
             </AttributeRelationship>
           </AttributeRelationships>
         </Attribute>
@@ -172,6 +142,20 @@
           <OrderBy>Key</OrderBy>
         </Attribute>
         <Attribute>
+          <ID>Sexo Codigo</ID>
+          <Name>Sexo Codigo</Name>
+          <KeyColumns>
+            <KeyColumn>
+              <DataType>Integer</DataType>
+              <Source xsi:type="ColumnBinding">
+                <TableID>dbo_sexo</TableID>
+                <ColumnID>sexo_codigo</ColumnID>
+              </Source>
+            </KeyColumn>
+          </KeyColumns>
+          <OrderBy>Key</OrderBy>
+        </Attribute>
+        <Attribute>
           <ID>Part Codigo</ID>
           <Name>Part Codigo</Name>
           <KeyColumns>
@@ -184,7 +168,7 @@
             </KeyColumn>
             <KeyColumn>
               <DataType>WChar</DataType>
-              <DataSize>50</DataSize>
+              <DataSize>150</DataSize>
               <Source xsi:type="ColumnBinding">
                 <TableID>dbo_partido</TableID>
                 <ColumnID>colig_codigo</ColumnID>
@@ -196,13 +180,6 @@
               <Source xsi:type="ColumnBinding">
                 <TableID>dbo_partido</TableID>
                 <ColumnID>uf_sigla</ColumnID>
-              </Source>
-            </KeyColumn>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_partido</TableID>
-                <ColumnID>zona_numero</ColumnID>
               </Source>
             </KeyColumn>
           </KeyColumns>
@@ -218,10 +195,6 @@
               <AttributeID>Colig Codigo</AttributeID>
               <Name>Colig Codigo</Name>
             </AttributeRelationship>
-            <AttributeRelationship>
-              <AttributeID>Uf Sigla</AttributeID>
-              <Name>Uf Sigla</Name>
-            </AttributeRelationship>
           </AttributeRelationships>
         </Attribute>
         <Attribute>
@@ -230,7 +203,7 @@
           <KeyColumns>
             <KeyColumn>
               <DataType>WChar</DataType>
-              <DataSize>50</DataSize>
+              <DataSize>150</DataSize>
               <Source xsi:type="ColumnBinding">
                 <TableID>dbo_coligacao</TableID>
                 <ColumnID>colig_codigo</ColumnID>
@@ -244,43 +217,107 @@
                 <ColumnID>uf_sigla</ColumnID>
               </Source>
             </KeyColumn>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_coligacao</TableID>
-                <ColumnID>zona_numero</ColumnID>
-              </Source>
-            </KeyColumn>
           </KeyColumns>
           <NameColumn>
             <DataType>WChar</DataType>
-            <DataSize>50</DataSize>
+            <DataSize>150</DataSize>
             <Source xsi:type="ColumnBinding">
               <TableID>dbo_coligacao</TableID>
               <ColumnID>colig_codigo</ColumnID>
             </Source>
           </NameColumn>
         </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension>
+      <ID>Uf2</ID>
+      <Name>Uf2</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Annotations>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+          <Value>true</Value>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+          <Value>false</Value>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+          <Value>true</Value>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+          <Value>0</Value>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+          <Value>0</Value>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+          <Value>0</Value>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+          <Value>0</Value>
+        </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+          <Value>100</Value>
+        </Annotation>
+      </Annotations>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Source xsi:type="DataSourceViewBinding">
+        <DataSourceViewID>DW- Deputados</DataSourceViewID>
+      </Source>
+      <ErrorConfiguration>
+        <KeyNotFound>ReportAndStop</KeyNotFound>
+        <KeyDuplicate>ReportAndStop</KeyDuplicate>
+        <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+      </ErrorConfiguration>
+      <CurrentStorageMode>Molap</CurrentStorageMode>
+      <Attributes>
         <Attribute>
-          <ID>Uf Sigla</ID>
-          <Name>Uf Sigla</Name>
+          <ID>Uf2 Sigla</ID>
+          <Name>Uf2 Sigla</Name>
+          <Usage>Key</Usage>
           <KeyColumns>
             <KeyColumn>
               <DataType>WChar</DataType>
               <DataSize>2</DataSize>
               <Source xsi:type="ColumnBinding">
-                <TableID>dbo_uf</TableID>
-                <ColumnID>uf_sigla</ColumnID>
+                <TableID>dbo_uf2</TableID>
+                <ColumnID>uf2_sigla</ColumnID>
+              </Source>
+            </KeyColumn>
+            <KeyColumn>
+              <DataType>Integer</DataType>
+              <Source xsi:type="ColumnBinding">
+                <TableID>dbo_uf2</TableID>
+                <ColumnID>zona_numero</ColumnID>
               </Source>
             </KeyColumn>
           </KeyColumns>
+          <NameColumn>
+            <DataType>WChar</DataType>
+            <DataSize>2</DataSize>
+            <Source xsi:type="ColumnBinding">
+              <TableID>dbo_uf2</TableID>
+              <ColumnID>uf2_sigla</ColumnID>
+            </Source>
+          </NameColumn>
           <AttributeRelationships>
             <AttributeRelationship>
               <AttributeID>Zona Numero</AttributeID>
               <Name>Zona Numero</Name>
             </AttributeRelationship>
           </AttributeRelationships>
-          <OrderBy>Key</OrderBy>
         </Attribute>
         <Attribute>
           <ID>Zona Numero</ID>
@@ -291,20 +328,6 @@
               <Source xsi:type="ColumnBinding">
                 <TableID>dbo_zona</TableID>
                 <ColumnID>zona_numero</ColumnID>
-              </Source>
-            </KeyColumn>
-          </KeyColumns>
-          <OrderBy>Key</OrderBy>
-        </Attribute>
-        <Attribute>
-          <ID>Sexo Codigo</ID>
-          <Name>Sexo Codigo</Name>
-          <KeyColumns>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_sexo</TableID>
-                <ColumnID>sexo_codigo</ColumnID>
               </Source>
             </KeyColumn>
           </KeyColumns>
@@ -450,35 +473,14 @@
                 <ColumnID>mun_codigo</ColumnID>
               </Source>
             </KeyColumn>
-            <KeyColumn>
-              <DataType>WChar</DataType>
-              <DataSize>2</DataSize>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_municipio</TableID>
-                <ColumnID>uf_sigla</ColumnID>
-              </Source>
-            </KeyColumn>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_municipio</TableID>
-                <ColumnID>zona_numero</ColumnID>
-              </Source>
-            </KeyColumn>
           </KeyColumns>
-          <NameColumn>
-            <DataType>WChar</DataType>
-            <Source xsi:type="ColumnBinding">
-              <TableID>dbo_municipio</TableID>
-              <ColumnID>mun_codigo</ColumnID>
-            </Source>
-          </NameColumn>
           <AttributeRelationships>
             <AttributeRelationship>
               <AttributeID>Uf Sigla</AttributeID>
               <Name>Uf Sigla</Name>
             </AttributeRelationship>
           </AttributeRelationships>
+          <OrderBy>Key</OrderBy>
         </Attribute>
         <Attribute>
           <ID>Uf Sigla</ID>
@@ -490,40 +492,6 @@
               <Source xsi:type="ColumnBinding">
                 <TableID>dbo_uf</TableID>
                 <ColumnID>uf_sigla</ColumnID>
-              </Source>
-            </KeyColumn>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_uf</TableID>
-                <ColumnID>zona_numero</ColumnID>
-              </Source>
-            </KeyColumn>
-          </KeyColumns>
-          <NameColumn>
-            <DataType>WChar</DataType>
-            <DataSize>2</DataSize>
-            <Source xsi:type="ColumnBinding">
-              <TableID>dbo_uf</TableID>
-              <ColumnID>uf_sigla</ColumnID>
-            </Source>
-          </NameColumn>
-          <AttributeRelationships>
-            <AttributeRelationship>
-              <AttributeID>Zona Numero</AttributeID>
-              <Name>Zona Numero</Name>
-            </AttributeRelationship>
-          </AttributeRelationships>
-        </Attribute>
-        <Attribute>
-          <ID>Zona Numero</ID>
-          <Name>Zona Numero</Name>
-          <KeyColumns>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_zona</TableID>
-                <ColumnID>zona_numero</ColumnID>
               </Source>
             </KeyColumn>
           </KeyColumns>
@@ -543,7 +511,7 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="21" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-10324" scrolltop="2728" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="26961" y="13361" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="25" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-7699" scrolltop="-1015" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="26961" y="13361" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -554,9 +522,20 @@
               <layoutmanager>
                 <ddsxmlobj />
               </layoutmanager>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="candidato" left="5832" top="4279" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3413" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="uf2" left="20" top="16880" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
-                  <ddsxmlobjectstreaminitwrapper binary="00080000550d000088130000" />
+                  <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
+                </control>
+                <layoutobject>
+                  <ddsxmlobj>
+                    <property name="LogicalObject" value="dbo_uf2" vartype="8" />
+                  </ddsxmlobj>
+                </layoutobject>
+                <shape groupshapeid="0" groupnode="0" />
+              </ddscontrol>
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="candidato" left="8268" top="4279" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3413" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <control>
+                  <ddsxmlobjectstreaminitwrapper binary="00080000550d0000ea120000" />
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
@@ -565,7 +544,7 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="zona" left="398" top="21216" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3000" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="zona" left="20" top="13025" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3000" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000af050000" />
                 </control>
@@ -576,9 +555,9 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="partido" left="5885" top="13740" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3000" height="3149" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="partido" left="2781" top="2987" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3000" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
-                  <ddsxmlobjectstreaminitwrapper binary="00080000b80b00004d0c0000" />
+                  <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000a50a0000" />
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
@@ -587,18 +566,29 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="sexo" left="5951" top="0" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3175" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="municipio" left="11233" top="16668" logicalid="5" controlid="5" masterid="0" hint1="0" hint2="0" width="3122" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
-                  <ddsxmlobjectstreaminitwrapper binary="00080000670c000057070000" />
+                  <ddsxmlobjectstreaminitwrapper binary="00080000320c0000fe080000" />
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dbo_sexo" vartype="8" />
+                    <property name="LogicalObject" value="dbo_municipio" vartype="8" />
                   </ddsxmlobj>
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="ano" left="226" top="2219" logicalid="5" controlid="5" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="uf" left="11294" top="12813" logicalid="6" controlid="6" masterid="0" hint1="0" hint2="0" width="3000" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <control>
+                  <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000af050000" />
+                </control>
+                <layoutobject>
+                  <ddsxmlobj>
+                    <property name="LogicalObject" value="dbo_uf" vartype="8" />
+                  </ddsxmlobj>
+                </layoutobject>
+                <shape groupshapeid="0" groupnode="0" />
+              </ddscontrol>
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="ano" left="5626" top="20289" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
                 </control>
@@ -609,18 +599,18 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="uf" left="398" top="16937" logicalid="6" controlid="6" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="sexo" left="16755" top="12813" logicalid="8" controlid="8" masterid="0" hint1="0" hint2="0" width="3175" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
-                  <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
+                  <ddsxmlobjectstreaminitwrapper binary="00080000670c000057070000" />
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dbo_uf" vartype="8" />
+                    <property name="LogicalObject" value="dbo_sexo" vartype="8" />
                   </ddsxmlobj>
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="cargo" left="11373" top="13739" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="3307" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="cargo" left="14081" top="5760" logicalid="9" controlid="9" masterid="0" hint1="0" hint2="0" width="3307" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobjectstreaminitwrapper binary="00080000eb0c000057070000" />
                 </control>
@@ -631,9 +621,9 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="coligacao" left="5798" top="19289" logicalid="8" controlid="8" masterid="0" hint1="0" hint2="0" width="3175" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="coligacao" left="-1927" top="6877" logicalid="10" controlid="10" masterid="0" hint1="0" hint2="0" width="3175" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
-                  <ddsxmlobjectstreaminitwrapper binary="00080000670c0000a50a0000" />
+                  <ddsxmlobjectstreaminitwrapper binary="00080000670c0000fe080000" />
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
@@ -642,7 +632,7 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="situacao" left="11645" top="5839" logicalid="9" controlid="9" masterid="0" hint1="0" hint2="0" width="3016" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="situacao" left="8466" top="0" logicalid="11" controlid="11" masterid="0" hint1="0" hint2="0" width="3016" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobjectstreaminitwrapper binary="00080000c80b000057070000" />
                 </control>
@@ -653,9 +643,9 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="votos" left="20" top="6498" logicalid="10" controlid="10" masterid="0" hint1="0" hint2="0" width="3413" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="votos" left="5420" top="13894" logicalid="12" controlid="12" masterid="0" hint1="0" hint2="0" width="3413" height="3995" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
-                  <ddsxmlobjectstreaminitwrapper binary="00080000550d0000ea120000" />
+                  <ddsxmlobjectstreaminitwrapper binary="00080000550d00009b0f0000" />
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
@@ -664,7 +654,7 @@
                 </layoutobject>
                 <shape groupshapeid="0" groupnode="0" />
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="8945" top="6379" logicalid="11" controlid="11" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="1121" top="13981" logicalid="13" controlid="13" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -672,19 +662,17 @@
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__situ___168449D3]" vartype="8" />
+                    <property name="LogicalObject" value="dataSet.Relations[FK__uf2__zona_numero__550B8C31]" vartype="8" />
                     <property name="Virtual" value="0" vartype="11" />
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="9" destid="1" sourceattachpoint="12" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="11645" y="6778" />
-                  <point x="10445" y="6778" />
-                  <point x="10445" y="6779" />
-                  <point x="9245" y="6779" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="1" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="1520" y="14480" />
+                  <point x="1520" y="16880" />
                 </connector>
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="7788" top="8979" logicalid="12" controlid="12" masterid="0" hint1="0" hint2="0" width="5638" height="5260" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="2720" top="15591" logicalid="14" controlid="14" masterid="0" hint1="0" hint2="0" width="3000" height="2628" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -692,19 +680,19 @@
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__cargo__1B48FEF0]" vartype="8" />
+                    <property name="LogicalObject" value="dataSet.Relations[FK__votos__56F3D4A3]" vartype="8" />
                     <property name="Virtual" value="0" vartype="11" />
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="7" destid="1" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="13026" y="13739" />
-                  <point x="13026" y="11509" />
-                  <point x="8088" y="11509" />
-                  <point x="8088" y="9279" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="12" sourceattachpoint="13" destattachpoint="16" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="3020" y="17819" />
+                  <point x="4220" y="17819" />
+                  <point x="4220" y="15891" />
+                  <point x="5420" y="15891" />
                 </connector>
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="6138" top="8979" logicalid="13" controlid="13" masterid="0" hint1="0" hint2="0" width="1647" height="5261" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="9575" top="1380" logicalid="15" controlid="15" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -712,19 +700,17 @@
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__17786E0C]" vartype="8" />
+                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__situ___513AFB4D]" vartype="8" />
                     <property name="Virtual" value="0" vartype="11" />
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="1" sourceattachpoint="4" destattachpoint="1" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="7385" y="13740" />
-                  <point x="7385" y="11510" />
-                  <point x="6438" y="11510" />
-                  <point x="6438" y="9279" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="11" destid="2" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="9974" y="1879" />
+                  <point x="9974" y="4279" />
                 </connector>
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="7139" top="1380" logicalid="14" controlid="14" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="11381" top="6300" logicalid="16" controlid="16" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -732,17 +718,19 @@
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__sexo___1590259A]" vartype="8" />
+                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__cargo__55FFB06A]" vartype="8" />
                     <property name="Virtual" value="0" vartype="11" />
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="1" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="7538" y="1879" />
-                  <point x="7538" y="4279" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="9" destid="2" sourceattachpoint="12" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="14081" y="6699" />
+                  <point x="12881" y="6699" />
+                  <point x="12881" y="6700" />
+                  <point x="11681" y="6700" />
                 </connector>
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="3133" top="6380" logicalid="15" controlid="15" masterid="0" hint1="0" hint2="0" width="2999" height="2839" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="10224" top="8821" logicalid="17" controlid="17" masterid="0" hint1="0" hint2="0" width="8518" height="4492" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -750,19 +738,19 @@
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__votos__149C0161]" vartype="8" />
+                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__sexo___5046D714]" vartype="8" />
                     <property name="Virtual" value="0" vartype="11" />
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="10" sourceattachpoint="18" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="5832" y="6779" />
-                  <point x="4633" y="6779" />
-                  <point x="4633" y="8919" />
-                  <point x="3433" y="8919" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="8" destid="2" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="18342" y="12813" />
+                  <point x="18342" y="10967" />
+                  <point x="10524" y="10967" />
+                  <point x="10524" y="9121" />
                 </connector>
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="1499" top="18516" logicalid="16" controlid="16" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="5481" top="3950" logicalid="18" controlid="18" masterid="0" hint1="0" hint2="0" width="3087" height="3050" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -770,17 +758,19 @@
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__uf__zona_numero__1A54DAB7]" vartype="8" />
+                    <property name="LogicalObject" value="dataSet.Relations[FK__candidato__522F1F86]" vartype="8" />
                     <property name="Virtual" value="0" vartype="11" />
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="6" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="1898" y="21216" />
-                  <point x="1898" y="18816" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="2" sourceattachpoint="15" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="5781" y="4349" />
+                  <point x="7024" y="4349" />
+                  <point x="7024" y="6700" />
+                  <point x="8268" y="6700" />
                 </connector>
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="6986" top="16589" logicalid="17" controlid="17" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="6826" top="8622" logicalid="19" controlid="19" masterid="0" hint1="0" hint2="0" width="2448" height="5572" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -788,17 +778,95 @@
                 </control>
                 <layoutobject>
                   <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__partido__186C9245]" vartype="8" />
+                    <property name="LogicalObject" value="dataSet.Relations[FK__votos__4F52B2DB]" vartype="8" />
                     <property name="Virtual" value="0" vartype="11" />
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="8" destid="3" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="7385" y="19289" />
-                  <point x="7385" y="16889" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="12" sourceattachpoint="1" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="8874" y="9121" />
+                  <point x="8874" y="11507" />
+                  <point x="7126" y="11507" />
+                  <point x="7126" y="13894" />
                 </connector>
               </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="3098" top="15014" logicalid="18" controlid="18" masterid="0" hint1="0" hint2="0" width="3087" height="2712" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="MSDDS.Polyline" left="948" top="5149" logicalid="20" controlid="20" masterid="0" hint1="0" hint2="0" width="2133" height="2729" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <control>
+                  <ddsxmlobj>
+                    <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                  </ddsxmlobj>
+                </control>
+                <layoutobject>
+                  <ddsxmlobj>
+                    <property name="LogicalObject" value="dataSet.Relations[FK__partido__532343BF]" vartype="8" />
+                    <property name="Virtual" value="0" vartype="11" />
+                    <property name="VisibleAP" value="0" vartype="3" />
+                  </ddsxmlobj>
+                </layoutobject>
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="10" destid="4" sourceattachpoint="11" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="1248" y="7478" />
+                  <point x="2014" y="7478" />
+                  <point x="2014" y="5449" />
+                  <point x="2781" y="5449" />
+                </connector>
+              </ddscontrol>
+              <ddscontrol controlprogid="MSDDS.Polyline" left="12395" top="13769" logicalid="21" controlid="21" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <control>
+                  <ddsxmlobj>
+                    <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                  </ddsxmlobj>
+                </control>
+                <layoutobject>
+                  <ddsxmlobj>
+                    <property name="LogicalObject" value="dataSet.Relations[FK__municipio__uf_si__541767F8]" vartype="8" />
+                    <property name="Virtual" value="0" vartype="11" />
+                    <property name="VisibleAP" value="0" vartype="3" />
+                  </ddsxmlobj>
+                </layoutobject>
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="5" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="12794" y="14268" />
+                  <point x="12794" y="16668" />
+                </connector>
+              </ddscontrol>
+              <ddscontrol controlprogid="MSDDS.Polyline" left="8533" top="15591" logicalid="22" controlid="22" masterid="0" hint1="0" hint2="0" width="3000" height="2628" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <control>
+                  <ddsxmlobj>
+                    <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                  </ddsxmlobj>
+                </control>
+                <layoutobject>
+                  <ddsxmlobj>
+                    <property name="LogicalObject" value="dataSet.Relations[FK__votos__mun_codig__4D6A6A69]" vartype="8" />
+                    <property name="Virtual" value="0" vartype="11" />
+                    <property name="VisibleAP" value="0" vartype="3" />
+                  </ddsxmlobj>
+                </layoutobject>
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="12" sourceattachpoint="12" destattachpoint="17" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="11233" y="17819" />
+                  <point x="10033" y="17819" />
+                  <point x="10033" y="15891" />
+                  <point x="8833" y="15891" />
+                </connector>
+              </ddscontrol>
+              <ddscontrol controlprogid="MSDDS.Polyline" left="6727" top="17589" logicalid="23" controlid="23" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <control>
+                  <ddsxmlobj>
+                    <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                  </ddsxmlobj>
+                </control>
+                <layoutobject>
+                  <ddsxmlobj>
+                    <property name="LogicalObject" value="dataSet.Relations[FK__votos__ano_codig__4E5E8EA2]" vartype="8" />
+                    <property name="Virtual" value="0" vartype="11" />
+                    <property name="VisibleAP" value="0" vartype="3" />
+                  </ddsxmlobj>
+                </layoutobject>
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="7" destid="12" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="7126" y="20289" />
+                  <point x="7126" y="17889" />
+                </connector>
+              </ddscontrol>
+              <ddscontrol controlprogid="MSDDS.Polyline" left="5081" top="5412" logicalid="24" controlid="24" masterid="0" hint1="0" hint2="0" width="7013" height="7901" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobj>
                     <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -811,49 +879,11 @@
                     <property name="VisibleAP" value="0" vartype="3" />
                   </ddsxmlobj>
                 </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="3" sourceattachpoint="11" destattachpoint="14" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="3398" y="17326" />
-                  <point x="4641" y="17326" />
-                  <point x="4641" y="15314" />
-                  <point x="5885" y="15314" />
-                </connector>
-              </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="1327" top="3599" logicalid="19" controlid="19" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-                <control>
-                  <ddsxmlobj>
-                    <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-                  </ddsxmlobj>
-                </control>
-                <layoutobject>
-                  <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[FK__votos__ano_codig__13A7DD28]" vartype="8" />
-                    <property name="Virtual" value="0" vartype="11" />
-                    <property name="VisibleAP" value="0" vartype="3" />
-                  </ddsxmlobj>
-                </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="10" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="1726" y="4098" />
-                  <point x="1726" y="6498" />
-                </connector>
-              </ddscontrol>
-              <ddscontrol controlprogid="MSDDS.Polyline" left="3098" top="17477" logicalid="20" controlid="20" masterid="0" hint1="0" hint2="0" width="3000" height="3474" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-                <control>
-                  <ddsxmlobj>
-                    <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-                  </ddsxmlobj>
-                </control>
-                <layoutobject>
-                  <ddsxmlobj>
-                    <property name="LogicalObject" value="dataSet.Relations[coligacao-uf]" vartype="8" />
-                    <property name="Virtual" value="0" vartype="11" />
-                    <property name="VisibleAP" value="0" vartype="3" />
-                  </ddsxmlobj>
-                </layoutobject>
-                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="8" sourceattachpoint="13" destattachpoint="14" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                  <point x="3398" y="17876" />
-                  <point x="4598" y="17876" />
-                  <point x="4598" y="20651" />
-                  <point x="5798" y="20651" />
+                <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="4" sourceattachpoint="0" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                  <point x="11694" y="12813" />
+                  <point x="11694" y="11873" />
+                  <point x="5381" y="11873" />
+                  <point x="5381" y="5712" />
                 </connector>
               </ddscontrol>
             </dds>
@@ -873,15 +903,15 @@
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-          <Value>-10324</Value>
+          <Value>-7699</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-          <Value>2728</Value>
+          <Value>-1015</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-          <Value>20</Value>
+          <Value>-1927</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
@@ -910,19 +940,26 @@
               <AttributeID>Cargo Codigo</AttributeID>
             </Attribute>
             <Attribute>
+              <AttributeID>Sexo Codigo</AttributeID>
+            </Attribute>
+            <Attribute>
               <AttributeID>Part Codigo</AttributeID>
             </Attribute>
             <Attribute>
               <AttributeID>Colig Codigo</AttributeID>
             </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>Uf2</ID>
+          <Name>Uf2</Name>
+          <DimensionID>Uf2</DimensionID>
+          <Attributes>
             <Attribute>
-              <AttributeID>Uf Sigla</AttributeID>
+              <AttributeID>Uf2 Sigla</AttributeID>
             </Attribute>
             <Attribute>
               <AttributeID>Zona Numero</AttributeID>
-            </Attribute>
-            <Attribute>
-              <AttributeID>Sexo Codigo</AttributeID>
             </Attribute>
           </Attributes>
         </Dimension>
@@ -933,6 +970,19 @@
           <Attributes>
             <Attribute>
               <AttributeID>Ano Codigo</AttributeID>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>Municipio</ID>
+          <Name>Municipio</Name>
+          <DimensionID>Municipio</DimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Mun Codigo</AttributeID>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Uf Sigla</AttributeID>
             </Attribute>
           </Attributes>
         </Dimension>
@@ -969,7 +1019,7 @@
                   <KeyColumns>
                     <KeyColumn>
                       <DataType>WChar</DataType>
-                      <DataSize>45</DataSize>
+                      <DataSize>100</DataSize>
                       <Source xsi:type="ColumnBinding">
                         <TableID>dbo_votos</TableID>
                         <ColumnID>cand_nome_urna</ColumnID>
@@ -982,27 +1032,23 @@
                         <ColumnID>cand_numero</ColumnID>
                       </Source>
                     </KeyColumn>
-                    <KeyColumn>
-                      <DataType>Integer</DataType>
-                      <Source xsi:type="ColumnBinding">
-                        <TableID>dbo_votos</TableID>
-                        <ColumnID>part_codigo</ColumnID>
-                      </Source>
-                    </KeyColumn>
-                    <KeyColumn>
-                      <DataType>WChar</DataType>
-                      <DataSize>50</DataSize>
-                      <Source xsi:type="ColumnBinding">
-                        <TableID>dbo_votos</TableID>
-                        <ColumnID>colig_codigo</ColumnID>
-                      </Source>
-                    </KeyColumn>
+                  </KeyColumns>
+                  <Type>Granularity</Type>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension xsi:type="RegularMeasureGroupDimension">
+              <CubeDimensionID>Uf2</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Uf2 Sigla</AttributeID>
+                  <KeyColumns>
                     <KeyColumn>
                       <DataType>WChar</DataType>
                       <DataSize>2</DataSize>
                       <Source xsi:type="ColumnBinding">
                         <TableID>dbo_votos</TableID>
-                        <ColumnID>uf_sigla</ColumnID>
+                        <ColumnID>uf2_sigla</ColumnID>
                       </Source>
                     </KeyColumn>
                     <KeyColumn>
@@ -1029,6 +1075,24 @@
                       <Source xsi:type="ColumnBinding">
                         <TableID>dbo_votos</TableID>
                         <ColumnID>ano_codigo</ColumnID>
+                      </Source>
+                    </KeyColumn>
+                  </KeyColumns>
+                  <Type>Granularity</Type>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension xsi:type="RegularMeasureGroupDimension">
+              <CubeDimensionID>Municipio</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Mun Codigo</AttributeID>
+                  <KeyColumns>
+                    <KeyColumn>
+                      <DataType>Integer</DataType>
+                      <Source xsi:type="ColumnBinding">
+                        <TableID>dbo_votos</TableID>
+                        <ColumnID>mun_codigo</ColumnID>
                       </Source>
                     </KeyColumn>
                   </KeyColumns>
@@ -1107,7 +1171,7 @@
                 <Name>_ALL_TABLES_</Name>
                 <DiagramLayout>
                   <dds>
-                    <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="30" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1506" scrolltop="7492" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="27490" y="14684" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                    <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="31" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1693" scrolltop="8968" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="27490" y="14684" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                       <font>
                         <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                       </font>
@@ -1118,7 +1182,7 @@
                     <layoutmanager>
                       <ddsxmlobj />
                     </layoutmanager>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="ano" left="14614" top="29558" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="ano" left="5748" top="29289" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
                       </control>
@@ -1129,9 +1193,9 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="candidato" left="17116" top="13279" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3413" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="candidato" left="8334" top="13279" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3413" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
-                        <ddsxmlobjectstreaminitwrapper binary="00080000550d000088130000" />
+                        <ddsxmlobjectstreaminitwrapper binary="00080000550d0000ea120000" />
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
@@ -1140,7 +1204,7 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="cargo" left="22929" top="14839" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3307" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="cargo" left="16755" top="21813" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3307" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobjectstreaminitwrapper binary="00080000eb0c000057070000" />
                       </control>
@@ -1151,9 +1215,9 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="coligacao" left="11542" top="17191" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3175" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="coligacao" left="2760" top="17112" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3175" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
-                        <ddsxmlobjectstreaminitwrapper binary="00080000670c0000a50a0000" />
+                        <ddsxmlobjectstreaminitwrapper binary="00080000670c0000fe080000" />
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
@@ -1162,9 +1226,9 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="municipio" left="6479" top="21207" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="3122" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="municipio" left="20" top="25668" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="3122" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
-                        <ddsxmlobjectstreaminitwrapper binary="00080000320c0000a50a0000" />
+                        <ddsxmlobjectstreaminitwrapper binary="00080000320c0000fe080000" />
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
@@ -1173,9 +1237,9 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="partido" left="11629" top="11642" logicalid="8" controlid="8" masterid="0" hint1="0" hint2="0" width="3000" height="3149" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="partido" left="2847" top="11987" logicalid="8" controlid="8" masterid="0" hint1="0" hint2="0" width="3000" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
-                        <ddsxmlobjectstreaminitwrapper binary="00080000b80b00004d0c0000" />
+                        <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000a50a0000" />
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
@@ -1184,7 +1248,7 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="sexo" left="17235" top="9000" logicalid="9" controlid="9" masterid="0" hint1="0" hint2="0" width="3175" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="sexo" left="8453" top="9000" logicalid="9" controlid="9" masterid="0" hint1="0" hint2="0" width="3175" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobjectstreaminitwrapper binary="00080000670c000057070000" />
                       </control>
@@ -1195,7 +1259,7 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="situacao" left="20221" top="22316" logicalid="10" controlid="10" masterid="0" hint1="0" hint2="0" width="3016" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="situacao" left="14147" top="14760" logicalid="10" controlid="10" masterid="0" hint1="0" hint2="0" width="3016" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobjectstreaminitwrapper binary="00080000c80b000057070000" />
                       </control>
@@ -1206,9 +1270,9 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="uf" left="5417" top="16408" logicalid="11" controlid="11" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="uf" left="81" top="21813" logicalid="11" controlid="11" masterid="0" hint1="0" hint2="0" width="3000" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
-                        <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
+                        <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000af050000" />
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
@@ -1217,9 +1281,20 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="votos" left="14408" top="22316" logicalid="16" controlid="16" masterid="0" hint1="0" hint2="0" width="3413" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="uf2" left="11355" top="25880" logicalid="12" controlid="12" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
-                        <ddsxmlobjectstreaminitwrapper binary="00080000550d0000ea120000" />
+                        <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
+                      </control>
+                      <layoutobject>
+                        <ddsxmlobj>
+                          <property name="LogicalObject" value="dbo_uf2" vartype="8" />
+                        </ddsxmlobj>
+                      </layoutobject>
+                      <shape groupshapeid="0" groupnode="0" />
+                    </ddscontrol>
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="votos" left="5542" top="22894" logicalid="17" controlid="17" masterid="0" hint1="0" hint2="0" width="3413" height="3995" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                      <control>
+                        <ddsxmlobjectstreaminitwrapper binary="00080000550d00009b0f0000" />
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
@@ -1228,7 +1303,7 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="zona" left="620" top="15571" logicalid="17" controlid="17" masterid="0" hint1="0" hint2="0" width="3000" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="zona" left="11355" top="22025" logicalid="18" controlid="18" masterid="0" hint1="0" hint2="0" width="3000" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000af050000" />
                       </control>
@@ -1239,7 +1314,7 @@
                       </layoutobject>
                       <shape groupshapeid="0" groupnode="0" />
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="19072" top="17979" logicalid="18" controlid="18" masterid="0" hint1="0" hint2="0" width="3057" height="4837" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="11447" top="15300" logicalid="19" controlid="19" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1247,19 +1322,19 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__situ___168449D3]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__situ___513AFB4D]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="10" destid="2" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="21729" y="22316" />
-                        <point x="21729" y="20298" />
-                        <point x="19372" y="20298" />
-                        <point x="19372" y="18279" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="10" destid="2" sourceattachpoint="12" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="14147" y="15699" />
+                        <point x="12947" y="15699" />
+                        <point x="12947" y="15700" />
+                        <point x="11747" y="15700" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="20229" top="15379" logicalid="19" controlid="19" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="10290" top="17821" logicalid="20" controlid="20" masterid="0" hint1="0" hint2="0" width="8518" height="4492" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1267,19 +1342,19 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__cargo__1B48FEF0]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__cargo__55FFB06A]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="2" sourceattachpoint="12" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="22929" y="15778" />
-                        <point x="21729" y="15778" />
-                        <point x="21729" y="15779" />
-                        <point x="20529" y="15779" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="2" sourceattachpoint="4" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="18408" y="21813" />
+                        <point x="18408" y="19967" />
+                        <point x="10590" y="19967" />
+                        <point x="10590" y="18121" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="14329" top="12817" logicalid="20" controlid="20" masterid="0" hint1="0" hint2="0" width="3087" height="3262" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="9641" top="10380" logicalid="21" controlid="21" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1287,37 +1362,17 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__17786E0C]" vartype="8" />
-                          <property name="Virtual" value="0" vartype="11" />
-                          <property name="VisibleAP" value="0" vartype="3" />
-                        </ddsxmlobj>
-                      </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="8" destid="2" sourceattachpoint="15" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="14629" y="13216" />
-                        <point x="15872" y="13216" />
-                        <point x="15872" y="15779" />
-                        <point x="17116" y="15779" />
-                      </connector>
-                    </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="18423" top="10380" logicalid="21" controlid="21" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-                      <control>
-                        <ddsxmlobj>
-                          <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-                        </ddsxmlobj>
-                      </control>
-                      <layoutobject>
-                        <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__sexo___1590259A]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__sexo___5046D714]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
                       <connector lineroutestyle="MSDDS.Rectilinear" sourceid="9" destid="2" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="18822" y="10879" />
-                        <point x="18822" y="13279" />
+                        <point x="10040" y="10879" />
+                        <point x="10040" y="13279" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="6518" top="17788" logicalid="22" controlid="22" masterid="0" hint1="0" hint2="0" width="799" height="3719" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="5547" top="12950" logicalid="22" controlid="22" masterid="0" hint1="0" hint2="0" width="3087" height="3050" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1325,19 +1380,19 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__municipio__1960B67E]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__candidato__522F1F86]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="11" destid="7" sourceattachpoint="5" destattachpoint="0" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="6917" y="18287" />
-                        <point x="6917" y="19747" />
-                        <point x="6940" y="19747" />
-                        <point x="6940" y="21207" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="8" destid="2" sourceattachpoint="15" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="5847" y="13349" />
+                        <point x="7090" y="13349" />
+                        <point x="7090" y="15700" />
+                        <point x="8334" y="15700" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="12730" top="14491" logicalid="23" controlid="23" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="1182" top="22769" logicalid="23" controlid="23" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1345,17 +1400,35 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__partido__186C9245]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__municipio__uf_si__541767F8]" vartype="8" />
+                          <property name="Virtual" value="0" vartype="11" />
+                          <property name="VisibleAP" value="0" vartype="3" />
+                        </ddsxmlobj>
+                      </layoutobject>
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="11" destid="7" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="1581" y="23268" />
+                        <point x="1581" y="25668" />
+                      </connector>
+                    </ddscontrol>
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="3948" top="14412" logicalid="24" controlid="24" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                      <control>
+                        <ddsxmlobj>
+                          <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                        </ddsxmlobj>
+                      </control>
+                      <layoutobject>
+                        <ddsxmlobj>
+                          <property name="LogicalObject" value="dataSet.Relations[FK__partido__532343BF]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
                       <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="8" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="13129" y="17191" />
-                        <point x="13129" y="14791" />
+                        <point x="4347" y="17112" />
+                        <point x="4347" y="14712" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="3320" top="16449" logicalid="24" controlid="24" masterid="0" hint1="0" hint2="0" width="2397" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="12456" top="22981" logicalid="25" controlid="25" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1363,19 +1436,17 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__uf__zona_numero__1A54DAB7]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__uf2__zona_numero__550B8C31]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="17" destid="11" sourceattachpoint="15" destattachpoint="10" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="3620" y="16848" />
-                        <point x="4218" y="16848" />
-                        <point x="4218" y="16797" />
-                        <point x="5417" y="16797" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="18" destid="12" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="12855" y="23480" />
+                        <point x="12855" y="25880" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="15814" top="17780" logicalid="25" controlid="25" masterid="0" hint1="0" hint2="0" width="2308" height="4836" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="6948" top="17622" logicalid="26" controlid="26" masterid="0" hint1="0" hint2="0" width="2392" height="5572" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1383,19 +1454,19 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__votos__149C0161]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__votos__4F52B2DB]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="16" sourceattachpoint="1" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="17722" y="18279" />
-                        <point x="17722" y="20297" />
-                        <point x="16114" y="20297" />
-                        <point x="16114" y="22316" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="17" sourceattachpoint="1" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="8940" y="18121" />
+                        <point x="8940" y="20507" />
+                        <point x="7248" y="20507" />
+                        <point x="7248" y="22894" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="15715" top="26858" logicalid="26" controlid="26" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="8655" top="24591" logicalid="27" controlid="27" masterid="0" hint1="0" hint2="0" width="3000" height="2628" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1403,17 +1474,19 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[FK__votos__ano_codig__13A7DD28]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__votos__56F3D4A3]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="16" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="16114" y="29558" />
-                        <point x="16114" y="27158" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="12" destid="17" sourceattachpoint="12" destattachpoint="17" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="11355" y="26819" />
+                        <point x="10155" y="26819" />
+                        <point x="10155" y="24891" />
+                        <point x="8955" y="24891" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="9301" top="22170" logicalid="27" controlid="27" masterid="0" hint1="0" hint2="0" width="5407" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="6849" top="26589" logicalid="28" controlid="28" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1421,19 +1494,37 @@
                       </control>
                       <layoutobject>
                         <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[votos-municipio]" vartype="8" />
+                          <property name="LogicalObject" value="dataSet.Relations[FK__votos__ano_codig__4E5E8EA2]" vartype="8" />
                           <property name="Virtual" value="0" vartype="11" />
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="7" destid="16" sourceattachpoint="15" destattachpoint="10" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="9601" y="22569" />
-                        <point x="12004" y="22569" />
-                        <point x="12004" y="22537" />
-                        <point x="14408" y="22537" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="17" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="7248" y="29289" />
+                        <point x="7248" y="26889" />
                       </connector>
                     </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="8117" top="14016" logicalid="28" controlid="28" masterid="0" hint1="0" hint2="0" width="3812" height="3181" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="2842" top="24591" logicalid="29" controlid="29" masterid="0" hint1="0" hint2="0" width="3000" height="2628" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                      <control>
+                        <ddsxmlobj>
+                          <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+                        </ddsxmlobj>
+                      </control>
+                      <layoutobject>
+                        <ddsxmlobj>
+                          <property name="LogicalObject" value="dataSet.Relations[FK__votos__mun_codig__4D6A6A69]" vartype="8" />
+                          <property name="Virtual" value="0" vartype="11" />
+                          <property name="VisibleAP" value="0" vartype="3" />
+                        </ddsxmlobj>
+                      </layoutobject>
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="7" destid="17" sourceattachpoint="13" destattachpoint="16" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="3142" y="26819" />
+                        <point x="4342" y="26819" />
+                        <point x="4342" y="24891" />
+                        <point x="5542" y="24891" />
+                      </connector>
+                    </ddscontrol>
+                    <ddscontrol controlprogid="MSDDS.Polyline" left="632" top="13049" logicalid="30" controlid="30" masterid="0" hint1="0" hint2="0" width="2515" height="9264" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                       <control>
                         <ddsxmlobj>
                           <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -1446,39 +1537,18 @@
                           <property name="VisibleAP" value="0" vartype="3" />
                         </ddsxmlobj>
                       </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="11" destid="8" sourceattachpoint="11" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="8417" y="16797" />
-                        <point x="10023" y="16797" />
-                        <point x="10023" y="14316" />
-                        <point x="11629" y="14316" />
-                      </connector>
-                    </ddscontrol>
-                    <ddscontrol controlprogid="MSDDS.Polyline" left="8117" top="16948" logicalid="29" controlid="29" masterid="0" hint1="0" hint2="0" width="3725" height="805" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-                      <control>
-                        <ddsxmlobj>
-                          <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-                        </ddsxmlobj>
-                      </control>
-                      <layoutobject>
-                        <ddsxmlobj>
-                          <property name="LogicalObject" value="dataSet.Relations[coligacao-uf]" vartype="8" />
-                          <property name="Virtual" value="0" vartype="11" />
-                          <property name="VisibleAP" value="0" vartype="3" />
-                        </ddsxmlobj>
-                      </layoutobject>
-                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="11" destid="4" sourceattachpoint="13" destattachpoint="10" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                        <point x="8417" y="17347" />
-                        <point x="9979" y="17347" />
-                        <point x="9979" y="17453" />
-                        <point x="11542" y="17453" />
+                      <connector lineroutestyle="MSDDS.Rectilinear" sourceid="11" destid="8" sourceattachpoint="2" destattachpoint="14" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                        <point x="1031" y="21813" />
+                        <point x="1031" y="13349" />
+                        <point x="2847" y="13349" />
                       </connector>
                     </ddscontrol>
                   </dds>
 </DiagramLayout>
                 <ShowRelationshipNames>False</ShowRelationshipNames>
                 <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-                <DiagramViewPortLeft>-1506</DiagramViewPortLeft>
-                <DiagramViewPortTop>7492</DiagramViewPortTop>
+                <DiagramViewPortLeft>-1693</DiagramViewPortLeft>
+                <DiagramViewPortTop>8968</DiagramViewPortTop>
                 <DiagramBoundingLeft>0</DiagramBoundingLeft>
                 <DiagramBoundingTop>0</DiagramBoundingTop>
                 <DiagramZoom>75</DiagramZoom>
@@ -1490,20 +1560,20 @@
       <DataSourceID>DW- Deputados</DataSourceID>
       <Schema>
         <xs:schema id="DW-_x0020_Deputados" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
-          <xs:element name="DW-_x0020_Deputados" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="58114031-40d8-4141-92fb-a29811b9ee41">
+          <xs:element name="DW-_x0020_Deputados" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="b0f57d2b-ad89-47c1-9c27-a7f422163d64">
             <xs:complexType>
               <xs:choice minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="dbo_ano" msprop:FriendlyName="ano" msprop:DbSchemaName="dbo" msprop:DbTableName="ano" msprop:design-time-name="0f3102e7-a841-4cef-832d-b0909a0ac4ab" msprop:TableType="Table">
+                <xs:element name="dbo_ano" msprop:FriendlyName="ano" msprop:DbSchemaName="dbo" msprop:DbTableName="ano" msprop:design-time-name="17674c53-b335-47a0-ba02-2c547508a238" msprop:TableType="Table">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="ano_codigo" msprop:FriendlyName="ano_codigo" msprop:DbColumnName="ano_codigo" msprop:design-time-name="25c0df1a-81c0-44ff-bbf1-add3eec3b945">
+                      <xs:element name="ano_codigo" msprop:FriendlyName="ano_codigo" msprop:DbColumnName="ano_codigo" msprop:design-time-name="bd674be1-9cb6-4eaf-975e-437496a9c24d">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="10" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="ano_data" msprop:FriendlyName="ano_data" msprop:DbColumnName="ano_data" msprop:design-time-name="b815edcb-762a-40a8-b00f-24096f1d8f2c" minOccurs="0">
+                      <xs:element name="ano_data" msprop:FriendlyName="ano_data" msprop:DbColumnName="ano_data" msprop:design-time-name="2c7d0884-5a54-43c2-9b78-496239742d4d" minOccurs="0">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="15" />
@@ -1513,224 +1583,225 @@
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
-                <xs:element name="dbo_candidato" msprop:FriendlyName="candidato" msprop:DbSchemaName="dbo" msprop:DbTableName="candidato" msprop:design-time-name="640d499d-7fc0-4ae5-81f3-d6603384ba85" msprop:TableType="Table">
+                <xs:element name="dbo_candidato" msprop:FriendlyName="candidato" msprop:DbSchemaName="dbo" msprop:DbTableName="candidato" msprop:design-time-name="a8032a64-8d88-44e4-b636-160e037c2088" msprop:TableType="Table">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="cand_nome_urna" msprop:FriendlyName="cand_nome_urna" msprop:DbColumnName="cand_nome_urna" msprop:design-time-name="adf30bb9-d26f-4158-b5a6-52beef533f99">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="45" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                      <xs:element name="cand_numero" msprop:FriendlyName="cand_numero" msprop:DbColumnName="cand_numero" msprop:design-time-name="30104e8e-2a74-4819-beb9-a208405c66cf" type="xs:int" />
-                      <xs:element name="part_codigo" msprop:FriendlyName="part_codigo" msprop:DbColumnName="part_codigo" msprop:design-time-name="1365dd1b-7470-43ac-b8f5-771f5d98bd31" type="xs:int" />
-                      <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="b8a3154f-83fb-489e-9062-3ccdb479f491">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="50" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="47d83d04-0ccc-46ec-9554-4ea08da061c1">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="2" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="25bfa6de-515a-4073-8f3c-4ad23ca3b192" type="xs:int" />
-                      <xs:element name="sexo_codigo" msprop:FriendlyName="sexo_codigo" msprop:DbColumnName="sexo_codigo" msprop:design-time-name="b4b38844-f429-419a-9e43-f08b2dde2600" type="xs:int" />
-                      <xs:element name="situ_codigo" msprop:FriendlyName="situ_codigo" msprop:DbColumnName="situ_codigo" msprop:design-time-name="53487a1c-68f4-44a4-b54a-82a50fea14c5" type="xs:int" />
-                      <xs:element name="cargo_codigo" msprop:FriendlyName="cargo_codigo" msprop:DbColumnName="cargo_codigo" msprop:design-time-name="0b353e95-65ad-40b5-b071-6638dc05a2fa" type="xs:int" />
-                      <xs:element name="cand_nome" msprop:FriendlyName="cand_nome" msprop:DbColumnName="cand_nome" msprop:design-time-name="9a29f770-aa80-4be7-acc5-86d529bf5fbe" minOccurs="0">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="75" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="dbo_cargo" msprop:FriendlyName="cargo" msprop:DbSchemaName="dbo" msprop:DbTableName="cargo" msprop:design-time-name="2f5402f4-59a4-4ec7-b3ea-a4da379c7e7c" msprop:TableType="Table">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element name="cargo_codigo" msprop:FriendlyName="cargo_codigo" msprop:DbColumnName="cargo_codigo" msprop:design-time-name="8d88a1ae-0bdf-4473-bebd-d8f10d5cdbfd" type="xs:int" />
-                      <xs:element name="cargo_descricao" msprop:FriendlyName="cargo_descricao" msprop:DbColumnName="cargo_descricao" msprop:design-time-name="ff637a9e-afff-4d00-862c-70993282fe55" minOccurs="0">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="20" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="dbo_coligacao" msprop:FriendlyName="coligacao" msprop:DbSchemaName="dbo" msprop:DbTableName="coligacao" msprop:design-time-name="7bcea21a-f651-42e1-9a42-7fcc3bad0945" msprop:TableType="Table">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="50afc0be-021c-4a81-bef3-b0be66404316">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="50" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="e3b3959f-47a1-4eb0-83bf-082f440fb966">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="2" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="90a71d9a-b3ee-4132-b906-19dbfa709570" type="xs:int" />
-                      <xs:element name="colig_descricao" msprop:FriendlyName="colig_descricao" msprop:DbColumnName="colig_descricao" msprop:design-time-name="826d183c-9c32-4e47-94c7-b7730dec8d56" minOccurs="0">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="150" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="dbo_municipio" msprop:FriendlyName="municipio" msprop:DbSchemaName="dbo" msprop:DbTableName="municipio" msprop:design-time-name="66ede9d8-8ad5-4754-be18-d61e62b06021" msprop:TableType="Table">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element name="mun_codigo" msprop:FriendlyName="mun_codigo" msprop:DbColumnName="mun_codigo" msprop:design-time-name="09a2e356-dbf9-4c44-afb9-0074fa050d95" type="xs:int" />
-                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="bdc5f033-c821-49df-8a7a-4b0f14e48a2e">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="2" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="4c056a32-23ea-4dad-b679-5df233b50d97" type="xs:int" />
-                      <xs:element name="mun_descricao" msprop:FriendlyName="mun_descricao" msprop:DbColumnName="mun_descricao" msprop:design-time-name="e5bc76bc-6ca7-4332-86c9-475e90c3615d" minOccurs="0">
+                      <xs:element name="cand_nome_urna" msprop:FriendlyName="cand_nome_urna" msprop:DbColumnName="cand_nome_urna" msprop:design-time-name="b385ea4f-7183-4c17-b621-174b9edc698c">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="100" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
+                      <xs:element name="cand_numero" msprop:FriendlyName="cand_numero" msprop:DbColumnName="cand_numero" msprop:design-time-name="ea9132df-8d76-4733-8e23-89dfa0ad5675" type="xs:int" />
+                      <xs:element name="part_codigo" msprop:FriendlyName="part_codigo" msprop:DbColumnName="part_codigo" msprop:design-time-name="76c1b6a1-7249-4610-84c1-53da67447117" type="xs:int" />
+                      <xs:element name="sexo_codigo" msprop:FriendlyName="sexo_codigo" msprop:DbColumnName="sexo_codigo" msprop:design-time-name="d1c27c46-7629-4951-af26-5404295a4e05" type="xs:int" />
+                      <xs:element name="situ_codigo" msprop:FriendlyName="situ_codigo" msprop:DbColumnName="situ_codigo" msprop:design-time-name="647b54a4-c2bc-49e7-bf16-c5def8e2fa0b" type="xs:int" />
+                      <xs:element name="cargo_codigo" msprop:FriendlyName="cargo_codigo" msprop:DbColumnName="cargo_codigo" msprop:design-time-name="96194684-105c-4a1e-88e2-d122bebe23c9" type="xs:int" />
+                      <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="90d35648-401b-471f-969b-c8db28102f18">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="150" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="7793e1cc-b70e-4028-93f5-fbd7f0d00fd1">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="2" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="cand_nome" msprop:FriendlyName="cand_nome" msprop:DbColumnName="cand_nome" msprop:design-time-name="6cee5f46-c1a1-451c-9def-2e117df539a3" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="110" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
-                <xs:element name="dbo_partido" msprop:FriendlyName="partido" msprop:DbSchemaName="dbo" msprop:DbTableName="partido" msprop:design-time-name="c3afbe31-e0cd-4e3c-bc40-5f340122082c" msprop:TableType="Table">
+                <xs:element name="dbo_cargo" msprop:FriendlyName="cargo" msprop:DbSchemaName="dbo" msprop:DbTableName="cargo" msprop:design-time-name="6f243021-e579-4efa-a0df-d7028cc70f80" msprop:TableType="Table">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="part_codigo" msprop:FriendlyName="part_codigo" msprop:DbColumnName="part_codigo" msprop:design-time-name="7c47dab4-dbad-4e7c-813c-b27c36a6fbda" type="xs:int" />
-                      <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="69444863-3812-40ae-86fe-566218e26b22">
+                      <xs:element name="cargo_codigo" msprop:FriendlyName="cargo_codigo" msprop:DbColumnName="cargo_codigo" msprop:design-time-name="44837c62-c6fe-4195-b76b-4f0eb71b99b5" type="xs:int" />
+                      <xs:element name="cargo_descricao" msprop:FriendlyName="cargo_descricao" msprop:DbColumnName="cargo_descricao" msprop:design-time-name="4f8f2df9-c8bd-4acc-bf5c-b452c8515c87" minOccurs="0">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="50" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="68656b46-a166-439b-bba0-df5f20efbb3a">
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="dbo_coligacao" msprop:FriendlyName="coligacao" msprop:DbSchemaName="dbo" msprop:DbTableName="coligacao" msprop:design-time-name="f0b8962d-53fe-407c-a17e-8cc9c2055031" msprop:TableType="Table">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="88a2ffc8-8dcf-4dae-b8e8-88c05854c6cb">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="150" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="d655c240-39b9-49b7-8814-54db8d53927c">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="2" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="d7e390ef-80a1-42da-98d6-ea6f539f4035" type="xs:int" />
-                      <xs:element name="part_sigla" msprop:FriendlyName="part_sigla" msprop:DbColumnName="part_sigla" msprop:design-time-name="5d0d6e1b-cebd-4fcf-bac7-a69d03f8f263" minOccurs="0">
+                      <xs:element name="colig_descricao" msprop:FriendlyName="colig_descricao" msprop:DbColumnName="colig_descricao" msprop:design-time-name="f27d5f3f-3576-4597-b0bd-a0d67e669f37" minOccurs="0">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:maxLength value="10" />
+                            <xs:maxLength value="300" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
-                <xs:element name="dbo_sexo" msprop:FriendlyName="sexo" msprop:DbSchemaName="dbo" msprop:DbTableName="sexo" msprop:design-time-name="c1f735c7-a0a8-4f90-ab01-3769f25c8a40" msprop:TableType="Table">
+                <xs:element name="dbo_municipio" msprop:FriendlyName="municipio" msprop:DbSchemaName="dbo" msprop:DbTableName="municipio" msprop:design-time-name="b6139268-72ca-4658-88b1-58763bfa7fcd" msprop:TableType="Table">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="sexo_codigo" msprop:FriendlyName="sexo_codigo" msprop:DbColumnName="sexo_codigo" msprop:design-time-name="44f6175f-d360-409d-8625-ce488c1db455" type="xs:int" />
-                      <xs:element name="sexo_descricao" msprop:FriendlyName="sexo_descricao" msprop:DbColumnName="sexo_descricao" msprop:design-time-name="df1143a7-4b9d-4978-986a-af8070fde57e" minOccurs="0">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="10" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="dbo_situacao" msprop:FriendlyName="situacao" msprop:DbSchemaName="dbo" msprop:DbTableName="situacao" msprop:design-time-name="b32cfa52-73e2-45ca-8861-9b4e11a165f7" msprop:TableType="Table">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element name="situ_codigo" msprop:FriendlyName="situ_codigo" msprop:DbColumnName="situ_codigo" msprop:design-time-name="9e218452-7cf7-4e84-88b7-738a34415e7e" type="xs:int" />
-                      <xs:element name="situ_descricao" msprop:FriendlyName="situ_descricao" msprop:DbColumnName="situ_descricao" msprop:design-time-name="4a7a6211-ba61-4c4c-be03-197611a01928" minOccurs="0">
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:maxLength value="10" />
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:element>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="dbo_uf" msprop:FriendlyName="uf" msprop:DbSchemaName="dbo" msprop:DbTableName="uf" msprop:design-time-name="0a17c27e-21ac-42ff-90c4-05d8e1ace1a5" msprop:TableType="Table">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="e38ad059-03e7-4839-b162-66480d9fda22">
+                      <xs:element name="mun_codigo" msprop:FriendlyName="mun_codigo" msprop:DbColumnName="mun_codigo" msprop:design-time-name="6f8d6561-4150-497d-a182-9b4d44b2192b" type="xs:int" />
+                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="0de23cdf-86c2-4c58-b873-0c1c5d691a22">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="2" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="a2d366de-9f80-4c46-b3e0-c418007421f0" type="xs:int" />
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="dbo_votos" msprop:FriendlyName="votos" msprop:DbSchemaName="dbo" msprop:DbTableName="votos" msprop:design-time-name="cc48c494-db47-4961-97ef-e676ef608d04" msprop:TableType="Table">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element name="mun_codigo" msprop:FriendlyName="mun_codigo" msprop:DbColumnName="mun_codigo" msprop:design-time-name="2717d251-3c57-4ab8-989c-60b4aa22479f" type="xs:int" />
-                      <xs:element name="cand_nome_urna" msprop:FriendlyName="cand_nome_urna" msprop:DbColumnName="cand_nome_urna" msprop:design-time-name="1a4ecaab-9eb7-44bd-aaa1-507dd96b2247">
+                      <xs:element name="mun_descricao" msprop:FriendlyName="mun_descricao" msprop:DbColumnName="mun_descricao" msprop:design-time-name="3697d3bd-1254-4ea4-b9c3-5665c535ba50" minOccurs="0">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:maxLength value="45" />
+                            <xs:maxLength value="200" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="cand_numero" msprop:FriendlyName="cand_numero" msprop:DbColumnName="cand_numero" msprop:design-time-name="0356c5fe-2548-4206-acc5-e3c355bfe6bf" type="xs:int" />
-                      <xs:element name="part_codigo" msprop:FriendlyName="part_codigo" msprop:DbColumnName="part_codigo" msprop:design-time-name="fa680fb6-0383-49f9-bcf3-fee54a1abb1b" type="xs:int" />
-                      <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="687d8008-bba9-4335-8207-5b62b98d42cd">
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="dbo_partido" msprop:FriendlyName="partido" msprop:DbSchemaName="dbo" msprop:DbTableName="partido" msprop:design-time-name="8c4fda37-00ab-4e86-9c3f-51141b549022" msprop:TableType="Table">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="part_codigo" msprop:FriendlyName="part_codigo" msprop:DbColumnName="part_codigo" msprop:design-time-name="bfdac7b5-3177-403b-abd0-461c358fd328" type="xs:int" />
+                      <xs:element name="colig_codigo" msprop:FriendlyName="colig_codigo" msprop:DbColumnName="colig_codigo" msprop:design-time-name="b55eaccb-a46b-40a5-8b9f-7d36f7f2504a">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="150" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="5bd10d0b-319e-4304-8885-63fab9a433db">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="2" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="part_sigla" msprop:FriendlyName="part_sigla" msprop:DbColumnName="part_sigla" msprop:design-time-name="37858ab9-7fd6-4da3-8cab-6ac85684c09e" minOccurs="0">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="50" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="0b4204f6-6061-4ee3-9413-f4a3ee48a3b1">
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="dbo_sexo" msprop:FriendlyName="sexo" msprop:DbSchemaName="dbo" msprop:DbTableName="sexo" msprop:design-time-name="87e2499a-a66a-46a8-87cb-18977117d9b6" msprop:TableType="Table">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="sexo_codigo" msprop:FriendlyName="sexo_codigo" msprop:DbColumnName="sexo_codigo" msprop:design-time-name="dffac25f-1297-4d67-9d21-bd85317552bc" type="xs:int" />
+                      <xs:element name="sexo_descricao" msprop:FriendlyName="sexo_descricao" msprop:DbColumnName="sexo_descricao" msprop:design-time-name="c3e47913-15d0-4f69-ad0a-69fd99d69870" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="50" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="dbo_situacao" msprop:FriendlyName="situacao" msprop:DbSchemaName="dbo" msprop:DbTableName="situacao" msprop:design-time-name="fa6bbc81-e488-4d29-94d9-9992f179b2e5" msprop:TableType="Table">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="situ_codigo" msprop:FriendlyName="situ_codigo" msprop:DbColumnName="situ_codigo" msprop:design-time-name="902ec7a1-0758-4ff3-8741-92ca242789f4" type="xs:int" />
+                      <xs:element name="situ_descricao" msprop:FriendlyName="situ_descricao" msprop:DbColumnName="situ_descricao" msprop:design-time-name="66472ff2-523c-4b84-a157-5f09105f2c22" minOccurs="0">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="50" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="dbo_uf" msprop:FriendlyName="uf" msprop:DbSchemaName="dbo" msprop:DbTableName="uf" msprop:design-time-name="601d2801-d5e9-4e6d-9082-772f68cdb0ed" msprop:TableType="Table">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="uf_sigla" msprop:FriendlyName="uf_sigla" msprop:DbColumnName="uf_sigla" msprop:design-time-name="7cde484b-34c0-4012-bae4-2f5c2b5d2a6e">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="2" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="04f54d09-f389-40c7-8549-877047ab3408" type="xs:int" />
-                      <xs:element name="ano_codigo" msprop:FriendlyName="ano_codigo" msprop:DbColumnName="ano_codigo" msprop:design-time-name="80316264-6204-4f89-b2c8-0050ec1f1126">
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="dbo_uf2" msprop:FriendlyName="uf2" msprop:DbSchemaName="dbo" msprop:DbTableName="uf2" msprop:design-time-name="1485bcb4-aa9f-4b14-b466-2c317bc5f564" msprop:TableType="Table">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="uf2_sigla" msprop:FriendlyName="uf2_sigla" msprop:DbColumnName="uf2_sigla" msprop:design-time-name="85f40782-62dc-4d56-9cd6-5cea436aa24c">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="2" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="fadfa9a1-1101-4d5f-bb02-e60844a10be4" type="xs:int" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="dbo_votos" msprop:FriendlyName="votos" msprop:DbSchemaName="dbo" msprop:DbTableName="votos" msprop:design-time-name="88474997-659e-4ce8-8b7d-7cbbc1fece5a" msprop:TableType="Table">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="cand_nome_urna" msprop:FriendlyName="cand_nome_urna" msprop:DbColumnName="cand_nome_urna" msprop:design-time-name="07f28a99-c1cf-43c8-adf6-e228af6a7269">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="100" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="cand_numero" msprop:FriendlyName="cand_numero" msprop:DbColumnName="cand_numero" msprop:design-time-name="55e7d369-7f3b-4881-9fc7-e4cf31dd33d9" type="xs:int" />
+                      <xs:element name="mun_codigo" msprop:FriendlyName="mun_codigo" msprop:DbColumnName="mun_codigo" msprop:design-time-name="77d5cdd5-098c-442f-ba9b-4392aa954907" type="xs:int" />
+                      <xs:element name="ano_codigo" msprop:FriendlyName="ano_codigo" msprop:DbColumnName="ano_codigo" msprop:design-time-name="2085b73a-3e08-421d-bdb8-694494e7b584">
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:maxLength value="10" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:element>
-                      <xs:element name="votos" msprop:FriendlyName="votos" msprop:DbColumnName="votos" msprop:design-time-name="d8dded67-b6e4-483d-bbd3-88526e8c8381" type="xs:int" minOccurs="0" />
+                      <xs:element name="uf2_sigla" msprop:FriendlyName="uf2_sigla" msprop:DbColumnName="uf2_sigla" msprop:design-time-name="ac48c642-9a3e-4654-afdf-9b758758afbe">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:maxLength value="2" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:element>
+                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="5e2c64d0-01f9-40f6-ac9d-4523a5606165" type="xs:int" />
+                      <xs:element name="votos" msprop:FriendlyName="votos" msprop:DbColumnName="votos" msprop:design-time-name="e5002710-f376-4c3e-89ba-8be28cabf39f" type="xs:int" minOccurs="0" />
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
-                <xs:element name="dbo_zona" msprop:FriendlyName="zona" msprop:DbSchemaName="dbo" msprop:DbTableName="zona" msprop:design-time-name="943ec101-c09b-455a-afd7-3e99c5916ecf" msprop:TableType="Table">
+                <xs:element name="dbo_zona" msprop:FriendlyName="zona" msprop:DbSchemaName="dbo" msprop:DbTableName="zona" msprop:design-time-name="4efc662b-6814-4286-b306-ec6429fc82b3" msprop:TableType="Table">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="a1acf817-bf6f-4bdf-929e-c45d437a0cf3" type="xs:int" />
+                      <xs:element name="zona_numero" msprop:FriendlyName="zona_numero" msprop:DbColumnName="zona_numero" msprop:design-time-name="4fae09f6-92f7-4e8d-a049-7fb5d80491f4" type="xs:int" />
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
@@ -1744,10 +1815,6 @@
               <xs:selector xpath=".//dbo_candidato" />
               <xs:field xpath="cand_nome_urna" />
               <xs:field xpath="cand_numero" />
-              <xs:field xpath="part_codigo" />
-              <xs:field xpath="colig_codigo" />
-              <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:unique>
             <xs:unique name="dbo_cargo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
               <xs:selector xpath=".//dbo_cargo" />
@@ -1757,20 +1824,16 @@
               <xs:selector xpath=".//dbo_coligacao" />
               <xs:field xpath="colig_codigo" />
               <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:unique>
             <xs:unique name="dbo_municipio_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
               <xs:selector xpath=".//dbo_municipio" />
               <xs:field xpath="mun_codigo" />
-              <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:unique>
             <xs:unique name="dbo_partido_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
               <xs:selector xpath=".//dbo_partido" />
               <xs:field xpath="part_codigo" />
               <xs:field xpath="colig_codigo" />
               <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:unique>
             <xs:unique name="dbo_sexo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
               <xs:selector xpath=".//dbo_sexo" />
@@ -1783,75 +1846,69 @@
             <xs:unique name="dbo_uf_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
               <xs:selector xpath=".//dbo_uf" />
               <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:unique>
-            <xs:unique name="dbo_votos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-              <xs:selector xpath=".//dbo_votos" />
-              <xs:field xpath="mun_codigo" />
-              <xs:field xpath="cand_nome_urna" />
-              <xs:field xpath="cand_numero" />
-              <xs:field xpath="part_codigo" />
-              <xs:field xpath="colig_codigo" />
-              <xs:field xpath="uf_sigla" />
+            <xs:unique name="dbo_uf2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+              <xs:selector xpath=".//dbo_uf2" />
+              <xs:field xpath="uf2_sigla" />
               <xs:field xpath="zona_numero" />
             </xs:unique>
             <xs:unique name="dbo_zona_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
               <xs:selector xpath=".//dbo_zona" />
               <xs:field xpath="zona_numero" />
             </xs:unique>
-            <xs:keyref name="FK__votos__ano_codig__13A7DD28" refer="Constraint1">
+            <xs:keyref name="FK__votos__mun_codig__4D6A6A69" refer="dbo_municipio_Constraint1">
+              <xs:selector xpath=".//dbo_votos" />
+              <xs:field xpath="mun_codigo" />
+            </xs:keyref>
+            <xs:keyref name="FK__votos__ano_codig__4E5E8EA2" refer="Constraint1">
               <xs:selector xpath=".//dbo_votos" />
               <xs:field xpath="ano_codigo" />
             </xs:keyref>
-            <xs:keyref name="FK__votos__149C0161" refer="dbo_candidato_Constraint1">
+            <xs:keyref name="FK__votos__56F3D4A3" refer="dbo_uf2_Constraint1">
+              <xs:selector xpath=".//dbo_votos" />
+              <xs:field xpath="uf2_sigla" />
+              <xs:field xpath="zona_numero" />
+            </xs:keyref>
+            <xs:keyref name="FK__votos__4F52B2DB" refer="dbo_candidato_Constraint1">
               <xs:selector xpath=".//dbo_votos" />
               <xs:field xpath="cand_nome_urna" />
               <xs:field xpath="cand_numero" />
-              <xs:field xpath="part_codigo" />
-              <xs:field xpath="colig_codigo" />
-              <xs:field xpath="uf_sigla" />
+            </xs:keyref>
+            <xs:keyref name="FK__uf2__zona_numero__550B8C31" refer="dbo_zona_Constraint1">
+              <xs:selector xpath=".//dbo_uf2" />
               <xs:field xpath="zona_numero" />
             </xs:keyref>
-            <xs:keyref name="FK__uf__zona_numero__1A54DAB7" refer="dbo_zona_Constraint1">
-              <xs:selector xpath=".//dbo_uf" />
-              <xs:field xpath="zona_numero" />
-            </xs:keyref>
-            <xs:keyref name="FK__partido__186C9245" refer="dbo_coligacao_Constraint1">
+            <xs:keyref name="FK__partido__532343BF" refer="dbo_coligacao_Constraint1">
               <xs:selector xpath=".//dbo_partido" />
               <xs:field xpath="colig_codigo" />
               <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:keyref>
-            <xs:keyref name="FK__municipio__1960B67E" refer="dbo_uf_Constraint1">
+            <xs:keyref name="FK__municipio__uf_si__541767F8" refer="dbo_uf_Constraint1">
               <xs:selector xpath=".//dbo_municipio" />
               <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:keyref>
-            <xs:keyref name="FK__candidato__sexo___1590259A" refer="dbo_sexo_Constraint1">
-              <xs:selector xpath=".//dbo_candidato" />
-              <xs:field xpath="sexo_codigo" />
-            </xs:keyref>
-            <xs:keyref name="FK__candidato__17786E0C" refer="dbo_partido_Constraint1">
+            <xs:keyref name="FK__candidato__522F1F86" refer="dbo_partido_Constraint1">
               <xs:selector xpath=".//dbo_candidato" />
               <xs:field xpath="part_codigo" />
               <xs:field xpath="colig_codigo" />
               <xs:field xpath="uf_sigla" />
-              <xs:field xpath="zona_numero" />
             </xs:keyref>
-            <xs:keyref name="FK__candidato__cargo__1B48FEF0" refer="dbo_cargo_Constraint1">
+            <xs:keyref name="FK__candidato__sexo___5046D714" refer="dbo_sexo_Constraint1">
+              <xs:selector xpath=".//dbo_candidato" />
+              <xs:field xpath="sexo_codigo" />
+            </xs:keyref>
+            <xs:keyref name="FK__candidato__cargo__55FFB06A" refer="dbo_cargo_Constraint1">
               <xs:selector xpath=".//dbo_candidato" />
               <xs:field xpath="cargo_codigo" />
             </xs:keyref>
-            <xs:keyref name="FK__candidato__situ___168449D3" refer="dbo_situacao_Constraint1">
+            <xs:keyref name="FK__candidato__situ___513AFB4D" refer="dbo_situacao_Constraint1">
               <xs:selector xpath=".//dbo_candidato" />
               <xs:field xpath="situ_codigo" />
             </xs:keyref>
           </xs:element>
           <xs:annotation>
             <xs:appinfo>
-              <msdata:Relationship name="votos-municipio" msdata:parent="dbo_municipio" msdata:child="dbo_votos" msdata:parentkey="mun_codigo" msdata:childkey="mun_codigo" msprop:Description="" msprop:IsLogical="True" />
               <msdata:Relationship name="partido-uf" msdata:parent="dbo_uf" msdata:child="dbo_partido" msdata:parentkey="uf_sigla" msdata:childkey="uf_sigla" msprop:Description="" msprop:IsLogical="True" />
-              <msdata:Relationship name="coligacao-uf" msdata:parent="dbo_uf" msdata:child="dbo_coligacao" msdata:parentkey="uf_sigla" msdata:childkey="uf_sigla" msprop:Description="" msprop:IsLogical="True" />
             </xs:appinfo>
           </xs:annotation>
         </xs:schema>
