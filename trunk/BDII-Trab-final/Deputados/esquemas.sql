@@ -49,14 +49,13 @@ GO
 INSERT INTO municipio (mun_codigo, uf_sigla, zona_numero, mun_descricao) (SELECT distinct [Coluna 8], [Coluna 7], [Coluna 10], [Coluna 9] FROM vmz_candidato WHERE [Coluna 11] BETWEEN 6 AND 7)
 GO
 INSERT INTO votos (mun_codigo, cand_nome_urna, cand_numero, part_codigo, colig_codigo, uf_sigla, zona_numero, ano_codigo, votos) (SELECT distinct [Coluna 8], [Coluna 14], [Coluna 13], [Coluna 26], [Coluna 28], [Coluna 7], [Coluna 10], [Coluna 5], [Coluna 34] FROM vmz_candidato WHERE [Coluna 11] BETWEEN 6 AND 7)
-GO
-
+GOs
 /*
 TRUNCATE TABLE [vmz_candidato]
 GO
 TRUNCATE TABLE [votos] 
 GO
-TRUNCATE TABLE [ano] 
+TRUNCATE TABLE [ano] s
 GO
 TRUNCATE TABLE [municipio] 
 GO
