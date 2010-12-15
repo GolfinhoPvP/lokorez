@@ -2,8 +2,6 @@
 SELECT * FROM vmz_candidato
 
 SELECT * FROM uf
-
-SELECT * from coligacao
 */
 
 use [DW-Deputados]
