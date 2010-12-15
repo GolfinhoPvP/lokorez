@@ -35,12 +35,13 @@ Drop table [zona]
 go
 
 
+
 Create table [votos] (
 	[mun_codigo] Integer NOT NULL,
-	[cand_nome_urna] Varchar(45) NOT NULL,
+	[cand_nome_urna] Varchar(100) NOT NULL,
 	[cand_numero] Integer NOT NULL,
 	[part_codigo] Integer NOT NULL,
-	[colig_codigo] Varchar(50) NOT NULL,
+	[colig_codigo] Varchar(150) NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
 	[ano_codigo] Varchar(10) NOT NULL,
@@ -53,7 +54,7 @@ Create table [municipio] (
 	[mun_codigo] Integer NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
-	[mun_descricao] Varchar(100) NULL,
+	[mun_descricao] Varchar(200) NULL,
 Primary Key  ([mun_codigo],[uf_sigla],[zona_numero])
 ) 
 go
@@ -66,49 +67,49 @@ Primary Key  ([ano_codigo])
 go
 
 Create table [candidato] (
-	[cand_nome_urna] Varchar(45) NOT NULL,
+	[cand_nome_urna] Varchar(100) NOT NULL,
 	[cand_numero] Integer NOT NULL,
 	[part_codigo] Integer NOT NULL,
-	[colig_codigo] Varchar(50) NOT NULL,
+	[colig_codigo] Varchar(150) NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
 	[sexo_codigo] Integer NOT NULL,
 	[situ_codigo] Integer NOT NULL,
 	[cargo_codigo] Integer NOT NULL,
-	[cand_nome] Varchar(75) NULL,
+	[cand_nome] Varchar(110) NULL,
 Primary Key  ([cand_nome_urna],[cand_numero],[part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
 ) 
 go
 
 Create table [sexo] (
 	[sexo_codigo] Integer NOT NULL,
-	[sexo_descricao] Varchar(10) NULL,
+	[sexo_descricao] Varchar(50) NULL,
 Primary Key  ([sexo_codigo])
 ) 
 go
 
 Create table [situacao] (
 	[situ_codigo] Integer NOT NULL,
-	[situ_descricao] Varchar(10) NULL,
+	[situ_descricao] Varchar(50) NULL,
 Primary Key  ([situ_codigo])
 ) 
 go
 
 Create table [partido] (
 	[part_codigo] Integer NOT NULL,
-	[colig_codigo] Varchar(50) NOT NULL,
+	[colig_codigo] Varchar(150) NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
-	[part_sigla] Varchar(10) NULL,
+	[part_sigla] Varchar(50) NULL,
 Primary Key  ([part_codigo],[colig_codigo],[uf_sigla],[zona_numero])
 ) 
 go
 
 Create table [coligacao] (
-	[colig_codigo] Varchar(50) NOT NULL,
+	[colig_codigo] Varchar(150) NOT NULL,
 	[uf_sigla] Char(2) NOT NULL,
 	[zona_numero] Integer NOT NULL,
-	[colig_descricao] Varchar(150) NULL,
+	[colig_descricao] Varchar(300) NULL,
 Primary Key  ([colig_codigo],[uf_sigla],[zona_numero])
 ) 
 go
@@ -128,7 +129,7 @@ go
 
 Create table [cargo] (
 	[cargo_codigo] Integer NOT NULL,
-	[cargo_descricao] Varchar(20) NULL,
+	[cargo_descricao] Varchar(50) NULL,
 Primary Key  ([cargo_codigo])
 ) 
 go
