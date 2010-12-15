@@ -20,11 +20,11 @@
 			if(!$connect->start())
 				echo("Impossible to star connection in Sigin.");
 			
-			if(!($result = $connect->execute("SELECT matricula, senha FROM Cadastros ORDER BY matricula")))
+			if(!($result = $connect->execute("SELECT matricula, senha, codigo_fol FROM Cadastros ORDER BY matricula")))
 				echo("Impossible to execute MySQL query.");
 			
 			while ($row = mysql_fetch_array($result)){
-			   echo("Matricula: ".$row["matricula"].", senha: ".base64_decode($row["senha"])."<br/>");
+			   echo("Matricula: ".$row["matricula"].", senha: ".base64_decode($row["senha"]).", folha: ".$row["codigo_fol"]."<br/>");
 			}
 			
 			//$connect->close();

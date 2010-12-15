@@ -15,10 +15,15 @@ function show(v){
 	camp.style.visibility = 'visible';
 }
 
+function hide(v){
+	camp = document.getElementById(v);
+	camp.style.visibility = 'hidden';
+}
+
 function userLoginValider(v){
 	camp = document.getElementById(v);
 	
-	if(camp.slSelect.value == "Escolha"){
+	if(camp.slSelect.value == "0"){
 		alert("Selecione a sua folha.");
 		camp.slSelect.focus();
 		return false;
@@ -117,6 +122,32 @@ function folhaValider(v){
 		camp.tdDescricao.focus();
 		return false;
 	}
+}
+
+function changePassValider(v){
+	camp = document.getElementById(v);
+	
+	if(camp.tfOldPass.value.length == 0){
+		alert("Digite sua antiga senha!");
+		camp.tfOldPass.focus();
+		return false;
+	}
+	if(camp.tfNewPass1.value.length == 0){
+		alert("Digite sua nova senha!");
+		camp.tfNewPass1.focus();
+		return false;
+	}
+	if(camp.tfNewPass2.value.length == 0){
+		alert("Confirme sua nova senha!");
+		camp.tfNewPass2.focus();
+		return false;
+	}
+	if(camp.tfNewPass1.value != camp.tfNewPass2.value){
+		alert("A senha e sua confirmação não são iguais!");
+		camp.tfNewPass1.focus();
+		return false;
+	}
+	return true;
 }
 
 function onlyNums(v, e){

@@ -44,7 +44,7 @@
 			$c = $this->dateCounterDiff($this->date1, $this->date2);
 			$date = explode("-",$this->date1);
 			
-			echo('<table><tr><td><a href="../index.php">Clique aqui para gerar novos contracheques</a></td><td width="250"><p onclick="javascript: window.print();" align="center">Imprimir<br/><img src="../images/impressora.png" width="35" height="35" style="cursor:pointer";/></p></td><td><a href="../actions/Logout.class.php">Desconectar</a></td></tr></table><br/>');
+			echo('<table><tr><td><a href="../index.php">Clique aqui para gerar novos contracheques</a></td><td width="250"><p onclick="javascript: window.print();" align="center">Imprimir<br/><img src="../images/impressora.png" width="35" height="35" style="cursor:pointer";/></p></td><td><a href="../actions/Logout.class.php">Desconectar<img src="../images/desconectar.png" width="36" height="36" /></a></td></tr></table><br/>');
 			
 			$cont = 0;
 			

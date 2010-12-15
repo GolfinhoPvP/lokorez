@@ -78,7 +78,7 @@ body {
 	position:absolute;
 	left: 3px;
 	top: 145px;
-	width: 871px;
+	width: 904px;
 	height: 33px;
 	z-index:1;
 }
@@ -121,4 +121,24 @@ body {
 	height: 47px;
 	left: 64px;
 	top: 394px;
+}
+
+#divButDesc{
+	position:absolute;
+	left: 662px;
+	top: -22px;
+}
+
+#divSenMud{
+	position:absolute;
+	left: 546px;
+	top: -34px;
+}
+
+#divBoxSenha{
+	position:absolute;
+	left: 120px;
+	top: 4px;
+	width: 613px;
+	visibility:hidden;
 }

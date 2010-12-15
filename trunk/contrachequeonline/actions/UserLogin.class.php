@@ -20,12 +20,12 @@
 			$this->password = $connect->antiInjection(isset($_POST["tfPassword"]) ? $_POST["tfPassword"] : NULL);
 			$this->select = $connect->antiInjection(isset($_POST["slSelect"]) ? $_POST["slSelect"] : NULL);
 			if(!$connect->start())
-				echo("Impossible to star connection in Sigin.");
+				echo("Impossible to start connection in Sigin.");
 			
 			//encoding to md5 hash
 			$this->password = base64_encode($this->password);
-			
-			if(!($result = $connect->execute("SELECT * FROM Cadastros c INNER JOIN Folhas f ON c.codigo_fol = f.codigo_fol WHERE c.matricula = '$this->userMatricula' AND c.senha = '$this->password' AND f.descricao = '$this->select'")))
+
+			if(!($result = $connect->execute("SELECT * FROM Cadastros c INNER JOIN Folhas f ON c.codigo_fol = f.codigo_fol WHERE c.matricula = '$this->userMatricula' AND c.senha = '$this->password' AND f.codigo_fol = '$this->select'")))
 				echo("Impossible to execute MySQL query.");
 		
 			if($connect->counterResult($result) > 0){

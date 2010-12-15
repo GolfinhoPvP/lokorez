@@ -11,11 +11,18 @@
 	$login	= "visible";
 	$search = "hidden";
 	$messageVs = "hidden";
-	if(/*(isset($_GET["ok"]) == "true") && */isset($_SESSION["user"])){
+	if(isset($_SESSION["user"])){
 		$login	= "hidden";
 		$search = "visible";
 		if(isset($_GET["found"])){
 			$message = "Nenhum contracheque a seu respeito foi encontrado.";
+			$messageVs = "visible";
+		}
+		if($_GET["pass"] == "true"){
+			$message = "Senha alterada com sucesso!";
+			$messageVs = "visible";
+		}else if($_GET["pass"] == "false"){
+			$message = "A senha não foi alterada!";
 			$messageVs = "visible";
 		}
 	}else{
@@ -61,7 +68,7 @@
 					<tr>
 					  <td width="44%" class="words2"><div align="right">A qual folha voc&ecirc; pertence:</div></td>
 					  <td width="56%"><select name="slSelect">
-						<option>Escolha</option>
+						<option value="0">Escolha</option>
 						<?php
 						/*
 						FDSC - Funcionários disposição comissionado serviço prestado
@@ -69,10 +76,10 @@
 						PACS - 
 						FPUM - 
 						*/
-					$result = $connect->execute("SELECT descricao FROM Folhas ORDER BY codigo_fol");
+					$result = $connect->execute("SELECT codigo_fol, descricao FROM Folhas ORDER BY codigo_fol");
 					
 					while($row = mysql_fetch_assoc($result)) {
-						echo("<option>".$row["descricao"]."</option>");
+						echo("<option value='".$row["codigo_fol"]."'>".$row["descricao"]."</option>");
 					}
 					
 					//$connect->close();
@@ -88,7 +95,7 @@
 					  <td><input name="tfPassword" type="password" id="tfPassword" size="20" maxlength="25" /></td>
 				    </tr>
 					<tr>
-					  <td class="words2">033311 - Wbn26</br>08781X - Rby90</td>
+					  <td class="words2"></td>
 					  <td><div align="left"><br />
 				        <input name="connect" type="submit" id="connect" value="Conectar" />
 					    </div></td></tr>
@@ -119,21 +126,62 @@
 
 
 <div id="divBoxLogged" style="visibility:<?php echo($search); ?>">
-  <table width="868" border="0" cellpadding="0" cellspacing="0">
+	<div id="divBoxSenha">
+  <table width="611" border="0" cellpadding="0" cellspacing="0">
     <tr>
       <td width="74"><img src="images/box_l.png" /></td>
-      <td width="601" background="images/box_c.png">
+      <td width="344" background="images/box_c.png">
+	  <form id="passChange" name="passChange" method="post" action="actions/changePassword.php" onsubmit="javascript: return changePassValider('passChange')">
+        <table width="100%" border="0">
+          <tr>
+            <td colspan="2">
+              <table width="337" border="0">
+                <tr>
+                  <td width="298"><div align="center" class="wordsLabel2">Alterar Senha </div></td>
+                  <td width="29"><img src="images/fechar.png" style="cursor:pointer" onclick="javascript: hide('divBoxSenha');"/></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td width="181" class="words1"><div align="right">Antiga senha: </div></td>
+            <td width="153"><input name="tfOldPass" type="password" id="tfOldPass" size="25" maxlength="15" /></td>
+          </tr>
+          <tr>
+            <td class="words1"><div align="right">Nova senha:</div></td>
+            <td><input name="tfNewPass1" type="password" id="tfNewPass1" size="25" maxlength="15" /></td>
+          </tr>
+          <tr>
+            <td class="words1"><div align="right">Confirme a nova senha: </div></td>
+            <td><label>
+              <input name="tfNewPass2" type="password" id="tfNewPass2" size="25" maxlength="15" />
+            </label></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="btChange" type="submit" id="btChange" value="Alterar" /></td>
+          </tr>
+        </table>
+		</form>
+      <br /></td>
+      <td width="193"><img src="images/box_r.png" /></td>
+    </tr>
+  </table>
+</div>
+	<div id="divButDesc" style="cursor:pointer" onclick="location.href='actions/Logout.class.php'">
+		<span class="wordsLabel">Desconectar </span><img src="images/desconectar.png" width="36" height="36" />	</div>
+	<div class="wordsLabel" id="divSenMud" style="cursor:pointer" onclick="javascript: show('divBoxSenha');">
+		Mudar Senha <img src="images/cadeado.png" width="32" height="47" />	</div>
+  <table width="905" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="74"><img src="images/box_l.png" /></td>
+      <td width="638" background="images/box_c.png">
           <div align="center" class="wordsLabel2">FMS Contracheque On-line </div>
           <br />
 		  <table width="100%" border="0">
 			  <tr>
-				<td width="127"><div align="right" class="words2">Seja bem vindo(a) </div></td>
-				<td width="283"><?php echo(isset($_SESSION["nome"])? $_SESSION["nome"] : ""); ?></td>
-				<td width="90"><form id="desconectForm" name="desconectForm" method="post" action="actions/Logout.class.php">
-      <label>
-      <input name="desconect" type="submit" id="desconect" value="Desconectar" />
-      </label>
-    </form></td>
+				<td width="149"><div align="right" class="words2">Seja bem vindo(a) </div></td>
+				<td width="306"><?php echo(isset($_SESSION["nome"])? $_SESSION["nome"] : ""); ?></td>
+				<td width="132"></td>
 			  </tr>
 			  <tr>
 				<td><div align="right" class="words2">Matr&iacute;cula:</div></td>

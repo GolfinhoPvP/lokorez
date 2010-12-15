@@ -73,9 +73,9 @@
 
 #divBut {
 	position:absolute;
-	left: 85px;
-	top: 69px;
-	width: 84px;
+	left: 742px;
+	top: 41px;
+	width: 133px;
 }
 
 #divMenu {
@@ -83,4 +83,10 @@
 	top: 98px;
 	width: 121px;
 	left: 16px;
+}
+#divLabelAdmin {
+	position:absolute;
+	left: 184px;
+	top: 358px;
+	width: 530px;
 }

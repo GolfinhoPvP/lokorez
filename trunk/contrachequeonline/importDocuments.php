@@ -69,15 +69,19 @@
 		<script language="javascript" src="javascript/functions.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
 			window.onload = function(){
-				/*document.date.tfDate.value = getUserDate();*/
+				diff = ((screen.width - 950)/2);
+				document.getElementById("userFrame").style.left = diff+"px";
+		
 				dir = upl = tab = null;
 				
 				var vars = new String(document.location.search);
-				vars = vars.substr(1);
-				list = vars.split("&");
-				for(x=0; x < list.length; x++){
-					listAux = list[x].split("=");
-					eval(listAux[0]+" = '"+listAux[1]+"';");
+				if(vars.length > 0){
+					vars = vars.substr(1);
+					list = vars.split("&");
+					for(x=0; x < list.length; x++){
+						listAux = list[x].split("=");
+						eval(listAux[0]+" = '"+listAux[1]+"';");
+					}
 				}
 				
 				if(dir != null){
@@ -120,8 +124,8 @@
 	</head>
 	
 	<body>
-	<p align="center">Area do Administrador</p>
-		</p>
+	<p align="center" class="wordsLabel2">Area do Administrador</p>
+	<div id="userFrame">
 <div id="divBoxData">
   <table width="825" border="0" cellpadding="0" cellspacing="0">
     <tr>
@@ -428,23 +432,25 @@
   </table>
 </div>
 
-<div id="divBut">
-<form id="desconect" name="desconect" method="post" action="actions/Logout.class.php">
-                    <label>
-                    <input name="logout" type="submit" id="logout" value="Desconectar" />
-                    </label>
-  </form></div>
-  <div id="divMenu">  
-    <p onclick="javascript: tableShowManager('divBoxAddAdmin', true);" style="cursor:pointer">Novo Admin </p>
-    <p onclick="javascript: tableShowManager('divBoxData', true);" style="cursor:pointer">Validar Data</p>
-    <p onclick="javascript: tableShowManager('divBoxDCR', true);" style="cursor:pointer">DCR</p>
-    <p onclick="javascript: tableShowManager('divBoxDLT', true);" style="cursor:pointer">DLT</p>
-    <p onclick="javascript: tableShowManager('divBoxEspecial', true);" style="cursor:pointer">Especial</p>
-    <p onclick="javascript: tableShowManager('divBoxEventos', true);" style="cursor:pointer">Eventos</p>
-    <p onclick="javascript: tableShowManager('divBoxFolha', true);" style="cursor:pointer">Folha</p>
-    <p onclick="javascript: tableShowManager('divBoxCadCalc', true);" style="cursor:pointer">Tabelas de C&aacute;lculo e Cadastro  </p>
+<div id="divBut"  style="cursor:pointer" onclick="location.href='actions/Logout.class.php'">
+<span class="wordsLabel">Desconectar </span><img src="images/desconectar.png" width="36" height="36" /></div>
+  <div id="divMenu" class="wordsLabel">  
+    <p onclick="javascript: tableShowManager('divBoxAddAdmin', true);" style="cursor:pointer">-&gt; Novo Admin </p>
+    <p onclick="javascript: tableShowManager('divBoxData', true);" style="cursor:pointer">-&gt; Validar Data</p>
+    <p onclick="javascript: tableShowManager('divBoxDCR', true);" style="cursor:pointer">-&gt; DCR</p>
+    <p onclick="javascript: tableShowManager('divBoxDLT', true);" style="cursor:pointer">-&gt; DLT</p>
+    <p onclick="javascript: tableShowManager('divBoxEspecial', true);" style="cursor:pointer">-&gt; Especial</p>
+    <p onclick="javascript: tableShowManager('divBoxEventos', true);" style="cursor:pointer">-&gt; Eventos</p>
+    <p onclick="javascript: tableShowManager('divBoxFolha', true);" style="cursor:pointer">-&gt; Folha</p>
+    <p onclick="javascript: tableShowManager('divBoxCadCalc', true);" style="cursor:pointer">-&gt; Tabelas de C&aacute;lculo e Cadastro  </p>
     <a href="show.php">SHOW</a>
   </div>
+  <div id="divLabelAdmin" class="wordsLabel">
+  <p align="center">Funda&ccedil;&atilde;o Municipal de Saude - FMS</p>
+  <p align="center">Web Developer: aj.alves@live.com, Antonio Jos&eacute; de O. Alves<br />
+  &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido</p>
+</div>
+</div>
 	</body>
 </html>
 <?php //$connect->close(); ?>
