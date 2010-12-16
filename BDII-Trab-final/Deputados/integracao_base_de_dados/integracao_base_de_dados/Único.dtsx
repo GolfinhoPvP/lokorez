@@ -10,8 +10,8 @@
 <DTS:Property DTS:Name="PackagePriorityClass">0</DTS:Property>
 <DTS:Property DTS:Name="VersionMajor">1</DTS:Property>
 <DTS:Property DTS:Name="VersionMinor">0</DTS:Property>
-<DTS:Property DTS:Name="VersionBuild">18</DTS:Property>
-<DTS:Property DTS:Name="VersionGUID">{89D86729-4FEF-44E6-9F35-A04958AA916B}</DTS:Property>
+<DTS:Property DTS:Name="VersionBuild">19</DTS:Property>
+<DTS:Property DTS:Name="VersionGUID">{C8C25E34-0588-4231-9583-53E8EEBC2959}</DTS:Property>
 <DTS:Property DTS:Name="EnableConfig">0</DTS:Property>
 <DTS:Property DTS:Name="CheckpointFileName"></DTS:Property>
 <DTS:Property DTS:Name="SaveCheckpoints">0</DTS:Property>
@@ -556,7 +556,7 @@
 <DTS:Property DTS:Name="DTSID">{349b6d91-44c0-4f34-b1ec-d07ea440df80}</DTS:Property>
 <DTS:Property DTS:Name="Description">Tarefa Executar SQL</DTS:Property>
 <DTS:Property DTS:Name="CreationName">Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</DTS:Property>
-<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property><DTS:ObjectData><SQLTask:SqlTaskData SQLTask:Connection="{610E9893-643A-4B95-9F8C-081B3A2C7A84}" SQLTask:TimeOut="0" SQLTask:IsStoredProc="False" SQLTask:BypassPrepare="True" SQLTask:SqlStmtSourceType="DirectInput" SQLTask:SqlStatementSource="TRUNCATE TABLE [vmz_candidato]&#xA;GO&#xA;DELETE FROM[votos] &#xA;GO&#xA;DELETE FROM [ano] &#xA;GO&#xA;DELETE FROM [municipio] &#xA;GO&#xA;DELETE FROM [candidato] &#xA;GO&#xA;DELETE FROM [situacao] &#xA;GO&#xA;DELETE FROM [sexo] &#xA;GO&#xA;DELETE FROM [partido] &#xA;GO&#xA;DELETE FROM [cargo] &#xA;GO&#xA;DELETE FROM [coligacao] &#xA;GO&#xA;DELETE FROM[uf] &#xA;GO&#xA;DELETE FROM [zona] &#xA;GO" SQLTask:CodePage="1252" SQLTask:ResultType="ResultSetType_None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"/></DTS:ObjectData></DTS:Executable>
+<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property><DTS:ObjectData><SQLTask:SqlTaskData SQLTask:Connection="{610E9893-643A-4B95-9F8C-081B3A2C7A84}" SQLTask:TimeOut="0" SQLTask:IsStoredProc="False" SQLTask:BypassPrepare="True" SQLTask:SqlStmtSourceType="DirectInput" SQLTask:SqlStatementSource="TRUNCATE TABLE [vmz_candidato]&#xA;GO&#xA;DELETE FROM[votos] &#xA;GO&#xA;DELETE FROM [ano] &#xA;GO&#xA;DELETE FROM [municipio] &#xA;GO&#xA;DELETE FROM [candidato] &#xA;GO&#xA;DELETE FROM [situacao] &#xA;GO&#xA;DELETE FROM [sexo] &#xA;GO&#xA;DELETE FROM [partido] &#xA;GO&#xA;DELETE FROM [cargo] &#xA;GO&#xA;DELETE FROM [coligacao] &#xA;GO&#xA;DELETE FROM[uf] &#xA;GO&#xA;DELETE FROM[uf2] &#xA;GO&#xA;DELETE FROM [zona] &#xA;GO" SQLTask:CodePage="1252" SQLTask:ResultType="ResultSetType_None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"/></DTS:ObjectData></DTS:Executable>
 <DTS:Executable DTS:ExecutableType="STOCK:FOREACHLOOP">
 <DTS:ForEachEnumerator>
 <DTS:Property DTS:Name="ObjectName">{D28F4DD5-7F0A-42D3-86F7-3FCF691A469D}</DTS:Property>
@@ -920,7 +920,7 @@
 <DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;PrecedenceConstraint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:EvalOp&gt;Constraint&lt;/dwd:EvalOp&gt;&lt;/PrecedenceConstraint&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">{316CF7AE-1275-405F-93CE-933FB50F76C3}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{9A707E34-A8B1-4E8E-B67C-942281E07F61}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{8A974A15-9A03-4968-A4F7-638F86993957}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
 <DTS:PackageVariable>
@@ -967,14 +967,14 @@
 &lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortTop&gt;37&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsDataFlowDiagram&gt;&lt;dwd:DtsComponentDesignerPropertiesList&gt;&lt;dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:key xsi:type="xsd:string"&gt;9	TableInfoObjectType&lt;/dwd:key&gt;&lt;dwd:value xsi:type="xsd:string"&gt;Table&lt;/dwd:value&gt;&lt;/dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:key xsi:type="xsd:string"&gt;9	DataSourceViewID&lt;/dwd:key&gt;&lt;/dwd:DtsComponentDesignTimeProperty&gt;&lt;/dwd:DtsComponentDesignerPropertiesList&gt;&lt;/TaskHost&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">{5767465b-9545-4aaf-9dfb-0afb21d0cacf}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{78C1CDBB-1780-462D-9FD2-1EB29E1461CC}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{9331B3A8-641D-4497-89B8-DC49690D4BC7}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
 <DTS:PackageVariable>
 <DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;PipelinePath xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:SourceName&gt;Saída de Origem de Arquivo Simples&lt;/dwd:SourceName&gt;&lt;dwd:DestinationName&gt;Entrada de Destino OLE DB&lt;/dwd:DestinationName&gt;&lt;/PipelinePath&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">{5767465b-9545-4aaf-9dfb-0afb21d0cacf}-26</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{8E795044-71E4-4F96-81ED-A0DC6316E0BA}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{C6CB925A-B13E-4EF7-9F52-E61A57044B86}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
 <DTS:PackageVariable>
@@ -1087,14 +1087,14 @@
 &lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;-9315&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-3275&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">{A8A7032C-005C-4A7E-9BD0-D9D75702F727}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{D2D81A2C-75B4-45FA-9CD3-3B3C0C91077B}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{53135D13-FB43-4966-A95D-E71FD6218E54}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
 <DTS:PackageVariable>
 <DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;PrecedenceConstraint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:EvalOp&gt;Constraint&lt;/dwd:EvalOp&gt;&lt;/PrecedenceConstraint&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">{D18840A0-712B-4DEF-AE12-FCF932E14113}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{CAE707E9-190E-4741-9FFD-B60782DBE607}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{D07A8CC9-4DC0-4B26-8636-834249B805B7}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
 <DTS:PackageVariable>
@@ -1207,6 +1207,6 @@
 &lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;-9315&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-3275&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">package-diagram</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{F087D3AD-1579-4E8E-9D26-BE88574A5C20}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{DE225EFD-8C18-49E1-9652-63F8E48DFEC0}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable></DTS:Executable>

@@ -1,7 +1,12 @@
 /*
 SELECT * FROM vmz_candidato
 
-SELECT * FROM votos
+DELETE FROM votos where cand_nome_urna = 'ABELARDO JUREMA'
+DELETE FROM votos where cand_nome_urna = 'ALEXANDRE O GRANDE'
+DELETE FROM votos where cand_nome_urna = 'ALOISIO ERNESTO'
+DELETE FROM votos where cand_nome_urna = 'AMPARO LANDIM'
+
+SELECT * FROM votos where cand_nome_urna = 'AMPARO LANDIM'
 */
 
 use [DW-Deputados]
