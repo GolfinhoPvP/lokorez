@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2ec19111-0c7f-4d35-8a7e-9d160ebee8ee" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="4c1a37d9-94ac-4505-9eac-792b638d8ec7" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Uf2</ID>
   <Name>Uf2</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,59 +42,59 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="925d587b-2fe2-4785-aa99-eb8875223f2e">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="8cee43cd-1e42-4bd6-afd1-3bf663043777">
     <DataSourceViewID>DW- Deputados</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="89617a68-54bd-4408-9f7d-8aaaa7e9792f">
+  <ErrorConfiguration dwd:design-time-name="0ee87be3-47dd-4875-bdb1-62c96e297a6f">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="a8926942-52f9-4a73-9847-f3874d66087e">
+    <Attribute dwd:design-time-name="cda64e12-4aae-4296-8361-2ed8988d3e66">
       <ID>Uf2 Sigla</ID>
       <Name>Uf2 Sigla</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="ea741e7d-eaef-4d0f-b20e-e8e23d50f309">
+        <KeyColumn dwd:design-time-name="1e80b3b1-c2b2-463a-beac-7a022b4ed89f">
           <DataType>WChar</DataType>
           <DataSize>2</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3072c65b-e076-4575-b293-195cc5324185">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9b59e416-f360-4e32-9b2a-70480ba0e2aa">
             <TableID>dbo_uf2</TableID>
             <ColumnID>uf2_sigla</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="7c5d3451-e2a8-46d7-82e2-a44f91627d37">
+        <KeyColumn dwd:design-time-name="db4dfff4-b4d3-42b7-ab27-d722b26097b7">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="fa0c85ba-d23d-41a7-a831-071487098b35">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="12f0c145-a348-4ee1-bf3f-bbfdf0a039b3">
             <TableID>dbo_uf2</TableID>
             <ColumnID>zona_numero</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="00260ecb-cab9-49b6-bb71-f22bef1ccd85">
+      <NameColumn dwd:design-time-name="d1642e66-e571-4661-a00f-9c51b47aed56">
         <DataType>WChar</DataType>
         <DataSize>2</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="2a871167-c64a-4a04-b6a2-96d270934884">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="8825c598-55e0-43c0-ae30-8977c66f40a8">
           <TableID>dbo_uf2</TableID>
           <ColumnID>uf2_sigla</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="9645cbd1-f7ad-4ae1-973c-e03d3c715235">
+        <AttributeRelationship dwd:design-time-name="8c8c937f-9665-4ba0-a093-78cec65536a3">
           <AttributeID>Zona Numero</AttributeID>
           <Name>Zona Numero</Name>
         </AttributeRelationship>
       </AttributeRelationships>
     </Attribute>
-    <Attribute dwd:design-time-name="2176f281-f589-48e0-8854-e005cd0b0949">
+    <Attribute dwd:design-time-name="4a284a8e-9ffb-4d2f-a234-1517344ce34b">
       <ID>Zona Numero</ID>
       <Name>Zona Numero</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="29793976-6880-4e5b-b029-16940b20865e">
+        <KeyColumn dwd:design-time-name="38d443b8-2b3a-476d-8027-6a858949c140">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e0549296-9483-45d7-9872-6ae6ade6440e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="39a6c89e-362e-41a6-92ff-defc2e6aebd2">
             <TableID>dbo_zona</TableID>
             <ColumnID>zona_numero</ColumnID>
           </Source>

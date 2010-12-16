@@ -64,6 +64,18 @@ GO
 INSERT INTO votos (mun_codigo, cand_nome_urna, cand_numero, uf2_sigla, zona_numero, ano_codigo, votos) (SELECT distinct [Coluna 8], [Coluna 14], [Coluna 13], [Coluna 7], [Coluna 10], [Coluna 5], [Coluna 34] FROM vmz_candidato WHERE [Coluna 11] BETWEEN 6 AND 7)
 GO
 
+INSERT INTO votos (mun_codigo, cand_nome_urna, cand_numero, uf2_sigla, zona_numero, ano_codigo, votos)
+(SELECT distinct [Coluna 8], 'Votos Brancos', 000, [Coluna 7], [Coluna 10], [Coluna 5], [Coluna 21] FROM detalhe_munzona WHERE [Coluna 11] BETWEEN 6 AND 7)
+GO
+INSERT INTO votos (mun_codigo, cand_nome_urna, cand_numero, uf2_sigla, zona_numero, ano_codigo, votos)
+(SELECT distinct [Coluna 8], 'Votos Nulos', 001, [Coluna 7], [Coluna 10], [Coluna 5], [Coluna 22] FROM detalhe_munzona WHERE [Coluna 11] BETWEEN 6 AND 7)
+GO
+INSERT INTO votos (mun_codigo, cand_nome_urna, cand_numero, uf2_sigla, zona_numero, ano_codigo, votos)
+(SELECT distinct [Coluna 8], 'Votos de Legenda', 002, [Coluna 7], [Coluna 10], [Coluna 5], [Coluna 23] FROM detalhe_munzona WHERE [Coluna 11] BETWEEN 6 AND 7)
+GO
+INSERT INTO votos (mun_codigo, cand_nome_urna, cand_numero, uf2_sigla, zona_numero, ano_codigo, votos)
+(SELECT distinct [Coluna 8], 'Votos Anulados', 003, [Coluna 7], [Coluna 10], [Coluna 5], [Coluna 25] FROM detalhe_munzona WHERE [Coluna 11] BETWEEN 6 AND 7)
+
 INSERT INTO cargo VALUES 
 	(10, 'Votos Brancos'), 
 	(11, 'Votos Nulos'), 
@@ -91,6 +103,11 @@ INSERT INTO candidato VALUES
 	('Votos de Legenda', 002, 171, 20, 10, 12, 'NAO DEVE SER ANALISADA', 'XX', 'Votos de Legenda'),
 	('Votos Anulados', 003, 171, 20, 10, 13, 'NAO DEVE SER ANALISADA', 'XX', 'Votos Anulados')
 GO
+
+
+
+
+
 /*
 TRUNCATE TABLE [vmz_candidato]
 GO

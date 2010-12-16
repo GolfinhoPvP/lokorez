@@ -1,66 +1,11 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="40fe764c-bf2a-49b1-ae40-65114fa0e2b1" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d809d32c-72a4-4212-adb6-fd7b2e015e7c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Municipio</ID>
   <Name>Municipio</Name>
-  <CreatedTimestamp>0001-01-01T03:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T03:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
-      <Value>
-        <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="4" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2215" scrolltop="-3761" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7567" y="13679" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
-            <font>
-              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
-            </font>
-            <mouseicon>
-              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
-            </mouseicon>
-          </diagram>
-          <layoutmanager>
-            <ddsxmlobj />
-          </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="municipio" left="20" top="3855" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3096" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="00080000180c0000fe080000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_municipio" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="uf" left="68" top="0" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3000" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000af050000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_uf" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="1169" top="956" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-              </ddsxmlobj>
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dataSet.Relations[FK__municipio__uf_si__541767F8]" vartype="8" />
-                <property name="Virtual" value="0" vartype="11" />
-                <property name="VisibleAP" value="0" vartype="3" />
-              </ddsxmlobj>
-            </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="1568" y="1455" />
-              <point x="1568" y="3855" />
-            </connector>
-          </ddscontrol>
-        </dds>
-      </Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
@@ -76,15 +21,15 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-2215</Value>
+      <Value>0</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-3761</Value>
+      <Value>0</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>20</Value>
+      <Value>0</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
@@ -95,72 +40,53 @@
       <Value>100</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T03:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="0e2ff408-1b19-4af5-90a7-1d00897a7b5f">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="59f3c7aa-dd20-4327-a1de-b6e646425c68">
     <DataSourceViewID>DW- Deputados</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="78e9a2b8-f0b0-4a11-a49f-167698977e72">
+  <ErrorConfiguration dwd:design-time-name="b647a5ce-1313-4a30-b821-f1dc9a7e842f">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="fb28e957-6df7-4f7d-a6ec-2ee3c16266fb">
+    <Attribute dwd:design-time-name="e8658106-628e-4b3c-bdcf-f358cf557ec0">
       <ID>Mun Codigo</ID>
       <Name>Mun Codigo</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="2d684e02-a680-4c30-9c53-513b03d0bdbd">
+        <KeyColumn dwd:design-time-name="98a7bf05-1f4a-4fb9-9c2d-879a8799fc5d">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0c1698b5-aa34-421b-b7f6-3f202c02ff6e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="071ac5a8-e6d6-4ecf-9034-1f1d2918d148">
             <TableID>dbo_municipio</TableID>
             <ColumnID>mun_codigo</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="aa1302b1-b2e4-48ff-a00a-0f51983eb01c">
+        <AttributeRelationship dwd:design-time-name="e1d55141-9916-42a7-9067-dfadb2feedd9">
           <AttributeID>Uf Sigla</AttributeID>
           <Name>Uf Sigla</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="f58f9476-51d0-4280-93b8-311767b44483">
-          <AttributeID>Mun Descricao</AttributeID>
-          <Name>Mun Descricao</Name>
-        </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
-      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
     </Attribute>
-    <Attribute dwd:design-time-name="ce2c413d-735e-4453-9a68-2b409f1e7f5b">
+    <Attribute dwd:design-time-name="98dceafd-d827-422a-abc5-dc6f5f0886da">
       <ID>Uf Sigla</ID>
       <Name>Uf Sigla</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c88abb2a-02d4-4946-9e29-3664ce181250">
+        <KeyColumn dwd:design-time-name="aa7c073a-0c31-4b6a-b805-9ed16c7ccd05">
           <DataType>WChar</DataType>
           <DataSize>2</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="ddaac4b3-7956-4c48-9cf3-4cde6f80f304">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="093f71d1-beea-42b3-8f54-431a07b96af4">
             <TableID>dbo_uf</TableID>
             <ColumnID>uf_sigla</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <OrderBy>Key</OrderBy>
-    </Attribute>
-    <Attribute dwd:design-time-name="4fff4a11-d0bd-4248-8802-448e3f2865cc">
-      <ID>Mun Descricao</ID>
-      <Name>Mun Descricao</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="2d1ffb73-1f55-4ff8-bdbc-1fb6558b7faa">
-          <DataType>WChar</DataType>
-          <DataSize>200</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e4686447-7397-4275-8a38-3211e9aefc07">
-            <TableID>dbo_municipio</TableID>
-            <ColumnID>mun_descricao</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
     </Attribute>
   </Attributes>
 </Dimension>

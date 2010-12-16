@@ -3,7 +3,7 @@
     <DataSources>
       <DataSource>
         <ID>DW- Deputados</ID>
-        <ConnectionString>Provider=SQLNCLI10.1;Data Source=USER1;Integrated Security=SSPI;Initial Catalog=DW-Deputados</ConnectionString>
+        <ConnectionString>Provider=SQLNCLI10.1;Data Source=ZEROKOL-3816986;Integrated Security=SSPI;Initial Catalog=DW-Deputados</ConnectionString>
         <ImpersonationInfo>
           <ImpersonationMode>ImpersonateServiceAccount</ImpersonationMode>
           <ImpersonationInfoSecurity>Unchanged</ImpersonationInfoSecurity>
@@ -15,10 +15,10 @@
         <ID>Candidato</ID>
       </Dimension>
       <Dimension>
-        <ID>Ano</ID>
+        <ID>Municipio</ID>
       </Dimension>
       <Dimension>
-        <ID>Municipio</ID>
+        <ID>Ano</ID>
       </Dimension>
       <Dimension>
         <ID>Uf2</ID>

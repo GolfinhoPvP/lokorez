@@ -1,186 +1,11 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="9bb9acc5-2b58-4f33-898f-e0914704256b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0c5ec9b9-1228-4922-82bb-5ee02a73fb94" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Candidato</ID>
   <Name>Candidato</Name>
-  <CreatedTimestamp>0001-01-01T03:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T03:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
-      <Value>
-        <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="5131" scrolltop="-2137" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="7567" y="13679" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
-            <font>
-              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
-            </font>
-            <mouseicon>
-              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
-            </mouseicon>
-          </diagram>
-          <layoutmanager>
-            <ddsxmlobj />
-          </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="candidato" left="5568" top="4279" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3387" height="4842" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="000800003b0d0000ea120000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_candidato" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="partido" left="94" top="2987" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="3000" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="00080000b80b0000a50a0000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_partido" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="cargo" left="5621" top="0" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="3281" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="00080000d10c000057070000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_cargo" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="situacao" left="11355" top="5760" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_situacao" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="sexo" left="5687" top="11521" logicalid="5" controlid="5" masterid="0" hint1="0" hint2="0" width="3149" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="000800004d0c000057070000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_sexo" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="coligacao" left="20" top="8112" logicalid="6" controlid="6" masterid="0" hint1="0" hint2="0" width="3149" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobjectstreaminitwrapper binary="000800004d0c0000fe080000" />
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dbo_coligacao" vartype="8" />
-              </ddsxmlobj>
-            </layoutobject>
-            <shape groupshapeid="0" groupnode="0" />
-          </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="2794" top="3950" logicalid="7" controlid="7" masterid="0" hint1="0" hint2="0" width="3074" height="3050" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-              </ddsxmlobj>
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dataSet.Relations[FK__candidato__522F1F86]" vartype="8" />
-                <property name="Virtual" value="0" vartype="11" />
-                <property name="VisibleAP" value="0" vartype="3" />
-              </ddsxmlobj>
-            </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="15" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="3094" y="4349" />
-              <point x="4331" y="4349" />
-              <point x="4331" y="6700" />
-              <point x="5568" y="6700" />
-            </connector>
-          </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="6862" top="8821" logicalid="8" controlid="8" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-              </ddsxmlobj>
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dataSet.Relations[FK__candidato__sexo___5046D714]" vartype="8" />
-                <property name="Virtual" value="0" vartype="11" />
-                <property name="VisibleAP" value="0" vartype="3" />
-              </ddsxmlobj>
-            </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="1" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="7261" y="11521" />
-              <point x="7261" y="9121" />
-            </connector>
-          </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="6862" top="1380" logicalid="9" controlid="9" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-              </ddsxmlobj>
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dataSet.Relations[FK__candidato__cargo__55FFB06A]" vartype="8" />
-                <property name="Virtual" value="0" vartype="11" />
-                <property name="VisibleAP" value="0" vartype="3" />
-              </ddsxmlobj>
-            </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="1" sourceattachpoint="5" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="7261" y="1879" />
-              <point x="7261" y="4279" />
-            </connector>
-          </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="8655" top="6300" logicalid="10" controlid="10" masterid="0" hint1="0" hint2="0" width="3000" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-              </ddsxmlobj>
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dataSet.Relations[FK__candidato__situ___513AFB4D]" vartype="8" />
-                <property name="Virtual" value="0" vartype="11" />
-                <property name="VisibleAP" value="0" vartype="3" />
-              </ddsxmlobj>
-            </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="1" sourceattachpoint="12" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="11355" y="6699" />
-              <point x="10155" y="6699" />
-              <point x="10155" y="6700" />
-              <point x="8955" y="6700" />
-            </connector>
-          </ddscontrol>
-          <ddscontrol controlprogid="MSDDS.Polyline" left="1195" top="5412" logicalid="11" controlid="11" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-            <control>
-              <ddsxmlobj>
-                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-              </ddsxmlobj>
-            </control>
-            <layoutobject>
-              <ddsxmlobj>
-                <property name="LogicalObject" value="dataSet.Relations[FK__partido__532343BF]" vartype="8" />
-                <property name="Virtual" value="0" vartype="11" />
-                <property name="VisibleAP" value="0" vartype="3" />
-              </ddsxmlobj>
-            </layoutobject>
-            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="2" sourceattachpoint="4" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-              <point x="1594" y="8112" />
-              <point x="1594" y="5712" />
-            </connector>
-          </ddscontrol>
-        </dds>
-      </Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
@@ -196,15 +21,15 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>5131</Value>
+      <Value>0</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-2137</Value>
+      <Value>0</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>20</Value>
+      <Value>0</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
@@ -212,118 +37,76 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
-      <Value>75</Value>
+      <Value>100</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T03:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="6848df8f-0ee6-4d28-ab5a-6439f48f0684">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="8a8e14e8-24cd-4e35-a0ce-3f58e8e61c6c">
     <DataSourceViewID>DW- Deputados</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="c9303c57-0bd5-4ba5-b9b3-26daff8a92da">
+  <ErrorConfiguration dwd:design-time-name="b2f2bf42-8499-4314-beaf-cff9c6ab6248">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="2144fcc2-ba0e-4d57-8bf1-256a2627757b">
+    <Attribute dwd:design-time-name="def038bc-b688-44fc-8e08-9d3d9c7177c2">
       <ID>Cand Nome Urna</ID>
       <Name>Cand Nome Urna</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d8032622-9d4e-4a20-850a-00bd3e10cc7f">
+        <KeyColumn dwd:design-time-name="c1413041-a564-4388-a65e-f917e1fee394">
           <DataType>WChar</DataType>
           <DataSize>100</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3018354a-83b8-420f-99fc-8df93964ace1">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8f89fcb4-c91e-4b80-8c76-e429d049d055">
             <TableID>dbo_candidato</TableID>
             <ColumnID>cand_nome_urna</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="6d013c2d-9fdc-424b-9fe4-1c72b82fd8ab">
+        <KeyColumn dwd:design-time-name="7a74755d-8978-4e7d-b3b9-2da69eb6b874">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="64f0c168-736c-4594-ab32-b204cee71a2c">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6b29e3f8-59c1-447f-8450-6830df717fb1">
             <TableID>dbo_candidato</TableID>
             <ColumnID>cand_numero</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="ac9e9c24-11cf-4354-bf62-f624746cd064">
+      <NameColumn dwd:design-time-name="e3d6ab00-a59f-4264-896b-2f437089e43e">
         <DataType>WChar</DataType>
         <DataSize>100</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="e1ee5d96-92e1-4508-8ee5-d34d879644c5">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="95cce9b1-db7c-4135-b4c0-eb11ec20fe71">
           <TableID>dbo_candidato</TableID>
           <ColumnID>cand_nome_urna</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="8b372adb-93a1-4382-b001-c95a396d387e">
-          <AttributeID>Situ Codigo</AttributeID>
-          <Name>Situ Codigo</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="cdf8d8d2-eef9-4431-92ee-df5f170e8320">
+        <AttributeRelationship dwd:design-time-name="5e11b2a4-5c93-4caf-ac6f-c67b8240935c">
           <AttributeID>Cargo Codigo</AttributeID>
           <Name>Cargo Codigo</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="4cdcd022-adf4-472a-8ae1-491c2bfd9312">
+        <AttributeRelationship dwd:design-time-name="970682cf-3a8a-4777-b9da-9bc5f42dc3eb">
           <AttributeID>Sexo Codigo</AttributeID>
           <Name>Sexo Codigo</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="e6a5b7c9-0615-42c0-96b0-ea2c0d7432c1">
+        <AttributeRelationship dwd:design-time-name="b56c2a0c-7ad0-4b38-94dd-78e11d071a1b">
           <AttributeID>Part Codigo</AttributeID>
           <Name>Part Codigo</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="ad2cf415-e2ff-4e62-ac4e-a0383867d158">
-          <AttributeID>Colig Descricao</AttributeID>
-          <Name>Colig Descricao</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="460ffe6c-e667-4f43-a939-7aa7be0feacc">
-          <AttributeID>Part Sigla</AttributeID>
-          <Name>Part Sigla</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="dc3cfde8-7eda-4ea4-8105-feea19724019">
-          <AttributeID>Sexo Descricao</AttributeID>
-          <Name>Sexo Descricao</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="7e732103-4d87-4775-bcd3-74759c1c6c63">
-          <AttributeID>Situ Descricao</AttributeID>
-          <Name>Situ Descricao</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="c7056352-e352-4cfd-8753-cb26f5289564">
-          <AttributeID>Cargo Descricao</AttributeID>
-          <Name>Cargo Descricao</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="8771f969-791d-43dc-8c41-490fdf14d8ab">
-          <AttributeID>Cand Nome</AttributeID>
-          <Name>Cand Nome</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="73c73448-1b53-4157-b0c3-3c30e8d4e804">
-          <AttributeID>Uf Sigla</AttributeID>
-          <Name>Uf Sigla</Name>
+        <AttributeRelationship dwd:design-time-name="11ac45fe-0e3e-4ade-af1e-43dd797c434b">
+          <AttributeID>Situ Codigo</AttributeID>
+          <Name>Situ Codigo</Name>
         </AttributeRelationship>
       </AttributeRelationships>
     </Attribute>
-    <Attribute dwd:design-time-name="279bcf3f-4e7a-4602-a028-4fdeac6f7e66">
-      <ID>Situ Codigo</ID>
-      <Name>Situ Codigo</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="1efb1b23-84e9-4aa9-9447-f3055d3e9b5d">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="97298cde-1cfa-4e61-b83b-b9dee787b712">
-            <TableID>dbo_situacao</TableID>
-            <ColumnID>situ_codigo</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <OrderBy>Key</OrderBy>
-    </Attribute>
-    <Attribute dwd:design-time-name="624573de-0cbb-4abf-8bab-60400d8386ad">
+    <Attribute dwd:design-time-name="a58befa3-40cb-4e88-a745-d5af78d1976f">
       <ID>Cargo Codigo</ID>
       <Name>Cargo Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="db09b044-57c2-4c4a-bb1b-f0e5944a2651">
+        <KeyColumn dwd:design-time-name="b43d95b6-dc12-4ccf-b09e-5105870770c1">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="61147af7-8b2f-445d-b4c3-c107cd92e12d">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5e0ba015-5b21-437c-a10b-25ec991b710c">
             <TableID>dbo_cargo</TableID>
             <ColumnID>cargo_codigo</ColumnID>
           </Source>
@@ -331,13 +114,13 @@
       </KeyColumns>
       <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="316c68ca-610a-42bc-9d94-1010fd9e82c0">
+    <Attribute dwd:design-time-name="ec695800-7099-481b-9caf-f450e4d1ba9b">
       <ID>Sexo Codigo</ID>
       <Name>Sexo Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="9b982a2d-9703-4260-802c-55c3336bc1f2">
+        <KeyColumn dwd:design-time-name="8c190b8b-9ecb-4901-914d-59eb66ca35b5">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="185f2699-3461-4f0c-9cf3-93d2ef38dba6">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0c00ef16-8076-439b-9dea-f64ed21573f8">
             <TableID>dbo_sexo</TableID>
             <ColumnID>sexo_codigo</ColumnID>
           </Source>
@@ -345,175 +128,110 @@
       </KeyColumns>
       <OrderBy>Key</OrderBy>
     </Attribute>
-    <Attribute dwd:design-time-name="57f42a05-cb9a-4530-9853-e93f6dbb523f">
+    <Attribute dwd:design-time-name="3ba3b97e-d47c-41cf-b294-44ae6d70f8ae">
       <ID>Part Codigo</ID>
       <Name>Part Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a9e8ecee-c2da-444a-ae4d-0f19be7375c0">
+        <KeyColumn dwd:design-time-name="876a0744-f22c-45db-a7cc-8fb507c34b1a">
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="564827be-6a50-4f2d-9921-c2fd421ff2ae">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e4f5e2d4-1e16-467d-8dae-aea96b4057bd">
             <TableID>dbo_partido</TableID>
             <ColumnID>part_codigo</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="dbd3db98-5fe1-4f3d-8e89-38f1acf0937b">
+        <KeyColumn dwd:design-time-name="0a2c0e93-555f-4c97-b0c7-230922ca1547">
           <DataType>WChar</DataType>
           <DataSize>150</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="92925e5e-6ab8-4905-a009-00ac65dce662">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="41cfc8b4-a0d4-4c58-bf10-5a65f0dc4a5b">
             <TableID>dbo_partido</TableID>
             <ColumnID>colig_codigo</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="fb8fa898-9af6-4734-bd09-706cb19b734e">
+        <KeyColumn dwd:design-time-name="6c3353eb-5a1f-4323-9eaa-aeead4ac17a3">
           <DataType>WChar</DataType>
           <DataSize>2</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="52dd1c96-d615-4421-95a0-55345f9d81e5">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1fd503f0-5381-4b2a-bdfd-d076d382e6d5">
             <TableID>dbo_partido</TableID>
             <ColumnID>uf_sigla</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="ed99afb6-db04-4297-a35d-a3a41e74d18c">
+      <NameColumn dwd:design-time-name="4a7c578b-83cb-4eb3-b749-05d369ca5012">
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="92161755-6313-4012-b196-a30d253863d0">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="280b4eae-d987-4f05-8a23-1dba313f0a66">
           <TableID>dbo_partido</TableID>
           <ColumnID>part_codigo</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="06195cd9-e9d3-4102-ae4f-d93ae03a35f5">
+        <AttributeRelationship dwd:design-time-name="0f77ea16-63c1-4eb0-ac4c-ba17493fd955">
           <AttributeID>Colig Codigo</AttributeID>
           <Name>Colig Codigo</Name>
         </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6675c26e-f82f-4674-b411-a39e1dac1f52">
+          <AttributeID>Uf Sigla</AttributeID>
+          <Name>Uf Sigla</Name>
+        </AttributeRelationship>
       </AttributeRelationships>
     </Attribute>
-    <Attribute dwd:design-time-name="6bf1d163-481c-42e6-9baa-e89c0d8759ba">
+    <Attribute dwd:design-time-name="3850390b-3bf3-44db-81eb-a89a7cced3dd">
       <ID>Colig Codigo</ID>
       <Name>Colig Codigo</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a92aaafc-b27e-4e95-b9d6-3f4bc3a52963">
+        <KeyColumn dwd:design-time-name="ebd22be8-4b77-40f1-8d3d-01112e6df0e1">
           <DataType>WChar</DataType>
           <DataSize>150</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c3c58607-2517-446a-8ba2-f49b63be5f5e">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4956e6fa-c67c-4b74-9a8e-7653a7811ffd">
             <TableID>dbo_coligacao</TableID>
             <ColumnID>colig_codigo</ColumnID>
           </Source>
         </KeyColumn>
-        <KeyColumn dwd:design-time-name="77de5fbc-c05c-4871-8dce-ff620bca7bfc">
+        <KeyColumn dwd:design-time-name="a322a485-d688-4d14-a02f-fc0b459ab198">
           <DataType>WChar</DataType>
           <DataSize>2</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="ebfc45ac-903b-4f20-b5d2-b118b8af218d">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c574a596-b43a-4059-bc70-42d840d7fa15">
             <TableID>dbo_coligacao</TableID>
             <ColumnID>uf_sigla</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="b0f25fb7-e6b7-44e7-8952-591ba0abeedd">
+      <NameColumn dwd:design-time-name="cdea5de3-7207-4719-948a-f88aa8647eef">
         <DataType>WChar</DataType>
         <DataSize>150</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="65598fff-4e2f-4d3f-83da-1465f9157ce0">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3b202bf4-8119-4db4-a9f7-55b1e56e3b27">
           <TableID>dbo_coligacao</TableID>
           <ColumnID>colig_codigo</ColumnID>
         </Source>
       </NameColumn>
     </Attribute>
-    <Attribute dwd:design-time-name="a3e577cc-856a-435c-9f4b-8f40bed157b4">
-      <ID>Colig Descricao</ID>
-      <Name>Colig Descricao</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="a570dd35-cedf-4c59-8401-2ace59768bd4">
-          <DataType>WChar</DataType>
-          <DataSize>300</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="663f5dc0-d8a6-4d2f-b121-8d01c8b732fa">
-            <TableID>dbo_coligacao</TableID>
-            <ColumnID>colig_descricao</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-    </Attribute>
-    <Attribute dwd:design-time-name="46e467ca-a5b8-4b49-8174-4c7c0db19307">
-      <ID>Part Sigla</ID>
-      <Name>Part Sigla</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="e9204d96-2f09-4c81-a0f4-c3cb90c04b2e">
-          <DataType>WChar</DataType>
-          <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="49231a13-4698-47c3-8ba7-7af4d13b82ed">
-            <TableID>dbo_partido</TableID>
-            <ColumnID>part_sigla</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-    </Attribute>
-    <Attribute dwd:design-time-name="ffefa03b-058d-4f5c-b9fb-40697dd1bcff">
-      <ID>Sexo Descricao</ID>
-      <Name>Sexo Descricao</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="7193b523-c9b6-42c0-8bbd-2a7f46b5db89">
-          <DataType>WChar</DataType>
-          <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="536099a2-93d1-449c-bbf4-47b1a0be0622">
-            <TableID>dbo_sexo</TableID>
-            <ColumnID>sexo_descricao</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-    </Attribute>
-    <Attribute dwd:design-time-name="289875b1-3598-4841-8bc9-6686783be38e">
-      <ID>Situ Descricao</ID>
-      <Name>Situ Descricao</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="39b842a2-d1ee-45fc-a1a3-8acdfe1b18b5">
-          <DataType>WChar</DataType>
-          <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="a1f21d8a-e518-4694-b327-dc46dbea8bcc">
-            <TableID>dbo_situacao</TableID>
-            <ColumnID>situ_descricao</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-    </Attribute>
-    <Attribute dwd:design-time-name="87c0399a-c5a7-4550-86c5-4aec01212e18">
-      <ID>Cargo Descricao</ID>
-      <Name>Cargo Descricao</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="8fbfbf9f-e3a4-4be0-9d9c-66caec1edcf2">
-          <DataType>WChar</DataType>
-          <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3203e39e-8fcc-4517-896d-6f71c83eae22">
-            <TableID>dbo_cargo</TableID>
-            <ColumnID>cargo_descricao</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-    </Attribute>
-    <Attribute dwd:design-time-name="7858e084-2f2c-45dd-b57d-a76b87766c9b">
-      <ID>Cand Nome</ID>
-      <Name>Cand Nome</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="a1536327-7ee5-496d-8931-00cc6a1075cf">
-          <DataType>WChar</DataType>
-          <DataSize>110</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="7aba8eb7-3418-4a6e-a419-6b3471426779">
-            <TableID>dbo_candidato</TableID>
-            <ColumnID>cand_nome</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-    </Attribute>
-    <Attribute dwd:design-time-name="6a6fcd4f-8ce5-43a4-ab3c-757e8f609b61">
+    <Attribute dwd:design-time-name="467bd3c3-8d4c-41e7-a410-5843149a30f9">
       <ID>Uf Sigla</ID>
       <Name>Uf Sigla</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="be3177db-bc16-49e9-8660-35cf8be7a06d">
+        <KeyColumn dwd:design-time-name="a907eebb-60c5-4ef2-95ef-68627e9a08ca">
           <DataType>WChar</DataType>
           <DataSize>2</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="840633c9-1cce-4725-85f7-bd2925804d8c">
-            <TableID>dbo_candidato</TableID>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bc86f0e0-da83-42f6-bfbf-e8df6514ce3c">
+            <TableID>dbo_uf</TableID>
             <ColumnID>uf_sigla</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <OrderBy>Key</OrderBy>
+    </Attribute>
+    <Attribute dwd:design-time-name="480cf692-9930-427d-b221-7ca4d2eaa773">
+      <ID>Situ Codigo</ID>
+      <Name>Situ Codigo</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="69255e54-ad39-4acd-9c3e-bb5b3329b540">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5eb71a1f-a2dd-4e19-90de-80f8d4078068">
+            <TableID>dbo_situacao</TableID>
+            <ColumnID>situ_codigo</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
     </Attribute>
   </Attributes>
 </Dimension>
