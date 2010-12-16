@@ -1,17 +1,17 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="fa5cd3a6-c08f-4e30-906c-6c3d84d442e0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="474064cf-1086-4347-9c39-dbb55e86e183" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DW- Deputados</ID>
   <MeasureGroups>
     <MeasureGroup>
       <ID>Votos</ID>
       <Partitions>
-        <Partition dwd:design-time-name="0e3bb606-d2e5-4829-8488-5785a02af362">
+        <Partition dwd:design-time-name="8823168e-1eb2-443a-a938-f0ff6102bf18">
           <ID>Votos</ID>
           <Name>Votos</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="2f53a436-db95-4741-aa48-a25f3612ccf0">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="dbc0a801-d269-4393-9c08-ba301ebaf3aa">
             <DataSourceViewID>DW- Deputados</DataSourceViewID>
             <TableID>dbo_votos</TableID>
           </Source>

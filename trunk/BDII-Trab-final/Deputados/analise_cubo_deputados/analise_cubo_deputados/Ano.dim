@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="95f36102-64d3-4967-9750-be183a9d8181" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e077300c-8099-4622-99b1-36d2a5467b45" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Ano</ID>
   <Name>Ano</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,25 +42,25 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="def27f9d-5289-4a57-9a13-d57b8bb21fe6">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="20124156-c9cf-46d5-bf2a-cc38ac6bc132">
     <DataSourceViewID>DW- Deputados</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="0b22d93c-0d1f-4964-8c71-79af29fddd13">
+  <ErrorConfiguration dwd:design-time-name="c16dbf25-421a-4c1e-93f6-d01c019cd051">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="49158122-a30d-4107-ba46-8205694fa9e8">
+    <Attribute dwd:design-time-name="89f3a34f-856e-4935-be0a-b0c2fe692103">
       <ID>Ano Codigo</ID>
       <Name>Ano Codigo</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="5d6d7601-fcbe-49b9-9252-7751fbdeb96e">
+        <KeyColumn dwd:design-time-name="c2d69965-59ba-4be0-badd-2217183bccdc">
           <DataType>WChar</DataType>
           <DataSize>10</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="61d96ea2-6b13-4ab9-b70f-13813e0dacd7">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0036f3cb-b856-4e54-8f51-60626618b3b4">
             <TableID>dbo_ano</TableID>
             <ColumnID>ano_codigo</ColumnID>
           </Source>

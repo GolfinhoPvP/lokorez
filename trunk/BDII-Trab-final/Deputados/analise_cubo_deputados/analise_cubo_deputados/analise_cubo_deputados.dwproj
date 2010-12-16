@@ -24,16 +24,16 @@
       <FullPath>Candidato.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Uf2.dim</Name>
-      <FullPath>Uf2.dim</FullPath>
+      <Name>Municipio.dim</Name>
+      <FullPath>Municipio.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Ano.dim</Name>
       <FullPath>Ano.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Municipio.dim</Name>
-      <FullPath>Municipio.dim</FullPath>
+      <Name>Uf2.dim</Name>
+      <FullPath>Uf2.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -56,7 +56,7 @@
           <ConfigurationSetting>
             <Id>DW- Deputados</Id>
             <Name>DW- Deputados</Name>
-            <Value xsi:type="xsd:string">Provider=SQLNCLI10.1;Data Source=USER1;Integrated Security=SSPI;Initial Catalog=DW-Deputados</Value>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI10.1;Data Source=ZEROKOL-3816986;Integrated Security=SSPI;Initial Catalog=DW-Deputados</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
