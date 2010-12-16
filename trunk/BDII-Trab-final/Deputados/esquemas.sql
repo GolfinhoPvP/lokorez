@@ -85,7 +85,7 @@ INSERT INTO partido VALUES
 GO
 INSERT INTO candidato (cand_nome_urna, cand_numero, sexo_codigo, situ_codigo, part_codigo, cargo_codigo, cand_nome, uf_sigla, colig_codigo)
 	(SELECT distinct [Coluna 9], [Coluna 8], 20, 10, 171, 10, [Coluna 9], 'XX', 'NAO DEVE SER ANALISADA' FROM detalhe_munzona)
-	
+GO
 /*
 TRUNCATE TABLE [vmz_candidato]
 GO
