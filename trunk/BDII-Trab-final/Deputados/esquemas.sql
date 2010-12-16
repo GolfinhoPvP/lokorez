@@ -1,6 +1,8 @@
 /*
 SELECT * FROM vmz_candidato
 
+SELECT * FROM detalhe_munzona
+
 DELETE FROM votos where cand_nome_urna = 'ABELARDO JUREMA'
 DELETE FROM votos where cand_nome_urna = 'ALEXANDRE O GRANDE'
 DELETE FROM votos where cand_nome_urna = 'ALOISIO ERNESTO'
@@ -59,6 +61,31 @@ INSERT INTO candidato (cand_nome_urna, cand_numero, sexo_codigo, situ_codigo, pa
 GO
 INSERT INTO votos (mun_codigo, cand_nome_urna, cand_numero, uf2_sigla, zona_numero, ano_codigo, votos) (SELECT distinct [Coluna 8], [Coluna 14], [Coluna 13], [Coluna 7], [Coluna 10], [Coluna 5], [Coluna 34] FROM vmz_candidato WHERE [Coluna 11] BETWEEN 6 AND 7)
 GO
+
+INSERT INTO cargo VALUES 
+	(10, 'Votos Brancos'), 
+	(11, 'Votos Nulos'), 
+	(12, 'Votos de Legenda'), 
+	(13, 'Votos Anulados')
+	GO
+INSERT INTO situacao VALUES 
+	(10, 'NAO DEVE SER ANALISADA')
+GO
+INSERT INTO sexo VALUES 
+	(20, 'NAO DEVE SER ANALISADA')
+GO
+INSERT INTO uf VALUES 
+	('XX')
+GO
+INSERT INTO coligacao VALUES 
+	('NAO DEVE SER ANALISADA', 'XX', 'NAO DEVE SER ANALISADA')
+GO
+INSERT INTO partido VALUES 
+	(171, 'NAO DEVE SER ANALISADA', 'XX', 'XX')
+GO
+INSERT INTO candidato (cand_nome_urna, cand_numero, sexo_codigo, situ_codigo, part_codigo, cargo_codigo, cand_nome, uf_sigla, colig_codigo)
+	(SELECT distinct [Coluna 9], [Coluna 8], 20, 10, 171, 10, [Coluna 9], 'XX', 'NAO DEVE SER ANALISADA' FROM detalhe_munzona)
+	
 /*
 TRUNCATE TABLE [vmz_candidato]
 GO
