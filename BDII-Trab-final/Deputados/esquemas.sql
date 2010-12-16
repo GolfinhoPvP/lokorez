@@ -3,6 +3,8 @@ SELECT * FROM vmz_candidato
 
 SELECT * FROM detalhe_munzona
 
+SELECT * FROM partido
+
 DELETE FROM votos where cand_nome_urna = 'ABELARDO JUREMA'
 DELETE FROM votos where cand_nome_urna = 'ALEXANDRE O GRANDE'
 DELETE FROM votos where cand_nome_urna = 'ALOISIO ERNESTO'
@@ -83,8 +85,11 @@ GO
 INSERT INTO partido VALUES 
 	(171, 'NAO DEVE SER ANALISADA', 'XX', 'XX')
 GO
-INSERT INTO candidato (cand_nome_urna, cand_numero, sexo_codigo, situ_codigo, part_codigo, cargo_codigo, cand_nome, uf_sigla, colig_codigo)
-	(SELECT distinct [Coluna 9], [Coluna 8], 20, 10, 171, 10, [Coluna 9], 'XX', 'NAO DEVE SER ANALISADA' FROM detalhe_munzona)
+INSERT INTO candidato VALUES
+	('Votos Brancos', 000, 171, 20, 10, 10, 'NAO DEVE SER ANALISADA', 'XX', 'Votos Brancos'),
+	('Votos Nulos', 001, 171, 20, 10, 11, 'NAO DEVE SER ANALISADA', 'XX', 'Votos Nulos'),
+	('Votos de Legenda', 002, 171, 20, 10, 12, 'NAO DEVE SER ANALISADA', 'XX', 'Votos de Legenda'),
+	('Votos Anulados', 003, 171, 20, 10, 13, 'NAO DEVE SER ANALISADA', 'XX', 'Votos Anulados')
 GO
 /*
 TRUNCATE TABLE [vmz_candidato]
