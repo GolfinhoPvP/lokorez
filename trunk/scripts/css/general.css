@@ -1,0 +1,16 @@
+/* CSS Document */
+#twitter{
+	position:absolute;
+	left: 15px;
+	top: 15px;
+	width: 50%;
+	height: 25%;
+}
+
+#orkut{
+	position:absolute;
+	left: 16px;
+	top: 260px;
+	width: 50%;
+	height: 50%;
+}
