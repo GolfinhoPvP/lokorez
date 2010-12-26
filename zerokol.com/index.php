@@ -15,10 +15,19 @@ body {
 
 <body>
 	<div align="center">
-		<embed src="archives/zerokolgames_logo.svg" width="90%" height="85%" type="image/svg+xml" wmode="transparent" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+		<embed src="images/zerokolgames_logo.svg" width="90%" height="85%" type="image/svg+xml" wmode="transparent" pluginspage="http://www.adobe.com/svg/viewer/install/" />
 	</div>
 	<div id="twitter">
-		<embed src="archives/twitter_logo.svg" width="100%" height="50%" type="image/svg+xml" wmode="transparent" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+		<embed src="images/twitter_logo.svg" width="100%" height="100%" type="image/svg+xml" wmode="transparent" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+</div>
+	<div id="blogger">
+		<embed src="images/blogger_logo.svg" width="100%" height="100%" type="image/svg+xml" wmode="transparent" pluginspage="http://www.adobe.com/svg/viewer/install/" />
 	</div>
+	<div id="orkut">
+		<embed src="images/orkut_logo.svg" width="100%" height="100%" type="image/svg+xml" wmode="transparent" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+	</div>
+	<div id="twitter" onclick="location.href='http://twitter.com/zerokol'" style="cursor:pointer">	</div>
+	<div id="blogger" onclick="location.href='http://zerokol.blogspot.com'" style="cursor:pointer">	</div>
+	<div id="orkut" onclick="location.href='http://www.orkut.com.br/Main#Profile?uid=10540817553183670984'" style="cursor:pointer">	</div>	
 </body>
 </html>

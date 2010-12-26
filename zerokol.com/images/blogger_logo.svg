@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 600 600"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:cc="http://creativecommons.org/ns#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:svg="http://www.w3.org/2000/svg"
+ xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+ xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+ sodipodi:version="0.32"
+ inkscape:version="0.47 r22583"
+ sodipodi:docname="blogger.svg"
+ version="1.0"
+ inkscape:output_extension="org.inkscape.output.svg.inkscape">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str1 {stroke:#F57D00;stroke-width:87.6172;stroke-linecap:round}
+    .str0 {stroke:white;stroke-width:105.14}
+    .fil3 {fill:none}
+    .fil0 {fill:#F57D00}
+    .fil2 {fill:white}
+    .fil1 {fill:url(#id2)}
+   ]]>
+  </style>
+     <mask id="id0">
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" x1="385.687" y1="-76.0507" x2="167.65" y2="569.505">
+   <stop offset="0" style="stop-opacity:1; stop-color:white"/>
+   <stop offset="1" style="stop-opacity:0; stop-color:white"/>
+  </linearGradient>
+      <rect style="fill:url(#id1)" x="23.5978" y="-28.0723" width="506.141" height="549.599"/>
+     </mask>
+  <linearGradient id="id2" gradientUnits="userSpaceOnUse" x1="370.424" y1="-30.8632" x2="182.913" y2="524.317">
+   <stop offset="0" style="stop-color:white"/>
+   <stop offset="1" style="stop-color:white"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_60303184">
+   <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.24748737" inkscape:cx="150.19857" inkscape:cy="122.62969" inkscape:document-units="px" inkscape:current-layer="layer1" inkscape:window-width="782" inkscape:window-height="674" inkscape:window-x="1" inkscape:window-y="281" showgrid="false" inkscape:window-maximized="0"/>
+   <g id="layer1" inkscape:label="Layer 1" inkscape:groupmode="layer">
+    <path id="_61960176" class="fil0" d="M508.806 0.868939l-417.611 0c-49.8898,0 -90.3485,40.46 -90.3485,90.3485l0 417.566c0,49.8872 40.4587,90.3459 90.3485,90.3459l417.611 0.0013246c49.8872,-0.0013246 90.3472,-40.46 90.3472,-90.3498l0.0013246 -417.564c-0.0013246,-49.8885 -40.4613,-90.3485 -90.3498,-90.3485z" inkscape:export-ydpi="7.7063322" inkscape:export-xdpi="7.7063322" inkscape:export-filename="C:\Documents and Settings\Molumen\Desktop\path3511111.png"/>
+    <path id="path1950" class="fil1" style="mask:url(#id0)" d="M441.081 26.4457l-282.16 0c-74.6904,0 -134.818,60.6165 -134.818,135.914l0 275.282c2.41608,58.7753 11.7161,21.6202 29.4168,-43.4708 20.5724,-75.6467 87.5708,-141.762 169.164,-191.314 62.2749,-37.8201 131.981,-61.9702 258.866,-64.2671 71.9604,-1.30341 65.6062,-93.3924 -40.4679,-112.144z" inkscape:export-ydpi="7.7063322" inkscape:export-xdpi="7.7063322" inkscape:export-filename="C:\Documents and Settings\Molumen\Desktop\path3511111.png" sodipodi:nodetypes="ccccsssc"/>
+    <path id="path3778" class="fil2 str0" d="M230.362 164.037l86.8211 -1.3352c39.7566,1.09942 61.8536,29.2803 61.443,61.4324 3.85327,37.9936 -6.84422,81.0154 -66.7851,80.1305l-85.4859 0c-37.6916,0.364266 -67.7892,-21.7844 -65.4499,-65.4393 -1.86769,-36.167 10.0736,-75.309 69.4569,-74.7884z" sodipodi:nodetypes="ccccccc"/>
+    <path id="path3780" class="fil2 str0" d="M370.611 457.849l-133.57 0c-55.6585,0.713961 -82.4684,-24.6615 -78.8086,-82.8022 0.263596,-52.2635 30.5785,-67.1865 76.1368,-68.1097l132.236 0c89.9127,-2.40018 80.0934,-3.27177 81.479,69.4449 -0.56693,52.8662 -29.6406,81.0617 -77.4734,81.467z" sodipodi:nodetypes="ccccccc"/>
+    <line id="path3782" class="fil3 str0" x1="158.232" y1="385.731" x2="160.905" y2= "225.471"  sodipodi:nodetypes="cc"/>
+    <line id="path3786" class="fil3 str1" x1="236.71" y1="232.69" x2="311.283" y2= "233.875"  sodipodi:nodetypes="cc"/>
+    <line id="path3788" class="fil3 str1" x1="228.24" y1="378.524" x2="377.382" y2= "378.524"  sodipodi:nodetypes="cc"/>
+   </g>
+  </g>
+ </g>
+</svg>
