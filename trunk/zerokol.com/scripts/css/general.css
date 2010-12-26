@@ -1,16 +1,24 @@
 /* CSS Document */
 #twitter{
 	position:absolute;
-	left: 15px;
-	top: 15px;
-	width: 50%;
-	height: 25%;
+	left: 1%;
+	top: 2%;
+	width: 16%;
+	height: 8%;
+}
+
+#blogger{
+	position:absolute;
+	left: 35%;
+	top: 2%;
+	width: 10%;
+	height: 10%;
 }
 
 #orkut{
 	position:absolute;
-	left: 16px;
-	top: 260px;
-	width: 50%;
-	height: 50%;
+	left: 60%;
+	top: 2%;
+	width: 10%;
+	height: 10%;
 }
