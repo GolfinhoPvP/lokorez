@@ -215,7 +215,7 @@ FMSA</td>
           <td width="27%">CONTA CORRENTE<br />
           '.$infos['x'].'</td>
           <td width="31%">REFER&Ecirc;NCIA PAGAMENTO<br />
-          '.$this->appDateMaker($this->date1).'</td>
+          '.$this->appDateMaker($date[0]."-".$date[1]."-".$date[2]).'</td>
         </tr>
       </table></td>
   </tr>
