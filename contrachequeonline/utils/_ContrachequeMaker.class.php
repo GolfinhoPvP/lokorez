@@ -65,35 +65,25 @@
 				}
 				
 				$row = mysql_fetch_array($result);
-				$infos["x"] 					= "***";
 				$infos["nome"] 					= $row["nome"];
 				$infos["matricula"] 			= $row["matricula"];
 				$infos["lotacao"] 				= $row["lotacao"];
+				$infos["secretaria"] 			= $row["secretaria"];
 				$infos["descricao_secretaria"] 	= $row["descricao_lotacao"];
 				$infos["descricao_cargo"] 		= $row["descricao_cargo"];
 				$infos["nivel"] 				= $row["nivel"];
-				$infos["CPF"] 					= $row["CPF"];
-				$infos["PIS_PASEP"] 			= $row["PIS_PASEP"];
-				$infos["data_nascimento"] 		= $row["data_nascimento"];
-				$infos["data_admissao"] 		= $row["data_admissao"];
-				$infos["dp_sal_fan"] 			= $row["dp_sal_fan"];
-				$infos["dep_imp_re"] 			= $row["dep_imp_re"];
 				$infos["proventos"] 			= 0;
 				$infos["descontos"] 			= 0;
 				$infos["liquido"] 				= 0;
 				$infos[0]		 				= $row["eve_codigo"];
 				$infos[1]		 				= $row["descricao_evento"];
 				$infos[2]		 				= $row["valor"];
-				$today = getdate();
-				$infos["date"] = $today["mday"]."/".$today["mon"]."/".$today["year"];
 				
 				$z = 3;
-				$loop = 1;
 				while($row = mysql_fetch_array($result)){
 					$infos[$z++] = $row["eve_codigo"];
 					$infos[$z++] = $row["descricao_evento"];
 					$infos[$z++] = $row["valor"];
-					$loop++;
 				}
 				
 				$w = 0;
@@ -104,25 +94,6 @@
 						$infos["descontos"] += $infos[$w+($y*2)+2];
 					}
 					$w++;
-				}
-				
-				$contP = $contD = $m = 0;
-				for($y=0; $y<$loop; $y++){
-					if($infos[$m] < 500){
-						$contP++;
-					}else{
-						$contD++;
-					}
-					$m += 3;
-				}
-				
-				
-				if($contP > $contD){
-					$loop = $contP + 1;
-				}else if($contD > $contP){
-					$loop = $contD + 1;
-				}else{
-					$loop = $contD + 1;
 				}
 				
 				$infos["liquido"] = $infos["proventos"] - $infos["descontos"];
@@ -139,15 +110,16 @@
 	border-bottom-width: medium;
 	border-left-width: medium;
 }
+.style1 {font-family: Arial, Helvetica, sans-serif}
 .style2 {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-weight: bold;
 	font-size: 14px;
 }
-.words3 {
-	font-size: 9px;
-	font-family: Georgia, "Times New Roman", Times, serif;
-}
+.style3 {font-size: 12px}
+.style4 {font-family: Georgia, "Times New Roman", Times, serif}
+.style5 {font-size: 13px; font-family: Georgia, "Times New Roman", Times, serif; }
+.style6 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
 -->
 </style>');
 				// 595, 842
@@ -157,149 +129,72 @@
       <tr>
       <td width="73"><div align="center"><img src="../images/brasao_bw.png" width="59" height="71" /></div></td>
       <td width="375"><div align="center" class="style2">Prefeitura Municipal de Teresina<br />
-    Secretaria Municipal de Administra&ccedil;&atilde;o<br />
-      </div>
-        <span class="style6"><br />
-        <span class="words3">EMITIDO: '.$infos["date"].'</span></span></td>
-      <td width="122"><div align="right"><img src="../images/fms_logo_bw.png" width="121" height="35" /></div></td>
+    Secretaria Municipal de Administra&ccedil;&atilde;o</div></td><td width="122"><div align="right"><img src="../images/fms_logo_bw.png" width="121" height="35" /></div></td>
     </tr></table>
     </td>
   </tr>
   <tr>
-    <td><div align="right" class="style2">CONTRACHEQUE
-    </div>
-      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
-      <tr>
-        <td width="8%" >EMPRESA<br />
-FMSA</td>
-        <td width="13%">MATR&Iacute;CULA<br />
-'.$infos['matricula'].'</td>
-        <td width="79%">NOME<br />
-'.$infos['nome'].'</td>
-      </tr>
-    </table>
-      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
+    <td><div align="center"><br />
+        <span class="style5">Divis&atilde;o de folha de Pagameto - Nucleo de Informatica<br />
+        Espelho do Contra-cheque referente ao mes de '.$this->appDateMaker($date[0]."-".$date[1]."-".$date[2]).'</span></div></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0">
         <tr>
-          <td width="57%">CARGO<br />
-          '.$infos['descricao_cargo'].'</td>
-          <td width="43%">LOTA&ccedil;&Atilde;O<br />
-          '.$infos['descricao_secretaria'].'</td>
+          <td width="43" class="style5"><div align="right" class="style3">Nome </div></td>
+          <td width="10" class="style5"><div align="center" class="style3">:</div></td>
+          <td colspan="3" class="style5"><span class="style3">'.$infos["nome"].'</span></td>
+          <td width="62" class="style5"><div align="right" class="style3">Matr&iacute;cula:</div></td>
+          <td width="125" class="style5"><span class="style3">'.$infos["matricula"].'</span></td>
         </tr>
-      </table>
-      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
         <tr>
-          <td width="8%">N&Iacute;VEL<br />
-          '.$infos['nivel'].'</td>
-          <td width="30%">CPF<br />
-          '.$infos['CPF'].'</td>
-          <td width="26%">PIS/PASEP<br />
-          '.$infos['PIS_PASEP'].'.</td>
-          <td width="18%">ADMISS&Atilde;O<br />
-          '.$infos['data_admissao'].'</td>
-          <td width="18%">NASCIMENTO<br />
-          '.$infos['data_nascimento'].'</td>
+          <td class="style5"><div align="right" class="style3">'.$infos["lotacao"].'</div></td>
+          <td class="style5"><div align="center" class="style3">-</div></td>
+          <td width="248" class="style5"><span class="style3">'.$infos["secretaria"].'</span></td>
+          <td width="7" class="style5"><span class="style3">-</span></td>
+          <td colspan="3" class="style5"><span class="style3">'.$infos["descricao_secretaria"].'</span></td>
         </tr>
-      </table>
-      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
         <tr>
-          <td width="6%">DP SF<br />
-          '.$infos['dp_sal_fan'].'.</td>
-          <td width="6%">DP IR<br />
-          '.$infos['dep_imp_re'].'.</td>
-          <td width="7%">BANCO<br />
-          '.$infos['x'].'</td>
-          <td width="11%">AG&Ecirc;NCIA<br />
-          '.$infos['x'].'</td>
-          <td width="12%">OPERA&ccedil;&Atilde;O<br />
-          '.$infos['x'].'</td>
-          <td width="27%">CONTA CORRENTE<br />
-          '.$infos['x'].'</td>
-          <td width="31%">REFER&Ecirc;NCIA PAGAMENTO<br />
-          '.$this->appDateMaker($this->date1).'</td>
+          <td class="style5"><div align="right" class="style3">Cargo </div></td>
+          <td class="style5"><div align="center" class="style3">:</div></td>
+          <td colspan="3" class="style5"><span class="style3">'.$infos["descricao_cargo"].'</span></td>
+          <td class="style5"><div align="right" class="style3">N&iacute;vel:</div></td>
+          <td class="style5"><span class="style3">'.$infos["nivel"].'</span></td>
         </tr>
       </table></td>
   </tr>
   <tr>
-    <td><table width="100%" border="1" cellpadding="0" cellspacing="0">
+    <td>');
+	$h = 0;
+	while($h<$z){
+	echo('<table width="100%">
       <tr>
-        <td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="words3">
-          <tr>
-            <td width="16%">C&Oacute;DIGO</td>
-            <td width="61%">DESCRIMINA&Ccedil;&Atilde;O</td>
-            <td width="23%">VALOR EM R$ </td>
-          </tr>
-        </table>');
-		$h = 0;
-		for($y=0; $y<$loop; $y++){
-			if(($y % 2) == 0){
-				echo('<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E1E1E1" class="words3">');
-			 }else{
-			 echo('<table width="100%" border="0" cellpadding="0" cellspacing="0" class="words3">');
-			 }
-			 if($y >= $contP){
-			 	echo('<tr><td width="16%">&nbsp;</td>
-				<td width="61%">&nbsp;</td>
-				<td width="23%">&nbsp;</td>
-			  </tr>
-			</table>');
-			 }else{
-			 	echo('<td width="16%">'.$infos[$h++].'</td>
-				<td width="61%">'.$infos[$h++].'</td>
-				<td width="23%" align="right">'.$this->formatValue($infos[$h++]).'</td>
-			  </tr>
-			</table>');
-			}
-		}
-		echo('</td>
-        <td><table width="100%" border="0" cellpadding="0" cellspacing="0" class="words3">
-          <tr>
-            <td width="16%">C&Oacute;DIGO</td>
-            <td width="61%">DESCRIMINA&Ccedil;&Atilde;O</td>
-            <td width="23%">VALOR EM R$ </td>
-          </tr>
-        </table>');
-		for($y=0; $y<$loop; $y++){
-			if(($y % 2) == 0){
-				echo('<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E1E1E1" class="words3">');
-			 }else{
-			 echo('<table width="100%" border="0" cellpadding="0" cellspacing="0" class="words3">');
-			 }
-			 if($y >= $contD){
-			 	echo('<tr><td width="16%">&nbsp;</td>
-				<td width="61%">&nbsp;</td>
-				<td width="23%">&nbsp;</td>
-			  </tr>
-			</table>');
-			 }else{
-			 	echo('<td width="16%">'.$infos[$h++].'</td>
-				<td width="61%">'.$infos[$h++].'</td>
-				<td width="23%" align="right">'.$this->formatValue($infos[$h++]).'</td>
-			  </tr>
-			</table>');
-			}
-		}
-		echo('</td>
+        <td width="12%" class="style4"><div align="right" class="style6">'.$infos[$h++].'</div></td>
+        <td width="2%" class="style4"> <div align="center" class="style6">-</div></td>
+        <td width="54%" class="style6">'.$infos[$h++].'</td>
+        <td width="32%" class="style6">R$ '.$infos[$h++].'</td>
+      </tr>
+    </table>');
+	}
+	echo('</td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0">
+      <tr>
+        <td width="63%" class="style6"><div align="right">Proventos:</div></td>
+        <td width="37%" class="style6">R$ '.$infos["proventos"].'</td>
+      </tr>
+      <tr>
+        <td class="style6"><div align="right">Descontos:</div></td>
+        <td class="style6">R$ '.$infos["descontos"].'</td>
       </tr>
     </table></td>
   </tr>
   <tr>
-    <td  class="words3">&nbsp;</td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="1" cellpadding="0" cellspacing="0"  class="words3">
+    <td><table width="100%" border="0">
       <tr>
-        <td>PROVENTOS<br />
-          R$ '.$this->formatValue($infos['proventos']).'</td>
-        <td>DESCONTOS<br />
-          R$ '.$this->formatValue($infos['descontos']).'</td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0"  class="words3">
-      <tr>
-        <td width="63%"><div align="right">L&Iacute;QUIDO:</div></td>
-        <td width="37%">R$ '.$this->formatValue($infos['liquido']).'</td>
+        <td width="63%" class="style6"><div align="right">L&iacute;quido:</div></td>
+        <td width="37%" class="style6">R$ '.$infos["liquido"].'</td>
       </tr>
     </table></td>
   </tr>
@@ -309,7 +204,35 @@ FMSA</td>
       <br />
       <span class="style2">Gerado via WEB. </span></div></td>
   </tr>
-</table></br></br>');
+</table><br><br>');
+				
+/*				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Prefeitura Municipal de Teresina<br>");
+				echo("| Secretaria Municipal de Administração<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Divisão de folha de Pagameto - Nucleo de Informatica<br>");
+				echo("| Espelho do Contra-cheque referente ao mes de ".$this->appDateMaker($this->date1)."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Nome: ".$infos["nome"]."   Matricula: ".$infos["matricula"]."<br>");
+				echo("| ".$infos["lotacao"]." - ".$infos["secretaria"]." - ".$infos["descricao_secretaria"]."<br>");
+				echo("| Cargo: ".$infos["descricao_cargo"]."     Nível: ".$infos["nivel"]."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				$h = 0;
+				while($h<$z){
+					echo("| ".$infos[$h++]." - ".$infos[$h++]."     ".$infos[$h++]."<br>");
+				}
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Proventos: ".$infos["proventos"]."<br>");
+				echo("| Descontos: ".$infos["descontos"]."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("| Liquido: ".$infos["liquido"]."<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");
+				echo("|<br>");
+				echo("|<br>");
+				echo("------------------------------------------------------------------------------------------------------<br>");*/
+/*				foreach($infos as $temp){
+					echo("#".$temp."#<br>");
+				}*/
 				if($date[1] == 12){
 					$date[1] = "01";
 					$date[2] += 1;
@@ -322,23 +245,6 @@ FMSA</td>
 				header("Location: ../index.php?found=false");
 				die();
 			}
-		}
-		
-		function formatValue($v){
-			if(strlen($v) == 0){
-				return $v;
-			}
-			$pos = strpos($v, ".");
-			if($pos === false){
-				return $v.",00";
-			}else{
-				$temp = explode(".",$v);
-				if(strlen($temp[1]) == 1){
-					$temp[1] .= "0";
-				}
-				return $temp[0].",".$temp[1];
-			}
-			return $v;
 		}
 		
 		function appDateMaker($d){

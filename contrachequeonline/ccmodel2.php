@@ -15,16 +15,15 @@
 	border-bottom-width: medium;
 	border-left-width: medium;
 }
-.style1 {font-family: Arial, Helvetica, sans-serif}
 .style2 {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-weight: bold;
 	font-size: 14px;
 }
-.style3 {font-size: 12px}
-.style4 {font-family: Georgia, "Times New Roman", Times, serif}
-.style5 {font-size: 13px; font-family: Georgia, "Times New Roman", Times, serif; }
-.style6 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.words3 {
+	font-size: 9px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
 -->
 </style>
 </head>
@@ -36,69 +35,119 @@
       <tr>
       <td width="73"><div align="center"><img src="images/brasao_bw.png" width="59" height="71" /></div></td>
       <td width="375"><div align="center" class="style2">Prefeitura Municipal de Teresina<br />
-    Secretaria Municipal de Administra&ccedil;&atilde;o</div></td><td width="122"><div align="right"><img src="images/fms_logo_bw.png" width="121" height="35" /></div></td>
+    Secretaria Municipal de Administra&ccedil;&atilde;o<br />
+      </div>
+        <span class="style6"><br />
+        <span class="words3">EMITIDO: 26/45/1236</span></span></td>
+      <td width="122"><div align="right"><img src="images/fms_logo_bw.png" width="121" height="35" /></div></td>
     </tr></table>
     </td>
   </tr>
   <tr>
-    <td><div align="center"><br />
-        <span class="style5">Divis&atilde;o de folha de Pagameto - Nucleo de Informatica<br />
-        Espelho do Contra-cheque referente ao mes de '.$this->appDateMaker($this->date1).'</span></div></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
+    <td><div align="right" class="style2">CONTRACHEQUE
+    </div>
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
+      <tr>
+        <td width="8%" >EMPRESA<br />
+FMSA</td>
+        <td width="13%">MATR&Iacute;CULA<br />
+1235412</td>
+        <td width="79%">NOME<br />
+adfasdfasdfasdfasdfasdfadsfasfadfasdfdfsadfasdfasdfasdfafadfadf</td>
+      </tr>
+    </table>
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
         <tr>
-          <td width="43" class="style5"><div align="right" class="style3">Nome </div></td>
-          <td width="10" class="style5"><div align="center" class="style3">:</div></td>
-          <td colspan="3" class="style5"><span class="style3">'.$infos[&quot;nome&quot;].'</span></td>
-          <td width="62" class="style5"><div align="right" class="style3">Matr&iacute;cula:</div></td>
-          <td width="125" class="style5"><span class="style3">'.$infos[&quot;matricula&quot;].'</span></td>
+          <td width="57%">CARGO<br />
+          sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsf</td>
+          <td width="43%">LOTA&ccedil;&Atilde;O<br />
+          dfadfsdfasdfsdfsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsfs</td>
         </tr>
+      </table>
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
         <tr>
-          <td class="style5"><div align="right" class="style3">'.$infos<br />
-          ["lotac<br />
-          ao"].'</div></td>
-          <td class="style5"><div align="center" class="style3">-</div></td>
-          <td width="248" class="style5"><span class="style3">'.$infos[&quot;secretaria&quot;].'</span></td>
-          <td width="7" class="style5"><span class="style3">-</span></td>
-          <td colspan="3" class="style5"><span class="style3">'.$infos[&quot;descricao_secretaria&quot;].'</span></td>
+          <td width="8%">N&Iacute;VEL<br />
+          00</td>
+          <td width="30%">CPF<br />
+          023265465165164165165164</td>
+          <td width="26%">PIS/PASEP<br />
+          65465465464654645</td>
+          <td width="18%">ADMISS&Atilde;O<br />
+          516519546465</td>
+          <td width="18%">NASCIMENTO<br />
+          561654561656</td>
         </tr>
+      </table>
+      <table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
         <tr>
-          <td class="style5"><div align="right" class="style3">Cargo </div></td>
-          <td class="style5"><div align="center" class="style3">:</div></td>
-          <td colspan="3" class="style5"><span class="style3">'.$infos[&quot;descricao_cargo&quot;].'</span></td>
-          <td class="style5"><div align="right" class="style3">N&iacute;vel:</div></td>
-          <td class="style5"><span class="style3">'.$infos[&quot;nivel&quot;].'</span></td>
+          <td width="6%">DP SF<br />
+          xxx</td>
+          <td width="6%">DP IR<br />
+          zzz</td>
+          <td width="7%">BANCO<br />
+          001</td>
+          <td width="11%">AG&Ecirc;NCIA<br />
+          15616456</td>
+          <td width="12%">OPERA&ccedil;&Atilde;O<br />
+          ***</td>
+          <td width="27%">CONTA CORRENTE<br />
+          155615646464654645646</td>
+          <td width="31%">REFER&Ecirc;NCIA PAGAMENTO<br />
+          sdfs/15615</td>
         </tr>
       </table></td>
   </tr>
   <tr>
-    <td><table width="100%" border="0">
+    <td><table width="100%" border="1" cellpadding="0" cellspacing="0" class="words3">
       <tr>
-        <td width="12%" class="style4"><div align="right" class="style6">'.$infos[0].'</div></td>
-        <td width="2%" class="style4"> <div align="center" class="style6">-</div></td>
-        <td width="54%" class="style6">'.$infos[1].'</td>
-        <td width="32%" class="style6">R$ '.$infos[2].'</td>
+        <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="16%">C&Oacute;DIGO</td>
+            <td width="61%">DESCRIMINA&Ccedil;&Atilde;O</td>
+            <td width="23%">VALOR EM R$ </td>
+          </tr>
+        </table>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E1E1E1">
+          <tr>
+            <td width="16%">1123</td>
+            <td width="61%">asdfasfasfasdfafasdfafasdfas</td>
+            <td width="23%"><div align="right">123,36</div></td>
+          </tr>
+        </table></td>
+        <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="16%">C&Oacute;DIGO</td>
+            <td width="61%">DESCRIMINA&Ccedil;&Atilde;O</td>
+            <td width="23%">VALOR EM R$ </td>
+          </tr>
+        </table><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E1E1E1">
+          <tr>
+            <td width="16%">1123</td>
+            <td width="61%">asdfasfasfasdfafasdfafasdfas</td>
+            <td width="23%">123,36</td>
+          </tr>
+        </table></td>
       </tr>
     </table></td>
   </tr>
   <tr>
-    <td><table width="100%" border="0">
+    <td  class="words3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="1" cellpadding="0" cellspacing="0"  class="words3">
       <tr>
-        <td width="63%" class="style6"><div align="right">Proventos:</div></td>
-        <td width="37%" class="style6">R$ '.$infos[&quot;proventos&quot;].'</td>
-      </tr>
-      <tr>
-        <td class="style6"><div align="right">Descontos:</div></td>
-        <td class="style6">R$ '.$infos[&quot;descontos&quot;].'</td>
+        <td>PROVENTOS<br />
+          R$ 561465</td>
+        <td>DESCONTOS<br />
+          R$ 21654654</td>
       </tr>
     </table></td>
   </tr>
   <tr>
-    <td><table width="100%" border="0">
+    <td><table width="100%" border="0"  class="words3">
       <tr>
-        <td width="63%" class="style6"><div align="right">L&iacute;quido:</div></td>
-        <td width="37%" class="style6">R$ '.$infos[&quot;liquido&quot;].'</td>
+        <td width="63%"><div align="right">L&Iacute;QUIDO:</div></td>
+        <td width="37%">R$ '.$infos[&quot;liquido&quot;].'</td>
       </tr>
     </table></td>
   </tr>
