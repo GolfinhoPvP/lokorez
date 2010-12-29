@@ -2,6 +2,6 @@
 	<head>
 	</head>
 	<body>
-		<p>fgsgfgsfgsdfgsfgs</p>
+		<p>You're on Metal Strikers' Server! Get OUT!</p>
 	</body>
 </html>
