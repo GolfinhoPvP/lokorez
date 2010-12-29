@@ -1,4 +1,4 @@
-package aplets;
+package applets;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -22,7 +22,7 @@ public class GameFrame extends JApplet{
 		try {
 			tracker = new MediaTracker(this);
 			img[0] = getImage(new URL("http://www.monky.ro/wp-content/uploads/2007/08/game_girl.jpg"));
-			img[1] = getImage(new URL("http://localhost:8080/MetalStrikersServer/images/mapOne/model.png"));
+			img[1] = getImage(new URL("http://localhost:9009/MetalStrikersServer/images/mapOne/model.png"));
 			tracker.addImage(img[0], 1);
 			tracker.addImage(img[1], 2);
 			tracker.waitForAll();
@@ -36,7 +36,7 @@ public class GameFrame extends JApplet{
 		
 	}
 	public void paint(Graphics g){
-		g.drawImage(img[1], 0, 0, this);
 		g.drawImage(img[0], 0, 0, this);
+		g.drawImage(img[1], 0, 0, this);
 	}	
 }
