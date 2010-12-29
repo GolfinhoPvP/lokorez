@@ -20,19 +20,19 @@ public class GameFrame extends JApplet{
 		resize(640,480);
 		//img = getImage(getCodeBase(),"images/mapOne/model.png");
 		try {
-			//tracker = new MediaTracker(this);
+			tracker = new MediaTracker(this);
 			//img[0] = getImage(new URL("http://www.monky.ro/wp-content/uploads/2007/08/game_girl.jpg"));
 			img[1] = getImage(new URL("http://localhost:9009/MetalStrikersServer/images/mapOne/model.png"));
 			//tracker.addImage(img[0], 1);
-			//tracker.addImage(img[1], 2);
-			//tracker.waitForAll();
+			tracker.addImage(img[1], 1);
+			tracker.waitForAll();
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}// catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
+			e.printStackTrace();
+		}
 		
 	}
 	public void paint(Graphics g){
