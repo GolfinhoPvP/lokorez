@@ -8,9 +8,10 @@ public class GameApplet extends JApplet{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private final int HEIGHT = 640, WIDTH = 480;
 	
 	public void init(){
-		this.resize(640,480);
+		this.resize(HEIGHT,WIDTH);
 		BattlePanel bp = new BattlePanel();
 		this.add(bp);
 	}	
