@@ -26,7 +26,7 @@ public class BattlePanel extends JPanel{
 		try {
 			tracker = new MediaTracker(this);
 			img[0] = new ImageIcon(new URL("http://localhost:8080/MetalStrikersServer/images/mapOne/model.png"));
-			tracker.addImage(img[1].getImage(), 1);
+			tracker.addImage(img[0].getImage(), 1);
 			tracker.waitForAll();
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
