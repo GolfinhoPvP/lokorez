@@ -11,7 +11,7 @@ public class GameFrame extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Dimension d = new Dimension(640,480);
+	private static final Dimension d = new Dimension(800,450);
 
 	public static void main(String[] args){
 		GameFrame gameFrame = new GameFrame();

@@ -35,9 +35,9 @@ public class LogInPanel extends JPanel implements ActionListener{
         this.add(jlUserName);
         this.add(jlUserPassword);
         this.add(jlSignUP);
-        jlUserName;
-        jlUserPassword;
-        jlSignUP;
+        jlUserName.setFont(getFont());
+        jlUserPassword.setSize(500, 700);
+        jlSignUP.setFont(getFont());
         userName.addActionListener(this);
         userPassword.addActionListener(this);
 

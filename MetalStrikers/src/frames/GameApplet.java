@@ -9,10 +9,10 @@ public class GameApplet extends JApplet{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Dimension d = new Dimension(640,480);
+	private static final Dimension d = new Dimension(800,450);
 	
 	public void init(){
-		this.resize(640,480);
+		this.resize(d.width, d.height);
 		LogInPanel logInPanel = new LogInPanel(d);
 		this.add(logInPanel);
 	}	
