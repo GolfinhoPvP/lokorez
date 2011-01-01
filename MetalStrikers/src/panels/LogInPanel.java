@@ -2,9 +2,10 @@ package panels;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,11 +23,23 @@ public class LogInPanel extends JPanel implements ActionListener{
 	private JLabel jlUserName = new JLabel("User name:");
 	private JLabel jlUserPassword = new JLabel("Password:");
 	private JLabel jlSignUP = new JLabel("If you don't have a account, just ");
+	private MediaTracker tracker;
+	private ImageIcon background;
     
     public LogInPanel(Dimension d) {
     	this.setPreferredSize(d);
     	this.setFocusable(true);
     	this.requestFocus();
+    	
+    	try {
+			tracker = new MediaTracker(this);
+			background = new ImageIcon("bin/imagens/background.gif");
+			tracker.addImage(background.getImage(), 1);
+			tracker.waitForAll();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
         this.add(userName);
         this.add(userPassword);
@@ -45,6 +58,7 @@ public class LogInPanel extends JPanel implements ActionListener{
     
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
+		g.drawImage(background.getImage(), 0, 0, null);
 		jlUserName.setLocation(200, 250);
 		userName.setLocation(300, 250);
 		jlUserPassword.setLocation(200, 275);
