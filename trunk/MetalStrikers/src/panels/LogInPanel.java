@@ -41,7 +41,7 @@ public class LogInPanel extends JPanel implements ActionListener{
 			tracker = new MediaTracker(this);
 			
 			background 	= imageLoader("background.gif");
-			logInBox 	= imageLoader("teste.gif");
+			logInBox 	= imageLoader("logBoxHor2.png");
 
 			tracker.addImage(background, 1);
 			tracker.addImage(logInBox, 1);
