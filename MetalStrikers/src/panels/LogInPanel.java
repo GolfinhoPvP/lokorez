@@ -42,6 +42,7 @@ public class LogInPanel extends JPanel implements ActionListener{
 			
 			background 	= imageLoader("background.gif");
 			logInBox 	= imageLoader("logBoxHor2.png");
+			//http://www.javaworld.com/javatips/jw-javatip32.html
 
 			tracker.addImage(background, 1);
 			tracker.addImage(logInBox, 1);
