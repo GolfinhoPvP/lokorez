@@ -121,8 +121,6 @@ public class LogInPanel extends JPanel{
 				setVisible(false);
 				container.add(new SignUpPanel(container, d));
 				container.repaint();
-				jlUserName.setText("Deu certo!");
-				System.out.print("I was here!");
 				try {
 					this.finalize();
 				} catch (Throwable e) {
