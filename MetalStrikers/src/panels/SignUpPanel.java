@@ -9,11 +9,17 @@ import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class SignUpPanel extends JPanel{
@@ -22,8 +28,8 @@ public class SignUpPanel extends JPanel{
 	 */
 	private static final long serialVersionUID 	= 1L;
 	private JTextField jtfUserName 				= new JTextField(15);  
-	private JTextField jtfUserPassword1 		= new JTextField(15);
-	private JTextField jtfUserPassword2 		= new JTextField(15);
+	private JPasswordField jtfUserPassword1 	= new JPasswordField(15);
+	private JPasswordField jtfUserPassword2 	= new JPasswordField(15);
 	private JTextField jtfEmail					= new JTextField(15);
 	private JButton jbSignUP 					= new JButton("Save!");
 	private JLabel jlUserName 					= new JLabel("User name:");
@@ -53,7 +59,11 @@ public class SignUpPanel extends JPanel{
 	private String line14						= new String("bgggc");
 	private ArrayList<String> logBoxScheme		= new ArrayList<String>();
 	private Container container					= null;
-    
+	@SuppressWarnings("unused")
+	private boolean allow						= false;
+	private Pattern pUserName 					= Pattern.compile("^([a-z]|[0-9]|[A-Z]|-|_|\\.){4,15}$");
+	private Pattern pUserEmail 					= Pattern.compile("^([a-z]|[0-9]|_|-|\\.){3,}@([a-z]|[0-9]){2,}\\.([a-z]|[0-9]){2,}$");
+	
     public SignUpPanel(Container cont, final Dimension d) {
     	this.container = cont;
     	this.setPreferredSize(d);
@@ -104,11 +114,11 @@ public class SignUpPanel extends JPanel{
         this.add(jtfUserPassword1);
         this.add(jtfUserPassword2);
         this.add(jtfEmail);
-        this.add(jbSignUP);
         this.add(jlUserName);
         this.add(jlUserPassword1);
         this.add(jlUserPassword2);
         this.add(jlEmail);
+        this.add(jbSignUP);
         jlUserName.setFont(font);
         jlUserName.setForeground(Color.WHITE);
         jlUserPassword1.setFont(font);
@@ -120,23 +130,25 @@ public class SignUpPanel extends JPanel{
          
         jbSignUP.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
-				setVisible(false);
-				container.add(new SignUpPanel(container, d));
-				try {
-					this.finalize();
-				} catch (Throwable e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				container.repaint();
 			}
-        }); 
+        });
+        jtfUserName.addKeyListener(new tfValider());
+        jtfEmail.addKeyListener(new tfValider());
     }
     
     private Image imageLoader(String s){
     	upper = new ImageIcon(imageURIFrame+s);
 		if(upper.getImageLoadStatus() != 8){
 			upper = new ImageIcon(imageURIApplet+s);
+		}
+		if(upper.getImageLoadStatus() != 8){
+			try{
+				URL url = Class.class.getResource("/"+imageURIApplet+s);
+				upper = new ImageIcon(url);
+			}catch(Exception e){
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		if(upper.getImageLoadStatus() != 8){
 			System.out.print("\nImage: "+s+" wasn't load!\n");
@@ -228,6 +240,40 @@ public class SignUpPanel extends JPanel{
 				             posX, img.getHeight(this)+posY, img.getWidth(this)+posX, posY,
 				             0, 0, img.getWidth(this), img.getHeight(this), this);
 					break;
+		}
+	}
+	
+	class tfValider implements KeyListener{
+		private JTextField jtf = null;
+		private Matcher m = null;
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+		}
+		@Override
+		public void keyReleased(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+			jtf = (JTextField) arg0.getSource();
+			if(jtf == jtfUserName){
+				m = pUserName.matcher(jtf.getText());
+			}else if(jtf == jtfEmail){
+				m = pUserEmail.matcher(jtf.getText());
+			}else{
+				System.out.print("ERRO!");
+			}
+			
+			if(!m.find()){ 
+				jtf.setBackground(Color.RED);
+				allow = false;
+			}else{
+				jtf.setBackground(Color.WHITE);
+				allow = true;
+			}
+		}
+		@Override
+		public void keyTyped(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 }
