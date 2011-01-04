@@ -16,18 +16,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class LogInPanel extends JPanel{
+public class SignUpPanel extends JPanel{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID 	= 1L;
 	private JTextField jtfUserName 				= new JTextField(15);  
-	private JTextField jtfUserPassword 			= new JTextField(15);
-	private JButton jbConnect 					= new JButton("Connect");
+	private JTextField jtfUserPassword1 		= new JTextField(15);
+	private JTextField jtfUserPassword2 		= new JTextField(15);
+	private JTextField jtfEmail					= new JTextField(15);
 	private JButton jbSignUP 					= new JButton("Sign up");
 	private JLabel jlUserName 					= new JLabel("User name:");
-	private JLabel jlUserPassword 				= new JLabel("Password:");
-	private JLabel jlSignUP 					= new JLabel("If you don't have an account, just ");
+	private JLabel jlUserPassword1 				= new JLabel("Password:");
+	private JLabel jlUserPassword2 				= new JLabel("Confirm password:");
+	private JLabel jlEmail 						= new JLabel("Email:");
 	private MediaTracker tracker 				= null;
 	private ImageIcon upper 					= null;
 	private Image background					= null;
@@ -35,24 +37,24 @@ public class LogInPanel extends JPanel{
 	private String imageURIFrame 				= new String("bin/archives/images/");
 	private String imageURIApplet 				= new String("archives/images/");
 	private Font font 							= new Font("serif", Font.BOLD, 15);
-	private String line1						= new String("0aeeed");
-	private String line2						= new String("0fxxxh");
-	private String line3						= new String("0fxxxh");
-	private String line4						= new String("aixxxh");
-	private String line5						= new String("fxxxxh");
-	private String line6						= new String("bjxxxh");
-	private String line7						= new String("0fxxxh");
-	private String line8						= new String("0fxxxh");
-	private String line9						= new String("0fxxxh");
-	private String line10						= new String("0fxxxh");
-	private String line11						= new String("0fxxxh");
-	private String line12						= new String("0bgjlc");
-	private String line13						= new String("000fh0");
-	private String line14						= new String("000bc0");
+	private String line1						= new String("aeeed");
+	private String line2						= new String("fxxxh");
+	private String line3						= new String("fxxxh");
+	private String line4						= new String("fxxxh");
+	private String line5						= new String("fxxxh");
+	private String line6						= new String("fxxxh");
+	private String line7						= new String("fxxxh");
+	private String line8						= new String("fxxxh");
+	private String line9						= new String("fxxxh");
+	private String line10						= new String("fxxxh");
+	private String line11						= new String("fxxxh");
+	private String line12						= new String("fxxxh");
+	private String line13						= new String("fxxxh");
+	private String line14						= new String("bgggc");
 	private ArrayList<String> logBoxScheme		= new ArrayList<String>();
 	private Container container					= null;
     
-    public LogInPanel(Container cont, final Dimension d) {
+    public SignUpPanel(Container cont, final Dimension d) {
     	this.container = cont;
     	this.setPreferredSize(d);
     	this.setFocusable(true);
@@ -99,22 +101,23 @@ public class LogInPanel extends JPanel{
 		}
 		
         this.add(jtfUserName);
-        this.add(jtfUserPassword);
-        this.add(jbConnect);
+        this.add(jtfUserPassword1);
+        this.add(jtfUserPassword2);
+        this.add(jtfEmail);
         this.add(jbSignUP);
         this.add(jlUserName);
-        this.add(jlUserPassword);
-        this.add(jlSignUP);
+        this.add(jlUserPassword1);
+        this.add(jlUserPassword2);
+        this.add(jlEmail);
         jlUserName.setFont(font);
         jlUserName.setForeground(Color.WHITE);
-        jlUserPassword.setFont(font);
-        jlUserPassword.setForeground(Color.WHITE);
-        jlSignUP.setForeground(Color.WHITE);
-        
-        jbConnect.addActionListener(new ActionListener(){
-			 public void actionPerformed(ActionEvent ae){  
-			 }
-        });  
+        jlUserPassword1.setFont(font);
+        jlUserPassword1.setForeground(Color.WHITE);
+        jlUserPassword2.setFont(font);
+        jlUserPassword2.setForeground(Color.WHITE);
+        jlEmail.setFont(font);
+        jlEmail.setForeground(Color.WHITE);
+         
         jbSignUP.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
 				setVisible(false);
@@ -146,7 +149,7 @@ public class LogInPanel extends JPanel{
 		g.drawImage(background, 0, 0, null);
 	
 		int posX = 8;
-		int posY = 250;
+		int posY = 270;
 		int xLen = logBoxScheme.get(0).toString().length();
 		int yTam = logBoxScheme.size();
 		for(int x=0; x<yTam; x++){
@@ -194,17 +197,19 @@ public class LogInPanel extends JPanel{
 					default : break;
 				}
 				posX = 8;
-				posY = 250;
+				posY = 270;
 			}
 		}
 		
-		jlUserName.setLocation(21, 300);
-		jtfUserName.setLocation(100, 300);
-		jlUserPassword.setLocation(30, 325);
-		jtfUserPassword.setLocation(100, 325);
-		jbConnect.setLocation(272, 310);
-		jlSignUP.setLocation(20, 385);
-		jbSignUP.setLocation(210, 380);
+		jlUserName.setLocation(72, 290);
+		jtfUserName.setLocation(150, 290);
+		jlEmail.setLocation(106, 320);
+		jtfEmail.setLocation(150, 320);
+		jlUserPassword1.setLocation(81, 350);
+		jtfUserPassword1.setLocation(150, 350);
+		jlUserPassword2.setLocation(24, 380);
+		jtfUserPassword2.setLocation(150, 380);
+		jbSignUP.setLocation(325, 310);
 	}
 	
 	public void especialImageDrawer(Graphics g, Image img, int direction, int posX, int posY){

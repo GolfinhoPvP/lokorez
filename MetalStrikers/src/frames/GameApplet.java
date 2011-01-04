@@ -13,7 +13,7 @@ public class GameApplet extends JApplet{
 	
 	public void init(){
 		this.resize(d.width, d.height);
-		LogInPanel logInPanel = new LogInPanel(d);
+		LogInPanel logInPanel = new LogInPanel(this, d);
 		this.add(logInPanel);
 	}	
 }
