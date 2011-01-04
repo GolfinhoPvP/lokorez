@@ -15,7 +15,7 @@ public class GameFrame extends JFrame{
 
 	public static void main(String[] args){
 		GameFrame gameFrame = new GameFrame();
-		LogInPanel logInPanel = new LogInPanel(d);
+		LogInPanel logInPanel = new LogInPanel(gameFrame, d);
 		
 		gameFrame.setTitle("Metal Strikers 1.0 - @Zerokol Games");
 		gameFrame.getContentPane().add(logInPanel, BorderLayout.CENTER);
