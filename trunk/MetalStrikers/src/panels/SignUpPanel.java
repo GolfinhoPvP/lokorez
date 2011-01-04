@@ -25,7 +25,7 @@ public class SignUpPanel extends JPanel{
 	private JTextField jtfUserPassword1 		= new JTextField(15);
 	private JTextField jtfUserPassword2 		= new JTextField(15);
 	private JTextField jtfEmail					= new JTextField(15);
-	private JButton jbSignUP 					= new JButton("Sign up");
+	private JButton jbSignUP 					= new JButton("Save!");
 	private JLabel jlUserName 					= new JLabel("User name:");
 	private JLabel jlUserPassword1 				= new JLabel("Password:");
 	private JLabel jlUserPassword2 				= new JLabel("Confirm password:");
