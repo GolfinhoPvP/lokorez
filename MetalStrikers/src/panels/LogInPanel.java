@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -83,12 +84,12 @@ public class LogInPanel extends JPanel{
 			logBox[4] 	= imageLoader("logBoxCenter.png");
 			//http://www.javaworld.com/javatips/jw-javatip32.html
 
-			tracker.addImage(background, 0);
+			tracker.addImage(background, 1);
 			tracker.addImage(logBox[0], 1);
-			tracker.addImage(logBox[1], 2);
-			tracker.addImage(logBox[2], 3);
-			tracker.addImage(logBox[3], 4);
-			tracker.addImage(logBox[4], 5);
+			tracker.addImage(logBox[1], 1);
+			tracker.addImage(logBox[2], 1);
+			tracker.addImage(logBox[3], 1);
+			tracker.addImage(logBox[4], 1);
 			tracker.waitForAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -119,21 +120,32 @@ public class LogInPanel extends JPanel{
 			public void actionPerformed(ActionEvent ae){
 				setVisible(false);
 				container.add(new SignUpPanel(container, d));
+				container.repaint();
+				jlUserName.setText("Deu certo!");
+				System.out.print("I was here!");
 				try {
 					this.finalize();
 				} catch (Throwable e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				container.repaint();
 			}
-        }); 
+        });
     }
     
     private Image imageLoader(String s){
     	upper = new ImageIcon(imageURIFrame+s);
 		if(upper.getImageLoadStatus() != 8){
 			upper = new ImageIcon(imageURIApplet+s);
+		}
+		if(upper.getImageLoadStatus() != 8){
+			try{
+				URL url = Class.class.getResource("/"+imageURIApplet+s);
+				upper = new ImageIcon(url);
+			}catch(Exception e){
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		if(upper.getImageLoadStatus() != 8){
 			System.out.print("\nImage: "+s+" wasn't load!\n");
