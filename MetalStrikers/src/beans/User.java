@@ -4,14 +4,14 @@ public class User {
 	private String name;
 	private String password;
 	private String email;
-	private String group;
+	private int group;
 	
 	public User(String n, String p){
 		this.name = n;
 		this.password = p;
 	}
 	
-	public User(String n, String p, String e, String g){
+	public User(String n, String p, String e, int g){
 		this.name = n;
 		this.password = p;
 		this.email = e;
@@ -42,11 +42,11 @@ public class User {
 		this.email = email;
 	}
 
-	public String getGroup() {
+	public int getGroup() {
 		return group;
 	}
 
-	public void setGroup(String group) {
+	public void setGroup(int group) {
 		this.group = group;
 	}
 }
