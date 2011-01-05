@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import beans.User;
+
 public class SignUpPanel extends JPanel{
 	/**
 	 * 
@@ -58,11 +60,13 @@ public class SignUpPanel extends JPanel{
 	private String line13						= new String("fxxxh");
 	private String line14						= new String("bgggc");
 	private ArrayList<String> logBoxScheme		= new ArrayList<String>();
+	@SuppressWarnings("unused")
 	private Container container					= null;
 	@SuppressWarnings("unused")
 	private boolean allow						= false;
 	private Pattern pUserName 					= Pattern.compile("^([a-z]|[0-9]|[A-Z]|-|_|\\.){4,15}$");
 	private Pattern pUserEmail 					= Pattern.compile("^([a-z]|[0-9]|_|-|\\.){3,}@([a-z]|[0-9]){2,}\\.([a-z]|[0-9]){2,}$");
+	private Pattern pPassword					= Pattern.compile("^([a-z]|[A-Z]|[0-9]){4,15}$");
 	
     public SignUpPanel(Container cont, final Dimension d) {
     	this.container = cont;
@@ -130,10 +134,16 @@ public class SignUpPanel extends JPanel{
          
         jbSignUP.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
+				if(allow == true){
+					@SuppressWarnings("deprecation")
+					User u = new User(jtfUserName.getText(), jtfUserPassword1.getText(), jtfEmail.getText(), 0);
+				}
 			}
         });
         jtfUserName.addKeyListener(new tfValider());
         jtfEmail.addKeyListener(new tfValider());
+        jtfUserPassword1.addKeyListener(new tfValider());
+        jtfUserPassword2.addKeyListener(new tfValider());
     }
     
     private Image imageLoader(String s){
@@ -221,7 +231,7 @@ public class SignUpPanel extends JPanel{
 		jtfUserPassword1.setLocation(150, 350);
 		jlUserPassword2.setLocation(24, 380);
 		jtfUserPassword2.setLocation(150, 380);
-		jbSignUP.setLocation(325, 310);
+		jbSignUP.setLocation(330, 381);
 	}
 	
 	public void especialImageDrawer(Graphics g, Image img, int direction, int posX, int posY){
@@ -250,6 +260,7 @@ public class SignUpPanel extends JPanel{
 		public void keyPressed(KeyEvent arg0) {
 			// TODO Auto-generated method stub
 		}
+		@SuppressWarnings("deprecation")
 		@Override
 		public void keyReleased(KeyEvent arg0) {
 			// TODO Auto-generated method stub
@@ -258,6 +269,8 @@ public class SignUpPanel extends JPanel{
 				m = pUserName.matcher(jtf.getText());
 			}else if(jtf == jtfEmail){
 				m = pUserEmail.matcher(jtf.getText());
+			}else if(jtf == jtfUserPassword1 || jtf == jtfUserPassword2){
+				m = pPassword.matcher(jtf.getText());
 			}else{
 				System.out.print("ERRO!");
 			}
@@ -268,6 +281,17 @@ public class SignUpPanel extends JPanel{
 			}else{
 				jtf.setBackground(Color.WHITE);
 				allow = true;
+			}
+			if(jtf == jtfUserPassword2){
+				if(0 != jtfUserPassword1.getText().compareTo(jtfUserPassword2.getText())){
+					jtfUserPassword1.setBackground(Color.RED);
+					jtfUserPassword2.setBackground(Color.RED);
+					allow = false;
+				}else{
+					jtfUserPassword1.setBackground(Color.WHITE);
+					jtfUserPassword2.setBackground(Color.WHITE);
+					allow = true;
+				}
 			}
 		}
 		@Override

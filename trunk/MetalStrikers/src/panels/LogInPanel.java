@@ -134,7 +134,7 @@ public class LogInPanel extends JPanel{
     private Image imageLoader(String s){
     	upper = new ImageIcon(imageURIFrame+s);
 		if(upper.getImageLoadStatus() != 8){
-			upper = new ImageIcon(imageURIApplet+s);
+			upper = new ImageIcon(imageURIFrame+s);
 		}
 		if(upper.getImageLoadStatus() != 8){
 			try{
@@ -144,9 +144,6 @@ public class LogInPanel extends JPanel{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		if(upper.getImageLoadStatus() != 8){
-			System.out.print("\nImage: "+s+" wasn't load!\n");
 		}
 		return upper.getImage();
     }
