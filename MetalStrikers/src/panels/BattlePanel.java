@@ -1,5 +1,6 @@
 package panels;
 
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.MediaTracker;
@@ -12,18 +13,22 @@ public class BattlePanel extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private ImageIcon[] img = new ImageIcon[2];
+	private static final long serialVersionUID 	= 1L;
+	private ImageIcon[] img 					= new ImageIcon[2];
 	private MediaTracker tracker;
+	@SuppressWarnings("unused")
+	private Container container					= null;
+	private String host							= new String("http://localhost:9009/MetalStrikersServer/");
 	
-	public BattlePanel(Dimension d){
+	public BattlePanel(Container cont, final Dimension d){
+		this.container = cont;
 		setPreferredSize(d);
 		setFocusable(true);
 		requestFocus();
 		
 		try {
 			tracker = new MediaTracker(this);
-			img[0] = new ImageIcon(new URL("http://localhost:8080/MetalStrikersServer/images/mapOne/model.png"));
+			img[0] = new ImageIcon(new URL(host+"images/mapOne/model.png"));
 			tracker.addImage(img[0].getImage(), 1);
 			tracker.waitForAll();
 		} catch (MalformedURLException e) {

@@ -6,23 +6,23 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
-import beans.User;
 
 public class SignUpPanel extends JPanel{
 	/**
@@ -38,11 +38,9 @@ public class SignUpPanel extends JPanel{
 	private JLabel jlUserPassword1 				= new JLabel("Password:");
 	private JLabel jlUserPassword2 				= new JLabel("Confirm password:");
 	private JLabel jlEmail 						= new JLabel("Email:");
-	private MediaTracker tracker 				= null;
 	private ImageIcon upper 					= null;
 	private Image background					= null;
 	private Image[] logBox						= new Image[5];
-	private String imageURIFrame 				= new String("bin/archives/images/");
 	private String imageURIApplet 				= new String("archives/images/");
 	private Font font 							= new Font("serif", Font.BOLD, 15);
 	private String line1						= new String("aeeed");
@@ -60,9 +58,7 @@ public class SignUpPanel extends JPanel{
 	private String line13						= new String("fxxxh");
 	private String line14						= new String("bgggc");
 	private ArrayList<String> logBoxScheme		= new ArrayList<String>();
-	@SuppressWarnings("unused")
 	private Container container					= null;
-	@SuppressWarnings("unused")
 	private boolean allow						= false;
 	private Pattern pUserName 					= Pattern.compile("^([a-z]|[0-9]|[A-Z]|-|_|\\.){4,15}$");
 	private Pattern pUserEmail 					= Pattern.compile("^([a-z]|[0-9]|_|-|\\.){3,}@([a-z]|[0-9]){2,}\\.([a-z]|[0-9]){2,}$");
@@ -89,26 +85,12 @@ public class SignUpPanel extends JPanel{
     	this.logBoxScheme.add(line14);
     	
     	try {
-			tracker = new MediaTracker(this);
-			
 			background 	= imageLoader("background.gif");
 			logBox[0] 	= imageLoader("logBoxCorner1.png");
 			logBox[1] 	= imageLoader("logBoxSide.png");
 			logBox[2] 	= imageLoader("logBoxSide2.png");
 			logBox[3] 	= imageLoader("logBoxCorner2.png");
 			logBox[4] 	= imageLoader("logBoxCenter.png");
-			//http://www.javaworld.com/javatips/jw-javatip32.html
-
-			tracker.addImage(background, 0);
-			tracker.addImage(logBox[0], 1);
-			tracker.addImage(logBox[1], 2);
-			tracker.addImage(logBox[2], 3);
-			tracker.addImage(logBox[3], 4);
-			tracker.addImage(logBox[4], 5);
-			tracker.waitForAll();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (Exception ex) {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
@@ -135,8 +117,15 @@ public class SignUpPanel extends JPanel{
         jbSignUP.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
 				if(allow == true){
-					@SuppressWarnings("deprecation")
-					User u = new User(jtfUserName.getText(), jtfUserPassword1.getText(), jtfEmail.getText(), 0);
+					setVisible(false);
+					container.add(new BattlePanel(container, d));
+					container.repaint();
+					try {
+						this.finalize();
+					} catch (Throwable e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
         });
@@ -147,9 +136,11 @@ public class SignUpPanel extends JPanel{
     }
     
     private Image imageLoader(String s){
-    	upper = new ImageIcon(imageURIFrame+s);
-		if(upper.getImageLoadStatus() != 8){
-			upper = new ImageIcon(imageURIApplet+s);
+    	try {
+			upper = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource(imageURIApplet+s)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		if(upper.getImageLoadStatus() != 8){
 			try{
@@ -159,9 +150,6 @@ public class SignUpPanel extends JPanel{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		if(upper.getImageLoadStatus() != 8){
-			System.out.print("\nImage: "+s+" wasn't load!\n");
 		}
 		return upper.getImage();
     }
