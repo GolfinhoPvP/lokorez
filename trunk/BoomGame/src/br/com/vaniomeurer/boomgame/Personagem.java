@@ -39,6 +39,7 @@ public class Personagem implements Comparable<Personagem> {
 		this.velocidade = velocidade;
 		try {
 			imagem = ImageIO.read(getClass().getClassLoader().getResource(img));
+			System.out.print(getClass().getClassLoader());
 		} catch (IOException e) {
 			System.out
 					.println("Erro ao buscar imagem do personagem.\nEncerrando aplicação");
