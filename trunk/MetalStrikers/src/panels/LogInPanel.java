@@ -6,11 +6,13 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -29,11 +31,9 @@ public class LogInPanel extends JPanel{
 	private JLabel jlUserName 					= new JLabel("User name:");
 	private JLabel jlUserPassword 				= new JLabel("Password:");
 	private JLabel jlSignUP 					= new JLabel("If you don't have an account, just ");
-	private MediaTracker tracker 				= null;
 	private ImageIcon upper 					= null;
 	private Image background					= null;
 	private Image[] logBox						= new Image[5];
-	private String imageURIFrame 				= new String("bin/archives/images/");
 	private String imageURIApplet 				= new String("archives/images/");
 	private Font font 							= new Font("serif", Font.BOLD, 15);
 	private String line1						= new String("0aeeed");
@@ -73,28 +73,14 @@ public class LogInPanel extends JPanel{
     	this.logBoxScheme.add(line13);
     	this.logBoxScheme.add(line14);
     	
-    	try {
-			tracker = new MediaTracker(this);
-			
+    	try {			
 			background 	= imageLoader("background.gif");
 			logBox[0] 	= imageLoader("logBoxCorner1.png");
 			logBox[1] 	= imageLoader("logBoxSide.png");
 			logBox[2] 	= imageLoader("logBoxSide2.png");
 			logBox[3] 	= imageLoader("logBoxCorner2.png");
 			logBox[4] 	= imageLoader("logBoxCenter.png");
-			//http://www.javaworld.com/javatips/jw-javatip32.html
-
-			tracker.addImage(background, 1);
-			tracker.addImage(logBox[0], 1);
-			tracker.addImage(logBox[1], 1);
-			tracker.addImage(logBox[2], 1);
-			tracker.addImage(logBox[3], 1);
-			tracker.addImage(logBox[4], 1);
-			tracker.waitForAll();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception ex) {
+    	}catch (Exception ex) {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
 		}
@@ -132,9 +118,11 @@ public class LogInPanel extends JPanel{
     }
     
     private Image imageLoader(String s){
-    	upper = new ImageIcon(imageURIFrame+s);
-		if(upper.getImageLoadStatus() != 8){
-			upper = new ImageIcon(imageURIFrame+s);
+    	try {
+			upper = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource(imageURIApplet+s)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		if(upper.getImageLoadStatus() != 8){
 			try{
