@@ -8,8 +8,15 @@
 	
 	session_start();
 	
-	if((isset($_SESSION["usuario"]) == NULL) && (isset($_SESSION["senha"]) == NULL))
+	if((isset($_SESSION["usuario"]) == NULL) && (isset($_SESSION["senha"]) == NULL) && (isset($_SESSION["nivel"]) == NULL)){
 		header("Location: admin.php");
+		die();
+	}
+	
+	if($_SESSION["nivel"] != 1){
+		header("Location: admin.php");
+		die();
+	}
 	
 	$message = NULL;
 	$msgVisibility	= "hidden";
@@ -375,7 +382,7 @@
 					while($row = mysql_fetch_assoc($result)) {
 						echo("<option>".$row["nome"]."</option>");
 					}
-				?>
+					?>
                   </select>
                   <span class="wordsLabel2">_CAD.DBF</span><br />
                     Enviar tabela Cadastro:</span>
