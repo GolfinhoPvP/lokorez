@@ -1,0 +1,70 @@
+/* CSS Document */
+#j1e{
+	width: 24px;
+	background-image:url(../imagens/bar_1_e.gif);
+	height: 38px;
+}
+
+#j1c1{
+	background-image:url(../imagens/bar_1_c.gif);
+}
+
+#j1c2{
+	width: 16px;
+	background-image:url(../imagens/bar_1_c.gif);
+	height: 38px;
+}
+
+#j1d{
+	width: 24px;
+	background-image:url(../imagens/bar_1_d.gif);
+	height: 38px;
+}
+
+#j2c1{
+	background-image:url(../imagens/bar_2_c1.gif);
+	height: 24px;
+}
+
+#j2h1{	
+	background-image:url(../imagens/bar_2_h1.gif);
+	background-repeat:repeat-x;
+	height: 24px;
+}
+
+#j2c2{
+	background-image:url(../imagens/bar_2_c2.gif);
+	height: 24px;
+}
+
+#j2v1{
+	background-image:url(../imagens/bar_2_v1.gif);
+	background-repeat:repeat-y;
+	width: 24px;
+}
+
+#j2{
+	background:#FFFFFF;
+}
+
+#j2v2{
+	background-image:url(../imagens/bar_2_v2.gif);
+	background-repeat:repeat-y;
+	width: 24px;
+}
+
+#j2c3{
+	background-image:url(../imagens/bar_2_c3.gif);
+	height: 24px;
+}
+
+#j2h2{	
+	background-image:url(../imagens/bar_2_h2.gif);
+	background-repeat:repeat-x;
+	height: 24px;
+}
+
+#j2c4{
+	background-image:url(../imagens/bar_2_c4.gif);
+	height: 24px;
+}

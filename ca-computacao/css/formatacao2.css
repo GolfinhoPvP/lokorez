@@ -1,0 +1,112 @@
+/* CSS Document */
+#q1 {
+	position: absolute;
+	width: 790px;
+	top: 0px;
+	left: 5px;
+	z-index: 1;
+	height: auto;
+}
+#q2 {
+	position: absolute;
+	width: 790px;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	height: 30px;
+	background-color: #999999;
+}
+
+#q3 {
+	position: absolute;
+	width: 790px;
+	top: 31px;
+	left: 0px;
+	z-index: 1;
+	height: 300px;
+	overflow:auto;
+	background-color: #FFFFFF;
+}
+
+#q4 {
+	position: absolute;
+	width: 790px;
+	top: 332px;
+	left: 0px;
+	z-index: 1;
+	height: 20px;
+	background-color: #999999;
+}
+
+#telaPostBox{
+	position: absolute;
+	width: 398px;
+	top: 93px;
+	left: 122px;
+	z-index: 2;
+	height: 140px;
+	visibility: hidden;
+}
+
+#telaPostBoxInt{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #999999;
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+}
+
+#telaConfBox{
+	position: absolute;
+	width: 262px;
+	top: 166px;
+	left: 391px;
+	z-index: 3;
+	height: 78px;
+	visibility: hidden;
+}
+
+#telaConfBoxInt{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #999999;
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+}
+#notinha{
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+
+.largura{
+	width: 795px;
+}
+
+#notinhaNda{
+	background-color: #999999;
+}
+
+#notinhaAlu{
+	background-color: #339900;
+}
+#notinhaSec{
+	background-color: #0099FF;
+}
+#notinhaPre{
+	background-color: #FF6633;
+}
+#notinhaPro{
+	background-color: #FFCC00;
+}

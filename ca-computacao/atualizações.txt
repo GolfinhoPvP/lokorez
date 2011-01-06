@@ -1,0 +1,4 @@
+nota.php
+inicial.php
+formatacao2.css
+ferramentas.js

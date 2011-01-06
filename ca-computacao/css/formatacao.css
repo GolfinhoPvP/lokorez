@@ -1,0 +1,146 @@
+/* CSS Document */
+#telaCadLog {
+	position: absolute;
+	top: 181px;
+	left: 227px;
+	z-index: 2;
+	visibility: hidden;
+}
+#telaCadLogInt {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 440px;
+	background-image: url(../imagens/quadro_azul.gif);
+	background-repeat: no-repeat;
+}
+#tela {
+	position: absolute;
+	visibility: visible;
+	width: 800px;
+	left: 0px;
+	top: 5px;
+	z-index: 0;
+}
+#logotipo {
+	position: absolute;
+	z-index: 1;
+	height: 412px;
+	width: 800px;
+	background-image: url(../imagens/logotipo.gif);
+	background-repeat: no-repeat;
+}
+#promo_csbc {
+	position: absolute;
+	height: 286px;
+	width: 393px;
+	left: 176px;
+	top: 118px;
+	z-index: 2;
+	visibility: hidden;
+}
+
+#promo {
+	position: absolute;
+	width: 800px;
+	left: -2px;
+	top: 821px;
+}
+
+table#log {
+	left: 0px;
+	top: 0px;
+	visibility:visible;
+}
+
+#aviso_1 {
+	position: absolute;
+	background-image: url(../imagens/flag_1.gif);
+	z-index: 1;
+	background-repeat: no-repeat;
+	top: 135px;
+	left: -429px;
+}
+#telaCadastro {
+	z-index: 3;
+	position: absolute;
+	top: 10px;
+	left: 260px;
+	visibility: hidden;
+}
+#telaCadastroInt {
+	background-image: url(../imagens/scroll1.gif);
+	position: absolute;
+	opacity:0.80;/* Mozila FireFox*/
+	/*-moz-opacity: 0.65;*/
+	filter: alpha(opacity=80);/* Internet Explorer*/
+	top: 0px;
+	left: 0px;
+	background-repeat: no-repeat;
+}
+#telaMensagem {
+	width: 400px;
+	position: absolute;
+	z-index: 3;
+	height: 200px;
+	left: 395px;
+	top: 36px;
+	visibility: hidden;
+}
+table#msg {
+	position: absolute;
+	height: 200px;
+	width: 400px;
+	left: 0px;
+	top: 20px;
+	background-image: url(../imagens/quadro_cinza.gif);
+	background-repeat: no-repeat;
+}
+table#msg2 {
+	position: absolute;
+	height: 220px;
+	width: 400px;
+	left: 0px;
+	top: 0px;
+}
+#telaLogado {
+	position: absolute;
+	visibility: hidden;
+	width: 780px;
+	height: 50px;
+	top: 406px;
+	left: 6px;
+	z-index: 1;
+	background-image: url(../imagens/quadrado_log.gif);
+	background-repeat: no-repeat;
+}
+
+#telaNota {
+	position: absolute;
+	width: 790px;
+	top: 460px;
+	left: 3px;
+	z-index: 1;
+	height: 355px;
+}
+
+#telaQuemSomos {
+	position: absolute;
+	width: 750px;
+	top: 16px;
+	left: 19px;
+	z-index: 1;
+	height: 455px;
+	visibility: hidden;
+}
+
+#telaQuemSomosInt {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #FFFFFF;
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+}

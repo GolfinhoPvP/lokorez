@@ -1,0 +1,75 @@
+.cabecalho_1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 25px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.simples_1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.alerta_1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #990000;
+}
+.cabecalho_2 {
+
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.rodape_1 {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.cabecalho_3 {
+
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+}
+.cabecalho_4 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #000000;
+}
+.simples_2 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #0000CC;
+}
+.simples_4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bold;
+	color: #0066FF;
+}
+
+.alerta_2 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF0000;
+}
+.simples_3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	color: #000000;
+	font-weight: bold;
+}
+.simples_5 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+}
