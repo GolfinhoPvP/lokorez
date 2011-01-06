@@ -18,8 +18,8 @@ public class BattlePanel extends JPanel{
 	private ImageIcon ii						= new ImageIcon();
 	@SuppressWarnings("unused")
 	private Container container					= null;
-	private String host1						= new String("http://localhost:9009/MetalStrikersServer/");
-	private String host2						= new String("http://localhost:8080/MetalStrikersServer/");
+	private String host1						= new String("http://192.168.56.1:8080/MetalStrikersServer/");
+	private String host2						= new String("http://localhost:9009/MetalStrikersServer/");
 	private Image[] img 						= new Image[2];
 	
 	public BattlePanel(Container cont, final Dimension d){
