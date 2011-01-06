@@ -29,8 +29,15 @@
 			if($connect->counterResult($result) > 0){
 				$_SESSION["usuario"] 	= $this->userName;
 				$_SESSION["senha"] 		= $this->password;
+				$row = mysql_fetch_assoc($result);
+				$_SESSION["nivel"] 		= $row["id_nivel"];
 				$connect->close();
-				header("Location: ../importDocuments.php");
+				switch($_SESSION["nivel"]){
+					case 1 : header("Location: ../importDocuments.php");
+								break;
+					case 2 : header("Location: ../makeRegister.php");
+								break;
+				}
 				die();
 			}
 			
