@@ -26,11 +26,15 @@
 		
 		<script language="javascript" src="javascript/functions.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
-			function showCartRes(){
-				if(document.getElementById("slSexo").value == "M"){
-					document.getElementById("CartRes").className = "visible";
-				}else{
-					document.getElementById("CartRes").className = "invisible";
+			function showReference(id1, id2, val){
+				valList = val.split(":");
+				for(x=0; x<valList.length; x++){
+					if(document.getElementById(id1).value == valList[x]){
+						document.getElementById(id2).className = "visible";
+						break;
+					}else{
+						document.getElementById(id2).className = "invisible";
+					}
 				}
 			}
 		</script>
@@ -73,7 +77,7 @@
 	  <tr>
 		<td colspan="2">Sexo: 
 		  <label>
-		  <select name="slSexo" id="slSexo" onchange="javascript: showCartRes();">
+		  <select name="slSexo" id="slSexo" onchange="javascript: showReference('slSexo','CartRes','M');">
 		    <option value="---" selected="selected">-----------</option>
 		    <option value="M">Masculino</option>
 		    <option value="F">Feminino</option>
@@ -81,7 +85,7 @@
         <span class="alert">* </span></label></td>
 		<td colspan="2">Estado civil: 
 		  <label>
-		  <select name="slEstadCis" id="slEstadCis">
+		  <select name="slEstadCis" id="slEstadCis" onchange="javascript: showReference('slEstadCis','nomConj','C:V');">
 		    <option value="-">--------------</option>
 		    <option value="S">Solteiro&ordf;</option>
 		    <option value="C">Casado&ordf;</option>
@@ -215,7 +219,7 @@
         <input name="tfNomeMae" type="text" id="tfNomeMae" size="100" maxlength="100" />
         <span class="alert">*</span></td>
 	  </tr>
-	  <tr>
+	  <tr id="nomConj" class="invisible">
 		<td colspan="8">Nome do c&ocirc;njuge:
         <input name="tfNomeConj" type="text" id="tfNomeConj" size="100" maxlength="100" /></td>
 	  </tr>
