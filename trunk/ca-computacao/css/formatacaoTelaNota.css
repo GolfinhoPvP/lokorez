@@ -1,0 +1,57 @@
+/* CSS Document */
+#telaNotaInt {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 195px;
+	width: 821px;
+}
+
+#q3 {
+	overflow:auto;
+	height: 300px;
+}
+
+#telaPostBox{
+	position: absolute;
+	top: 93px;
+	left: 122px;
+	z-index: 2;
+	visibility: hidden;
+}
+
+#telaConfBox{
+	position: absolute;
+	top: 166px;
+	left: 391px;
+	z-index: 3;
+	visibility: hidden;
+}
+
+#notinha{
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+
+#notinhaNda{
+	background-color: #999999;
+}
+
+#notinhaAlu{
+	background-color: #339900;
+}
+#notinhaSec{
+	background-color: #0099FF;
+}
+#notinhaPre{
+	background-color: #FF6633;
+}
+#notinhaPro{
+	background-color: #FFCC00;
+}
