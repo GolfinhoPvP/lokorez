@@ -2,8 +2,6 @@ package common;
 
 import java.nio.ByteBuffer;
 import java.nio.BufferUnderflowException;
-import java.net.InetAddress;
-
 import org.apache.log4j.Logger;
 
 /**

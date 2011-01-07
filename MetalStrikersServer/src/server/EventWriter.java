@@ -1,10 +1,15 @@
-package com.hypefiend.javagamebook.server;
+package server;
 
-import com.hypefiend.javagamebook.common.*;
 import java.io.*;
 import java.nio.*;
 import java.nio.channels.*;
 import org.apache.log4j.Logger;
+
+import common.GameEvent;
+import common.Globals;
+import common.NIOUtils;
+import common.Player;
+import common.Wrap;
 
 /**
  * EventWriter.java
@@ -47,10 +52,6 @@ public class EventWriter extends Wrap {
 	}
     }
 
-    /** unused */
-    protected void processEvent(GameEvent event) {
-    }
-
     /** 
      * our own version of processEvent that takes 
      * the additional parameter of the writeBuffer 
@@ -91,6 +92,12 @@ public class EventWriter extends Wrap {
 	
 	NIOUtils.channelWrite(channel, writeBuffer);
     }
+
+	@Override
+	protected void processEvent(GameEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
     
 }// EventWriter
 

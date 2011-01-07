@@ -1,9 +1,15 @@
 package controller;
 
-import common.*;
-import server.*;
 import java.util.*;
 import org.apache.log4j.Logger;
+
+import server.GameServer;
+
+import common.GameConfig;
+import common.GameEvent;
+import common.Globals;
+import common.Player;
+import common.Wrap;
 
 /**
  * GameController.java
@@ -15,7 +21,7 @@ import org.apache.log4j.Logger;
  * @author <a href="mailto:bret@hypefiend.com">bret barker</a>
  * @version 1.0
  */
-public abstract class MetalStrikersGameController extends Wrap {
+public abstract class GameController extends Wrap {
 
     /** reference to the GameServer */
     protected GameServer gameServer;

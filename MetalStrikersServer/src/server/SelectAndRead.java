@@ -1,15 +1,16 @@
-package com.hypefiend.javagamebook.server;
+package server;
 
-import com.hypefiend.javagamebook.common.GameEvent;
-import com.hypefiend.javagamebook.common.Player;
-import com.hypefiend.javagamebook.common.Attachment;
-import com.hypefiend.javagamebook.server.controller.GameController;
+import common.GameEvent;
+import common.Player;
+import common.Attachment;
 import java.nio.*;
 import java.nio.channels.*;
 import java.io.*;
 import java.util.*;
 import java.net.Socket;
 import org.apache.log4j.Logger;
+
+import controller.GameController;
 
 /**
  * SelectAndRead.java

@@ -12,8 +12,10 @@ import org.apache.log4j.Logger;
  * @version 1.0
  */
 public class EventQueue {
-    private Logger log;
-    private LinkedList events;
+    @SuppressWarnings("unused")
+	private Logger log;
+    @SuppressWarnings("rawtypes")
+	private LinkedList events;
     private int count = 0;
 
     /** 
