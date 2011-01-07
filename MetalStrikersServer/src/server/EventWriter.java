@@ -1,6 +1,6 @@
-package server;
+package com.hypefiend.javagamebook.server;
 
-import common.*;
+import com.hypefiend.javagamebook.common.*;
 import java.io.*;
 import java.nio.*;
 import java.nio.channels.*;
