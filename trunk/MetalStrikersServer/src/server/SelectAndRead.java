@@ -1,6 +1,9 @@
-package server;
+package com.hypefiend.javagamebook.server;
 
-import controller.MetalStrikersGameController;
+import com.hypefiend.javagamebook.common.GameEvent;
+import com.hypefiend.javagamebook.common.Player;
+import com.hypefiend.javagamebook.common.Attachment;
+import com.hypefiend.javagamebook.server.controller.GameController;
 import java.nio.*;
 import java.nio.channels.*;
 import java.io.*;
@@ -31,12 +34,12 @@ public class SelectAndRead extends Thread {
     private Selector selector;
 
     /** reference to the GameServer */
-    private MetalStrikersGameServer gameServer;
+    private GameServer gameServer;
 
     /**
      * Constructor.
      */
-    public SelectAndRead (MetalStrikersGameServer gameServer){
+    public SelectAndRead (GameServer gameServer){
 	this.gameServer = gameServer;
 	newClients = new LinkedList();
     }
@@ -165,7 +168,7 @@ public class SelectAndRead extends Thread {
 	ByteBuffer bb = ByteBuffer.wrap(attachment.payload);
 
 	// get the controller and tell it to instantiate an event for us
-	MetalStrikersGameController gc = gameServer.getGameControllerByHash(attachment.gameNameHash);
+	GameController gc = gameServer.getGameControllerByHash(attachment.gameNameHash);
 	if (gc == null) {
 	    return null;
 	}
@@ -186,7 +189,7 @@ public class SelectAndRead extends Thread {
 	    return;
 	}
 
-	MetalStrikersGameController gc = gameServer.getGameController(event.getGameName());
+	GameController gc = gameServer.getGameController(event.getGameName());
 	if (gc == null) {
 	    log.error("No GameController for gameName: " + event.getGameName());
 	    return;
