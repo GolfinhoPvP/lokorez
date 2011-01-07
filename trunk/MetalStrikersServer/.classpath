@@ -8,5 +8,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/opt/tomcat/apache-tomcat-7.0.5/webapps/MetalStrikersServer/log4j-1.2.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
