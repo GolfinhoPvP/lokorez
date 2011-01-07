@@ -25,6 +25,7 @@
 		</style>
 		
 		<script language="javascript" src="javascript/functions.js" type="text/javascript"></script>
+		<script language="javascript" src="javascript/ajax.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
 			function showReference(id1, id2, val){
 				valList = val.split(":");
@@ -37,10 +38,32 @@
 					}
 				}
 			}
+			function getCityes(from, to){
+				loadContent("utils/getCityes.php?uf="+document.getElementById(from).value, to);
+			}
+			function hideAutoComplete(){
+				div.style.visibility = "hidden";
+			}
+			function getEndereco(target){
+				div = document.getElementById("autoComplete");
+				t = document.getElementById(target);
+				div.style.top =  (findPosY(t)+3)+"px";
+				div.style.left = (findPosX(t)+2)+"px";
+				div.style.visibility = "visible";
+				loadContent("utils/getEndereco.php?uf="+document.getElementById("slUFEnd").value+"&text="+document.getElementById(target).value, "autoComplete");
+			}
+			function setLogradouto(id){
+				document.getElementById("tfEnd").value = document.getElementById(id).value;
+				document.getElementById("tfEndID").value = id;
+			}
 		</script>
 </head>
 	
 <body>
+	<div id="loading">
+	</div>
+	<div id="autoComplete" class="words3">
+	</div>
 	<form id="form1" name="form1" method="post" action="">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" class="wordsLabel">
 	  <tr>
@@ -86,7 +109,7 @@
 		<td colspan="2">Estado civil: 
 		  <label>
 		  <select name="slEstadCis" id="slEstadCis" onchange="javascript: showReference('slEstadCis','nomConj','C:V');">
-		    <option value="-">--------------</option>
+		    <option value="---" selected="selected">--------------</option>
 		    <option value="S">Solteiro&ordf;</option>
 		    <option value="C">Casado&ordf;</option>
 		    <option value="D">Divorciado&ordf;</option>
@@ -192,7 +215,7 @@
         <span class="alert">*</span>           <span class="alert"> ex: 14/04/1988</span></label></td>
 		<td colspan="2">UF:
           <label>
-          <select name="select" id="select">
+          <select name="slUFDatNasc" id="slUFDatNasc" onchange="javascript: getCityes('slUFDatNasc', 'slNatural');">
             <option selected="selected" value="---">---</option>
             <?php
 				$result = $connect->execute("SELECT uf FROM tb_estados");
@@ -204,8 +227,8 @@
           <span class="alert">*</span></label></td>
 		<td colspan="4">Naturalidade: 
 		  <label>
-		  <select name="select2">
-		    <option value="---">----------------------------</option>
+		  <select name="slNatural" id="slNatural">
+		    <option value="---" selected="selected">----------------------------</option>
 	      </select>
 	      <span class="alert">*</span></label></td>
 	  </tr>
@@ -234,14 +257,28 @@
 		<td>&nbsp;</td>
 	  </tr>
 	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td colspan="2">Cep: 
+		  <label>
+		  <input name="tfCEP" type="text" id="tfCEP" size="9" maxlength="9" />
+	    </label></td>
+		<td colspan="2">UF:
+		  <label>
+            <select name="slUFEnd" id="slUFEnd" onchange="javascript: getCityes('slUFDatNasc', 'slNatural');">
+              <option selected="selected" value="---">---</option>
+              <?php
+				$result = $connect->execute("SELECT uf FROM tb_estados");
+				while($row = mysql_fetch_assoc($result)) {
+					echo("<option value=".$row["uf"].">".$row["uf"]."</option>");
+				}
+			?>
+            </select>
+            <span class="alert">*</span></label></td>
+		<td colspan="4">Cidade:
+		  <label>
+            <select name="slCidade" id="slCidade">
+              <option value="---" selected="selected">----------------------------</option>
+            </select>
+            <span class="alert">*</span></label></td>
 	  </tr>
 	  <tr>
 		<td>&nbsp;</td>
@@ -254,17 +291,16 @@
 		<td>&nbsp;</td>
 	  </tr>
 	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td colspan="6">Endere&ccedil;o: 
+		  <label>
+		  <input name="tfEnd" type="text" id="tfEnd" size="100" maxlength="150" onkeyup="javascript: getEndereco('tfEnd');"  autocomplete="off"/>
+	    </label></td>
+		<td colspan="2"><label class="invisible">
+		  <input name="tfEndID" type="text" id="tfEndID" size="2" maxlength="25" />
+		</label></td>
 	  </tr>
 	  <tr>
-		<td>&nbsp;</td>
+		<td height="17">&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
