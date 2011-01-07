@@ -195,7 +195,7 @@ public class GameServer extends Thread {
 		log.info("loading GameControllers");
 	
 		// grab all class files in the same directory as GameController
-		String baseClass = "com/hypefiend/javagamebook/server/controller/GameController.class";
+		String baseClass = "controller/GameController.class";
 		File f = new File( this.getClass( ).getClassLoader().getResource(baseClass).getPath());
 		File[] files = f.getParentFile().listFiles( );
 	
