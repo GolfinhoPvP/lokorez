@@ -41,20 +41,24 @@
 			function getCityes(from, to){
 				loadContent("utils/getCityes.php?uf="+document.getElementById(from).value, to);
 			}
-			function hideAutoComplete(){
-				div.style.visibility = "hidden";
+			function hideAutoComplete(time){
+				setTimeout("document.getElementById('autoComplete').style.visibility = 'hidden'",time);
 			}
-			function getEndereco(target){
+			function getSource(source, target){
 				div = document.getElementById("autoComplete");
 				t = document.getElementById(target);
 				div.style.top =  (findPosY(t)+3)+"px";
 				div.style.left = (findPosX(t)+2)+"px";
 				div.style.visibility = "visible";
-				loadContent("utils/getEndereco.php?uf="+document.getElementById("slUFEnd").value+"&text="+document.getElementById(target).value, "autoComplete");
+				uf = document.getElementById("slUFEnd").value;
+				cep = document.getElementById("tfCEP").length < 10 ? "%" : document.getElementById("tfCEP").value;
+				text = document.getElementById(target).value;
+				loadContent("utils/"+source+".php?uf="+uf+"&cep="+cep+"&text="+text, "autoComplete");
 			}
 			function setLogradouto(id){
-				document.getElementById("tfEnd").value = document.getElementById(id).value;
+				document.getElementById("tfEnd").value = document.getElementById(id).innerHTML;
 				document.getElementById("tfEndID").value = id;
+				hideAutoComplete(0);
 			}
 		</script>
 </head>
@@ -116,10 +120,10 @@
 		    <option value="V">Vi&uacute;vo&ordf;</option>
 	      </select>
         <span class="alert">* </span></label></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td width="4%">&nbsp;</td>
+		<td width="20%">&nbsp;</td>
+		<td width="5%">&nbsp;</td>
+		<td width="18%">&nbsp;</td>
 	  </tr>
 	  <!-- RESERVISTA -->
 	  <tr id="CartRes" class="invisible">
@@ -199,10 +203,10 @@
 		<td>&nbsp;</td>
 	  </tr>
 	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td width="7%">&nbsp;</td>
+		<td width="22%">&nbsp;</td>
+		<td width="11%">&nbsp;</td>
+		<td width="13%">&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -257,13 +261,8 @@
 		<td>&nbsp;</td>
 	  </tr>
 	  <tr>
-		<td colspan="2">Cep: 
-		  <label>
-		  <input name="tfCEP" type="text" id="tfCEP" size="9" maxlength="9" />
-	    </label></td>
-		<td colspan="2">UF:
-		  <label>
-            <select name="slUFEnd" id="slUFEnd" onchange="javascript: getCityes('slUFDatNasc', 'slNatural');">
+		<td colspan="2"><label>UF:
+            <select name="slUFEnd" id="slUFEnd" onchange="javascript: getCityes('slUFEnd', 'slCidade');">
               <option selected="selected" value="---">---</option>
               <?php
 				$result = $connect->execute("SELECT uf FROM tb_estados");
@@ -273,27 +272,28 @@
 			?>
             </select>
             <span class="alert">*</span></label></td>
-		<td colspan="4">Cidade:
-		  <label>
+		<td colspan="2"><label>Cidade:
             <select name="slCidade" id="slCidade">
               <option value="---" selected="selected">----------------------------</option>
             </select>
             <span class="alert">*</span></label></td>
+		<td colspan="4"><label>Cep:
+            <input name="tfCEP" type="text" id="tfCEP" size="9" maxlength="9" />
+</label></td>
 	  </tr>
 	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td colspan="4"><label>Bairro: 
+		    <input name="tfbairro" type="text" id="tfbairro" size="40" maxlength="60" onkeyup="javascript: getSource('getBairro','tfbairro');" onblur="javascript: hideAutoComplete(300);"/>
+		</label></td>
+		<td colspan="4">Tipo de logradouro: 
+		  <label>
+          <input name="tfTipoLog" type="text" id="tfTipoLog" size="40" maxlength="50" />
+          </label></td>
 	  </tr>
 	  <tr>
 		<td colspan="6">Endere&ccedil;o: 
 		  <label>
-		  <input name="tfEnd" type="text" id="tfEnd" size="100" maxlength="150" onkeyup="javascript: getEndereco('tfEnd');"  autocomplete="off"/>
+		  <input name="tfEnd" type="text" id="tfEnd" size="100" maxlength="150" onkeyup="javascript: getSource('getEndereco','tfEnd');" onblur="javascript: hideAutoComplete(300);"  autocomplete="off"/>
 	    </label></td>
 		<td colspan="2"><label class="invisible">
 		  <input name="tfEndID" type="text" id="tfEndID" size="2" maxlength="25" />

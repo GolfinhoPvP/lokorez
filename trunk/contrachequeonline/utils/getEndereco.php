@@ -1,6 +1,7 @@
 <?php
-	$uf = isset($_GET["uf"]) ? $_GET["uf"] : NULL;
-	$text = isset($_GET["text"]) ? $_GET["text"] : NULL;
+	$uf = isset($_GET["uf"]) ? $_GET["uf"] : "%";
+	$cep = isset($_GET["cep"]) ? $_GET["cep"] : "%";
+	$text = isset($_GET["text"]) ? $_GET["text"] : "%";
 
 	if($text != NULL && $uf != NULL){
 		require_once("Connect.class.php");
@@ -17,7 +18,7 @@
 		
 		echo("<div id='---'>Selecione um logradouro!</div>");
 		while($row = mysql_fetch_assoc($result)) {
-			echo("<div id='".$row["id"]."' onclick='javascript: setLogradouto('".$row["id"]."'); style='cursor:pointer'>".utf8_encode($row["logradouro"])."</div>");
+			echo("<div id='".$row["id"]."' onclick='javascript: setLogradouto(".$row["id"].");' style='cursor:pointer'>".utf8_encode($row["logradouro"])."</div>");
 		}
 	}else{
 		echo("Digite seu logradouro");
