@@ -12,7 +12,7 @@
 		$result = $connect->execute("SELECT distinct id, nome FROM tb_cidades WHERE uf='$uf'");
 		echo("<option value='---' selected='selected'>Selecione uma cidade</option>");
 		while($row = mysql_fetch_assoc($result)) {
-			echo("<option value=".$row["id"].">".$row["nome"]."</option>");
+			echo("<option value=".$row["nome"].">".$row["nome"]."</option>");
 		}
 	}else{
 		echo("ERRO!");
