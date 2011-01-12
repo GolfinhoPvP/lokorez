@@ -52,11 +52,13 @@
 				div.style.visibility = "visible";
 				uf = document.getElementById("slUFEnd").value;
 				cep = document.getElementById("tfCEP").length < 10 ? "%" : document.getElementById("tfCEP").value;
+				bairro = urlencode(document.getElementById("tfBairro").value);
+				cidade = urlencode(document.getElementById("slCidade").value);
 				text = document.getElementById(target).value;
-				loadContent("utils/"+source+".php?uf="+uf+"&cep="+cep+"&text="+text, "autoComplete");
+				loadContent("utils/"+source+".php?uf="+uf+"&cep="+cep+"&cidade="+cidade+"&bairro="+bairro+"&text="+text, "autoComplete");
 			}
-			function setLogradouto(id){
-				document.getElementById("tfEnd").value = document.getElementById(id).innerHTML;
+			function setLogradouto(id, target){
+				document.getElementById(target).value = document.getElementById(id).innerHTML;
 				document.getElementById("tfEndID").value = id;
 				hideAutoComplete(0);
 			}
@@ -283,7 +285,7 @@
 	  </tr>
 	  <tr>
 		<td colspan="4"><label>Bairro: 
-		    <input name="tfbairro" type="text" id="tfbairro" size="40" maxlength="60" onkeyup="javascript: getSource('getBairro','tfbairro');" onblur="javascript: hideAutoComplete(300);"/>
+		    <input name="tfBairro" type="text" id="tfBairro" size="40" maxlength="60" onkeyup="javascript: getSource('getBairro','tfBairro');" onblur="javascript: hideAutoComplete(300);"/>
 		</label></td>
 		<td colspan="4">Tipo de logradouro: 
 		  <label>
