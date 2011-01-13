@@ -16,5 +16,19 @@
 				die("Não foi possivel salvar: ".$this->empresa->getDescricao());
 			}
 		}
+		
+		public function alterar($valRef){
+			$sql = "UPDATE empresas SET emp_descricao = '".$this->empresa->getDescricao()."' WHERE emp_codigo=".$valRef;
+			if(!$this->conexao->salvar($sql)){
+				die("Não foi possivel alterar: ".$this->empresa->getDescricao());
+			}
+		}
+		
+		public function deletar($valRef){
+			$sql = "DELETE FROM empresas WHERE emp_codigo=".$valRef;
+			if(!$this->conexao->salvar($sql)){
+				die("Não foi possivel deletar: ".$this->empresa->getDescricao());
+			}
+		}
 	}
 ?>

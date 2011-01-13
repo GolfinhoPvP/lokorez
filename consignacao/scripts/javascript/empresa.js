@@ -1,6 +1,6 @@
 // JavaScript Document
-function validarCadastroEmpresa(id){
-	descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| ){2,100}$/;
+function validarDescricaoEmpresa(id){
+	descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){2,100}$/;
 	if(!document.getElementById(id).tfEmpDesc.value.match(descricaoExpReg)){
 		document.getElementById(id).tfEmpDesc.style.background = "#FF0000";
 		return false;
@@ -9,4 +9,24 @@ function validarCadastroEmpresa(id){
 		return true;
 	}
 	return false;
+}
+
+function validarDeletarEmpresa(id){
+	if(document.getElementById(id).slEmpDesc.value == "---"){
+		document.getElementById(id).slEmpDesc.style.background = "#FF0000";
+		return false;
+	}else{
+		document.getElementById(id).slEmpDesc.style.background = "#FFFFFF";
+	}
+	return true;
+}
+
+function validarAlterarEmpresa(id){
+	if(!validarDescricaoEmpresa(id)){
+		return false;
+	}
+	if(!validarDeletarEmpresa(id)){
+		return false;
+	}
+	return true;
 }

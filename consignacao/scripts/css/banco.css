@@ -5,3 +5,8 @@ body{
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
+#carregando{
+	position:absolute;
+	top:50%;
+	left:50%;
+}

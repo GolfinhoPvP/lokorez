@@ -1,6 +1,6 @@
 /*
-Created		12/1/2011
-Modified		12/1/2011
+Created		1/12/2011
+Modified		1/12/2011
 Project		
 Model		
 Company		
@@ -17,7 +17,7 @@ drop table IF EXISTS parametros;
 drop table IF EXISTS servidor;
 drop table IF EXISTS verbas;
 drop table IF EXISTS produtos;
-drop table IF EXISTS banco;
+drop table IF EXISTS bancos;
 drop table IF EXISTS empresas;
 
 
@@ -26,11 +26,11 @@ Create table empresas (
 	emp_descricao Varchar(100),
  Primary Key (emp_codigo)) ENGINE = MyISAM;
 
-Create table banco (
+Create table bancos (
 	ban_codigo Varchar(3) NOT NULL,
 	ban_descricao Varchar(100),
 	ban_contato Varchar(100),
-	ban_fone Varchar(14),
+	ban_fone Varchar(12),
  Primary Key (ban_codigo)) ENGINE = MyISAM;
 
 Create table produtos (
@@ -97,8 +97,8 @@ Create table parcelas (
 
 Alter table verbas add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete  restrict on update  restrict;
 Alter table servidor add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete  restrict on update  restrict;
-Alter table verbas add Foreign Key (ban_codigo) references banco (ban_codigo) on delete  restrict on update  restrict;
-Alter table averbacao add Foreign Key (ban_codigo) references banco (ban_codigo) on delete  restrict on update  restrict;
+Alter table verbas add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete  restrict on update  restrict;
+Alter table averbacao add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete  restrict on update  restrict;
 Alter table verbas add Foreign Key (pro_codigo) references produtos (pro_codigo) on delete  restrict on update  restrict;
 Alter table averbacao add Foreign Key (pro_codigo) references produtos (pro_codigo) on delete  restrict on update  restrict;
 Alter table averbacao add Foreign Key (emp_codigo,ser_matricula) references servidor (emp_codigo,ser_matricula) on delete  restrict on update  restrict;
