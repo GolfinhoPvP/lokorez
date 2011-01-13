@@ -43,6 +43,17 @@
 		public function deletar($query){	
 		}
 		
+		public function selecionar($query){
+			if(empty($query) || ($this->conexao == NULL)){
+				return false;
+			}
+			$resultado = mysql_query($query, $this->conexao);
+			if($resultado == false){
+				return false;
+			}			
+			return $resultado;
+		}
+		
 		public function fechar(){
 			mysql_close($this->conexao);
 			$this->conexao = NULL;

@@ -1,14 +1,15 @@
 <?php
+	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
 	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
 	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
 	$tfBanContat = isset($_POST["tfBanContat"]) ? $_POST["tfBanContat"] : NULL;
 	$tfBanFone = isset($_POST["tfBanFone"]) ? $_POST["tfBanFone"] : NULL;
 	
-	if($tfBanCod != NULL || $tfBanDesc != NULL || $tfBanContat != NULL || $tfBanFone != NULL){
+	if($slBancRef != NULL || $tfBanCod != NULL || $tfBanDesc != NULL || $tfBanContat != NULL || $tfBanFone != NULL){
 		include_once("../../dao/DAOBanco.class.php");
 		$dao = new DAOBanco($tfBanCod, $tfBanDesc, $tfBanContat, $tfBanFone, "../../");
-		$dao->cadastrar();
-		header("Location: cadBanco.php");
+		$dao->alterar($slBancRef);
+		header("Location: altBanco.php");
 		die();
 	}
 ?>
@@ -22,10 +23,24 @@
 			@import url("../../scripts/css/banco.css");
 			-->
 		</style>
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/banco.js"></script>
+		<script type="text/javascript" language="javascript">
+			 window.onload = function(){
+			 	loadContent('../../utils/getBancos.php', 'slBancRef', '../../');
+			}
+		</script>
 	</head>
 	<body>
-		<form id="bancoCadastro" name="bancoCadastro" method="post" action="#" onsubmit="javascript: return validarBancoCadSubmit();">
+		<div id="carregando">
+		</div>
+		<form id="form1" name="form1" method="post" action="#"  onsubmit="javascript: return validarBancoAltSubmit();">
+		  <label>Banco a ser alterado: 
+		  <select name="slBancRef" id="slBancRef" onchange="javascript: validarBancoForm('slBancRef');">
+		    <option value="---" selected="selected">---------------------------</option>
+	      </select>
+		  <br />
+		  <br />
 		  <label>
 		  Insira o c&oacute;digo do banco:
 		  <input name="tfBanCod" type="text" id="tfBanCod" size="5" maxlength="3" onkeyup="javascript: validarBancoForm('tfBanCod');"/>
