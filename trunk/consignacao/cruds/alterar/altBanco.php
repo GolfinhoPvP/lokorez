@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
 	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
 	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
@@ -7,8 +8,11 @@
 	
 	if($slBancRef != NULL || $tfBanCod != NULL || $tfBanDesc != NULL || $tfBanContat != NULL || $tfBanFone != NULL){
 		include_once("../../dao/DAOBanco.class.php");
+		include_once("../../dao/DAOLog.class.php");
 		$dao = new DAOBanco($tfBanCod, $tfBanDesc, $tfBanContat, $tfBanFone, "../../");
+		$log = new DAOLog(4, $_SESSION["nivel"], $_SESSION["codigo"], "Alterou tabela \'bancos\', id=\'".$slBancRef."\'", "../../");
 		$dao->alterar($slBancRef);
+		$log->cadastrar();
 		header("Location: altBanco.php");
 		die();
 	}

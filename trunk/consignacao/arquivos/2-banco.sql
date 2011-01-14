@@ -1,6 +1,6 @@
 /*
-Created		12/1/2011
-Modified		13/1/2011
+Created		1/12/2011
+Modified		1/14/2011
 Project		
 Model		
 Company		
@@ -119,7 +119,6 @@ Create table log (
 	log_data_tempo Datetime NOT NULL,
 	log_nome_maquina Varchar(50) NOT NULL,
 	log_ip_rede Varchar(15) NOT NULL,
-	log_ip_sub_rede Varchar(15) NOT NULL,
 	log_descricao Varchar(150) NOT NULL,
  Primary Key (log_codigo)) ENGINE = MyISAM;
 
