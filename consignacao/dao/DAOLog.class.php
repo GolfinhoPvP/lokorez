@@ -7,15 +7,20 @@
 			include_once($toRoot."beans/Log.class.php");
 			include_once($toRoot."utils/ConectarMySQL.class.php");
 			$dT 	= date("Y-m-d H:i:s");
-			$nM 	= gethostbyaddr($REMOTE_ADDR) != NULL ? gethostbyaddr($REMOTE_ADDR) : "Não Informado";
-			$ipR 	= gethostbyname($REMOTE_ADDR) != NULL ? gethostbyname($REMOTE_ADDR) : "Não Informado";
+			$nM 	= gethostbyaddr($REMOTE_ADDR);
+			$ipR 	= gethostbyname($REMOTE_ADDR);
+			
+			if(strlen($nM) < 1)
+				$nM = gethostbyaddr($_SERVER['REMOTE_ADDR']);;
+			if(strlen($ipR) < 1)
+				$ipR = gethostbyname($_SERVER['REMOTE_ADDR']);
+				
 			$this->aLog = new Log(NULL, $oCod, $nCod, $aCod, $dT, $nM, $ipR, $desc);
 			$this->conexao = new ConectarMySQL();
 		}
 		
 		public function cadastrar(){
 			$sql = "INSERT INTO log (ope_codigo, niv_codigo, adm_codigo, log_data_tempo, log_nome_maquina, log_ip_rede, log_descricao) VALUES (".$this->aLog->getOpeCodigo().", ".$this->aLog->getNivCodigo().", ".$this->aLog->getAdmCodigo().", '".$this->aLog->getDataTempo()."', '".$this->aLog->getNomeMaquina()."', '".$this->aLog->getIpRede()."', '".$this->aLog->getDescricao()."')";
-			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				die("Não foi possivel salvar: ".$this->aLog->getDescricao());
 			}

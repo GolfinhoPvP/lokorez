@@ -1,10 +1,14 @@
 <?php
-	$empAlt = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
+	session_start();
+	$slEmpRef = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	$desc = isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL;
-	if($desc != NULL && $empAlt != NULL){
+	if($desc != NULL && $slEmpRef != NULL){
 		include_once("../../dao/DAOEmpresa.class.php");
+		include_once("../../dao/DAOLog.class.php");
 		$dao = new DAOEmpresa($desc, "../../");
-		$dao->alterar($empAlt);
+		$log = new DAOLog(4, $_SESSION["nivel"], $_SESSION["codigo"], "Alterou tabela \'empresas\', id=\'".$slEmpRef."\'", "../../");
+		$dao->alterar($slEmpRef);
+		$log->cadastrar();
 		header("Location: altEmpresa.php");
 		die();
 	}

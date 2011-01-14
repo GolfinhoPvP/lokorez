@@ -9,7 +9,8 @@ INSERT INTO administradores (niv_codigo, adm_nome, adm_nome_usuario, adm_senha)
 INSERT INTO operacoes VALUES (1, "Conectou"),
 				(2, "Desconectou"),
 				(3, "Cadastrou"),
-				(4, "Deletou"),
-				(5, "Incluiu"),
-				(6, "Excluiu"),
-				(7, "Averbou");
+				(4, "Alterou"),
+				(5, "Deletou"),
+				(6, "Incluiu"),
+				(7, "Excluiu"),
+				(8, "Averbou");
