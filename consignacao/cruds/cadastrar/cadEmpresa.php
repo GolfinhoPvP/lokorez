@@ -1,5 +1,5 @@
 <?php
-	$desc = isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL;
+	$desc = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	if($desc != NULL){
 		include_once("../../dao/DAOEmpresa.class.php");
 		$dao = new DAOEmpresa($desc, "../../");
@@ -23,7 +23,7 @@
 	<body>
 		<form id="empresaCadastro" name="empresaCadastro" method="post" action="#" onsubmit="javascript: return validarDescricaoEmpresa('empresaCadastro');">
 		  <label>Insira o nome da empresa: 
-		  <input name="tfEmpDesc" type="text" id="tfEmpDesc" size="50" maxlength="100" onkeyup="javascript: validarDescricaoEmpresa('empresaCadastro');"/>
+		  <input name="slEmpRef" type="text" id="slEmpRef" size="50" maxlength="100" onkeyup="javascript: validarDescricaoEmpresa('empresaCadastro');"/>
 		  </label>
 		  <label>
 		  <input name="btEmpCad" type="submit" id="btEmpCad" value="Cadastrar" />

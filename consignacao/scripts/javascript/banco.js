@@ -35,3 +35,13 @@ function comum(l){
 	}
 	return true;
 }
+
+function validarDeletarBanco(id){
+	if(document.getElementById(id).slBancRef.value == "---"){
+		document.getElementById(id).slBancRef.style.background = "#FF0000";
+		return false;
+	}else{
+		document.getElementById(id).slBancRef.style.background = "#FFFFFF";
+	}
+	return true;
+}

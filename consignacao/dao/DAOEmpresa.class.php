@@ -30,5 +30,14 @@
 				die("Não foi possivel deletar: ".$this->empresa->getDescricao());
 			}
 		}
+		
+		public function pesquisar($valRef){
+			$sql = "SELECT * FROM empresas WHERE emp_codigo=".$valRef;
+			$resultado = $this->conexao->selecionar($sql);
+			if(!$resultado){
+				die("Não foi possivel selecionar: ".$this->empresa->getDescricao());
+			}
+			return $resultado;
+		}
 	}
 ?>

@@ -49,5 +49,36 @@
 	height: 329px;
 }
 body{
-	background:#999999;
+	margin-left:0;
+	margin-top:0;
+}
+
+.texto1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	color: #AD8D0C;
+}
+.texto2 {font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 13px; color: #00CCFF; font-weight: bold; }
+.texto3 {font-family: "Times New Roman", Times, serif; font-size: 18px; color: #AD8D0C; font-weight: bold; }
+.tf1 {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	border: thin double #00CCFF;
+}
+
+.bt1 {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: thin double #00CCFF;
+	color: #00CCFF;
+	font-weight: bold;
+}
+.alerta1 {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF0000;
+}
+
+#central{
+	position:absolute;
 }
