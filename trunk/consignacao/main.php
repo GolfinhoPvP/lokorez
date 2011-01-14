@@ -2,13 +2,9 @@
 	$login = isset($_GET["login"]) ? $_GET["login"] : NULL;
 	$mensagem = "";
 	
-	if($login != "erro"){
+	if($login == "erro"){
 		$mensagem = "Nome de usu&aacute;rio ou senha incorreto!";
 	}
-	echo(gethostbyaddr($REMOTE_ADDR)."<br/>"); // Nome Maquina
-	echo(gethostbyaddr($_SERVER['REMOTE_ADDR'])."<br/>"); // Nome Maquina
-	echo(gethostbyname($REMOTE_ADDR)."<br/>");  // Numero ip
-	echo(gethostbyname($_SERVER['REMOTE_ADDR']));  // Numero ip sub rede
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,12 +19,13 @@
 <script type="text/javascript" language="javascript" src="scripts/javascript/geral.js"></script>
 <script type="text/javascript" language="javascript">
 	window.onload = function(){
-		centralizador("central", 375, 210)
+		centralizador("central", 375, 210);
+		document.body.style.visibility = "visible";
 	}
 </script>
 </head>
 
-<body>
+<body style="visibility:hidden">
 <div id="central" align="center">  <span class="texto3">OnSysConsig - Sistema de Consigna&ccedil;&atilde;o On-line<br />
 </span>
   <table width="361" height="140" border="0" cellpadding="0" cellspacing="0">
@@ -39,7 +36,7 @@
     </tr>
   <tr>
     <td height="101" background="imagens/box_b_1.png" style="background-repeat:repeat-y">&nbsp;</td>
-      <td colspan="8" background="imagens/box_a.png"><form id="login" name="login" method="post" action="">
+      <td colspan="8" background="imagens/box_a.png"><form id="login" name="login" method="post" action="utils/logIn.php">
         <table width="100%" border="0" cellpadding="0" cellspacing="5">
           <tr>
             <td colspan="3" align="center"><span class="alerta1"><?php echo($mensagem); ?></span></td>
@@ -54,7 +51,7 @@
             </tr>
 
           <tr>
-            <td colspan="2" >&nbsp;</td>
+            <td colspan="2" > </td>
             <td width="37%"><input name="btConectar" type="submit" class="bt1" id="btConectar" value="Conectar" /></td>
           </tr>
         </table>

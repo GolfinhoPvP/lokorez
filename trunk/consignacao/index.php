@@ -15,11 +15,12 @@
 				altura = screen.availHeight - 150;
 				document.getElementById("main").style.width = largura+"px";
 				document.getElementById("main").style.height = altura+"px";
+				document.body.style.visibility = "visible";
 			}
 		</script>
 	</head>
 	
-	<body>
+	<body style="visibility:hidden">
 		<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 		  <tr>
 			<td align="center" valign="middle"><iframe id="main" name="main" width="750" height="500" frameborder="0" src="main.php"></iframe></td>

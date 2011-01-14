@@ -1,6 +1,6 @@
 /*
-Created		1/12/2011
-Modified		1/12/2011
+Created		12/1/2011
+Modified		13/1/2011
 Project		
 Model		
 Company		
@@ -10,6 +10,10 @@ Database		mySQL 5
 */
 
 
+drop table IF EXISTS operacoes;
+drop table IF EXISTS log;
+drop table IF EXISTS niveis;
+drop table IF EXISTS administradores;
 drop table IF EXISTS parcelas;
 drop table IF EXISTS averbacao;
 drop table IF EXISTS status;
@@ -94,6 +98,36 @@ Create table parcelas (
 	par_valor Double,
  Primary Key (ave_numero_externo,par_numero_parcela)) ENGINE = MyISAM;
 
+Create table administradores (
+	adm_codigo Int NOT NULL AUTO_INCREMENT,
+	niv_codigo Int NOT NULL,
+	adm_nome Varchar(100) NOT NULL,
+	adm_nome_usuario Varchar(25) NOT NULL,
+	adm_senha Varchar(20) NOT NULL,
+ Primary Key (adm_codigo)) ENGINE = MyISAM;
+
+Create table niveis (
+	niv_codigo Int NOT NULL,
+	niv_descricao Varbinary(30) NOT NULL,
+ Primary Key (niv_codigo)) ENGINE = MyISAM;
+
+Create table log (
+	log_codigo Int NOT NULL AUTO_INCREMENT,
+	ope_codigo Int NOT NULL,
+	niv_codigo Int NOT NULL,
+	adm_codigo Int NOT NULL,
+	log_data_tempo Datetime NOT NULL,
+	log_nome_maquina Varchar(50) NOT NULL,
+	log_ip_rede Varchar(15) NOT NULL,
+	log_ip_sub_rede Varchar(15) NOT NULL,
+	log_descricao Varchar(150) NOT NULL,
+ Primary Key (log_codigo)) ENGINE = MyISAM;
+
+Create table operacoes (
+	ope_codigo Int NOT NULL,
+	ope_descricao Varchar(25) NOT NULL,
+ Primary Key (ope_codigo)) ENGINE = MyISAM;
+
 
 Alter table verbas add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete  restrict on update  restrict;
 Alter table servidor add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete  restrict on update  restrict;
@@ -107,5 +141,9 @@ Alter table parametros add Foreign Key (sta_codigo) references status (sta_codig
 Alter table averbacao add Foreign Key (sta_codigo) references status (sta_codigo) on delete  restrict on update  restrict;
 Alter table parcelas add Foreign Key (sta_codigo) references status (sta_codigo) on delete  restrict on update  restrict;
 Alter table parcelas add Foreign Key (ave_numero_externo) references averbacao (ave_numero_externo) on delete  restrict on update  restrict;
+Alter table log add Foreign Key (adm_codigo) references administradores (adm_codigo) on delete  restrict on update  restrict;
+Alter table administradores add Foreign Key (niv_codigo) references niveis (niv_codigo) on delete  restrict on update  restrict;
+Alter table log add Foreign Key (niv_codigo) references niveis (niv_codigo) on delete  restrict on update  restrict;
+Alter table log add Foreign Key (ope_codigo) references operacoes (ope_codigo) on delete  restrict on update  restrict;
 
 

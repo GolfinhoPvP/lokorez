@@ -27,7 +27,7 @@
 			return true;
 		}
 		
-		public function salvar($query){	
+		public function executar($query){	
 			if(empty($query) || ($this->conexao == NULL)){
 				return false;
 			}
@@ -35,12 +35,6 @@
 				return false;
 			}			
 			return true;
-		}
-		
-		public function atualizar($query){	
-		}
-		
-		public function deletar($query){	
 		}
 		
 		public function selecionar($query){
