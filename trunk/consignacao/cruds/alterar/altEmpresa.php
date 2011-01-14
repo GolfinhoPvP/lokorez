@@ -1,5 +1,5 @@
 <?php
-	$empAlt = isset($_POST["slEmpDesc"]) ? $_POST["slEmpDesc"] : NULL;
+	$empAlt = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	$desc = isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL;
 	if($desc != NULL && $empAlt != NULL){
 		include_once("../../dao/DAOEmpresa.class.php");
@@ -23,22 +23,41 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/empresa.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
-			 	loadContent('../../utils/getEmpresas.php', 'slEmpDesc', '../../');
+			 	loadContent('../../utils/getEmpresas.php', 'slEmpRef', '../../');
+			}
+			function carregarAlteracoes(){
+				xmlRequest = getXMLHttp();
+
+				xmlRequest.open("GET",'../../utils/getEmpresaAlt.php?key='+document.getElementById('slEmpRef').value,true);
+				
+				if (xmlRequest.readyState == 1) {
+					document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";
+				}
+				xmlRequest.onreadystatechange = function () {
+						if (xmlRequest.readyState == 4){
+							document.getElementById("carregando").innerHTML = "";
+							document.getElementById('alt').innerHTML = xmlRequest.responseText;
+							document.getElementById('empresaAlterar').tfEmpDesc.value 	= document.getElementById('A').innerHTML;
+						}
+				}
+				xmlRequest.send(null);
 			}
 		</script>
 	</head>
 	<body>
+		<div id="alt" style="visibility:hidden; position:absolute">
+		</div>
 		<div id="carregando">
 		</div>
 		<form id="empresaAlterar" name="empresaAlterar" method="post" action="#" onsubmit="javascript: return validarAlterarEmpresa('empresaAlterar');">
 		  <label>Selecione a empresa a ser alterada: 
-		  <select name="slEmpDesc" id="slEmpDesc">
+		  <select name="slEmpRef" id="slEmpRef" onchange="javascript: carregarAlteracoes();">
 		    <option value="---">-----------------------------</option>
 	      </select>
 		  <br />
 		  <br />
-		  Insira o nome da empresa: 
-		  <input name="tfEmpDesc" type="text" id="tfEmpDesc" size="50" maxlength="100" onkeyup="javascript: validarDescricaoEmpresa('empresaAlterar');"/>
+		  Modifique o nome da empresa: 
+		  <div id="alt"><input name="tfEmpDesc" type="text" id="tfEmpDesc" size="50" maxlength="100" onkeyup="javascript: validarDescricaoEmpresa('empresaAlterar');"/></div>
 		  </label>
 		  <label>
 		  <input name="btEmpAlt" type="submit" id="btEmpAlt" value="Alterar" />

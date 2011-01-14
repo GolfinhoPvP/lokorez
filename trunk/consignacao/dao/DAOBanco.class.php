@@ -30,5 +30,14 @@
 				die("Não foi possivel deletar: ".$this->banco->getDescricao());
 			}
 		}
+		
+		public function pesquisar($valRef){
+			$sql = "SELECT * FROM bancos WHERE ban_codigo='".$valRef."'";
+			$resultado = $this->conexao->selecionar($sql);
+			if(!$resultado){
+				die("Não foi possivel selecionar: ".$this->empresa->getDescricao());
+			}
+			return $resultado;
+		}
 	}
 ?>

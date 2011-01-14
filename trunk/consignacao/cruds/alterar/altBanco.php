@@ -29,33 +29,80 @@
 			 window.onload = function(){
 			 	loadContent('../../utils/getBancos.php', 'slBancRef', '../../');
 			}
+			function carregarAlteracoes(){
+				xmlRequest = getXMLHttp();
+
+				xmlRequest.open("GET",'../../utils/getBancoAlt.php?key='+document.getElementById('slBancRef').value,true);
+				
+				if (xmlRequest.readyState == 1) {
+					document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";
+				}
+				form = document.getElementById('bancoAlterar');
+				xmlRequest.onreadystatechange = function () {
+						if (xmlRequest.readyState == 4){
+							document.getElementById("carregando").innerHTML = "";
+							document.getElementById('alt').innerHTML = xmlRequest.responseText;
+							form.tfBanCod.value 	= document.getElementById('A').innerHTML;
+							form.tfBanDesc.value 	= document.getElementById('B').innerHTML;
+							form.tfBanContat.value 	= document.getElementById('C').innerHTML;
+							form.tfBanFone.value	= document.getElementById('D').innerHTML;
+						}
+				}
+				xmlRequest.send(null);						
+			}
 		</script>
 	</head>
 	<body>
+		<div id="alt" style="visibility:hidden; position:absolute">
+		</div>
 		<div id="carregando">
 		</div>
-		<form id="form1" name="form1" method="post" action="#"  onsubmit="javascript: return validarBancoAltSubmit();">
-		  <label>Banco a ser alterado: 
-		  <select name="slBancRef" id="slBancRef" onchange="javascript: validarBancoForm('slBancRef');">
-		    <option value="---" selected="selected">---------------------------</option>
-	      </select>
-		  <br />
-		  <br />
-		  <label>
-		  Insira o c&oacute;digo do banco:
-		  <input name="tfBanCod" type="text" id="tfBanCod" size="5" maxlength="3" onkeyup="javascript: validarBancoForm('tfBanCod');"/>
-		  <br />
-		  Descri&ccedil;a&otilde;:
-		  </label>
-		  <input name="tfBanDesc" type="text" id="tfBanDesc" size="50" maxlength="100" onkeyup="javascript: validarBancoForm('tfBanDesc');"/>
-		  <br />
-		Nome do contato:  
-		<input name="tfBanContat" type="text" id="tfBanContat" size="50" maxlength="100" onkeyup="javascript: validarBancoForm('tfBanContat');"/>
-		<br />
-		Telefone para contato:
-		<input name="tfBanFone" type="text" id="tfBanFone" size="12" maxlength="12" onkeyup="javascript: validarBancoForm('tfBanFone');"/>
-		  <label> Ex: XX-XXXX-XXXX <br />
-		  <input name="btBanCad" type="submit" id="btBanCad" value="Cadastrar" />
-		  </label></form>
+		<form id="bancoAlterar" name="bancoAlterar" method="post" action="#"  onsubmit="javascript: return validarBancoAltSubmit();">
+		  <table width="650" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="25%" height="22"><label>
+                <div align="right">Banco a ser alterado:</div>
+              </label></td>
+              <td colspan="2"><select name="slBancRef" id="slBancRef" onchange="javascript: carregarAlteracoes();">
+                <option value="---" selected="selected">---------------------------</option>
+              </select></td>
+              <td width="48%">&nbsp;</td>
+              <td width="1%">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2">&nbsp;</td>
+              <td colspan="2">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2"><div align="right">Insira o c&oacute;digo do banco:</div></td>
+              <td colspan="2"><input name="tfBanCod" type="text" id="tfBanCod" size="5" maxlength="3" onkeyup="javascript: validarBancoForm('tfBanCod');"/></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2"><div align="right">Descri&ccedil;&atilde;o:</div></td>
+              <td colspan="2"><input name="tfBanDesc" type="text" id="tfBanDesc" size="50" maxlength="100" onkeyup="javascript: validarBancoForm('tfBanDesc');"/></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2"><div align="right">Nome do contato:</div></td>
+              <td colspan="2"><input name="tfBanContat" type="text" id="tfBanContat" size="50" maxlength="100" onkeyup="javascript: validarBancoForm('tfBanContat');"/></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2"><div align="right">Telefone para contato:</div></td>
+              <td width="13%"><input name="tfBanFone" type="text" id="tfBanFone" size="12" maxlength="12" onkeyup="javascript: validarBancoForm('tfBanFone');"/></td>
+              <td>Ex: XX-XXXX-XXXX</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2">&nbsp;</td>
+              <td><br />
+              <input name="btBanCad" type="submit" id="btBanCad" value="Cadastrar" /></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+		</form>
 	</body>
 </html>

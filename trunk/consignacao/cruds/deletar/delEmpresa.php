@@ -1,8 +1,8 @@
 <?php
-	$empDel = isset($_POST["slEmpDesc"]) ? $_POST["slEmpDesc"] : NULL;
+	$empDel = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	if($empDel != NULL){
 		include_once("../../dao/DAOEmpresa.class.php");
-		$dao = new DAOEmpresa($desc, "../../");
+		$dao = new DAOEmpresa(NULL, "../../");
 		$dao->deletar($empDel);
 		header("Location: delEmpresa.php");
 		die();
@@ -22,7 +22,7 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/empresa.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
-			 	loadContent('../../utils/getEmpresas.php', 'slEmpDesc', '../../');
+			 	loadContent('../../utils/getEmpresas.php', 'slEmpRef', '../../');
 			}
 		</script>
 	</head>
@@ -31,7 +31,7 @@
 		</div>
 		<form id="empresaDeletar" name="empresaDeletar" method="post" action="#" onsubmit="javascript: return validarDeletarEmpresa('empresaDeletar');">
 		  <label>Selecione a empresa a ser alterada: 
-		  <select name="slEmpDesc" id="slEmpDesc" onchange="javascript: return validarDeletarEmpresa('empresaDeletar');">
+		  <select name="slEmpRef" id="slEmpRef" onchange="javascript: return validarDeletarEmpresa('empresaDeletar');">
 		    <option value="---">-----------------------------</option>
 	      </select>
 		  <br />
