@@ -1,17 +1,17 @@
 <?php
 	class Administrador{
 		private $codigo;
+		private $pesCodigo;
 		private $nivCodigo;
-		private $nome;
 		private $nomeUsuario;
 		private $senha;
 		
-		function __construct($cod, $nCod, $n, $nU, $s){
+		function __construct($cod, $pCod, $nCod, $nU, $s){
 			$this->codigo = $cod;
+			$this->pesCodigo = $pCod;
 			$this->nivCodigo = $nCod;
-			$this->admCodigo = $n;
-			$this->dataTempo = $nU;
-			$this->nomeMaquina = $s;	
+			$this->nomeUsuario = $nU;
+			$this->senha = $s;	
 		}
 		
 		public function setCodigo($valor){
@@ -21,18 +21,18 @@
 			return $this->codigo;
 		}
 		
+		public function setPesCodigo($valor){
+			$this->pesCodigo = $valor;
+		}
+		public function getPesCodigo(){
+			return $this->pesCodigo;
+		}
+		
 		public function setNivCodigo($valor){
 			$this->nivCodigo = $valor;
 		}
 		public function getNivCodigo(){
 			return $this->nivCodigo;
-		}
-		
-		public function setNome($valor){
-			$this->nome = $valor;
-		}
-		public function getNome(){
-			return $this->nome;
 		}
 		
 		public function setNomeUsuario($valor){

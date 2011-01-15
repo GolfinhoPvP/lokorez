@@ -11,12 +11,12 @@
 			if($tfNomeUsuario == $linha["adm_nome_usuario"] && $tfSenha == decodificar($linha["adm_senha"])){
 				session_start();
 				$_SESSION["codigo"] = $linha["adm_codigo"];
+				$_SESSION["pessoa"] = $linha["pes_codigo"];
 				$_SESSION["nivel"] = $linha["niv_codigo"];
-				$_SESSION["nome"] = $linha["adm_nome"];
 				$_SESSION["usuario"] = $linha["adm_nome_usuario"];
 				$_SESSION["senha"] = $linha["adm_senha"];
 				include_once("../dao/DAOLog.class.php");
-				$log = new DAOLog(1, $linha["niv_codigo"], $linha["adm_codigo"], "Realizou log-in no sistema!", "../");
+				$log = new DAOLog($linha["pes_codigo"], 1, $linha["niv_codigo"], $linha["adm_codigo"], 1, "Realizou log-in no sistema!", "../");
 				$log->cadastrar();
 				header("Location: ../admin.php");
 				die();

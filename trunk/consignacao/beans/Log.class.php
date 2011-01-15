@@ -1,19 +1,23 @@
 <?php
 	class Log{
 		private $codigo;
+		private $pesCodigo;
 		private $opeCodigo;
 		private $nivCodigo;
 		private $admCodigo;
+		private $alvCodigo;
 		private $dataTempo;
 		private $nomeMaquina;
 		private $ipRede;
 		private $descricao;
 		
-		function __construct($cod, $oCod, $nCod, $aCod, $dT, $nM, $ipR, $desc){
+		function __construct($cod, $pCod, $oCod, $nCod, $admCod, $alvCod, $dT, $nM, $ipR, $desc){
 			$this->codigo = $cod;
+			$this->pesCodigo = $pCod;
 			$this->opeCodigo = $oCod;
 			$this->nivCodigo = $nCod;
-			$this->admCodigo = $aCod;
+			$this->admCodigo = $admCod;
+			$this->alvCodigo = $alvCod;
 			$this->dataTempo = $dT;
 			$this->nomeMaquina = $nM;
 			$this->ipRede = $ipR;
@@ -25,6 +29,13 @@
 		}
 		public function getCodigo(){
 			return $this->codigo;
+		}
+		
+		public function setPesCodigo($valor){
+			$this->pesCodigo = $valor;
+		}
+		public function getPesCodigo(){
+			return $this->pesCodigo;
 		}
 		
 		public function setOpeCodigo($valor){
@@ -46,6 +57,13 @@
 		}
 		public function getAdmCodigo(){
 			return $this->admCodigo;
+		}
+		
+		public function setAlvCodigo($valor){
+			$this->alvCodigo = $valor;
+		}
+		public function getAlvCodigo(){
+			return $this->alvCodigo;
 		}
 		
 		public function setDataTempo($valor){
