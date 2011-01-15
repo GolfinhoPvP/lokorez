@@ -39,5 +39,12 @@
 			}
 			return $resultado;
 		}
+		
+		public function getBanco($valRef){
+			$linha = mysql_fetch_array($this->pesquisar($valRef));
+			$this->banco->setCodigo($linha["ban_codigo"]);
+			$this->banco->setDescricao($linha["ban_descricao"]);
+			return $this->banco;
+		}
 	}
 ?>

@@ -2,7 +2,7 @@
 	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
 	if($slBancRef != NULL){
 		include_once("../../dao/DAOBanco.class.php");
-		$dao = new DAOBanco(NULL, NULL, NULL, NULL, "../../");
+		$dao = new DAOBanco(NULL, NULL, "../../");
 		$dao->deletar($slBancRef);
 		header("Location: delBanco.php");
 		die();
@@ -22,12 +22,12 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/banco.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
-			 	loadContent('../../utils/getBancos.php', 'slBancRef', '../../');
+			 	loadContent('../pesquisar/getBancosSL.php', 'slBancRef', '../../');
 			}
 			function carregarAlteracoes(){
 				xmlRequest = getXMLHttp();
 
-				xmlRequest.open("GET",'../../utils/getBancoAlt.php?key='+document.getElementById('slBancRef').value,true);
+				xmlRequest.open("GET",'../pesquisar/getBancoAlt.php?key='+document.getElementById('slBancRef').value,true);
 				
 				if (xmlRequest.readyState == 1) {
 					document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";

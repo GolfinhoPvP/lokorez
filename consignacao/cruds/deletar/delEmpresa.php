@@ -22,7 +22,7 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/empresa.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
-			 	loadContent('../../utils/getEmpresas.php', 'slEmpRef', '../../');
+			 	loadContent('../pesquisar/getEmpresasSL.php', 'slEmpRef', '../../');
 			}
 		</script>
 	</head>
