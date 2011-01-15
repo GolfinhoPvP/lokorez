@@ -6,7 +6,7 @@
 		include_once("../../dao/DAOEmpresa.class.php");
 		include_once("../../dao/DAOLog.class.php");
 		$dao = new DAOEmpresa($desc, "../../");
-		$log = new DAOLog(4, $_SESSION["nivel"], $_SESSION["codigo"], "Alterou tabela \'empresas\', id=\'".$slEmpRef."\'", "../../");
+		$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 2, "id=\'".$slEmpRef."\'", "../../");
 		$dao->alterar($slEmpRef);
 		$log->cadastrar();
 		header("Location: altEmpresa.php");

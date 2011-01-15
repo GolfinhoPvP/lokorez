@@ -1,9 +1,13 @@
 <?php
+	session_start();
 	$desc = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	if($desc != NULL){
 		include_once("../../dao/DAOEmpresa.class.php");
 		$dao = new DAOEmpresa($desc, "../../");
+		include_once("../../dao/DAOLog.class.php");
+		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 2, "valor=\'".$desc."\'", "../../");
 		$dao->cadastrar();
+		$log->cadastrar();
 		header("Location: cadEmpresa.php");
 		die();
 	}
