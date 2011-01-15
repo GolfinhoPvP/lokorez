@@ -4,7 +4,7 @@ function validarBancoForm(id){
 		case "tfBanCod" : descricaoExpReg = /^[0-9]{3,3}$/; break;
 		case "tfBanDesc" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){2,100}$/; break;
 		case "tfBanContat" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){2,100}$/; break;
-		case "tfBanFone1" : descricaoExpReg = /^[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4}$/; break;
+		case "tfPesFone1" : descricaoExpReg = /^[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4}$/; break;
 		case "slBancRef" : descricaoExpReg = /^[0-9]{3,3}$/; break;
 		default : descricaoExpReg = /^[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4}$/; break;
 	}
@@ -20,12 +20,12 @@ function validarBancoForm(id){
 }
 
 function validarBancoCadSubmit(){
-	lista = new Array("tfBanCod", "tfBanDesc", "tfBanContat", "tfBanFone1");
+	lista = new Array("tfBanCod", "tfBanDesc", "tfBanContat", "tfPesFone1");
 	return comum(lista);
 }
 
 function validarBancoAltSubmit(){
-	lista = new Array("slBancRef", "tfBanCod", "tfBanDesc", "tfBanContat", "tfBanFone1");
+	lista = new Array("slBancRef", "tfBanCod", "tfBanDesc", "tfBanContat", "tfPesFone1");
 	return comum(lista);
 }
 

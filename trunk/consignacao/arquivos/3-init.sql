@@ -3,8 +3,8 @@ INSERT INTO niveis VALUES (1, "Servidor Master"),
 				(3, "Banco Master"),
 				(4, "Banco Averbador");
 
-INSERT INTO pessoas (pes_nome, pes_cpf)
-	VALUES ("Super Administrdor", "000.000.000-00");
+INSERT INTO pessoas (pes_nome, pes_cpf, pes_classe)
+	VALUES ("Super Administrdor", "000.000.000-00", "A");
 
 INSERT INTO administradores (pes_codigo, niv_codigo, adm_nome_usuario, adm_senha) 
 	VALUES (1, 1, "superadmin", "c3VwZXJBZG1pbg==");
@@ -22,4 +22,6 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(2, "Empresas"),
 				(3, "Bancos"),
 				(4, "Produtos"),
-				(5, "Pessoas");
+				(5, "Pessoas"),
+				(6, "Telefones"),
+				(7, "Bancos_Pessoas");

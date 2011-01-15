@@ -3,7 +3,9 @@
 	
 	$conexao = new ConectarMySQL();
 	
-	$resultado = $conexao->selecionar("SELECT * FROM pessoas");
+	$classe = isset($_GET["classe"]) ? $_GET["classe"] : "%";
+	
+	$resultado = $conexao->selecionar("SELECT * FROM pessoas WHERE pes_classe LIKE '".$classe."'");
 	if($resultado == false){
 		die("Não foi possivel realizar a busca!");
 	}

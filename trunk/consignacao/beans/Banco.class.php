@@ -2,14 +2,10 @@
 	class Banco{
 		private $codigo;
 		private $descricao;
-		private $contato;
-		private $fone;
 		
-		function __construct($cod, $desc, $cont, $fone){
+		function __construct($cod, $desc){
 			$this->codigo = $cod;
-			$this->descricao = $desc;
-			$this->contato = $cont;
-			$this->fone = $fone;	
+			$this->descricao = $desc;	
 		}
 		
 		public function setCodigo($valor){
@@ -24,20 +20,6 @@
 		}
 		public function getDescricao(){
 			return $this->descricao;
-		}
-		
-		public function setContato($valor){
-			$this->contato = $valor;
-		}
-		public function getContato(){
-			return $this->contato;
-		}
-		
-		public function setFone($valor){
-			$this->fone = $valor;
-		}
-		public function getFone(){
-			return $this->fone;
 		}
 	}
 ?>
