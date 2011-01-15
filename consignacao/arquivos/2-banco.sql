@@ -1,6 +1,6 @@
 /*
 Created		12/1/2011
-Modified		14/1/2011
+Modified		15/1/2011
 Project		
 Model		
 Company		
@@ -140,6 +140,7 @@ Create table pessoas (
 	pes_codigo Int NOT NULL AUTO_INCREMENT,
 	pes_nome Varchar(150),
 	pes_cpf Varchar(14),
+	pes_classe Char(1),
 	UNIQUE (pes_codigo),
 	UNIQUE (pes_cpf),
  Primary Key (pes_codigo)) ENGINE = MyISAM;
