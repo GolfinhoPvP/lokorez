@@ -1,11 +1,11 @@
 <?php
-	include_once("ConectarMySQL.class.php");
+	include_once("../../utils/ConectarMySQL.class.php");
 	
 	$conexao = new ConectarMySQL();
 	
-	$resultado = $conexao->selecionar("SELECT ban_codigo, ban_descricao FROM bancos");
+	$resultado = $conexao->selecionar("SELECT * FROM bancos ORDER BY ban_descricao");
 	if($resultado == false){
-		echo("Não foi possivel realizar a busca!");
+		die("Não foi possivel realizar a busca!");
 	}
 	
 	echo('<option value="---">-----------------------------</option>');

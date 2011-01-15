@@ -71,9 +71,9 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/banco.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
-			 	carregarAlteracoes();
+			 	carregarListaContatos();
 			}
-			function carregarAlteracoes(){
+			function carregarListaContatos(){
 				xmlRequest = getXMLHttp();
 
 				xmlRequest.open("GET",'../pesquisar/getPessoasSL.php?classe=B',true);
@@ -88,22 +88,6 @@
 						}
 				}
 				xmlRequest.send(null);						
-			}
-			function inverter(id){
-				if(document.getElementById(id).value == "velho"){
-					mostar('pessoa');
-					esconder('seletor');
-					document.getElementById(id).value = "novo";
-				}else{
-					mostar('seletor');
-					esconder('pessoa');
-					document.getElementById(id).value = "velho";
-				}
-			}
-			function addTel(id){
-				document.getElementById("tfFoneCont").value = parseInt(document.getElementById("tfFoneCont").value) + 1;
-				cont = document.getElementById("tfFoneCont").value;
-				document.getElementById(id).innerHTML += 'Telefone para contato: <input name="tfPesFone'+cont+'" type="text" id="tfPesFone'+cont+'" size="12" maxlength="12" onkeyup="javascript: validarBancoForm(\'tfPesFone'+cont+'\');"/><label> Ex: XX-XXXX-XXXX </label><br />';
 			}
 		</script>
 	</head>
@@ -131,7 +115,7 @@
 		   </label>
 		   <br />
 		<div id="pessoa" style="visibility:hidden; height:0px">Nome do contato:  
-		<input name="tfBanContat" type="text" id="tfBanContat" size="50" maxlength="100" onkeyup="javascript: validarBancoForm('tfBanContat');"/>
+		<input name="tfBanContat" type="text" id="tfBanContat" size="75" maxlength="150" onkeyup="javascript: validarBancoForm('tfBanContat');"/>
 		<label>
 		<input name="tfFoneCont" type="text" id="tfFoneCont" value="1" size="5" maxlength="5" style="visibility:hidden"/>
 		</label>

@@ -27,12 +27,12 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/empresa.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
-			 	loadContent('../../utils/getEmpresas.php', 'slEmpRef', '../../');
+			 	loadContent('../pesquisar/getEmpresasSL.php', 'slEmpRef', '../../');
 			}
 			function carregarAlteracoes(){
 				xmlRequest = getXMLHttp();
 
-				xmlRequest.open("GET",'../../utils/getEmpresaAlt.php?key='+document.getElementById('slEmpRef').value,true);
+				xmlRequest.open("GET",'../pesquisar/getEmpresaAlt.php?key='+document.getElementById('slEmpRef').value,true);
 				
 				if (xmlRequest.readyState == 1) {
 					document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";

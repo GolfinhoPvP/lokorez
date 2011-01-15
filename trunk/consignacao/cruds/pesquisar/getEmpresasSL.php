@@ -1,9 +1,9 @@
 <?php
-	include_once("ConectarMySQL.class.php");
+	include_once("../../utils/ConectarMySQL.class.php");
 	
 	$conexao = new ConectarMySQL();
 	
-	$resultado = $conexao->selecionar("SELECT * FROM empresas");
+	$resultado = $conexao->selecionar("SELECT * FROM empresas ORDER BY emp_descricao");
 	if($resultado == false){
 		echo("Não foi possivel realizar a busca!");
 	}
