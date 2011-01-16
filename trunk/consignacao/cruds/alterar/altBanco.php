@@ -5,12 +5,16 @@
 	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
 	
 	if($slBancRef != NULL || $tfBanCod != NULL || $tfBanDesc != NULL || $tfBanContat != NULL || $tfBanFone != NULL){
+		include_once("../../utils/ConectarMySQL.class.php");
+		$conexao = new ConectarMySQL();
 		include_once("../../dao/DAOBanco.class.php");
-		$dao = new DAOBanco($tfBanCod, $tfBanDesc, "../../");
+		$dao = new DAOBanco($tfBanCod, $tfBanDesc, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
-		$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$slBancRef."\'", "../../");
-		$dao->alterar($slBancRef);
-		$log->cadastrar();
+		$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$slBancRef."\'", "../../", $conexao);
+		if($dao->alterar($slEmpRef) && $log->cadastrar())
+			$conexao->commit();
+		else
+			$conexao->rollback();
 		header("Location: altBanco.php");
 		die();
 	}

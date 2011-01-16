@@ -1,9 +1,16 @@
 <?php
 	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
 	if($slBancRef != NULL){
+		include_once("../../utils/ConectarMySQL.class.php");
+		$conexao = new ConectarMySQL();
+		include_once("../../dao/DAOLog.class.php");
+		$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$slBancRef."\'", "../../", $conexao);
 		include_once("../../dao/DAOBanco.class.php");
-		$dao = new DAOBanco(NULL, NULL, "../../");
-		$dao->deletar($slBancRef);
+		$dao = new DAOBanco(NULL, NULL, "../../", $conexao);
+		if($dao->deletar($slBancRef) && $log->cadastrar())
+			$conexao->commit();
+		else
+			$conexao->rollback();
 		header("Location: delBanco.php");
 		die();
 	}

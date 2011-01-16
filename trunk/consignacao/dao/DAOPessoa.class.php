@@ -3,11 +3,12 @@
 		private $pessoa;
 		private $conexao;
 		
-		function __construct($nome, $cpf, $cla, $toRoot){
+		function __construct($nome, $cpf, $cla, $toRoot, $conex){
 			include_once($toRoot."beans/Pessoa.class.php");
 			include_once($toRoot."utils/ConectarMySQL.class.php");
 			$this->pessoa = new Pessoa(NULL, $nome, $cpf, $cla);
-			$this->conexao = new ConectarMySQL();
+			//$this->conexao = new ConectarMySQL();
+			$this->conexao = $conex;
 		}
 		
 		public function cadastrar(){
@@ -16,22 +17,28 @@
 				else
 					$sql = "INSERT INTO pessoas (pes_nome, pes_classe) VALUES ('".$this->pessoa->getNome()."', '".$this->pessoa->getClasse()."')";
 			if(!$this->conexao->executar($sql)){
-				die("Não foi possivel salvar: ".$this->pessoa->getNome());
+				echo("Não foi possivel salvar: ".$this->pessoa->getNome());
+				return false;
 			}
+			return true;
 		}
 		
 		public function alterar($valRef){
 			$sql = "UPDATE pessoas SET pes_nome='".$this->pessoa->getNome()."', pes_cpf='".$this->pessoa->getCPF()."', pes_classe='".$this->pessoa->getClasse()."' WHERE pes_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
-				die("Não foi possivel alterar: ".$this->pessoa->getNome());
+				echo("Não foi possivel alterar: ".$this->pessoa->getNome());
+				return false;
 			}
+			return true;
 		}
 		
 		public function deletar($valRef){
 			$sql = "DELETE FROM pessoas WHERE pes_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
-				die("Não foi possivel deletar: ".$this->pessoa->getNome());
+				echo("Não foi possivel deletar: ".$this->pessoa->getNome());
+				return false;
 			}
+			return true;
 		}
 		
 		public function pesquisar($valRef){
@@ -44,7 +51,7 @@
 			}
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
-				die("Não foi possivel selecionar: ".$this->pessoa->getNome());
+				echo("Não foi possivel selecionar: ".$this->pessoa->getNome());
 			}
 			return $resultado;
 		}

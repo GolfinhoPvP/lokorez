@@ -9,7 +9,7 @@
 	}
 	
 	echo('<option value="---">-----------------------------</option>');
-	while($linha = mysql_fetch_array($resultado)){
+	while($linha = mysqli_fetch_array($resultado)){
 		echo('<option value="'.$linha["emp_codigo"].'">'.utf8_encode($linha["emp_descricao"]).'</option>');
 	}
 ?>

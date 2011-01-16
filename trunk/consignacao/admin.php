@@ -24,7 +24,7 @@
 	
 <body>
 	<div id="desconectar" onclick="javascript: location.href = 'utils/desconectar.php';" style="cursor:pointer">
-		<img src="imagens/desconectar.png" />	</div>
+		<img src="imagens/desconectar.png" /></div>
 	<div id="divMenu">
 	  <ul id="menu">
 		  <li>
@@ -44,9 +44,9 @@
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delProduto.php');">Deletar</div>			 		   </li>
 		   <li>
 			<div alt="ZZZZZZ" width="100px" height="100px" title="ZZZZZZ">Administrar Usu&aacute;rios</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadEmpresa.php');">Cadastrar</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altEmpresa.php');">Alterar</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delEmpresa.php');">Deletar</div>			 		   </li>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadPessoa.php');">Cadastrar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altPessoa.php');">Alterar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delPessoa.php');">Deletar</div>			 		   </li>
 	  </ul>
 	</div>
 	<iframe id="conteudo" name="conteudo" frameBorder="0"></iframe>

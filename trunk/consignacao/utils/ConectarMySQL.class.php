@@ -11,17 +11,19 @@
 				die("A conexão com o servidor não foi estabelecida!");
 			if(!$this->selecionarBanco())
 				die("A conexão com o servidor não foi estabelecida!");
+			if(!mysqli_autocommit($this->conexao, false))
+				die("Auto comite não ativado!");
 		}
 		
 		private function conectarSGBD(){
-			if(!($this->conexao = mysql_connect($this->hostBanco,$this->usuarioBanco,$this->senhaBanco))){
+			if(!($this->conexao = mysqli_connect($this->hostBanco,$this->usuarioBanco,$this->senhaBanco))){
 				return false;
 			}
 			return true;
 		}
 		
 		private function selecionarBanco(){
-			if(!($bancoDados = mysql_select_db($this->nomeBanco,$this->conexao))){
+			if(!($bancoDados = mysqli_select_db($this->conexao, $this->nomeBanco))){
 				return false;
 			}
 			return true;
@@ -31,7 +33,7 @@
 			if(empty($query) || ($this->conexao == NULL)){
 				return false;
 			}
-			if(!mysql_query($query, $this->conexao)){
+			if(!mysqli_query($this->conexao, $query)){
 				return false;
 			}			
 			return true;
@@ -41,15 +43,26 @@
 			if(empty($query) || ($this->conexao == NULL)){
 				return false;
 			}
-			$resultado = mysql_query($query, $this->conexao);
+			$resultado = mysqli_query($this->conexao, $query);
 			if($resultado == false){
 				return false;
 			}			
 			return $resultado;
 		}
 		
+		public function commit(){
+			mysqli_commit($this->conexao);
+			$this->fechar();
+		}
+		
+		public function rollback(){
+			mysqli_rollback($this->conexao);
+			$this->fechar();
+			die();
+		}
+		
 		public function fechar(){
-			mysql_close($this->conexao);
+			mysqli_close($this->conexao);
 			$this->conexao = NULL;
 		}
 	}

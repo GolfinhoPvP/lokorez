@@ -106,6 +106,7 @@ Create table administradores (
 	niv_codigo Smallint NOT NULL,
 	adm_nome_usuario Varchar(25) NOT NULL,
 	adm_senha Varchar(20) NOT NULL,
+	UNIQUE (adm_nome_usuario),
  Primary Key (adm_codigo,pes_codigo)) ENGINE = MyISAM;
 
 Create table niveis (
