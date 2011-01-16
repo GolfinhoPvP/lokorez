@@ -1,50 +1,52 @@
 #menu {
   margin:0; 
   padding:0; 
-  width: 50em;
-  height: 4.5em;
+  width: auto;
+  height: auto;
   overflow:hidden; 
 }
 #menu li {
   display:inline;
+  width:150px;
   list-style-type:none; 
 }
-#menu li a {
+#menu li{
   display:block;
   float:left;
   text-decoration:none; 
   margin:0; 
 }
-#menu li a span {
-  opacity:0.7;
-  margin:0.5em;
-  border:0;
+#menu li div#nav {
+  margin:0.3em;
+  border:dotted;
+  border-color:#00CCFF;
   float:left;
 }
-#menu li a span {
+#menu li div {
+  margin:0.2em;
+  border:dotted;
+  border-color:#00CCFF;
+}
+#menu li div#nav {
   display:none; 
 }
-#menu li a:hover {
-  background:transparent;
-}
-#menu li a:hover span {
-  width:10em;
-  color:#FFFFFF;
-  display:block; 
+#menu li:hover div#nav {
+  width:auto;
+  display:block;
+  width:138px;
   cursor:pointer;
-  float:left;
 }
 #divMenu {
 	position:absolute;
 	left:15px;
 	top:7px;
-	width:662px;
-	height:45px;
+	width:auto;
+	height:auto;
 }
 #conteudo {
 	position:absolute;
-	left: 79px;
-	top: 91px;
+	left: 76px;
+	top: 115px;
 	width: 759px;
 	height: 329px;
 }
