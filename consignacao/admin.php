@@ -28,33 +28,25 @@
 	<div id="divMenu">
 	  <ul id="menu">
 		  <li>
-			<a href="#"><div alt="Empresas" width="100px" height="100px" title="Empresas">. Empresas .</div>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadEmpresa.php');">Cadastrar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altEmpresa.php');">Alterar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delEmpresa.php');">Deletar</span>
-		    </a>
-	    </li>
+			<div alt="Empresas" width="100px" height="100px" title="Empresas">Empresas</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadEmpresa.php');">Cadastrar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altEmpresa.php');">Alterar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delEmpresa.php');">Deletar</div>		    		</li>
 		   <li>
-			<a href="#"><div alt="Bancos" width="100px" height="100px" title="Bancos">. Bancos .</div>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadBanco.php');">Cadastrar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altBanco.php');">Alterar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delBanco.php');">Deletar</span>
-			 </a>
-		   </li>
+			<div alt="Bancos" width="100px" height="100px" title="Bancos">Bancos</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadBanco.php');">Cadastrar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altBanco.php');">Alterar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delBanco.php');">Deletar</div>			 		   </li>
 		   <li>
-			<a href="#"><div alt="Produtos" width="100px" height="100px" title="Produtos">. Produtos .</div>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadProduto.php');">Cadastrar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altProduto.php');">Alterar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delProduto.php');">Deletar</span>
-			 </a>
-		   </li>
+			<div alt="Produtos" width="100px" height="100px" title="Produtos">Produtos</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadProduto.php');">Cadastrar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altProduto.php');">Alterar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delProduto.php');">Deletar</div>			 		   </li>
 		   <li>
-			<a href="#"><div alt="ZZZZZZ" width="100px" height="100px" title="ZZZZZZ">. ZZZZZZ .</div>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadEmpresa.php');">Cadastrar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altEmpresa.php');">Alterar</span>
-			 <span onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delEmpresa.php');">Deletar</span>
-			 </a>
-		   </li>
+			<div alt="ZZZZZZ" width="100px" height="100px" title="ZZZZZZ">Administrar Usu&aacute;rios</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadEmpresa.php');">Cadastrar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altEmpresa.php');">Alterar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delEmpresa.php');">Deletar</div>			 		   </li>
 	  </ul>
 	</div>
 	<iframe id="conteudo" name="conteudo" frameBorder="0"></iframe>
