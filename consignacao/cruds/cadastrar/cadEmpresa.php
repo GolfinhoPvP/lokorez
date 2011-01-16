@@ -2,12 +2,16 @@
 	session_start();
 	$desc = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	if($desc != NULL){
+		include_once("../../utils/ConectarMySQL.class.php");
+		$conexao = new ConectarMySQL();
 		include_once("../../dao/DAOEmpresa.class.php");
-		$dao = new DAOEmpresa($desc, "../../");
+		$dao = new DAOEmpresa($desc, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
-		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 2, "valor=\'".$desc."\'", "../../");
-		$dao->cadastrar();
-		$log->cadastrar();
+		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 2, "valor=\'".$desc."\'", "../../", $conexao);
+		if(!$dao->cadastrar() || !$log->cadastrar())
+			$conexao->commit();
+		else
+			$conexao->rollback();
 		header("Location: cadEmpresa.php");
 		die();
 	}

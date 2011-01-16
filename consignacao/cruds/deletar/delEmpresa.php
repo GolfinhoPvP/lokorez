@@ -1,9 +1,16 @@
 <?php
 	$empDel = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	if($empDel != NULL){
+		include_once("../../utils/ConectarMySQL.class.php");
+		$conexao = new ConectarMySQL();
+		include_once("../../dao/DAOLog.class.php");
+		$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 2, "id=\'".$slEmpRef."\'", "../../", $conexao);
 		include_once("../../dao/DAOEmpresa.class.php");
-		$dao = new DAOEmpresa(NULL, "../../");
-		$dao->deletar($empDel);
+		$dao = new DAOEmpresa(NULL, "../../", $conexao);
+		if($dao->deletar(slEmpRef) && $log->cadastrar())
+			$conexao->commit();
+		else
+			$conexao->rollback();
 		header("Location: delEmpresa.php");
 		die();
 	}

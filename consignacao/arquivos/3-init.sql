@@ -24,4 +24,5 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(4, "Produtos"),
 				(5, "Pessoas"),
 				(6, "Telefones"),
-				(7, "Bancos_Pessoas");
+				(7, "Bancos_Pessoas"),
+				(8, "Administradores");

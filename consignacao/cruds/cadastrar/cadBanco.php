@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	include_once("../../utils/ConectarMySQL.class.php");
+	$conexao = new ConectarMySQL();
+	$comitar = true;
 	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
 	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
 	
@@ -12,25 +15,29 @@
 		
 		if($tfBanContat != NULL){
 			include_once("../../dao/DAOPessoa.class.php");
-			$dao = new DAOPessoa($tfBanContat, NULL, "B", "../../");
+			$dao = new DAOPessoa($tfBanContat, NULL, "B", "../../", $conexao);
 			include_once("../../dao/DAOLog.class.php");
-			$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 5, "nome=\'".$tfBanContat."\'", "../../");
-			$dao->cadastrar();
-			$log->cadastrar();
+			$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 5, "nome=\'".$tfBanContat."\'", "../../", $conexao);
+			if(!$dao->cadastrar() || !$log->cadastrar())
+				$comitar = false;
 			$resultado = $dao->pesquisar($tfBanContat.":%:B");
 			$linha = mysql_fetch_array($resultado);
 			$tfBanContat = $linha["pes_codigo"];
+		}else{
+			$comitar = false;
 		}
 		
 		for($x=1; $x < $tfFoneCont+1; $x++){
 			eval("\$tfPesFone[$x] = isset(\$_POST[\"tfPesFone$x\"]) ? \$_POST[\"tfPesFone$x\"] : NULL;");
 			if($tfPesFone[$x] != NULL && preg_match("/^[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4}$/", $tfPesFone[$x])){
 				include_once("../../dao/DAOTelefone.class.php");
-				$dao = new DAOTelefone($tfBanContat, $tfPesFone[$x], "../../");
+				$dao = new DAOTelefone($tfBanContat, $tfPesFone[$x], "../../", $conexao);
 				include_once("../../dao/DAOLog.class.php");
-				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 6, "numero=\'".$tfPesFone[$x]."\'", "../../");
-				$dao->cadastrar();
-				$log->cadastrar();
+				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 6, "numero=\'".$tfPesFone[$x]."\'", "../../", $conexao);
+				if(!$dao->cadastrar() || !$log->cadastrar())
+					$comitar = false;
+			}else{
+				$comitar = false;
 			}
 		}
 	}else{
@@ -39,23 +46,35 @@
 	
 	if($tfBanCod != NULL || $tfBanDesc != NULL){
 		include_once("../../dao/DAOBanco.class.php");
-		$dao = new DAOBanco($tfBanCod, $tfBanDesc, "../../");
+		$dao = new DAOBanco($tfBanCod, $tfBanDesc, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
-		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$tfBanCod."\'", "../../");
-		$dao->cadastrar();
-		$log->cadastrar();
+		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$tfBanCod."\'", "../../", $conexao);
+		if(!$dao->cadastrar() || !$log->cadastrar())
+			$comitar = false;
+	}else{
+		$comitar = false;
 	}
 	
 	if($tfBanCod != NULL || $tfBanDesc != NULL){
 		include_once("../../dao/DAOBancoPessoa.class.php");
-		$dao = new DAOBancoPessoa($tfBanCod, $tfBanContat, "../../");
+		$dao = new DAOBancoPessoa($tfBanCod, $tfBanContat, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
-		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 7, "id=\'".$tfBanCod."+".$tfBanContat."\'", "../../");
-		$dao->cadastrar();
-		$log->cadastrar();
+		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 7, "id=\'".$tfBanCod."+".$tfBanContat."\'", "../../", $conexao);
+		if(!$dao->cadastrar() || !$log->cadastrar())
+			$comitar = false;
+		if($comitar)
+			$conexao->commit();
+		else
+			$conexao->rollback();
 		header("Location: cadBanco.php");
 		die();
+	}else{
+		$comitar = false;
 	}
+	if($comitar)
+		$conexao->commit();
+	else
+		$conexao->rollback();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

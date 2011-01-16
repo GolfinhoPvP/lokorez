@@ -3,12 +3,16 @@
 	$slEmpRef = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
 	$desc = isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL;
 	if($desc != NULL && $slEmpRef != NULL){
+		include_once("../../utils/ConectarMySQL.class.php");
+		$conexao = new ConectarMySQL();
 		include_once("../../dao/DAOEmpresa.class.php");
 		include_once("../../dao/DAOLog.class.php");
-		$dao = new DAOEmpresa($desc, "../../");
-		$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 2, "id=\'".$slEmpRef."\'", "../../");
-		$dao->alterar($slEmpRef);
-		$log->cadastrar();
+		$dao = new DAOEmpresa($desc, "../../", $conexao);
+		$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 2, "id=\'".$slEmpRef."\'", "../../", $conexao);
+		if($dao->alterar($slEmpRef) && $log->cadastrar())
+			$conexao->commit();
+		else
+			$conexao->rollback();
 		header("Location: altEmpresa.php");
 		die();
 	}
