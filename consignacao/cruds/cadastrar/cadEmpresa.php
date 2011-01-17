@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$desc = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
+	$desc = isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL;
 	if($desc != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
@@ -8,7 +8,7 @@
 		$dao = new DAOEmpresa($desc, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
 		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 2, "valor=\'".$desc."\'", "../../", $conexao);
-		if(!$dao->cadastrar() || !$log->cadastrar())
+		if($dao->cadastrar() && $log->cadastrar())
 			$conexao->commit();
 		else
 			$conexao->rollback();
@@ -31,7 +31,7 @@
 	<body>
 		<form id="empresaCadastro" name="empresaCadastro" method="post" action="#" onsubmit="javascript: return validarDescricaoEmpresa('empresaCadastro');">
 		  <label>Insira o nome da empresa: 
-		  <input name="slEmpRef" type="text" id="slEmpRef" size="50" maxlength="100" onkeyup="javascript: validarDescricaoEmpresa('empresaCadastro');"/>
+		  <input name="tfEmpDesc" type="text" id="tfEmpDesc" size="50" maxlength="100" onkeyup="javascript: validarDescricaoEmpresa('empresaCadastro');"/>
 		  </label>
 		  <label>
 		  <input name="btEmpCad" type="submit" id="btEmpCad" value="Cadastrar" />

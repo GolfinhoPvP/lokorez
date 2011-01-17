@@ -4,19 +4,23 @@
 	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
 	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
 	
-	if($slBancRef != NULL || $tfBanCod != NULL || $tfBanDesc != NULL || $tfBanContat != NULL || $tfBanFone != NULL){
+	if($slBancRef != NULL && $tfBanCod != NULL && $tfBanDesc != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
 		include_once("../../dao/DAOBanco.class.php");
 		$dao = new DAOBanco($tfBanCod, $tfBanDesc, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
 		$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$slBancRef."\'", "../../", $conexao);
-		if($dao->alterar($slEmpRef) && $log->cadastrar())
+		if($dao->alterar($slBancRef) && $log->cadastrar())
 			$conexao->commit();
 		else
 			$conexao->rollback();
-		header("Location: altBanco.php");
+		header("Location: altBanco.php?alt=ok");
 		die();
+	}
+	$alt = isset($_GET["alt"]) ? $_GET["alt"] : NULL;
+	if($alt == "ok"){
+		echo("Alteração OK!");
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
