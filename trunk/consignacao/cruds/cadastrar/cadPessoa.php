@@ -154,22 +154,21 @@
 			validarPessoaForm("slTipo");
 		}
 		function carregarAlteracoes(){
-			xmlRequest = getXMLHttp();
+			xmlRequest2 = getXMLHttp();
 
-			xmlRequest.open("GET",'../pesquisar/getBancosSL.php',true);
+			xmlRequest2.open("GET",'../pesquisar/getBancosSL.php',true);
 			
-			if (xmlRequest.readyState == 1) {
+			if (xmlRequest2.readyState == 1) {
 				document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";
 			}
-			form = document.getElementById('bancoAlterar');
-			xmlRequest.onreadystatechange = function () {
-					if (xmlRequest.readyState == 4){
+			xmlRequest2.onreadystatechange = function () {
+					if (xmlRequest2.readyState == 4){
 						document.getElementById("carregando").innerHTML = "";
-						document.getElementById('slBancRef').innerHTML = xmlRequest.responseText;
+						document.getElementById("slBancRef").innerHTML = xmlRequest2.responseText;
 						document.getElementById('slBancRef').value = document.getElementById("valor").innerHTML;
 					}
 			}
-			xmlRequest.send(null);						
+			xmlRequest2.send(null);						
 		}
 	</script>
 </head>
