@@ -48,7 +48,7 @@
 		}
 		
 		public function getEmpresa($valRef){
-			$linha = mysql_fetch_array($this->pesquisar($valRef));
+			$linha = mysqli_fetch_array($this->pesquisar($valRef));
 			$this->empresa->setCodigo($linha["emp_codigo"]);
 			$this->empresa->setDescricao($linha["emp_descricao"]);
 			return $this->empresa;

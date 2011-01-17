@@ -48,7 +48,7 @@
 		}
 		
 		public function getBanco($valRef){
-			$linha = mysql_fetch_array($this->pesquisar($valRef));
+			$linha = mysqli_fetch_array($this->pesquisar($valRef));
 			$this->banco->setCodigo($linha["ban_codigo"]);
 			$this->banco->setDescricao($linha["ban_descricao"]);
 			return $this->banco;

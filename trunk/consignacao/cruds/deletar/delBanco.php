@@ -1,6 +1,7 @@
 <?php
 	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
 	if($slBancRef != NULL){
+		session_start();
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
 		include_once("../../dao/DAOLog.class.php");

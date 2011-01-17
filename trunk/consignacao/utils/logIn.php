@@ -4,10 +4,12 @@
 	$tfSenha 		= antiSQL(isset($_POST["tfSenha"]) ? $_POST["tfSenha"] : NULL);
 	
 	if($tfNomeUsuario != NULL && $tfSenha != NULL){
+		include_once("ConectarMySQL.class.php");
+		$conexao = new ConectarMySQL();
 		include_once("../dao/DAOAdministrador.class.php");
-		$daoAdm = new DAOAdministrador(NULL, NULL, NULL, NULL, "../");
+		$daoAdm = new DAOAdministrador(NULL, NULL, NULL, NULL, "../", $conexao);
 		$resultado = $daoAdm->pesquisar("nomUsu", $tfNomeUsuario);
-		while($linha = mysql_fetch_array($resultado)){
+		while($linha = mysqli_fetch_array($resultado)){
 			if($tfNomeUsuario == $linha["adm_nome_usuario"] && $tfSenha == decodificar($linha["adm_senha"])){
 				session_start();
 				$_SESSION["codigo"] = $linha["adm_codigo"];
@@ -16,12 +18,14 @@
 				$_SESSION["usuario"] = $linha["adm_nome_usuario"];
 				$_SESSION["senha"] = $linha["adm_senha"];
 				include_once("../dao/DAOLog.class.php");
-				$log = new DAOLog($linha["pes_codigo"], 1, $linha["niv_codigo"], $linha["adm_codigo"], 1, "Realizou log-in no sistema!", "../");
+				$log = new DAOLog($linha["pes_codigo"], 1, $linha["niv_codigo"], $linha["adm_codigo"], 1, "Realizou log-in no sistema!", "../", $conexao);
 				$log->cadastrar();
+				$conexao->commit();
 				header("Location: ../admin.php");
 				die();
 			}
 		}
+		$conexao->commit();
 	}
 	header("Location: ../main.php?login=erro");
 ?>
