@@ -157,17 +157,15 @@ CPF:
 
 <br/></div><div id="fones">
 <div id="foneCads"></div>
-<input name="tfFoneCont" type="text" id="tfFoneCont" value="1" size="5" maxlength="5" style="visibility:hidden"/>
+<input name="tfFoneCont" type="text" id="tfFoneCont" value="0" size="5" maxlength="5" style="visibility:hidden"/>
 <input name="btMaisFones" type="button" id="btMaisFones" value="+ Telefones" onclick="javascript: addTel('telefone');" />
-<div id="telefone">Telefone para contato:
-<input name="tfPesFone1" type="text" id="tfPesFone1" size="12" maxlength="12" onkeyup="javascript: validarPessoaForm('tfPesFone1');"/>
- Ex: XX-XXXX-XXXX <br/>
+<div id="fonesAuto"></div>
+<div id="telefone">
 </div></div>
 <div id="apenasContato">
-<div id="bancoAuto"></div>
 <div id="bancoAdd"><input name="tfBanCont" type="text" id="tfBanCont" value="0" size="5" maxlength="5" style="visibility:hidden"/>
 <input name="btMaisBancos" type="button" id="btMaisBancos" value="+ Bancos" onclick="javascript: addBan('banco');" />
-<div id="banco"></div>
+<div id="bancoAuto"></div><div id="banco"></div>
 </div>
 
 <br />

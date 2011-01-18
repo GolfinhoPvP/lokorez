@@ -6,9 +6,9 @@
 	$ordem = isset($_GET["ordem"]) ? $_GET["ordem"] : "%";
 	$key = isset($_GET["key"]) ? $_GET["key"] : "%";
 	
-	if($ordem == "P"){
+	if($ordem == "contato"){
 		$resultado = $conexao->selecionar("SELECT * FROM bancos_pessoas WHERE pes_codigo LIKE '".$key."'");
-	}else if($ordem == "B"){
+	}else if($ordem == "admin"){
 		$resultado = $conexao->selecionar("SELECT * FROM bancos_pessoas WHERE ban_codigo LIKE '".$key."'");
 	}else{
 		$resultado = $conexao->selecionar("SELECT * FROM bancos_pessoas");

@@ -7,7 +7,7 @@
 	switch($_SESSION["nivel"]){
 		case 1 : $sql = "WHERE niv_codigo LIKE '%'"; break;
 		case 2 : $sql = "WHERE niv_codigo = 2"; break;
-		case 3 : $sql = "WHERE niv_codigo = 3 OR _codigo = 4"; break;
+		case 3 : $sql = "WHERE niv_codigo = 3 OR niv_codigo = 4"; break;
 		case 4 : $sql = "WHERE niv_codigo = 4"; break;
 		default : echo("Acesso negado!"); break;
 	}
