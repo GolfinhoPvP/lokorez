@@ -1,18 +1,18 @@
 <?php
-	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
-	if($slBancRef != NULL){
+	$slProRef = isset($_POST["slProRef"]) ? $_POST["slProRef"] : NULL;
+	if($slProRef != NULL){
 		session_start();
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
 		include_once("../../dao/DAOLog.class.php");
-		$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$slBancRef."\'", "../../", $conexao);
-		include_once("../../dao/DAOBanco.class.php");
-		$dao = new DAOBanco(NULL, NULL, "../../", $conexao);
-		if($dao->deletar($slBancRef) && $log->cadastrar())
+		$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$slProRef."\'", "../../", $conexao);
+		include_once("../../dao/DAOProduto.class.php");
+		$dao = new DAOProduto(NULL, NULL, "../../", $conexao);
+		if($dao->deletar($slProRef) && $log->cadastrar())
 			$conexao->commit();
 		else
 			$conexao->rollback();
-		header("Location: delBanco.php");
+		header("Location: delProduto.php");
 		die();
 	}
 ?>
@@ -23,14 +23,14 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/banco.css");
+			@import url("../../scripts/css/produto.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/banco.js"></script>
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/produto.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
-			 	loadContent('../pesquisar/getBancosSL.php', 'slBancRef', '../../');
+			 	loadContent('../pesquisar/getProdutosSL.php', 'slProRef', '../../');
 			}
 		</script>
 	</head>
@@ -39,13 +39,13 @@
 		</div>
 		<div id="carregando">
 		</div>
-		<form id="bancoDeletar" name="bancoDeletar" method="post" action="#"  onsubmit="javascript: return validarDeletarBanco('bancoDeletar');">
+		<form id="produtoDeletar" name="bancoDeletar" method="post" action="#"  onsubmit="javascript: return validarProdutoDelSubmit('bancoDeletar');">
 		  Banco a ser deletado:
-		<select name="slBancRef" id="slBancRef" >
+		<select name="slProRef" id="slProRef" onchange="javascript: validarProdutoForm('slProRef');">
           <option value="---" selected="selected">---------------------------</option>
         </select>
 		<br />
-		<input name="btBanDel" type="submit" id="btBanDel" value="Deletar" />
+		<input name="btBanDel" type="submit" id="btProDel" value="Deletar" />
 		</form>
 	</body>
 </html>

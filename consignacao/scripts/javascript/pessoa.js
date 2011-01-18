@@ -3,7 +3,7 @@ function validarPessoaForm(id){
 	switch(id){
 		case "tfNome" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){2,100}$/; break;
 		case "tfCPF" : descricaoExpReg = /^([ ]{0,14}|[0-9]{3,3}\.[0-9]{3,3}\.[0-9]{3,3}-[0-9]{2,2})$/; break;
-		case "slBancRef" : case "slNivel" : case "slTipo" : descricaoExpReg = /[^---]/; break;
+		case "slPesRef" : case "slBancRef" : case "slNivel" : case "slTipo" : descricaoExpReg = /[^---]/; break;
 		case "tfSenha1" : case "tfSenha2" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]){5,15}$/; break;
 		case "tfNomeUsuario" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]|-|\.|_){5,25}$/; break;
 		default : descricaoExpReg = /^([ ]{0,14}|[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4})$/; break;
@@ -20,6 +20,9 @@ function validarPessoaForm(id){
 }
 
 function verificarIgualdade(){
+	if(document.getElementById("slTipo").value != "admin")
+		return true
+
 	if(document.getElementById("tfSenha1").value != document.getElementById("tfSenha2").value){
 		document.getElementById("tfSenha2").style.background = "#FF0000";
 		return false;
@@ -31,7 +34,33 @@ function verificarIgualdade(){
 
 function validarPessoaCadSubmit(){
 	switch(document.getElementById("slTipo").value){
+		case "admin" :
+			lista = new Array("tfNome", "tfCPF", "tfNomeUsuario" , "tfSenha1" , "tfSenha2" , "slNivel");
+			ponteiro = 6;
+			break;
 		case "contato" :
+			lista = new Array("tfNome", "tfCPF", "slBancRef");
+			ponteiro = 3;
+			break;
+		default : lista = new Array("slTipo");
+			ponteiro = 1;
+			break;
+	}
+	cont = parseInt(document.getElementById("tfFoneCont").value);
+	for(x=0; x < cont; x++){
+		index = x+ponteiro;
+		num = x+1;
+		eval("lista["+index+"] = 'tfPesFone"+num+"'");
+	}
+	if(comum(lista) && verificarIgualdade())
+		return true;
+	else
+		return false;
+}
+
+function validarPessoaAltSubmit(){
+	switch(document.getElementById("slTipo").value){
+		case "admin" :
 			lista = new Array("tfNome", "tfCPF", "tfNomeUsuario" , "tfSenha1" , "tfSenha2" , "slNivel");
 			ponteiro = 6;
 			break;

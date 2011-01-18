@@ -55,5 +55,14 @@
 			}
 			return $resultado;
 		}
+		
+		public function getPessoa($valRef){
+			$linha = mysqli_fetch_array($this->pesquisar($valRef));
+			$this->pessoa->setCodigo($linha["pes_codigo"]);
+			$this->pessoa->setNome($linha["pes_nome"]);
+			$this->pessoa->setCPF($linha["pes_cpf"]);
+			$this->pessoa->setClasse($linha["pes_classe"]);
+			return $this->pessoa;
+		}
 	}
 ?>

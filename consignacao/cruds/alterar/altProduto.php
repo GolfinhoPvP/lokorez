@@ -26,11 +26,11 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/empresa.css");
+			@import url("../../scripts/css/produto.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/empresa.js"></script>
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/produto.js"></script>
 		<script type="text/javascript" language="javascript">
 			 window.onload = function(){
 			 	loadContent('../pesquisar/getProdutosSL.php', 'slProRef', '../../');
@@ -38,7 +38,7 @@
 			function carregarAlteracoes(){
 				xmlRequest = getXMLHttp();
 
-				xmlRequest.open("GET",'../pesquisar/getEmpresaAlt.php?key='+document.getElementById('slEmpRef').value,true);
+				xmlRequest.open("GET",'../pesquisar/getProdutoAlt.php?key='+document.getElementById('slProRef').value,true);
 				
 				if (xmlRequest.readyState == 1) {
 					document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";
@@ -47,7 +47,9 @@
 						if (xmlRequest.readyState == 4){
 							document.getElementById("carregando").innerHTML = "";
 							document.getElementById('alt').innerHTML = xmlRequest.responseText;
-							document.getElementById('empresaAlterar').tfEmpDesc.value 	= document.getElementById('A').innerHTML;
+							//document.getElementById('tfProDesc').tfEmpDesc.value 	= document.getElementById('A').innerHTML;
+							document.getElementById('tfProDesc').value 	= document.getElementById('B').innerHTML;
+							document.getElementById('tfProPrazMax').value 	= document.getElementById('C').innerHTML;
 						}
 				}
 				xmlRequest.send(null);
@@ -59,19 +61,19 @@
 		</div>
 		<div id="carregando">
 		</div>
-		<form id="empresaAlterar" name="empresaAlterar" method="post" action="#" onsubmit="javascript: return validarAlterarEmpresa('empresaAlterar');">
+		<form id="produtoAlterar" name="produtoAlterar" method="post" action="#" onsubmit="javascript: return validarProdutoAltSubmit('produtoAlterar');">
 		  <label>
 		  Selecione o produto a ser alterado: 
-		  <select name="slProRef" id="slProRef" onchange="javascript: carregarAlteracoes();">
+		  <select name="slProRef" id="slProRef" onchange="javascript: validarProdutoForm('slProRef'); carregarAlteracoes();">
 		    <option value="---">-----------------------------</option>
 	      </select>
 		  <br />
 		  <br />
 		  <label>Descri&ccedil;a&otilde;: </label>
-          <input name="tfProDesc" type="text" id="tfProDesc" size="50" maxlength="100" />
+          <input name="tfProDesc" type="text" id="tfProDesc" size="50" maxlength="100" onkeyup="javascript: validarProdutoForm('tfProDesc');"/>
           <br />
 Prazo m&aacute;ximo:
-<input name="tfProPrazMax" type="text" id="tfProPrazMax" size="5" maxlength="2" />
+<input name="tfProPrazMax" type="text" id="tfProPrazMax" size="5" maxlength="2" onkeyup="javascript: validarProdutoForm('tfProPrazMax');"/>
 <label></label>
 <br />
 		  </label>

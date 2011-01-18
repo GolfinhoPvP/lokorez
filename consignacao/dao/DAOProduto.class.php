@@ -47,7 +47,7 @@
 			return $resultado;
 		}
 		
-		public function getEmpresa($valRef){
+		public function getProduto($valRef){
 			$linha = mysqli_fetch_array($this->pesquisar($valRef));
 			$this->produto->setCodigo($linha["pro_codigo"]);
 			$this->produto->setDescricao($linha["pro_descricao"]);

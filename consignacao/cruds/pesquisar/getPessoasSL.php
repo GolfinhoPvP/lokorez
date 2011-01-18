@@ -5,7 +5,19 @@
 	
 	$classe = isset($_GET["classe"]) ? $_GET["classe"] : "%";
 	
-	$resultado = $conexao->selecionar("SELECT * FROM pessoas WHERE pes_classe LIKE '".$classe."' ORDER BY pes_nome");
+	switch($classe){
+		case "B" : case "contato" :
+			$sql = "SELECT * FROM pessoas p INNER JOIN bancos_pessoas bp ON p.pes_codigo = bp.pes_codigo ORDER BY pes_nome";
+			break;
+		case "A" : case "admin" :
+			$sql = "SELECT * FROM pessoas p INNER JOIN administradores a ON p.pes_codigo = a.pes_codigo ORDER BY pes_nome";
+			break;
+		default : 
+			$sql = "SELECT * FROM pessoas ORDER BY pes_nome";
+			break;
+	}
+	
+	$resultado = $conexao->selecionar($sql);
 	if($resultado == false){
 		die("Não foi possivel realizar a busca!");
 	}
