@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include_once("../../utils/funcoes.php");
 	$tipo = isset($_GET["tipo"]) ? $_GET["tipo"] : NULL;
 	$banco = isset($_GET["banco"]) ? $_GET["banco"] : NULL;
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;
@@ -58,7 +59,7 @@
 				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 6, "numero=\'".$tfPesFone[$x]."\'", "../../", $conexao);
 				if(!$dao->cadastrar() || !$log->cadastrar())
 					$comitar = false;
-			}else{
+			}else if(strcmp($tfPesFone[$x], "") != 0){
 				$comitar = false;
 			}
 		}
@@ -69,7 +70,7 @@
 					if(strlen($tfCPF) == 0)
 						$tfCPF = NULL;
 					include_once("../../dao/DAOAdministrador.class.php");
-					$dao = new DAOAdministrador($pesCod, $slNivel, $tfNomeUsuario, $tfSenha1, "../../", $conexao);
+					$dao = new DAOAdministrador($pesCod, $slNivel, $tfNomeUsuario, codificar($tfSenha1), "../../", $conexao);
 					include_once("../../dao/DAOLog.class.php");
 					$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 8, "nome usuário=\'".$tfNomeUsuario."\'", "../../", $conexao);
 					if(!$dao->cadastrar() || !$log->cadastrar())
