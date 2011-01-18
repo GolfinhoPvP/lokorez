@@ -123,98 +123,12 @@
 		</style>
 	<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
 	<script type="text/javascript" language="javascript" src="../../scripts/javascript/pessoa.js"></script>
-	<script type="text/javascript" language="javascript">
-		window.onload = function(){
-			//carregarLista();
-			//loadContent('../pesquisar/getNiveisSL.php', 'slNivel', '../../');
-			switch(document.getElementById("tipo").innerHTML){
-				case "contato" : document.getElementById("slTipo").value = "contato"; break;
-				case "admin" : document.getElementById("slTipo").value = "admin"; break;
-				default : document.getElementById("slTipo").value = "---"; break;
-			}
-			testarTipo();
-		}
-		function testarTipo(){
-			switch(document.getElementById("slTipo").value){
-				case "contato" :
-					esconder("apenasAdmin");
-					mostrar("apenasContato");
-					mostrar("geral");
-					break;
-				case "admin" :
-					esconder("apenasContato");
-					mostrar("apenasAdmin");
-					mostrar("geral");
-					break;
-				default :
-					esconder("apenasAdmin");
-					esconder("apenasContato");
-					esconder("geral");
-					break;
-			}
-			validarPessoaForm("slTipo");
-		}
-		function carregarLista(){
-			xmlRequest = getXMLHttp();
-
-			xmlRequest.open("GET",'../pesquisar/getPessoasSL.php?classe='+document.getElementById('slTipo').value,true);
-			
-			if (xmlRequest.readyState == 1) {
-				document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";
-			}
-			xmlRequest.onreadystatechange = function () {
-					if (xmlRequest.readyState == 4){
-						document.getElementById("carregando").innerHTML = "";
-						document.getElementById("slPesRef").innerHTML = xmlRequest.responseText;
-						//document.getElementById('slBancRef').value = document.getElementById("valor").innerHTML;
-					}
-			}
-			xmlRequest.send(null);						
-		}
-		function carregarAlteracoes(){
-			xmlRequest = getXMLHttp();
-
-			xmlRequest.open("GET",'../pesquisar/getBancosPessoasLista.php?classe='+document.getElementById('slTipo').value,true);
-			
-			if (xmlRequest.readyState == 1) {
-				document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";
-			}
-			xmlRequest.onreadystatechange = function () {
-					if (xmlRequest.readyState == 4){
-						document.getElementById("carregando").innerHTML = "";
-						document.getElementById("alt").innerHTML = xmlRequest.responseText;
-						carregarBancos();
-						//document.getElementById('slBancRef').value = document.getElementById("valor").innerHTML;
-					}
-			}
-			xmlRequest.send(null);						
-		}
-		function carregarBancos(){
-			xmlRequest2 = getXMLHttp();
-
-			xmlRequest2.open("GET",'../pesquisar/getBancosSL.php',true);
-			
-			if (xmlRequest2.readyState == 1) {
-				document.getElementById("carregando").innerHTML = "<img src='../../imagens/rotating_arrow.gif' width='20px' height='20px' />";
-			}
-			xmlRequest2.onreadystatechange = function () {
-					if (xmlRequest2.readyState == 4){
-						document.getElementById("carregando").innerHTML = "";
-						//document.getElementById("alt").innerHTML += xmlRequest2.responseText;
-						contador = parseInt(document.getElementById("BPQuantidade").innerHTML);
-						for(x=1; x<=contador; x++){
-							document.getElementById("apenasContato").innerHTML += '&Eacute; contato do banco: <select name="slBancRef'+contador+'" id="slBancRef'+contador+'" onchange="javascript: validarPessoaForm(\'slBancRef\');">'+xmlRequest2.responseText+'</select>';
-							document.getElementById(("slBancRef"+contador)).value = document.getElementById(("cB"+contador)).innerHTML;
-						}
-					}
-			}
-			xmlRequest2.send(null);
-		}
-	</script>
+	<script type="text/javascript" language="javascript" src="../../scripts/javascript/pessoaAlt.js"></script>
 </head>
 
 <body>
 <div id="alt" style="visibility:hidden; position:absolute"></div>
+<div id="bancosAlt" style="visibility:hidden; position:absolute"></div>
 <div id="carregando">
 </div>
 <div id="valor" style="visibility:hidden"><?php echo($banco); ?></div>
@@ -241,15 +155,21 @@ CPF:
 
 <input name="tfCPF" type="text" id="tfCPF" size="14" maxlength="14" onkeyup="javascript: validarPessoaForm('tfCPF');" />
 
-<br/>
+<br/></div><div id="fones">
+<div id="foneCads"></div>
 <input name="tfFoneCont" type="text" id="tfFoneCont" value="1" size="5" maxlength="5" style="visibility:hidden"/>
 <input name="btMaisFones" type="button" id="btMaisFones" value="+ Telefones" onclick="javascript: addTel('telefone');" />
 <div id="telefone">Telefone para contato:
 <input name="tfPesFone1" type="text" id="tfPesFone1" size="12" maxlength="12" onkeyup="javascript: validarPessoaForm('tfPesFone1');"/>
  Ex: XX-XXXX-XXXX <br/>
-</div>
+</div></div>
 <div id="apenasContato">
+<div id="bancoAuto"></div>
+<div id="bancoAdd"><input name="tfBanCont" type="text" id="tfBanCont" value="0" size="5" maxlength="5" style="visibility:hidden"/>
+<input name="btMaisBancos" type="button" id="btMaisBancos" value="+ Bancos" onclick="javascript: addBan('banco');" />
+<div id="banco"></div>
 </div>
+
 <br />
 <div id="apenasAdmin">
 Nome de usu&aacute;rio:
