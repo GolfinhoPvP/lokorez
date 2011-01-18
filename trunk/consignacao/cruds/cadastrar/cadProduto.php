@@ -27,14 +27,15 @@
 			@import url("../../scripts/css/produto.css");
 			-->
 		</style>
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/produto.js"></script>
 	</head>
 	<body>
-		<form id="form1" name="form1" method="post" action="#">
+		<form id="produtoCadastro" name="produtoCadastro" method="post" action="#"  onsubmit="javascript: return validarProdutoCadSubmit('produtoCadastro');">
 		  <label>		  Descri&ccedil;a&otilde;:		  </label>
-		  <input name="tfProDesc" type="text" id="tfProDesc" size="50" maxlength="100" />
+		  <input name="tfProDesc" type="text" id="tfProDesc" size="50" maxlength="100" onkeyup="javascript: validarProdutoForm('tfProDesc');"/>
 		  <br />
 		Prazo m&aacute;ximo:  
-		<input name="tfProPrazMax" type="text" id="tfProPrazMax" size="5" maxlength="2" />
+		<input name="tfProPrazMax" type="text" id="tfProPrazMax" size="5" maxlength="2" onkeyup="javascript: validarProdutoForm('tfProPrazMax');"/>
 		<label><br />
 		  <input name="btProCad" type="submit" id="btProCad" value="Cadastrar" />
 		  </label></form>

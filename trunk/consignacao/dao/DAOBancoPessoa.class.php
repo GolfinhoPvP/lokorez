@@ -39,12 +39,19 @@
 		}
 		
 		public function pesquisar($varRefBanco, $valRefPessoa){
-			$sql = "SELECT * FROM bancos_pessoas WHERE ban_codigo='".$varRefBanco."' AND pes_codigo=".$valRefPessoa;
+			$sql = "SELECT * FROM bancos_pessoas WHERE ban_codigo LIKE '".$varRefBanco."' AND pes_codigo=".$valRefPessoa;
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel salvar: ".$this->bancoPessoa->getBanCodigo()." e ".$this->bancoPessoa->getPesCodigo());
 			}
 			return $resultado;
+		}
+		
+		public function getPessoa($valRef){
+			$linha = mysqli_fetch_array($this->pesquisar("%", $valRef));
+			$this->bancoPessoa->setBanCodigo($linha["ban_codigo"]);
+			$this->bancoPessoa->setPesCodigo($linha["pes_codigo"]);
+			return $this->bancoPessoa;
 		}
 	}
 ?>
