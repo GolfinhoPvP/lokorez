@@ -98,6 +98,13 @@ function addTel(id){
 	document.getElementById(id).innerHTML += 'Telefone para contato: <input name="tfPesFone'+cont+'" type="text" id="tfPesFone'+cont+'" size="12" maxlength="12" onkeyup="javascript: validarPessoaForm(\'tfPesFone'+cont+'\');"/><label> Ex: XX-XXXX-XXXX </label><br />';
 }
 
+function addBan(id){
+	document.getElementById("tfBanCont").value = parseInt(document.getElementById("tfBanCont").value) + 1;
+	cont = document.getElementById("tfBanCont").value;
+	document.getElementById(id).innerHTML += 'Adicionar contato ao banco: <select name="slBan'+cont+'" id="slBan'+cont+'" onkeyup="javascript: validarPessoaForm(\'tfPesFone1\');"><option value="---" selected="selected">-----------------------------</option></select><br/>';
+	document.getElementById("slBan"+cont).innerHTML = document.getElementById("bancosAlt").innerHTML;
+}
+
 function mostrar(id){
 		document.getElementById(id).style.visibility = "visible";
 		document.getElementById(id).style.height = "auto";
