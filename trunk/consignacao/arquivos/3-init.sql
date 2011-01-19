@@ -19,7 +19,8 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(5, "Pessoas"),
 				(6, "Telefones"),
 				(7, "Bancos_Pessoas"),
-				(8, "Administradores");
+				(8, "Administradores"),
+				(9, "Verbas");
 
 INSERT INTO pessoas (pes_nome, pes_cpf, pes_classe)
 	VALUES ("Super Administrador", "000.000.000-00", "A");

@@ -37,7 +37,7 @@
 					$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 6, "numero=\'".$tfPesFone[$x]."\'", "../../", $conexao);
 					if(!$dao->cadastrar() || !$log->cadastrar())
 						$comitar = false;
-				}else{
+				}else if(strcmp($tfPesFone[$x], "") != 0){
 					$comitar = false;
 				}
 			}

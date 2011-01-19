@@ -43,10 +43,20 @@
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altProduto.php');">Alterar</div>
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delProduto.php');">Deletar</div>			 		   </li>
 		   <li>
-			<div alt="ZZZZZZ" width="100px" height="100px" title="ZZZZZZ">Administrar Usu&aacute;rios</div>
+			<div alt="Administrar Usu&aacute;rios" width="100px" height="100px" title="ZZZZZZ">Administrar Usu&aacute;rios</div>
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadPessoa.php');">Cadastrar</div>
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altPessoa.php');">Alterar</div>
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delPessoa.php');">Deletar</div>			 		   </li>
+			 <li>
+			<div alt="Verbas" width="100px" height="100px" title="ZZZZZZ">Verbas</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadVerba.php');">Cadastrar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altVerba.php');">Alterar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delVerba.php');">Deletar</div>			 		   </li>
+			 <li>
+			<div alt="Averba&ccedil;&otilde;es" width="100px" height="100px" title="ZZZZZZ">Averba&ccedil;&otilde;es</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadAverbacao.php');">Cadastrar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altAverbacao.php');">Alterar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delAverbacao.php');">Deletar</div>			 		   </li>
 	  </ul>
 	</div>
 	<iframe id="conteudo" name="conteudo" frameBorder="0"></iframe>
