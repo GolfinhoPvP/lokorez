@@ -40,8 +40,8 @@
 		<div id="carregando">
 		</div>
 		<form id="produtoDeletar" name="bancoDeletar" method="post" action="#"  onsubmit="javascript: return validarProdutoDelSubmit('bancoDeletar');">
-		  Banco a ser deletado:
-		<select name="slProRef" id="slProRef" onchange="javascript: validarProdutoForm('slProRef');">
+		  Produto a ser deletado:
+		    <select name="slProRef" id="slProRef" onchange="javascript: validarProdutoForm('slProRef');">
           <option value="---" selected="selected">---------------------------</option>
         </select>
 		<br />
