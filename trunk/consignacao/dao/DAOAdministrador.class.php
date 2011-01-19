@@ -21,7 +21,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE administradores SET pes_codigo=".$this->administrador->getPesCodigo().", niv_codido=".$this->administrador->getNivCodigo().", adm_nome_usuario='".$this->administrador->getNomeUsuario()."' , adm_senha='".$this->administrador->getSenha()."' WHERE adm_codigo=".$valRef;
+			$sql = "UPDATE administradores SET pes_codigo=".$this->administrador->getPesCodigo().", niv_codido=".$this->administrador->getNivCodigo().", adm_nome_usuario='".$this->administrador->getNomeUsuario()."' , adm_senha='".$this->administrador->getSenha()."' WHERE pes_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar: ".$this->administrador->getNomeUsuario());
 				return false;
@@ -30,7 +30,10 @@
 		}
 		
 		public function deletar($valRef){
-			$sql = "DELETE FROM administradores WHERE adm_codigo=".$valRef;
+			$sql = "DELETE FROM administradores WHERE pes_codigo=".$valRef;
+			if($valRef == 1)
+				return true;
+				
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel deletar: ".$this->administrador->getNomeUsuario());
 				return false;

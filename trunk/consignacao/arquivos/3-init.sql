@@ -22,7 +22,7 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(8, "Administradores");
 
 INSERT INTO pessoas (pes_nome, pes_cpf, pes_classe)
-	VALUES ("Super Administrdor", "000.000.000-00", "A");
+	VALUES ("Super Administrador", "000.000.000-00", "A");
 
 INSERT INTO administradores (pes_codigo, niv_codigo, adm_nome_usuario, adm_senha) 
 	VALUES (1, 1, "superadmin", "c3VwZXJBZG1pbg==");

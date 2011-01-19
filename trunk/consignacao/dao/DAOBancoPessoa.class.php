@@ -30,7 +30,7 @@
 		}
 		
 		public function deletar($varRefBanco, $valRefPessoa){
-			$sql = "DELETE FROM bancos_pessoas WHERE ban_codigo='".$varRefBanco."' AND pes_codigo=".$valRefPessoa;
+			$sql = "DELETE FROM bancos_pessoas WHERE ban_codigo='".$varRefBanco."' OR pes_codigo=".$valRefPessoa;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar: ".$this->bancoPessoa->getBanCodigo()." e ".$this->bancoPessoa->getPesCodigo());
 				return false;

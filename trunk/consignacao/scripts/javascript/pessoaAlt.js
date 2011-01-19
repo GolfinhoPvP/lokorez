@@ -40,7 +40,6 @@ function carregarLista(){
 			if (xmlRequest.readyState == 4){
 				document.getElementById("carregando").innerHTML = "";
 				document.getElementById("slPesRef").innerHTML = xmlRequest.responseText;
-				//document.getElementById('slBancRef').value = document.getElementById("valor").innerHTML;
 			}
 	}
 	xmlRequest.send(null);						

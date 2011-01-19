@@ -84,6 +84,11 @@ function validarPessoaAltSubmit(){
 		return false;
 }
 
+function validarPessoaDelSubmit(){
+	lista = new Array("slTipo", "slPesRef");
+	return comum(lista);
+}
+
 function comum(l){
 	for(x=0; x<l.length; x++){
 		if(!validarPessoaForm(l[x]))
