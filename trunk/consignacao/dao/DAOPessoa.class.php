@@ -35,7 +35,7 @@
 		public function deletar($valRef){
 			$sql = "DELETE FROM pessoas WHERE pes_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel deletar: ".$this->pessoa->getNome());
+				echo("Não foi possivel deletar: ".$valRef);
 				return false;
 			}
 			return true;
@@ -51,7 +51,7 @@
 			}
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
-				echo("Não foi possivel selecionar: ".$this->pessoa->getNome());
+				echo("Não foi possivel selecionar: ".$valRef);
 			}
 			return $resultado;
 		}

@@ -17,7 +17,6 @@
 				$ipR = @gethostbyname($_SERVER['REMOTE_ADDR']);
 				
 			$this->aLog = new Log(NULL, $pCod, $oCod, $nCod, $admCod, $alvCod, $dT, $nM, $ipR, $desc);
-			//$this->conexao = new ConectarMySQL();
 			$this->conexao = $conex;
 		}
 		
