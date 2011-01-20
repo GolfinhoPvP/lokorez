@@ -12,35 +12,66 @@
 		include_once("../dao/DAOPessoa.class.php");
 		include_once("../dao/DAOServidor.class.php");
 		include_once("../dao/DAOLog.class.php");
+		
 		$conexao = new ConectarMySQL();
-		$comitar = true;
+		$dao = new DAOServidor(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, "../", $conexao);
+		$dao->zerar();
+		$conexao->commit();
+		
 		for($x=0; $x < $nLinhas; $x++){
-			$tempx = $matriz[$x];
-			foreach($tempx as $campo){
-				echo("-".$campo."-");
-				/*$dao = new DAOPessoa($campo[1], $campo[1], "S", "../", $conexao);
-				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 5, "nome=\'".$campo[1]."\'", "../", $conexao);
-				if(!$dao->cadastrar() || !$log->cadastrar()){
+			$conexao = new ConectarMySQL();
+			$comitar = true;
+			
+			$campo = $matriz[$x];
+			$pEmpresa		= $campo[0];
+			$pNome 			= utf8_encode($campo[1]);
+			$pCPF 			= substr($campo[3], 0, 14);
+			$sMatricula		= $campo[2];
+			$sAdmissao		= substr($campo[4], 0, 4)."/".substr($campo[4], 4, 2)."/".substr($campo[4], 6, 2);
+			$sCargo			= $campo[5];
+			$sVinculo		= $campo[6];
+			$sConsignavel	= $campo[7];
+			
+			$dao = new DAOPessoa($pNome, $pCPF , "S", "../", $conexao);
+			
+			$linha = mysqli_fetch_array($dao->pesquisar($pNome.":".$pCPF.":S"));
+			$existe = $linha["pes_codigo"];
+			if(strlen($existe) > 0){
+				$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 5, "nome=\'".$pNome."\'", "../", $conexao);
+				if(!$dao->alterar($existe) /*|| !$log->cadastrar()*/){
 					$comitar = false;
-					echo($campo[1]);
+					//echo($campo[1]);
 				}
-				$linha = mysqli_fetch_array($dao->pesquisar($campo[1].":%:P"));
-				
-				$pesCod = $linha["pes_codigo"];
-				
-				$dao = new DAOServidor($campo[0], $codPEs, $campo[3], $campo[4], $campo[5], $campo[6], $campo[7], 0, 0, "../", $conexao);
-				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 10, "nome=\'".$campo[3]."\'", "../", $conexao);
-				if(!$dao->cadastrar() || !$log->cadastrar()){
+			}else{
+				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 5, "nome=\'".$pNome."\'", "../", $conexao);
+				if(!$dao->cadastrar() /*|| !$log->cadastrar()*/){
 					$comitar = false;
-					echo($campo[3]);
-				}*/
+					//echo($campo[1]);
+				}
+				$linha = mysqli_fetch_array($dao->pesquisar($pNome.":".$pCPF.":S"));
+				$pesCod = $linha["pes_codigo"];
 			}
-			echo("<br/>");
+
+			if(strlen($existe) > 0){
+				$dao = new DAOServidor($pEmpresa, $existe, $sMatricula, $sAdmissao, $sCargo, $sVinculo, $sConsignavel, 0, 0, "../", $conexao);
+				$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 10, "matricula=\'".$sMatricula."\'", "../", $conexao);
+				if(!$dao->alterar($existe) /*|| !$log->cadastrar()*/){
+					$comitar = false;
+					//echo($campo[3]);
+				}
+			}else{
+				$dao = new DAOServidor($pEmpresa, $pesCod, $sMatricula, $sAdmissao, $sCargo, $sVinculo, $sConsignavel, 0, 0, "../", $conexao);
+				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 10, "matricula=\'".$sMatricula."\'", "../", $conexao);
+				if(!$dao->cadastrar() /*|| !$log->cadastrar()*/){
+					$comitar = false;
+					//echo($campo[3]);
+				}
+			}
+			if($comitar)
+				$conexao->commit();
+			else
+				$conexao->rollback();
 		}
-		if($comitar)
-			$conexao->commit();
-		else
-			$conexao->rollback();
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
