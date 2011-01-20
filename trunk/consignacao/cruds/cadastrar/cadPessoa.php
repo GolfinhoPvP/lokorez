@@ -24,6 +24,7 @@
 				$tfSenha1 = isset($_POST["tfSenha1"]) ? $_POST["tfSenha1"] : NULL;
 				$tfSenha2 = isset($_POST["tfSenha2"]) ? $_POST["tfSenha2"] : NULL;
 				$slNivel = isset($_POST["slNivel"]) ? $_POST["slNivel"] : NULL;
+				$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
 				break;
 				
 			case "contato" :
@@ -70,7 +71,7 @@
 					if(strlen($tfCPF) == 0)
 						$tfCPF = NULL;
 					include_once("../../dao/DAOAdministrador.class.php");
-					$dao = new DAOAdministrador($pesCod, $slNivel, $tfNomeUsuario, codificar($tfSenha1), "../../", $conexao);
+					$dao = new DAOAdministrador($pesCod, $slNivel, $slBancRef, $tfNomeUsuario, codificar($tfSenha1), "../../", $conexao);
 					include_once("../../dao/DAOLog.class.php");
 					$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 8, "nome usuário=\'".$tfNomeUsuario."\'", "../../", $conexao);
 					if(!$dao->cadastrar() || !$log->cadastrar())
@@ -144,8 +145,8 @@
 					mostrar("apenasContato");
 					break;
 				case "admin" :
-					esconder("apenasContato");
 					mostrar("apenasAdmin");
+					mostrar("apenasContato");
 					break;
 				default :
 					esconder("apenasAdmin");
@@ -204,7 +205,7 @@ CPF:
  Ex: XX-XXXX-XXXX <br/>
 </div>
 <div id="apenasContato">
-Este contato é do banco:
+Pertence ao Banco:
 <select name="slBancRef" id="slBancRef" onchange="javascript: validarPessoaForm('slBancRef');">
   <option value="---" selected="selected">---------------------------</option>
 </select>

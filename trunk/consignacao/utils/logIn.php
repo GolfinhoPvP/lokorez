@@ -7,7 +7,7 @@
 		include_once("ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
 		include_once("../dao/DAOAdministrador.class.php");
-		$daoAdm = new DAOAdministrador(NULL, NULL, NULL, NULL, "../", $conexao);
+		$daoAdm = new DAOAdministrador(NULL, NULL, NULL, NULL, NULL, "../", $conexao);
 		$resultado = $daoAdm->pesquisar("nomUsu", $tfNomeUsuario);
 		while($linha = mysqli_fetch_array($resultado)){
 			if($tfNomeUsuario == $linha["adm_nome_usuario"] && $tfSenha == decodificar($linha["adm_senha"])){
@@ -15,6 +15,7 @@
 				$_SESSION["codigo"] = $linha["adm_codigo"];
 				$_SESSION["pessoa"] = $linha["pes_codigo"];
 				$_SESSION["nivel"] = $linha["niv_codigo"];
+				$_SESSION["banco"] = $linha["ban_codigo"];
 				$_SESSION["usuario"] = $linha["adm_nome_usuario"];
 				$_SESSION["senha"] = $linha["adm_senha"];
 				include_once("../dao/DAOLog.class.php");

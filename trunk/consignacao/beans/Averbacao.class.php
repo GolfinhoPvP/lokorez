@@ -8,12 +8,13 @@
 		private $proCodigo;
 		private $parPeriodo;
 		private $staCodigo;
-		private $data;
+		private $dataCriacao;
+		private $dataEnceramento;
 		private $numeroParcelas;
 		private $montante;
 		private $taxaJuros;
 		
-		function __construct($numExt, $eC, $pesC, $serMat, $bC, $proC, $per, $sC, $data, $numPar, $mont, $taxJur){
+		function __construct($numExt, $eC, $pesC, $serMat, $bC, $proC, $per, $sC, $dataC, $dataE, $numPar, $mont, $taxJur){
 			$this->numeroExterno = $numExt;
 			$this->empCodigo = $eC;
 			$this->pesCodigo = $pesC;
@@ -22,7 +23,8 @@
 			$this->proCodigo = $proC;
 			$this->parPeriodo = $per;
 			$this->staCodigo = $sC;
-			$this->data = $data;
+			$this->dataCriacao = $dataC;
+			$this->dataEncerramento = $dataE;
 			$this->numeroParcelas = $numPAr;
 			$this->montante = $mont;
 			$this->taxaJuros = $taxJur;
@@ -84,11 +86,18 @@
 			return $this->staCodigo;
 		}
 
-		public function setData($valor){
-			$this->data = $valor;
+		public function setDataCriacao($valor){
+			$this->dataCriacao = $valor;
 		}
-		public function getData(){
-			return $this->data;
+		public function getDataCriacao(){
+			return $this->dataCriacao;
+		}
+		
+		public function setDataEncerramento($valor){
+			$this->dataEncerramento = $valor;
+		}
+		public function getDataEncerramento(){
+			return $this->dataEncerramento;
 		}
 
 		public function setNumeroParcelas($valor){

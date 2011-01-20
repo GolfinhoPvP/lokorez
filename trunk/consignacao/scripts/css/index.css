@@ -31,7 +31,29 @@
 #menu li div#nav {
   display:none; 
 }
+
 #menu li:hover div#nav {
+  width:auto;
+  display:block;
+  background-color:#00CCFF;
+  width:138px;
+  cursor:pointer;
+}
+#menu li div#nav div#nav2 {
+	margin-left:140px;
+	margin-top:-23px;
+	border:dotted;
+	border-color:#00CCFF;
+	position:absolute;
+	float:right;
+}
+#menu li div#nav div#nav2{
+  display:none; 
+}
+#menu li div#nav div#nav2 div{
+	background:#0099FF;
+}
+#menu li div#nav:hover div#nav2{
   width:auto;
   display:block;
   background-color:#00CCFF;
