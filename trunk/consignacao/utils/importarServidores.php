@@ -26,7 +26,7 @@
 			$pEmpresa		= $campo[0];
 			$pNome 			= utf8_encode($campo[1]);
 			$pCPF 			= substr($campo[3], 0, 14);
-			$sMatricula		= $campo[2];
+			$sMatricula		= str_replace(" ", "", $campo[2]);
 			$sAdmissao		= substr($campo[4], 0, 4)."/".substr($campo[4], 4, 2)."/".substr($campo[4], 6, 2);
 			$sCargo			= $campo[5];
 			$sVinculo		= $campo[6];
@@ -53,7 +53,7 @@
 			}
 
 			if(strlen($existe) > 0){
-				$dao = new DAOServidor($pEmpresa, $existe, $sMatricula, $sAdmissao, $sCargo, $sVinculo, $sConsignavel, 0, 0, "../", $conexao);
+				$dao = new DAOServidor($pEmpresa, $existe, $sMatricula, $sAdmissao, $sCargo, $sVinculo, $sConsignavel, 0, $sConsignavel, "../", $conexao);
 				$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 10, "matricula=\'".$sMatricula."\'", "../", $conexao);
 				if(!$dao->alterar($existe) /*|| !$log->cadastrar()*/){
 					$comitar = false;

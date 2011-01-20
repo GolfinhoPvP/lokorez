@@ -1,6 +1,6 @@
 /*
-Created		12/01/2011
-Modified		19/01/2011
+Created		1/12/2011
+Modified		1/20/2011
 Project		
 Model		
 Company		
@@ -92,7 +92,7 @@ Create table servidores (
  Primary Key (emp_codigo,pes_codigo,ser_matricula)) ENGINE = InnoDB;
 
 Create table parametros (
-	par_periodo Varchar(7) NOT NULL,
+	par_periodo Varchar(8) NOT NULL,
 	sta_codigo Smallint NOT NULL,
 	par_data_corte Date,
  Primary Key (par_periodo)) ENGINE = InnoDB;
@@ -100,18 +100,17 @@ Create table parametros (
 Create table status (
 	sta_codigo Smallint NOT NULL AUTO_INCREMENT,
 	sta_nome Varchar(25),
-	sta_descricao Varchar(50),
  Primary Key (sta_codigo)) ENGINE = InnoDB;
 
 Create table averbacoes (
-	ave_numero_externo Varchar(100) NOT NULL,
+	ave_numero_externo Varchar(200) NOT NULL,
 	adm_codigo_encerrador Int,
 	emp_codigo Int,
 	pes_codigo Int,
 	ser_matricula Varchar(20),
 	ban_codigo Varchar(3),
 	pro_codigo Int NOT NULL,
-	par_periodo Varchar(7),
+	par_periodo Varchar(8),
 	sta_codigo Smallint NOT NULL,
 	ave_data_criacao Datetime,
 	ave_data_encerramento Datetime,
@@ -122,7 +121,7 @@ Create table averbacoes (
 
 Create table parcelas (
 	par_numero_parcela Int NOT NULL,
-	ave_numero_externo Varchar(100) NOT NULL,
+	ave_numero_externo Varchar(200) NOT NULL,
 	sta_codigo Smallint NOT NULL,
 	par_periodo_parcela Varchar(7),
 	par_valor Double,

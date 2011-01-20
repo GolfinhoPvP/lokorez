@@ -21,7 +21,13 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(7, "Bancos_Pessoas"),
 				(8, "Administradores"),
 				(9, "Verbas"),
-				(10, "Servidores");
+				(10, "Servidores"),
+				(11, "Parametros");
+
+INSERT INTO status VALUES (1, "Aberto"),
+				(2, "Encaminhado"),
+				(3, "Encerrado"),
+				(4, "Descontado");
 
 INSERT INTO pessoas (pes_nome, pes_cpf, pes_classe)
 	VALUES ("Super Administrador", "000.000.000-00", "A");

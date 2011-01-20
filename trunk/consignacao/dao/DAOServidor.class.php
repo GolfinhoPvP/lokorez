@@ -29,7 +29,7 @@
 		}
 		
 		public function deletar($valRef){
-			$sql = "DELETE FROM servidores WHERE ser_matricula=".$valRef;
+			$sql = "DELETE FROM servidores WHERE ser_matricula='".$valRef."'";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel deletar: ".$valRef);
 				return false;
@@ -38,7 +38,7 @@
 		}
 		
 		public function pesquisar($valRef){
-			$sql = "SELECT * FROM servidores WHERE ser_matricula=".$valRef;
+			$sql = "SELECT * FROM servidores WHERE ser_matricula='".$valRef."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar: ".$valRef);
