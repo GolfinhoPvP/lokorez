@@ -8,13 +8,13 @@
 			include_once($toRoot."utils/ConectarMySQL.class.php");
 			$dT 	= date("Y-m-d H:i:s");
 
-			$nM 	= gethostbyaddr($REMOTE_ADDR);
-			$ipR 	= gethostbyname($REMOTE_ADDR);
+			$nM 	= @gethostbyaddr($REMOTE_ADDR);
+			$ipR 	= @gethostbyname($REMOTE_ADDR);
 			
 			if(strlen($nM) < 1)
-				$nM = gethostbyaddr($_SERVER['REMOTE_ADDR']);;
+				$nM = @gethostbyaddr($_SERVER['REMOTE_ADDR']);;
 			if(strlen($ipR) < 1)
-				$ipR = gethostbyname($_SERVER['REMOTE_ADDR']);
+				$ipR = @gethostbyname($_SERVER['REMOTE_ADDR']);
 				
 			$this->aLog = new Log(NULL, $pCod, $oCod, $nCod, $admCod, $alvCod, $dT, $nM, $ipR, $desc);
 			//$this->conexao = new ConectarMySQL();

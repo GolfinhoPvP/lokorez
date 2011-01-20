@@ -3,13 +3,15 @@
 		private $codigo;
 		private $pesCodigo;
 		private $nivCodigo;
+		private $banCodigo;
 		private $nomeUsuario;
 		private $senha;
 		
-		function __construct($cod, $pCod, $nCod, $nU, $s){
+		function __construct($cod, $pCod, $nCod, $bCod, $nU, $s){
 			$this->codigo = $cod;
 			$this->pesCodigo = $pCod;
 			$this->nivCodigo = $nCod;
+			$this->banCodigo = $bCod;
 			$this->nomeUsuario = $nU;
 			$this->senha = $s;	
 		}
@@ -33,6 +35,13 @@
 		}
 		public function getNivCodigo(){
 			return $this->nivCodigo;
+		}
+		
+		public function setBanCodigo($valor){
+			$this->banCodigo = $valor;
+		}
+		public function getBanCodigo(){
+			return $this->banCodigo;
 		}
 		
 		public function setNomeUsuario($valor){

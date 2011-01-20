@@ -1,6 +1,6 @@
 /*
-Created		12/1/2011
-Modified		17/1/2011
+Created		12/01/2011
+Modified		19/01/2011
 Project		
 Model		
 Company		
@@ -76,7 +76,8 @@ Create table verbas (
 	ban_codigo Varchar(3) NOT NULL,
 	pro_codigo Int NOT NULL,
 	ver_descricao Varchar(100),
- Primary Key (ver_verba,emp_codigo,ban_codigo,pro_codigo)) ENGINE = InnoDB;
+	UNIQUE (ver_verba),
+ Primary Key (emp_codigo,ban_codigo,pro_codigo)) ENGINE = InnoDB;
 
 Create table servidores (
 	emp_codigo Int NOT NULL,
@@ -104,14 +105,16 @@ Create table status (
 
 Create table averbacoes (
 	ave_numero_externo Varchar(100) NOT NULL,
+	adm_codigo_encerrador Int,
 	emp_codigo Int,
 	pes_codigo Int,
 	ser_matricula Varchar(20),
-	ban_codigo Varchar(3) NOT NULL,
+	ban_codigo Varchar(3),
 	pro_codigo Int NOT NULL,
 	par_periodo Varchar(7),
 	sta_codigo Smallint NOT NULL,
-	ave_data Date,
+	ave_data_criacao Datetime,
+	ave_data_encerramento Datetime,
 	ave_numero_parcelas Int,
 	ave_montante Double,
 	ave_taxa_juros Double,
@@ -129,10 +132,11 @@ Create table administradores (
 	adm_codigo Int NOT NULL AUTO_INCREMENT,
 	pes_codigo Int NOT NULL,
 	niv_codigo Smallint NOT NULL,
+	ban_codigo Varchar(3) NOT NULL,
 	adm_nome_usuario Varchar(25) NOT NULL,
 	adm_senha Varchar(20) NOT NULL,
 	UNIQUE (adm_nome_usuario),
- Primary Key (adm_codigo,pes_codigo)) ENGINE = InnoDB;
+ Primary Key (adm_codigo)) ENGINE = InnoDB;
 
 Create table niveis (
 	niv_codigo Smallint NOT NULL,
@@ -189,7 +193,7 @@ Create Index ver_pro_index ON verbas (pro_codigo);
 Create Index ser_emp_index ON servidores (emp_codigo);
 Create Index ser_pes_index ON servidores (pes_codigo);
 Create Index par_sta_index ON parametros (sta_codigo);
-Create Index ave_ser_index ON averbacoes (emp_codigo,pes_codigo,ser_matricula);
+Create Index ave_ser_index ON averbacoes (emp_codigo,ser_matricula);
 Create Index ave_ban_index ON averbacoes (ban_codigo);
 Create Index ave_pro_index ON averbacoes (pro_codigo);
 Create Index ave_per_index ON averbacoes (par_periodo);
@@ -211,8 +215,9 @@ Create Index pes_index ON bancos_pessoas (pes_codigo);
 Alter table verbas add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table servidores add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table verbas add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete  restrict on update  restrict;
-Alter table averbacoes add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete cascade on update cascade;
 Alter table bancos_pessoas add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete cascade on update cascade;
+Alter table administradores add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete cascade on update cascade;
+Alter table averbacoes add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete set null on update cascade;
 Alter table averbacoes add Foreign Key (pro_codigo) references produtos (pro_codigo) on delete cascade on update cascade;
 Alter table averbacoes add Foreign Key (emp_codigo,pes_codigo,ser_matricula) references servidores (emp_codigo,pes_codigo,ser_matricula) on delete set null on update cascade;
 Alter table averbacoes add Foreign Key (par_periodo) references parametros (par_periodo) on delete set null on update cascade;
@@ -220,7 +225,8 @@ Alter table parametros add Foreign Key (sta_codigo) references status (sta_codig
 Alter table averbacoes add Foreign Key (sta_codigo) references status (sta_codigo) on delete cascade on update cascade;
 Alter table parcelas add Foreign Key (sta_codigo) references status (sta_codigo) on delete cascade on update cascade;
 Alter table parcelas add Foreign Key (ave_numero_externo) references averbacoes (ave_numero_externo) on delete cascade on update cascade;
-Alter table logs add Foreign Key (adm_codigo,pes_codigo) references administradores (adm_codigo,pes_codigo) on delete set null on update cascade;
+Alter table logs add Foreign Key (adm_codigo) references administradores (adm_codigo) on delete set null on update cascade;
+Alter table averbacoes add Foreign Key (adm_codigo_encerrador) references administradores (adm_codigo) on delete set null on update cascade;
 Alter table administradores add Foreign Key (niv_codigo) references niveis (niv_codigo) on delete cascade on update cascade;
 Alter table logs add Foreign Key (niv_codigo) references niveis (niv_codigo) on delete cascade on update cascade;
 Alter table logs add Foreign Key (ope_codigo) references operacoes (ope_codigo) on delete cascade on update cascade;
@@ -229,5 +235,6 @@ Alter table telefones add Foreign Key (pes_codigo) references pessoas (pes_codig
 Alter table bancos_pessoas add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table servidores add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table administradores add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
+Alter table logs add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete set null on update cascade;
 
 

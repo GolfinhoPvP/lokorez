@@ -10,6 +10,8 @@
 	
 	echo('<option value="---">-----------------------------</option>');
 	while($linha = mysqli_fetch_array($resultado)){
+		if($linha["ban_codigo"] == "000")
+			continue;
 		echo('<option value="'.$linha["ban_codigo"].'">'.utf8_encode($linha["ban_descricao"]).'</option>');
 	}
 ?>
