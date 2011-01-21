@@ -6,18 +6,18 @@
 	
 	if($slMes != NULL && $tfAno != NULL && $tfDia != NULL){
 		switch($slMes){
-			case 1 : $periodo = "Jan/".$tfAno; break;
-			case 2 : $periodo = "Fev/".$tfAno; break;
-			case 3 : $periodo = "Mar/".$tfAno; break;
-			case 4 : $periodo = "Abr/".$tfAno; break;
-			case 5 : $periodo = "Mai/".$tfAno; break;
-			case 6 : $periodo = "Jun/".$tfAno; break;
-			case 7 : $periodo = "Jul/".$tfAno; break;
-			case 8 : $periodo = "Ago/".$tfAno; break;
-			case 9 : $periodo = "Set/".$tfAno; break;
-			case 10 : $periodo = "Out/".$tfAno; break;
-			case 11 : $periodo = "Nov/".$tfAno; break;
-			case 12 : $periodo = "Dez/".$tfAno; break;
+			case 1 : $periodo = "Jan-".$tfAno; break;
+			case 2 : $periodo = "Fev-".$tfAno; break;
+			case 3 : $periodo = "Mar-".$tfAno; break;
+			case 4 : $periodo = "Abr-".$tfAno; break;
+			case 5 : $periodo = "Mai-".$tfAno; break;
+			case 6 : $periodo = "Jun-".$tfAno; break;
+			case 7 : $periodo = "Jul-".$tfAno; break;
+			case 8 : $periodo = "Ago-".$tfAno; break;
+			case 9 : $periodo = "Set-".$tfAno; break;
+			case 10 : $periodo = "Out-".$tfAno; break;
+			case 11 : $periodo = "Nov-".$tfAno; break;
+			case 12 : $periodo = "Dez-".$tfAno; break;
 		}
 		$data = $tfAno."/".$slMes."/".$tfDia;
 		

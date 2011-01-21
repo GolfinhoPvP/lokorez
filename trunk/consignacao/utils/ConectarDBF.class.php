@@ -17,15 +17,8 @@
 			return $this->conexao;
 		}
 		
-		public function criar(){
-			$campos = array(
-				array("date",     "D"),
-			  	array("name",     "C",	50),
-			  	array("age",      "N",  3, 	0),
-			  	array("email",    "C", 	128),
-			  	array("ismember", "L")
-			);	
-			$this->conexao = dbase_create($this->caminho, $campos);
+		public function criar($array){	
+			$this->conexao = dbase_create($this->caminho, $array);
 			if($this->conexao == false){
 				return false;
 			}

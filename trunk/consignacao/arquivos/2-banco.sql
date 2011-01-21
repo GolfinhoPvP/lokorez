@@ -1,6 +1,6 @@
 /*
 Created		1/12/2011
-Modified		1/20/2011
+Modified		1/21/2011
 Project		
 Model		
 Company		
@@ -95,6 +95,7 @@ Create table parametros (
 	par_periodo Varchar(8) NOT NULL,
 	sta_codigo Smallint NOT NULL,
 	par_data_corte Date,
+	par_link Varchar(100),
  Primary Key (par_periodo)) ENGINE = InnoDB;
 
 Create table status (
