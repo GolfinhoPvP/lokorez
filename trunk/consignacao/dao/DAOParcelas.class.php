@@ -12,7 +12,6 @@
 		
 		public function cadastrar(){
 			$sql = "INSERT INTO parcelas (par_numero_parcela, ave_numero_externo, sta_codigo, par_periodo_parcela, par_valor) VALUES (".$this->parcelas->getNumeroParcela().", '".$this->parcelas->getAveNumeroExterno()."', ".$this->parcelas->getStaCodigo().", '".$this->parcelas->getPeriodoParcela()."', ".$this->parcelas->getValor().")";
-			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar: ".$this->parcelas->getAveNumeroExterno());
 				return false;

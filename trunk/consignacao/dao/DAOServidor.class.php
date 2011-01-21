@@ -55,6 +55,16 @@
 			return true;
 		}
 		
+		public function atualizarVerba($valRef, $valor){
+			$this->servidor = $this->getServidor($valRef);
+			$valor = $this->servidor->getUtilizada() + $valor; 
+			$this->servidor->setUtilizada($valor);
+			$disponivel = $this->servidor->getConsignavel() - $this->servidor->getUtilizada();
+			$this->servidor->setDisponivel($disponivel);
+			
+			return $this->alterar($valRef);
+		}
+		
 		public function getServidor($valRef){
 			$linha = mysqli_fetch_array($this->pesquisar($valRef));
 			$this->servidor->setEmpCodigo($linha["emp_codigo"]);
