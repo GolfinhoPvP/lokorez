@@ -123,7 +123,7 @@ Create table parcelas (
 	par_numero_parcela Int NOT NULL,
 	ave_numero_externo Varchar(200) NOT NULL,
 	sta_codigo Smallint NOT NULL,
-	par_periodo_parcela Varchar(7),
+	par_periodo_parcela Varchar(8),
 	par_valor Double,
  Primary Key (par_numero_parcela,ave_numero_externo)) ENGINE = InnoDB;
 

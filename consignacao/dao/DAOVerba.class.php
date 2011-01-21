@@ -12,7 +12,6 @@
 		
 		public function cadastrar(){
 			$sql = "INSERT INTO verbas (ver_verba, emp_codigo, ban_codigo, pro_codigo, ver_descricao) VALUES ('".$this->verba->getVerba()."', ".$this->verba->getEmpCodigo().", '".$this->verba->getBanCodigo()."', ".$this->verba->getProCodigo().", '".$this->verba->getDescricao()."')";
-			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar: ".$this->verba->getDescricao());
 				return false;
@@ -30,7 +29,7 @@
 		}
 		
 		public function deletar($valRef){
-			$sql = "DELETE FROM varbas WHERE ver_verba=".$valRef;
+			$sql = "DELETE FROM verbas WHERE ver_verba=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel deletar: ".$valRef);
 				return false;
@@ -39,7 +38,7 @@
 		}
 		
 		public function pesquisar($valRef){
-			$sql = "SELECT * FROM varbas WHERE ver_verba=".$valRef;
+			$sql = "SELECT * FROM verbas WHERE ver_verba=".$valRef;
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar: ".$valRef);
