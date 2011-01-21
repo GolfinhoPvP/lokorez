@@ -12,7 +12,6 @@
 		
 		public function cadastrar(){
 			$sql = "INSERT INTO averbacoes (ave_numero_externo, adm_codigo_encerrador, emp_codigo, pes_codigo, ser_matricula,	ban_codigo,	pro_codigo,	par_periodo, sta_codigo, ave_data_criacao, ave_data_encerramento, ave_numero_parcelas, ave_montante, ave_taxa_juros) VALUES ('".$this->averbacao->getNumeroExterno()."', ".$this->averbacao->getEncerrador().", ".$this->averbacao->getEmpCodigo().", ".$this->averbacao->getPesCodigo().", '".$this->averbacao->getSerMatricula()."', '".$this->averbacao->getBanCodigo()."', ".$this->averbacao->getProCodigo().", '".$this->averbacao->getParPeriodo()."', ".$this->averbacao->getStaCodigo().", '".$this->averbacao->getDataCriacao()."', '".$this->averbacao->getDataEncerramento()."', ".$this->averbacao->getNumeroParcelas().", ".$this->averbacao->getMontante().", ".$this->averbacao->getTaxaJuros().")";
-			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar: ".$this->averbacao->getNumeroExterno());
 				return false;

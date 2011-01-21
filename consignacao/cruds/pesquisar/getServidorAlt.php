@@ -22,6 +22,7 @@
 		echo('<div id="C">Valor consignavel: R$ '.$servidor->getConsignavel().'</div>');
 		echo('<div id="D">Valor utilizado: R$ '.$servidor->getUtilizada().'</div>');
 		echo('<div id="E">Valor dispon&iacute;vel: R$ '.$servidor->getDisponivel().'</div>');
+		echo('<div id="valDisp" style="visibility:hidden;">'.$servidor->getDisponivel().'</div>');
 	}else{
 		echo("ERRO!");
 	}

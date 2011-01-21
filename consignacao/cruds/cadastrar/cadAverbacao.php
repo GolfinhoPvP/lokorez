@@ -16,6 +16,9 @@
 		
 		include_once("../../dao/DAOServidor.class.php");
 		$dao = new DAOServidor(NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL, "../../", $conexao);
+		if(!$dao->atualizarVerba($slSerRef, $tfValor))
+			$comitar = false;
+			
 		$servidor = $dao->getServidor($slSerRef);
 		
 		include_once("../../dao/DAOVerba.class.php");
@@ -29,7 +32,7 @@
 			$tfMon = 0;
 		if(strlen($tfTxJ) == 0)
 			$tfTxJ = 0;
-		$dao = new DAOAverbacao($tfNumExt, 'NULL', $servidor->getEmpCodigo(), $servidor->getPesCodigo(), $slSerRef, $_SESSION["banco"], $verba->getProCodigo(), $slPer, 1, $data, NULL, $slPar, $tfMon, $tfTxJ, "../../", $conexao);
+		$dao = new DAOAverbacao($tfNumExt, 'NULL', $servidor->getEmpCodigo(), $servidor->getPesCodigo(), $slSerRef, $_SESSION["banco"], $verba->getProCodigo(), $slPer, 1, $data, '0000-00-00', $slPar, $tfMon, $tfTxJ, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
 		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 12, "noum ext=\'".$tfNumExt."\'", "../../", $conexao);
 		if(!$dao->cadastrar() || !$log->cadastrar())
@@ -63,7 +66,7 @@
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/verba.js"></script>
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/averbacao.js"></script>
 		<script type="text/javascript" language="javascript">
 			<!--
 			window.onload = function(){
@@ -127,20 +130,20 @@
 	<body>
 		<div id="carregando">
 		</div>
-	    <form id="averbarCad" name="averbarCad" method="post" action="">
+	    <form id="averbarCad" name="averbarCad" method="post" action="#" onsubmit="javascript: return validarAveCadSubmit();">
 	      Selecione um servidor:
 	      <label>
-	      <select name="slSerRef" id="slSerRef" onchange="javascript: carregarParametros(); carregarInfos();">
+	      <select name="slSerRef" id="slSerRef" onchange="javascript: carregarParametros(); carregarInfos(); mostrar('cadastro');">
 	        <option value="---" selected="selected">------------------------------</option>
           </select>
 	      </label>
 	      <br />
 		  <div id="infos"></div>
 	      <br />
-		  <div id="cadastro">
+		  <div id="cadastro" style="visibility:hidden">
 			  N&uacute;mero externo: 
 			  <label>
-				<input name="tfNumExt" type="text" id="tfNumExt" size="100" maxlength="200" />
+				<input name="tfNumExt" autocomplete="off" type="text" id="tfNumExt" size="100" maxlength="200" />
 			  </label>
 	        <p>Selecione o periodo: 
 		        <label>
@@ -152,35 +155,43 @@
 	            <br />
 	        Selecione um produto: 
 	        <label>
-	        <select name="slPro" id="slPro" onchange="javascript: selecionarParcelas();">
+	        <select name="slPro" id="slPro" onchange="javascript: selecionarParcelas(); mostrar('mais');">
 	          <option value="---" selected="selected" >------------------</option>
             </select>
 	        </label>
+			<div id="mais" style="visibility:hidden">
 	        </p>
 	        <p>Qual o valor: 
 	          <label>
-	          <input name="tfValor" type="text" id="tfValor" size="15" maxlength="25" />
+	          R$
+	          <input name="tfValor" type="text" id="tfValor" size="15" maxlength="25" autocomplete="off" onkeyup="javascript: validarForm('tfValor'); ajustarValores();"/>
 	          </label>
 	          <br />
 	          <br />
 	        Em quantas parcelas: 
 	        <label>
-	        <select name="slPar" id="slPar">
+	        <select name="slPar" id="slPar" onchange="javascript: dividirParelas();">
 	          <option value="---" selected="selected">---</option>
             </select>
 	        </label>
-	        <br />
-	        <br />
+	        </p>
+	        <div id="parcelas"></div>
+	          <br />
+	          <label>Taxa de juros:
+            <input name="tfTxJ" type="text" id="tfTxJ" value="0" size="6" maxlength="3" />
+            </label>
+%<br />
+<br />
 	        <label>
 	        Montante: 
+	        R$
 	        <input name="tfMon" type="text" id="tfMon" size="15" maxlength="25" />
             <br />
-            Taxa de juros:
-            <input name="tfTxJ" type="text" id="tfTxJ" size="15" maxlength="25" />
 	        </label>
 	        </p>
 		  </div>
           <br />
+		  </div>
 	      <label>
 	      <input name="btAverbar" type="submit" id="btAverbar" value="Averbar" />
 	      </label>

@@ -5,9 +5,42 @@
 	$ffImpSer = isset($_FILES["ffImpSer"]) ? $_FILES["ffImpSer"] : NULL;
 	
 	if($ffImpSer != NULL){
-		$arquivo = $ffImpSer;
-		$matriz = NULL;
-		include_once("importadorDBF.php");
+		$uri = "../uploads/";
+		if(!ini_get('safe_mode')){ 
+			set_time_limit(900);
+		}
+		if(empty($ffImpSer)){
+			die("Arquivo vazio!");
+		}
+		$lowName = strtolower($ffImpSer["name"]);
+		$chars = array("ç","~","^","]","[","{","}",";",":","´",",",">","<","-","/","|","@","$","%","ã","â","á","à","é","è","ó","ò","+","=","*","&","(",")","!","#","?","`","ã"," ","©");
+		$newName = str_replace($chars,"",$lowName);
+		$arquivoNome = $newName;
+		if(!preg_match("/([a-z]|[A-Z]|[0-9]|\.|-|_| ){2,}\.[dbfDBF]{3,3}$/", $arquivoNome)){
+			die("Formato inválido!");
+		}
+		if ($arquivo["size"] > 15242880) {//Limit: 15MB
+			die("Arquivo muito grande!");
+		}
+		$uri .= $arquivoNome;
+		if(move_uploaded_file($ffImpSer['tmp_name'],$uri)){
+			chmod($uri, 0777);
+		}else{
+			die("Erro na importação");
+		}
+	
+		include_once("ConectarDBF.class.php");
+		$dbf = new ConectarDBF($uri,0);
+		if(!$dbf->conectar())
+			die("Erro ao abrir o arquivo");
+		$nLinhas = $dbf->getNumeroRegistros();
+		$nCampos = $dbf->getNumeroCampos();
+		for($x=1; $x<=$nLinhas; $x++){
+			$linha = $dbf->buscar($x);
+			$matriz[$x-1] = $linha;
+		}
+		$dbf->destruir();	
+			
 		include_once("ConectarMySQL.class.php");
 		include_once("../dao/DAOPessoa.class.php");
 		include_once("../dao/DAOServidor.class.php");
