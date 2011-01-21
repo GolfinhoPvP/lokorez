@@ -41,8 +41,8 @@
 		$valor = $tfValor / $slPar;
 		
 		for($x=1; $x <= $slPar; $x++){
-			include_once("../../dao/DAOParcelas.class.php");
-			$dao = new DAOParcelas($x, $tfNumExt, 1, $slPer, $valor,  "../../", $conexao);
+			include_once("../../dao/DAOParcela.class.php");
+			$dao = new DAOParcela($x, $tfNumExt, 1, $slPer, $valor, NULL,  "../../", $conexao);
 			include_once("../../dao/DAOLog.class.php");
 			$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 13, "num ext=\'".$tfNumExt."\'", "../../", $conexao);
 			if(!$dao->cadastrar() || !$log->cadastrar())

@@ -3,7 +3,65 @@
 	$slPer = isset($_POST["slPer"]) ? $_POST["slPer"] : NULL;
 	
 	if($slPer != NULL){
-		header("Location: cadParametro.php");
+		include_once("../../utils/ConectarDBF.class.php");
+		$uri = "../../downloads/".$slPer.".dbf";
+		$dbf = new ConectarDBF($uri, 1);
+		$campos = array(
+			array("periodo", 	"C", 8),
+			array("empresa", 	"N", 6, 0),
+			array("matricula", 	"C", 20),
+			array("verba", 		"C", 10),
+			array("valor", 		"N", 10, 2),
+			array("status", 	"C", 10)
+		);
+		$dbf->criar($campos);
+		
+		include_once("../../utils/ConectarMySQL.class.php");
+		$mysql = new ConectarMySQL();
+		$sql = "SELECT p.par_periodo_parcela, a.emp_codigo, a.ser_matricula, v.ver_verba, p.par_valor, p.sta_codigo FROM parcelas p INNER JOIN averbacoes a ON p.ave_numero_externo=a.ave_numero_externo INNER JOIN verbas v ON v.ban_codigo=a.ban_codigo AND v.emp_codigo=a.emp_codigo AND v.pro_codigo=a.pro_codigo WHERE p.par_periodo_parcela='".$slPer."'";
+		$resultado = $mysql->selecionar($sql);
+		$comitar = false;
+		while($linhaMySQL = mysqli_fetch_array($resultado)){
+			$linhaDBF = array(
+				$linhaMySQL["par_periodo_parcela"],
+				$linhaMySQL["emp_codigo"],
+				$linhaMySQL["ser_matricula"],
+				$linhaMySQL["ver_verba"],
+				$linhaMySQL["par_valor"],
+				$linhaMySQL["sta_codigo"]
+			);
+				
+			if(!$dbf->adicionar($linhaDBF)){
+				$comitar = false;
+				die();
+			}else{
+				$comitar = true;
+			}
+		}
+		$sql = "UPDATE parcelas SET sta_codigo = 2 WHERE par_periodo_parcela='".$slPer."'";
+		if(!$mysql->executar($sql)){
+			$comitar = false;
+			die();
+		}else{
+			$comitar = true;
+		}
+		$link = "downloads/".$slPer.".dbf";
+		$sql = "UPDATE parametros SET sta_codigo = 3, par_link='".$link."' WHERE par_periodo='".$slPer."'";
+		if(!$mysql->executar($sql)){
+			$comitar = false;
+			die();
+		}else{
+			$comitar = true;
+		}
+		
+		$dbf->fechar();
+		if($comitar = true){
+			$mysql->commit();
+		}else{
+			$mysql->rollback();
+		}
+		
+		header("Location: altParametro.php");
 		die();
 	}
 ?>
@@ -36,5 +94,10 @@
 		  <input name="btEncerrar" type="submit" id="btEncerrar" value="Encerrar" />
 		  </label>
     </form>
+	<div>Arquivos dos periodos encerrados:<br />
+	  <br />
+	  <br />
+	  <div>X</div>
+	</div>
 	</body>
 </html>
