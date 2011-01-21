@@ -12,8 +12,9 @@
 		
 		public function cadastrar(){
 			$sql = "INSERT INTO parcelas (par_numero_parcela, ave_numero_externo, sta_codigo, par_periodo_parcela, par_valor) VALUES (".$this->parcelas->getNumeroParcela().", '".$this->parcelas->getAveNumeroExterno()."', ".$this->parcelas->getStaCodigo().", '".$this->parcelas->getPeriodoParcela()."', ".$this->parcelas->getValor().")";
+			echo($sql);
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel salvar: ".$this->parcelas->getNumeroParcela()());
+				echo("Não foi possivel salvar: ".$this->parcelas->getAveNumeroExterno());
 				return false;
 			}
 			return true;
@@ -22,7 +23,7 @@
 		public function alterar($valRef){
 			$sql = "UPDATE parcelas SET par_numero_parcela = ".$this->parcelas->getNumeroParcela().", ave_numero_externo='".$this->parcelas->getAveNumeroExterno()."', sta_codigo = ".$this->parcelas->getStaCodigo().", par_periodo_parcela='".$this->parcelas->getPeriodoParcela()."', par_valor = ".$this->parcelas->getValor()." WHERE par_numero_parcela=".$valRef;
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel alterar: ".$this->parcelas->getNumeroParcela()());
+				echo("Não foi possivel alterar: ".$this->parcelas->getAveNumeroExterno());
 				return false;
 			}
 			return true;

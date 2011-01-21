@@ -22,7 +22,9 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(8, "Administradores"),
 				(9, "Verbas"),
 				(10, "Servidores"),
-				(11, "Parametros");
+				(11, "Parametros"),
+				(12, "Averbações"),
+				(13, "Parcelas");
 
 INSERT INTO status VALUES (1, "Aberto"),
 				(2, "Encaminhado"),

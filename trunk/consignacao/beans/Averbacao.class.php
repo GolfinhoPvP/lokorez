@@ -1,6 +1,7 @@
 <?php
 	class Averbacao{
 		private $numeroExterno;
+		private $encerrador;
 		private $empCodigo;
 		private $pesCodigo;
 		private $serMatricula;
@@ -14,8 +15,9 @@
 		private $montante;
 		private $taxaJuros;
 		
-		function __construct($numExt, $eC, $pesC, $serMat, $bC, $proC, $per, $sC, $dataC, $dataE, $numPar, $mont, $taxJur){
+		function __construct($numExt, $end, $eC, $pesC, $serMat, $bC, $proC, $per, $sC, $dataC, $dataE, $numPar, $mont, $taxJur){
 			$this->numeroExterno = $numExt;
+			$this->encerrador = $end;
 			$this->empCodigo = $eC;
 			$this->pesCodigo = $pesC;
 			$this->serMatricula = $serMat;
@@ -25,7 +27,7 @@
 			$this->staCodigo = $sC;
 			$this->dataCriacao = $dataC;
 			$this->dataEncerramento = $dataE;
-			$this->numeroParcelas = $numPAr;
+			$this->numeroParcelas = $numPar;
 			$this->montante = $mont;
 			$this->taxaJuros = $taxJur;
 		}
@@ -35,6 +37,13 @@
 		}
 		public function getNumeroExterno(){
 			return $this->numeroExterno;
+		}
+		
+		public function setEncerrador($valor){
+			$this->encerrador = $valor;
+		}
+		public function getEncerrador(){
+			return $this->encerrador;
 		}
 		
 		public function setEmpCodigo($valor){
