@@ -93,7 +93,7 @@
 					//echo($campo[3]);
 				}
 			}else{
-				$dao = new DAOServidor($pEmpresa, $pesCod, $sMatricula, $sAdmissao, $sCargo, $sVinculo, $sConsignavel, 0, 0, "../", $conexao);
+				$dao = new DAOServidor($pEmpresa, $pesCod, $sMatricula, $sAdmissao, $sCargo, $sVinculo, $sConsignavel, 0, $sConsignavel, "../", $conexao);
 				$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 10, "matricula=\'".$sMatricula."\'", "../", $conexao);
 				if(!$dao->cadastrar() /*|| !$log->cadastrar()*/){
 					$comitar = false;

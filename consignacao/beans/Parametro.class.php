@@ -3,11 +3,13 @@
 		private $periodo;
 		private $staCodigo;
 		private $dataCorte;
+		private $ulink;
 		
-		function __construct($per, $sC, $datCor){
+		function __construct($per, $sC, $datCor, $lin){
 			$this->periodo = $per;
 			$this->staCodigo = $sC;
 			$this->dataCorte = $datCor;
+			$this->ulink = $lin;
 		}
 		
 		public function setPeriodo($valor){
@@ -29,6 +31,13 @@
 		}
 		public function getDataCorte(){
 			return $this->dataCorte;
+		}
+		
+		public function setLink($valor){
+			$this->ulink = $valor;
+		}
+		public function getLink(){
+			return $this->ulink;
 		}
 	}
 ?>

@@ -1,10 +1,13 @@
 <?php
 	session_start();
+	include_once("../../utils/funcoes.php");
 	$slPer = isset($_POST["slPer"]) ? $_POST["slPer"] : NULL;
 	
 	if($slPer != NULL){
 		include_once("../../utils/ConectarDBF.class.php");
-		$uri = "../../downloads/".$slPer.".dbf";
+		$hash = getHash();
+		$link = "downloads/".$hash."-".$slPer.".dbf";
+		$uri = "../../".$link;
 		$dbf = new ConectarDBF($uri, 1);
 		$campos = array(
 			array("periodo", 	"C", 8),
@@ -45,7 +48,6 @@
 		}else{
 			$comitar = true;
 		}
-		$link = "downloads/".$slPer.".dbf";
 		$sql = "UPDATE parametros SET sta_codigo = 3, par_link='".$link."' WHERE par_periodo='".$slPer."'";
 		if(!$mysql->executar($sql)){
 			$comitar = false;
@@ -53,6 +55,10 @@
 		}else{
 			$comitar = true;
 		}
+		
+		include_once("../../dao/DAOLog.class.php");
+		$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 11, "Encerrou=\'".$slPer."\'", "../../", $conexao);
+		$comitar = $log->cadastrar();
 		
 		$dbf->fechar();
 		if($comitar = true){
@@ -80,6 +86,7 @@
 		<script type="text/javascript" language="javascript">
 			window.onload = function(){
 				loadContent('../pesquisar/getParametrosSL.php', 'slPer', '../../');
+				loadContent('../pesquisar/getLinks.php', 'links', '../../');
 			}
 		</script>
 	</head>
@@ -97,7 +104,7 @@
 	<div>Arquivos dos periodos encerrados:<br />
 	  <br />
 	  <br />
-	  <div>X</div>
+	  <div id="links"></div>
 	</div>
 	</body>
 </html>
