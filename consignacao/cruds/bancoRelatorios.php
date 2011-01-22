@@ -19,7 +19,7 @@
     <br />
     <br />
     <br />
-    <form id="buscarCPF" name="buscarCPF" method="post" action="">
+    <form id="buscarCPF" name="buscarCPF" method="post" action="pesquisar/getRelatorioCPF.php">
       <label>
         <input name="tfCPF" type="text" id="tfCPF" size="16" maxlength="14" />
       </label>
@@ -27,5 +27,10 @@
       <br />
       <input name="btBusCPF" type="submit" id="btBusCPF" value="Buscar por CPF"/>
     </form>
+    <br />
+    <br />
+Relat&oacute;rio geral em .xls <img src="../imagens/xls.png" width="50" height="51" onclick="javascript: window.location = 'relatorioGeralXLS.php';" style="cursor:pointer"/>
+<br />
+Veja o esquema desse arquivo em PDF aqui <img src="../imagens/pdf.png" width="50" height="77" onclick="javascript: window.location = '../downloads/esquema-arquivo-xls.pdf';" style="cursor:pointer"/>
 </body>
 </html>

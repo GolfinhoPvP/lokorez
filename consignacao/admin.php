@@ -68,12 +68,6 @@
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altPessoa.php');">Alterar</div>
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delPessoa.php');">Deletar</div>
 				</div></div>
-				<div id="nav">Produtos
-			 	<div id="nav2">
-					<div onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadVerba.php');">Cadastrar</div>
-					<div onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altVerba.php');">Alterar</div>
-					<div onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delVerba.php');">Deletar</div>
-				</div></div>
 				<div id="nav">Gerenciar Periodos
 			 	<div id="nav2">
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadParametro.php');">Abrir</div>

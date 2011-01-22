@@ -8,7 +8,6 @@
 		die("Não foi possivel realizar a busca!");
 	}
 	
-	echo('<option value="---">-----------------------------</option>');
 	while($linha = mysqli_fetch_array($resultado)){
 		echo('<div><a href="../../'.$linha["par_link"].'">Arquivo .DBF do periodo '.$linha["par_periodo"].'</a></div>');
 	}

@@ -35,7 +35,7 @@ INSERT INTO pessoas (pes_nome, pes_cpf, pes_classe)
 	VALUES ("Super Administrador", "000.000.000-00", "A");
 
 INSERT INTO bancos (ban_codigo, ban_descricao)
-	VALUES("000", "NULO");
+	VALUES("000", "Administrador");
 
 INSERT INTO administradores (pes_codigo, niv_codigo, ban_codigo, adm_nome_usuario, adm_senha) 
 	VALUES (1, 1, "000", "superadmin", "c3VwZXJBZG1pbg==");
