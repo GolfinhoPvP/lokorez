@@ -38,7 +38,7 @@
 		}
 		
 		public function pesquisar($valRefNP, $valRefNE){
-			$sql = "SELECT * FROM parcelas WHERE par_numero_parcela LIKE '".$valRefNP."' AND ave_numero_externo='".$valRef."'";
+			$sql = "SELECT * FROM parcelas WHERE par_numero_parcela LIKE '".$valRefNP."' AND ave_numero_externo='".$valRefNE."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar: ".$valRef);

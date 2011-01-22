@@ -19,7 +19,7 @@
 		if(!preg_match("/([a-z]|[A-Z]|[0-9]|\.|-|_| ){2,}\.[dbfDBF]{3,3}$/", $arquivoNome)){
 			die("Formato inválido!");
 		}
-		if ($arquivo["size"] > 15242880) {//Limit: 15MB
+		if ($ffImpSer["size"] > 15242880) {//Limit: 15MB
 			die("Arquivo muito grande!");
 		}
 		$uri .= $arquivoNome;
@@ -60,7 +60,7 @@
 			$pNome 			= utf8_encode($campo[1]);
 			$pCPF 			= substr($campo[3], 0, 14);
 			$sMatricula		= str_replace(" ", "", $campo[2]);
-			$sAdmissao		= substr($campo[4], 0, 4)."/".substr($campo[4], 4, 2)."/".substr($campo[4], 6, 2);
+			$sAdmissao		= substr($campo[4], 6, 4)."/".substr($campo[4], 3, 2)."/".substr($campo[4], 0, 2);
 			$sCargo			= $campo[5];
 			$sVinculo		= $campo[6];
 			$sConsignavel	= $campo[7];

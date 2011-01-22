@@ -17,8 +17,13 @@ No banco:
 Voltar <img src="../../imagens/voltar.gif" width="40" height="35" onclick="javascript: history.back(-1);" style="cursor:pointer"/>
 <br />
 <?php
-	$sql = "SELECT pes.pes_nome, pes.pes_cpf, emp.emp_descricao, ave.ave_numero_externo FROM averbacoes ave INNER JOIN pessoas pes ON ave.pes_codigo = pes.pes_codigo INNER JOIN empresas emp ON ave.emp_codigo = emp.emp_codigo WHERE ave.ban_codigo = '".$_SESSION["banco"]."' ORDER BY pes.pes_nome";
+	$tfCPF = isset($_POST["tfCPF"]) ? $_POST["tfCPF"] : NULL;
+	
+	$sql = "SELECT pes.pes_nome, pes.pes_cpf, emp.emp_descricao, ave.ave_numero_externo FROM averbacoes ave INNER JOIN pessoas pes ON ave.pes_codigo = pes.pes_codigo INNER JOIN empresas emp ON ave.emp_codigo = emp.emp_codigo WHERE ave.ban_codigo = '".$_SESSION["banco"]."' AND pes.pes_cpf = '".$tfCPF."' ORDER BY pes.pes_nome";
 	$resultadoLinha = $conexao->selecionar($sql);
+	if($resultadoLinha == false){
+		die("CPF não encontrado!");
+	}
 	while($linha = mysqli_fetch_array($resultadoLinha)){
 		$sql = "SELECT count(*) FROM parcelas par WHERE par.ave_numero_externo='".$linha["ave_numero_externo"]."'";
 		$resultado = $conexao->selecionar($sql);

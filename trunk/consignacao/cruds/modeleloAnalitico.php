@@ -35,3 +35,4 @@
     <td><div align="center">R$ <?php echo($valorFaltaPagar); ?></div></td>
   </tr>
 </table>
+<br/>

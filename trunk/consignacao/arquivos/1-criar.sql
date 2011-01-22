@@ -1,3 +1,3 @@
 CREATE DATABASE consignacao
 	DEFAULT CHARACTER SET = utf8
-	DEFAULT COLLATE = utf8_general_ci	
+	DEFAULT COLLATE = utf8_general_ci;

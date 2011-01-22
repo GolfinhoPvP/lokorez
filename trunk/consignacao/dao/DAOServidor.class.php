@@ -78,5 +78,9 @@
 			$this->servidor->setDisponivel($linha["ser_disponivel"]);
 			return $this->servidor;
 		}
+		
+		public function setServidor($ser){
+			$this->servidor = $ser;
+		}
 	}
 ?>

@@ -1,6 +1,6 @@
 /*
 Created		12/1/2011
-Modified		21/1/2011
+Modified		22/1/2011
 Project		
 Model		
 Company		
@@ -89,6 +89,7 @@ Create table servidores (
 	ser_consignavel Double,
 	ser_utilizada Double,
 	ser_disponivel Double,
+	UNIQUE (ser_matricula),
  Primary Key (emp_codigo,pes_codigo,ser_matricula)) ENGINE = InnoDB;
 
 Create table parametros (
@@ -100,7 +101,7 @@ Create table parametros (
 
 Create table status (
 	sta_codigo Smallint NOT NULL AUTO_INCREMENT,
-	sta_nome Varchar(25),
+	sta_descricao Varchar(25),
  Primary Key (sta_codigo)) ENGINE = InnoDB;
 
 Create table averbacoes (
