@@ -62,18 +62,18 @@
 }
 #divMenu {
 	position:absolute;
-	left:15px;
-	top:7px;
+	left:17px;
+	top:17px;
 	width:auto;
 	height:auto;
 	z-index:1;
 }
 #conteudo {
 	position:absolute;
-	left: 76px;
-	top: 115px;
+	left: 17px;
+	top: 51px;
 	width: 759px;
-	height: 329px;
+	height: 525px;
 }
 body{
 	margin-left:0;

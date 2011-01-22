@@ -24,9 +24,9 @@
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
 		include_once("../../dao/DAOParametro.class.php");
-		$dao = new DAOParametro($periodo, 1, $data,"../../", $conexao);
+		$dao = new DAOParametro($periodo, 1, $data, NULL, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
-		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 11, "valor=\'".$periodo."\'", "../../", $conexao);
+		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 11, "Abriu=\'".$periodo."\'", "../../", $conexao);
 		if($dao->cadastrar() && $log->cadastrar())
 			$conexao->commit();
 		else

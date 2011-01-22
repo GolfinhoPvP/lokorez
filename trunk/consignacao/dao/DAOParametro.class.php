@@ -3,15 +3,15 @@
 		private $parametro;
 		private $conexao;
 		
-		function __construct($per, $sC, $datCor, $toRoot, $conex){
+		function __construct($per, $sC, $datCor, $lin, $toRoot, $conex){
 			include_once($toRoot."beans/Parametro.class.php");
 			include_once($toRoot."utils/ConectarMySQL.class.php");
-			$this->parametro = new Parametro($per, $sC, $datCor);
+			$this->parametro = new Parametro($per, $sC, $datCor, $lin);
 			$this->conexao = $conex;
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO parametros (par_periodo, sta_codigo, par_data_corte) VALUES ('".$this->parametro->getPeriodo()."', ".$this->parametro->getStaCodigo().", '".$this->parametro->getDataCorte()."')";
+			$sql = "INSERT INTO parametros (par_periodo, sta_codigo, par_data_corte, par_link) VALUES ('".$this->parametro->getPeriodo()."', ".$this->parametro->getStaCodigo().", '".$this->parametro->getDataCorte()."', '".$this->parametro->getLink()."')";
 			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar: ".$this->parametro->getPeriodo());
@@ -21,7 +21,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE parametros SET par_periodo = '".$this->parametro->getPeriodo()."', sta_codigo=".$this->parametro->getStaCodigo().", par_data_corte = '".$this->parametro->getDataCorte()."' WHERE par_periodo=".$valRef;
+			$sql = "UPDATE parametros SET par_periodo = '".$this->parametro->getPeriodo()."', sta_codigo=".$this->parametro->getStaCodigo().", par_data_corte = '".$this->parametro->getDataCorte()."', par_link = '".$this->parametro->getLink()."' WHERE par_periodo=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar: ".$this->parametro->getPeriodo());
 				return false;
@@ -52,6 +52,7 @@
 			$this->parametro->setPeriodo($linha["par_periodo"]);
 			$this->parametro->setStaCodigo($linha["sta_codigo"]);
 			$this->parametro->setDataCorte($linha["par_data_corte"]);
+			$this->parametro->setLink($linha["par_link"]);
 			return $this->parametro;
 		}
 	}

@@ -18,6 +18,8 @@
 				$_SESSION["banco"] = $linha["ban_codigo"];
 				$_SESSION["usuario"] = $linha["adm_nome_usuario"];
 				$_SESSION["senha"] = $linha["adm_senha"];
+				$linha = mysqli_fetch_array($conexao->selecionar("SELECT ban_descricao FROM bancos WHERE ban_codigo='".$linha["ban_codigo"]."'"));
+				$_SESSION["banco_nome"] = $linha["ban_descricao"];
 				include_once("../dao/DAOLog.class.php");
 				$log = new DAOLog($linha["pes_codigo"], 1, $linha["niv_codigo"], $linha["adm_codigo"], 1, "Realizou log-in no sistema!", "../", $conexao);
 				$log->cadastrar();

@@ -3,6 +3,12 @@
 	if(!isset($_SESSION["usuario"])){
 		header("Location: index.php");
 	}
+	
+	if($_SESSION["banco"] != "000"){
+		$banco = "Bem vindo: ".$_SESSION["banco_nome"];
+	}else{
+		$banco = "Bem vindo administrador!";
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,6 +31,7 @@
 <body>
 	<div id="desconectar" onclick="javascript: location.href = 'utils/desconectar.php';" style="cursor:pointer">
 		<img src="imagens/desconectar.png" /></div>
+	<div id="legendaBanco"><?php echo($banco); ?></div>
 	<div id="divMenu">
 	  <ul id="menu">
 		  <li>
@@ -72,15 +79,14 @@
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadParametro.php');">Abrir</div>
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altParametro.php');">Encerrar</div>
 				</div></div>
-			</li>
+		</li>
 			 <li>
 			<div alt="Averba&ccedil;&otilde;es" width="100px" height="100px" title="ZZZZZZ">Averba&ccedil;&otilde;es</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadAverbacao.php');">Cadastrar</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altAverbacao.php');">Alterar</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delAverbacao.php');">Deletar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadAverbacao.php');">Averbar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/bancoRelatorios.php');">Relat&oacute;rios</div>
 			</li>
 	  </ul>
-	</div>
-	<iframe id="conteudo" name="conteudo" frameBorder="0"></iframe>
+</div>
+	<iframe id="conteudo" name="conteudo" frameBorder="1"></iframe>
 </body>
 </html>

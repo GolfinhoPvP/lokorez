@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include_once("../../utils/funcoes.php");
 	$slSerRef 	= isset($_POST["slSerRef"]) ? $_POST["slSerRef"] : NULL;
 	$tfNumExt 	= isset($_POST["tfNumExt"]) ? $_POST["tfNumExt"] : NULL;
 	$slPer 		= isset($_POST["slPer"]) ? $_POST["slPer"] : NULL;
@@ -42,7 +43,8 @@
 		
 		for($x=1; $x <= $slPar; $x++){
 			include_once("../../dao/DAOParcela.class.php");
-			$dao = new DAOParcela($x, $tfNumExt, 1, $slPer, $valor, NULL,  "../../", $conexao);
+			$dao = new DAOParcela($x, $tfNumExt, 1, $slPer, $valor,  "../../", $conexao);
+			$slPer = avancarPeriodo($slPer);
 			include_once("../../dao/DAOLog.class.php");
 			$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 13, "num ext=\'".$tfNumExt."\'", "../../", $conexao);
 			if(!$dao->cadastrar() || !$log->cadastrar())

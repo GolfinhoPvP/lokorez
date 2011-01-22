@@ -26,7 +26,7 @@
 </head>
 
 <body style="visibility:hidden">
-<div id="central" align="center">  <span class="texto3">OnSysConsig - Sistema de Consigna&ccedil;&atilde;o On-line<br />
+<div id="central" align="center">  <span class="texto3">SysConsig - Sistema de Consigna&ccedil;&atilde;o On-line<br />
 </span>
   <table width="361" height="140" border="0" cellpadding="0" cellspacing="0">
   <tr>
