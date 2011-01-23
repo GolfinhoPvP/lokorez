@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
+	
 	include_once("../../utils/funcoes.php");
 	$tipo = isset($_GET["tipo"]) ? $_GET["tipo"] : NULL;
 	$banco = isset($_GET["banco"]) ? $_GET["banco"] : NULL;
@@ -80,7 +83,7 @@
 						$conexao->commit();
 					else
 						$conexao->rollback();
-					header("Location: cadPessoa.php");
+					header("Location: cadPessoa.php?cad=ok");
 					die();
 				}else{
 					$comitar = false;
@@ -99,7 +102,7 @@
 						$conexao->commit();
 					else
 						$conexao->rollback();
-					header("Location: cadPessoa.php");
+					header("Location: cadPessoa.php?cad=ok");
 					die();
 				}else{
 					$comitar = false;
@@ -112,6 +115,7 @@
 			$conexao->rollback();
 	}	
 	$destino = "cadPessoa.php?tipo=".$tipo."&cadastrar=ok";
+	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -120,7 +124,7 @@
 	<title>Untitled Document</title>
 	<style type="text/css">
 			<!--
-			@import url("../../scripts/css/pessoa.css");
+			@import url("../../scripts/css/geral.css");
 			-->
 		</style>
 	<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
@@ -176,61 +180,70 @@
 </head>
 
 <body>
+<?php
+	if($del != NULL){
+		$tipo = "del";
+		$toRoot = "../../";
+		include("../../includes/confirmar.php");
+	}else{
+		echo('<div id="confirmar"></div>');
+	}
+?>
 <div id="carregando">
 </div>
 <div id="valor" style="visibility:hidden"><?php echo($banco); ?></div>
 <div id="tipo" style="visibility:hidden"><?php echo($tipo); ?></div>
 <form id="form1" name="form1" method="post" action="<?php echo($destino); ?>" onsubmit="javascript: return validarPessoaCadSubmit();">
   <div id="sletorTipo" >
-  Selecione o tipo de cadastro:
-  <select name="slTipo" id="slTipo" onchange="javascript: testarTipo();">
+  <span class="texto2">Selecione o tipo de cadastro:</span>
+  <select name="slTipo" class="tf1" id="slTipo" onchange="javascript: testarTipo();">
     <option value="---" selected="selected">----------------------</option>
     <option value="contato">Contato</option>
     <option value="admin">Administrador</option>
   </select>
   <br />
   </div>
-  Nome: 
-<input name="tfNome" type="text" id="tfNome" size="75" maxlength="150" onkeyup="javascript: validarPessoaForm('tfNome');"/>
+  <span class="texto2">Nome:  </span>
+  <input name="tfNome" type="text" class="tf1" id="tfNome" onkeyup="javascript: validarPessoaForm('tfNome');" size="75" maxlength="150"/>
   <br />
-CPF: 
-
-<input name="tfCPF" type="text" id="tfCPF" size="14" maxlength="14" onkeyup="javascript: validarPessoaForm('tfCPF');" />
+  <span class="texto2">CPF:</span> 
+<input name="tfCPF" type="text" class="tf1" id="tfCPF" onkeyup="javascript: validarPessoaForm('tfCPF');" size="14" maxlength="14" />
 
 <br/>
-<input name="tfFoneCont" type="text" id="tfFoneCont" value="1" size="5" maxlength="5" style="visibility:hidden"/>
-<input name="btMaisFones" type="button" id="btMaisFones" value="+ Telefones" onclick="javascript: addTel('telefone');" />
-<div id="telefone">Telefone para contato:
-<input name="tfPesFone1" type="text" id="tfPesFone1" size="12" maxlength="12" onkeyup="javascript: validarPessoaForm('tfPesFone1');"/>
- Ex: XX-XXXX-XXXX <br/>
+<input name="tfFoneCont" type="text" class="tf1" id="tfFoneCont" style="visibility:hidden" value="1" size="5" maxlength="5"/>
+<input name="btMaisFones" type="button" class="bt1" id="btMaisFones" onclick="javascript: addTel('telefone');" value="+ Telefones" />
+<div id="telefone"><span class="texto2">Telefone para contato:</span>
+<input name="tfPesFone1" type="text" class="tf1" id="tfPesFone1" onkeyup="javascript: validarPessoaForm('tfPesFone1');" size="12" maxlength="12"/>
+ <span class="alerta1">Ex: XX-XXXX-XXXX </span><br/>
 </div>
 <div id="apenasContato">
-Pertence ao Banco:
-<select name="slBancRef" id="slBancRef" onchange="javascript: validarPessoaForm('slBancRef');">
+<span class="texto2">Pertence ao Banco:</span>
+<select name="slBancRef" class="tf1" id="slBancRef" onchange="javascript: validarPessoaForm('slBancRef');">
   <option value="---" selected="selected">---------------------------</option>
 </select>
 </div>
 <br />
 <div id="apenasAdmin">
-Nome de usu&aacute;rio:
-<input name="tfNomeUsuario" type="text" id="tfNomeUsuario" size="25" maxlength="25" onkeyup="javascript: validarPessoaForm('tfNomeUsuario');"/>
+<span class="texto2">Nome de usu&aacute;rio:</span>
+<input name="tfNomeUsuario" type="text" class="tf1" id="tfNomeUsuario" onkeyup="javascript: validarPessoaForm('tfNomeUsuario');" size="25" maxlength="25"/>
 <br />
-Digite uma senha: 
-<input name="tfSenha1" type="password" id="tfSenha1" size="20" maxlength="15" onkeyup="javascript: validarPessoaForm('tfSenha1');"/>
+<span class="texto2">Digite uma senha:</span> 
+<input name="tfSenha1" type="password" class="tf1" id="tfSenha1" onkeyup="javascript: validarPessoaForm('tfSenha1');" size="20" maxlength="15"/>
 <br />
-Confirme a senha:
-<input name="tfSenha2" type="password" id="tfSenha2" size="20" maxlength="15" onkeyup="javascript: validarPessoaForm('tfSenha2'); verificarIgualdade();"/>
+<span class="texto2">Confirme a senha:</span>
+<input name="tfSenha2" type="password" class="tf1" id="tfSenha2" onkeyup="javascript: validarPessoaForm('tfSenha2'); verificarIgualdade();" size="20" maxlength="15"/>
 <br />
-N&iacute;vel de acesso:
+<span class="texto2">N&iacute;vel de acesso:</span>
 <label>
-<select name="slNivel" id="slNivel" onchange="javascript: validarPessoaForm('slNivel');">
+<select name="slNivel" class="tf1" id="slNivel" onchange="javascript: validarPessoaForm('slNivel');">
   <option value="---" selected="selected">----------------------------</option>
 </select>
 </label>
 </div>
-<br />
-<input name="btCad" type="submit" id="btCad" value="Cadastrar" />
-</p>
+<div align="center"><br />
+    <input name="btCad" type="submit" class="bt1" id="btCad" value="Cadastrar" />
+    </p>
+</div>
 </form>
 </body>
 </html>
