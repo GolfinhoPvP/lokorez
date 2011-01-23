@@ -1,5 +1,8 @@
 <?php
 	include_once("../../utils/ConectarMySQL.class.php");
+	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
 	
 	$conexao = new ConectarMySQL();
 	
@@ -12,4 +15,5 @@
 	while($linha = mysqli_fetch_array($resultado)){
 		echo('<option value="'.$linha["emp_codigo"].'">'.utf8_encode($linha["emp_descricao"]).'</option>');
 	}
+	$conexao->commit();
 ?>

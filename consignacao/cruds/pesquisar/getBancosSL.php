@@ -1,5 +1,8 @@
 <?php
 	include_once("../../utils/ConectarMySQL.class.php");
+	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
 	
 	$conexao = new ConectarMySQL();
 	

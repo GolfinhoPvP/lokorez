@@ -1,6 +1,7 @@
 // JavaScript Document
 function validarDescricaoEmpresa(id){
-	descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){2,100}$/;
+	descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|-|:|_|\.){2,100}$/;
+	document.getElementById("confirmar").style.visibility = "hidden";
 	if(!document.getElementById(id).tfEmpDesc.value.match(descricaoExpReg)){
 		document.getElementById(id).tfEmpDesc.style.background = "#FF0000";
 		return false;
@@ -12,6 +13,7 @@ function validarDescricaoEmpresa(id){
 }
 
 function validarDeletarEmpresa(id){
+	document.getElementById("confirmar").style.visibility = "hidden";
 	if(document.getElementById(id).slEmpRef.value == "---"){
 		document.getElementById(id).slEmpRef.style.background = "#FF0000";
 		return false;

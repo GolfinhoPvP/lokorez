@@ -3,21 +3,17 @@
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
 	$slProRef = isset($_POST["slProRef"]) ? $_POST["slProRef"] : NULL;
+	
 	if($slProRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
-		include_once("../../dao/DAOLog.class.php");
-		$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 3, "id=\'".$slProRef."\'", "../../", $conexao);
 		include_once("../../dao/DAOProduto.class.php");
+		include_once("../../beans/Produto.class.php");
 		$dao = new DAOProduto(NULL, NULL, "../../", $conexao);
-		if($dao->deletar($slProRef) && $log->cadastrar())
-			$conexao->commit();
-		else
-			$conexao->rollback();
-		header("Location: delProduto.php?del=ok");
-		die();
+		$produto = new Produto(NULL, NULL, NULL);
+		$produto = $dao->getProduto($slProRef);
+		$conexao->commit();
 	}
-	$cad = isset($_GET["del"]) ? $_GET["del"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,24 +34,22 @@
 		</script>
 	</head>
 	<body>
-		<?php
-			if($cad != NULL){
-				$tipo = "del";
-				$toRoot = "../../";
-				include("../../includes/confirmar.php");
-			}else{
-				echo('<div id="confirmar"></div>');
-			}
-		?>
-		<div id="carregando">		</div>
-		<form id="produtoDeletar" name="bancoDeletar" method="post" action="#"  onsubmit="javascript: return validarProdutoDelSubmit('bancoDeletar');">
-		  <div><span class="texto2">Produto a ser deletado:</span>
-		    <select name="slProRef" class="tf1" id="slProRef" onchange="javascript: validarProdutoForm('slProRef');">
-          <option value="---" selected="selected">---------------------------</option>
-        </select></div>
+		<div id="carregando"></div>
+		<div id="confirmar" style="position:absolute"></div>
+		<form id="produtoPesquisar" name="produtoPesquisar" method="post" action="#" onsubmit="javascript: return validarProdutoForm('slProRef');">
+		  <div>
+		  <span class="texto2">Selecione o produto a ser pesquisado:</span> 
+		  <select name="slProRef" class="tf1" id="slProRef" onchange="javascript: validarProdutoForm('slProRef');">
+		    <option value="---">-----------------------------</option>
+	      </select></div>
 		  <div align="center"><br />
-		    <input name="btBanDel" type="submit" class="bt1" id="btProDel" value="Deletar" />
+		    <input name="btProPes" type="submit" class="bt1" id="btProPes" value="Pesquisar" />
 	        </div>
 		</form>
+		<?php 
+			if($slProRef != NULL){
+				include("includeProdutoBox.php");
+			}
+		?>
 	</body>
 </html>

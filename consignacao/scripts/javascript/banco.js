@@ -8,6 +8,7 @@ function validarBancoForm(id){
 		case "slBancRef" : descricaoExpReg = /^[0-9]{3,3}$/; break;
 		default : descricaoExpReg = /^([ ]{0,14}|[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4})$/; break;
 	}
+	document.getElementById("confirmar").style.visibility = "hidden";
 	
 	if(!document.getElementById(id).value.match(descricaoExpReg)){
 		document.getElementById(id).style.background = "#FF0000";
@@ -82,5 +83,5 @@ function inverter(id){
 function addTel(id){
 	document.getElementById("tfFoneCont").value = parseInt(document.getElementById("tfFoneCont").value) + 1;
 	cont = document.getElementById("tfFoneCont").value;
-	document.getElementById(id).innerHTML += 'Telefone para contato: <input name="tfPesFone'+cont+'" type="text" id="tfPesFone'+cont+'" size="12" maxlength="12" onkeyup="javascript: validarBancoForm(\'tfPesFone'+cont+'\');"/><label> Ex: XX-XXXX-XXXX </label><br />';
+	document.getElementById(id).innerHTML += '<span class="texto2">Telefone para contato: </span><input name="tfPesFone'+cont+'" type="text" class="tf1" id="tfPesFone'+cont+'" size="12" maxlength="12" onkeyup="javascript: validarBancoForm(\'tfPesFone'+cont+'\');"/><label class="alerta1"> Ex: XX-XXXX-XXXX </label><br />';
 }

@@ -1,13 +1,14 @@
 // JavaScript Document
-// JavaScript Document
 function validarProdutoForm(id){
 	switch(id){
 		case "tfProDesc" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){2,100}$/; break;
-		case "tfProPrazMax" : descricaoExpReg = /^[0-9]{2,2}$/; break;
+		case "tfProPrazMax" : descricaoExpReg = /^[0-9]{1,2}$/; break;
 		case "slProRef" : descricaoExpReg = /[^---]/; break;
 		case "slBancRef" : descricaoExpReg = /^[0-9]{3,3}$/; break;
 		default : descricaoExpReg = /^([ ]{0,14}|[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4})$/; break;
 	}
+	
+	document.getElementById("confirmar").style.visibility = "hidden";
 	
 	if(!document.getElementById(id).value.match(descricaoExpReg)){
 		document.getElementById(id).style.background = "#FF0000";
@@ -36,7 +37,7 @@ function validarProdutoDelSubmit(id){
 
 function comum(l){
 	for(x=0; x<l.length; x++){
-		if(!validarBancoForm(l[x]))
+		if(!validarProdutoForm(l[x]))
 			return false;
 	}
 	return true;
