@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
 	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
 	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
 	
@@ -67,7 +69,7 @@
 				$conexao->commit();
 			else
 				$conexao->rollback();
-			header("Location: cadBanco.php");
+			header("Location: cadBanco.php?cad=ok");
 			die();
 		}else{
 			$comitar = false;
@@ -77,6 +79,7 @@
 		else
 			$conexao->rollback();
 	}
+	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -85,7 +88,7 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/banco.css");
+			@import url("../../scripts/css/geral.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
@@ -113,39 +116,41 @@
 		</script>
 	</head>
 	<body>
-		<div id="carregando">
-		</div>
+		<?php
+			if($cad != NULL){
+				$tipo = "cad";
+				$toRoot = "../../";
+				include("../../includes/confirmar.php");
+			}else{
+				echo('<div id="confirmar"></div>');
+			}
+		?>
+		<div id="carregando"></div>
 		<form id="bancoCadastro" name="bancoCadastro" method="post" action="#" onsubmit="javascript: return validarBancoCadSubmit();">
-		  <label>
-		  Insira o c&oacute;digo do banco:
-		  <input name="tfBanCod" type="text" id="tfBanCod" size="5" maxlength="3" onkeyup="javascript: validarBancoForm('tfBanCod');"/>
-		  <br />
-		  Descri&ccedil;a&otilde;:
-		  </label>
-		  <input name="tfBanDesc" type="text" id="tfBanDesc" size="50" maxlength="100" onkeyup="javascript: validarBancoForm('tfBanDesc');"/>
-		  <br />
-		  <div id="seletor">Selecione um contato: 
-		  <label>
-		  <select name="slBanContat" id="slBanContat">
+		  <div><span class="texto2">Insira o c&oacute;digo do banco:</span>
+	  	  <input name="tfBanCod" type="text" class="tf1" id="tfBanCod" onkeyup="javascript: validarBancoForm('tfBanCod');" size="5" maxlength="3"/></div>
+		  <span class="texto2">Descri&ccedil;a&otilde;:</span>
+		  <input name="tfBanDesc" type="text" class="tf1" id="tfBanDesc" onkeyup="javascript: validarBancoForm('tfBanDesc');" size="50" maxlength="100"/></div>
+		  <div id="seletor"><span class="texto2">Selecione um contato:</span> 
+		  	<select name="slBanContat" class="tf1" id="slBanContat">
 		    <option value="---" selected="selected">-----------------------------</option>
-	      </select>
-		  </label></div>
-		   ou Novo contato: 
-		   <label>
-		   <input id="cbNovoContat" type="checkbox" name="cbNovoContat" value="velho" onchange="javascript: inverter('cbNovoContat');"/>
-		   </label>
-		   <br />
-		<div id="pessoa" style="visibility:hidden; height:0px">Nome do contato:  
-		<input name="tfBanContat" type="text" id="tfBanContat" size="75" maxlength="150" onkeyup="javascript: validarBancoForm('tfBanContat');"/>
-		<label>
-		<input name="tfFoneCont" type="text" id="tfFoneCont" value="1" size="5" maxlength="5" style="visibility:hidden"/>
-		</label>
-		<br /><input name="btMaisFones" type="button" id="btMaisFones" value="+ Telefones" onclick="javascript: addTel('telefone');" />
-		<div id="telefone">Telefone para contato:
-		<input name="tfPesFone1" type="text" id="tfPesFone1" size="12" maxlength="12" onkeyup="javascript: validarBancoForm('tfPesFone1');"/>
-		  <label> Ex: XX-XXXX-XXXX </label>
+	      </select></div>
+		  <div><span class="texto2">ou Novo contato: 
+		   </span>
+		    <input name="cbNovoContat" type="checkbox" class="tf1" id="cbNovoContat" onchange="javascript: inverter('cbNovoContat');" value="velho"/>
+	      </div>
+		<div id="pessoa" style="visibility:hidden; height:0px"><div><span class="texto2">Nome do contato:</span>  
+		<input name="tfBanContat" type="text" class="tf1" id="tfBanContat" onkeyup="javascript: validarBancoForm('tfBanContat');" size="75" maxlength="150"/></div>
+		<div><input name="tfFoneCont" type="text" class="tf1" id="tfFoneCont" style="visibility:hidden" value="1" size="5" maxlength="5"/></div>
+		<div><input name="btMaisFones" type="button" class="bt1" id="btMaisFones" onclick="javascript: addTel('telefone');" value="+ Telefones" /></div>
+		<div id="telefone"><span class="texto2">Telefone para contato:</span>
+		<input name="tfPesFone1" type="text" class="tf1" id="tfPesFone1" onkeyup="javascript: validarBancoForm('tfPesFone1');" size="12" maxlength="12"/>
+		  <label class="alerta1"> Ex: XX-XXXX-XXXX </label>
 		  <br /></div></div>
-		  <input name="btBanCad" type="submit" id="btBanCad" value="Cadastrar" />
-		  </label></form>
+		  <div align="center">
+		    <input name="btBanCad" type="submit" class="bt1" id="btBanCad" value="Cadastrar" />
+		    </label>
+	      </div>
+		</form>
 	</body>
 </html>

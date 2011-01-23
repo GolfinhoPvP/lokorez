@@ -7,5 +7,5 @@
 	$log->cadastrar();
 	$conexao->commit();
 	session_destroy();
-	header("Location: ../main.php");
+	header("Location: ../index.php");
 ?>

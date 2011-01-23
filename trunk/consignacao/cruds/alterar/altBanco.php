@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
 	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
 	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
 	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
@@ -19,9 +21,6 @@
 		die();
 	}
 	$alt = isset($_GET["alt"]) ? $_GET["alt"] : NULL;
-	if($alt == "ok"){
-		echo("Alteração OK!");
-	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,7 +29,7 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/banco.css");
+			@import url("../../scripts/css/geral.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
@@ -64,25 +63,34 @@
 		</script>
 	</head>
 	<body>
+		<?php
+			if($alt != NULL){
+				$tipo = "alt";
+				$toRoot = "../../";
+				include("../../includes/confirmar.php");
+			}else{
+				echo('<div id="confirmar"></div>');
+			}
+		?>
+		<br/>
 		<div id="alt" style="visibility:hidden; position:absolute">
 		</div>
 		<div id="carregando">
 		</div>
 		<form id="bancoAlterar" name="bancoAlterar" method="post" action="#"  onsubmit="javascript: return validarBancoAltSubmit();">
-		Banco a ser alterado:
-		<select name="slBancRef" id="slBancRef" onchange="javascript: carregarAlteracoes();">
+		<div><span class="texto2">Banco a ser alterado:</span>
+		<select name="slBancRef" class="tf1" id="slBancRef" onchange="javascript: carregarAlteracoes();">
           <option value="---" selected="selected">---------------------------</option>
-        </select>
-		<br />
-		Insira o c&oacute;digo do banco:
-		<input name="tfBanCod" type="text" id="tfBanCod" size="5" maxlength="3" onkeyup="javascript: validarBancoForm('tfBanCod');"/>
-		<br />
-		Descri&ccedil;&atilde;o:
-		<input name="tfBanDesc" type="text" id="tfBanDesc" size="50" maxlength="100" onkeyup="javascript: validarBancoForm('tfBanDesc');"/>
-		<br />
-		<input name="btBanAlt" type="submit" id="btBanAlt" value="Alterar" />
-		<br />
+        </select></div>
+		<div><span class="texto2">Insira o c&oacute;digo do banco:</span>
+		<input name="tfBanCod" type="text" class="tf1" id="tfBanCod" onkeyup="javascript: validarBancoForm('tfBanCod');" size="5" maxlength="3"/></div>
+		<div><span class="texto2">Descri&ccedil;&atilde;o:</span>
+		<input name="tfBanDesc" type="text" class="tf1" id="tfBanDesc" onkeyup="javascript: validarBancoForm('tfBanDesc');" size="50" maxlength="100"/></div>
+		<div align="center"><br />
+	      <input name="btBanAlt" type="submit" class="bt1" id="btBanAlt" value="Alterar" />
+		  </div>
 		</form>
-	    <input name="btContat" type="button" id="btContat" value="Clique aqui para Adicionar ou Modificar um contato deste banco!" onclick="javascript: manipularContato();"/>
+	    <br />
+	    <input name="btContat" type="button" class="bt1" id="btContat" onclick="javascript: manipularContato();" value="Clique aqui para Adicionar ou Modificar um contato deste banco!"/>
 </body>
 </html>

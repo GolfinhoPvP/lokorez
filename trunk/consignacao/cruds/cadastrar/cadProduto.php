@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
 	$tfProDesc = isset($_POST["tfProDesc"]) ? $_POST["tfProDesc"] : NULL;
 	$tfProPrazMax = isset($_POST["tfProPrazMax"]) ? $_POST["tfProPrazMax"] : NULL;
 	if($tfProDesc != NULL && $tfProPrazMax != NULL){
@@ -13,9 +15,10 @@
 			$conexao->commit();
 		else
 			$conexao->rollback();
-		header("Location: cadProduto.php");
+		header("Location: cadProduto.php?cad=ok");
 		die();
 	}
+	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,20 +27,30 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/produto.css");
+			@import url("../../scripts/css/geral.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/produto.js"></script>
 	</head>
 	<body>
-		<form id="produtoCadastro" name="produtoCadastro" method="post" action="#"  onsubmit="javascript: return validarProdutoCadSubmit('produtoCadastro');">
-		  <label>		  Descri&ccedil;a&otilde;:		  </label>
-		  <input name="tfProDesc" type="text" id="tfProDesc" size="50" maxlength="100" onkeyup="javascript: validarProdutoForm('tfProDesc');"/>
-		  <br />
-		Prazo m&aacute;ximo:  
-		<input name="tfProPrazMax" type="text" id="tfProPrazMax" size="5" maxlength="2" onkeyup="javascript: validarProdutoForm('tfProPrazMax');"/>
-		<label><br />
-		  <input name="btProCad" type="submit" id="btProCad" value="Cadastrar" />
-		  </label></form>
+		<?php
+			if($cad != NULL){
+				$tipo = "cad";
+				$toRoot = "../../";
+				include("../../includes/confirmar.php");
+			}else{
+				echo('<div id="confirmar"></div>');
+			}
+		?>
+		<form id="produtoCadastro" name="produtoCadastro" method="post" action="#"  onsubmit="javascript: return validarProdutoCadSubmit();"><div><span class="texto2">Descri&ccedil;a&otilde;: </span>
+		  <input name="tfProDesc" type="text" class="tf1" id="tfProDesc" onkeyup="javascript: validarProdutoForm('tfProDesc');" size="50" maxlength="100"/></div>
+		  <div>
+		<span class="texto2">Prazo m&aacute;ximo:</span>  
+		<input name="tfProPrazMax" type="text" class="tf1" id="tfProPrazMax" onkeyup="javascript: validarProdutoForm('tfProPrazMax');" size="5" maxlength="2"/>
+		</div>
+		  <div align="center"><br />
+		    <input name="btProCad" type="submit" class="bt1" id="btProCad" value="Cadastrar" />
+	      </div>
+		</form>
 	</body>
 </html>

@@ -20,7 +20,8 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE verbas SET ver_verba = '".$this->verba->getDescricao()."', emp_codigo = ".$this->verba->getDescricao().", ban_codigo = '".$this->verba->getDescricao()."', pro_codigo = ".$this->verba->getDescricao().", ver_descricao = '".$this->verba->getDescricao()."' WHERE ver_verba=".$valRef;
+			$sql = "UPDATE verbas SET ver_verba = '".$this->verba->getVerba()."', emp_codigo = ".$this->verba->getEmpCodigo().", ban_codigo = '".$this->verba->getBanCodigo()."', pro_codigo = ".$this->verba->getProCodigo().", ver_descricao = '".$this->verba->getDescricao()."' WHERE ver_verba=".$valRef;
+			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar: ".$this->verba->getDescricao());
 				return false;

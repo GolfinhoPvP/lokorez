@@ -24,11 +24,11 @@
 				$log = new DAOLog($linha["pes_codigo"], 1, $linha["niv_codigo"], $linha["adm_codigo"], 1, "Realizou log-in no sistema!", "../", $conexao);
 				$log->cadastrar();
 				$conexao->commit();
-				header("Location: ../admin.php");
+				header("Location: ../main.php");
 				die();
 			}
 		}
 		$conexao->commit();
 	}
-	header("Location: ../main.php?login=erro");
+	header("Location: ../index.php?login=erro");
 ?>
