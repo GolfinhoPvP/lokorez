@@ -70,3 +70,5 @@ SELECT e.emp_descricao, b.ban_descricao, p.pro_descricao FROM verbas v
 		INNER JOIN produtos p
 			ON v.pro_codigo=p.pro_codigo
 	WHERE v.ver_verba = 123
+
+SELECT * FROM administradores WHERE pes_codidigo=4

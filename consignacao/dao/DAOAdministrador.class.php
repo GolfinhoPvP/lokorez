@@ -46,12 +46,24 @@
 			switch($atributo){
 				case "cod" : $sql = "SELECT * FROM administradores WHERE adm_codigo=".$valRef; break;
 				case "nomUsu" : $sql = "SELECT * FROM administradores WHERE adm_nome_usuario='".$valRef."'"; break;
+				case "codPes" : $sql = "SELECT * FROM administradores WHERE pes_codigo=".$valRef; break;
 			}
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar: ".$this->administrador->getNomeUsuario());
 			}
 			return $resultado;
+		}
+		
+		public function getAdministrador($atributo, $valRef){
+			$linha = mysqli_fetch_array($this->pesquisar($atributo, $valRef));
+			$this->administrador->setCodigo($linha["adm_codigo"]);
+			$this->administrador->setPesCodigo($linha["pes_codigo"]);
+			$this->administrador->setNivCodigo($linha["niv_codigo"]);
+			$this->administrador->setBanCodigo($linha["ban_codigo"]);
+			$this->administrador->setNomeUsuario($linha["adm_nome_usuario"]);
+			$this->administrador->setSenha($linha["adm_senha"]);
+			return $this->administrador;
 		}
 	}
 ?>

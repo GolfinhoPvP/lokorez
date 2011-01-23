@@ -47,7 +47,7 @@
 			return $resultado;
 		}
 		
-		public function getPessoa($valRef){
+		public function getBancoPessoa($valRef){
 			$linha = mysqli_fetch_array($this->pesquisar("%", $valRef));
 			$this->bancoPessoa->setBanCodigo($linha["ban_codigo"]);
 			$this->bancoPessoa->setPesCodigo($linha["pes_codigo"]);

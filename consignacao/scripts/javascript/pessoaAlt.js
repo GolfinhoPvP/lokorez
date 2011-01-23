@@ -97,7 +97,9 @@ function carregarTelefones(){
 				document.getElementById("bancosAlt").innerHTML = xmlRequest1.responseText;
 				contador = parseInt(document.getElementById("TQuantidade").innerHTML);
 				for(x=1; x<=contador; x++){
-					document.getElementById("fonesAuto").innerHTML += 'Telefone para contato: <input name="tfTelRef'+x+'" type="text" id="tfTelRef'+x+'" size="12" maxlength="12" onkeyup="javascript: validarPessoaForm(\'tfPesFone\');"/> Ex: XX-XXXX-XXXX <br/>';
+					document.getElementById("fonesAuto").innerHTML += '<span class="texto2">Telefone para contato: </span><input name="tfPesFone'+x+'" type="text" class="tf1" id="tfPesFone'+x+'" size="12" maxlength="12" onkeyup="javascript: validarBancoForm(\'tfPesFone'+cont+'\');"/><label class="alerta1"> Ex: XX-XXXX-XXXX </label><br />';
+					
+					//'Telefone para contato: <input name="tfTelRef'+x+'" type="text" id="tfTelRef'+x+'" size="12" maxlength="12" onkeyup="javascript: validarPessoaForm(\'tfPesFone\');"/> Ex: XX-XXXX-XXXX <br/>';
 					document.getElementById(("tfTelRef"+x)).value = document.getElementById(("tN"+x)).innerHTML;
 				}
 				carregarBancos();
@@ -120,7 +122,7 @@ function carregarBancos(){
 				document.getElementById("bancosAlt").innerHTML = xmlRequest3.responseText;
 				contador = parseInt(document.getElementById("BPQuantidade").innerHTML);
 				for(x=1; x<=contador; x++){
-					document.getElementById("bancoAuto").innerHTML += '&Eacute; contato do banco: <select name="slBancRef'+x+'" id="slBancRef'+x+'" onchange="javascript: validarPessoaForm(\'slBancRef\');">'+xmlRequest3.responseText+'</select>';
+					document.getElementById("bancoAuto").innerHTML += '<span class="texto2">&Eacute; contato do banco: </span><select name="slBancRef'+x+'" id="slBancRef'+x+'" class="tf1" onchange="javascript: validarPessoaForm(\'slBancRef\');">'+xmlRequest3.responseText+'</select>';
 					document.getElementById(("slBancRef"+x)).value = document.getElementById(("cB"+x)).innerHTML;
 				}
 			}

@@ -100,13 +100,13 @@ function comum(l){
 function addTel(id){
 	document.getElementById("tfFoneCont").value = parseInt(document.getElementById("tfFoneCont").value) + 1;
 	cont = document.getElementById("tfFoneCont").value;
-	document.getElementById(id).innerHTML += 'Adicionar telefone para contato: <input name="tfPesFone'+cont+'" type="text" id="tfPesFone'+cont+'" size="12" maxlength="12" onkeyup="javascript: validarPessoaForm(\'tfPesFone'+cont+'\');"/><label> Ex: XX-XXXX-XXXX </label><br />';
+	document.getElementById(id).innerHTML += '<span class="texto2">Telefone para contato: </span><input name="tfPesFone'+cont+'" type="text" class="tf1" id="tfPesFone'+cont+'" size="12" maxlength="12" onkeyup="javascript: validarBancoForm(\'tfPesFone'+cont+'\');"/><label class="alerta1"> Ex: XX-XXXX-XXXX </label><br />';
 }
 
 function addBan(id){
 	document.getElementById("tfBanCont").value = parseInt(document.getElementById("tfBanCont").value) + 1;
 	cont = document.getElementById("tfBanCont").value;
-	document.getElementById(id).innerHTML += 'Adicionar contato ao banco: <select name="slBan'+cont+'" id="slBan'+cont+'" onkeyup="javascript: validarPessoaForm(\'tfPesFone1\');"><option value="---" selected="selected">-----------------------------</option></select><br/>';
+	document.getElementById(id).innerHTML += '<span class="texto2">Adicionar contato ao banco: </span><select name="slBan'+cont+'" class="tf1" id="slBan'+cont+'" onkeyup="javascript: validarPessoaForm(\'tfPesFone1\');"><option value="---" selected="selected">-----------------------------</option></select><br/>';
 	document.getElementById("slBan"+cont).innerHTML = document.getElementById("bancosAlt").innerHTML;
 }
 

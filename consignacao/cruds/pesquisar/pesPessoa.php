@@ -10,32 +10,36 @@
 	if($slTipo != NULL && $slPesRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
+		
+		include_once("../../dao/DAOPessoa.class.php");
+		include_once("../../beans/Pessoa.class.php");
+		$dao = new DAOPessoa(NULL, NULL, NULL, "../../", $conexao);
+		$pessoa = new Pessoa(NULL, NULL, NULL, NULL);
+		$pessoa = $dao->getPessoa($slPesRef);
+		
 		switch($slTipo){
 			case "admin" : 
 				include_once("../../dao/DAOAdministrador.class.php");
-				$dao = new DAOAdministrador(NULL, NULL, NULL, NULL, "../../", $conexao);
-				include_once("../../dao/DAOLog.class.php");
-				$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 8, "id=\'".$slPesRef."\'", "../../", $conexao);
-				if($dao->deletar($slPesRef) && $log->cadastrar())
-					$conexao->commit();
-				else
-					$conexao->rollback();
+				$dao = new DAOAdministrador(NULL, NULL, NULL, NULL, NULL, "../../", $conexao);
+				include_once("../../beans/Administrador.class.php");
+				$administrador = new Administrador(NULL, NULL, NULL, NULL, NULL, NULL);
+				$administrador = $dao->getAdministrador("codPes", $pessoa->getCodigo());
 				break;
 			case "contato" :
 				include_once("../../dao/DAOBancoPessoa.class.php");
 				$dao = new DAOBancoPessoa(NULL, NULL, "../../", $conexao);
-				include_once("../../dao/DAOLog.class.php");
-				$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 7, "id=\'".$slPesRef."\'", "../../", $conexao);
-				if($dao->deletar("", $slPesRef) && $log->cadastrar())
-					$conexao->commit();
-				else
-					$conexao->rollback();
+				include_once("../../beans/BancoPessoa.class.php");
+				$bancoPessoa = new BancoPessoa(NULL, NULL);
+				$bancoPessoa = $dao->getBancoPessoa($pessoa->getCodigo());
+				
+				include_once("../../dao/DAOBanco.class.php");
+				$dao = new DAOBanco(NULL, NULL, "../../", $conexao);
+				include_once("../../beans/Banco.class.php");
+				$banco = new Banco(NULL, NULL);
+				$banco = $dao->getBanco($bancoPessoa->getBanCodigo());
 				break;
 		}
-		header("Location: delPessoa.php?del=ok");
-		die();
 	}
-	$del = isset($_GET["del"]) ? $_GET["del"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -83,15 +87,6 @@
 </head>
 
 <body>
-<?php
-	if($del != NULL){
-		$tipo = "del";
-		$toRoot = "../../";
-		include("../../includes/confirmar.php");
-	}else{
-		echo('<div id="confirmar"></div>');
-	}
-?>
 <div id="carregando">
 </div>
 <div id="tipo" style="visibility:hidden"><?php echo($tipo); ?></div>
@@ -111,9 +106,15 @@
     </div>
   </div>
   <div align="center"><br />
-    <input name="btDelPes" type="submit" class="bt1" id="btDelPes" value="Deletar" />
+    <input name="btPesPes" type="submit" class="bt1" id="btPesPes" value="Pesquisar" />
     </p>
   </div>
 </form>
+<?php 
+	if($slTipo != NULL && $slPesRef != NULL){
+		include("includePessoaBox.php");
+		$conexao->commit();
+	}
+?>
 </body>
 </html>
