@@ -1,6 +1,8 @@
 /* CSS Document */
 #menu {
-  margin:0; 
+  margin:0;
+  font-family:Georgia, "Times New Roman", Times, serif;
+  text-shadow:#666666;
   padding:0; 
   width: auto;
   height: auto;
@@ -8,7 +10,8 @@
 }
 #menu li {
   display:inline;
-  background-color:#0099FF;
+  background-image:url(../../imagens/butao1.png);
+  background-repeat:no-repeat;
   width:150px;
   list-style-type:none; 
 }
@@ -20,51 +23,42 @@
 }
 #menu li div#nav {
   margin:0.3em;
-  border:dotted;
-  border-color:#00CCFF;
-  float:left;
+  display:none;
 }
 #menu li div {
   margin:0.2em;
-  border:dotted;
-  border-color:#00CCFF;
 }
-#menu li div#nav {
-  display:none; 
-}
-
 #menu li:hover div#nav {
-  width:auto;
   display:block;
-  background-color:#00CCFF;
-  width:138px;
+  background-image:url(../../imagens/butao2.png);
+  background-repeat:no-repeat;
+  width:150px;
+  height:25px;
   cursor:pointer;
 }
 #menu li div#nav div#nav2 {
-	margin-left:140px;
-	margin-top:-23px;
-	border:dotted;
-	border-color:#00CCFF;
+	margin-left:147px;
+	margin-top:-22px;
 	position:absolute;
-	float:right;
 }
 #menu li div#nav div#nav2{
   display:none; 
 }
 #menu li div#nav div#nav2 div{
-	background:#0099FF;
+  	background-image:url(../../imagens/butao2.png);
+  	background-repeat:no-repeat;
+	width:150px;
+	height:25px;
+	margin:0.2em;
 }
 #menu li div#nav:hover div#nav2{
-  width:auto;
   display:block;
-  background-color:#00CCFF;
-  width:138px;
   cursor:pointer;
 }
 #divMenu {
 	position:absolute;
-	left:17px;
-	top:2px;
+	left:11px;
+	top:37px;
 	width:329px;
 	height:auto;
 	z-index:1;
@@ -72,17 +66,95 @@
 
 #desconectar{
 	position:absolute;
-	left: 726px;
-	top: 5px;
-	width: 44px;
+	left: 631px;
+	top: 4px;
+	width: 162px;
 	height: 57px;
 	z-index: 1;
 }
 
 #legendaBanco{
 	position:absolute;
-	left: 415px;
-	top: 33px;
+	left: 343px;
+	top: 57px;
 	z-index: 1;
 	width: 307px;
+}
+
+#capa{
+	position:absolute;
+	left: 10px;
+	top: 13px;
+	z-index:-1;
+	width: 843px;
+	height: 39px;
+}
+
+#fA{
+	position:absolute;
+	left: -1px;
+	top: 7px;
+}
+#fB{
+	position:absolute;
+	left: 733px;
+	top: 56px;
+}
+#fC{
+	position:absolute;
+	left: 242px;
+	top: 539px;
+}
+#fD{
+	position:absolute;
+	left: -1px;
+	top: 565px;
+}
+#fE{
+	position:absolute;
+	left: 17px;
+	top: 394px;
+	height: 171px;
+	background-image:url(../../imagens/bigr1.png);
+	background-repeat:repeat-y;
+	width: 32px;
+}
+#fF{
+	position:absolute;
+	left: 694px;
+	top: 63px;
+	background-image:url(../../imagens/bigr2.png);
+	background-repeat:repeat-x;
+	width: 40px;
+}
+#fG{
+	position:absolute;
+	left: 805px;
+	top: 368px;
+	height: 171px;
+	background-image:url(../../imagens/bigr3.png);
+	background-repeat:repeat-y;
+	width: 34px;
+}
+#fH{
+	position:absolute;
+	left: 203px;
+	top: 602px;
+	background-image:url(../../imagens/bigr4.png);
+	background-repeat:repeat-x;
+	width: 39px;
+	height: 39px;
+}
+#label{
+	position:absolute;
+	left: 62px;
+	top: 0px;
+	width: 573px;
+}
+#rodape{
+	position:absolute;
+	left: 606px;
+	top: 553px;
+	width: 189px;
+	z-index:2;
 }

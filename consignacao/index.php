@@ -24,7 +24,7 @@
 <script type="text/javascript" language="javascript" src="scripts/javascript/geral.js"></script>
 <script type="text/javascript" language="javascript">
 	window.onload = function(){
-		centralizador("central", 375, 210);
+		centralizador("central", 385, 210);
 		document.body.style.visibility = "visible";
 	}
 </script>
@@ -70,6 +70,7 @@
     </tr>
   </table>
   <span class="texto1">zerokolSoft - www.zerokol.com<br />
-aj.alves@live.com</span> </div>
+aj.alves@live.com<br />
+Teresina -PI </span></div>
 </body>
 </html>
