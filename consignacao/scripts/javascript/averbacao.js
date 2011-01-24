@@ -44,7 +44,7 @@ function validarAveCadSubmit(){
 
 function comum(l){
 	for(x=0; x<l.length; x++){
-		if(!validarVerForm(l[x]))
+		if(!validarForm(l[x]))
 			return false;
 	}
 	return true;

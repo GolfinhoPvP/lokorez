@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
+	
 	$tfDia = isset($_POST["tfDia"]) ? $_POST["tfDia"] : NULL;
 	$slMes = isset($_POST["slMes"]) ? $_POST["slMes"] : NULL;
 	$tfAno = isset($_POST["tfAno"]) ? $_POST["tfAno"] : NULL;
@@ -31,9 +34,10 @@
 			$conexao->commit();
 		else
 			$conexao->rollback();
-		header("Location: cadParametro.php");
+		header("Location: cadParametro.php?cad=ok");
 		die();
 	}
+	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,15 +46,25 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/empresa.css");
+			@import url("../../scripts/css/geral.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/parametro.js"></script>
 	</head>
 	<body>
+		<?php
+			if($cad != NULL){
+				$tipo = "cad";
+				$toRoot = "../../";
+				include("../../includes/confirmar.php");
+			}else{
+				echo('<div id="confirmar"></div>');
+			}
+		?>
 		<form id="parametroAbrir" name="periodoAbrir" method="post" action="#" onsubmit="javascript: return validarParametroCadSubmit();">
-		  <label>Abrir per&iacute;odo : 
-		  <select name="slMes" id="slMes" onchange="javascript: validarParametroForm('slMes');">
+		  <div><span class="texto2">Abrir per&iacute;odo : 
+		  M&ecirc;s</span>
+		  <select name="slMes" class="tf1" id="slMes" onchange="javascript: validarParametroForm('slMes');">
 		    <option value="---" selected="selected">------------</option>
 		    <option value="1">janeiro</option>
 		    <option value="2">fevereiro</option>
@@ -65,14 +79,17 @@
 		    <option value="11">novembro</option>
 		    <option value="12">dezembro</option>
 	      </select>
-		  <input name="tfAno" type="text" id="tfAno" size="10" maxlength="4" onkeyup="javascript: validarParametroForm('tfAno');"/>
-		  </label>
-		  <label> <br />
-		  Dia do corte:
-		  <input name="tfDia" type="text" id="tfDia" size="10" maxlength="2" onkeyup="javascript: validarParametroForm('tfDia');" />
-		  <br />
-		  <input name="btAbrir" type="submit" id="btAbrir" value="Abrir" />
-		  </label>
-	    </form>
+		  <span class="texto2">, Ano</span>: 
+		  <input name="tfAno" type="text" class="tf1" id="tfAno" onkeyup="javascript: validarParametroForm('tfAno');" size="10" maxlength="4"/>
+		  </div>
+		  <div>
+		  <span class="texto2">Dia do corte:</span>
+		  <input name="tfDia" type="text" class="tf1" id="tfDia" onkeyup="javascript: validarParametroForm('tfDia');" size="10" maxlength="2" />
+		  </div>
+		  <div align="center"><br />
+	        <input name="btAbrir" type="submit" class="bt1" id="btAbrir" value="Abrir" />
+	        </label>
+	        </div>
+		</form>
 	</body>
 </html>

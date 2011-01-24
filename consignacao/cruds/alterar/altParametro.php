@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:2:3:4";
+	include_once("../../utils/controladorAcesso.php");
+	
 	include_once("../../utils/funcoes.php");
 	$slPer = isset($_POST["slPer"]) ? $_POST["slPer"] : NULL;
 	$ffPlanilha = isset($_FILES["ffPlanilha"]) ? $_FILES["ffPlanilha"] : NULL;
@@ -177,9 +180,10 @@
 		}else{
 			$mysql->rollback();
 		}
-		/*header("Location: altParametro.php");
-		die();*/
+		header("Location: altParametro.php?alt=ok");
+		die();
 	}
+	$cad = isset($_GET["alt"]) ? $_GET["alt"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -188,7 +192,7 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/empresa.css");
+			@import url("../../scripts/css/geral.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
@@ -217,24 +221,40 @@
 		</script>
 	</head>
 	<body>
+		<?php
+			if($alt != NULL){
+				$tipo = "alt";
+				$toRoot = "../../";
+				include("../../includes/confirmar.php");
+			}else{
+				echo('<div id="confirmar"></div>');
+			}
+		?>
 		<div id="carregando">
 		</div>
 		<form id="periodoEncerrar" name="periodoEncerrar" method="post" action="" onsubmit="javascript: return validarParametroAltSubmit();">
-		  <label>Encerrar per&iacute;odo : 
-		  <select name="slPer" id="slPer" onchange="javascript: validarParametroForm('slPer');">
+		  <div><span class="texto2">Encerrar per&iacute;odo :</span> 
+		  <select name="slPer" class="tf1" id="slPer" onchange="javascript: validarParametroForm('slPer');">
 		    <option value="---">---</option>
-          </select><br />
-		  <input name="btEncerrar" type="submit" id="btEncerrar" value="Encerrar" />
-		  </label>
-    </form>
+          </select></div>
+		  <div align="center"><br />
+	        <input name="btEncerrar" type="submit" class="bt1" id="btEncerrar" value="Encerrar" />
+	        </label>
+	            </div>
+		</form>
+		<br/>
+		<br/>
 	<form id="plaImportar" name="plaImportar" enctype="multipart/form-data" method="post" action="">
-		<input name="ffPlanilha" type="file" id="ffPlanilha" size="65" />
-	    <br />
-	    <label>
-	    <input name="btImportar" type="submit" id="btImportar" value="Importar" />
+		<div><span class="texto2">Importar informa&ccedil;&otilde;es:</span>
+		  <input name="ffPlanilha" type="file" class="tf1" id="ffPlanilha" size="65" />
+      </div>
+	    <label> 
+	    <div align="center"><br />
+          <input name="btImportar" type="submit" class="bt1" id="btImportar" value="Importar" />
+        </div>
 	    </label>
 	</form>
-	<div>Arquivos dos periodos encerrados:<br />
+	<div><span class="tf1">Arquivos dos periodos encerrados:</span><br />
 	  <br />
 	  <br />
 	  <div id="links"></div>
