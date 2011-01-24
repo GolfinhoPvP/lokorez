@@ -15,7 +15,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Servi&ccedil;o de Consigna&ccedil;&atilde;o</title>
+<title>SysConsig - Servi&ccedil;o de Consigna&ccedil;&atilde;o On-line</title>
 <style type="text/css">
 	<!--
 	@import url("scripts/css/geral.css");
@@ -30,7 +30,7 @@
 </script>
 </head>
 
-<body style="visibility:hidden">
+<body id="corpo" style="visibility:hidden">
 <div id="central" align="center">  <span class="texto3">SysConsig - Sistema de Consigna&ccedil;&atilde;o On-line<br />
 </span>
   <table width="361" height="140" border="0" cellpadding="0" cellspacing="0">

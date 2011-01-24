@@ -1,9 +1,17 @@
 /* CSS Document */
 body{
-	margin-left: 0px;
-	margin-top: 00px;
+	margin-left: 15px;
+	margin-top: 15px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+}
+body#corpo{
+	margin-left: 0px;
+	margin-top: 0px;
+	background-image: url(../../imagens/bg.jpg);
+}
+iframe{
+	background-color:#FFFFFF;
 }
 #carregando{
 	position:absolute;

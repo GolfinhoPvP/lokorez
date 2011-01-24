@@ -14,7 +14,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Servi&ccedil;o de Consigna&ccedil;&atilde;o</title>
+<title>SysConsig - Servi&ccedil;o de Consigna&ccedil;&atilde;o On-line</title>
 		<style type="text/css">
 			<!--
 			@import url("scripts/css/geral.css");
@@ -33,7 +33,7 @@
 		</script>
 </head>
 	
-<body style="visibility:hidden">
+<body id="corpo" style="visibility:hidden">
 	<div id="central">
 	<div id="desconectar" onclick="javascript: location.href = 'utils/desconectar.php';" style="cursor:pointer">
 		<img src="imagens/desconectar.png" /></div>
