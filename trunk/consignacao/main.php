@@ -24,7 +24,7 @@
 		<script type="text/javascript" language="javascript" src="scripts/javascript/geral.js"></script>
 		<script type="text/javascript" language="javascript">
 			window.onload = function(){
-				centralizador("central", 810, 580);
+				centralizador("central", 800, 610);
 				document.body.style.visibility = "visible";
 			}
 			function carregarNoIframe(nomeFrame, url){
@@ -35,8 +35,14 @@
 	
 <body id="corpo" style="visibility:hidden">
 	<div id="central">
+	<div id="label"><span class="texto4">SysConsig - Sistema de Consigna&ccedil;&atilde;o On-line</span></div>
+	<div id="rodape">
+	  <div align="center"><span class="texto1">zerokolSoft - www.zerokol.com<br />
+      aj.alves@live.com<br />
+      Teresina -PI </span></div>
+	</div>
 	<div id="desconectar" onclick="javascript: location.href = 'utils/desconectar.php';" style="cursor:pointer">
-		<img src="imagens/desconectar.png" /></div>
+		<span class="texto3">Desconectar </span><img src="imagens/desconectar.png" /></div>
 	<div id="legendaBanco"><?php echo($banco); ?></div>
 	<div id="divMenu">
 	  <ul id="menu">
@@ -94,6 +100,6 @@
 	  </ul>
 </div>
 	<iframe id="conteudo" name="conteudo" frameBorder="0"></iframe>
-	</div>
+</div>
 </body>
 </html>
