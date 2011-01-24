@@ -12,7 +12,6 @@
 		
 		public function cadastrar(){
 			$sql = "INSERT INTO parametros (par_periodo, sta_codigo, par_data_corte, par_link) VALUES ('".$this->parametro->getPeriodo()."', ".$this->parametro->getStaCodigo().", '".$this->parametro->getDataCorte()."', '".$this->parametro->getLink()."')";
-			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar: ".$this->parametro->getPeriodo());
 				return false;

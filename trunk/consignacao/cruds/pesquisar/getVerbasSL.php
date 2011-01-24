@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$nivelAcesso = "../../:2:3:4";
+	$nivelAcesso = "../../";
 	include_once("../../utils/controladorAcesso.php");
 	include_once("../../utils/ConectarMySQL.class.php");
 	

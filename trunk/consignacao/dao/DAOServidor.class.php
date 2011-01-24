@@ -22,7 +22,7 @@
 		public function alterar($valRef){
 			$sql = "UPDATE servidores SET emp_codigo=".$this->servidor->getEmpCodigo().", pes_codigo=".$this->servidor->getPesCodigo().", ser_matricula='".$this->servidor->getMatricula()."', ser_admissao='".$this->servidor->getAdmissao()."', ser_cargo='".$this->servidor->getCargo()."', ser_vinculo='".$this->servidor->getVinculo()."', ser_consignavel=".$this->servidor->getConsignavel().", ser_utilizada=".$this->servidor->getUtilizada().", ser_disponivel=".$this->servidor->getDisponivel()." WHERE ser_matricula='".$valRef."' OR pes_codigo='".$valRef."'";
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel alterar: ".$this->servidor->getNome());
+				echo("Não foi possivel alterar: ".$this->servidor->getMatricula());
 				return false;
 			}
 			return true;

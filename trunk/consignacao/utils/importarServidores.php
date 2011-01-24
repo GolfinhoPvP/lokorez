@@ -58,9 +58,9 @@
 			$campo = $matriz[$x];
 			$pEmpresa		= $campo[0];
 			$pNome 			= utf8_encode($campo[1]);
-			$pCPF 			= substr($campo[3], 0, 14);
-			$sMatricula		= str_replace(" ", "", $campo[2]);
-			$sAdmissao		= substr($campo[4], 6, 4)."/".substr($campo[4], 3, 2)."/".substr($campo[4], 0, 2);
+			$pCPF 			= substr($campo[2], 0, 14);
+			$sMatricula		= str_replace(" ", "", $campo[3]);
+			$sAdmissao		= substr($campo[4], 0, 4)."/".substr($campo[4], 4, 2)."/".substr($campo[4], 6, 2);
 			$sCargo			= $campo[5];
 			$sVinculo		= $campo[6];
 			$sConsignavel	= $campo[7];

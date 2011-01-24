@@ -181,8 +181,8 @@
 
 <body>
 <?php
-	if($del != NULL){
-		$tipo = "del";
+	if($cad != NULL){
+		$tipo = "cad";
 		$toRoot = "../../";
 		include("../../includes/confirmar.php");
 	}else{

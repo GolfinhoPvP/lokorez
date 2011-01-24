@@ -93,7 +93,7 @@
 			</li>
 	  </ul>
 </div>
-	<iframe id="conteudo" name="conteudo" frameBorder="1"></iframe>
+	<iframe id="conteudo" name="conteudo" frameBorder="0"></iframe>
 	</div>
 </body>
 </html>
