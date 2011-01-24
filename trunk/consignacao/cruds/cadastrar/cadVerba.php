@@ -73,8 +73,8 @@
 		  <div><span class="texto2">Descri&ccedil;&atilde;o da verba: </span>
 	      <input name="tfVerDesc" type="text" class="tf1" id="tfVerDesc" onkeyup="javascript: validarVerForm('tfVerDesc');" size="50" maxlength="100"/></div>
 		  <div align="center"><br />
-		    <input name="btVerCad" type="submit" id="btVerCad" value="Cadastrar" />
-	        </div>
+		    <input name="btVerCad" type="submit" class="bt1" id="btVerCad" value="Cadastrar" />
+          </div>
 		</form>
 	</body>
 </html>
