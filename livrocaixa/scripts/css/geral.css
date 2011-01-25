@@ -1,0 +1,41 @@
+/* CSS Document */
+body.centralizar{
+	background-color:#CCCCCC;
+	visibility:hidden;
+	margin-left:0px;
+	margin-top:0px;
+}
+
+.texto1{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 13px;
+}
+
+.texto2{
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 24px;
+}
+
+.botao1{
+	background-color:#CCCCCC;
+	border:solid;
+	border-collapse:collapse;
+	border-color:#333333;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color:#000000;
+	font-size: 13px;
+}
+
+.textField1{
+	border:solid;
+	border-color:#333333;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-weight: bold;
+	font-size: 11px;
+}

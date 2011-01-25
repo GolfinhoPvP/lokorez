@@ -1,11 +1,13 @@
 <?php
-	class Servico{
+	class Empresa{
 		private $codigo;
-		private $descricao;
+		private $cliCodigo;
+		private $nome;
 		
-		function __construct($cod = NULL, $des = NULL){
+		function __construct($cod = NULL, $empCod = NULL, $nome = NULL){
 			$this->codigo 		= $cod;
-			$this->descricao 	= $des;
+			$this->cliCodigo 	= $empCod;
+			$this->nome 		= $nome;
 		}
  
 		public function __set($nome, $valor) {
@@ -17,7 +19,7 @@
 		}
 		
 		public function __toString(){
-			return $this->descricao;
+			return $this->nome;
 		}
 	}
 ?>

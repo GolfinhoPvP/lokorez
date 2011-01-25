@@ -1,10 +1,12 @@
 <?php
-	class Servico{
+	class Tecnico{
 		private $codigo;
+		private $pesCodigo;
 		private $descricao;
 		
-		function __construct($cod = NULL, $des = NULL){
+		function __construct($cod = NULL, $pesCod = NULL, $des = NULL){
 			$this->codigo 		= $cod;
+			$this->pesCodigo 	= $pesCod;
 			$this->descricao 	= $des;
 		}
  

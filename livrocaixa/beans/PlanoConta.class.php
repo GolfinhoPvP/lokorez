@@ -1,5 +1,5 @@
 <?php
-	class Servico{
+	class PlanoConta{
 		private $codigo;
 		private $descricao;
 		
