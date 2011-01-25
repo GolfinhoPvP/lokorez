@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$periodo = isset($_GET["per"]) ? $_GET["per"] : NULL;
+	$cpf = isset($_GET["cpf"]) ? $_GET["cpf"] : NULL;
 	$nome = "Relatório Analítico geral por periodo ".$_SESSION["banco_nome"];
 	$nome = str_replace(" ","_",$nome);
 	header("Content-type: application/vnd.ms-excel");
@@ -9,7 +9,7 @@
 	header("Pragma: no-cache");
 	include_once("../utils/ConectarMySQL.class.php");
 	$conexao = new ConectarMySQL();
-	$sql = "SELECT pes.pes_nome, pes.pes_cpf, ser.ser_matricula, emp.emp_descricao, ave.ave_numero_externo, ave.ave_data_criacao, ave.ave_numero_parcelas, ave.ave_montante, ave.ave_taxa_juros, par.par_numero_parcela, par.par_periodo_parcela, par.par_valor, sta.sta_descricao FROM averbacoes ave INNER JOIN servidores ser ON ave.pes_codigo=ser.pes_codigo INNER JOIN pessoas pes ON ave.pes_codigo=pes.pes_codigo INNER JOIN empresas emp ON ave.emp_codigo=emp.emp_codigo INNER JOIN parcelas par ON ave.ave_numero_externo=par.ave_numero_externo INNER JOIN status sta ON par.sta_codigo=sta.sta_codigo WHERE ave.ban_codigo='".$_SESSION["banco"]."' AND par.par_periodo_parcela='".$periodo."' ORDER BY pes.pes_nome, par.par_numero_parcela";
+	$sql = "SELECT pes.pes_nome, pes.pes_cpf, ser.ser_matricula, emp.emp_descricao, ave.ave_numero_externo, ave.ave_data_criacao, ave.ave_numero_parcelas, ave.ave_montante, ave.ave_taxa_juros, par.par_numero_parcela, par.par_periodo_parcela, par.par_valor, sta.sta_descricao FROM averbacoes ave INNER JOIN servidores ser ON ave.pes_codigo=ser.pes_codigo INNER JOIN pessoas pes ON ave.pes_codigo=pes.pes_codigo INNER JOIN empresas emp ON ave.emp_codigo=emp.emp_codigo INNER JOIN parcelas par ON ave.ave_numero_externo=par.ave_numero_externo INNER JOIN status sta ON par.sta_codigo=sta.sta_codigo WHERE ave.ban_codigo='".$_SESSION["banco"]."' AND pes.pes_cpf='".$cpf."' ORDER BY pes.pes_nome, par.par_numero_parcela";
 	$resultadoLinha = $conexao->selecionar($sql);
 	if($resultadoLinha == false){
 		echo($sql);

@@ -16,12 +16,22 @@ function validarForm(id){
 	return false;
 }
 
+function validarNumExt(id){
+	if(!document.getElementById(id).value.length == 0){
+		document.getElementById(id).style.background = "#FF0000";
+		return false;
+	}else{
+		document.getElementById(id).style.background = "#FFFFFF";
+		return true;
+	}
+	return false;
+}
 function ajustarValores(){
-	if(document.getElementById('tfMon').value > parseFloat(document.getElementById('valDisp').innerHTML)){
-		document.getElementById('tfMon').style.background = "#FF0000";
+	if(document.getElementById('tfValor').value > parseFloat(document.getElementById('valDisp').innerHTML)){
+		document.getElementById('tfValor').style.background = "#FF0000";
 		retorno = false;
 	}else{
-		document.getElementById('tfMon').style.background = "#FFFFFF";
+		document.getElementById('tfValor').style.background = "#FFFFFF";
 		retorno = true;
 	}
 	return retorno;
@@ -34,8 +44,8 @@ function ajustarMontante(){
 }
 
 function validarAveCadSubmit(){
-	lista = new Array("slSerRef", "tfNumExt", "slPer", "slPro", "tfValor", "slPar", "tfTxJ", "tfMon");
-	if(comum(lista) && ajustarValores())
+	lista = new Array("slSerRef", "slPer", "slPro", "tfValor", "slPar", "tfTxJ", "tfMon");
+	if(comum(lista) && ajustarValores() && validarNumExt('tfNumExt'))
 		return true;
 	else
 		return false;

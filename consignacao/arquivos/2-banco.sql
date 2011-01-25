@@ -1,6 +1,6 @@
 /*
 Created		12/1/2011
-Modified		22/1/2011
+Modified		24/1/2011
 Project		
 Model		
 Company		
@@ -77,7 +77,7 @@ Create table verbas (
 	pro_codigo Int NOT NULL,
 	ver_descricao Varchar(100),
 	UNIQUE (ver_verba),
- Primary Key (emp_codigo,ban_codigo,pro_codigo)) ENGINE = InnoDB;
+ Primary Key (ver_verba,emp_codigo,ban_codigo,pro_codigo)) ENGINE = InnoDB;
 
 Create table servidores (
 	emp_codigo Int NOT NULL,
@@ -89,7 +89,6 @@ Create table servidores (
 	ser_consignavel Double,
 	ser_utilizada Double,
 	ser_disponivel Double,
-	UNIQUE (ser_matricula),
  Primary Key (emp_codigo,pes_codigo,ser_matricula)) ENGINE = InnoDB;
 
 Create table parametros (
