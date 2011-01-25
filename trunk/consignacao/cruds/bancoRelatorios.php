@@ -3,6 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
+<style type="text/css">
+	<!--
+	@import url("../scripts/css/geral.css");
+	-->
+</style>
+<script type="text/javascript" language="javascript" src="../../scripts/javascript/pessoa.js"></script>
 <script type="text/javascript" language="javascript">
 	function manipularPessoa(id){
 		switch(id){
@@ -14,23 +20,23 @@
 </head>
 
 <body>
-	<input name="btRelSintetico" type="submit" id="btRelSintetico" value="Ver relatório sintético" onclick="javascript: manipularPessoa('btRelSintetico');" />
-  	<input name="btRelAnalitico" type="submit" id="btRelAnalitico" value="Ver relatório analítico" onclick="javascript: manipularPessoa('btRelAnalitico');" />
+	<div><input name="btRelSintetico" type="submit" class="bt1" id="btRelSintetico" onclick="javascript: manipularPessoa('btRelSintetico');" value="Ver relatório sintético" />
+	<form id="buscarAnalitico" name="buscarAnalitico" method="post" action="pesquisar/getRelatorioAnalitico.php" onsubmit="javascript: return validarPessoaForm('tfCPF');">
+		<select name="slPer" class="tf1" id="slPer">
+		          <option value="---">--------</option>
+	            </select>
+  		<input name="btRelAnalitico" type="submit" class="bt1" id="btRelAnalitico" onclick="javascript: manipularPessoa('btRelAnalitico');" value="Ver relatório analítico" />
+		</form>
+	</div>
     <br />
-    <br />
-    <br />
-    <form id="buscarCPF" name="buscarCPF" method="post" action="pesquisar/getRelatorioCPF.php">
-      <label>
-        <input name="tfCPF" type="text" id="tfCPF" size="16" maxlength="14" />
-      </label>
-      <br />
-      <br />
-      <input name="btBusCPF" type="submit" id="btBusCPF" value="Buscar por CPF"/>
+    <form id="buscarCPF" name="buscarCPF" method="post" action="pesquisar/getRelatorioCPF.php" onsubmit="javascript: return validarPessoaForm('tfCPF');">
+        <div align="center">
+          <input name="tfCPF" type="text" class="tf1" id="tfCPF" size="16" maxlength="14" onchange="javascript: return validarPessoaForm('tfCPF');"/>
+          <input name="btBusCPF" type="submit" class="bt1" id="btBusCPF" value="Buscar por CPF"/>
+            </div>
     </form>
     <br />
     <br />
-Relat&oacute;rio geral em .xls <img src="../imagens/xls.png" width="50" height="51" onclick="javascript: window.location = 'relatorioGeralXLS.php';" style="cursor:pointer"/>
 <br />
-Veja o esquema desse arquivo em PDF aqui <img src="../imagens/pdf.png" width="50" height="77" onclick="javascript: window.location = '../downloads/esquema-arquivo-xls.pdf';" style="cursor:pointer"/>
 </body>
 </html>

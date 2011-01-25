@@ -17,7 +17,7 @@
 		
 		include_once("../../dao/DAOServidor.class.php");
 		$dao = new DAOServidor(NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL, "../../", $conexao);
-		if(!$dao->atualizarVerba($slSerRef, $tfValor))
+		if(!$dao->atualizarVerba($slSerRef, $tfMon))
 			$comitar = false;
 			
 		$servidor = $dao->getServidor($slSerRef);
@@ -39,11 +39,9 @@
 		if(!$dao->cadastrar() || !$log->cadastrar())
 			$comitar = false;
 		
-		$valor = $tfValor / $slPar;
-		
 		for($x=1; $x <= $slPar; $x++){
 			include_once("../../dao/DAOParcela.class.php");
-			$dao = new DAOParcela($x, $tfNumExt, 1, $slPer, $valor,  "../../", $conexao);
+			$dao = new DAOParcela($x, $tfNumExt, 1, $slPer, $tfValor,  "../../", $conexao);
 			$slPer = avancarPeriodo($slPer);
 			include_once("../../dao/DAOLog.class.php");
 			$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 13, "num ext=\'".$tfNumExt."\'", "../../", $conexao);
@@ -64,7 +62,7 @@
 		<title>Untitled Document</title>
 		<style type="text/css">
 			<!--
-			@import url("../../scripts/css/verba.css");
+			@import url("../../scripts/css/geral.css");
 			-->
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
@@ -133,70 +131,47 @@
 		<div id="carregando">
 		</div>
 	    <form id="averbarCad" name="averbarCad" method="post" action="#" onsubmit="javascript: return validarAveCadSubmit();">
-	      Selecione um servidor:
+	      <span class="texto2">Selecione um servidor:</span>
 	      <label>
-	      <select name="slSerRef" id="slSerRef" onchange="javascript: carregarParametros(); carregarInfos(); mostrar('cadastro');">
+	      <select name="slSerRef" class="tf1" id="slSerRef" onchange="javascript: carregarParametros(); carregarInfos(); mostrar('cadastro');">
 	        <option value="---" selected="selected">------------------------------</option>
           </select>
 	      </label>
-	      <br />
 		  <div id="infos"></div>
-	      <br />
 		  <div id="cadastro" style="visibility:hidden">
-			  N&uacute;mero externo: 
-			  <label>
-				<input name="tfNumExt" autocomplete="off" type="text" id="tfNumExt" size="100" maxlength="200" />
-			  </label>
-	        <p>Selecione o periodo: 
-		        <label>
-		        <select name="slPer" id="slPer">
+			  <div><span class="texto2">N&uacute;mero externo:</span> 
+				<input name="tfNumExt" type="text" class="tf1" id="tfNumExt" size="100" maxlength="200" autocomplete="off" /></div>
+	        <div><span class="texto2">Selecione o periodo:</span> 
+		        <select name="slPer" class="tf1" id="slPer">
 		          <option value="---">--------</option>
-	            </select>
-		        </label>
-	            <br />
-	            <br />
-	        Selecione um produto: 
-	        <label>
-	        <select name="slPro" id="slPro" onchange="javascript: selecionarParcelas(); mostrar('mais');">
+	            </select></div>
+	            <div><span class="texto2">Selecione um produto:</span> 
+	        <select name="slPro" class="tf1" id="slPro" onchange="javascript: selecionarParcelas(); mostrar('mais');">
 	          <option value="---" selected="selected" >------------------</option>
-            </select>
-	        </label>
+            </select></div>
 			<div id="mais" style="visibility:hidden">
-	        </p>
-	        <p>Qual o valor: 
-	          <label>
-	          R$
-	          <input name="tfValor" type="text" id="tfValor" size="15" maxlength="25" autocomplete="off" onkeyup="javascript: validarForm('tfValor'); ajustarValores();"/>
-	          </label>
-	          <br />
-	          <br />
-	        Em quantas parcelas: 
-	        <label>
-	        <select name="slPar" id="slPar" onchange="javascript: dividirParelas();">
+	        <div><span class="texto2">Qual o valor da parcela: 
+	          R$</span>
+	          <input name="tfValor" type="text" class="tf1" id="tfValor" onkeyup="javascript: validarForm('tfValor'); ajustarValores();" size="15" maxlength="25" autocomplete="off"/></div>
+	        <div><span class="texto2">Em quantas parcelas:</span> 
+	        <select name="slPar" class="tf1" id="slPar" onchange="javascript: validarForm('slPar'); ajustarMontante();">
 	          <option value="---" selected="selected">---</option>
-            </select>
-	        </label>
-	        </p>
+            </select></div>
 	        <div id="parcelas"></div>
-	          <br />
-	          <label>Taxa de juros:
-            <input name="tfTxJ" type="text" id="tfTxJ" value="0" size="6" maxlength="3" />
-            </label>
-%<br />
-<br />
-	        <label>
-	        Montante: 
-	        R$
-	        <input name="tfMon" type="text" id="tfMon" size="15" maxlength="25" />
-            <br />
-	        </label>
-	        </p>
+	          <div class="texto2">Taxa de juros:
+            <input name="tfTxJ" type="text" class="tf1" id="tfTxJ" value="0" size="6" maxlength="3" />
+            %
+            </div>
+	        <div>
+	        <span class="texto2">Montante: R$</span>
+	        <input name="tfMon" type="text" class="tf1" id="tfMon" size="15" maxlength="25" onfocus="javascript:  ajustarMontante();" />
+	        </div>
 		  </div>
-          <br />
 		  </div>
-	      <label>
-	      <input name="btAverbar" type="submit" id="btAverbar" value="Averbar" />
-	      </label>
+	      <label></label>
+          <div align="center"><br />
+            <input name="btAverbar" type="submit" class="bt1" id="btAverbar" value="Averbar" />
+          </div>
     </form>
 </body>
 </html>

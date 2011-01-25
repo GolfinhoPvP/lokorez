@@ -3,7 +3,7 @@ function validarForm(id){
 	switch(id){
 		case "tfValor" : case "tfMon" : descricaoExpReg = /^([0-9]{0,12}\.[0-9]{1,2}|[0-9]{0,15})$/; break;
 		case "tfTxJ" : descricaoExpReg = /^[0-9]{1,2}$/; break;
-		case "slPer" : case "slPro" : case "slPar" : descricaoExpReg = /[^---]/; break;
+		case "slPer" : case "slPro" : case "slPar" : case"slSerRef" : descricaoExpReg = /[^---]/; break;
 	}
 	
 	if(!document.getElementById(id).value.match(descricaoExpReg)){
@@ -17,21 +17,20 @@ function validarForm(id){
 }
 
 function ajustarValores(){
-	if(document.getElementById('tfValor').value > parseFloat(document.getElementById('valDisp').innerHTML)){
-		document.getElementById('tfValor').style.background = "#FF0000";
+	if(document.getElementById('tfMon').value > parseFloat(document.getElementById('valDisp').innerHTML)){
+		document.getElementById('tfMon').style.background = "#FF0000";
 		retorno = false;
 	}else{
-		document.getElementById('tfValor').style.background = "#FFFFFF";
+		document.getElementById('tfMon').style.background = "#FFFFFF";
 		retorno = true;
 	}
-	document.getElementById('tfMon').value = document.getElementById('tfValor').value;
-	//document.getElementById('tfMon').value = document.getElementById('tfValor').value + (document.getElementById('tfValor').value*(document.getElementById('tfTxJ').value/100));
 	return retorno;
 }
 
-function dividirParelas(){
-	val = parseFloat(document.getElementById('tfValor').value) / parseInt(document.getElementById('slPar').value);
-	document.getElementById('parcelas').innerHTML = "Valor de cada parcela R$: "+val;
+function ajustarMontante(){
+	val = parseFloat(document.getElementById('tfValor').value) * parseInt(document.getElementById('slPar').value);
+	document.getElementById('tfMon').value = val.toFixed(2);
+	ajustarValores();
 }
 
 function validarAveCadSubmit(){
