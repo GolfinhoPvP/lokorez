@@ -1,10 +1,12 @@
 <?php
-	class Servico{
+	class FormaPagamento{
 		private $codigo;
+		private $periodo;
 		private $descricao;
 		
-		function __construct($cod = NULL, $des = NULL){
+		function __construct($cod = NULL, $per = NULL, $des = NULL){
 			$this->codigo 		= $cod;
+			$this->periodo 		= $per;
 			$this->descricao 	= $des;
 		}
  

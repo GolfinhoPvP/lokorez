@@ -1,5 +1,5 @@
 <?php
-	class Servico{
+	class Operacao{
 		private $codigo;
 		private $descricao;
 		
