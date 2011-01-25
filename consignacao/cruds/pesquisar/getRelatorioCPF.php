@@ -49,7 +49,7 @@ Voltar <img src="../../imagens/voltar.gif" width="40" height="35" onclick="javas
 		
 		$valorFaltaPagar = $valorTotal - $valorPago;
 		
-		include("../modeleloAnalitico.php");
+		include("../modeloAnalitico.php");
 	}	
 ?>
 <br />

@@ -1,4 +1,4 @@
-<table width="780" border="1" cellpadding="0" cellspacing="0">
+<table class="texto2" width="729" border="1" cellpadding="0" cellspacing="0">
   <tr>
     <td colspan="3"><table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>

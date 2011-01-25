@@ -13,7 +13,7 @@
 		switch($slTipo){
 			case "admin" : 
 				include_once("../../dao/DAOAdministrador.class.php");
-				$dao = new DAOAdministrador(NULL, NULL, NULL, NULL, "../../", $conexao);
+				$dao = new DAOAdministrador(NULL, NULL, NULL, NULL, NULL, "../../", $conexao);
 				include_once("../../dao/DAOLog.class.php");
 				$log = new DAOLog($_SESSION["pessoa"], 5, $_SESSION["nivel"], $_SESSION["codigo"], 8, "id=\'".$slPesRef."\'", "../../", $conexao);
 				if($dao->deletar($slPesRef) && $log->cadastrar())
@@ -43,10 +43,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>Untitled Document</title>
 	<style type="text/css">
-			<!--
-			@import url("../../scripts/css/geral.css");
-			-->
-		</style>
+		<!--
+		@import url("../../scripts/css/geral.css");
+		-->
+	</style>
 	<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
 	<script type="text/javascript" language="javascript" src="../../scripts/javascript/pessoa.js"></script>
 	<script type="text/javascript" language="javascript">

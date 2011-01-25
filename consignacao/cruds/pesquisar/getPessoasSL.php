@@ -7,13 +7,13 @@
 	
 	switch($classe){
 		case "B" : case "contato" :
-			$sql = "SELECT * FROM pessoas p INNER JOIN bancos_pessoas bp ON p.pes_codigo = bp.pes_codigo ORDER BY pes_nome";
+			$sql = "SELECT distinct * FROM pessoas p INNER JOIN bancos_pessoas bp ON p.pes_codigo = bp.pes_codigo ORDER BY pes_nome";
 			break;
 		case "A" : case "admin" :
-			$sql = "SELECT * FROM pessoas p INNER JOIN administradores a ON p.pes_codigo = a.pes_codigo ORDER BY pes_nome";
+			$sql = "SELECT distinct * FROM pessoas p INNER JOIN administradores a ON p.pes_codigo = a.pes_codigo ORDER BY pes_nome";
 			break;
 		default : 
-			$sql = "SELECT * FROM pessoas ORDER BY pes_nome";
+			$sql = "SELECT distinct * FROM pessoas ORDER BY pes_nome";
 			break;
 	}
 	
