@@ -8,8 +8,12 @@
 	@import url("../scripts/css/geral.css");
 	-->
 </style>
-<script type="text/javascript" language="javascript" src="../../scripts/javascript/pessoa.js"></script>
+<script type="text/javascript" language="javascript" src="../scripts/javascript/ajax.js"></script>
+<script type="text/javascript" language="javascript" src="../scripts/javascript/pessoa.js"></script>
 <script type="text/javascript" language="javascript">
+	window.onload = function(){
+		loadContent('pesquisar/getParametrosSL.php', 'slPer', '../../');
+	}
 	function manipularPessoa(id){
 		switch(id){
 			case "btRelSintetico" : window.location = "pesquisar/getRelatorioSintetico.php"; break;
@@ -20,20 +24,28 @@
 </head>
 
 <body>
-	<div><input name="btRelSintetico" type="submit" class="bt1" id="btRelSintetico" onclick="javascript: manipularPessoa('btRelSintetico');" value="Ver relatório sintético" />
-	<form id="buscarAnalitico" name="buscarAnalitico" method="post" action="pesquisar/getRelatorioAnalitico.php" onsubmit="javascript: return validarPessoaForm('tfCPF');">
+	<div id="carregando">
+	</div>
+	<div>
+	  <p>
+	    <input name="btRelSintetico" type="submit" class="bt1" id="btRelSintetico" onclick="javascript: manipularPessoa('btRelSintetico');" value="Ver relatório sintético" />
+	    <br />
+      </p>
+	  <form id="buscarAnalitico" name="buscarAnalitico" method="post" action="pesquisar/getRelatorioAnalitico.php" onsubmit="javascript: return validarPessoaForm('tfCPF');">
 		<select name="slPer" class="tf1" id="slPer">
 		          <option value="---">--------</option>
-	            </select>
+        </select>
   		<input name="btRelAnalitico" type="submit" class="bt1" id="btRelAnalitico" onclick="javascript: manipularPessoa('btRelAnalitico');" value="Ver relatório analítico" />
-		</form>
+	    <span class="texto2">Por per&iacute;odo.</span> 
+	  </form>
 	</div>
     <br />
     <form id="buscarCPF" name="buscarCPF" method="post" action="pesquisar/getRelatorioCPF.php" onsubmit="javascript: return validarPessoaForm('tfCPF');">
-        <div align="center">
-          <input name="tfCPF" type="text" class="tf1" id="tfCPF" size="16" maxlength="14" onchange="javascript: return validarPessoaForm('tfCPF');"/>
-          <input name="btBusCPF" type="submit" class="bt1" id="btBusCPF" value="Buscar por CPF"/>
-            </div>
+
+      <div align="left">
+        <input name="tfCPF" type="text" class="tf1" id="tfCPF" size="16" maxlength="14" onchange="javascript: return validarPessoaForm('tfCPF');"/>
+        <input name="btBusCPF" type="submit" class="bt1" id="btBusCPF" value="Buscar por CPF"/>
+      </div>
     </form>
     <br />
     <br />

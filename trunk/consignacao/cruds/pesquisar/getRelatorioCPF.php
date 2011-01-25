@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	$tfCPF = isset($_POST["tfCPF"]) ? $_POST["tfCPF"] : NULL;
 	include_once("../../utils/ConectarMySQL.class.php");
 	$conexao = new ConectarMySQL();
 ?>
@@ -11,14 +12,17 @@
 </head>
 
 <body>
-No banco: 
-<?php echo($_SESSION["banco_nome"]); ?>
-<br />
-Voltar <img src="../../imagens/voltar.gif" width="40" height="35" onclick="javascript: history.back(-1);" style="cursor:pointer"/>
-<br />
-<?php
-	$tfCPF = isset($_POST["tfCPF"]) ? $_POST["tfCPF"] : NULL;
-	
+No banco: <?php echo($_SESSION["banco_nome"]); ?>
+<table width="583" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="242" height="80" valign="bottom"><span class="texto2">Relat&oacute;rio geral em .xls</span> <img src="../../imagens/xls.png" width="50" height="51" onclick="javascript: window.location = '../relatorioGeralXLSCPF.php?cpf=<?php echo($tfCPF); ?>';" style="cursor:pointer"/> </td>
+    <td width="341" valign="bottom"><span class="texto2">Veja o esquema desse arquivo em PDF aqui</span> <img src="../../imagens/pdf.png" width="50" height="77" onclick="javascript: window.location = '../../downloads/esquema-arquivo-xls.pdf';" style="cursor:pointer"/> </td>
+  </tr>
+</table>
+<p><br />
+  Voltar <img src="../../imagens/voltar.gif" width="40" height="35" onclick="javascript: history.back(-1);" style="cursor:pointer"/>
+  <br />
+  <?php	
 	$sql = "SELECT pes.pes_nome, pes.pes_cpf, emp.emp_descricao, ave.ave_numero_externo FROM averbacoes ave INNER JOIN pessoas pes ON ave.pes_codigo = pes.pes_codigo INNER JOIN empresas emp ON ave.emp_codigo = emp.emp_codigo WHERE ave.ban_codigo = '".$_SESSION["banco"]."' AND pes.pes_cpf = '".$tfCPF."' ORDER BY pes.pes_nome";
 	$resultadoLinha = $conexao->selecionar($sql);
 	if($resultadoLinha == false){
@@ -52,7 +56,7 @@ Voltar <img src="../../imagens/voltar.gif" width="40" height="35" onclick="javas
 		include("../modeloAnalitico.php");
 	}	
 ?>
-<br />
-Voltar <img src="../../imagens/voltar.gif" width="40" height="35" onclick="javascript: history.back(-1);" style="cursor:pointer"/>
+  <br />
+  Voltar <img src="../../imagens/voltar.gif" width="40" height="35" onclick="javascript: history.back(-1);" style="cursor:pointer"/></p>
 </body>
 </html>
