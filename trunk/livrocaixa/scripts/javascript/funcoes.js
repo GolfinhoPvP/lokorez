@@ -22,7 +22,7 @@ function validarForm(id){
 
 function comum(lista){
 	for(x=0; x<lista.length; x++){
-		if(!validarBancoForm(lista[x]))
+		if(!validarForm(lista[x]))
 			return false;
 	}
 	return true;
