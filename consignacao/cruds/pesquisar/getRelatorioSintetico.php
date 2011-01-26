@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:4";
+	include_once("../../utils/controladorAcesso.php");
 	include_once("../../utils/ConectarMySQL.class.php");
 	$conexao = new ConectarMySQL();
 ?>
@@ -17,28 +19,28 @@ No banco:
 	$sql = "SELECT par_periodo FROM parametros ORDER BY par_data_corte DESC";
 	$resultadoLinha = $conexao->selecionar($sql);
 	while($linha = mysqli_fetch_array($resultadoLinha)){
-		$sql = "SELECT count(distinct ave_numero_externo ) FROM averbacoes WHERE ban_codigo = '".$_SESSION["banco"]."' AND par_periodo='".$linha["par_periodo"]."'";
+		$sql = "SELECT count(distinct p.ave_numero_externo ) FROM parcelas p INNER JOIN averbacoes a ON a.ave_numero_externo = p.ave_numero_externo WHERE a.ban_codigo = '".$_SESSION["banco"]."' AND p.par_periodo_parcela='".$linha["par_periodo"]."'";
 		$resultado = $conexao->selecionar($sql);
 		$valor = mysqli_fetch_array($resultado);
 		$quantContratos = strlen($valor[0]) != 0? $valor[0] : 0;
 		
-		$sql = "SELECT count(distinct ave_numero_externo ) FROM averbacoes WHERE ban_codigo = '".$_SESSION["banco"]."' AND sta_codigo = 3 AND par_periodo='".$linha["par_periodo"]."'";
+		$sql = "SELECT count(distinct p.ave_numero_externo ) FROM parcelas p INNER JOIN averbacoes a ON a.ave_numero_externo = p.ave_numero_externo WHERE a.ban_codigo = '".$_SESSION["banco"]."' AND p.sta_codigo = 4 AND p.par_periodo_parcela='".$linha["par_periodo"]."'";
 		$resultado = $conexao->selecionar($sql);
 		$valor = mysqli_fetch_array($resultado);
 		$quantFinalizados = strlen($valor[0]) != 0? $valor[0] : 0;
 		
 		$quantNaoFinalizada = $quantContratos - $quantFinalizados;
 		
-		$sql = "SELECT FORMAT(sum(par.par_valor), 2)  FROM averbacoes ave INNER JOIN parcelas par ON ave.ave_numero_externo = par.ave_numero_externo WHERE ave.ban_codigo = '".$_SESSION["banco"]."' AND par_periodo='".$linha["par_periodo"]."'";
+		$sql = "SELECT FORMAT(sum(par.par_valor), 2) FROM averbacoes ave INNER JOIN parcelas par ON ave.ave_numero_externo = par.ave_numero_externo WHERE ave.ban_codigo = '".$_SESSION["banco"]."' AND par_periodo='".$linha["par_periodo"]."'";
 		$resultado = $conexao->selecionar($sql);
 		$valor = mysqli_fetch_array($resultado);
 		$valorTotal = strlen($valor[0]) != 0? $valor[0] : 0;
+		$valorTotal = str_replace(",","",$valorTotal);
 		
 		$sql = "SELECT FORMAT(sum(par.par_valor), 2)  FROM averbacoes ave INNER JOIN parcelas par ON ave.ave_numero_externo = par.ave_numero_externo WHERE ave.ban_codigo = '".$_SESSION["banco"]."' AND par.sta_codigo = 4 AND par_periodo='".$linha["par_periodo"]."'";
 		$resultado = $conexao->selecionar($sql);
 		$valor = mysqli_fetch_array($resultado);
-		$valorPago = strlen($valor[0]) != 0? $valor[0] : 0;
-		
+		$valorPago = strlen($valor[0]) != 0? $valor[0] : 0.00;
 		$valorFaltaPagar = $valorTotal - $valorPago;
 		include("../modeloSintetico.php");
 	}

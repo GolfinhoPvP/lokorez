@@ -105,7 +105,10 @@
 			else
 				$conexao->rollback();
 		}
+		header("Location: importarServidores.php?inc=ok");
+		die();
 	}
+	$inc = isset($_GET["inc"]) ? $_GET["inc"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -115,6 +118,15 @@
 </head>
 
 <body>
+<?php
+	if($inc != NULL){
+		$tipo = "inc";
+		$toRoot = "../";
+		include("../includes/confirmar.php");
+	}else{
+		echo('<div id="confirmar"></div>');
+	}
+?>
 <form id="importarServidor" name="importarServidor" enctype="multipart/form-data" method="post" action="">
   <label>
   <input name="ffImpSer" type="file" id="ffImpSer" size="55" />
@@ -124,5 +136,8 @@
   <input name="btImportar" type="submit" id="btImportar" value="Importar" />
   </label>
 </form>
+<br />
+<br />
+Arquivo explicativo do modelo do arquivo que ser&aacute; importado: <img src="../imagens/pdf.png" alt="Download" width="50" height="77" style="cursor:pointer" onclick="javascript: window.location = '../downloads/Manual-imp-servidores.pdf';"/>
 </body>
 </html>
