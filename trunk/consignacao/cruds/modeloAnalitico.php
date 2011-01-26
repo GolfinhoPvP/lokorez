@@ -30,9 +30,9 @@
     <td>Valor que falta  </td>
   </tr>
   <tr>
-    <td><div align="center">R$ <?php echo($valorTotal); ?></div></td>
-    <td><div align="center">R$ <?php echo($valorPago); ?></div></td>
-    <td><div align="center">R$ <?php echo($valorFaltaPagar); ?></div></td>
+    <td><div align="center">R$ <?php echo(number_format($valorTotal, 2)); ?></div></td>
+    <td><div align="center">R$ <?php echo(number_format($valorPago, 2)); ?></div></td>
+    <td><div align="center">R$ <?php echo(number_format($valorFaltaPagar, 2)); ?></div></td>
   </tr>
 </table>
 <br/>

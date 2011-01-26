@@ -240,9 +240,9 @@
 		  <div align="center"><br />
 	        <input name="btEncerrar" type="submit" class="bt1" id="btEncerrar" value="Encerrar" />
 	        </label>
-	            </div>
+          </div>
 		</form>
-		<br/>
+		Modelo do arquivo de exporta&ccedil;&atilde;o e importa&ccedil;&atilde;o do arquivo das parcelas: <img src="../../imagens/pdf.png" alt="Download" width="50" height="77" style="cursor:pointer" onclick="javascript: window.location = '../../downloads/Manual-imp-exp-parcelas.pdf';"/><br/>
 		<br/>
 	<form id="plaImportar" name="plaImportar" enctype="multipart/form-data" method="post" action="">
 		<div><span class="texto2">Importar informa&ccedil;&otilde;es:</span>

@@ -3,6 +3,9 @@
 		case "cad" : $mensagem = "Cadastro efetuado com sucesso!"; break;
 		case "alt" : $mensagem = "Alteração efetuada com sucesso!"; break;
 		case "del" : $mensagem = "Exclusão efetuada com sucesso!"; break;
+		case "inc" : $mensagem = "Importação efetuada com sucesso!"; break;
+		case "ave" : $mensagem = "Averbação efetuada com sucesso!"; break;
+		case "can" : $mensagem = "Averbação cancelada com sucesso!"; break;
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	$nivelAcesso = "../../:1:2";
+	include_once("../../utils/controladorAcesso.php");
 	include_once("../../utils/funcoes.php");
 	$slSerRef 	= isset($_POST["slSerRef"]) ? $_POST["slSerRef"] : NULL;
 	$tfNumExt 	= isset($_POST["tfNumExt"]) ? $_POST["tfNumExt"] : NULL;
@@ -10,14 +12,14 @@
 	$tfTxJ 		= isset($_POST["tfTxJ"]) ? $_POST["tfTxJ"] : NULL;
 	$tfValor 	= isset($_POST["tfValor"]) ? $_POST["tfValor"] : NULL;
 	
-	if($slSerRef != NULL && $tfNumExt != NULL && $slPer != NULL && $slPro != NULL && $slPar != NULL){
+	if($tfValor != NULL && $slSerRef != NULL && $tfNumExt != NULL && $slPer != NULL && $slPro != NULL && $slPar != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
 		$comitar = true;
 		
 		include_once("../../dao/DAOServidor.class.php");
 		$dao = new DAOServidor(NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL,  NULL, "../../", $conexao);
-		if(!$dao->atualizarVerba($slSerRef, $tfMon))
+		if(!$dao->atualizarVerba($slSerRef, $tfValor))
 			$comitar = false;
 			
 		$servidor = $dao->getServidor($slSerRef);
@@ -53,7 +55,11 @@
 			$conexao->commit();
 		else
 			$conexao->rollback();
+			$_SESSION["numeroExt"] = $tfNumExt;
+		header("Location: cadAverbacao.php?ave=ok");
+		die();
 	}
+	$ave = isset($_GET["ave"]) ? $_GET["ave"] : NULL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -69,8 +75,14 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/averbacao.js"></script>
 		<script type="text/javascript" language="javascript">
 			<!--
+			width = 620;
+			height = 320;
+			left = 150;
+			top = 100;
+			URL = "../averbacaoComprovante.php";
 			window.onload = function(){
 			 	loadContent('../pesquisar/getServidoresSL.php', 'slSerRef', '../../');
+				<?php if($ave != NULL) echo('window.open(URL,"promo", "width="+width+", height="+height+", top="+top+", left="+left+", scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no");'); ?>
 			}
 			function carregarInfos(){
 				xmlRequest1 = getXMLHttp();
@@ -128,6 +140,15 @@
 </script>
 	</head>
 	<body>
+		<?php
+			if($ave != NULL){
+				$tipo = "ave";
+				$toRoot = "../../";
+				include("../../includes/confirmar.php");
+			}else{
+				echo('<div id="confirmar"></div>');
+			}
+		?>
 		<div id="carregando">
 		</div>
 	    <form id="averbarCad" name="averbarCad" method="post" action="#" onsubmit="javascript: return validarAveCadSubmit();">

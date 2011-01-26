@@ -25,13 +25,14 @@
 <script type="text/javascript" language="javascript">
 	window.onload = function(){
 		centralizador("central", 385, 210);
-		document.body.style.visibility = "visible";
+		document.getElementById("central").style.visibility = "visible";
 	}
 </script>
 </head>
 
-<body id="corpo" style="visibility:hidden">
-<div id="central" align="center">  <span class="texto3">SysConsig - Sistema de Consigna&ccedil;&atilde;o On-line<br />
+<body id="corpo">
+<noscript>Seu navegador não suporta javascript, por favor, habilite essa opção para usar esse sistema.</noscript>
+<div id="central" align="center" style="visibility:hidden">  <span class="texto3">SysConsig - Sistema de Consigna&ccedil;&atilde;o On-line<br />
 </span>
   <table width="361" height="140" border="0" cellpadding="0" cellspacing="0">
   <tr>

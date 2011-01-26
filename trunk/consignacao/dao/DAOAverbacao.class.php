@@ -29,7 +29,8 @@
 		}
 		
 		public function deletar($valRef){
-			$sql = "DELETE FROM averbacoes WHERE ave_numero_externo=".$valRef;
+			$sql = "DELETE FROM averbacoes WHERE ave_numero_externo='".$valRef."'";
+			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel deletar: ".$valRef);
 				return false;
@@ -38,7 +39,7 @@
 		}
 		
 		public function pesquisar($valRef){
-			$sql = "SELECT * FROM averbacoes WHERE ave_numero_externo=".$valRef;
+			$sql = "SELECT * FROM averbacoes WHERE ave_numero_externo='".$valRef."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar: ".$valRef);

@@ -91,6 +91,10 @@
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadParametro.php');">Abrir</div>
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altParametro.php');">Encerrar</div>
 				</div></div>
+				<div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altAverbacao.php');">Cancelar Averba&ccedil;&atilde;o
+					<div id="nav2">
+					</div>
+				</div>
 		</li>
 			 <li>
 			<div alt="Averba&ccedil;&otilde;es" width="100px" height="100px" title="ZZZZZZ">Averba&ccedil;&otilde;es</div>

@@ -17,7 +17,7 @@ function validarForm(id){
 }
 
 function validarNumExt(id){
-	if(!document.getElementById(id).value.length == 0){
+	if(document.getElementById(id).value.length == 0){
 		document.getElementById(id).style.background = "#FF0000";
 		return false;
 	}else{
