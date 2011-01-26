@@ -1,5 +1,6 @@
 <?php
-	$key = isset($_GET["key"]) ? $_GET["key"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$key = antiSQLisset(isset($_GET["key"]) ? $_GET["key"] : NULL);
 	if($key != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
@@ -8,7 +9,8 @@
 		include_once("../../beans/Servidor.class.php");
 		$dao = new DAOServidor(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, "../../", $conexao);
 		$servidor = new Servidor(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-		$servidor = $dao->getServidor($key);
+		$valor = explode(":", $key);
+		$servidor = $dao->getServidor($valor[0], $valor[1]);
 		
 		include_once("../../dao/DAOPessoa.class.php");
 		include_once("../../beans/Pessoa.class.php");

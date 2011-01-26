@@ -5,9 +5,9 @@
 	include_once("../../utils/controladorAcesso.php");
 	
 	$conexao = new ConectarMySQL();
-	
-	$ordem = isset($_GET["ordem"]) ? $_GET["ordem"] : "%";
-	$key = isset($_GET["key"]) ? $_GET["key"] : "%";
+	include_once("../../utils/funcoes.php");
+	$ordem = antiSQLisset(isset($_GET["ordem"]) ? $_GET["ordem"] : "%");
+	$key = antiSQLisset(isset($_GET["key"]) ? $_GET["key"] : "%");
 	
 	if($ordem == "contato"){
 		$resultado = $conexao->selecionar("SELECT * FROM bancos_pessoas WHERE pes_codigo LIKE '".$key."'");

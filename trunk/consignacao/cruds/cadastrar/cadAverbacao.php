@@ -1,16 +1,16 @@
 <?php
 	session_start();
-	$nivelAcesso = "../../:1:2";
+	$nivelAcesso = "../../:0";
 	include_once("../../utils/controladorAcesso.php");
 	include_once("../../utils/funcoes.php");
-	$slSerRef 	= isset($_POST["slSerRef"]) ? $_POST["slSerRef"] : NULL;
-	$tfNumExt 	= isset($_POST["tfNumExt"]) ? $_POST["tfNumExt"] : NULL;
-	$slPer 		= isset($_POST["slPer"]) ? $_POST["slPer"] : NULL;
-	$slPro 		= isset($_POST["slPro"]) ? $_POST["slPro"] : NULL;
-	$slPar 		= isset($_POST["slPar"]) ? $_POST["slPar"] : NULL;
-	$tfMon 		= isset($_POST["tfMon"]) ? $_POST["tfMon"] : NULL;
-	$tfTxJ 		= isset($_POST["tfTxJ"]) ? $_POST["tfTxJ"] : NULL;
-	$tfValor 	= isset($_POST["tfValor"]) ? $_POST["tfValor"] : NULL;
+	$slSerRef 	= antiSQL(isset($_POST["slSerRef"]) ? $_POST["slSerRef"] : NULL);
+	$tfNumExt 	= antiSQL(isset($_POST["tfNumExt"]) ? $_POST["tfNumExt"] : NULL);
+	$slPer 		= antiSQL(isset($_POST["slPer"]) ? $_POST["slPer"] : NULL);
+	$slPro 		= antiSQL(isset($_POST["slPro"]) ? $_POST["slPro"] : NULL);
+	$slPar 		= antiSQL(isset($_POST["slPar"]) ? $_POST["slPar"] : NULL);
+	$tfMon 		= antiSQL(isset($_POST["tfMon"]) ? $_POST["tfMon"] : NULL);
+	$tfTxJ 		= antiSQL(isset($_POST["tfTxJ"]) ? $_POST["tfTxJ"] : NULL);
+	$tfValor 	= antiSQL(isset($_POST["tfValor"]) ? $_POST["tfValor"] : NULL);
 	
 	if($tfValor != NULL && $slSerRef != NULL && $tfNumExt != NULL && $slPer != NULL && $slPro != NULL && $slPar != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
@@ -22,7 +22,8 @@
 		if(!$dao->atualizarVerba($slSerRef, $tfValor))
 			$comitar = false;
 			
-		$servidor = $dao->getServidor($slSerRef);
+		$val = explode(":", $slSerRef);
+		$servidor = $dao->getServidor($val[0], $val[1]);
 		
 		include_once("../../dao/DAOVerba.class.php");
 		$dao = new DAOVerba(NULL,  NULL,  NULL,  NULL,  NULL, "../../", $conexao);
@@ -35,7 +36,7 @@
 			$tfMon = 0;
 		if(strlen($tfTxJ) == 0)
 			$tfTxJ = 0;
-		$dao = new DAOAverbacao($tfNumExt, 'NULL', $servidor->getEmpCodigo(), $servidor->getPesCodigo(), $slSerRef, $_SESSION["banco"], $verba->getProCodigo(), $slPer, 1, $data, '0000-00-00', $slPar, $tfMon, $tfTxJ, "../../", $conexao);
+		$dao = new DAOAverbacao($tfNumExt, 'NULL', $servidor->getEmpCodigo(), $servidor->getPesCodigo(), $val[1], $_SESSION["banco"], $verba->getProCodigo(), $slPer, 1, $data, '0000-00-00', $slPar, $tfMon, $tfTxJ, "../../", $conexao);
 		include_once("../../dao/DAOLog.class.php");
 		$log = new DAOLog($_SESSION["pessoa"], 3, $_SESSION["nivel"], $_SESSION["codigo"], 12, "noum ext=\'".$tfNumExt."\'", "../../", $conexao);
 		if(!$dao->cadastrar() || !$log->cadastrar())
@@ -59,7 +60,7 @@
 		header("Location: cadAverbacao.php?ave=ok");
 		die();
 	}
-	$ave = isset($_GET["ave"]) ? $_GET["ave"] : NULL;
+	$ave = antiSQL(isset($_GET["ave"]) ? $_GET["ave"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

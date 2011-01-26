@@ -4,17 +4,17 @@
 	include_once("../../utils/controladorAcesso.php");
 	
 	include_once("../../utils/funcoes.php");
-	$tipo = isset($_GET["tipo"]) ? $_GET["tipo"] : NULL;
-	$banco = isset($_GET["banco"]) ? $_GET["banco"] : NULL;
-	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;
+	$tipo = antiSQL(isset($_GET["tipo"]) ? $_GET["tipo"] : NULL);
+	$banco = antiSQL(isset($_GET["banco"]) ? $_GET["banco"] : NULL);
+	$cadastrar = antiSQL(isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL);
 	
-	$tfNome = isset($_POST["tfNome"]) ? $_POST["tfNome"] : NULL;
-	$tfCPF = isset($_POST["tfCPF"]) ? $_POST["tfCPF"] : NULL;
+	$tfNome = antiSQL(isset($_POST["tfNome"]) ? $_POST["tfNome"] : NULL);
+	$tfCPF = antiSQL(isset($_POST["tfCPF"]) ? $_POST["tfCPF"] : NULL);
 	
-	$tfFoneCont = isset($_POST["tfFoneCont"]) ? $_POST["tfFoneCont"] : NULL;
+	$tfFoneCont = antiSQL(isset($_POST["tfFoneCont"]) ? $_POST["tfFoneCont"] : NULL);
 	
 	if(strlen($tipo) == 0)
-		$tipo = isset($_POST["slTipo"]) ? $_POST["slTipo"] : NULL;
+		$tipo = antiSQL(isset($_POST["slTipo"]) ? $_POST["slTipo"] : NULL);
 	
 	if(($tipo == "contato" || $tipo == "admin") && $cadastrar == "ok"){
 		include_once("../../utils/ConectarMySQL.class.php");
@@ -23,16 +23,16 @@
 		switch($tipo){
 			case "admin" :
 				$classe = "A";
-				$tfNomeUsuario = isset($_POST["tfNomeUsuario"]) ? $_POST["tfNomeUsuario"] : NULL;
-				$tfSenha1 = isset($_POST["tfSenha1"]) ? $_POST["tfSenha1"] : NULL;
-				$tfSenha2 = isset($_POST["tfSenha2"]) ? $_POST["tfSenha2"] : NULL;
-				$slNivel = isset($_POST["slNivel"]) ? $_POST["slNivel"] : NULL;
-				$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
+				$tfNomeUsuario = antiSQL(isset($_POST["tfNomeUsuario"]) ? $_POST["tfNomeUsuario"] : NULL);
+				$tfSenha1 = antiSQL(isset($_POST["tfSenha1"]) ? $_POST["tfSenha1"] : NULL);
+				$tfSenha2 = antiSQL(isset($_POST["tfSenha2"]) ? $_POST["tfSenha2"] : NULL);
+				$slNivel = antiSQL(isset($_POST["slNivel"]) ? $_POST["slNivel"] : NULL);
+				$slBancRef = antiSQL(isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL);
 				break;
 				
 			case "contato" :
 				$classe = "B"; 
-				$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
+				$slBancRef = antiSQL(isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL);
 				break;
 		}
 		
@@ -115,7 +115,7 @@
 			$conexao->rollback();
 	}	
 	$destino = "cadPessoa.php?tipo=".$tipo."&cadastrar=ok";
-	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
+	$cad = antiSQL(isset($_GET["cad"]) ? $_GET["cad"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

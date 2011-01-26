@@ -2,7 +2,8 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$desc = isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$desc = antiSQL(isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL);
 	if($desc != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
@@ -17,7 +18,7 @@
 		header("Location: cadEmpresa.php?cad=ok");
 		die();
 	}
-	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
+	$cad = antiSQL(isset($_GET["cad"]) ? $_GET["cad"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

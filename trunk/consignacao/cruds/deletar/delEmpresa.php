@@ -2,7 +2,8 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$empDel = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$empDel = antiSQL(isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL);
 	if($empDel != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
@@ -17,7 +18,7 @@
 		header("Location: delEmpresa.php?del=ok");
 		die();
 	}
-	$del = isset($_GET["del"]) ? $_GET["del"] : NULL;
+	$del = antiSQL(isset($_GET["del"]) ? $_GET["del"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

@@ -1,8 +1,9 @@
 <?php
 	include_once("../../utils/ConectarMySQL.class.php");
+	include_once("../../utils/funcoes.php");
 	$conexao = new ConectarMySQL();
 	
-	$key = isset($_GET["key"]) ? $_GET["key"] : "%";
+	$key = antiSQLisset(isset($_GET["key"]) ? $_GET["key"] : "%");
 	
 	$resultado = $conexao->selecionar("SELECT * FROM telefones WHERE pes_codigo=".$key);
 		

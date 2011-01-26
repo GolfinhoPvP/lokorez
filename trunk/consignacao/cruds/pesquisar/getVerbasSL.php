@@ -2,9 +2,10 @@
 	session_start();
 	$nivelAcesso = "../../";
 	include_once("../../utils/controladorAcesso.php");
+	include_once("../../utils/funcoes.php");
 	include_once("../../utils/ConectarMySQL.class.php");
 	
-	$key = isset($_GET["key"]) ? $_GET["key"] : NULL;
+	$key = antiSQLisset(isset($_GET["key"]) ? $_GET["key"] : NULL);
 	
 	$conexao = new ConectarMySQL();
 	
@@ -13,7 +14,8 @@
 		include_once("../../beans/Servidor.class.php");
 		$dao = new DAOServidor(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, "../../", $conexao);
 		$servidor = new Servidor(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-		$servidor = $dao->getServidor($key);
+		$valor = explode(":", $key);
+		$servidor = $dao->getServidor($valor[0], $valor[1]);
 	
 	
 		if($_SESSION["codigo"] != 1)

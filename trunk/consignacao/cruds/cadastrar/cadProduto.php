@@ -2,8 +2,9 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$tfProDesc = isset($_POST["tfProDesc"]) ? $_POST["tfProDesc"] : NULL;
-	$tfProPrazMax = isset($_POST["tfProPrazMax"]) ? $_POST["tfProPrazMax"] : NULL;
+	include_once("../../funcoes.php");
+	$tfProDesc = antiSQL(isset($_POST["tfProDesc"]) ? $_POST["tfProDesc"] : NULL);
+	$tfProPrazMax = antiSQL(isset($_POST["tfProPrazMax"]) ? $_POST["tfProPrazMax"] : NULL);
 	if($tfProDesc != NULL && $tfProPrazMax != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
@@ -18,7 +19,7 @@
 		header("Location: cadProduto.php?cad=ok");
 		die();
 	}
-	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
+	$cad = antiSQL(isset($_GET["cad"]) ? $_GET["cad"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

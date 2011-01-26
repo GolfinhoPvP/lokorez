@@ -2,7 +2,8 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$slEmpRef = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$slEmpRef = antiSQLisset(isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL);
 	if($slEmpRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();

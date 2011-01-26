@@ -9,8 +9,7 @@
     <td width="19%"><div align="center">Valor n&atilde;o descontado </div></td>
   </tr>
   <tr>
-    <td><div align="center">
-    <div align="center"><?php echo($linha["par_periodo"]); ?></div></td>
+    <td><div align="center"><?php echo($linha["par_periodo"]); ?></div></td>
     <td><div align="center"><?php echo($quantContratos); ?></div></td>
     <td><div align="center"><?php echo($quantFinalizados); ?></div></td>
     <td><div align="center"><?php echo($quantNaoFinalizada); ?></div></td>

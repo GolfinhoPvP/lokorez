@@ -1,5 +1,6 @@
 <?php
-	$key = isset($_GET["key"]) ? $_GET["key"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$key = antiSQLisset(isset($_GET["key"]) ? $_GET["key"] : NULL);
 	
 	if($key != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");

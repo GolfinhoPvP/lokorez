@@ -2,12 +2,13 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$slVerRef = isset($_POST["slVerRef"]) ? $_POST["slVerRef"] : NULL;
-	$tfVerba = isset($_POST["tfVerba"]) ? $_POST["tfVerba"] : NULL;
-	$slEmpRef = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
-	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
-	$slProRef = isset($_POST["slProRef"]) ? $_POST["slProRef"] : NULL;
-	$tfVerDesc = isset($_POST["tfVerDesc"]) ? $_POST["tfVerDesc"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$slVerRef = antiSQL(isset($_POST["slVerRef"]) ? $_POST["slVerRef"] : NULL);
+	$tfVerba = antiSQL(isset($_POST["tfVerba"]) ? $_POST["tfVerba"] : NULL);
+	$slEmpRef = antiSQL(isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL);
+	$slBancRef = antiSQL(isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL);
+	$slProRef = antiSQL(isset($_POST["slProRef"]) ? $_POST["slProRef"] : NULL);
+	$tfVerDesc = antiSQL(isset($_POST["tfVerDesc"]) ? $_POST["tfVerDesc"] : NULL);
 	
 	if($slVerRef != NULL && $tfVerba != NULL && $slEmpRef != NULL && $slBancRef != NULL && $slProRef != NULL && $tfVerDesc != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
@@ -23,7 +24,7 @@
 		header("Location: altVerba.php?alt=ok");
 		die();
 	}
-	$alt = isset($_GET["alt"]) ? $_GET["alt"] : NULL;
+	$alt = antiSQL(isset($_GET["alt"]) ? $_GET["alt"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

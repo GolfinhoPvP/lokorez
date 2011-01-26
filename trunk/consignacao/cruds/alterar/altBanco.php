@@ -2,9 +2,10 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
-	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
-	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$slBancRef = antiSQL(isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL);
+	$tfBanCod = antiSQL(isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL);
+	$tfBanDesc = antiSQL(isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL);
 	
 	if($slBancRef != NULL && $tfBanCod != NULL && $tfBanDesc != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
@@ -20,7 +21,7 @@
 		header("Location: altBanco.php?alt=ok");
 		die();
 	}
-	$alt = isset($_GET["alt"]) ? $_GET["alt"] : NULL;
+	$alt = antiSQL(isset($_GET["alt"]) ? $_GET["alt"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

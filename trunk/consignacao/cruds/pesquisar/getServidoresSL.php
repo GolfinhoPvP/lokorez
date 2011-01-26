@@ -11,6 +11,6 @@
 	
 	echo('<option value="---">-----------------------------</option>');
 	while($linha = mysqli_fetch_array($resultado)){
-		echo('<option value="'.$linha["ser_matricula"].'">'.utf8_encode($linha["pes_nome"]).'</option>');
+		echo('<option value="'.$linha["pes_codigo"].":".$linha["ser_matricula"].'">'.utf8_encode($linha["pes_nome"]).'</option>');
 	}
 ?>
