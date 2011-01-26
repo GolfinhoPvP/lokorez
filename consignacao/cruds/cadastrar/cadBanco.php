@@ -2,10 +2,11 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$tfBanCod = isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL;
-	$tfBanDesc = isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$tfBanCod = antiSQL(isset($_POST["tfBanCod"]) ? $_POST["tfBanCod"] : NULL);
+	$tfBanDesc = antiSQL(isset($_POST["tfBanDesc"]) ? $_POST["tfBanDesc"] : NULL);
 	
-	$cbNovoContat = isset($_POST["cbNovoContat"]) ? $_POST["cbNovoContat"] : NULL;
+	$cbNovoContat = antiSQL(isset($_POST["cbNovoContat"]) ? $_POST["cbNovoContat"] : NULL);
 	$tfBanContat = NULL;
 	
 	if($tfBanCod != NULL && $tfBanDesc != NULL){
@@ -13,8 +14,8 @@
 		$conexao = new ConectarMySQL();
 		$comitar = true;
 		if($cbNovoContat == "novo"){
-			$tfBanContat = isset($_POST["tfBanContat"]) ? $_POST["tfBanContat"] : NULL;
-			$tfFoneCont = isset($_POST["tfFoneCont"]) ? $_POST["tfFoneCont"] : NULL;
+			$tfBanContat = antiSQL(isset($_POST["tfBanContat"]) ? $_POST["tfBanContat"] : NULL);
+			$tfFoneCont = antiSQL(isset($_POST["tfFoneCont"]) ? $_POST["tfFoneCont"] : NULL);
 			
 			if($tfBanContat != NULL){
 				include_once("../../dao/DAOPessoa.class.php");
@@ -44,7 +45,7 @@
 				}
 			}
 		}else{
-			$tfBanContat = isset($_POST["slBanContat"]) ? $_POST["slBanContat"] : NULL;
+			$tfBanContat = antiSQL(isset($_POST["slBanContat"]) ? $_POST["slBanContat"] : NULL);
 		}
 		
 		if($tfBanCod != NULL || $tfBanDesc != NULL){
@@ -79,7 +80,7 @@
 		else
 			$conexao->rollback();
 	}
-	$cad = isset($_GET["cad"]) ? $_GET["cad"] : NULL;
+	$cad = antiSQL(isset($_GET["cad"]) ? $_GET["cad"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

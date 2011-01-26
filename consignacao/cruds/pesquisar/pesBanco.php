@@ -2,7 +2,8 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$slBancRef = isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$slBancRef = antiSQLisset(isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL);
 	
 	if($slBancRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");

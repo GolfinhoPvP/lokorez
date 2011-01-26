@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	$cpf = isset($_GET["cpf"]) ? $_GET["cpf"] : NULL;
+	include_once("../utils/funcoes.php");
+	$cpf = antiSQLisset(isset($_GET["cpf"]) ? $_GET["cpf"] : NULL);
 	$nome = "Relatório Analítico geral por periodo ".$_SESSION["banco_nome"];
 	$nome = str_replace(" ","_",$nome);
 	header("Content-type: application/vnd.ms-excel");

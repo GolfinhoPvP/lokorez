@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	$tfCPF = isset($_POST["tfCPF"]) ? $_POST["tfCPF"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$tfCPF = antiSQLisset(isset($_POST["tfCPF"]) ? $_POST["tfCPF"] : NULL);
 	include_once("../../utils/ConectarMySQL.class.php");
 	$conexao = new ConectarMySQL();
 ?>

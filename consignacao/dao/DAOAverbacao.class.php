@@ -30,7 +30,6 @@
 		
 		public function deletar($valRef){
 			$sql = "DELETE FROM averbacoes WHERE ave_numero_externo='".$valRef."'";
-			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel deletar: ".$valRef);
 				return false;

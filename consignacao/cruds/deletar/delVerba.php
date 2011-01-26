@@ -2,7 +2,8 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$slVerRef = isset($_POST["slVerRef"]) ? $_POST["slVerRef"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$slVerRef = antiSQL(isset($_POST["slVerRef"]) ? $_POST["slVerRef"] : NULL);
 	
 	if($slVerRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
@@ -18,7 +19,7 @@
 		header("Location: delVerba.php?del=ok");
 		die();
 	}
-	$alt = isset($_GET["del"]) ? $_GET["del"] : NULL;
+	$alt = antiSQL(isset($_GET["del"]) ? $_GET["del"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

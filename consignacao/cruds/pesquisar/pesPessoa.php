@@ -2,10 +2,11 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$tipo = isset($_GET["tipo"]) ? $_GET["tipo"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$tipo = antiSQLisset(isset($_GET["tipo"]) ? $_GET["tipo"] : NULL);
 	
-	$slTipo = isset($_POST["slTipo"]) ? $_POST["slTipo"] : NULL;
-	$slPesRef = isset($_POST["slPesRef"]) ? $_POST["slPesRef"] : NULL;
+	$slTipo = antiSQLisset(isset($_POST["slTipo"]) ? $_POST["slTipo"] : NULL);
+	$slPesRef = antiSQLisset(isset($_POST["slPesRef"]) ? $_POST["slPesRef"] : NULL);
 	
 	if($slTipo != NULL && $slPesRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");

@@ -2,8 +2,9 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$slEmpRef = isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL;
-	$desc = isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$slEmpRef = antiSQL(isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL);
+	$desc = antiSQL(isset($_POST["tfEmpDesc"]) ? $_POST["tfEmpDesc"] : NULL);
 	if($desc != NULL && $slEmpRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
 		$conexao = new ConectarMySQL();
@@ -18,7 +19,7 @@
 		header("Location: altEmpresa.php?alt=ok");
 		die();
 	}
-	$alt = isset($_GET["alt"]) ? $_GET["alt"] : NULL;
+	$alt = antiSQL(isset($_GET["alt"]) ? $_GET["alt"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

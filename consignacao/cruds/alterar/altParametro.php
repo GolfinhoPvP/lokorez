@@ -4,7 +4,7 @@
 	include_once("../../utils/controladorAcesso.php");
 	
 	include_once("../../utils/funcoes.php");
-	$slPer = isset($_POST["slPer"]) ? $_POST["slPer"] : NULL;
+	$slPer = antiSQL(isset($_POST["slPer"]) ? $_POST["slPer"] : NULL);
 	$ffPlanilha = isset($_FILES["ffPlanilha"]) ? $_FILES["ffPlanilha"] : NULL;
 	if($slPer != NULL){
 		include_once("../../utils/ConectarDBF.class.php");
@@ -151,11 +151,11 @@
 				$comitar = false;*/
 			
 			$dao = new DAOServidor(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, "../../", $mysql);
-			$servidor = $dao->getServidor($linha[2]);
+			$servidor = $dao->getServidor($linha[2], "%");
 			$servidor->setUtilizada($servidor->getUtilizada()-$linha[7]);
 			$servidor->setDisponivel($servidor->getDisponivel()+$linha[7]);
 			$dao->setServidor($servidor);
-			if(!$dao->alterar($servidor->getPesCodigo())){
+			if(!$dao->alterar($servidor->getPesCodigo().":".$servidor->getMatricula())){
 				$comitar = false;
 			}
 			/*$log = new DAOLog($_SESSION["pessoa"], 4, $_SESSION["nivel"], $_SESSION["codigo"], 10, "Log matricula= ".$linha[2], "../../", $mysql);
@@ -183,7 +183,7 @@
 		header("Location: altParametro.php?alt=ok");
 		die();
 	}
-	$cad = isset($_GET["alt"]) ? $_GET["alt"] : NULL;
+	$cad = antiSQL(isset($_GET["alt"]) ? $_GET["alt"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

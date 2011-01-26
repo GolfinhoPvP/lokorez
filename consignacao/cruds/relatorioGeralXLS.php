@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	$periodo = isset($_GET["per"]) ? $_GET["per"] : NULL;
+	include_once("../utils/funcoes.php");
+	$periodo = antiSQLisset(isset($_GET["per"]) ? $_GET["per"] : NULL);
 	$nome = "Relatório Analítico geral por periodo ".$_SESSION["banco_nome"];
 	$nome = str_replace(" ","_",$nome);
 	header("Content-type: application/vnd.ms-excel");

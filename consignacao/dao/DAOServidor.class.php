@@ -20,7 +20,9 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE servidores SET emp_codigo=".$this->servidor->getEmpCodigo().", pes_codigo=".$this->servidor->getPesCodigo().", ser_matricula='".$this->servidor->getMatricula()."', ser_admissao='".$this->servidor->getAdmissao()."', ser_cargo='".$this->servidor->getCargo()."', ser_vinculo='".$this->servidor->getVinculo()."', ser_consignavel=".$this->servidor->getConsignavel().", ser_utilizada=".$this->servidor->getUtilizada().", ser_disponivel=".$this->servidor->getDisponivel()." WHERE ser_matricula='".$valRef."' OR pes_codigo='".$valRef."'";
+			$val = explode(":", $valRef);
+			$sql = "UPDATE servidores SET emp_codigo=".$this->servidor->getEmpCodigo().", pes_codigo=".$this->servidor->getPesCodigo().", ser_matricula='".$this->servidor->getMatricula()."', ser_admissao='".$this->servidor->getAdmissao()."', ser_cargo='".$this->servidor->getCargo()."', ser_vinculo='".$this->servidor->getVinculo()."', ser_consignavel=".$this->servidor->getConsignavel().", ser_utilizada=".$this->servidor->getUtilizada().", ser_disponivel=".$this->servidor->getDisponivel()." WHERE pes_codigo='".$val[0]."' AND ser_matricula='".$val[1]."'";
+			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar: ".$this->servidor->getMatricula());
 				return false;
@@ -37,8 +39,8 @@
 			return true;
 		}
 		
-		public function pesquisar($valRef){
-			$sql = "SELECT * FROM servidores WHERE ser_matricula='".$valRef."'";
+		public function pesquisar($valRefP, $valRef){
+			$sql = "SELECT * FROM servidores WHERE pes_codigo LIKE '".$valRefP."' AND ser_matricula LIKE '".$valRef."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar: ".$valRef);
@@ -56,7 +58,8 @@
 		}
 		
 		public function atualizarVerba($valRef, $valor){
-			$this->servidor = $this->getServidor($valRef);
+			$val = explode(":", $valRef);
+			$this->servidor = $this->getServidor($val[0], $val[1]);
 			$valor = $this->servidor->getUtilizada() + $valor; 
 			$this->servidor->setUtilizada($valor);
 			$disponivel = $this->servidor->getConsignavel() - $this->servidor->getUtilizada();
@@ -65,8 +68,8 @@
 			return $this->alterar($valRef);
 		}
 		
-		public function getServidor($valRef){
-			$linha = mysqli_fetch_array($this->pesquisar($valRef));
+		public function getServidor($valRefP, $valRef){
+			$linha = mysqli_fetch_array($this->pesquisar($valRefP, $valRef));
 			$this->servidor->setEmpCodigo($linha["emp_codigo"]);
 			$this->servidor->setPesCodigo($linha["pes_codigo"]);
 			$this->servidor->setMatricula($linha["ser_matricula"]);

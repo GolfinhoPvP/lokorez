@@ -2,10 +2,11 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	$tipo = isset($_GET["tipo"]) ? $_GET["tipo"] : NULL;
+	include_once("../../utils/funcoes.php");
+	$tipo = antiSQL(isset($_GET["tipo"]) ? $_GET["tipo"] : NULL);
 	
-	$slTipo = isset($_POST["slTipo"]) ? $_POST["slTipo"] : NULL;
-	$slPesRef = isset($_POST["slPesRef"]) ? $_POST["slPesRef"] : NULL;
+	$slTipo = antiSQL(isset($_POST["slTipo"]) ? $_POST["slTipo"] : NULL);
+	$slPesRef = antiSQL(isset($_POST["slPesRef"]) ? $_POST["slPesRef"] : NULL);
 	
 	if($slTipo != NULL && $slPesRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");
@@ -35,7 +36,7 @@
 		header("Location: delPessoa.php?del=ok");
 		die();
 	}
-	$del = isset($_GET["del"]) ? $_GET["del"] : NULL;
+	$del = antiSQL(isset($_GET["del"]) ? $_GET["del"] : NULL);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
