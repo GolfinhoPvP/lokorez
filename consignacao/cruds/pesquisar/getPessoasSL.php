@@ -3,7 +3,7 @@
 	
 	$conexao = new ConectarMySQL();
 	include_once("../../utils/funcoes.php");
-	$classe = antiSQLisset(isset($_GET["classe"]) ? $_GET["classe"] : "%");
+	$classe = antiSQL(isset($_GET["classe"]) ? $_GET["classe"] : "%");
 	
 	switch($classe){
 		case "B" : case "contato" :

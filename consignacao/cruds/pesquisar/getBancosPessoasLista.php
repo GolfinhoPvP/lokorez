@@ -6,8 +6,8 @@
 	
 	$conexao = new ConectarMySQL();
 	include_once("../../utils/funcoes.php");
-	$ordem = antiSQLisset(isset($_GET["ordem"]) ? $_GET["ordem"] : "%");
-	$key = antiSQLisset(isset($_GET["key"]) ? $_GET["key"] : "%");
+	$ordem = antiSQL(isset($_GET["ordem"]) ? $_GET["ordem"] : "%");
+	$key = antiSQL(isset($_GET["key"]) ? $_GET["key"] : "%");
 	
 	if($ordem == "contato"){
 		$resultado = $conexao->selecionar("SELECT * FROM bancos_pessoas WHERE pes_codigo LIKE '".$key."'");

@@ -2,7 +2,7 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	include_once("../../funcoes.php");
+	include_once("../../utils/funcoes.php");
 	$tfProDesc = antiSQL(isset($_POST["tfProDesc"]) ? $_POST["tfProDesc"] : NULL);
 	$tfProPrazMax = antiSQL(isset($_POST["tfProPrazMax"]) ? $_POST["tfProPrazMax"] : NULL);
 	if($tfProDesc != NULL && $tfProPrazMax != NULL){

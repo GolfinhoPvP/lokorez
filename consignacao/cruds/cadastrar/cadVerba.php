@@ -2,7 +2,7 @@
 	session_start();
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
-	include_once("../../funcoes.php");
+	include_once("../../utils/funcoes.php");
 	$tfVerba = antiSQL(isset($_POST["tfVerba"]) ? $_POST["tfVerba"] : NULL);
 	$slEmpRef = antiSQL(isset($_POST["slEmpRef"]) ? $_POST["slEmpRef"] : NULL);
 	$slBancRef = antiSQL(isset($_POST["slBancRef"]) ? $_POST["slBancRef"] : NULL);
