@@ -3,7 +3,7 @@
 	include_once("../../utils/funcoes.php");
 	$conexao = new ConectarMySQL();
 	
-	$key = antiSQLisset(isset($_GET["key"]) ? $_GET["key"] : "%");
+	$key = antiSQL(isset($_GET["key"]) ? $_GET["key"] : "%");
 	
 	$resultado = $conexao->selecionar("SELECT * FROM telefones WHERE pes_codigo=".$key);
 		

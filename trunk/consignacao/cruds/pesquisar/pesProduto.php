@@ -3,7 +3,7 @@
 	$nivelAcesso = "../../:2:3:4";
 	include_once("../../utils/controladorAcesso.php");
 	include_once("../../utils/funcoes.php");
-	$slProRef = antiSQLisset(isset($_POST["slProRef"]) ? $_POST["slProRef"] : NULL);
+	$slProRef = antiSQL(isset($_POST["slProRef"]) ? $_POST["slProRef"] : NULL);
 	
 	if($slProRef != NULL){
 		include_once("../../utils/ConectarMySQL.class.php");

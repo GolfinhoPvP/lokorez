@@ -3,7 +3,7 @@
 	$nivelAcesso = "../../:4";
 	include_once("../../utils/controladorAcesso.php");
 	include_once("../../utils/funcoes.php");
-	$periodo = antiSQLisset(isset($_POST["slPer"]) ? $_POST["slPer"] : NULL);
+	$periodo = antiSQL(isset($_POST["slPer"]) ? $_POST["slPer"] : NULL);
 	include_once("../../utils/ConectarMySQL.class.php");
 	$conexao = new ConectarMySQL();
 ?>

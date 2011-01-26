@@ -1,7 +1,7 @@
 <?php
 	include_once("../../utils/ConectarMySQL.class.php");
 	include_once("../../utils/funcoes.php");
-	$status = antiSQLisset(isset($_GET["status"]) ? $_GET["status"] : NULL);
+	$status = antiSQL(isset($_GET["status"]) ? $_GET["status"] : NULL);
 	
 	$conexao = new ConectarMySQL();
 	$data = date("Y-m-d");
