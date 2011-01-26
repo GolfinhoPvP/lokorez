@@ -18,17 +18,18 @@
 			}
 		</script>
 </head>
-	<body class="centralizar">
+<body class="centralizar">
+		<div id="confirmar"></div>
 		<div id="telaLogin">
 			<div id="esquerdaBox"></div>
 			<div id="centroBox">
 				<div id="sysLabel" align="center" class="texto2">Livro Caixa On-line </div>
-				<form id="loginForm" name="loginForm" method="post" action="" onsubmit="javascript: return validarLogin();">
+				<form id="loginForm" name="loginForm" method="post" action="#" onsubmit="javascript: return validarLogin();">
 		  	  	  <div class="texto1" id="nomeLabel">Nome de usu&aacute;rio: 
-				  		<input name="tfNomUsu" type="text" class="textField1" id="tfNomUsu" size="25" maxlength="15" onchange="javascript: validarForm('tfNomUsu');" />
+				  		<input name="tfNomUsu" type="text" class="textField1" id="tfNomUsu" size="25" maxlength="15" onkeyup="javascript: validarForm('tfNomUsu');" />
 				  </div>
 					<div class="texto1" id="senhaLabel">Senha: 
-						<input name="tfSen" type="password" class="textField1" id="tfSen" size="25" maxlength="15" onchange="javascript: validarForm('tfSen');" />
+						<input name="tfSen" type="password" class="textField1" id="tfSen" size="25" maxlength="15" onkeyup="javascript: validarForm('tfSen');" />
 				  </div>
 					<div id="botaoLabel">
 				  		<input class="botao1" name="btConect" type="submit" id="btConect" value="conectar" />
