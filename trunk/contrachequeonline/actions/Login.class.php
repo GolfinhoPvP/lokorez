@@ -41,7 +41,7 @@
 				die();
 			}
 			
-			$connect->close();
+			//$connect->close();
 			
 			header("Location: ../admin.php?login=false");
 			die();

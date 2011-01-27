@@ -450,6 +450,7 @@
     <p onclick="javascript: tableShowManager('divBoxEventos', true);" style="cursor:pointer">-&gt; Eventos</p>
     <p onclick="javascript: tableShowManager('divBoxFolha', true);" style="cursor:pointer">-&gt; Folha</p>
     <p onclick="javascript: tableShowManager('divBoxCadCalc', true);" style="cursor:pointer">-&gt; Tabelas de C&aacute;lculo e Cadastro  </p>
+	<a href="cadastroFolha.php">-&gt;Cadastrar Servidor </a>
     <a href="show.php">SHOW</a>
   </div>
   <div id="divLabelAdmin" class="wordsLabel">
