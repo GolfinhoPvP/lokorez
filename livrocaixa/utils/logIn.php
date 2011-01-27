@@ -1,34 +1,41 @@
 <?php
+	session_start();
 	include_once("funcoes.php");
-	$tfNomeUsuario 	= antiSQL(isset($_POST["tfNomeUsuario"]) ? $_POST["tfNomeUsuario"] : NULL);
-	$tfSenha 		= antiSQL(isset($_POST["tfSenha"]) ? $_POST["tfSenha"] : NULL);
 	
-	if($tfNomeUsuario != NULL && $tfSenha != NULL){
+	$tfNomUsu 	= antiSQL(isset($_POST["tfNomUsu"]) ? $_POST["tfNomUsu"] 	: NULL);
+	$tfSen 		= antiSQL(isset($_POST["tfSen"]) 	? $_POST["tfSen"] 		: NULL);
+	
+	if($tfNomUsu != NULL && $tfSen != NULL){
 		include_once("ConectarMySQL.class.php");
-		$conexao = new ConectarMySQL();
-		include_once("../dao/DAOAdministrador.class.php");
-		$daoAdm = new DAOAdministrador(NULL, NULL, NULL, NULL, NULL, "../", $conexao);
-		$resultado = $daoAdm->pesquisar("nomUsu", $tfNomeUsuario);
-		while($linha = mysqli_fetch_array($resultado)){
-			if($tfNomeUsuario == $linha["adm_nome_usuario"] && $tfSenha == decodificar($linha["adm_senha"])){
-				session_start();
-				$_SESSION["codigo"] = $linha["adm_codigo"];
-				$_SESSION["pessoa"] = $linha["pes_codigo"];
-				$_SESSION["nivel"] = $linha["niv_codigo"];
-				$_SESSION["banco"] = $linha["ban_codigo"];
-				$_SESSION["usuario"] = $linha["adm_nome_usuario"];
-				$_SESSION["senha"] = $linha["adm_senha"];
-				$linha = mysqli_fetch_array($conexao->selecionar("SELECT ban_descricao FROM bancos WHERE ban_codigo='".$linha["ban_codigo"]."'"));
-				$_SESSION["banco_nome"] = $linha["ban_descricao"];
-				include_once("../dao/DAOLog.class.php");
-				$log = new DAOLog($linha["pes_codigo"], 1, $linha["niv_codigo"], $linha["adm_codigo"], 1, "Realizou log-in no sistema!", "../", $conexao);
-				$log->cadastrar();
+		include_once("../beans/Cliente.class.php");
+		include_once("../beans/Log.class.php");
+		include_once("../dao/DAOCliente.class.php");
+		include_once("../dao/DAOLog.class.php");
+		
+		$conexao 	= new ConectarMySQL();
+		$cliente 	= new Cliente();
+		$log		= new Log(1, 1, $_SESSION["nomeUsuario"]." realizou log-in no sistema!");
+		$daoCli	 	= new DAOCliente($cliente, $conexao);
+		$daoLog 	= new DAOLog($log, $conexao);
+		
+		$cliente = $daoCli->getCliente($tfNomUsu);
+		
+		if($cliente != NULL && $cliente->nomeUsuario == $tfNomUsu && decodificar($cliente->senha) == $tfSen){
+			$_SESSION["codigo"] 		= $cliente->codigo;
+			$_SESSION["pesCodigo"] 		= $cliente->pesCodigo;
+			$_SESSION["codigoPai"] 		= $cliente->codigoPai;
+			$_SESSION["nomeUsuario"] 	= $cliente->nomeUsuario;
+			$_SESSION["sennha"] 		= $cliente->sennha;
+			
+			if($daoLog->cadastrar())
 				$conexao->commit();
-				header("Location: ../main.php");
-				die();
-			}
+			else
+				$conexao->rollback();
+				
+			header("Location: ../main.php");
+			die();
 		}
 		$conexao->commit();
 	}
-	header("Location: ../index.php?login=erro");
+	header("Location: ../login.php?login=erro");
 ?>

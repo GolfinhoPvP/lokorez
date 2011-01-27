@@ -1,9 +1,21 @@
 /* CSS Document */
+body{
+	background-color:#CCCCCC;
+	margin-left:0px;
+	margin-top:0px;
+}
+#confirmar{
+	position:absolute;
+}
 body.centralizar{
 	background-color:#CCCCCC;
 	visibility:hidden;
 	margin-left:0px;
 	margin-top:0px;
+}
+
+#frame{
+	position:absolute;
 }
 
 .texto1{
@@ -31,6 +43,17 @@ body.centralizar{
 	font-size: 13px;
 }
 
+.botao2{
+	background-color:#FFFFFF;
+	border:solid;
+	border-collapse:collapse;
+	border-color:#666666;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color:#000000;
+	font-size: 13px;
+}
+
 .textField1{
 	border:solid;
 	border-color:#333333;
@@ -38,4 +61,10 @@ body.centralizar{
 	color:#000000;
 	font-weight: bold;
 	font-size: 11px;
+}
+.texto3 {
+	color: #000000;
+	font-size: 12px;
+	font-weight: bolder;
+	font-family: Georgia, "Times New Roman", Times, serif;
 }

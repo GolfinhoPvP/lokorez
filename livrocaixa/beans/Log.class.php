@@ -9,13 +9,18 @@
 		private $ipRede;
 		private $descricao;
 		
-		function __construct($cod = NULL, $cliCod = NULL, $alvCod = NULL, $dathor = NULL, $nomeMaq = NULL, $ipRed = NULL, $desc = NULL){
-			$this->codigo 		= $cod;
-			$this->cliCodigo 	= $cliCod;
+		function __construct($opeCod = NULL, $alvCod = NULL, $desc = NULL){
+			$this->codigo 		= NULL;
+			$this->cliCodigo 	= $_SESSION["codigo"];
+			$this->opeCodigo 	= $opeCod;
 			$this->alvCodigo 	= $alvCod;
-			$this->datahora 	= $dathor;
-			$this->nomeMaquina 	= $nomeMaq;
-			$this->ipRede 		= $ipRed;
+			$this->datahora 	= date("Y-m-d H:i:s");
+			$this->nomeMaquina 	= @gethostbyaddr($REMOTE_ADDR);
+				if(strlen($this->nomeMaquina) < 1)
+					$this->nomeMaquina = @gethostbyaddr($_SERVER['REMOTE_ADDR']);
+			$this->ipRede 		= @gethostbyname($REMOTE_ADDR);
+				if(strlen($this->ipRede) < 1)
+					$this->ipRede = @gethostbyname($_SERVER['REMOTE_ADDR']);
 			$this->descricao 	= $desc;	
 		}
 		

@@ -1,0 +1,70 @@
+/* CSS Document */
+#frameConteudo{
+	position:absolute;
+	top: 43px;
+}
+
+#menu {
+  margin:0;
+  font-family:Georgia, "Times New Roman", Times, serif;
+  text-shadow:#666666;
+  padding:0; 
+  width: auto;
+  height: auto;
+  overflow:hidden; 
+}
+#menu li {
+  display:inline;
+  background-image:url(../../imagens/butao1.png);
+  background-repeat:no-repeat;
+  width:150px;
+  list-style-type:none; 
+}
+#menu li{
+  display:block;
+  float:left;
+  text-decoration:none; 
+  margin:0; 
+}
+#menu li div#nav {
+  margin:0.3em;
+  display:none;
+}
+#menu li div {
+  margin:0.2em;
+}
+#menu li:hover div#nav {
+  display:block;
+  background-image:url(../../imagens/butao2.png);
+  background-repeat:no-repeat;
+  width:150px;
+  height:25px;
+  cursor:pointer;
+}
+#menu li div#nav div#nav2 {
+	margin-left:147px;
+	margin-top:-22px;
+	position:absolute;
+}
+#menu li div#nav div#nav2{
+  display:none; 
+}
+#menu li div#nav div#nav2 div{
+  	background-image:url(../../imagens/butao2.png);
+  	background-repeat:no-repeat;
+	width:150px;
+	height:25px;
+	margin:0.2em;
+}
+#menu li div#nav:hover div#nav2{
+  display:block;
+  cursor:pointer;
+}
+#divMenu {
+	position:absolute;
+	left:4px;
+	top:7px;
+	width:490px;
+	height:auto;
+	z-index:2;
+}

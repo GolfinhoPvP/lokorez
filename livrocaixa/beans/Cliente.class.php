@@ -6,8 +6,8 @@
 		private $nomeUsuario;
 		private $senha;
 		
-		function __construct($cod = NULL, $pesCod = NULL, $codPai = NULL, $nomeUsu = NULL, $senha = NULL){
-			$this->codigo 		= $cod;
+		function __construct($pesCod = NULL, $codPai = NULL, $nomeUsu = NULL, $senha = NULL){
+			$this->codigo 		= NULL;
 			$this->pesCodigo 	= $pesCod;
 			$this->codigoPai 	= $codPai;
 			$this->nomeUsuario 	= $nomeUsu;
