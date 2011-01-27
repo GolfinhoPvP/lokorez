@@ -12,13 +12,13 @@
 		$connect->start();
 		
 		$db = "br_estado_".strtolower($uf);
-		$text .= "%";
+		$text .= ".{0,}";
 		
-		$result = $connect->execute("SELECT distinct id, bairro FROM $db WHERE logradouro LIKE '$text'");
+		$result = $connect->execute("SELECT distinct bairro FROM $db WHERE bairro REGEXP '$text'");
 		
-		echo("<div id='---'>Selecione um logradouro!</div>");
+		echo("<div id='---'>Selecione um bairro!</div>");
 		while($row = mysql_fetch_assoc($result)) {
-			echo("<div id='".$row["id"]."' onclick='javascript: setLogradouto(".$row["id"].", \"tfBairro\");' style='cursor:pointer'>".utf8_encode($row["bairro"])."</div>");
+			echo("<div id='".$row["bairro"]."' onclick='javascript: setLogradouto(\"".urlencode($row["bairro"])."\", \"tfBairro\");' style='cursor:pointer'>".utf8_encode($row["bairro"])."</div>");
 		}
 	}else{
 		echo("Digite seu bairro");

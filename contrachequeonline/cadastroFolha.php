@@ -8,7 +8,7 @@
 	
 	session_start();
 	
-	if((isset($_SESSION["usuario"]) == NULL) && (isset($_SESSION["senha"]) == NULL) && (isset($_SESSION["nivel"]) == NULL)){
+	if((isset($_SESSION["usuario"]) == NULL) && (isset($_SESSION["senha"]) == NULL) && (isset($_SESSION["nivel"]) > 2)){
 		header("Location: admin.php");
 		die();
 	}
@@ -45,17 +45,21 @@
 				setTimeout("document.getElementById('autoComplete').style.visibility = 'hidden'",time);
 			}
 			function getSource(source, target){
-				div = document.getElementById("autoComplete");
-				t = document.getElementById(target);
-				div.style.top =  (findPosY(t)+3)+"px";
-				div.style.left = (findPosX(t)+2)+"px";
-				div.style.visibility = "visible";
-				uf = document.getElementById("slUFEnd").value;
-				cep = document.getElementById("tfCEP").length < 10 ? "%" : document.getElementById("tfCEP").value;
-				bairro = urlencode(document.getElementById("tfBairro").value);
-				cidade = urlencode(document.getElementById("slCidade").value);
 				text = document.getElementById(target).value;
-				loadContent("utils/"+source+".php?uf="+uf+"&cep="+cep+"&cidade="+cidade+"&bairro="+bairro+"&text="+text, "autoComplete");
+				if(((text.length % 3) == 0) || target == "slCidade"  || target == "slUFEnd"){
+					div = document.getElementById("autoComplete");
+					t = document.getElementById(target);
+					div.style.top =  (findPosY(t)+3)+"px";
+					div.style.left = (findPosX(t)+2)+"px";
+					div.style.visibility = "visible";
+					uf = document.getElementById("slUFEnd").value;
+					cep = document.getElementById("tfCEP").length < 10 ? "%" : document.getElementById("tfCEP").value;
+					bairro = urlencode(document.getElementById("tfBairro").value);
+					logradouro = urlencode(document.getElementById("tfTipoLog").value);
+					cidade = urlencode(document.getElementById("slCidade").value);
+					
+					loadContent("utils/"+source+".php?uf="+uf+"&cep="+cep+"&cidade="+cidade+"&bairro="+bairro+"&logradouro="+logradouro+"&text="+text, "autoComplete");
+				}
 			}
 			function setLogradouto(id, target){
 				document.getElementById(target).value = document.getElementById(id).innerHTML;
@@ -66,10 +70,8 @@
 </head>
 	
 <body>
-	<div id="loading">
-	</div>
-	<div id="autoComplete" class="words3">
-	</div>
+	<div id="loading">	</div>
+	<div id="autoComplete" class="words3">	</div>
 	<form id="form1" name="form1" method="post" action="">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" class="wordsLabel">
 	  <tr>
@@ -289,7 +291,7 @@
 		</label></td>
 		<td colspan="4">Tipo de logradouro: 
 		  <label>
-          <input name="tfTipoLog" type="text" id="tfTipoLog" size="40" maxlength="50" />
+          <input name="tfTipoLog" type="text" id="tfTipoLog" size="40" maxlength="50" onkeyup="javascript: getSource('getLogradouro','tfTipoLog');" onblur="javascript: hideAutoComplete(300);"  autocomplete="off"/>
           </label></td>
 	  </tr>
 	  <tr>
