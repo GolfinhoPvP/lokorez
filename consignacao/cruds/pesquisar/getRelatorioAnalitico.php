@@ -45,16 +45,17 @@ Voltar <img src="../../imagens/voltar.png" width="40" height="30" onclick="javas
 		
 		$quantParcelasFaltando = $quantParcelas - $quantParcelasPagas;
 		
-		$sql = "SELECT FORMAT(sum(par.par_valor),2) FROM parcelas par WHERE par.ave_numero_externo='".$linha["ave_numero_externo"]."' AND par.par_periodo_parcela='".$periodo."'";
+		//$sql = "SELECT FORMAT(sum(par.par_valor),2) FROM parcelas par WHERE par.ave_numero_externo='".$linha["ave_numero_externo"]."' AND par.par_periodo_parcela='".$periodo."'";
+		$sql = "SELECT FORMAT(sum(par.par_valor),2) FROM parcelas par WHERE par.par_periodo_parcela='".$periodo."'";
 		$resultado = $conexao->selecionar($sql);
 		$valor = mysqli_fetch_array($resultado);
 		$valorTotal = strlen($valor[0]) != 0? $valor[0] : 0;
 		$valorTotal = str_replace(",","",$valorTotal);
 		
-		$sql = "SELECT FORMAT(sum(par.par_valor),2) FROM parcelas par WHERE par.ave_numero_externo='".$linha["ave_numero_externo"]."' AND par.sta_codigo=4 AND par.par_periodo_parcela='".$periodo."'";
+		$sql = "SELECT FORMAT(sum(par.par_valor),2) FROM parcelas par WHERE par.sta_codigo=4 AND par.par_periodo_parcela='".$periodo."'";
 		$resultado = $conexao->selecionar($sql);
 		$valor = mysqli_fetch_array($resultado);
-		$valorPago = strlen($valor[0]) != 0? $valor[0] : 0.00;
+		$valorPago = strlen($valor[0]) != 0? $valor[0] : 0;
 		
 		$valorFaltaPagar = $valorTotal - $valorPago;
 		
