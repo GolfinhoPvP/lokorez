@@ -60,11 +60,6 @@
 		</style>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/empresa.js"></script>
-		<script type="text/javascript" language="javascript">
-			 window.onload = function(){
-			 	loadContent('../pesquisar/getAverbacoesSL.php', 'slAveRef', '../../');
-			}
-		</script>
 	</head>
 	<body>
 		<?php
@@ -94,10 +89,11 @@
 		</div>
 		<form id="empresaAlterar" name="empresaAlterar" method="post" action="#" onsubmit="javascript: return validarAlterarEmpresa('empresaAlterar');">
 		  <div><span class="texto2">
-		  Selecione a averva&ccedil;&atilde;o a ser cancelada:</span> 
-		    <select name="slAveRef" class="tf1" id="slAveRef" >
-		    <option value="---">-----------------------------</option>
-	      </select></div>
+		  Selecione a averva&ccedil;&atilde;o a ser cancelada:</span>
+		    <label>
+		    <input name="slAveRef" type="text" class="tf1" id="slAveRef" size="100" maxlength="200" />
+		    </label>
+		  </div>
 		  <div align="center"><br />
 		    <input name="btCancelar" type="submit" class="bt1" id="btCancelar" value="Cancelar" />
 		    <br />
