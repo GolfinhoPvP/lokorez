@@ -3,7 +3,7 @@
 		private $hostBanco 		= "localhost";
 		private $usuarioBanco 	= "root";
 		private $senhaBanco 	= "root";
-		private $nomeBanco 		= "consignacao";
+		private $nomeBanco 		= "livrocaixa";
 		private $conexao;
 		
 		function __construct(){
