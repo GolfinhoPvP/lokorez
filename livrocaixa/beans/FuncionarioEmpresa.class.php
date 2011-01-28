@@ -1,15 +1,13 @@
 <?php
-	class Pessoa{
-		private $codigo;
+	class FuncionarioEmpresa{
+		private $cliCodigo;
+		private $empCodigo;
 		private $nome;
-		private $cpf;
-		private $rg;
 		
-		function __construct($nome = NULL, $cpf = NULL, $rg = NULL){
-			$this->codigo	= NULL;
-			$this->nome 	= $nome;
-			$this->cpf 		= $cpf;
-			$this->rg 		= $rg;
+		function __construct($cliCod = NULL, $empCod = NULL, $nome = NULL){
+			$this->cliCodigo 	= $cliCod;
+			$this->empCodigo 	= $empCod;
+			$this->nome 		= $nome;
 		}
  
 		public function __set($nome, $valor) {

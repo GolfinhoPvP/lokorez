@@ -12,6 +12,7 @@
 	</head>
 	
 <body>
+	<div id="desconectar" onclick="javascript: location.href = 'utils/desconectar.php';" style="cursor:pointer">Desconectar<img src="imagens/desconectar.png" /></div>
 	<div id="divMenu">
 	  <ul id="menu">
 		  <li>

@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		1/25/2011
+Modified		1/27/2011
 Project		
 Model		
 Company		
@@ -10,6 +10,9 @@ Database		mySQL 5
 */
 
 
+drop table IF EXISTS classe;
+drop table IF EXISTS niveis;
+drop table IF EXISTS funcionarios;
 drop table IF EXISTS forma_pagamento;
 drop table IF EXISTS alvos;
 drop table IF EXISTS logs;
@@ -29,6 +32,7 @@ drop table IF EXISTS clientes;
 
 Create table clientes (
 	cli_codigo Serial NOT NULL AUTO_INCREMENT,
+	niv_codigo Smallint NOT NULL,
 	pes_codigo Bigint UNSIGNED NOT NULL,
 	cli_codigo_pai Bigint UNSIGNED NOT NULL,
 	cli_nome_usuario Varchar(15),
@@ -38,7 +42,6 @@ Create table clientes (
 
 Create table empresas (
 	emp_codigo Serial NOT NULL AUTO_INCREMENT,
-	cli_codigo Bigint UNSIGNED NOT NULL,
 	emp_nome Varchar(100),
  Primary Key (emp_codigo)) ENGINE = InnoDB;
 
@@ -63,6 +66,7 @@ Create table emails (
 	pes_codigo Bigint UNSIGNED NOT NULL,
 	ema_email Varchar(50),
 	ema_nota Varchar(50),
+	UNIQUE (ema_email),
  Primary Key (ema_codigo)) ENGINE = InnoDB;
 
 Create table produtos (
@@ -107,6 +111,7 @@ Create table plano_conta (
 Create table tecnico (
 	tec_codigo Serial NOT NULL AUTO_INCREMENT,
 	pes_codigo Bigint UNSIGNED NOT NULL,
+	cla_codigo Bigint UNSIGNED NOT NULL,
 	tec_descricao Varchar(50),
  Primary Key (tec_codigo)) ENGINE = InnoDB;
 
@@ -137,13 +142,30 @@ Create table forma_pagamento (
 	for_descricao Varchar(50) NOT NULL,
  Primary Key (for_codigo)) ENGINE = InnoDB;
 
+Create table funcionarios (
+	emp_codigo Bigint UNSIGNED NOT NULL,
+	cli_codigo Bigint UNSIGNED NOT NULL,
+	cla_codigo Bigint UNSIGNED NOT NULL,
+ Primary Key (emp_codigo,cli_codigo)) ENGINE = InnoDB;
+
+Create table niveis (
+	niv_codigo Smallint NOT NULL AUTO_INCREMENT,
+	niv_descricao Varchar(25),
+ Primary Key (niv_codigo)) ENGINE = InnoDB;
+
+Create table classe (
+	cla_codigo Serial NOT NULL AUTO_INCREMENT,
+	cla_descricao Varchar(30),
+ Primary Key (cla_codigo)) ENGINE = InnoDB;
+
 
 Alter table clientes add Foreign Key (cli_codigo_pai) references clientes (cli_codigo) on delete  restrict on update  restrict;
-Alter table empresas add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table solicitacoes add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table logs add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete set null on update cascade;
+Alter table funcionarios add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table produtos add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table solicitacoes add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
+Alter table funcionarios add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table telefones add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table emails add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table clientes add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
@@ -155,5 +177,8 @@ Alter table lancamentos add Foreign Key (tec_codigo) references tecnico (tec_cod
 Alter table logs add Foreign Key (ope_codigo) references operacoes (ope_codigo) on delete cascade on update cascade;
 Alter table logs add Foreign Key (alv_codigo) references alvos (alv_codigo) on delete cascade on update cascade;
 Alter table lancamentos add Foreign Key (for_codigo) references forma_pagamento (for_codigo) on delete set null on update cascade;
+Alter table clientes add Foreign Key (niv_codigo) references niveis (niv_codigo) on delete cascade on update cascade;
+Alter table funcionarios add Foreign Key (cla_codigo) references classe (cla_codigo) on delete cascade on update cascade;
+Alter table tecnico add Foreign Key (cla_codigo) references classe (cla_codigo) on delete cascade on update cascade;
 
 

@@ -1,7 +1,7 @@
 /* CSS Document */
 #cadCliPes{
 	position:absolute;
-	width: 900px;
+	width: 640px;
 	height: 112px;
 	left: 0px;
 	top: 0px;
@@ -32,7 +32,7 @@
 
 #cadCliTel{
 	position:absolute;
-	width: 900px;
+	width: 651px;
 	height: 40px;
 	left: 0px;
 	top: 117px;
@@ -56,7 +56,7 @@
 
 #cadCliEml{
 	position:absolute;
-	width: 900px;
+	width: 657px;
 	height: 40px;
 	left: 0px;
 	top: 164px;
@@ -80,7 +80,7 @@
 
 #cadCli{
 	position:absolute;
-	width: 900px;
+	width: 617px;
 	height: 108px;
 	left: 0px;
 	top: 210px;
@@ -114,6 +114,32 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 252px;
-	top: 325px;
+	left: 455px;
+	top: 338px;
+}
+
+/* ---------------------------- */
+
+#cadCliFun{
+	position:absolute;
+	width: 440px;
+	height: 72px;
+	left: 5px;
+	top: 324px;
+}
+
+#cadCliFunEmpRel{
+	position:absolute;
+	width: 422px;
+	height: 26px;
+	left: 7px;
+	top: 6px;
+}
+
+#cadCliFunCla{
+	position:absolute;
+	width: 170px;
+	height: 14px;
+	left: 66px;
+	top: 42px;
 }

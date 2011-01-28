@@ -1,3 +1,6 @@
+<?php
+	include("cadClienteInclude.php");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -6,11 +9,20 @@
 		<link href="../../scripts/css/cliente.css" rel="stylesheet" type="text/css" />
 		
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/funcoes.js"></script>
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/cliente.js"></script>
 	</head>
 	
 	<body>
+		<?php
+			if($cadastrar == true){
+				$tipo = "cad";
+				include($toRoot."includes/confirmar.php");
+			}else{
+				echo('<div id="confirmar"></div>');
+			}
+		?>
 		<div id="confirmar"></div>
-		<form id="cadastrar" name="cadastrar" method="post" action="">
+		<form id="cadastrar" name="cadastrar" method="post" action="cadCliente.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
 			<div id="cadCliPes">
 			  <div class="texto3" id="cadCliPesNom">Nome: <input name="tfNom" type="text" class="textField1" id="tfNom" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
 			  <div class="texto3" id="cadCliPesRG">RG: 
@@ -22,7 +34,7 @@
 		  </div>
 		  <div id="cadCliTel">
 		  	<div class="texto3" id="cadCliTelNum">Telefone: 
-	  	    <input name="tfFonNum" type="text" class="textField1" id="tfFonNum" size="30" maxlength="14" onkeyup="javascript: validarForm('tfFonNum');"/>
+	  	    <input name="tfFonNum" type="text" class="textField1" id="tfFonNum" size="30" maxlength="12" onkeyup="javascript: validarForm('tfFonNum');"/>
 		  	</div>
 			  <div class="texto3" id="cadCliTelNot">Nota: 
 		      <input name="tfFonNot" type="text" class="textField1" id="tfFonNot" size="30" maxlength="30" onkeyup="javascript: validarForm('tfFonNot');"/>
@@ -43,10 +55,32 @@
 		      <input name="tfSen1" type="password" class="textField1" id="tfSen1" size="30" maxlength="30" onkeyup="javascript: validarForm('tfSen1');"/>
 		    </div>
 			  <div class="texto3" id="cadCliSen2">Confirme a senha: 
-		      <input name="tfSen2" type="password" class="textField1" id="tfSen2" size="30" maxlength="14" onkeyup="javascript: validarForm('tfSen2');"/>
+		      <input name="tfSen2" type="password" class="textField1" id="tfSen2" size="30" maxlength="14" onkeyup="javascript: validarSenhas();"/>
 		    </div>
 		  </div>
-		  <div id="cadCliBut"><input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+		  <?php
+		  if($_SESSION["nivel"] != 1){
+			  echo('
+			  <div class="texto3" id="cadCliFun">
+				<div id="cadCliFunEmpRel">Empresa relacionada: 
+				<select name="slEmp" class="textField1" id="slEmp">
+					<?php
+						include_once($toRoot."utils/getEmpresasSL.php");
+					?>
+				</select>
+				</div>
+				<div id="cadCliFunCla">N&iacute;vel: 
+					<select name="slCla" class="textField1" id="slCla">
+					  <option value="---" selected="selected">------------</option>
+					  <option value="3">Master</option>
+					  <option value="4">Simples</option>
+					</select>
+				</div>
+			  </div>');
+		  }
+		  ?>
+		  <div id="cadCliBut">
+	      <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
 		</form>
 	</body>
 </html>
