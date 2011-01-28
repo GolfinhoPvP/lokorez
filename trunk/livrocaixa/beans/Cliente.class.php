@@ -1,15 +1,17 @@
 <?php
 	class Cliente{
 		private $codigo;
+		private $nivel;
 		private $pesCodigo;
 		private $codigoPai;
 		private $nomeUsuario;
 		private $senha;
 		
-		function __construct($pesCod = NULL, $codPai = NULL, $nomeUsu = NULL, $senha = NULL){
+		function __construct($pesCod = NULL, $niv = NULL, $nomeUsu = NULL, $senha = NULL){
 			$this->codigo 		= NULL;
 			$this->pesCodigo 	= $pesCod;
-			$this->codigoPai 	= $codPai;
+			$this->nivel		= $niv;
+			$this->codigoPai 	= $_SESSION["codigo"];
 			$this->nomeUsuario 	= $nomeUsu;
 			$this->senha 		= $senha;
 		}

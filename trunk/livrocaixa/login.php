@@ -1,6 +1,5 @@
 <?php
-	include_once("utils/funcoes.php");
-	$login = antiSQL(isset($_GET["login"]) ? $_GET["login"] : NULL);
+	include_once("loginInclude.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,20 +20,18 @@
 </head>
 <body class="centralizar">
 		<?php
-			if($login != NULL){
+			if($login == false){
 				$tipo = "log";
-				$toRoot = "";
-				include("includes/negar.php");
+				include($toRoot."includes/negar.php");
 			}else{
 				echo('<div id="confirmar"></div>');
 			}
 		?>
-		<div id="confirmar"></div>
 		<div id="telaLogin">
 			<div id="esquerdaBox"></div>
 			<div id="centroBox">
 				<div id="sysLabel" align="center" class="texto2">Livro Caixa On-line </div>
-				<form id="loginForm" name="loginForm" method="post" action="utils/logIn.php" onsubmit="javascript: return validarLogin();">
+				<form id="loginForm" name="loginForm" method="post" action="login.php" onsubmit="javascript: return validarLogin();">
 		  	  	  <div class="texto1" id="nomeLabel">Nome de usu&aacute;rio: 
 				  		<input name="tfNomUsu" type="text" class="textField1" id="tfNomUsu" size="25" maxlength="15" onkeyup="javascript: validarForm('tfNomUsu');" />
 				  </div>

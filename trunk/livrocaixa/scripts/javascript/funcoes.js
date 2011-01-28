@@ -2,21 +2,25 @@
 function validarForm(id){
 	switch(id){
 		case "tfFonNot" :	
-			case "tfEmlNot" : descricaoExpReg = /^[ ]{4,50}|([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){4,50}$/; break;
+			case "tfEmlNot" : descricaoExpReg = /^([a-zA-Z0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]|[-_\.]){0,50}$/; break;
 		case "tfNom" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){4,150}$/; break;
 		case "tfRG" : descricaoExpReg = /^([ ]{0,30}|([0-9]|\.|-){0,30})$/; break;
 		case "tfCPF" : descricaoExpReg = /^([ ]{0,14}|[0-9]{3,3}\.[0-9]{3,3}\.[0-9]{3,3}-[0-9]{2,2})$/; break;
-		case "tfFonNum" : descricaoExpReg = /^[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4}$/; break;
+		case "tfFonNum" : descricaoExpReg = /^([ ]{0,12}|[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4})$/; break;
 		case "slPesRef" :
 			case "slBancRef" :
 			case "slNivel" :
+			case "slEmp" :
+			case "slCla" :
 			case "slTipo" : descricaoExpReg = /[^---]/; break;
 		case "tfSen" :
 			case "tfSen1" :
-			case "tfSen2" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]){5,15}$/; break;
+			case "tfSen2" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]){4,15}$/; break;
 		case "tfNomUsu" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|_|-|@){4,15}$/; break;
-		case "tfEmlURL" : descricaoExpReg = /^([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+$/; break;
+		case "tfEmlURL" : descricaoExpReg = /^([ ]{0,}|([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+)$/; break;
+		default : return true;
 	}
+	
 	document.getElementById("confirmar").style.visibility = "hidden";
 	
 	if(document.getElementById(id).value.match(descricaoExpReg)){

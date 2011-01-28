@@ -1,0 +1,30 @@
+/* CSS Document */
+#confirmar{
+	position:absolute;
+	left:30%;
+	top:10%;
+}
+#avisEsquerda{
+	position:absolute;
+	background-repeat:no-repeat;
+	left: 0px;
+	top: 0px;
+	width: 44px;
+	height: 45px;
+}
+#avisCentro{
+	position:absolute;
+	background-repeat:repeat-x;
+	left: 43px;
+	top: 0px;
+	width: 350px;
+	height: 45px;
+}
+#avisDireita{
+	position:absolute;
+	background-repeat:no-repeat;
+	left: 393px;
+	top: 0px;
+	width: 42px;
+	height: 45px;
+}

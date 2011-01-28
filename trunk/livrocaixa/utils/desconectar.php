@@ -1,11 +1,17 @@
 <?php
 	session_start();
-	include_once("ConectarMySQL.class.php");
+	$toRoot = "../";
+	include_once($toRoot."beans/Log.class.php");
+	include_once($toRoot."dao/DAOLog.class.php");
+	include_once($toRoot."utils/ConectarMySQL.class.php");
+	
 	$conexao = new ConectarMySQL();
-	include_once("../dao/DAOLog.class.php");
-	$log = new DAOLog($_SESSION["pessoa"], 2, $_SESSION["nivel"], $_SESSION["codigo"], 1, "Realizou log-off no sistema!", "../", $conexao);
-	$log->cadastrar();
-	$conexao->commit();
+	
+	$log		= new Log(1, 1, $_SESSION["nomeUsuario"]." desconectou log-in no sistema!");
+	$daoLog 	= new DAOLog($log, $conexao);
+	$daoLog->cadastrar();
+	
+	$conexao->fechar();
 	session_destroy();
-	header("Location: ../index.php");
+	header("Location: ".$toRoot."login.php");
 ?>

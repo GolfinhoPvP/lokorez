@@ -5,8 +5,8 @@
 		private $email;
 		private $nota;
 		
-		function __construct($cod = NULL, $pesCod = NULL, $email = NULL, $nota = NULL){
-			$this->codigo		= $cod;
+		function __construct($pesCod = NULL, $email = NULL, $nota = NULL){
+			$this->codigo		= NULL;
 			$this->pesCodigo 	= $pesCod;
 			$this->email 		= $email;
 			$this->nota 		= $nota;
