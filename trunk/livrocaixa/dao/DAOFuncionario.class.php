@@ -15,7 +15,6 @@
 			$linha = mysqli_fetch_array($resultado);
 			$this->funcionario->empCodigo	= $linha["emp_codigo"];
 			$this->funcionario->cliCodigo	= $linha["cli_codigo"];
-			$this->funcionario->claCodigo	= $linha["cla_codigo"];
 			return $this->funcionario;
 		}
 		
@@ -24,7 +23,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO emails (emp_codigo, cli_codigo, cla_codigo) VALUES (".$this->funcionario->empCodigo.", ".$this->funcionario->cliCodigo.", ".$this->funcionario->claCodigo.")";
+			$sql = "INSERT INTO funcionarios (emp_codigo, cli_codigo) VALUES (".$this->funcionario->empCodigo.", ".$this->funcionario->cliCodigo.")";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o funcionario: ".$this->funcionario->cliCodigo);
 				return false;
@@ -33,7 +32,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE emails SET emp_codigo=".$this->funcionario->empCodigo.", cli_codigo=".$this->funcionario->cliCodigo.", cla_codigo=".$this->funcionario->claCodigo." WHERE emp_codigo=".$valRef;
+			$sql = "UPDATE funcionarios SET emp_codigo=".$this->funcionario->empCodigo.", cli_codigo=".$this->funcionario->cliCodigo." WHERE emp_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o funcionario código: ".$valRef);
 				return false;
@@ -42,7 +41,7 @@
 		}
 		
 		public function deletar($valRefE, $valRefC){
-			$sql = "DELETE FROM emails WHERE emp_codigo=".valRefE." AND cli_codigo=".$valRefC;
+			$sql = "DELETE FROM funcionarios WHERE emp_codigo=".valRefE." AND cli_codigo=".$valRefC;
 			echo($sql);
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel deletar o funcionario código: ".$valRefC);
@@ -52,7 +51,7 @@
 		}
 		
 		public function pesquisar($valRefE, $valRefC){
-			$sql = "SELECT * FROM emails WHERE emp_codigo LIKE '".valRefE."' AND cli_codigo LIKE '".$valRefC."'";
+			$sql = "SELECT * FROM funcionarios WHERE emp_codigo LIKE '".valRefE."' AND cli_codigo LIKE '".$valRefC."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar o funcionario referência: ".$valRefC);

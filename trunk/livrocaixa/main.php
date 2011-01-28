@@ -17,12 +17,20 @@
 	  <ul id="menu">
 		  <li>
 			<div alt="Administrar" width="100px" height="100px" title="Empresas">Administrar</div>
-			 <div id="nav">Clientes
+			 <div id="nav">Pessoal
 			 	<div id="nav2">
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadCliente.php');">Cadastrar</div>
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altCliente.php');">Alterar</div>
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delCliente.php');">Deletar</div>
 					<div onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesCliente.php');">Pesquisar</div>
+				</div>
+			</div>
+			<div id="nav">Empresa
+			 	<div id="nav2">
+					<div onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadEmpresa.php');">Cadastrar</div>
+					<div onclick="javascript: carregarNoIframe('conteudo','cruds/alterar/altEmpresa.php');">Alterar</div>
+					<div onclick="javascript: carregarNoIframe('conteudo','cruds/deletar/delEmpresa.php');">Deletar</div>
+					<div onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesEmpresa.php');">Pesquisar</div>
 				</div>
 			</div>
 		</li>

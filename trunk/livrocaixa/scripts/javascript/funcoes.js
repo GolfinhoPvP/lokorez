@@ -4,6 +4,7 @@ function validarForm(id){
 		case "tfFonNot" :	
 			case "tfEmlNot" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.]){0,50}$/; break;
 		case "tfNom" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){4,150}$/; break;
+		case "tfNomEmp" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){4,100}$/; break;
 		case "tfRG" : descricaoExpReg = /^([ ]{0,30}|([0-9]|\.|-){0,30})$/; break;
 		case "tfCPF" : descricaoExpReg = /^([ ]{0,14}|[0-9]{3,3}\.[0-9]{3,3}\.[0-9]{3,3}-[0-9]{2,2})$/; break;
 		case "tfFonNum" : descricaoExpReg = /^([ ]{0,12}|[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4})$/; break;

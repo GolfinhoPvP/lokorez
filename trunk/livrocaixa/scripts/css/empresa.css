@@ -1,0 +1,26 @@
+/* CSS Document */
+#cadEmp{
+	position:absolute;
+	width: 640px;
+	height: 72px;
+	left: 0px;
+	top: 0px;
+}
+#cadEmpNom{
+	position:absolute;
+	width: 608px;
+	height: 11px;
+	left: 11px;
+	top: 16px;
+}
+/* ---------------------------- */
+
+#cadEmpBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 132px;
+	top: 79px;
+}
+
+/* ---------------------------- */

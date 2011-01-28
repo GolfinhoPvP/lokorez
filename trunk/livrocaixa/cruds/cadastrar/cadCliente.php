@@ -63,11 +63,9 @@
 			  echo('
 			  <div class="texto3" id="cadCliFun">
 				<div id="cadCliFunEmpRel">Empresa relacionada: 
-				<select name="slEmp" class="textField1" id="slEmp">
-					<?php
-						include_once($toRoot."utils/getEmpresasSL.php");
-					?>
-				</select>
+				<select name="slEmp" class="textField1" id="slEmp">');
+				include($toRoot."utils/getEmpresasSL.php");
+				echo('</select>
 				</div>
 				<div id="cadCliFunCla">N&iacute;vel: 
 					<select name="slCla" class="textField1" id="slCla">
