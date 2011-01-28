@@ -17,14 +17,17 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(3, "Pessoas"),
 				(4, "Emails"),
 				(5, "Teelfones"),
-				(6, "Funcionarios");
-				(7, "Bancos_Pessoas"),
-				(8, "Administradores"),
-				(9, "Verbas"),
+				(6, "Funcionarios"),
+				(7, "Empresas"),
+				(8, "Classe"),
+				(9, "Forma Pagamento"),
 				(10, "Servidores"),
-				(11, "Parametros"),
-				(12, "Averbações"),
-				(13, "Parcelas");
+				(11, "Lançamentos"),
+				(12, "Plano Conta"),
+				(13, "Serviços"),
+				(14, "Solicitações"),
+				(15, "Tecnicos"),
+				(16, "Produtos");
 
 INSERT INTO pessoas (pes_nome, pes_cpf, pes_rg)
 	VALUES ("Super Administrador", "000.000.000-00", "00000");

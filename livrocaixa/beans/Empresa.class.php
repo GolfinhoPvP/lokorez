@@ -1,12 +1,10 @@
 <?php
 	class Empresa{
 		private $codigo;
-		private $cliCodigo;
 		private $nome;
 		
-		function __construct($cod = NULL, $empCod = NULL, $nome = NULL){
-			$this->codigo 		= $cod;
-			$this->cliCodigo 	= $empCod;
+		function __construct($nome = NULL){
+			$this->codigo 		= NULL;
 			$this->nome 		= $nome;
 		}
  

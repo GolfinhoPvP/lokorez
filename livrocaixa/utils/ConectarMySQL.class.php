@@ -53,8 +53,8 @@
 			return $resultado;
 		}
 		
-		public function numeroLinhas(){ 
-			return mysqli_num_rows($this->conexao);
+		public function numeroLinhas($resultado){ 
+			return mysqli_num_rows($resultado);
 		}
 		
 		public function getErro(){

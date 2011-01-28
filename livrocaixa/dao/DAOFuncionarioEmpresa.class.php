@@ -9,7 +9,7 @@
 		}
  
 		public function getFuncionarioEmpresa($valRefP,$valRefE){
-			$sql = "SELECT * FROM funcionarios f INNER JOIN empresas e ON f.emp_codigo=e.emp_codigo WHERE cli_codigo=".$valRefP." AND emp_codigo=".$valRefE;
+			$sql = "SELECT * FROM funcionarios f INNER JOIN empresas e ON f.emp_codigo=e.emp_codigo WHERE f.cli_codigo=".$valRefP." AND f.emp_codigo=".$valRefE;
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false)
 				return $this->funcionarioEmpresa = NULL;
@@ -21,9 +21,9 @@
 		}
 		
 		public function getFuncionarioEmpresaLista($valRef){
-			$sql = "SELECT * FROM funcionarios f INNER JOIN empresas e ON f.emp_codigo=e.emp_codigo WHERE cli_codigo LIKE '".$valRef."' OR emp_codigo='".$valRef."'";
+			$sql = "SELECT * FROM funcionarios f INNER JOIN empresas e ON f.emp_codigo=e.emp_codigo WHERE f.cli_codigo LIKE '".$valRef."' OR f.emp_codigo LIKE '".$valRef."'";
 			$resultado = $this->conexao->selecionar($sql);
-			if($resultado == false ||  $this->conexao->numeroLinhas() == 0)
+			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
