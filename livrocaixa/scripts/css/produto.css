@@ -1,0 +1,41 @@
+/* CSS Document */
+#cadProDes{
+	position:absolute;
+	width: 608px;
+	height: 11px;
+	left: 11px;
+	top: 47px;
+}
+#cadProMod{
+	position:absolute;
+	width: 369px;
+	height: 11px;
+	left: 100px;
+	top: 80px;
+}
+#cadProValVen{
+	position:absolute;
+	width: 425px;
+	height: 11px;
+	left: 45px;
+	top: 112px;
+}
+#cadProEmpRel{
+	position:absolute;
+	width: 544px;
+	height: 11px;
+	left: 8px;
+	top: 8px;
+}
+
+/* ---------------------------- */
+
+#cadCliBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 198px;
+	top: 171px;
+}
+
+/* ---------------------------- */

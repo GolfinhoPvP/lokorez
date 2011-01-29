@@ -41,15 +41,14 @@
   height:25px;
   cursor:pointer;
 }
+/**/
 #menu li div#nav div#nav2 {
 	margin-left:147px;
 	margin-top:-22px;
 	position:absolute;
+	display:none;
 }
-#menu li div#nav div#nav2{
-  display:none; 
-}
-#menu li div#nav div#nav2 div{
+#menu li div#nav div#nav2 div#niv{
   	background-image:url(../../imagens/butao2.png);
   	background-repeat:no-repeat;
 	width:150px;
@@ -60,6 +59,25 @@
   display:block;
   cursor:pointer;
 }
+/**/
+#menu li div#nav div#nav2 div#niv div#nav3{
+	margin-left:147px;
+	margin-top:-22px;
+	position:absolute;
+	display:none; 
+}
+#menu li div#nav div#nav2 div#niv div#nav3 div#niv1{
+  	background-image:url(../../imagens/butao2.png);
+  	background-repeat:no-repeat;
+	width:150px;
+	height:25px;
+	margin:0.2em;
+}
+#menu li div#nav div#nav2 div#niv:hover div#nav3{
+	display:block;
+	cursor:pointer;
+}
+/**/
 #divMenu {
 	position:absolute;
 	left:4px;

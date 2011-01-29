@@ -1,0 +1,33 @@
+/* CSS Document */
+#cadForPag{
+	position:absolute;
+	width: 640px;
+	height: 111px;
+	left: 0px;
+	top: 0px;
+}
+#cadForPagDes{
+	position:absolute;
+	width: 608px;
+	height: 11px;
+	left: 11px;
+	top: 16px;
+}
+#cadForPagPer{
+	position:absolute;
+	width: 182px;
+	height: 11px;
+	left: 103px;
+	top: 51px;
+}
+/* ---------------------------- */
+
+#cadCliBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 262px;
+	top: 123px;
+}
+
+/* ---------------------------- */

@@ -1,8 +1,10 @@
 // JavaScript Document
 function validarForm(id){
 	switch(id){
-		case "tfFonNot" :	
+		case "tfFonNot" :
 			case "tfEmlNot" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.]){0,50}$/; break;
+		case "tfDes" : 
+			case "tfMod" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.\\\/]){4,100}$/; break;
 		case "tfNom" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){4,150}$/; break;
 		case "tfNomEmp" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){4,100}$/; break;
 		case "tfRG" : descricaoExpReg = /^([ ]{0,30}|([0-9]|\.|-){0,30})$/; break;
@@ -17,6 +19,8 @@ function validarForm(id){
 		case "tfSen" :
 			case "tfSen1" :
 			case "tfSen2" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]){4,15}$/; break;
+		case "tfPer" : descricaoExpReg = /^[0-9]{1,10}$/; break;
+		case "tfVal" : descricaoExpReg = /^([0-9]{1,10}\.[0-9]{1,2}|[0-9]{1,10})$/; break;
 		case "tfNomUsu" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|_|-|@){4,15}$/; break;
 		case "tfEmlURL" : descricaoExpReg = /^([ ]{0,}|([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+)$/; break;
 		default : return true;

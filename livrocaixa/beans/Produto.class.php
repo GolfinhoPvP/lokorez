@@ -6,8 +6,8 @@
 		private $modelo;
 		private $valorVenda;
 		
-		function __construct($cod = NULL, $empCod = NULL, $des = NULL, $mod = NULL, $valVen = NULL){
-			$this->codigo 		= $cod;
+		function __construct($empCod = NULL, $des = NULL, $mod = NULL, $valVen = NULL){
+			$this->codigo 		= NULL;
 			$this->empCodigo 	= $empCod;
 			$this->descricao 	= $des;
 			$this->modelo 		= $mod;
