@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	$toRoot = isset($toRoot)? $toRoot : "../";
 	include_once($toRoot."beans/FuncionarioEmpresa.class.php");
 	include_once($toRoot."dao/DAOFuncionarioEmpresa.class.php");
@@ -11,13 +10,13 @@
 	$array = $DAOFuncionarioEmpresa->getFuncionarioEmpresaLista($_SESSION["codigo"]);
 	
 	if($array != NULL){
-		echo('<option value="---" selected="selected" >---</option>');
+		echo('<option value="---" selected="selected" >----------</option>');
 		foreach($array as $temp){
 			$funcionarioEmpresa = $temp;
 			echo('<option value="'.$funcionarioEmpresa->empCodigo.'" >'.$funcionarioEmpresa->nome.'</option>');
 		}
 	}else{
-		echo('<option value="0" selected="selected" >Não há empresas cadastradas!</option>');
+		echo('<option value="---" selected="selected" >Não há empresas cadastradas!</option>');
 	}
 	$conexao->fechar();
 ?>

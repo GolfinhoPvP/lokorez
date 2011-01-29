@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$toRoot = "../../";
-	$nivelAcesso = $toRoot.":4";
+	$nivelAcesso = $toRoot.":1:2:4";
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	

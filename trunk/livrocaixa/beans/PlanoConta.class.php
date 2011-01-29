@@ -3,8 +3,8 @@
 		private $codigo;
 		private $descricao;
 		
-		function __construct($cod = NULL, $des = NULL){
-			$this->codigo 		= $cod;
+		function __construct($des = NULL){
+			$this->codigo 		= NULL;
 			$this->descricao 	= $des;
 		}
  

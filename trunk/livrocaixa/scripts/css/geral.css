@@ -35,7 +35,6 @@ body.centralizar{
 .botao1{
 	background-color:#CCCCCC;
 	border:solid;
-	border-collapse:collapse;
 	border-color:#333333;
 	font-family: Geneva, Arial, Helvetica, sans-serif;
 	font-weight: bold;
@@ -46,7 +45,6 @@ body.centralizar{
 .botao2{
 	background-color:#FFFFFF;
 	border:solid;
-	border-collapse:collapse;
 	border-color:#666666;
 	font-family: Geneva, Arial, Helvetica, sans-serif;
 	font-weight: bold;
@@ -67,4 +65,22 @@ body.centralizar{
 	font-size: 12px;
 	font-weight: bolder;
 	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.alerta1 {
+	color: #FF0000;
+	font-size: 16px;
+	font-weight: bolder;
+	font-family: "Times New Roman", Times, serif;
+}
+
+#acessoNegado{
+	position:absolute;
+	left:35%;
+	top:25%;
+}
+#acessoNegadoIcone{
+	position:absolute;
+	left:-210px;
+	top:-103px;
 }

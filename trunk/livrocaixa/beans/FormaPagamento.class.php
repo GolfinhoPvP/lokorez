@@ -4,8 +4,8 @@
 		private $periodo;
 		private $descricao;
 		
-		function __construct($cod = NULL, $per = NULL, $des = NULL){
-			$this->codigo 		= $cod;
+		function __construct($per = NULL, $des = NULL){
+			$this->codigo 		= NULL;
 			$this->periodo 		= $per;
 			$this->descricao 	= $des;
 		}

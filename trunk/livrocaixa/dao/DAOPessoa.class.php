@@ -23,9 +23,9 @@
 		public function getAtual(){
 			$cpf 	= " AND pes_cpf='".$this->pessoa->cpf."' ";
 			$rg 	= " AND pes_rg='".$this->pessoa->rg."' ";
-			if(strlen($this->pessoa->cpf) == "(NULL)")
+			if(strlen($this->pessoa->cpf) == 0)
 				$cpf = " AND pes_cpf IS NULL ";
-			if(strlen($this->pessoa->rg) == "(NULL)")
+			if(strlen($this->pessoa->rg) == 0)
 				$rg = " AND pes_rg IS NULL ";
 				
 			$sql = "SELECT * FROM pessoas WHERE pes_nome='".$this->pessoa->nome."'".$cpf.$rg;
@@ -45,7 +45,15 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO pessoas (pes_nome, pes_cpf, pes_rg) VALUES ('".$this->pessoa->nome."', '".$this->pessoa->cpf."', '".$this->pessoa->rg."')";
+			$cpf 	= "'".$this->pessoa->cpf."'";
+			$rg 	= "'".$this->pessoa->rg."'";
+			
+			if(strlen($this->pessoa->cpf) == 0)
+				$cpf = "NULL";
+			if(strlen($this->pessoa->rg) == 0)
+				$rg = "NULL";
+				
+			$sql = "INSERT INTO pessoas (pes_nome, pes_cpf, pes_rg) VALUES ('".$this->pessoa->nome."', ".$cpf.", ".$rg.")";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o pessoa: ".$this->pessoa->nome);
 				return false;

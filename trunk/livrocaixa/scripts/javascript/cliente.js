@@ -11,10 +11,10 @@ function validarSenhas(){
 	if(document.getElementById("tfSen1").value != document.getElementById("tfSen2").value){
 		document.getElementById("tfSen1").style.background = "#FF0000";
 		document.getElementById("tfSen2").style.background = "#FF0000";
-		return true;
+		return false;
 	}else{
 		document.getElementById("tfSen1").style.background = "#FFFFFF";
 		document.getElementById("tfSen2").style.background = "#FFFFFF";
-		return false;
+		return true;
 	}
 }
