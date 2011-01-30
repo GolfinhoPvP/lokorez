@@ -1,0 +1,26 @@
+/* CSS Document */
+#cadCla{
+	position:absolute;
+	width: 640px;
+	height: 63px;
+	left: 0px;
+	top: 0px;
+}
+#cadClaDes{
+	position:absolute;
+	width: 608px;
+	height: 11px;
+	left: 11px;
+	top: 16px;
+}
+/* ---------------------------- */
+
+#cadCliBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 189px;
+	top: 74px;
+}
+
+/* ---------------------------- */

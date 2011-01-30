@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$toRoot = "../../";
-	$nivelAcesso = $toRoot.":1:3:4";
+	$nivelAcesso = $toRoot.":1:4";
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
@@ -14,22 +14,22 @@
 		}
 		
 		include_once($toRoot."utils/ConectarMySQL.class.php");
-		include_once($toRoot."beans/Produto.class.php");
-		include_once($toRoot."beans/Log.class.php");
-		include_once($toRoot."dao/DAOProduto.class.php");
+		include_once($toRoot."beans/Classe.class.php");
+		include_once($toRoot."beans/Log.class.php");;
+		include_once($toRoot."dao/DAOClasse.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
 		$conexao		= new ConectarMySql();
 
-		$produto 		= new Produto($slEmp, $tfDes, $tfMod, $tfVal);
-		$daoProduto		= new DAOProduto($produto, $conexao);
-		$daoProduto->cadastrar();
+		$classe 		= new Classe($tfDes);
+		$daoClasse		= new DAOClasse($classe, $conexao);
+		$daoClasse->cadastrar();
 		
-		$log 			= new Log(3, 16, $tfDes." cadastrado!");
+		$log 			= new Log(3, 8, $tfDes." cadastrado!");
 		$daoLog			= new DAOLog($log, $conexao);
 		$daoLog->cadastrar();
 		
 		$conexao->fechar();
-		$cadastrar = true;	
+		$cadastrar = true;
 	}
 ?>

@@ -17,7 +17,7 @@
 			$this->produto->empCodigo 	= $linha["emp_codigo"];
 			$this->produto->descricao	= $linha["pro_descricao"];
 			$this->produto->modelo		= $linha["pro_modelo"];
-			$this->produto->valorVenda	= $linha["pro_val_vendo"];
+			$this->produto->valorVenda	= $linha["pro_valor_venda"];
 			return $this->produto;
 		}
 		
@@ -31,7 +31,7 @@
 			$this->produto->empCodigo 	= $linha["emp_codigo"];
 			$this->produto->descricao	= $linha["pro_descricao"];
 			$this->produto->modelo		= $linha["pro_modelo"];
-			$this->produto->valorVenda	= $linha["pro_val_vendo"];
+			$this->produto->valorVenda	= $linha["pro_valor_venda"];
 			return $this->produto;
 		}
 		
@@ -40,16 +40,16 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO produtos (emp_codigo, pro_descricao, pro_modelo, pro_val_vendo) VALUES (".$this->produto->empCodigo.", '".$this->produto->descricao."', '".$this->produto->modelo."', ".$this->produto->valorVenda.")";
+			$sql = "INSERT INTO produtos (emp_codigo, pro_descricao, pro_modelo, pro_valor_venda) VALUES (".$this->produto->empCodigo.", '".$this->produto->descricao."', '".$this->produto->modelo."', ".$this->produto->valorVenda.")";
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel salvar o produto: ".$this->produto->nomeUsuario);
+				echo("Não foi possivel salvar o produto: ".$this->produto->descricao);
 				return false;
 			}
 			return true;
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE produtos SET emp_codigo=".$this->produto->empCodigo.", pro_descricao='".$this->produto->descricao."', pro_modelo='".$this->produto->modelo."', pro_val_vendo=".$this->produto->valorVenda." WHERE pro_codigo=".$valRef;
+			$sql = "UPDATE produtos SET emp_codigo=".$this->produto->empCodigo.", pro_descricao='".$this->produto->descricao."', pro_modelo='".$this->produto->modelo."', pro_valor_venda=".$this->produto->valorVenda." WHERE pro_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o produto código: ".$valRef);
 				return false;
