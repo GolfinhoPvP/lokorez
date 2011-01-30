@@ -2,9 +2,9 @@
 function validarForm(id){
 	switch(id){
 		case "tfFonNot" :
+			case "tfMod" :
 			case "tfEmlNot" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.]){0,50}$/; break;
-		case "tfDes" : 
-			case "tfMod" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.\\\/]){4,100}$/; break;
+		case "tfDes" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.\\\/]){4,100}$/; break;
 		case "tfNom" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){4,150}$/; break;
 		case "tfNomEmp" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){4,100}$/; break;
 		case "tfRG" : descricaoExpReg = /^([ ]{0,30}|([0-9]|\.|-){0,30})$/; break;
