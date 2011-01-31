@@ -29,10 +29,10 @@
 					include($toRoot."utils/getEmpresasSL.php");
 				?>
 				</select>
-		  	</div>
+	  	  </div>
 			  <div class="texto3" id="cadProDes">Descri&ccedil;&atilde;o do produto: 
 	          <input name="tfDes" type="text" class="textField1" id="tfDes" size="75" maxlength="150" onkeyup="javascript: validarForm('tfDes');" />
-			  </div>
+		  </div>
 			  <div class="texto3" id="cadProMod">Modelo:
 			    <input name="tfMod" type="text" class="textField1" id="tfMod" size="30" maxlength="25" onkeyup="javascript: validarForm('tfMod');"/>
 			  </div>

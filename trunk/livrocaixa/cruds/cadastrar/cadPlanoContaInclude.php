@@ -14,16 +14,16 @@
 		}
 		
 		include_once($toRoot."utils/ConectarMySQL.class.php");
-		include_once($toRoot."beans/Servico.class.php");
+		include_once($toRoot."beans/PlanoConta.class.php");
 		include_once($toRoot."beans/Log.class.php");;
-		include_once($toRoot."dao/DAOServico.class.php");
+		include_once($toRoot."dao/DAOPlanoConta.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
 		$conexao		= new ConectarMySql();
 
-		$servido 		= new Servico($tfDes);
-		$daoServico		= new DAOServico($servido, $conexao);
-		$daoServico->cadastrar();
+		$planoConta 		= new PlanoConta($tfDes);
+		$daoPlanoConta		= new DAOPlanoConta($planoConta, $conexao);
+		$daoPlanoConta->cadastrar();
 		
 		$log 			= new Log(3, 12, $tfDes." cadastrado!");
 		$daoLog			= new DAOLog($log, $conexao);

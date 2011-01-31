@@ -6,8 +6,8 @@
 		
 		function __construct($des = NULL){
 			$this->codigo 		= NULL;
-			if($_SESSION["codigo"] == 2)
-				$cliCod = 2;
+			if($_SESSION["nivel"] == 2)
+				$cliCod = $_SESSION["codigo"];
 			else
 				$cliCod = $_SESSION["codigoPai"];
 			$this->cliCodigo 	= $cliCod;

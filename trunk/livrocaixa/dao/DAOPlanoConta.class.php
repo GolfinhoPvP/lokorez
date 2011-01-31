@@ -20,7 +20,7 @@
 		}
 		
 		public function getAtual(){
-			$sql = "SELECT * FROM plano_conta WHERE cli_codigo=".$this->classe->cliCodigo." AND pc_descricao = '".$this->planoConta->descricao."'";
+			$sql = "SELECT * FROM plano_conta WHERE cli_codigo=".$this->planoConta->cliCodigo." AND pc_descricao = '".$this->planoConta->descricao."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false)
 				return $this->planoConta = NULL;
@@ -32,19 +32,19 @@
 		}
 		
 		public function getPlanoContaLista(){
-			if($_SESSION["codigo"] == 2)
-				$cliCod = 2;
+			if($_SESSION["nivel"] == 2)
+				$cliCod = $_SESSION["codigo"];
 			else
 				$cliCod = $_SESSION["codigoPai"];
 				
-			$sql = "SELECT * FROM plano_conta WHERE cli_codigo =".$cliCod;
+			$sql = "SELECT * FROM plano_conta WHERE cli_codigo =".$cliCod." ORDER BY pc_descricao";
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
-				$bean 				= new PlanoConta($linha["cli_codigo"], $linha["pc_descricao"]);
-				$classe->codigo 	= $linha["pc_codigo"];
+				$bean 				= new PlanoConta($linha["pc_descricao"]);
+				$bean->codigo 		= $linha["pc_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;
 			}
