@@ -42,8 +42,8 @@
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
-				$bean 				= new Produto($linha["emp_codigo"], $linha["pro_descricao"], $linha["pro_modelo"], $linha["pro_valor_venda"]);
-				$bean->codigo 		= $linha["pro_codigo"];
+				$bean 				= new Produto($linha["pes_codigo"], $linha["cla_codigo"], $linha["pro_descricao"]);
+				$bean->codigo 		= $linha["tec_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;
 			}

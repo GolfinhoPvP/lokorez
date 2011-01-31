@@ -1,6 +1,7 @@
 // JavaScript Document
-var xmlRequest = null;
-var array = new Array();
+var xmlRequest 	= null;
+var arrayLoad 	= new Array();
+var carregando	= false;
 
 var XMLHTTPREQUEST_MS_PROGIDS = new Array(
   	"Msxml2.XMLHTTP.7.0",
@@ -50,11 +51,32 @@ function loadContent(page, target, toRoot){
 	xmlRequest.onreadystatechange = function () {
 			if (xmlRequest.readyState == 4){
 				document.getElementById("carregando").innerHTML = "";
-				document.getElementById(target).innerHTML = xmlRequest.responseText;
+				document.getElementById(target).innerHTML 		= xmlRequest.responseText;
+				eval(arrayLoad[0][3]);
+				arrayLoad.shift();
+				carregando = false;
+				if(arrayLoad.length != 0){
+					carregar(null);
+				}
 			}
 	}
 	xmlRequest.send(null);
 }
 
-function carregar(){
+function carregar($arrayC){
+	if(arrayLoad.length != 0)
+		carregando = true;
+	else
+		carregando = false;
+		
+	if($arrayC != null)
+		arrayLoad.push($arrayC);
+	
+	if(carregando == false){
+		carregando = true;
+		p 	= arrayLoad[0][0];
+		t	= arrayLoad[0][1];
+		tR	= arrayLoad[0][2];
+		loadContent(p, t, tR);
+	}
 }

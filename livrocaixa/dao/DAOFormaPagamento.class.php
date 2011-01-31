@@ -45,7 +45,7 @@
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
-				$bean 				= new Servico($linha["cli_codigo"], $linha["for_periodo"], $linha["for_descricao"]);
+				$bean 				= new FormaPagamento($linha["for_periodo"], $linha["for_descricao"]);
 				$classe->codigo 	= $linha["for_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;
