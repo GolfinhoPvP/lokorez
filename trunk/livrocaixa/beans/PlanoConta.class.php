@@ -1,10 +1,16 @@
 <?php
 	class PlanoConta{
 		private $codigo;
+		private $cliCodigo;
 		private $descricao;
 		
 		function __construct($des = NULL){
 			$this->codigo 		= NULL;
+			if($_SESSION["codigo"] == 2)
+				$cliCod = 2;
+			else
+				$cliCod = $_SESSION["codigoPai"];
+			$this->cliCodigo 	= $cliCod;
 			$this->descricao 	= $des;
 		}
  

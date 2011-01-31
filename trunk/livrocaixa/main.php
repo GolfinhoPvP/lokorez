@@ -20,7 +20,7 @@
 	  <ul id="menu">
 		  <li>
 			<div alt="Administrar" width="100px" height="100px" title="Administrar">Administrar</div>
-			 <div id="nav">Pessoal
+			 <div id="nav">Ger&ecirc;ncia
 			 	<div id="nav2">
 					<div id="niv" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadCliente.php');">Cadastrar</div>
 					<div id="niv" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Alterar</div>
@@ -70,7 +70,7 @@
 							<div id="niv1" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pesquisar</div>
 						</div>
 					</div>
-					<div id="niv">Operacional
+					<div id="niv">Pessoal
 						<div id="nav3">
 							<div id="niv1">Classe
 								<div id="nav4">
@@ -82,7 +82,7 @@
 							</div>
 							<div id="niv1">T&eacute;cnico
 								<div id="nav4">
-									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Cadastrar</div>
+									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadTecnico.php');">Cadastrar</div>
 									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Alterar</div>
 									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Deletar</div>
 									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pesquisar</div>
@@ -95,8 +95,16 @@
 		</li>
 			 <li>
 			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Livro Caixa</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Fazer lan&ccedil;amento</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Solicitar pagamento</div>
+			 <div id="nav">Lan&ccedil;amento
+			 	<div id="nav2">
+					<div id="niv" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadLancamento.php');">Cadastrar</div>
+					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Alterar</div>
+					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Deletar</div>
+					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pesquisar</div>
+				</div>
+			 </div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pagamentos</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Check-In</div>
 		</li>
 	  </ul>
 	</div>

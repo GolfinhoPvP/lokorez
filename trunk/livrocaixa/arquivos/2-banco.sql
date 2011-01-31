@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		1/28/2011
+Modified		1/30/2011
 Project		
 Model		
 Company		
@@ -79,6 +79,7 @@ Create table produtos (
 
 Create table servicos (
 	ser_codigo Serial NOT NULL AUTO_INCREMENT,
+	cli_codigo Bigint UNSIGNED NOT NULL,
 	ser_descricao Varchar(100),
  Primary Key (ser_codigo)) ENGINE = InnoDB;
 
@@ -105,6 +106,7 @@ Create table solicitacoes (
 
 Create table plano_conta (
 	pc_codigo Serial NOT NULL AUTO_INCREMENT,
+	cli_codigo Bigint UNSIGNED NOT NULL,
 	pc_descricao Varchar(25),
  Primary Key (pc_codigo)) ENGINE = InnoDB;
 
@@ -138,6 +140,7 @@ Create table alvos (
 
 Create table forma_pagamento (
 	for_codigo Serial NOT NULL AUTO_INCREMENT,
+	cli_codigo Bigint UNSIGNED NOT NULL,
 	for_periodo Smallint NOT NULL,
 	for_descricao Varchar(50) NOT NULL,
  Primary Key (for_codigo)) ENGINE = InnoDB;
@@ -154,6 +157,7 @@ Create table niveis (
 
 Create table classe (
 	cla_codigo Serial NOT NULL AUTO_INCREMENT,
+	cli_codigo Bigint UNSIGNED NOT NULL,
 	cla_descricao Varchar(30),
  Primary Key (cla_codigo)) ENGINE = InnoDB;
 
@@ -162,6 +166,10 @@ Alter table clientes add Foreign Key (cli_codigo_pai) references clientes (cli_c
 Alter table solicitacoes add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table logs add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete set null on update cascade;
 Alter table funcionarios add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
+Alter table classe add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
+Alter table forma_pagamento add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
+Alter table servicos add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
+Alter table plano_conta add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table produtos add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table solicitacoes add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table funcionarios add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;

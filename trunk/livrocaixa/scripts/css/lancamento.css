@@ -1,0 +1,26 @@
+/* CSS Document */
+#cadLanPlaCon{
+	position:absolute;
+	width: 551px;
+	height: 8px;
+	left: 8px;
+	top: 8px;
+}
+#cadLanPro{
+	position:absolute;
+	width: 509px;
+	height: 11px;
+	left: 49px;
+	top: 39px;
+}
+/* ---------------------------- */
+
+#cadEmpBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 132px;
+	top: 79px;
+}
+
+/* ---------------------------- */
