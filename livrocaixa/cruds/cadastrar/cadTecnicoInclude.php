@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$toRoot = "../../";
-	$nivelAcesso = $toRoot.":4";
+	$nivelAcesso = $toRoot.":1:3:4";
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
@@ -14,17 +14,15 @@
 		}
 		
 		include_once($toRoot."utils/ConectarMySQL.class.php");
-		include_once($toRoot."beans/Cliente.class.php");
 		include_once($toRoot."beans/Email.class.php");
-		include_once($toRoot."beans/Funcionario.class.php");
 		include_once($toRoot."beans/Log.class.php");
 		include_once($toRoot."beans/Pessoa.class.php");
+		include_once($toRoot."beans/Tecnico.class.php");
 		include_once($toRoot."beans/Telefone.class.php");
-		include_once($toRoot."dao/DAOCliente.class.php");
 		include_once($toRoot."dao/DAOEmail.class.php");
-		include_once($toRoot."dao/DAOFuncionario.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		include_once($toRoot."dao/DAOPessoa.class.php");
+		include_once($toRoot."dao/DAOTecnico.class.php");
 		include_once($toRoot."dao/DAOTelefone.class.php");
 		
 		$conexao		= new ConectarMySql();
@@ -59,36 +57,15 @@
 			$daoLog->setLog($log);
 			$daoLog->cadastrar();
 		}
-		
-		if(!isset($cadCliFunCla)){
-			$cadCliFunCla = 2;
-		}else if($cadCliFunCla == 1 || $cadCliFunCla == 2){
-			$$cadCliFunCla = 3;
-		}
-		
-		if($_SESSION["codigo"] = 1)
-			$slCla = 2;
 
-		$cliente 		= new Cliente($pessoa->codigo, $slCla, $tfNomUsu, codificar($tfSen1));
-		$daoCliente		= new DAOCliente($cliente, $conexao);
-		$daoCliente->cadastrar();
-		$cliente = $daoCliente->getAtual();
+		$tecnico 		= new Tecnico($pessoa->codigo, $slCla, $tfDes);
+		$daoTecnico		= new DAOTecnico($tecnico, $conexao);
+		$daoTecnico->cadastrar();
 		
-		$log->alvo 		= 2;
-		$log->descricao = $tfNomUsu." cadastrado!";
+		$log->alvo 		= 15;
+		$log->descricao = $tfDes." cadastrado!";
 		$daoLog->setLog($log);
 		$daoLog->cadastrar();
-		
-		if($_SESSION["nivel"] != 1){
-			$funcionario 	= new Funcionario($slEmp, $cliente->codigo);
-			$daoFuncionario	= new DAOFuncionario($funcionario, $conexao);
-			$daoFuncionario->cadastrar();
-			
-			$log->alvo 		= 6;
-			$log->descricao = "funcionario cadastrado!";
-			$daoLog->setLog($log);
-			$daoLog->cadastrar();
-		}
 		
 		$conexao->fechar();
 		$cadastrar = true;	

@@ -1,26 +1,26 @@
 /* CSS Document */
-#cadTecPes{
+#cadCliPes{
 	position:absolute;
 	width: 640px;
 	height: 112px;
 	left: 0px;
 	top: 0px;
 }
-#cadTecPesNom{
+#cadCliPesNom{
 	position:absolute;
 	width: 608px;
 	height: 11px;
 	left: 11px;
 	top: 16px;
 }
-#cadTecPesCPF{
+#cadCliPesCPF{
 	position:absolute;
 	width: 596px;
 	height: 11px;
 	left: 23px;
 	top: 78px;
 }
-#cadTecPesRG{
+#cadCliPesRG{
 	position:absolute;
 	width: 591px;
 	height: 11px;
@@ -30,21 +30,21 @@
 
 /* ---------------------------- */
 
-#cadTecTel{
+#cadCliTel{
 	position:absolute;
 	width: 651px;
 	height: 40px;
 	left: 0px;
 	top: 117px;
 }
-#cadTecTelNum{
+#cadCliTelNum{
 	position:absolute;
 	width: 304px;
 	height: 11px;
 	left: 19px;
 	top: 3px;
 }
-#cadTecTelNot{
+#cadCliTelNot{
 	position:absolute;
 	width: 298px;
 	height: 11px;
@@ -54,21 +54,21 @@
 
 /* ---------------------------- */
 
-#cadTecEml{
+#cadCliEml{
 	position:absolute;
 	width: 657px;
 	height: 40px;
 	left: 0px;
 	top: 164px;
 }
-#cadTecEmlURL{
+#cadCliEmlURL{
 	position:absolute;
 	width: 286px;
 	height: 11px;
 	left: 35px;
 	top: 3px;
 }
-#cadTecEmlNot{
+#cadCliEmlNot{
 	position:absolute;
 	width: 300px;
 	height: 11px;
@@ -78,31 +78,39 @@
 
 /* ---------------------------- */
 
-#cadTec{
+#cadCli{
 	position:absolute;
 	width: 617px;
-	height: 74px;
+	height: 108px;
 	left: 0px;
 	top: 210px;
 }
-#cadTecCla{
+#cadCliNomUsu{
 	position:absolute;
-	width: 347px;
+	width: 581px;
 	height: 11px;
-	left: 81px;
+	left: 13px;
 	top: 5px;
 }
-#cadTecDes{
+#cadCliSen1{
 	position:absolute;
 	width: 513px;
 	height: 11px;
-	left: 59px;
-	top: 33px;
+	left: 81px;
+	top: 38px;
 }
+#cadCliSen2{
+	position:absolute;
+	width: 588px;
+	height: 11px;
+	left: 7px;
+	top: 71px;
+}
+
 
 /* ---------------------------- */
 
-#cadTecBut{
+#cadCliBut{
 	position:absolute;
 	width: 113px;
 	height: 44px;
@@ -112,7 +120,7 @@
 
 /* ---------------------------- */
 
-#cadTecFun{
+#cadCliFun{
 	position:absolute;
 	width: 440px;
 	height: 72px;
@@ -120,7 +128,7 @@
 	top: 324px;
 }
 
-#cadTecFunEmpRel{
+#cadCliFunEmpRel{
 	position:absolute;
 	width: 422px;
 	height: 26px;
@@ -128,7 +136,7 @@
 	top: 6px;
 }
 
-#cadTecFunCla{
+#cadCliFunCla{
 	position:absolute;
 	width: 170px;
 	height: 14px;

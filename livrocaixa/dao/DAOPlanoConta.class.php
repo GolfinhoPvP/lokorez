@@ -14,19 +14,41 @@
 				return $this->planoConta = NULL;
 			$linha = mysqli_fetch_array($resultado);
 			$this->planoConta->codigo		= $linha["pc_codigo"];
+			$this->planoConta->cliCodigo	= $linha["cli_codigo"];
 			$this->planoConta->descricao	= $linha["pc_descricao"];
 			return $this->planoConta;
 		}
 		
 		public function getAtual(){
-			$sql = "SELECT * FROM plano_conta WHERE pc_descricao = '".$this->planoConta->descricao."'";
+			$sql = "SELECT * FROM plano_conta WHERE cli_codigo=".$this->classe->cliCodigo." AND pc_descricao = '".$this->planoConta->descricao."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false)
 				return $this->planoConta = NULL;
 			$linha = mysqli_fetch_array($resultado);
 			$this->planoConta->codigo		= $linha["pc_codigo"];
+			$this->planoConta->cliCodigo	= $linha["cli_codigo"];
 			$this->planoConta->descricao	= $linha["pc_descricao"];
 			return $this->planoConta;
+		}
+		
+		public function getPlanoContaLista(){
+			if($_SESSION["codigo"] == 2)
+				$cliCod = 2;
+			else
+				$cliCod = $_SESSION["codigoPai"];
+				
+			$sql = "SELECT * FROM plano_conta WHERE cli_codigo =".$cliCod;
+			$resultado = $this->conexao->selecionar($sql);
+			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
+				return NULL;
+			$contador = 0;
+			while($linha = mysqli_fetch_array($resultado)){
+				$bean 				= new PlanoConta($linha["cli_codigo"], $linha["pc_descricao"]);
+				$classe->codigo 	= $linha["pc_codigo"];
+				$array[$contador] 	= $bean;
+				$contador++;
+			}
+			return $array;
 		}
 		
 		public function setPlanoConta($planoConta){
@@ -34,7 +56,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO plano_conta (pc_descricao) VALUES ('".$this->planoConta->descricao."')";
+			$sql = "INSERT INTO plano_conta (cli_codigo, pc_descricao) VALUES (".$this->planoConta->cliCodigo.", '".$this->planoConta->descricao."')";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o planoConta: ".$this->planoConta->descricao);
 				return false;
@@ -43,7 +65,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE plano_conta SET pc_descricao='".$this->planoConta->descricao."' WHERE pc_codigo=".$valRef;
+			$sql = "UPDATE plano_conta SET cli_codigo=".$this->planoConta->cliCodigo.", pc_descricao='".$this->planoConta->descricao."' WHERE pc_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o planoConta código: ".$valRef);
 				return false;
