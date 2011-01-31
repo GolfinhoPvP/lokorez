@@ -21,7 +21,7 @@
 		
 		<style type="text/css">
 		   @import url("css/general.css");
-		   @import url("css/admin.css");
+		   @import url("css/cadastro.css");
 		</style>
 		
 		<script language="javascript" src="javascript/functions.js" type="text/javascript"></script>
@@ -73,116 +73,88 @@
 	<div id="loading">	</div>
 	<div id="autoComplete" class="words3">	</div>
 	<form id="form1" name="form1" method="post" action="">
-	<table width="100%" border="0" cellpadding="0" cellspacing="1" class="wordsLabel">
-	  <tr>
-		<td colspan="8">Nome:
-		      <input name="tfNome" type="text" id="tfNome" size="100" maxlength="100" />
-		      <span class="alert">*	    </span></td>
-	  </tr>
-	  <tr>
-		<td colspan="2" >Carteira de trabalho:
-		  <label>
-		  <input name="tfCartTrab" type="text" id="tfCartTrab" size="25" maxlength="25" />
-	    </label></td>
-		<td colspan="2">S&eacute;rie: 
-		  <label>
-		  <input name="tfSerie" type="text" id="tfSerie" size="10" maxlength="10" />
-	    </label></td>
-		<td colspan="2">UF: 
-		  <label>
-		  <select name="lmUF" id="lmUF">
-		    <option selected="selected" value="---">---</option>
-			<?php
-				$result = $connect->execute("SELECT uf FROM tb_estados");
-				while($row = mysql_fetch_assoc($result)) {
-					echo("<option value=".$row["uf"].">".$row["uf"]."</option>");
-				}
-			?>
-	      </select>
-	    </label></td>
-		<td colspan="2">Data de emiss&atilde;o: 
-		  <label>
-		  <input name="tfDatEmisCartTrab" type="text" id="tfDatEmisCartTrab" size="10" maxlength="10" />
-	    <span class="alert">	    ex: 14/04/1988</span></label></td>
-	  </tr>
-	  <tr>
-		<td colspan="2">Sexo: 
-		  <label>
-		  <select name="slSexo" id="slSexo" onchange="javascript: showReference('slSexo','CartRes','M');">
-		    <option value="---" selected="selected">-----------</option>
-		    <option value="M">Masculino</option>
-		    <option value="F">Feminino</option>
-	      </select>
-        <span class="alert">* </span></label></td>
-		<td colspan="2">Estado civil: 
-		  <label>
-		  <select name="slEstadCis" id="slEstadCis" onchange="javascript: showReference('slEstadCis','nomConj','C:V');">
-		    <option value="---" selected="selected">--------------</option>
-		    <option value="S">Solteiro&ordf;</option>
-		    <option value="C">Casado&ordf;</option>
-		    <option value="D">Divorciado&ordf;</option>
-		    <option value="V">Vi&uacute;vo&ordf;</option>
-	      </select>
-        <span class="alert">* </span></label></td>
-		<td width="4%">&nbsp;</td>
-		<td width="20%">&nbsp;</td>
-		<td width="5%">&nbsp;</td>
-		<td width="18%">&nbsp;</td>
-	  </tr>
+		<div class="wordsLabel" id="nome">Nome:
+		     <input name="tfNome" type="text" id="tfNome" size="100" maxlength="100" />
+	     	<span class="alert">*</span>
+	  </div>
+		 <div id="cartTrab">
+		 	<div class="wordsLabel" id="cartTrabVal">Carteira de trabalho:
+		  		<input name="tfCartTrab" type="text" id="tfCartTrab" size="45" maxlength="50" />
+			</div>
+			<div class="wordsLabel" id="cartTrabSer">S&eacute;rie: 
+		  		<input name="tfSerie" type="text" id="tfSerie" size="10" maxlength="10" />
+			</div>
+			<div class="wordsLabel" id="cartTrabUF">UF: 
+			  <select name="lmUF" id="lmUF">
+				<option selected="selected" value="---">---</option>
+				<?php
+					$result = $connect->execute("SELECT uf FROM tb_estados");
+					while($row = mysql_fetch_assoc($result)) {
+						echo("<option value=".$row["uf"].">".$row["uf"]."</option>");
+					}
+				?>
+			  </select>
+		   </div>
+			<div class="wordsLabel" id="cartTrabDat">Data de emiss&atilde;o: 
+				  <input name="tfDatEmisCartTrab" type="text" id="tfDatEmisCartTrab" size="10" maxlength="10" />
+				<span class="alert">	    ex: 14/04/1988</span>			</div>
+		</div>
+		<div id="pes">
+			<div class="wordsLabel" id="pesSex">
+			  Sexo:
+			  <select name="slSexo" id="slSexo" onchange="javascript: showReference('slSexo','CartRes','M');">
+				<option value="---" selected="selected">-----------</option>
+				<option value="M">Masculino</option>
+				<option value="F">Feminino</option>
+			  </select>
+			<span class="alert">* </span>
+		  </div>
+			<div class="wordsLabel" id="pesEstCiv">
+			  Estado civil: 
+			  <select name="slEstadCis" id="slEstadCis" onchange="javascript: showReference('slEstadCis','nomConj','C:V');">
+				<option value="---" selected="selected">--------------</option>
+				<option value="S">Solteiro&ordf;</option>
+				<option value="C">Casado&ordf;</option>
+				<option value="D">Divorciado&ordf;</option>
+				<option value="V">Vi&uacute;vo&ordf;</option>
+			  </select>
+			<span class="alert">* </span>
+		  </div>
+	  </div>
+	  
 	  <!-- RESERVISTA -->
-	  <tr id="CartRes" class="invisible">
-		<td colspan="2">Carteira de reservista: 
-		  <label>
+	  <div id="CartRes" class="visible">
+		<div class="wordsLabel" id="CartResVal">Carteira de reservista: 
 		  <input name="txCartRes" type="text" id="txCartRes" size="25" maxlength="25" />
-        <span class="alert">* </span></label></td>
-		<td colspan="2">CSM: 
-		  <label>
+        <span class="alert">* </span></div>
+		<div class="wordsLabel" id="CartResCSM">CSM: 
 		  <input name="tfCSM" type="text" id="tfCSM" size="15" maxlength="15" />
-	    </label></td>
-		<td colspan="2">RM:
-          <label>
+	    </div>
+		<div class="wordsLabel" id="CartResRM">RM:
           <input name="tfRM" type="text" id="tfRM" size="15" maxlength="15" />
-          </label></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr><!-- RESERVISTA -->
-	  <tr>
-		<td colspan="2">PIS/PASEP (NIT): 
-		  <label>
+        </div>
+	  </div>
+	  <!-- RESERVISTA -->
+	  <div id="pisPasep" >
+		<div class="wordsLabel" id="pisPasepVal" >PIS/PASEP (NIT): 
 		  <input name="tfNIT" type="text" id="tfNIT" size="20" maxlength="20" />
-	      <span class="alert">*</span></label></td>
-		<td colspan="4">Data de emiss&atilde;o:
-          <label>
+        <span class="alert">*</span></div>
+		<div class="wordsLabel" id="pisPasepDat" >Data de emiss&atilde;o:
           <input name="tfDatEmisNIT" type="text" id="tfDatEmisNIT" size="10" maxlength="10" />
-          <span class="alert"> ex: 14/04/1988</span></label></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td colspan="4">CPF: 
-		  <label>
+        <span class="alert"> ex: 14/04/1988</span></div>
+	  </div>
+	  <div id="docs" >
+		<div class="wordsLabel" id="docsCPF">CPF: 
 		  <input name="tfCPF" type="text" id="tfCPF" size="14" maxlength="14" />
-	    <span class="alert">	    * ex: XXX.XXX.XXX-XX </span></label></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td colspan="3">RG: 
-		  <label>
-		  <input name="tfRG" type="text" id="tfRG" size="20" maxlength="20" />
-	      <span class="alert">*</span></label></td>
-		<td colspan="3">Org&atilde;o expedidor: 
-		  <label>
+	    <span class="alert">	    * ex: XXX.XXX.XXX-XX </span></div>
+		<div class="wordsLabel" id="docsRG">RG: 
+	    <input name="tfRG" type="text" id="tfRG" size="20" maxlength="20" /></div>
+		<div class="wordsLabel" id="docsOrgExp">Org&atilde;o expedidor: 
 		  <input name="tfOrgExep" type="text" id="tfOrgExep" size="20" maxlength="20" />
-	      <span class="alert">*</span></label></td>
-		<td colspan="2">Data de emiss&atilde;o:
-          <label>
-          <input name="tfDatEmisRG" type="text" id="tfDatEmisRG" size="10" maxlength="10" />
-          <span class="alert"> ex: 14/04/1988</span></label></td>
-	  </tr>
-	  <tr>
+        <span class="alert">*</span></div>
+		<div class="wordsLabel" id="docsDat">Data de emiss&atilde;o:
+        <input name="tfDatEmisRG" type="text" id="tfDatEmisRG" size="10" maxlength="10" /><span class="alert"> ex: 14/04/1988</span></div>
+	  </div>
 		<td colspan="2">T&iacute;tulo eleitoral: 
 		  <label>
 		  <input name="tfTitEleit" type="text" id="tfTitEleit" size="15" maxlength="15" />
@@ -207,10 +179,10 @@
 		<td>&nbsp;</td>
 	  </tr>
 	  <tr>
-		<td width="7%">&nbsp;</td>
-		<td width="22%">&nbsp;</td>
-		<td width="11%">&nbsp;</td>
-		<td width="13%">&nbsp;</td>
+		<td width="3%">&nbsp;</td>
+		<td width="25%">&nbsp;</td>
+		<td width="4%">&nbsp;</td>
+		<td width="17%">&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -304,136 +276,128 @@
 		</label></td>
 	  </tr>
 	  <tr>
-		<td height="17">&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td colspan="8">&nbsp;</td>
 	  </tr>
     </table>
+	<div class="wordsLabel" id="numCas">Número: 
+	  <input name="tfNumCas" type="text" id="tfNumCas" size="10" maxlength="10" />
+	</div>
+	<div class="wordsLabel" id="quadra">Quadra: 
+	  <input name="tfQuadra" type="text" id="tfQuadra" size="10" maxlength="10" />
+	</div>
+	<div class="wordsLabel" id="fone">Fone: 
+	  <input name="tfFone" type="text" id="tfFone" size="15" maxlength="12" />
+	</div>
+	<div class="wordsLabel" id="redDesMes">Reside desde: 
+	  <select name="slResDesMes" id="slResDesMes">
+	  <option value="---">-------------</option>
+	  <option value="1">janeiro</option>
+	  <option value="2">fevereiro</option>
+	  <option value="3">mar&ccedil;o</option>
+	  <option value="4">abril</option>
+	  <option value="5">maio</option>
+	  <option value="6">junho</option>
+	  <option value="7">julho</option>
+	  <option value="8">agosto</option>
+	  <option value="9">setembro</option>
+	  <option value="10">outubro</option>
+	  <option value="11">novembro</option>
+	  <option value="12">dezembro</option>
+      </select>
+</div>
+	<div class="wordsLabel" id="redDesAno">/
+	  <input name="tfResDesAno" type="text" id="tfResDesAno" size="7" maxlength="4" />
+	</div>
+	<div id="cartAbilit">
+	  <div class="wordsLabel" id="cartAbilitVal">Carteira de habilitação: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="50" maxlength="50" />
+	  </div>
+	  <div class="wordsLabel" id="cartAbilitCat">Categoria: 
+		<select name="slCartAbilitCat" id="slCartAbilitCat">
+		  <option value="---">----</option>
+		  <option value="1">A</option>
+		  <option value="2">B</option>
+		  <option value="3">AB</option>
+		  <option value="4">C</option>
+		  <option value="5">D</option>
+		  <option value="6">E</option>
+	    </select></div>
+	</div>
+	<div id="regProf">
+		<div class="wordsLabel" id="regProfVal">Registro profissional: 
+		  <input name="tfReg" type="text" id="tfCartAbilitVal" size="33" maxlength="30" />
+	  </div>
+		<div class="wordsLabel" id="regProfSig">Sigla: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="5" maxlength="5" />
+		</div>
+		<div class="wordsLabel" id="regProfReg">Região: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="10" />
+		</div>
+	</div>
+	<div id="grauInst">
+	  <div class="wordsLabel" id="grauInstVal">Grau de instru&ccedil;&atilde;o: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="50" maxlength="50" />
+	  </div>
+		<div class="wordsLabel" id="grauInstNiv">Forma&ccedil;&atilde;o: 
+		  <select name="slCartAbilitCat" id="slCartAbilitCat">
+		  <option value="---" selected="selected">----</option>
+		  <option value="1">Sem forma&ccedil;&atilde;o</option>
+		  <option value="2">Fundamental</option>
+		  <option value="3">M&eacute;dio</option>
+		  <option value="4">Superior</option>
+		  <option value="5">Mestre</option>
+		  <option value="6">Doutor</option>
+		  <option value="7">PHD</option>
+	        </select></div>
+	</div>
+	<div id="banco">
+		<div class="wordsLabel" id="bancoVal">Banco: 
+		  <input name="tfReg" type="text" id="tfCartAbilitVal" size="33" maxlength="30" />
+	  </div>
+		<div class="wordsLabel" id="bancoAge">Ag&ecirc;ncia: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="15" />
+	  </div>
+		<div class="wordsLabel" id="bancoCon">Conta: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="15" />
+	  </div>
+	</div>
+	<div id="certCivil">
+		<div class="wordsLabel" id="certCivilVal">Certidão civil: 
+		  <input name="tfReg" type="text" id="tfCartAbilitVal" size="10" maxlength="10" />
+	  </div>
+		<div class="wordsLabel" id="certCivilTerNum">Termo N°: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="10" />
+	  </div>
+		<div class="wordsLabel" id="certCivilFol">Folha: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="10" />
+	  </div>
+		<div class="wordsLabel" id="certCivilLiv">Livro: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="10" />
+		</div>
+	</div>
+	  <div class="wordsLabel" id="vincFund">V&iacute;nculo com a funda&ccedil;&atilde;o: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="50" maxlength="50" />
+	  </div>
+	  <div class="wordsLabel" id="origCesDisp">Origem com a cess&atilde;o/disposi&ccedil;&atilde;o: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="50" maxlength="50" />
+	  </div>
+	  <div class="wordsLabel" id="cargContra">Cargo contratado: 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="50" maxlength="50" />
+	  </div>
+	  <div class="wordsLabel" id="funcExer">Fun&ccedil;&atilde;o que exerce : 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="50" maxlength="50" />
+	  </div>
+	  <div id="local">
+		<div class="wordsLabel" id="localUni">Local/Unidade: 
+		  <input name="tfReg" type="text" id="tfCartAbilitVal" size="33" maxlength="30" />
+	  </div>
+		<div class="wordsLabel" id="localMicro">Micro &aacute;rea : 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="15" />
+	  </div>
+		<div class="wordsLabel" id="localEquip">Equip&eacute; PSF : 
+		  <input name="tfCartAbilitVal" type="text" id="tfCartAbilitVal" size="10" maxlength="15" />
+	  </div>
+	</div>
 	</form>
 </body>
 </html>

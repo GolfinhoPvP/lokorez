@@ -1,0 +1,371 @@
+/* --- */
+#nome{
+	position:absolute;
+	width: 691px;
+	left: 7px;
+	top: 155px;
+	height: 20px;
+}
+/* --- */
+#cartTrab{
+	position:absolute;
+	width: 838px;
+	left: 6px;
+	top: 185px;
+	height: 67px;
+	border:dotted;
+}
+#cartTrabVal{
+	position:absolute;
+	width: 443px;
+	left: 19px;
+	top: 7px;
+	height: 20px;
+}
+#cartTrabSer{
+	position:absolute;
+	width: 143px;
+	left: 104px;
+	top: 33px;
+	height: 20px;
+}
+#cartTrabUF{
+	position:absolute;
+	width: 124px;
+	left: 510px;
+	top: 7px;
+	height: 20px;
+}
+#cartTrabDat{
+	position:absolute;
+	width: 292px;
+	left: 431px;
+	top: 32px;
+	height: 20px;
+}
+/* --- */
+#pes{
+	position:absolute;
+	width: 838px;
+	left: 5px;
+	top: 265px;
+	height: 33px;
+	border:dotted;
+}
+#pesSex{
+	position:absolute;
+	width: 202px;
+	left: 105px;
+	top: 7px;
+	height: 20px;
+}
+#pesEstCiv{
+	position:absolute;
+	width: 277px;
+	left: 462px;
+	top: 7px;
+	height: 20px;
+}
+/* --- */
+#CartRes{
+	position:absolute;
+	width: 838px;
+	left: 5px;
+	top: 311px;
+	height: 33px;
+	border:dotted;
+}
+#CartResVal{
+	position:absolute;
+	width: 319px;
+	left: 10px;
+	top: 8px;
+	height: 20px;
+}
+#CartResCSM{
+	position:absolute;
+	width: 170px;
+	left: 503px;
+	top: 8px;
+	height: 20px;
+}
+#CartResRM{
+	position:absolute;
+	width: 158px;
+	left: 334px;
+	top: 8px;
+	height: 20px;
+}
+/* --- */
+#pisPasep{
+	position:absolute;
+	width: 838px;
+	left: 5px;
+	top: 360px;
+	height: 32px;
+	border:dotted;
+}
+#pisPasepVal{
+	position:absolute;
+	width: 275px;
+	left: 34px;
+	top: 8px;
+	height: 20px;
+}
+#pisPasepDat{
+	position:absolute;
+	width: 310px;
+	left: 431px;
+	top: 9px;
+	height: 20px;
+}
+/* --- */
+#docs{
+	position:absolute;
+	width: 838px;
+	left: 6px;
+	top: 406px;
+	height: 58px;
+	border:dotted;
+}
+#docsCPF{
+	position:absolute;
+	width: 268px;
+	left: 110px;
+	top: 7px;
+	height: 20px;
+}
+#docsRG{
+	position:absolute;
+	width: 207px;
+	left: 12px;
+	top: 33px;
+	height: 20px;
+}
+#docsOrgExp{
+	position:absolute;
+	width: 257px;
+	left: 233px;
+	top: 33px;
+	height: 20px;
+}
+#docsDat{
+	position:absolute;
+	width: 297px;
+	left: 507px;
+	top: 33px;
+	height: 20px;
+}
+/* --- */
+#numCas{
+	position:absolute;
+	width: 157px;
+	left: 21px;
+	top: 479px;
+}
+#quadra{
+	position:absolute;
+	width: 166px;
+	left: 186px;
+	top: 478px;
+}
+#fone{
+	position:absolute;
+	width: 166px;
+	left: 363px;
+	top: 478px;
+}
+#redDesMes{
+	position:absolute;
+	width: 190px;
+	left: 539px;
+	top: 478px;
+}
+#redDesAno{
+	position:absolute;
+	width: 92px;
+	left: 733px;
+	top: 478px;
+}
+#cartAbilit{
+	position:absolute;
+	width: 714px;
+	left: 14px;
+	top: 509px;
+	height: 35px;
+}
+#cartAbilitVal{
+	position:absolute;
+	width: 456px;
+	left: 7px;
+	top: 5px;
+}
+#cartAbilitCat{
+	position:absolute;
+	width: 191px;
+	left: 473px;
+	top: 3px;
+}
+
+/* --- */
+#regProf{
+	position:absolute;
+	width: 751px;
+	left: 14px;
+	top: 550px;
+	height: 35px;
+}
+#regProfVal{
+	position:absolute;
+	width: 456px;
+	left: 5px;
+	top: 5px;
+}
+#regProfSig{
+	position:absolute;
+	width: 81px;
+	left: 467px;
+	top: 6px;
+}
+#regProfReg{
+	position:absolute;
+	width: 140px;
+	left: 560px;
+	top: 7px;
+}
+/* --- */
+#grauInst{
+	position:absolute;
+	width: 751px;
+	left: 15px;
+	top: 597px;
+	height: 35px;
+}
+#grauInstVal{
+	position:absolute;
+	width: 456px;
+	left: 5px;
+	top: 5px;
+}
+#grauInstNiv{
+	position:absolute;
+	width: 203px;
+	left: 472px;
+	top: 5px;
+}
+/* --- */
+#banco{
+	position:absolute;
+	width: 622px;
+	left: 15px;
+	top: 639px;
+	height: 35px;
+}
+#bancoVal{
+	position:absolute;
+	width: 274px;
+	left: 4px;
+	top: 5px;
+}
+#bancoAge{
+	position:absolute;
+	width: 148px;
+	left: 290px;
+	top: 4px;
+}
+#bancoCon{
+	position:absolute;
+	width: 140px;
+	left: 450px;
+	top: 4px;
+}
+/* --- */
+#certCivil{
+	position:absolute;
+	width: 785px;
+	left: 13px;
+	top: 680px;
+	height: 35px;
+}
+#certCivilVal{
+	position:absolute;
+	width: 176px;
+	left: 4px;
+	top: 5px;
+}
+#certCivilTerNum{
+	position:absolute;
+	width: 148px;
+	left: 194px;
+	top: 6px;
+}
+#certCivilFol{
+	position:absolute;
+	width: 140px;
+	left: 354px;
+	top: 6px;
+}
+#certCivilLiv{
+	position:absolute;
+	width: 140px;
+	left: 500px;
+	top: 4px;
+}
+/* --- */
+#vincFund{
+	position:absolute;
+	width: 485px;
+	left: 12px;
+	top: 722px;
+	height: 29px;
+}
+/* --- */
+#origCesDisp{
+	position:absolute;
+	width: 540px;
+	left: 12px;
+	top: 757px;
+	height: 29px;
+}
+/* --- */
+#cargContra{
+	position:absolute;
+	width: 523px;
+	left: 12px;
+	top: 792px;
+	height: 29px;
+}
+/* --- */
+#funcExer{
+	position:absolute;
+	width: 517px;
+	left: 14px;
+	top: 829px;
+	height: 20px;
+}
+/* --- */
+#local{
+	position:absolute;
+	width: 765px;
+	left: 14px;
+	top: 856px;
+	height: 35px;
+}
+#localUni{
+	position:absolute;
+	width: 321px;
+	left: 4px;
+	top: 5px;
+}
+#localMicro{
+	position:absolute;
+	width: 163px;
+	left: 336px;
+	top: 4px;
+}
+#localEquip{
+	position:absolute;
+	width: 213px;
+	left: 514px;
+	top: 4px;
+}
