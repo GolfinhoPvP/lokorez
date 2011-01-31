@@ -32,19 +32,19 @@
 		}
 		
 		public function getServicoLista(){
-			if($_SESSION["codigo"] == 2)
-				$cliCod = 2;
+			if($_SESSION["nivel"] == 2)
+				$cliCod = $_SESSION["codigo"];
 			else
 				$cliCod = $_SESSION["codigoPai"];
 				
-			$sql = "SELECT * FROM servico WHERE cli_codigo =".$cliCod;
+			$sql = "SELECT * FROM servicos WHERE cli_codigo =".$cliCod;
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
-				$bean 				= new Servico($linha["cli_codigo"], $linha["pc_descricao"]);
-				$classe->codigo 	= $linha["pc_codigo"];
+				$bean 				= new Servico($linha["ser_descricao"]);
+				$classe->codigo 	= $linha["ser_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;
 			}
