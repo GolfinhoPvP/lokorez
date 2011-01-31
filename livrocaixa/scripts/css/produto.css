@@ -3,29 +3,29 @@
 	position:absolute;
 	width: 608px;
 	height: 11px;
-	left: 11px;
-	top: 47px;
+	left: 7px;
+	top: 126px;
 }
 #cadProMod{
 	position:absolute;
 	width: 369px;
 	height: 11px;
-	left: 100px;
-	top: 80px;
+	left: 96px;
+	top: 176px;
 }
 #cadProValVen{
 	position:absolute;
 	width: 425px;
 	height: 11px;
-	left: 45px;
-	top: 112px;
+	left: 41px;
+	top: 208px;
 }
 #cadProEmpRel{
 	position:absolute;
 	width: 544px;
 	height: 11px;
 	left: 8px;
-	top: 8px;
+	top: 32px;
 }
 
 /* ---------------------------- */
@@ -34,8 +34,8 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 198px;
-	top: 171px;
+	left: 194px;
+	top: 267px;
 }
 
 /* ---------------------------- */

@@ -20,7 +20,7 @@
 		}
 		
 		public function getAtual(){
-			$sql = "SELECT * FROM servicos WHERE cli_codigo=".$this->classe->cliCodigo." AND ser_descricao = '".$this->servico->descricao."'";
+			$sql = "SELECT * FROM servicos WHERE cli_codigo=".$this->servico->cliCodigo." AND ser_descricao = '".$this->servico->descricao."'";
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false)
 				return $this->servico = NULL;
@@ -56,7 +56,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO servicos (cli_codigo, ser_descricao) VALUES (".$this->planoConta->cliCodigo.", '".$this->servico->descricao."')";
+			$sql = "INSERT INTO servicos (cli_codigo, ser_descricao) VALUES (".$this->servico->cliCodigo.", '".$this->servico->descricao."')";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o servico: ".$this->servico->descricao);
 				return false;
@@ -65,7 +65,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE servicos SET cli_codigo=".$this->planoConta->cliCodigo.", ser_descricao='".$this->servico->descricao."' WHERE ser_codigo=".$valRef;
+			$sql = "UPDATE servicos SET cli_codigo=".$this->servico->cliCodigo.", ser_descricao='".$this->servico->descricao."' WHERE ser_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o servico código: ".$valRef);
 				return false;

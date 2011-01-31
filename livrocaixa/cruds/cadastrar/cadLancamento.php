@@ -23,22 +23,27 @@
 		?>
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadEmpresa.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
-		<div class="texto3" id="cadLanPlaCon">Plano de conta: 
-		  <select name="slPlaCon" id="slPlaCon">
-			<?php
-				include($toRoot."utils/getPlanoContaSL.php");
-			?>
-	      </select>
-		</div>
-		<div class="texto3" id="cadLanPro">Produto: 
-		  <select name="slPro" id="slPro">
-			<?php
-				include($toRoot."utils/getPlanoContaSL.php");
-			?>
-	      </select>
-		</div>
-		<div id="cadEmpBut">
-	      <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+		<div id="CadLan">
+			<div class="texto3" id="cadLanCod">Código: 
+		  <input type="text" class="textField1" size="15" readonly="readonly" maxlength="12" />
+		  </div>
+			<div class="texto3" id="cadLanPlaCon">Plano de conta: 
+			  <select name="slPlaCon" id="slPlaCon">
+				<?php
+					include($toRoot."utils/getPlanoContaSL.php");
+				?>
+			  </select>
+		  </div>
+			<div class="texto3" id="cadLanPro">Produto: 
+			  <select name="slPro" id="slPro">
+				<?php
+					include($toRoot."utils/getProdutoSL.php");
+				?>
+			  </select>
+		  </div>
+			<div id="cadEmpBut">
+			  <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+		  </div>
 		</form>
 	</body>
 </html>

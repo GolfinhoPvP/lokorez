@@ -58,7 +58,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO forma_pagamento (cli_codigo, for_periodo, for_descricao) VALUES (".$this->planoConta->cliCodigo.", ".$this->formaPagamento->periodo.", '".$this->formaPagamento->descricao."')";
+			$sql = "INSERT INTO forma_pagamento (cli_codigo, for_periodo, for_descricao) VALUES (".$this->formaPagamento->cliCodigo.", ".$this->formaPagamento->periodo.", '".$this->formaPagamento->descricao."')";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar a Forma de pagamento: ".$this->formaPagamento->descricao);
 				return false;

@@ -6,10 +6,10 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="../../scripts/css/geral.css" rel="stylesheet" type="text/css" />
-		<link href="../../scripts/css/cliente.css" rel="stylesheet" type="text/css" />
+		<link href="../../scripts/css/tecnico.css" rel="stylesheet" type="text/css" />
 		
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/funcoes.js"></script>
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/cliente.js"></script>
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/tecnico.js"></script>
 	</head>
 	
 	<body>

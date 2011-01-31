@@ -32,8 +32,8 @@
 		}
 		
 		public function getClasseLista(){
-			if($_SESSION["codigo"] == 2)
-				$cliCod = 2;
+			if($_SESSION["nivel"] == 2)
+				$cliCod = $_SESSION["codigo"];
 			else
 				$cliCod = $_SESSION["codigoPai"];
 				
@@ -43,8 +43,8 @@
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
-				$classe = new Classe($linha["cli_codigo"], $linha["cla_descricao"]);
-				$classe->codigo = $linha["cla_codigo"];
+				$classe 				= new Classe($linha["cla_descricao"]);
+				$classe->codigo 		= $linha["cla_codigo"];
 				$classeArray[$contador] = $classe;
 				$contador++;
 			}

@@ -35,6 +35,21 @@
 			return $this->produto;
 		}
 		
+		public function getProdutoLista($valRef){	
+			$sql = "SELECT * FROM produtos WHERE emp_codigo =".$valRef." ORDER BY pro_descricao";
+			$resultado = $this->conexao->selecionar($sql);
+			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
+				return NULL;
+			$contador = 0;
+			while($linha = mysqli_fetch_array($resultado)){
+				$bean 				= new Produto($linha["emp_codigo"], $linha["pro_descricao"], $linha["pro_modelo"], $linha["pro_valor_venda"]);
+				$bean->codigo 		= $linha["pro_codigo"];
+				$array[$contador] 	= $bean;
+				$contador++;
+			}
+			return $array;
+		}
+		
 		public function setProduto($produto){
 			$this->produto = $produto;
 		}
