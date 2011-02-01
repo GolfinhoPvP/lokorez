@@ -39,13 +39,13 @@
 			else
 				$cliCod = $_SESSION["codigoPai"];
 				
-			$sql = "SELECT * FROM produtos p INNER JOIN classe c ON p.cla_codigo=c.cla_codigo WHERE cli_codigo =".$cliCod." ORDER BY tec_descricao";
+			$sql = "SELECT * FROM tecnicos t INNER JOIN classe c ON t.cla_codigo=c.cla_codigo WHERE c.cli_codigo =".$cliCod." ORDER BY t.tec_descricao";
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
-				$bean 				= new Tecnico($linha["emp_codigo"], $linha["pro_descricao"], $linha["pro_modelo"], $linha["pro_valor_venda"]);
+				$bean 				= new Tecnico($linha["pes_codigo"], $linha["cla_codigo"], $linha["tec_descricao"]);
 				$bean->codigo 		= $linha["pro_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;

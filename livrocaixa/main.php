@@ -94,6 +94,15 @@
 			</div>
 		</li>
 			 <li>
+			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Check Saida</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Gerar</div>
+		</li>
+		<li>
+			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Pagamentos</div>
+			 	<div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Solicitar</div>
+				<div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pagar</div>
+		</li>
+		<li>
 			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Livro Caixa</div>
 			 <div id="nav">Lan&ccedil;amento
 			 	<div id="nav2">
@@ -103,11 +112,10 @@
 					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pesquisar</div>
 				</div>
 			 </div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pagamentos</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Check-In</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Selecionar Empresa</div>
 		</li>
 	  </ul>
-	</div>
+</div>
 	<iframe id="frameConteudo" name="conteudo" width="940" height="550" frameBorder="0"></iframe>
 </body>
 </html>

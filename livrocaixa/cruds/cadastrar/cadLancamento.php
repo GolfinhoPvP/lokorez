@@ -29,14 +29,14 @@
 		  <input name="tfCod" type="text" class="textField1" id="tfCod" size="15" maxlength="12" readonly="readonly" />
 		  </div>
 			<div class="texto3" id="cadLanPlaCon">Plano de conta: 
-			  <select name="slPlaCon" id="slPlaCon">
+			  <select class="textField1" name="slPlaCon" id="slPlaCon">
 				<?php
 					include($toRoot."utils/getPlanoContaSL.php");
 				?>
 			  </select>
 		  </div>
 			<div class="texto3" id="cadLanPro">Produto: 
-			  <select name="slPro" id="slPro">
+			  <select class="textField1" class="textField1" name="slPro" id="slPro">
 				<?php
 					include($toRoot."utils/getProdutoSL.php");
 				?>
@@ -49,7 +49,7 @@
 		  <input name="tfVal1" type="text" class="textField1" id="tfVal1" size="15" maxlength="15" />
 		  </div>
 		  <div class="texto3" id="cadLanSer">Serviço: 
-			  <select name="slSer" id="slSer">
+			  <select class="textField1" name="slSer" id="slSer">
 				<?php
 					include($toRoot."utils/getServicoSL.php");
 				?>
@@ -59,14 +59,14 @@
 		  <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="15" maxlength="15" />
 		  </div>
 		  <div class="texto3" id="cadLanForPag">Forma de pagamento: 
-			  <select name="slForPag" id="slForPag">
+			  <select class="textField1" name="slForPag" id="slForPag">
 				<?php
 					include($toRoot."utils/getFormaPagamentoSL.php");
 				?>
 		    </select>
 		  </div>
 		  <div class="texto3" id="cadLanTec">Tecnico: 
-			  <select name="slTec" id="slTec">
+			  <select class="textField1" name="slTec" id="slTec">
 				<?php
 					include($toRoot."utils/getTecnicoSL.php");
 				?>
