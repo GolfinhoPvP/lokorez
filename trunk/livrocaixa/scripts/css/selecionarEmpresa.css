@@ -1,0 +1,20 @@
+/* CSS Document */
+#selEmpRel{
+	position:absolute;
+	width: 544px;
+	height: 11px;
+	left: 8px;
+	top: 32px;
+}
+
+/* ---------------------------- */
+
+#selEmpBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 155px;
+	top: 92px;
+}
+
+/* ---------------------------- */

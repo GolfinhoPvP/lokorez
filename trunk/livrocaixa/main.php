@@ -112,7 +112,7 @@
 					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pesquisar</div>
 				</div>
 			 </div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Selecionar Empresa</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','utils/selecionarEmpresa.php');">Selecionar Empresa</div>
 		</li>
 	  </ul>
 </div>
