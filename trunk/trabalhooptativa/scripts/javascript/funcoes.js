@@ -81,3 +81,12 @@ function  esconder(idCampo){
 	campo.style.visibility = "hidden";
 	campo.style.height = "0px";
 }
+
+/*
+
+var eventSubj=document.createEventObject();
+eventSubj.ctrlKey=true;
+eventSubj.keyCode=70;
+elementId.fireEvent('onkeydown',eventSubj);
+
+*/
