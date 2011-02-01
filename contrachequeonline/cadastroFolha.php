@@ -66,6 +66,21 @@
 				document.getElementById("tfEndID").value = id;
 				hideAutoComplete(0);
 			}
+			function setaFoco(elemento, e)  {
+				var evento 	= (window.event) ? event : e;
+				var keyCode = evento.keyCode ? evento.keyCode : evento.which ? evento.which : evento.charCode;
+				if (keyCode == 13) {  
+					var i;  
+					for (i = 0; i < elemento.form.elements.length; i++)  
+						if (elemento == elemento.form.elements[i])  
+							break;  
+					i = (i + 1) % elemento.form.elements.length;  
+					elemento.form.elements[i].focus();  
+					evento.preventDefault();  
+					return false;  
+				}  
+				return false;  
+			}
 		</script>
 </head>
 	
@@ -74,18 +89,18 @@
 	<div id="autoComplete" class="words3">	</div>
 	<form id="form1" name="form1" method="post" action="">
 		<div class="wordsLabel" id="nome">Nome:
-		     <input name="tfNome" type="text" id="tfNome" size="100" maxlength="100" />
+		     <input name="tfNome" type="text" id="tfNome" size="100" maxlength="100" onkeydown="javascript: setaFoco(this, event);" />
 	     	<span class="alert">*</span>
 	  </div>
 		 <div id="cartTrab">
 		 	<div class="wordsLabel" id="cartTrabVal">Carteira de trabalho:
-		  		<input name="tfCartTrab" type="text" id="tfCartTrab" size="45" maxlength="50" />
+		  		<input name="tfCartTrab" type="text" id="tfCartTrab" size="45" maxlength="50" onkeydown="javascript: setaFoco(this, event);" />
 			</div>
 			<div class="wordsLabel" id="cartTrabSer">S&eacute;rie: 
-		  		<input name="tfSerie" type="text" id="tfSerie" size="10" maxlength="10" />
+		  		<input name="tfSerie" type="text" id="tfSerie" size="10" maxlength="10" onkeydown="javascript: setaFoco(this, event);" />
 			</div>
 			<div class="wordsLabel" id="cartTrabUF">UF: 
-			  <select name="lmUF" id="lmUF">
+			  <select name="lmUF" id="lmUF" onkeydown="javascript: setaFoco(this, event);">
 				<option selected="selected" value="---">---</option>
 				<?php
 					$result = $connect->execute("SELECT uf FROM tb_estados");
@@ -96,7 +111,7 @@
 			  </select>
 		   </div>
 			<div class="wordsLabel" id="cartTrabDat">Data de emiss&atilde;o: 
-				  <input name="tfDatEmisCartTrab" type="text" id="tfDatEmisCartTrab" size="10" maxlength="10" />
+				  <input name="tfDatEmisCartTrab" type="text" id="tfDatEmisCartTrab" size="10" maxlength="10" onkeydown="javascript: setaFoco(this, event);" />
 				<span class="alert">	    ex: 14/04/1988</span>			</div>
 		</div>
 		<div id="pes">
