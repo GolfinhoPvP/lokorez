@@ -21,7 +21,7 @@
 		}
 		
 		public function getFuncionarioEmpresaLista($valRef){
-			$sql = "SELECT * FROM funcionarios f INNER JOIN empresas e ON f.emp_codigo=e.emp_codigo WHERE f.cli_codigo LIKE '".$valRef."' OR f.emp_codigo LIKE '".$valRef."'";
+			$sql = "SELECT * FROM funcionarios f INNER JOIN empresas e ON f.emp_codigo=e.emp_codigo WHERE f.cli_codigo =".$valRef;
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
 				return NULL;

@@ -1,42 +1,21 @@
 <?php
 	session_start();
 	$toRoot = "../../";
-	$nivelAcesso = $toRoot.":1:3:4";
-	include_once($toRoot."beans/Lancamento.class.php");
-	include_once($toRoot."dao/DAOLancamento.class.php");
+	if(!isset($_SESSION["empresa"]){
+		header("Location: ".$toRoot."utils/selecionarEmpresa.php?selecionar=nao");
+		die();
+	}
+	include_once($toRoot."beans/LivroCaixa.class.php");
+	include_once($toRoot."dao/DAOLivroCaixa.class.php");
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;		
+	$nivelAcesso = $toRoot.":1:3:4";
 	
-	if($pesquisar == "X--------------------------------sim"){
-		foreach($_POST as $nomeCampo => $valor){
-			$comando = "\$".$nomeCampo."= antiSQL(isset(\$_POST['$nomeCampo']) ? '".$valor."' : NULL);";
-			eval($comando);
-		}
+	$conexao = new ConectarMySQL($toRoot);
 		
-		include_once($toRoot."beans/Log.class.php");
-		include_once($toRoot."dao/DAOLog.class.php");
-
-		$bean->codigo 		= $tfCod;
-		$bean->tecCodigo 	= $slTec;
-		$bean->proCodigo 	= $slPro;
-		$bean->pcCodigo 	= $slPlaCon;
-		$bean->serCodigo 	= $slSer;
-		$bean->forCodigo 	= $slForPag;
-		$bean->quantidade 	= $tfQua;
-		$bean->valor 		= $tfVal2;
-		
-		$dao->setLancamento($bean);
-		$dao->cadastrar();
-		
-		$log 			= new Log(3, 11, $tfCod." cadastrado!");
-		$daoLog			= new DAOLog($log, $conexao);
-		$daoLog->cadastrar();
-		
-		$chave = $dao->getChave();
-		$conexao->fechar();
-		$cadastrar = true;	
-	}
+	$bean 			= new LivroCaixa();
+	$daoLog			= new DAOLivroCaixa($bean, $conexao);
+	$matriz 		= $daoLog->getLivroCaixaLista();
 ?>

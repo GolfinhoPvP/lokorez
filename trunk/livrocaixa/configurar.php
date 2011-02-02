@@ -33,7 +33,7 @@
 		<div id="telaLogin">
 			<div id="esquerdaBox"></div>
 			<div id="centroBox">
-				<div id="voltar" title="Voltar"><img style="cursor:pointer" onclick="javascript: history.back();" src="imagens/voltar.png" /></div>
+				<div id="voltar" title="Voltar"><img style="cursor:pointer" onclick="javascript: location.href = 'login.php';" src="imagens/voltar.png" /></div>
 				<div id="sysLabel" align="center" class="texto2">Livro Caixa On-line<br />
 				  Configura&ccedil;&atilde;o do Sistema
 </div>

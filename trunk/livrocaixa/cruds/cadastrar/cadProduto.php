@@ -26,7 +26,7 @@
 				<div class="texto3" id="cadProEmpRel">Empresa relacionada: 
 				<select name="slEmp" class="textField1" id="slEmp">
 				<?php
-					include($toRoot."utils/getEmpresasSL.php");
+					include($toRoot."utils/getEmpresaSL.php");
 				?>
 				</select>
 	  	  </div>
