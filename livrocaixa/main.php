@@ -1,5 +1,15 @@
 <?php
+	$toRoot = "";
 	session_start();
+	
+	if(!$xml = simplexml_load_file($toRoot."configuracao.xml")){
+		trigger_error('Erro ao ler o arquivo XML',E_USER_ERROR);
+	}
+	
+	if($xml->status == "offline"){
+		header("Location: ".$toRoot."emManutencao.php");
+		die();
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

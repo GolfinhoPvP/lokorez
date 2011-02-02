@@ -19,7 +19,7 @@
 		include_once($toRoot."dao/DAOProduto.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
-		$conexao		= new ConectarMySql();
+		$conexao		= new ConectarMySql($toRoot);
 
 		$produto 		= new Produto($slEmp, $tfDes, $tfMod, $tfVal);
 		$daoProduto		= new DAOProduto($produto, $conexao);

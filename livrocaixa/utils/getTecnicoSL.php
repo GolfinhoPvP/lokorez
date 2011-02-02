@@ -4,7 +4,7 @@
 	include_once($toRoot."dao/DAOTecnico.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$conexao	= new ConectarMySql(); 
+	$conexao	= new ConectarMySql($toRoot); 
 	$bean		= new Tecnico();
 	$dao		= new DAOTecnico($bean, $conexao);
 	$array		= $dao->getTecnicoLista();

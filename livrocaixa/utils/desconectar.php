@@ -5,7 +5,7 @@
 	include_once($toRoot."dao/DAOLog.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$conexao = new ConectarMySQL();
+	$conexao = new ConectarMySQL($toRoot);
 	
 	$log		= new Log(1, 1, $_SESSION["nomeUsuario"]." desconectou log-in no sistema!");
 	$daoLog 	= new DAOLog($log, $conexao);

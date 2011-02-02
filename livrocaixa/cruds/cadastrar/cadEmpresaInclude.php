@@ -21,7 +21,7 @@
 		include_once($toRoot."dao/DAOFuncionario.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
-		$conexao		= new ConectarMySql();
+		$conexao		= new ConectarMySql($toRoot);
 
 		$empresa 		= new Empresa($tfNomEmp);
 		$daoEmpresa		= new DAOEmpresa($empresa, $conexao);

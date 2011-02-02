@@ -4,7 +4,7 @@
 	include_once($toRoot."dao/DAOClasse.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$conexao	= new ConectarMySql(); 
+	$conexao	= new ConectarMySql($toRoot); 
 	$classe 	= new Classe();
 	$DAOClasse	= new DAOClasse($classe, $conexao);
 	$array = $DAOClasse->getClasseLista();

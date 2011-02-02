@@ -9,14 +9,11 @@
 		protected $usuarioBanco;
 		protected $senhaBanco;
 		protected $nomeBanco;
-		protected $toRoot 			= "../"; 
 		protected $conexao;
 		private $comitar 			= true;
 		
-		function __construct($tR = NULL){
-			$this->toRoot		= $tR;
-			
-			if(!$xml = simplexml_load_file($this->toRoot."configuracao.xml")){
+		function __construct($toRoot = NULL){
+			if(!$xml = simplexml_load_file($toRoot."configuracao.xml")){
 				trigger_error('Erro ao ler o arquivo XML',E_USER_ERROR);
 			}
 			

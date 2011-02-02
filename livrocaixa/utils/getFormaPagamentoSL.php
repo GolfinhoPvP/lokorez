@@ -4,7 +4,7 @@
 	include_once($toRoot."dao/DAOFormaPagamento.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$conexao	= new ConectarMySql(); 
+	$conexao	= new ConectarMySql($toRoot); 
 	$bean		= new FormaPagamento();
 	$dao		= new DAOFormaPagamento($bean, $conexao);
 	$array		= $dao->getFormaPagamentoLista();

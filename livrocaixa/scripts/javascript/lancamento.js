@@ -1,6 +1,6 @@
 // JavaScript Document
 function validarCadastro(){
-	lista = new Array();
+	lista = new Array("tfCod", "slPlaCon", "slPro", "tfMod", "tfVal1", "slSer", "tfVal2", "tfQua", "slForPag", "slTec");
 	return comum(lista);
 }
 

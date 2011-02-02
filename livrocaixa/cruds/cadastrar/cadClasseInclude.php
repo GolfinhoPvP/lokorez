@@ -19,7 +19,7 @@
 		include_once($toRoot."dao/DAOClasse.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
-		$conexao		= new ConectarMySql();
+		$conexao		= new ConectarMySql($toRoot);
 
 		$classe 		= new Classe($tfDes);
 		$daoClasse		= new DAOClasse($classe, $conexao);

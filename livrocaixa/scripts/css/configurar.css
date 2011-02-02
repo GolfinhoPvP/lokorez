@@ -28,7 +28,7 @@
 	background-image:url(../../imagens/box_r.png);
 	background-repeat:no-repeat;
 	top:0px;
-	left:472px;
+	left:440px;
 	width:193px;
 	height:236px;
 }
@@ -70,4 +70,11 @@
 	left: 9px;
 	top: 244px;
 	width: 370px;
+}
+
+#voltar{
+	position:absolute;
+	left: 352px;
+	top: -8px;
+	z-index:3;
 }

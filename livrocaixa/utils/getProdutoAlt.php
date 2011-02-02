@@ -9,7 +9,7 @@
 	$valRef = antiSQL(isset($_GET["valRef"]) ? $_GET["valRef"] : NULL);
 	
 	if($valRef != NULL){
-		$conexao	= new ConectarMySql(); 
+		$conexao	= new ConectarMySql($toRoot); 
 		$bean		= new Produto();
 		$dao		= new DAOProduto($bean, $conexao);
 		$bean 		= $dao->getProduto($valRef);

@@ -25,7 +25,7 @@
 		include_once($toRoot."dao/DAOTecnico.class.php");
 		include_once($toRoot."dao/DAOTelefone.class.php");
 		
-		$conexao		= new ConectarMySql();
+		$conexao		= new ConectarMySql($toRoot);
 
 		$pessoa 		= new Pessoa($tfNom, $tfCPF, $tfRG);
 		$daoPessoa		= new DAOPessoa($pessoa, $conexao);
