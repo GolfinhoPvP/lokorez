@@ -1,19 +1,30 @@
 <?php 
 	class ConectarMySQL{
 		/*protected $hostBanco 		= "localhost";
-		protected $usuarioBanco 	= "root";
-		protected $senhaBanco 		= "root";
-		protected $nomeBanco 		= "livrocaixa";*/
-		
-		protected $hostBanco 		= "localhost";
 		protected $usuarioBanco 	= "zeroko1_livcaixa";
 		protected $senhaBanco 		= "livroCaixaDB";
-		protected $nomeBanco 		= "zeroko1_livrocaixa";
+		protected $nomeBanco 		= "zeroko1_livrocaixa";*/
 		
+		protected $hostBanco;
+		protected $usuarioBanco;
+		protected $senhaBanco;
+		protected $nomeBanco;
+		protected $toRoot 			= "../"; 
 		protected $conexao;
 		private $comitar 			= true;
 		
-		function __construct(){
+		function __construct($tR = NULL){
+			$this->toRoot		= $tR;
+			
+			if(!$xml = simplexml_load_file($this->toRoot."configuracao.xml")){
+				trigger_error('Erro ao ler o arquivo XML',E_USER_ERROR);
+			}
+			
+			$this->hostBanco		= $xml->bancoDeDados->host;
+			$this->usuarioBanco 	= $xml->bancoDeDados->nomeUsuario;
+			$this->senhaBanco		= $xml->bancoDeDados->senha;
+			$this->nomeBanco		= $xml->bancoDeDados->nomeBanco;
+			
 			if(!$this->conectarSGBD())
 				die("A conexão com o servidor não foi estabelecida!");
 			if(!$this->selecionarBanco())

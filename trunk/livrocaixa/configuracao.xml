@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<configuracao>
+	<adminMaster>
+		<nomeUsuario>MasterAdmin</nomeUsuario>
+		<senha>c3VwZXJBZG1pbg==</senha>
+	</adminMaster>
+	<bancoDeDados>
+		<host>localhost</host>
+		<nomeBanco>livrocaixa</nomeBanco>
+		<nomeUsuario>root</nomeUsuario>
+		<senha>root</senha>
+	</bancoDeDados>
+	<status>online</status>
+</configuracao>

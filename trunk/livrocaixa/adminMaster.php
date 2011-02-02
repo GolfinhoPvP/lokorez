@@ -1,18 +1,18 @@
 <?php
-	include("cadClienteInclude.php");
+	include("adminMasterInclude.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<link href="../../scripts/css/geral.css" rel="stylesheet" type="text/css" />
-		<link href="../../scripts/css/cliente.css" rel="stylesheet" type="text/css" />
+		<link href="scripts/css/geral.css" rel="stylesheet" type="text/css" />
+		<link href="scripts/css/adminMaster.css" rel="stylesheet" type="text/css" />
 		
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/funcoes.js"></script>
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/cliente.js"></script>
+		<script type="text/javascript" language="javascript" src="scripts/javascript/funcoes.js"></script>
+		<script type="text/javascript" language="javascript" src="scripts/javascript/adminMaster.js"></script>
 	</head>
 	
-	<body>
+<body>
 		<?php
 			if($cadastrar == true){
 				$tipo = "cad";
@@ -22,16 +22,28 @@
 			}
 		?>
 		<div id="confirmar"></div>
-		<form id="cadastrar" name="cadastrar" method="post" action="cadCliente.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
-			<div id="cadCliPes">
-			  <div class="texto3" id="cadCliPesNom">Nome: <input name="tfNom" type="text" class="textField1" id="tfNom" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
-			  <div class="texto3" id="cadCliPesRG">RG: 
-		      <input name="tfRG" type="text" class="textField1" id="tfRG" size="30" maxlength="30" onkeyup="javascript: validarForm('tfRG');"/>
+		<div id="altBan">
+			<form id="cadastrar" name="cadastrar" method="post" action="adminMaster.php?alterar=banco" onsubmit="javascript: return validarCadastro();">
+						<div align="center" class="botao1">Alterar configura&ccedil;&atilde;o do Banco de Dados </div>
+					  <div class="texto3" id="altBanHos">Host: 
+						<input name="tfBanHos" value="<?php echo($xml->bancoDeDados->host); ?>" type="text" class="textField1" id="tfBanHos" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
+					  <div class="texto3" id="altBanNomUsu">Nome de usu&aacute;rio : 
+						<input name="tfBanNomUsu" value="<?php echo($xml->bancoDeDados->nomeUsuario); ?>" type="text" class="textField1" id="tfBanNomUsu" size="50" maxlength="50" onkeyup="javascript: validarForm('tfRG');"/>
+					  </div>
+					  <div class="texto3" id="altBanSen">Senha: 
+						<input name="tfBanSen" value="<?php echo($xml->bancoDeDados->senha); ?>" type="password" class="textField1" id="tfBanSen" size="50" maxlength="50" onkeyup="javascript: validarForm('tfCPF');"/>
+					  </div>
+					  <div class="texto3" id="altBanNom">Nome do banco: 
+						<input name="tfBanNomBan" value="<?php echo($xml->bancoDeDados->nomeBanco); ?>" type="text" class="textField1" id="tfBanNomBan" size="50" maxlength="50" onkeyup="javascript: validarForm('tfCPF');"/>
+					  </div>
+					  <div class="texto3" id="altBanSenMas">Senha adm. master: 
+						<input name="tfSenMas" value="<?php echo($xml->bancoDeDados->host); ?>" type="password" class="textField1" id="tfSenMas" size="30" maxlength="15" onkeyup="javascript: validarForm('tfCPF');"/>
 			  </div>
-		      <div class="texto3" id="cadCliPesCPF">CPF: 
-		      <input name="tfCPF" type="text" class="textField1" id="tfCPF" size="30" maxlength="14" onkeyup="javascript: validarForm('tfCPF');"/>
+			    	<div id="altBanBut">
+					  <input name="btAltBan" type="submit" class="botao2" id="btAltBan" value="Alterar" />
 			  </div>
-		  </div>
+		  </form>      
+</div>
 		  <div id="cadCliTel">
 		  	<div class="texto3" id="cadCliTelNum">Telefone: 
 	  	    <input name="tfFonNum" type="text" class="textField1" id="tfFonNum" size="30" maxlength="12" onkeyup="javascript: validarForm('tfFonNum');"/>
@@ -77,8 +89,5 @@
 			  </div>');
 		  }
 		  ?>
-		  <div id="cadCliBut">
-	      <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
-		</form>
-	</body>
+</body>
 </html>
