@@ -15,6 +15,6 @@
 		
 		$_SESSION["empresa"] = $slEmp;
 		
-		$selecionar = true;	
+		$selecionar = "ok";	
 	}
 ?>

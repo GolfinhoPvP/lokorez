@@ -8,13 +8,15 @@
 		<link href="../scripts/css/geral.css" rel="stylesheet" type="text/css" />
 		<link href="../scripts/css/selecionarEmpresa.css" rel="stylesheet" type="text/css" />
 		
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/funcoes.js"></script>
-		<script type="text/javascript" language="javascript" src="../../scripts/javascript/produto.js"></script>
+		<script type="text/javascript" language="javascript" src="../scripts/javascript/funcoes.js"></script>
 	</head>
 	
 	<body>
 		<?php
-			if($selecionar == true){
+			if($selecionar == "nao"){
+				$tipo = "fal";
+				include($toRoot."includes/negar.php");
+			}else if($selecionar == "ok"){
 				$tipo = "sel";
 				include($toRoot."includes/confirmar.php");
 			}else{
@@ -22,11 +24,11 @@
 			}
 		?>
 		<div id="confirmar"></div>
-		<form id="cadastrar" name="cadastrar" method="post" action="selecionarEmpresa.php?selecionar=sim" onsubmit="javascript: return validarCadastro();">
+		<form id="cadastrar" name="cadastrar" method="post" action="selecionarEmpresa.php?selecionar=sim" onsubmit="javascript: return validarForm('slEmp');">
 				<div class="texto3" id="selEmpRel">Empresa relacionada: 
 				<select name="slEmp" class="textField1" id="slEmp">
 				<?php
-					include($toRoot."utils/getEmpresasSL.php");
+					include($toRoot."utils/getEmpresaSL.php");
 				?>
 				</select>
 	  	  </div>

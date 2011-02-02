@@ -119,7 +119,7 @@
 					<div id="niv" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadLancamento.php');">Cadastrar</div>
 					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Alterar</div>
 					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Deletar</div>
-					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pesquisar</div>
+					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesLancamento.php');">Ver Lan&ccedil;amentos</div>
 				</div>
 			 </div>
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','utils/selecionarEmpresa.php');">Selecionar Empresa</div>

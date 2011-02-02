@@ -14,7 +14,7 @@
 		}
 		
 		include_once($toRoot."utils/ConectarMySQL.class.php");
-		include_once($toRoot."beans/empresa.class.php");
+		include_once($toRoot."beans/Empresa.class.php");
 		include_once($toRoot."beans/Funcionario.class.php");
 		include_once($toRoot."beans/Log.class.php");
 		include_once($toRoot."dao/DAOEmpresa.class.php");

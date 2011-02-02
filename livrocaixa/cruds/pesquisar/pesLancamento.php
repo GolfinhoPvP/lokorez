@@ -14,18 +14,12 @@
 	
 	<body>
 		<?php
-			if($pesquisar == true){
-				$tipo = "pes";
-				include($toRoot."includes/confirmar.php");
-			}else{
-				echo('<div id="confirmar"></div>');
+			$cor = "azul";
+			foreach($matriz as $array){
+				$bean = $array;
+				include("pesLancamentoModelo.php");
+				$cor = $cor == "azul" ? "vermelho" : "azul";
 			}
 		?>
-		<div id="alterar"></div>
-		<div id="carregando"></div>
-		<div id="confirmar"></div>
-		<form id="pesquisar" name="pesquisar" method="post" action="pesLancamento.php?pesquisar=sim" onsubmit="javascript: return validarPesquisa();">
-		<div id="PesLan"></div>
-		</form>
 	</body>
 </html>

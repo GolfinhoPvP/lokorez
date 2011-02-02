@@ -51,7 +51,7 @@
 			  <div class="texto3" id="cadTecCla">Classe:
 			    <select name="slCla" class="textField1" id="slCla">
 					<?php
-							include($toRoot."utils/getClassesSL.php");
+							include($toRoot."utils/getClasseSL.php");
 					  ?>
 		        </select>
 			</div>

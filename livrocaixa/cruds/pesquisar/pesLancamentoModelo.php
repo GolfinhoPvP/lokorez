@@ -6,15 +6,17 @@
 	</head>
 	
 	<body>
-		<div id="modLan">
-			<div id="modLanCod">Código: <?php echo($bean->codigo); ?></div>
-			<div id="modLanPC">Plano de conta: <?php echo($bean->planoConta); ?></div>
-			<div id="modLanPro">Produto: <?php echo($bean->produto); ?></div>
-			<div id="modLanSer">Serviço: <?php echo($bean->servico); ?></div>
-			<div id="modLanFP">Forma de pagamento: <?php echo($bean->formaPagamento); ?></div>
-			<div id="modLanTec">Técnico: <?php echo($bean->tecnico); ?></div>
-			<div id="modLanQua">Quantidade: <?php echo($bean->quantidade); ?></div>
-			<div id="modLanVal">Valor: <?php echo($bean->valor); ?></div>
-		</div>
+		<div id="modLan" style="background:url(../../imagens/lancamento_<?php echo($cor); ?>.gif); background-repeat:no-repeat;">
+			<div class="textLan1" id="modLanCod">Código: <span class="texto1"><?php echo($bean->lanCodigo); ?></span></div>
+			<div class="textLan1" id="modLanDat">Data: <span class="texto1"><?php echo($bean->lanDatahora); ?></span></div>
+			<div class="textLan1" id="modLanPC">Plano de conta: <span class="texto1"><?php echo($bean->pcDescricao); ?></span></div>
+			<div id="modLanPro">Produto: <span class="texto1"><?php echo($bean->proDescricao); ?></span></div>
+			<div class="textLan1" id="modLanSer">Serviço: <span class="texto1"><?php echo($bean->serDescricao); ?></span></div>
+			<div class="textLan1" id="modLanFP">Forma de pagamento: <span class="texto1"><?php echo($bean->forDescricao); ?></span></div>
+			<div class="textLan1" id="modLanTec">Técnico: <span class="texto1"><?php echo($bean->tecDescricao); ?></span></div>
+			<div class="textLan1" id="modLanQua">Quantidade: <span class="texto1"><?php echo($bean->lanQuantidade); ?></span></div>
+			<div class="textLan1" id="modLanVal" align="center">Valor<br />
+		    R$ <span class="texto2"><?php echo($bean->lanValor); ?></span></div>
+	</div>
 	</body>
 </html>
