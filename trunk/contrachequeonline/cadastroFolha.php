@@ -170,16 +170,12 @@
 		<div class="wordsLabel" id="docsDat">Data de emiss&atilde;o:
         <input name="tfDatEmisRG" type="text" id="tfDatEmisRG" size="10" maxlength="10" /><span class="alert"> ex: 14/04/1988</span></div>
 	  </div>
-		<td colspan="2">T&iacute;tulo eleitoral: 
-		  <label>
-		  <input name="tfTitEleit" type="text" id="tfTitEleit" size="15" maxlength="15" />
-	      <span class="alert">*</span></label></td>
-		<td colspan="2">Zona/Se&ccedil;&atilde;o: 
-		  <label>
-		  <input name="tfZonSec" type="text" id="tfZonSec" size="8" maxlength="8" />
-	      <span class="alert">*</span></label></td>
-		<td colspan="2">UF:
-          <label>
+		<div id="titEle">
+			<div class="wordsLabel" id="titEleVal">T&iacute;tulo eleitoral: <input name="tfTitEleit" type="text" id="tfTitEleit" size="15" maxlength="15" />
+	      <span class="alert">*</span></div>
+			<div class="wordsLabel" id="titEleZon">Zona/Se&ccedil;&atilde;o: <input name="tfZonSec" type="text" id="tfZonSec" size="8" maxlength="8" />
+	      <span class="alert">*</span></div>
+		<div class="wordsLabel" id="titEleUF">UF:
           <select name="slUFTitEleit" id="slUFTitEleit">
             <option selected="selected" value="---">---</option>
             <?php
@@ -189,27 +185,13 @@
 				}
 			?>
           </select>
-          <span class="alert">*</span></label></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td width="3%">&nbsp;</td>
-		<td width="25%">&nbsp;</td>
-		<td width="4%">&nbsp;</td>
-		<td width="17%">&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td colspan="2">Data de nascimento:  
-		  <label>
+          <span class="alert">*</span></div>
+	  </div>
+		<div id="nat">
+		  <div class="wordsLabel" id="natDat">Data de nascimento:  
           <input name="tfDatNasc" type="text" id="tfDatNasc" size="10" maxlength="10" />
-        <span class="alert">*</span>           <span class="alert"> ex: 14/04/1988</span></label></td>
-		<td colspan="2">UF:
-          <label>
+        <span class="alert">* ex: 14/04/1988</span></div>
+		<div class="wordsLabel" id="natUF">UF:
           <select name="slUFDatNasc" id="slUFDatNasc" onchange="javascript: getCityes('slUFDatNasc', 'slNatural');">
             <option selected="selected" value="---">---</option>
             <?php
@@ -219,27 +201,22 @@
 				}
 			?>
           </select>
-          <span class="alert">*</span></label></td>
-		<td colspan="4">Naturalidade: 
-		  <label>
+          <span class="alert">*</span></div>
+		<div class="wordsLabel" id="natNat">Naturalidade: 
 		  <select name="slNatural" id="slNatural">
 		    <option value="---" selected="selected">----------------------------</option>
 	      </select>
-	      <span class="alert">*</span></label></td>
-	  </tr>
-	  <tr>
-		<td colspan="8">Nome do pai: 
+	      <span class="alert">*</span></div>
+	  </div>
+		<div class="wordsLabel" id="nomPai">Nome do pai: 
 	    <input name="tfNomePai" type="text" id="tfNomePai" size="100" maxlength="100" />
-	    <span class="alert">*</span></td>
-	  </tr>
-	  <tr>
-		<td colspan="8">Nome da m&atilde;e:
+      <span class="alert">*</span></div>
+		<div class="wordsLabel" id="nomMae">Nome da m&atilde;e:
         <input name="tfNomeMae" type="text" id="tfNomeMae" size="100" maxlength="100" />
-        <span class="alert">*</span></td>
+      <span class="alert">*</span></div>
 	  </tr>
-	  <tr id="nomConj" class="invisible">
-		<td colspan="8">Nome do c&ocirc;njuge:
-        <input name="tfNomeConj" type="text" id="tfNomeConj" size="100" maxlength="100" /></td>
+	  <div id="nomConj" class="wordsLabel">Nome do c&ocirc;njuge:
+      <input name="tfNomeConj" type="text" id="tfNomeConj" size="100" maxlength="100" /></div>
 	  </tr>
 	  <tr>
 		<td>&nbsp;</td>
@@ -363,7 +340,7 @@
 		  <option value="5">Mestre</option>
 		  <option value="6">Doutor</option>
 		  <option value="7">PHD</option>
-	        </select></div>
+          </select></div>
 	</div>
 	<div id="banco">
 		<div class="wordsLabel" id="bancoVal">Banco: 
