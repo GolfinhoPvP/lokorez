@@ -4,7 +4,7 @@
 	include_once($toRoot."dao/DAOPlanoConta.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$conexao	= new ConectarMySql(); 
+	$conexao	= new ConectarMySql($toRoot); 
 	$bean		= new PlanoConta();
 	$dao		= new DAOPlanoConta($bean, $conexao);
 	$array		= $dao->getPlanoContaLista();

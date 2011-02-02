@@ -19,7 +19,7 @@
 		include_once($toRoot."dao/DAOServico.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
-		$conexao		= new ConectarMySql();
+		$conexao		= new ConectarMySql($toRoot);
 
 		$servido 		= new Servico($tfDes);
 		$daoServico		= new DAOServico($servido, $conexao);

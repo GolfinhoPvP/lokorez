@@ -30,9 +30,9 @@
 		<div id="telaLogin">
 			<div id="esquerdaBox"></div>
 			<div id="centroBox">
-				<div id="configurar"><img src="imagens/configurar.png" style="cursor:pointer" onclick="javascript: location.href = 'configurar.php';" /></div>
+				<div id="configurar" title="Configurar"><img src="imagens/configurar.png" style="cursor:pointer" onclick="javascript: location.href = 'configurar.php';" /></div>
 				<div id="sysLabel" align="center" class="texto2">Livro Caixa On-line </div>
-				<form id="loginForm" name="loginForm" method="post" action="login.php" onsubmit="javascript: return validarLogin();">
+				<form id="loginForm" name="loginForm" method="post" action="login.php?conectar=sim" onsubmit="javascript: return validarLogin();">
 		  	  	  <div class="texto1" id="nomeLabel">Nome de usu&aacute;rio: 
 				  		<input name="tfNomUsu" type="text" class="textField1" id="tfNomUsu" size="25" maxlength="15" onkeyup="javascript: validarForm('tfNomUsu');" />
 				  </div>

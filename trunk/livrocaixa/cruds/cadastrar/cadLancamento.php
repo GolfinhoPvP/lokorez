@@ -48,7 +48,7 @@
 		  <input name="tfMod" type="text" class="textField1" id="tfMod" size="30" maxlength="25" readonly="readonly" />
 		  </div>
 		  <div class="texto3" id="cadLanValCom">Valor de venda: 
-		    <input name="tfVal1" type="text" class="textField1" id="tfVal1" size="15" maxlength="15" />
+		    <input name="tfVal1" type="text" class="textField1" id="tfVal1" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal1');" />
 		  </div>
 		  <div class="texto3" id="cadLanSer">Serviço: 
 			  <select class="textField1" name="slSer" id="slSer">
@@ -58,10 +58,10 @@
 		    </select>
 		  </div>
 		  <div class="texto3" id="cadLanVal2">Valor de saida: 
-		    <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="15" maxlength="15" />
+		    <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal2');"/>
 		  </div>
 		  <div class="texto3" id="cadLanQua">Quantidade: 
-		    <input name="tfQua" type="text" class="textField1" id="tfQua" value="1" size="15" maxlength="15" />
+		    <input name="tfQua" type="text" class="textField1" id="tfQua" value="1" size="15" maxlength="15" onkeyup="javascript: validarForm('tfQua');" />
 		  </div>
 		  <div class="texto3" id="cadLanForPag">Forma de pagamento: 
 			  <select class="textField1" name="slForPag" id="slForPag">
@@ -77,7 +77,7 @@
 				?>
 		    </select>
 		  </div>
-			<div id="cadEmpBut">
+			<div id="cadBut">
 		  <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
 		  </div>
 		</form>

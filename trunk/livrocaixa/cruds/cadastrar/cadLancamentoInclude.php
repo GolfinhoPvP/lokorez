@@ -9,7 +9,7 @@
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;
-	$conexao	= new ConectarMySql();
+	$conexao	= new ConectarMySql($toRoot);
 	$bean		= new Lancamento();
 	$dao 		= new DAOLancamento($bean, $conexao); 		
 	

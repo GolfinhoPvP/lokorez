@@ -1,12 +1,20 @@
 <?php
 	session_start();
 	$toRoot = "";
-	include_once($toRoot."utils/funcoes.php");
 	
-	$tfNomUsu 	= antiSQL(isset($_POST["tfNomUsu"]) ? $_POST["tfNomUsu"] 	: NULL);
-	$tfSen 		= antiSQL(isset($_POST["tfSen"]) 	? $_POST["tfSen"] 		: NULL);
+	if(isset($_SESSION["master"]))
+		$_SESSION["master"] = "noOK";
 	
-	if($tfNomUsu != NULL && $tfSen != NULL){
+	$conectar = isset($_GET["conectar"]) ? $_GET["conectar"] : NULL;	 		
+	
+	if($conectar == "sim"){
+		include_once($toRoot."utils/funcoes.php");
+		
+		foreach($_POST as $nomeCampo => $valor){
+			$comando = "\$".$nomeCampo."= antiSQL(isset(\$_POST['$nomeCampo']) ? '".$valor."' : NULL);";
+			eval($comando);
+		}
+		
 		include_once($toRoot."utils/ConectarMySQL.class.php");
 		include_once($toRoot."beans/Cliente.class.php");
 		include_once($toRoot."beans/Log.class.php");

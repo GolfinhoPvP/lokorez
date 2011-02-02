@@ -4,7 +4,7 @@
 	include_once($toRoot."dao/DAOServico.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$conexao	= new ConectarMySql(); 
+	$conexao	= new ConectarMySql($toRoot); 
 	$bean		= new Servico();
 	$dao		= new DAOServico($bean, $conexao);
 	$array		= $dao->getServicoLista();

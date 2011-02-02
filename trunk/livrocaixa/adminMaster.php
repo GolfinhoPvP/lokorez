@@ -14,80 +14,78 @@
 	
 <body>
 		<?php
-			if($cadastrar == true){
-				$tipo = "cad";
+			if($alterar == "sim"){
+				$tipo = "alt";
 				include($toRoot."includes/confirmar.php");
+			}else if($alterar == "nao"){
+				$tipo = "alt";
+				include($toRoot."includes/negar.php");
 			}else{
 				echo('<div id="confirmar"></div>');
 			}
 		?>
-		<div id="confirmar"></div>
+		<div id="voltar" title="Voltar"><img style="cursor:pointer" onclick="javascript: location.href = 'login.php';" src="imagens/desconectar.png" /></div>
 		<div id="altBan">
-			<form id="cadastrar" name="cadastrar" method="post" action="adminMaster.php?alterar=banco" onsubmit="javascript: return validarCadastro();">
+			<form id="alterarBanco" name="alterarBanco" method="post" action="adminMaster.php?alterar=banco" onsubmit="javascript: return validarCadastro();">
 						<div align="center" class="botao1">Alterar configura&ccedil;&atilde;o do Banco de Dados </div>
 					  <div class="texto3" id="altBanHos">Host: 
-						<input name="tfBanHos" value="<?php echo($xml->bancoDeDados->host); ?>" type="text" class="textField1" id="tfBanHos" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
-					  <div class="texto3" id="altBanNomUsu">Nome de usu&aacute;rio : 
-						<input name="tfBanNomUsu" value="<?php echo($xml->bancoDeDados->nomeUsuario); ?>" type="text" class="textField1" id="tfBanNomUsu" size="50" maxlength="50" onkeyup="javascript: validarForm('tfRG');"/>
+			  <input name="tfBanHos" value="<?php echo($xml->bancoDeDados->host); ?>" type="text" class="textField1" id="tfBanHos" size="50" maxlength="100" onkeyup="javascript: validarForm('tfBanHos');" />
+			  </div>
+			  		<div class="texto3" id="altBanSen">Senha: 
+						<input name="tfBanSen" value="<?php echo($xml->bancoDeDados->senha); ?>" type="password" class="textField1" id="tfBanSen" size="25" maxlength="30" onkeyup="javascript: validarForm('tfBanSen');"/>
 					  </div>
-					  <div class="texto3" id="altBanSen">Senha: 
-						<input name="tfBanSen" value="<?php echo($xml->bancoDeDados->senha); ?>" type="password" class="textField1" id="tfBanSen" size="50" maxlength="50" onkeyup="javascript: validarForm('tfCPF');"/>
+					  <div class="texto3" id="altBanNomUsu">Nome de usu&aacute;rio : 
+						<input name="tfBanNomUsu" value="<?php echo($xml->bancoDeDados->nomeUsuario); ?>" type="text" class="textField1" id="tfBanNomUsu" size="25" maxlength="50" onkeyup="javascript: validarForm('tfBanNomUsu');"/>
 					  </div>
 					  <div class="texto3" id="altBanNom">Nome do banco: 
-						<input name="tfBanNomBan" value="<?php echo($xml->bancoDeDados->nomeBanco); ?>" type="text" class="textField1" id="tfBanNomBan" size="50" maxlength="50" onkeyup="javascript: validarForm('tfCPF');"/>
-					  </div>
+						<input name="tfBanNomBan" value="<?php echo($xml->bancoDeDados->nomeBanco); ?>" type="text" class="textField1" id="tfBanNomBan" size="25" maxlength="30" onkeyup="javascript: validarForm('tfBanNomBan');"/>
+			  </div>
 					  <div class="texto3" id="altBanSenMas">Senha adm. master: 
-						<input name="tfSenMas" value="<?php echo($xml->bancoDeDados->host); ?>" type="password" class="textField1" id="tfSenMas" size="30" maxlength="15" onkeyup="javascript: validarForm('tfCPF');"/>
+						<input name="tfSenMas" value="<?php echo($xml->bancoDeDados->host); ?>" type="password" class="textField1" id="tfSenMas" size="30" maxlength="15" onkeyup="javascript: validarForm('tfSenMas');"/>
 			  </div>
 			    	<div id="altBanBut">
 					  <input name="btAltBan" type="submit" class="botao2" id="btAltBan" value="Alterar" />
 			  </div>
 		  </form>      
 </div>
-		  <div id="cadCliTel">
-		  	<div class="texto3" id="cadCliTelNum">Telefone: 
-	  	    <input name="tfFonNum" type="text" class="textField1" id="tfFonNum" size="30" maxlength="12" onkeyup="javascript: validarForm('tfFonNum');"/>
-		  	</div>
-			  <div class="texto3" id="cadCliTelNot">Nota: 
-		      <input name="tfFonNot" type="text" class="textField1" id="tfFonNot" size="30" maxlength="30" onkeyup="javascript: validarForm('tfFonNot');"/>
-		    </div>
+<div id="altSta">
+		<form id="alterarStatus" name="alterarStatus" method="post" action="adminMaster.php?alterar=status">
+			<div align="center" class="botao1">Alterar status do Sistema </div>
+		  	<div class="texto3" id="altStaVal">
+		  	      Status:
+		  	      <select name="slSta" class="textField1" id="slSta">
+		  	        <option value="---" selected="selected">---</option>
+		  	        <option value="online">Online</option>
+		  	        <option value="offline">Offline</option>
+              </select>
 		  </div>
-		  <div id="cadCliEml">
-		  	<div class="texto3" id="cadCliEmlURL">Email: <input name="tfEmlURL" type="text" class="textField1" id="tfEmlURL" size="30" maxlength="50" onkeyup="javascript: validarForm('tfEmlURL');"/>
-		  	</div>
-			  <div class="texto3" id="cadCliEmlNot">Nota: 
-		      <input name="tfEmlNot" type="text" class="textField1" id="tfEmlNot" size="30" maxlength="50" onkeyup="javascript: validarForm('tfEmlNot');"/>
-		    </div>
+		  <div class="texto3" id="altStaSenMas">Senha adm. master: 
+						<input name="tfSenMas" value="<?php echo($xml->bancoDeDados->host); ?>" type="password" class="textField1" id="tfSenMas" size="30" maxlength="15" onkeyup="javascript: validarForm('tfSenMas');"/>
 		  </div>
-		  <div id="cadCli">
-			  <div class="texto3" id="cadCliNomUsu">Nome de usu&aacute;rio: 
+			<div id="altStaBut">
+					  <input name="btAltBan" type="submit" class="botao2" id="btAltBan" value="Alterar" />
+		  </div>
+	  	</form>
+</div>
+		  <div id="altMas">
+		  <form id="alterarMaster" name="alterarMaster" method="post" action="adminMaster.php?alterar=master">
+		  		<div align="center" class="botao1">Alterar Configura&ccedil;&atilde;o do administrador Master </div>
+			  <div class="texto3" id="altMasNomUsu">Nome de usu&aacute;rio: 
 	        <input name="tfNomUsu" type="text" class="textField1" id="tfNomUsu" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNomUsu');"/>
 		    </div>
-			  <div class="texto3" id="cadCliSen1">Senha: 
+			  <div class="texto3" id="altMasSen1">Senha: 
 		      <input name="tfSen1" type="password" class="textField1" id="tfSen1" size="30" maxlength="15" onkeyup="javascript: validarForm('tfSen1');"/>
 		    </div>
-			  <div class="texto3" id="cadCliSen2">Confirme a senha: 
+			  <div class="texto3" id="altMasSen2">Confirme a senha: 
 		      <input name="tfSen2" type="password" class="textField1" id="tfSen2" size="30" maxlength="15" onkeyup="javascript: validarSenhas();"/>
 		    </div>
+			<div class="texto3" id="altMasSenMas">Senha adm. master: 
+						<input name="tfSenMas" value="<?php echo($xml->bancoDeDados->host); ?>" type="password" class="textField1" id="tfSenMas" size="30" maxlength="15" onkeyup="javascript: validarForm('tfSenMas');"/>
 		  </div>
-		  <?php
-		  if($_SESSION["nivel"] != 1){
-			  echo('
-			  <div class="texto3" id="cadCliFun">
-				<div id="cadCliFunEmpRel">Empresa relacionada: 
-				<select name="slEmp" class="textField1" id="slEmp">');
-				include($toRoot."utils/getEmpresasSL.php");
-				echo('</select>
-				</div>
-				<div id="cadCliFunCla">N&iacute;vel: 
-					<select name="slCla" class="textField1" id="slCla">
-					  <option value="---" selected="selected">------------</option>
-					  <option value="3">Master</option>
-					  <option value="4">Simples</option>
-					</select>
-				</div>
-			  </div>');
-		  }
-		  ?>
+			<div id="altMasBut">
+					  <input name="btAltBan" type="submit" class="botao2" id="btAltBan" value="Alterar" />
+		  </div>
+         </form>
+</div>
 </body>
 </html>

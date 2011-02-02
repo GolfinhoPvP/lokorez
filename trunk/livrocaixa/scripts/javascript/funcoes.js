@@ -13,15 +13,29 @@ function validarForm(id){
 		case "slPesRef" :
 			case "slBancRef" :
 			case "slNivel" :
+			case "slPlaCon" :
+			case "slPro" :
+			case "slSer" :
+			case "slSta" :
+			case "slForPag" :
 			case "slEmp" :
 			case "slCla" :
 			case "slTipo" : descricaoExpReg = /[^---]/; break;
 		case "tfSen" :
 			case "tfSen1" :
+			case "tfSenMas" :
+			case "tfBanSen" :
 			case "tfSen2" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]){4,15}$/; break;
-		case "tfPer" : descricaoExpReg = /^[0-9]{1,10}$/; break;
-		case "tfVal" : descricaoExpReg = /^([0-9]{1,10}\.[0-9]{1,2}|[0-9]{1,10})$/; break;
-		case "tfNomUsu" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|_|-|@){4,15}$/; break;
+		case "tfCod" :
+			case "tfQua" :
+			case "tfPer" : descricaoExpReg = /^[0-9]{1,30}$/; break;
+		case "tfVal1" :
+			case "tfVal2" :
+			case "tfVal" : descricaoExpReg = /^([0-9]{1,10}\.[0-9]{1,2}|[0-9]{1,10})$/; break;
+		case "tfBanNomUsu" :
+			case "tfBanNomBan" :
+			case "tfBanHos" :
+			case "tfNomUsu" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|_|-|@|\/|:){4,15}$/; break;
 		case "tfEmlURL" : descricaoExpReg = /^([ ]{0,}|([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+)$/; break;
 		default : return true;
 	}

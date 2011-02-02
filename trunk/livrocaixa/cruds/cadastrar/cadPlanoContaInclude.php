@@ -19,7 +19,7 @@
 		include_once($toRoot."dao/DAOPlanoConta.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
-		$conexao		= new ConectarMySql();
+		$conexao		= new ConectarMySql($toRoot);
 
 		$planoConta 		= new PlanoConta($tfDes);
 		$daoPlanoConta		= new DAOPlanoConta($planoConta, $conexao);

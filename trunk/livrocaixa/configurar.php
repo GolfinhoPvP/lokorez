@@ -1,5 +1,4 @@
 <?php
-	$conectar = true;
 	include_once("configurarInclude.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -21,10 +20,10 @@
 </head>
 <body class="centralizar">
 		<?php
-			if($conectar == false){
+			if($conectar == "nao"){
 				$tipo = "log";
 				include($toRoot."includes/negar.php");
-			}else if($conectar == true){
+			}else if($conectar == false){
 				$tipo = "mas";
 				include($toRoot."includes/negar.php");
 			}else{
@@ -34,6 +33,7 @@
 		<div id="telaLogin">
 			<div id="esquerdaBox"></div>
 			<div id="centroBox">
+				<div id="voltar" title="Voltar"><img style="cursor:pointer" onclick="javascript: history.back();" src="imagens/voltar.png" /></div>
 				<div id="sysLabel" align="center" class="texto2">Livro Caixa On-line<br />
 				  Configura&ccedil;&atilde;o do Sistema
 </div>

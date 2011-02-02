@@ -2,6 +2,9 @@
 	session_start();
 	$toRoot = "";
 	
+	if(isset($_SESSION["master"]))
+		$_SESSION["master"] = "noOK";
+	
 	$conectar = isset($_GET["conectar"]) ? $_GET["conectar"] : NULL;	 		
 	
 	if($conectar == "sim"){
@@ -18,11 +21,11 @@
 		
 		if($xml->adminMaster->nomeUsuario == $tfNomUsu && decodificar($xml->adminMaster->senha) == $tfSen){
 			$_SESSION["master"] 		= "ok";
-			//$_SESSION["masterSenha"] 	= (string) $xml->adminMaster->senha;
+			$_SESSION["masterSenha"] 	= (string) $xml->adminMaster->senha;
 			
 			header("Location: ".$toRoot."adminMaster.php");
 			die();
 		}
-		$conectar = false;
+		$conectar = "nao";
 	}
 ?>

@@ -4,7 +4,7 @@
 	include_once($toRoot."dao/DAOFuncionarioEmpresa.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$conexao				= new ConectarMySql(); 
+	$conexao				= new ConectarMySql($toRoot); 
 	$funcionarioEmpresa 	= new FuncionarioEmpresa();
 	$DAOFuncionarioEmpresa	= new DAOFuncionarioEmpresa($funcionarioEmpresa, $conexao);
 	$array = $DAOFuncionarioEmpresa->getFuncionarioEmpresaLista($_SESSION["codigo"]);

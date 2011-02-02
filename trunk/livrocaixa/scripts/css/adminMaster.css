@@ -10,28 +10,28 @@
 	position:absolute;
 	width: 471px;
 	height: 11px;
-	left: 92px;
+	left: 84px;
 	top: 37px;
 }
 #altBanNomUsu{
 	position:absolute;
 	width: 383px;
 	height: 11px;
-	left: 11px;
+	left: 3px;
 	top: 106px;
 }
 #altBanSen{
 	position:absolute;
 	width: 402px;
 	height: 11px;
-	left: 82px;
+	left: 74px;
 	top: 71px;
 }
 #altBanNom{
 	position:absolute;
 	width: 436px;
 	height: 11px;
-	left: 26px;
+	left: 19px;
 	top: 139px;
 }
 #altBanSenMas{
@@ -50,116 +50,83 @@
 }
 /* ---------------------------- */
 
-#cadCliTel{
+#altSta{
 	position:absolute;
-	width: 651px;
-	height: 40px;
-	left: 19px;
-	top: 309px;
+	width: 642px;
+	height: 170px;
+	left: 0px;
+	top: 306px;
 }
-#cadCliTelNum{
+#altStaVal{
 	position:absolute;
-	width: 304px;
+	width: 184px;
 	height: 11px;
-	left: 19px;
-	top: 3px;
+	left: 90px;
+	top: 49px;
 }
-#cadCliTelNot{
+#altStaSenMas{
 	position:absolute;
-	width: 298px;
+	width: 365px;
 	height: 11px;
-	left: 338px;
-	top: 3px;
+	left: 6px;
+	top: 79px;
+}
+#altStaBut{
+	position:absolute;
+	width: 108px;
+	height: 38px;
+	left: 203px;
+	top: 119px;
 }
 
 /* ---------------------------- */
 
-#cadCliEml{
+#altMas{
 	position:absolute;
-	width: 657px;
-	height: 40px;
-	left: 16px;
-	top: 379px;
+	width: 642px;
+	height: 312px;
+	left: 1px;
+	top: 490px;
 }
-#cadCliEmlURL{
-	position:absolute;
-	width: 286px;
-	height: 11px;
-	left: 35px;
-	top: 3px;
-}
-#cadCliEmlNot{
-	position:absolute;
-	width: 300px;
-	height: 11px;
-	left: 338px;
-	top: 3px;
-}
-
-/* ---------------------------- */
-
-#cadCli{
-	position:absolute;
-	width: 617px;
-	height: 108px;
-	left: 27px;
-	top: 439px;
-}
-#cadCliNomUsu{
+#altMasNomUsu{
 	position:absolute;
 	width: 581px;
 	height: 11px;
-	left: 13px;
-	top: 5px;
+	left: 12px;
+	top: 39px;
 }
-#cadCliSen1{
+#altMasSen1{
 	position:absolute;
 	width: 513px;
 	height: 11px;
-	left: 81px;
-	top: 38px;
+	left: 80px;
+	top: 75px;
 }
-#cadCliSen2{
+#altMasSen2{
 	position:absolute;
-	width: 588px;
+	width: 560px;
 	height: 11px;
-	left: 7px;
-	top: 71px;
+	left: 6px;
+	top: 111px;
 }
-
-
-/* ---------------------------- */
-
-#cadCliBut{
+#altMasSenMas{
+	position:absolute;
+	width: 365px;
+	height: 11px;
+	left: 72px;
+	top: 165px;
+}
+#altMasBut{
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 695px;
-	top: 333px;
+	left: 235px;
+	top: 221px;
 }
-
 /* ---------------------------- */
-
-#cadCliFun{
+#voltar{
 	position:absolute;
-	width: 440px;
-	height: 72px;
-	left: 5px;
-	top: 324px;
-}
-
-#cadCliFunEmpRel{
-	position:absolute;
-	width: 422px;
-	height: 26px;
-	left: 7px;
-	top: 6px;
-}
-
-#cadCliFunCla{
-	position:absolute;
-	width: 170px;
-	height: 14px;
-	left: 66px;
-	top: 42px;
+	left: 649px;
+	top: 2px;
+	z-index:3;
 }

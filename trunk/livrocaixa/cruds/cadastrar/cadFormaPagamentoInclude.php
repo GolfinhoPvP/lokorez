@@ -19,7 +19,7 @@
 		include_once($toRoot."dao/DAOFormaPagamento.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
-		$conexao		= new ConectarMySql();
+		$conexao		= new ConectarMySql($toRoot);
 
 		$formaPagamento 		= new FormaPagamento($tfPer, $tfDes);
 		$daoFormaPagamento		= new DAOFormaPagamento($formaPagamento, $conexao);
