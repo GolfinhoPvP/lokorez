@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		1/30/2011
+Modified		2/1/2011
 Project		
 Model		
 Company		
@@ -84,7 +84,7 @@ Create table servicos (
  Primary Key (ser_codigo)) ENGINE = InnoDB;
 
 Create table lancamentos (
-	lan_codigo Serial NOT NULL AUTO_INCREMENT,
+	lan_codigo Varchar(12) NOT NULL,
 	tec_codigo Bigint UNSIGNED,
 	pro_codigo Bigint UNSIGNED NOT NULL,
 	pc_codigo Bigint UNSIGNED,
@@ -92,6 +92,7 @@ Create table lancamentos (
 	for_codigo Bigint UNSIGNED,
 	lan_quantidade_item Smallint NOT NULL DEFAULT 1,
 	lan_datahora Datetime NOT NULL,
+	lan_valor Double NOT NULL,
  Primary Key (lan_codigo)) ENGINE = InnoDB;
 
 Create table solicitacoes (

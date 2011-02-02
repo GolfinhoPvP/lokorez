@@ -8,12 +8,9 @@
 	include_once($toRoot."utils/funcoes.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");
 	
-	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;
-	$conexao	= new ConectarMySql();
-	$bean		= new Lancamento();
-	$dao 		= new DAOLancamento($bean, $conexao); 		
+	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;		
 	
-	if($cadastrar == "sim"){
+	if($pesquisar == "X--------------------------------sim"){
 		foreach($_POST as $nomeCampo => $valor){
 			$comando = "\$".$nomeCampo."= antiSQL(isset(\$_POST['$nomeCampo']) ? '".$valor."' : NULL);";
 			eval($comando);
@@ -41,8 +38,5 @@
 		$chave = $dao->getChave();
 		$conexao->fechar();
 		$cadastrar = true;	
-	}else{
-		$chave = $dao->getChave();
-		$conexao->fechar();
 	}
 ?>

@@ -8,8 +8,9 @@
 		private $forCodigo;
 		private $quantidade;
 		private $datahora;
+		private $valor;
 		
-		function __construct($cod = NULL, $tecCod = NULL, $proCod = NULL, $pcCod = NULL, $serCod = NULL, $forCod = NULL, $qua = NULL, $dathor = NULL){
+		function __construct($cod = NULL, $tecCod = NULL, $proCod = NULL, $pcCod = NULL, $serCod = NULL, $forCod = NULL, $qua = NULL, $val = NULL){
 			$this->codigo 		= $cod;
 			$this->tecCodigo 	= $tecCod;
 			$this->proCodigo 	= $proCod;
@@ -17,7 +18,8 @@
 			$this->serCodigo 	= $serCod;
 			$this->forCodigo 	= $forCod;
 			$this->quantidade 	= $qua;
-			$this->datahora 	= $dathor;
+			$this->datahora 	= date("Y-m-d H:i:s");
+			$this->valor 		= $val;
 		}
  
 		public function __set($nome, $valor) {

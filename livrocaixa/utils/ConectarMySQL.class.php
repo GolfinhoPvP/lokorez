@@ -1,9 +1,15 @@
 <?php 
 	class ConectarMySQL{
-		protected $hostBanco 		= "localhost";
+		/*protected $hostBanco 		= "localhost";
 		protected $usuarioBanco 	= "root";
 		protected $senhaBanco 		= "root";
-		protected $nomeBanco 		= "livrocaixa";
+		protected $nomeBanco 		= "livrocaixa";*/
+		
+		protected $hostBanco 		= "localhost";
+		protected $usuarioBanco 	= "zeroko1_livcaixa";
+		protected $senhaBanco 		= "livroCaixaDB";
+		protected $nomeBanco 		= "zeroko1_livrocaixa";
+		
 		protected $conexao;
 		private $comitar 			= true;
 		
@@ -11,7 +17,7 @@
 			if(!$this->conectarSGBD())
 				die("A conexão com o servidor não foi estabelecida!");
 			if(!$this->selecionarBanco())
-				die("A conexão com o servidor não foi estabelecida!");
+				die("Não foi possivel selecionar o banco no servidor!");
 			if(!mysqli_autocommit($this->conexao, false))
 				die("Auto comite não ativado!");
 		}

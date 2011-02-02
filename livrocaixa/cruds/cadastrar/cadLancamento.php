@@ -8,6 +8,7 @@
 		<link href="../../scripts/css/geral.css" rel="stylesheet" type="text/css" />
 		<link href="../../scripts/css/lancamento.css" rel="stylesheet" type="text/css" />
 		
+		<script type="text/javascript" language="javascript" src="../../scripts/javascript/ajax.js"></script>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/funcoes.js"></script>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/lancamento.js"></script>
 	</head>
@@ -22,11 +23,12 @@
 			}
 		?>
 		<div id="alterar"></div>
+		<div id="carregando"></div>
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadLancamento.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
 		<div id="CadLan">
 			<div class="texto3" id="cadLanCod">Código: 
-		  <input name="tfCod" type="text" class="textField1" id="tfCod" size="15" maxlength="12" readonly="readonly" />
+		  <input name="tfCod" type="text" class="textField1" id="tfCod" size="15" value="<?php echo($chave); ?>" maxlength="12" readonly="readonly" />
 		  </div>
 			<div class="texto3" id="cadLanPlaCon">Plano de conta: 
 			  <select class="textField1" name="slPlaCon" id="slPlaCon">
@@ -36,7 +38,7 @@
 			  </select>
 		  </div>
 			<div class="texto3" id="cadLanPro">Produto: 
-			  <select class="textField1" class="textField1" name="slPro" id="slPro">
+			  <select class="textField1" name="slPro" id="slPro" onchange="javascript: carregarProduto();">
 				<?php
 					include($toRoot."utils/getProdutoSL.php");
 				?>
@@ -45,8 +47,8 @@
 		  <div class="texto3" id="cadLanMod">Modelo: 
 		  <input name="tfMod" type="text" class="textField1" id="tfMod" size="30" maxlength="25" readonly="readonly" />
 		  </div>
-		  <div class="texto3" id="cadLanValCom">Valor: 
-		  <input name="tfVal1" type="text" class="textField1" id="tfVal1" size="15" maxlength="15" />
+		  <div class="texto3" id="cadLanValCom">Valor de venda: 
+		    <input name="tfVal1" type="text" class="textField1" id="tfVal1" size="15" maxlength="15" />
 		  </div>
 		  <div class="texto3" id="cadLanSer">Serviço: 
 			  <select class="textField1" name="slSer" id="slSer">
@@ -55,8 +57,11 @@
 				?>
 		    </select>
 		  </div>
-		  <div class="texto3" id="cadLanVal2">Valor2: 
-		  <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="15" maxlength="15" />
+		  <div class="texto3" id="cadLanVal2">Valor de saida: 
+		    <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="15" maxlength="15" />
+		  </div>
+		  <div class="texto3" id="cadLanQua">Quantidade: 
+		    <input name="tfQua" type="text" class="textField1" id="tfQua" value="1" size="15" maxlength="15" />
 		  </div>
 		  <div class="texto3" id="cadLanForPag">Forma de pagamento: 
 			  <select class="textField1" name="slForPag" id="slForPag">

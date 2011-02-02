@@ -44,7 +44,7 @@
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
 				$bean 				= new Servico($linha["ser_descricao"]);
-				$classe->codigo 	= $linha["ser_codigo"];
+				$bean->codigo 		= $linha["ser_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;
 			}

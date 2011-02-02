@@ -4,8 +4,8 @@ function validarCadastro(){
 	return comum(lista);
 }
 
-function carregarProduto(id, target){
-	comandos = "document.getElementById(id).value = document.getElementById(\"A\").innerHTML; ";
-	$array = new Array("../../utils/getProdutoAlt.php?valRef="+document.getElementById(id).value,target,"../../");
+function carregarProduto(){
+	comandos = "document.getElementById(\"tfMod\").value = document.getElementById(\"D\").innerHTML; document.getElementById(\"tfVal1\").value = document.getElementById(\"E\").innerHTML;";
+	$array = new Array("../../utils/getProdutoAlt.php?valRef="+document.getElementById("slPro").value,"alterar","../../", comandos);
 	carregar($array);
 }
