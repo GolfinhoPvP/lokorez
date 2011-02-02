@@ -35,7 +35,7 @@
 
 #nomeLabel{
 	position:absolute;
-	left: 23px;
+	left: 10px;
 	top: 95px;
 	width: 360px;
 	height: 29px;
@@ -43,9 +43,9 @@
 
 #senhaLabel{
 	position:absolute;
-	left: 91px;
+	left: 108px;
 	top: 130px;
-	width: 292px;
+	width: 262px;
 	height: 29px;
 }
 
@@ -59,8 +59,8 @@
 
 #sysLabel{
 	position:absolute;
-	left: 33px;
-	top: 39px;
+	left: 32px;
+	top: 32px;
 	width: 334px;
 	height: 33px;
 }
@@ -70,10 +70,4 @@
 	left: 9px;
 	top: 244px;
 	width: 370px;
-}
-#configurar{
-	position:absolute;
-	left: 431px;
-	top: 3px;
-	z-index:3;
 }
