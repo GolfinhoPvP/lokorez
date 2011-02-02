@@ -46,7 +46,7 @@
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
 				$bean 				= new Tecnico($linha["pes_codigo"], $linha["cla_codigo"], $linha["tec_descricao"]);
-				$bean->codigo 		= $linha["pro_codigo"];
+				$bean->codigo 		= $linha["tec_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;
 			}

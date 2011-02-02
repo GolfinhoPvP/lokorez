@@ -46,7 +46,7 @@
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
 				$bean 				= new FormaPagamento($linha["for_periodo"], $linha["for_descricao"]);
-				$classe->codigo 	= $linha["for_codigo"];
+				$bean->codigo 		= $linha["for_codigo"];
 				$array[$contador] 	= $bean;
 				$contador++;
 			}
