@@ -84,9 +84,10 @@
 				</div>
 				<div id="cadCliFunCla">N&iacute;vel: 
 					<select name="slCla" class="textField1" id="slCla">
-					  <option value="---" selected="selected">------------</option>
-					  <option value="3">Master</option>
-					  <option value="4">Simples</option>
+					  <option value="---" selected="selected">------------</option>');
+					  if($_SESSION["nivel"] != 3)
+					  		echo('<option value="3">Master</option>');
+					  echo('<option value="4">Simples</option>
 					</select>
 				</div>
 			  </div>');

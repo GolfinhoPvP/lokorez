@@ -40,6 +40,20 @@
 			$daoLog 	= new DAOLog($log, $conexao);
 			$daoLog->cadastrar();
 			
+			if($_SESSION["nivel"] == 3 || $_SESSION["nivel"] == 4){
+				include_once($toRoot."beans/FuncionarioEmpresa.class.php");
+				include_once($toRoot."dao/DAOFuncionarioEmpresa.class.php");
+		
+				$funcionarioEmpresa 	= new FuncionarioEmpresa();
+				$DAOFuncionarioEmpresa	= new DAOFuncionarioEmpresa($funcionarioEmpresa, $conexao);
+				$array = $DAOFuncionarioEmpresa->getFuncionarioEmpresaLista($_SESSION["codigo"]);
+				
+				foreach($array as $temp){
+					$funcionarioEmpresa = $temp;
+					$_SESSION["empresa"] = $funcionarioEmpresa->empCodigo;
+				}
+			}
+			
 			$conexao->fechar();
 			header("Location: ".$toRoot."main.php");
 			die();
