@@ -100,12 +100,23 @@
 	position:absolute;
 	left:4px;
 	top:7px;
-	width:860px;
+	width:798px;
 	height:21px;
-	z-index:2;
+	z-index:6;
 }
 #desconectar{
 	position:absolute;
 	left: 810px;
 	top: -1px;
+}
+#infos{
+	position:absolute;
+	left: 537px;
+	top: 45px;
+	width: 400px;
+	z-index:5;
+	background-image:url(../../imagens/info1.gif);
+	background-repeat:no-repeat;
+	height: 29px;
+	padding:5px;
 }
