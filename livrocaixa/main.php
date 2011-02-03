@@ -25,7 +25,7 @@
 	</head>
 	
 <body>
-	<div id="desconectar" onclick="javascript: location.href = 'utils/desconectar.php';" style="cursor:pointer">Desconectar<img src="imagens/desconectar.png" /></div>
+	<div class="texto1" id="desconectar" style="cursor:pointer" onclick="javascript: location.href = 'utils/desconectar.php';">Desconectar<img src="imagens/desconectar.png" /></div>
 	<div id="divMenu">
 	  <ul id="menu">
 		  <li>
@@ -126,6 +126,7 @@
 		</li>
 	  </ul>
 </div>
+	<div class="texto3" id="infos">Bem vindo: <span><?php echo($_SESSION["nomeUsuario"]); ?></span></div>
 	<iframe id="frameConteudo" name="conteudo" width="940" height="550" frameBorder="0"></iframe>
 </body>
 </html>
