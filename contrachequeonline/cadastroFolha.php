@@ -113,7 +113,7 @@
 			<div class="wordsLabel" id="cartTrabDat">Data de emiss&atilde;o: 
 				  <input name="tfDatEmisCartTrab" type="text" id="tfDatEmisCartTrab" size="10" maxlength="10" onkeydown="javascript: setaFoco(this, event);" />
 				<span class="alert">	    ex: 14/04/1988</span>			</div>
-		</div>
+	  </div>
 		<div id="pes">
 			<div class="wordsLabel" id="pesSex">
 			  Sexo:
@@ -171,9 +171,11 @@
         <input name="tfDatEmisRG" type="text" id="tfDatEmisRG" size="10" maxlength="10" /><span class="alert"> ex: 14/04/1988</span></div>
 	  </div>
 		<div id="titEle">
-			<div class="wordsLabel" id="titEleVal">T&iacute;tulo eleitoral: <input name="tfTitEleit" type="text" id="tfTitEleit" size="15" maxlength="15" />
+			<div class="wordsLabel" id="titEleVal">T&iacute;tulo eleitoral: 
+			  <input name="tfTitEleit" type="text" id="tfTitEleit" size="15" maxlength="15" />
 	      <span class="alert">*</span></div>
-			<div class="wordsLabel" id="titEleZon">Zona/Se&ccedil;&atilde;o: <input name="tfZonSec" type="text" id="tfZonSec" size="8" maxlength="8" />
+			<div class="wordsLabel" id="titEleZon">Zona/Se&ccedil;&atilde;o: 
+			  <input name="tfZonSec" type="text" id="tfZonSec" size="8" maxlength="8" />
 	      <span class="alert">*</span></div>
 		<div class="wordsLabel" id="titEleUF">UF:
           <select name="slUFTitEleit" id="slUFTitEleit">
@@ -214,22 +216,12 @@
 		<div class="wordsLabel" id="nomMae">Nome da m&atilde;e:
         <input name="tfNomeMae" type="text" id="tfNomeMae" size="100" maxlength="100" />
       <span class="alert">*</span></div>
-	  </tr>
 	  <div id="nomConj" class="wordsLabel">Nome do c&ocirc;njuge:
-      <input name="tfNomeConj" type="text" id="tfNomeConj" size="100" maxlength="100" /></div>
-	  </tr>
-	  <tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	  </tr>
-	  <tr>
-		<td colspan="2"><label>UF:
+      <input name="tfNomeConj" type="text" id="tfNomeConj" size="100" maxlength="100" />
+	  </div>
+
+	  <div id="end">
+		<div class="wordsLabel" id="endUF">UF:
             <select name="slUFEnd" id="slUFEnd" onchange="javascript: getCityes('slUFEnd', 'slCidade');">
               <option selected="selected" value="---">---</option>
               <?php
@@ -239,38 +231,27 @@
 				}
 			?>
             </select>
-            <span class="alert">*</span></label></td>
-		<td colspan="2"><label>Cidade:
+            <span class="alert">*</span></div>
+			<div class="wordsLabel" id="endCid">Cidade:
             <select name="slCidade" id="slCidade">
               <option value="---" selected="selected">----------------------------</option>
             </select>
-            <span class="alert">*</span></label></td>
-		<td colspan="4"><label>Cep:
+            <span class="alert">*</span>			</div><div class="wordsLabel" id="endCep">Cep:
             <input name="tfCEP" type="text" id="tfCEP" size="9" maxlength="9" />
-</label></td>
-	  </tr>
-	  <tr>
-		<td colspan="4"><label>Bairro: 
+			</div>
+			<div class="wordsLabel" id="endBai">Bairro: 
 		    <input name="tfBairro" type="text" id="tfBairro" size="40" maxlength="60" onkeyup="javascript: getSource('getBairro','tfBairro');" onblur="javascript: hideAutoComplete(300);"/>
-		</label></td>
-		<td colspan="4">Tipo de logradouro: 
-		  <label>
+		</div>
+		<div class="wordsLabel" id="endTPL">Tipo de logradouro: 
           <input name="tfTipoLog" type="text" id="tfTipoLog" size="40" maxlength="50" onkeyup="javascript: getSource('getLogradouro','tfTipoLog');" onblur="javascript: hideAutoComplete(300);"  autocomplete="off"/>
-          </label></td>
-	  </tr>
-	  <tr>
-		<td colspan="6">Endere&ccedil;o: 
-		  <label>
+          </div>
+	  <div class="wordsLabel" id="endEnd">Endere&ccedil;o: 
 		  <input name="tfEnd" type="text" id="tfEnd" size="100" maxlength="150" onkeyup="javascript: getSource('getEndereco','tfEnd');" onblur="javascript: hideAutoComplete(300);"  autocomplete="off"/>
-	    </label></td>
-		<td colspan="2"><label class="invisible">
+	    </div>
+		<div id="endInv" class="invisible">
 		  <input name="tfEndID" type="text" id="tfEndID" size="2" maxlength="25" />
-		</label></td>
-	  </tr>
-	  <tr>
-		<td colspan="8">&nbsp;</td>
-	  </tr>
-    </table>
+		</div>
+	</div>
 	<div class="wordsLabel" id="numCas">Número: 
 	  <input name="tfNumCas" type="text" id="tfNumCas" size="10" maxlength="10" />
 	</div>

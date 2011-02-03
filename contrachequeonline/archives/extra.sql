@@ -444,3 +444,25 @@ INSERT INTO cep (est_codigo, cid_codigo, bai_codigo, tip_codigo, log_codigo, cep
 				ON br.tp_logradouro = tip.tip_descricao
 			INNER JOIN logradouros logr
 				ON br.logradouro = logr.log_descricao);
+
+INSERT INTO cep (est_codigo, cid_codigo, bai_codigo, tip_codigo, log_codigo, cep_cep)
+		(SELECT cid.est_codigo, cid.cid_codigo, bai.bai_codigo, tip.tip_codigo, logr.log_codigo, br.cep FROM br_estado_ma br 
+			INNER JOIN cidades cid
+				ON br.cidade = cid.cid_nome
+			INNER JOIN bairros bai
+				ON br.bairro = bai.bai_nome
+			INNER JOIN tipo_logradouro tip
+				ON br.tp_logradouro = tip.tip_descricao
+			INNER JOIN logradouros logr
+				ON br.logradouro = logr.log_descricao);
+
+INSERT INTO cep (est_codigo, cid_codigo, bai_codigo, tip_codigo, log_codigo, cep_cep)
+		(SELECT cid.est_codigo, cid.cid_codigo, bai.bai_codigo, tip.tip_codigo, logr.log_codigo, br.cep FROM br_estado_mg br 
+			INNER JOIN cidades cid
+				ON br.cidade = cid.cid_nome
+			INNER JOIN bairros bai
+				ON br.bairro = bai.bai_nome
+			INNER JOIN tipo_logradouro tip
+				ON br.tp_logradouro = tip.tip_descricao
+			INNER JOIN logradouros logr
+				ON br.logradouro = logr.log_descricao);
