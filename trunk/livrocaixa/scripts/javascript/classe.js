@@ -1,5 +1,5 @@
 // JavaScript Document
 function validarCadastro(){
-	lista = new Array("tfDes");
+	lista = new Array("tfDes", "tfPor");
 	return comum(lista);
 }

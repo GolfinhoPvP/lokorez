@@ -16,11 +16,12 @@
 			$this->classe->codigo		= $linha["cla_codigo"];
 			$this->classe->cliCodigo	= $linha["cli_codigo"];
 			$this->classe->descricao	= $linha["cla_descricao"];
+			$this->classe->porcentagem	= $linha["cla_porcentagem"];
 			return $this->classe;
 		}
 		
 		public function getAtual(){
-			$sql = "SELECT * FROM classe WHERE cli_codigo=".$this->classe->cliCodigo." AND cla_descricao='".$this->classe->descricao."'";
+			$sql = "SELECT * FROM classe WHERE cli_codigo=".$this->classe->cliCodigo." AND cla_descricao='".$this->classe->descricao."' AND cla_porcentagem=".$this->classe->porcentagem."";
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false)
 				return $this->classe = NULL;
@@ -28,6 +29,7 @@
 			$this->classe->codigo		= $linha["cla_codigo"];
 			$this->classe->cliCodigo	= $linha["cli_codigo"];
 			$this->classe->descricao	= $linha["cla_descricao"];
+			$this->classe->porcentagem	= $linha["cla_porcentagem"];
 			return $this->classe;
 		}
 		
@@ -43,7 +45,7 @@
 				return NULL;
 			$contador = 0;
 			while($linha = mysqli_fetch_array($resultado)){
-				$classe 				= new Classe($linha["cla_descricao"]);
+				$classe 				= new Classe($linha["cla_descricao"], $linha["cla_porcentagem"]);
 				$classe->codigo 		= $linha["cla_codigo"];
 				$classeArray[$contador] = $classe;
 				$contador++;
@@ -56,7 +58,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO classe (cli_codigo, cla_descricao) VALUES (".$this->classe->cliCodigo.", '".$this->classe->descricao."')";
+			$sql = "INSERT INTO classe (cli_codigo, cla_descricao, cla_porcentagem) VALUES (".$this->classe->cliCodigo.", '".$this->classe->descricao."', ".$this->classe->porcentagem.")";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o servico: ".$this->classe->descricao);
 				return false;
@@ -65,7 +67,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE classe SET cli_codigo=".$this->classe->cliCodigo.", cla_descricao='".$this->classe->descricao."' WHERE cla_codigo=".$valRef;
+			$sql = "UPDATE classe SET cli_codigo=".$this->classe->cliCodigo.", cla_descricao='".$this->classe->descricao."', cla_porcentagem=".$this->classe->porcentagem." WHERE cla_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o servico código: ".$valRef);
 				return false;

@@ -21,7 +21,7 @@
 		
 		$conexao		= new ConectarMySql($toRoot);
 
-		$classe 		= new Classe($tfDes);
+		$classe 		= new Classe($tfDes, $tfPor);
 		$daoClasse		= new DAOClasse($classe, $conexao);
 		$daoClasse->cadastrar();
 		

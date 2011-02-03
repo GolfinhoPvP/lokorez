@@ -81,8 +81,42 @@ body.centralizar{
 }
 #acessoNegadoIcone{
 	position:absolute;
+	background-image:url(../../imagens/acesso_negado.png);
+	background-repeat:no-repeat;
+	left:-109px;
+	top:-46px;
+	width:101px;
+	height:104px;
+}
+#emDesenvolvimento{
+	position:absolute;
+	left:35%;
+	top:25%;
+}
+#emDesenvolvimentoIcone{
+	position:absolute;
+	background-image:url(../../imagens/em_desenvolvimento.png);
+	background-repeat:no-repeat;
 	left:-210px;
 	top:-103px;
+	width: 201px;
+	height: 219px;
+}
+#emManutencao{
+	position:absolute;
+	left:35%;
+	top:25%;
+	width: 249px;
+	height: 125px;
+}
+#emManutencaoIcone{
+	position:absolute;
+	background-image:url(../../imagens/em_manutencao.png);
+	background-repeat:no-repeat;
+	left:-206px;
+	top:-62px;
+	width: 201px;
+	height: 197px;
 }
 #carregando{
 	position:absolute;

@@ -3,8 +3,9 @@
 		private $codigo;
 		private $cliCodigo;
 		private $descricao;
+		private $porcentagem;
 		
-		function __construct($des = NULL){
+		function __construct($des = NULL, $por = NULL){
 			$this->codigo 		= NULL;
 			if($_SESSION["nivel"] == 2)
 				$cliCod = $_SESSION["codigo"];
@@ -12,6 +13,7 @@
 				$cliCod = $_SESSION["codigoPai"];
 			$this->cliCodigo 	= $cliCod;
 			$this->descricao 	= $des;
+			$this->porcentagem 	= $por;
 		}
  
 		public function __set($nome, $valor) {

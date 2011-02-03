@@ -36,7 +36,7 @@
 		$daoFuncionario		= new DAOFuncionario($funcionario, $conexao);
 		$daoFuncionario->cadastrar();
 		
-		$log->alvo 		= 6;
+		$log->alvCodigo = 6;
 		$log->descricao = "Empresa cadastrado!";
 		$daoLog->setLog($log);
 		$daoLog->cadastrar();

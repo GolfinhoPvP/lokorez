@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>Livro Caixa On-line</title>
-		
+		<link REL="SHORTCUT ICON" HREF="imagens/icone.ico">
 		<link href="scripts/css/geral.css" rel="stylesheet" type="text/css" />
 		
 		<script type="text/javascript" language="javascript" src="scripts/javascript/funcoes.js"></script>

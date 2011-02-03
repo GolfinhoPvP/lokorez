@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$toRoot = "../../";
-	if(!isset($_SESSION["empresa"]){
+	if(!isset($_SESSION["empresa"])){
 		header("Location: ".$toRoot."utils/selecionarEmpresa.php?selecionar=nao");
 		die();
 	}

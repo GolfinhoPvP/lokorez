@@ -28,36 +28,45 @@
 		include_once($toRoot."dao/DAOTelefone.class.php");
 		
 		$conexao		= new ConectarMySql($toRoot);
-
-		$pessoa 		= new Pessoa($tfNom, $tfCPF, $tfRG);
-		$daoPessoa		= new DAOPessoa($pessoa, $conexao);
-		$daoPessoa->cadastrar();
-		$pessoa = $daoPessoa->getAtual();
 		
-		$log 			= new Log(3, 3, $tfNom." cadastrado!");
+		$log 			= new Log(3, NULL, NULL);
 		$daoLog			= new DAOLog($log, $conexao);
-		$daoLog->cadastrar();
 		
-		if(strlen($tfEmlURL) > 0){
-			$email 			= new Email($pessoa->codigo, $tfEmlURL, $tfEmlNot);
-			$daoEmail		= new DAOEmail($email, $conexao);
-			$daoEmail->cadastrar();
+		if($cbSel == "novo"){
+			$pessoa 		= new Pessoa($tfNom, $tfCPF, $tfRG);
+			$daoPessoa		= new DAOPessoa($pessoa, $conexao);
+			$daoPessoa->cadastrar();
+			$pessoa = $daoPessoa->getAtual();
 			
-			$log->alvo 		= 4;
-			$log->descricao = $tfEmlURL." cadastrado!";
+			$log->alvCodigo = 3;
+			$log->descricao = $tfNom." cadastrado!";
 			$daoLog->setLog($log);
 			$daoLog->cadastrar();
-		}
-		
-		if(strlen($tfFonNum) > 0){
-			$telefone 		= new Telefone($pessoa->codigo, $tfFonNum, $tfFonNot);
-			$daoTelefone	= new DAOTelefone($telefone, $conexao);
-			$daoTelefone->cadastrar();
 			
-			$log->alvo 		= 5;
-			$log->descricao = $tfFonNum." cadastrado!";
-			$daoLog->setLog($log);
-			$daoLog->cadastrar();
+			if(strlen($tfEmlURL) > 0){
+				$email 			= new Email($pessoa->codigo, $tfEmlURL, $tfEmlNot);
+				$daoEmail		= new DAOEmail($email, $conexao);
+				$daoEmail->cadastrar();
+				
+				$log->alvCodigo = 4;
+				$log->descricao = $tfEmlURL." cadastrado!";
+				$daoLog->setLog($log);
+				$daoLog->cadastrar();
+			}
+			
+			if(strlen($tfFonNum) > 0){
+				$telefone 		= new Telefone($pessoa->codigo, $tfFonNum, $tfFonNot);
+				$daoTelefone	= new DAOTelefone($telefone, $conexao);
+				$daoTelefone->cadastrar();
+				
+				$log->alvCodigo = 5;
+				$log->descricao = $tfFonNum." cadastrado!";
+				$daoLog->setLog($log);
+				$daoLog->cadastrar();
+			}
+			$pesReferencia = $pessoa->codigo;
+		}else{
+			$pesReferencia = $slPes;
 		}
 		
 		if(!isset($cadCliFunCla)){
@@ -66,25 +75,25 @@
 			$$cadCliFunCla = 3;
 		}
 		
-		if($_SESSION["codigo"] = 1)
+		if($_SESSION["codigo"] == 1)
 			$slCla = 2;
 
-		$cliente 		= new Cliente($pessoa->codigo, $slCla, $tfNomUsu, codificar($tfSen1));
+		$cliente 		= new Cliente($pesReferencia, $slCla, $tfNomUsu, codificar($tfSen1));
 		$daoCliente		= new DAOCliente($cliente, $conexao);
 		$daoCliente->cadastrar();
 		$cliente = $daoCliente->getAtual();
 		
-		$log->alvo 		= 2;
+		$log->alvCodigo = 2;
 		$log->descricao = $tfNomUsu." cadastrado!";
 		$daoLog->setLog($log);
 		$daoLog->cadastrar();
 		
 		if($_SESSION["nivel"] != 1){
-			$funcionario 	= new Funcionario($slEmp, $cliente->codigo);
+			$funcionario 	= new Funcionario($slEmp, $pesReferencia);
 			$daoFuncionario	= new DAOFuncionario($funcionario, $conexao);
 			$daoFuncionario->cadastrar();
 			
-			$log->alvo 		= 6;
+			$log->alvCodigo = 6;
 			$log->descricao = "funcionario cadastrado!";
 			$daoLog->setLog($log);
 			$daoLog->cadastrar();

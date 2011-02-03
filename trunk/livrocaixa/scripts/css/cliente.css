@@ -1,10 +1,26 @@
 /* CSS Document */
+#cadCliNov{
+	position:absolute;
+	width: 146px;
+	height: 11px;
+	left: 110px;
+	top: 5px;
+}
+/* ---------------------------- */
+#cadCliPesRef{
+	position:absolute;
+	width: 628px;
+	height: 11px;
+	left: 11px;
+	top: 29px;
+}
+/* ---------------------------- */
 #cadCliPes{
 	position:absolute;
 	width: 640px;
 	height: 112px;
 	left: 0px;
-	top: 0px;
+	top: 18px;
 }
 #cadCliPesNom{
 	position:absolute;
@@ -35,7 +51,7 @@
 	width: 651px;
 	height: 40px;
 	left: 0px;
-	top: 117px;
+	top: 135px;
 }
 #cadCliTelNum{
 	position:absolute;
@@ -59,7 +75,7 @@
 	width: 657px;
 	height: 40px;
 	left: 0px;
-	top: 164px;
+	top: 183px;
 }
 #cadCliEmlURL{
 	position:absolute;
@@ -83,7 +99,7 @@
 	width: 617px;
 	height: 108px;
 	left: 0px;
-	top: 210px;
+	top: 229px;
 }
 #cadCliNomUsu{
 	position:absolute;
@@ -115,7 +131,7 @@
 	width: 113px;
 	height: 44px;
 	left: 455px;
-	top: 338px;
+	top: 357px;
 }
 
 /* ---------------------------- */

@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<div class="texto3" id="acessoNegado"><div id="acessoNegadoIcone"><img src="imagens/em_manutencao.png" width="200" height="197" /></div>
+<div class="texto3" id="emManutencao"><div id="emManutencaoIcone"></div>
 O sistema está em manutenção! </div>
 </body>
 </html>
