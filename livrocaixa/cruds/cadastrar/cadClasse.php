@@ -23,9 +23,12 @@
 		?>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadClasse.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
 			<div id="cadCla">
-			  <div class="texto3" id="cadClaDes">Classe : 
-			    <input name="tfDes" type="text" class="textField1" id="tfDes" size="75" maxlength="100" onkeyup="javascript: validarForm('tfDes');" /></div>
+			  <div class="texto3" id="cadClaDes">Classe: 
+	          <input name="tfDes" type="text" class="textField1" id="tfDes" size="75" maxlength="100" onkeyup="javascript: validarForm('tfDes');" /></div>
+				<div class="texto3" id="cadClaPor">Porcentagem: 
+		      <input name="tfPor" type="text" class="textField1" id="tfPor" onkeyup="javascript: validarForm('tfPor');" value="0" size="5" maxlength="3" />
 			  </div>
+		  </div>
 		<div id="cadCliBut">
     <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
 		</form>

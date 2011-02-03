@@ -10,6 +10,11 @@
 		
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/funcoes.js"></script>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/tecnico.js"></script>
+		<script type="text/javascript" language="javascript">
+			window.onload = function(){
+				alternar();
+			}
+		</script>
 	</head>
 	
 	<body>
@@ -23,6 +28,16 @@
 		?>
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadTecnico.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
+			<div class="texto3" id="cadTecNov">Contato novo? 
+			  <input name="cbSel" type="checkbox" class="textField1" id="cbSel" onchange="javascript: alternar();" value="novo" />
+			</div>
+			<div class="texto3" id="cadTecPesRef">Selecione uma pessoa:
+		  <select name="slPes" class="textField1" id="slPes">
+		  		<?php
+					include($toRoot."utils/getPessoaSL.php");
+				?>
+		  </select>
+		  </div>
 			<div id="cadTecPes">
 			  <div class="texto3" id="cadTecPesNom">Nome: <input name="tfNom" type="text" class="textField1" id="tfNom" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
 			  <div class="texto3" id="cadTecPesRG">RG: 
@@ -55,7 +70,7 @@
 					  ?>
 		        </select>
 			</div>
-			  <div class="texto3" id="cadTecDes">Descri&ccedil;&atilde;o: 
+			  <div class="texto3" id="cadTecDes">Apelido: 
 		        <input name="tfDes" type="text" class="textField1" id="tfDes" size="50" maxlength="50" onkeyup="javascript: validarForm('tfDes');"/>
 		    </div>
 		  </div>

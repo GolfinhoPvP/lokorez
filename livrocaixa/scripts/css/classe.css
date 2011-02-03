@@ -2,16 +2,23 @@
 #cadCla{
 	position:absolute;
 	width: 640px;
-	height: 63px;
+	height: 104px;
 	left: 0px;
 	top: 0px;
 }
 #cadClaDes{
 	position:absolute;
-	width: 608px;
+	width: 534px;
 	height: 11px;
-	left: 11px;
-	top: 16px;
+	left: 52px;
+	top: 21px;
+}
+#cadClaPor{
+	position:absolute;
+	width: 281px;
+	height: 11px;
+	left: 8px;
+	top: 54px;
 }
 /* ---------------------------- */
 
@@ -19,8 +26,8 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 189px;
-	top: 74px;
+	left: 156px;
+	top: 119px;
 }
 
 /* ---------------------------- */

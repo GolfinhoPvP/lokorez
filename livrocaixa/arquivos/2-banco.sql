@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		2/1/2011
+Modified		2/2/2011
 Project		
 Model		
 Company		
@@ -160,6 +160,7 @@ Create table classe (
 	cla_codigo Serial NOT NULL AUTO_INCREMENT,
 	cli_codigo Bigint UNSIGNED NOT NULL,
 	cla_descricao Varchar(30),
+	cla_porcentagem Smallint,
  Primary Key (cla_codigo)) ENGINE = InnoDB;
 
 

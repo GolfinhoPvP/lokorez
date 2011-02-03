@@ -10,6 +10,11 @@
 		
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/funcoes.js"></script>
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/cliente.js"></script>
+		<script type="text/javascript" language="javascript">
+			window.onload = function(){
+				alternar();
+			}
+		</script>
 	</head>
 	
 	<body>
@@ -23,6 +28,16 @@
 		?>
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadCliente.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
+			<div class="texto3" id="cadCliNov">Contato novo? 
+			  <input name="cbSel" type="checkbox" class="textField1" id="cbSel" onchange="javascript: alternar();" value="novo" />
+			</div>
+			<div class="texto3" id="cadCliPesRef">Selecione uma pessoa:
+		  <select name="slPes" class="textField1" id="slPes">
+		  		<?php
+					include($toRoot."utils/getPessoaSL.php");
+				?>
+		  </select>
+		  </div>
 			<div id="cadCliPes">
 			  <div class="texto3" id="cadCliPesNom">Nome: <input name="tfNom" type="text" class="textField1" id="tfNom" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
 			  <div class="texto3" id="cadCliPesRG">RG: 
@@ -44,7 +59,7 @@
 		  	<div class="texto3" id="cadCliEmlURL">Email: <input name="tfEmlURL" type="text" class="textField1" id="tfEmlURL" size="30" maxlength="50" onkeyup="javascript: validarForm('tfEmlURL');"/>
 		  	</div>
 			  <div class="texto3" id="cadCliEmlNot">Nota: 
-		      <input name="tfEmlNot" type="text" class="textField1" id="tfEmlNot" size="30" maxlength="50" onkeyup="javascript: validarForm('tfEmlNot');"/>
+		      <input name="tfEmlNot" type="text" class="textField1" id="tfEmlNot" onkeyup="javascript: validarForm('tfEmlNot');" size="30" maxlength="50"/>
 		    </div>
 		  </div>
 		  <div id="cadCli">
@@ -64,7 +79,7 @@
 			  <div class="texto3" id="cadCliFun">
 				<div id="cadCliFunEmpRel">Empresa relacionada: 
 				<select name="slEmp" class="textField1" id="slEmp">');
-				include($toRoot."utils/getEmpresasSL.php");
+				include($toRoot."utils/getEmpresaSL.php");
 				echo('</select>
 				</div>
 				<div id="cadCliFunCla">N&iacute;vel: 

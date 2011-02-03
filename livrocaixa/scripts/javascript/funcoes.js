@@ -15,6 +15,7 @@ function validarForm(id){
 			case "slNivel" :
 			case "slPlaCon" :
 			case "slPro" :
+			case "slPes" :
 			case "slSer" :
 			case "slSta" :
 			case "slForPag" :
@@ -28,6 +29,7 @@ function validarForm(id){
 			case "tfSen2" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]){4,15}$/; break;
 		case "tfCod" :
 			case "tfQua" :
+			case "tfPor" :
 			case "tfPer" : descricaoExpReg = /^[0-9]{1,30}$/; break;
 		case "tfVal1" :
 			case "tfVal2" :

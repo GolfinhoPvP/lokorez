@@ -40,6 +40,21 @@
 			return $this->pessoa;
 		}
 		
+		public function getPessoaLista($valRef){	
+			$sql = "SELECT * FROM pessoas WHERE pes_codigo != 1 ORDER BY pes_nome";
+			$resultado = $this->conexao->selecionar($sql);
+			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
+				return NULL;
+			$contador = 0;
+			while($linha = mysqli_fetch_array($resultado)){
+				$bean 				= new Pessoa($linha["pes_nome"], $linha["pes_cpf"], $linha["pes_rg"]);
+				$bean->codigo 		= $linha["pes_codigo"];
+				$array[$contador] 	= $bean;
+				$contador++;
+			}
+			return $array;
+		}
+		
 		public function setPessoa($pessoa){
 			$this->pessoa = $pessoa;
 		}

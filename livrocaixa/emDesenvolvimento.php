@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<div class="texto3" id="acessoNegado"><div id="acessoNegadoIcone"><img src="imagens/em_desenvolvimento.png" width="200" height="215" /></div>
+<div class="texto3" id="emDesenvolvimento"><div id="emDesenvolvimentoIcone"></div>
 Em desenvolvimento! </div>
 </body>
 </html>

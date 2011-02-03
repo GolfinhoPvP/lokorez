@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<div class="texto3" id="acessoNegado"><div id="acessoNegadoIcone"><img src="imagens/acesso_negado.png" width="88" height="100" /></div>
+<div class="texto3" id="acessoNegado"><div id="acessoNegadoIcone"></div>
 Acesso negado!</div>
 </body>
 </html>
