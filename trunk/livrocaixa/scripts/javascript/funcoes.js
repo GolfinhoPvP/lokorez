@@ -3,6 +3,7 @@ function validarForm(id){
 	switch(id){
 		case "tfFonNot" :
 			case "tfMod" :
+			case "tfCDB" :
 			case "tfEmlNot" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.]){0,50}$/; break;
 		case "tfDes" : descricaoExpReg = /^([a-zA-Z0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]|[-_\.\\\/]){4,100}$/; break;
 		case "tfNom" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[ÁáÉéÍíÔôÚúÊêçãõ]){4,150}$/; break;
@@ -34,6 +35,7 @@ function validarForm(id){
 		case "tfVal1" :
 			case "tfVal2" :
 			case "tfVal" : descricaoExpReg = /^([0-9]{1,10}\.[0-9]{1,2}|[0-9]{1,10})$/; break;
+		case "tfVen" : descricaoExpReg = /^[0-9]{2,2}\/[0-9]{2,2}\/[0-9]{4,4}$/; break;
 		case "tfBanNomUsu" :
 			case "tfBanNomBan" :
 			case "tfBanHos" :

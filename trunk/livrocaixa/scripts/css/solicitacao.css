@@ -1,0 +1,46 @@
+/* CSS Document */
+#cadSol{
+	position:absolute;
+	width: 617px;
+	height: 224px;
+	left: 6px;
+	top: 12px;
+}
+#cadSolDes{
+	position:absolute;
+	width: 524px;
+	height: 11px;
+	left: 46px;
+	top: 5px;
+}
+#cadSolVen{
+	position:absolute;
+	width: 350px;
+	height: 11px;
+	left: 30px;
+	top: 37px;
+}
+#cadSolVal{
+	position:absolute;
+	width: 348px;
+	height: 11px;
+	left: 84px;
+	top: 70px;
+}
+#cadSolCDB{
+	position:absolute;
+	width: 588px;
+	height: 11px;
+	left: 1px;
+	top: 104px;
+}
+
+/* ---------------------------- */
+
+#cadSolBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 195px;
+	top: 152px;
+}

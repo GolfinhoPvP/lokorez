@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		2/2/2011
+Modified		2/3/2011
 Project		
 Model		
 Company		
@@ -10,6 +10,7 @@ Database		mySQL 5
 */
 
 
+drop table IF EXISTS status;
 drop table IF EXISTS classe;
 drop table IF EXISTS niveis;
 drop table IF EXISTS funcionarios;
@@ -97,12 +98,14 @@ Create table lancamentos (
 
 Create table solicitacoes (
 	sol_codigo Serial NOT NULL AUTO_INCREMENT,
+	sta_codigo Tinyint NOT NULL,
 	cli_codigo Bigint UNSIGNED NOT NULL,
 	emp_codigo Bigint UNSIGNED NOT NULL,
 	sol_descricao Varchar(100) NOT NULL,
 	sol_vencimento Date NOT NULL,
 	sol_valor Double NOT NULL,
 	sol_codigo_barras Varchar(200) NOT NULL,
+	sol_valor_pago Double NOT NULL,
  Primary Key (sol_codigo)) ENGINE = InnoDB;
 
 Create table plano_conta (
@@ -163,6 +166,11 @@ Create table classe (
 	cla_porcentagem Smallint,
  Primary Key (cla_codigo)) ENGINE = InnoDB;
 
+Create table status (
+	sta_codigo Tinyint NOT NULL,
+	sta_descricao Varchar(30) NOT NULL,
+ Primary Key (sta_codigo)) ENGINE = InnoDB;
+
 
 Alter table clientes add Foreign Key (cli_codigo_pai) references clientes (cli_codigo) on delete  restrict on update  restrict;
 Alter table solicitacoes add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
@@ -188,5 +196,6 @@ Alter table logs add Foreign Key (alv_codigo) references alvos (alv_codigo) on d
 Alter table lancamentos add Foreign Key (for_codigo) references forma_pagamento (for_codigo) on delete set null on update cascade;
 Alter table clientes add Foreign Key (niv_codigo) references niveis (niv_codigo) on delete cascade on update cascade;
 Alter table tecnicos add Foreign Key (cla_codigo) references classe (cla_codigo) on delete cascade on update cascade;
+Alter table solicitacoes add Foreign Key (sta_codigo) references status (sta_codigo) on delete cascade on update cascade;
 
 

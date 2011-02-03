@@ -46,4 +46,10 @@
 		
 		return $hash;
 	}
+	
+	function converterData($data){
+		$array 	= explode("/",$data);
+		$data 	= $array[2]."-".$array[1]."-".$array[0];
+		return $data;
+	}
 ?>

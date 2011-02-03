@@ -1,3 +1,7 @@
+INSERT INTO status VALUES (1, "Pendente"),
+				(2, "Quitada"),
+				(3, "Parcialmente paga");
+
 INSERT INTO niveis VALUES (1, "Super Administrdos"),
 				(2, "Administrador"),
 				(3, "Super Funcionário"),

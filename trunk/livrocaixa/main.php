@@ -109,7 +109,7 @@
 		</li>
 		<li>
 			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Pagamentos</div>
-			 	<div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Solicitar</div>
+			 	<div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadSolicitacao.php');">Solicitar</div>
 				<div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pagar</div>
 		</li>
 		<li>

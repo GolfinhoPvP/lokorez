@@ -11,7 +11,13 @@
 			$this->codigo 		= NULL;
 			$this->pesCodigo 	= $pesCod;
 			$this->nivel		= $niv;
-			$this->codigoPai 	= $_SESSION["codigo"];
+			
+			if($_SESSION["nivel"] == 1 || $_SESSION["nivel"] == 2)
+				$codPai = $_SESSION["codigo"];
+			else if($_SESSION["nivel"] == 3)
+				$codPai = $_SESSION["codigoPai"];
+				
+			$this->codigoPai 	= $codPai;
 			$this->nomeUsuario 	= $nomeUsu;
 			$this->senha 		= $senha;
 		}
