@@ -9,6 +9,15 @@
 		<link href="../scripts/css/selecionarEmpresa.css" rel="stylesheet" type="text/css" />
 		
 		<script type="text/javascript" language="javascript" src="../scripts/javascript/funcoes.js"></script>
+		<?php
+			if($selecionar == "ok")
+				echo('	<script type="text/javascript" language="javascript" >
+							window.onload = function(){
+								top.frames["telaSistema"].document.getElementById("infos").innerHTML = "Bem vindo: '.$_SESSION["nomeUsuario"].'. Empresa: '.$_SESSION["empresaNome"].'";
+							}
+						</script>'
+				);
+		?>
 	</head>
 	
 	<body>

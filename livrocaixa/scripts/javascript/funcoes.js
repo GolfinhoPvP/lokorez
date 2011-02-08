@@ -73,3 +73,13 @@ function comum(lista){
 	}
 	return true;
 }
+
+function mostrar(v){
+	camp = document.getElementById(v);
+	camp.style.visibility = 'visible';
+}
+
+function esconder(v){
+	camp = document.getElementById(v);
+	camp.style.visibility = 'hidden';
+}

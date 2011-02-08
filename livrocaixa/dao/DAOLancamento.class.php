@@ -22,6 +22,7 @@
 			$this->lancamento->quantidade	= $linha["lan_quantidade_item"];
 			$this->lancamento->datahora		= $linha["lan_datahora"];
 			$this->lancamento->valor		= $linha["lan_valor"];
+			$this->lancamento->checado		= $linha["lan_checado"];
 			return $this->lancamento;
 		}
 		
@@ -40,6 +41,7 @@
 			$this->lancamento->quantidade	= $linha["lan_quantidade_item"];
 			$this->lancamento->datahora		= $linha["lan_datahora"];
 			$this->lancamento->valor		= $linha["lan_valor"];
+			$this->lancamento->checado		= $linha["lan_checado"];
 			return $this->lancamento;
 		}
 		
@@ -62,7 +64,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO lancamentos (lan_codigo, tec_codigo, pro_codigo, pc_codigo, ser_codigo, for_codigo, lan_quantidade_item, lan_datahora, lan_valor) VALUES ('".$this->lancamento->codigo."', ".$this->lancamento->tecCodigo.", ".$this->lancamento->proCodigo.", ".$this->lancamento->pcCodigo.", ".$this->lancamento->serCodigo.", ".$this->lancamento->forCodigo.", ".$this->lancamento->quantidade.", '".$this->lancamento->datahora."', ".$this->lancamento->valor.")";
+			$sql = "INSERT INTO lancamentos (lan_codigo, tec_codigo, pro_codigo, pc_codigo, ser_codigo, for_codigo, lan_quantidade_item, lan_datahora, lan_valor) VALUES ('".$this->lancamento->codigo."', ".$this->lancamento->tecCodigo.", ".$this->lancamento->proCodigo.", ".$this->lancamento->pcCodigo.", ".$this->lancamento->serCodigo.", ".$this->lancamento->forCodigo.", ".$this->lancamento->quantidade.", '".$this->lancamento->datahora."', ".$this->lancamento->valor.", ".$this->lancamento->checado.")";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o lancamento: ".$this->lancamento->codigo);
 				return false;
@@ -71,7 +73,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE lancamentos SET lan_codigo='".$this->lancamento->codigo."', tec_codigo=".$this->lancamento->tecCodigo.", pro_codigo=".$this->lancamento->proCodigo.", pc_codigo=".$this->lancamento->pcCodigo.", ser_codigo=".$this->lancamento->serCodigo.", for_codigo=".$this->lancamento->forCodigo.",  lan_quantidade_item=".$this->lancamento->quantidade.", lan_datahora='".$this->lancamento->datahora."', lan_valor=".$this->lancamento->valor." WHERE lan_codigo='".$valRef."'";
+			$sql = "UPDATE lancamentos SET lan_codigo='".$this->lancamento->codigo."', tec_codigo=".$this->lancamento->tecCodigo.", pro_codigo=".$this->lancamento->proCodigo.", pc_codigo=".$this->lancamento->pcCodigo.", ser_codigo=".$this->lancamento->serCodigo.", for_codigo=".$this->lancamento->forCodigo.",  lan_quantidade_item=".$this->lancamento->quantidade.", lan_datahora='".$this->lancamento->datahora."', lan_valor=".$this->lancamento->valor.", ".$this->lancamento->checado." WHERE lan_codigo='".$valRef."'";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o lancamento código: ".$valRef);
 				return false;

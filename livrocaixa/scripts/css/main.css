@@ -120,3 +120,23 @@
 	height: 29px;
 	padding:5px;
 }
+#ajuda{
+	position:absolute;
+	left: 708px;
+	top: 9px;
+	width: 35px;
+	z-index:6;
+	background-image:url(../../imagens/ajuda.png);
+	background-repeat:no-repeat;
+	height: 33px;
+}
+#alerta{
+	position:absolute;
+	left: 892px;
+	top: 50px;
+	width: 43px;
+	z-index:6;
+	background-image:url(../../imagens/alerta.gif);
+	background-repeat:no-repeat;
+	height: 44px;
+}

@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		2/3/2011
+Modified		2/8/2011
 Project		
 Model		
 Company		
@@ -94,6 +94,7 @@ Create table lancamentos (
 	lan_quantidade_item Smallint NOT NULL DEFAULT 1,
 	lan_datahora Datetime NOT NULL,
 	lan_valor Double NOT NULL,
+	lan_checado Bool DEFAULT 0,
  Primary Key (lan_codigo)) ENGINE = InnoDB;
 
 Create table solicitacoes (

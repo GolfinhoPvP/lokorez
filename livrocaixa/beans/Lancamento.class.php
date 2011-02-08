@@ -9,6 +9,7 @@
 		private $quantidade;
 		private $datahora;
 		private $valor;
+		private $checado;
 		
 		function __construct($cod = NULL, $tecCod = NULL, $proCod = NULL, $pcCod = NULL, $serCod = NULL, $forCod = NULL, $qua = NULL, $val = NULL){
 			$this->codigo 		= $cod;
@@ -20,6 +21,7 @@
 			$this->quantidade 	= $qua;
 			$this->datahora 	= date("Y-m-d H:i:s");
 			$this->valor 		= $val;
+			$this->checado 		= 0;
 		}
  
 		public function __set($nome, $valor) {
