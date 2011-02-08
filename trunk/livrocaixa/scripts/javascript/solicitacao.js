@@ -4,3 +4,9 @@ function validarCadastro(){
 	
 	return comum(lista);
 }
+
+function validarAlterar(){
+	lista = new Array("tfVal2");
+	
+	return comum(lista);
+}

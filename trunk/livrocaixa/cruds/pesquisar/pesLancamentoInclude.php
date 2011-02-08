@@ -18,4 +18,6 @@
 	$bean 			= new LivroCaixa();
 	$daoLog			= new DAOLivroCaixa($bean, $conexao);
 	$matriz 		= $daoLog->getLivroCaixaLista();
+	
+	$conexao->fechar();
 ?>

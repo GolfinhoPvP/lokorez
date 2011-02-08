@@ -5,6 +5,7 @@
 		case "del" : $mensagem = "Exclusão efetuada com sucesso!"; break;
 		case "sel" : $mensagem = "Empresa selecionada com sucesso!"; break;
 		case "sol" : $mensagem = "Solicitação registrada com sucesso!"; break;
+		case "pag" : $mensagem = "Solicitação paga!"; break;
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

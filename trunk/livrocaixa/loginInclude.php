@@ -35,6 +35,7 @@
 			$_SESSION["codigoPai"] 		= $cliente->codigoPai;
 			$_SESSION["nomeUsuario"] 	= $cliente->nomeUsuario;
 			$_SESSION["sennha"] 		= $cliente->sennha;
+			$_SESSION["solicitacoes"]	= 0;
 			
 			$log		= new Log(1, 1, $_SESSION["nomeUsuario"]." realizou log-in no sistema!");
 			$daoLog 	= new DAOLog($log, $conexao);
@@ -49,9 +50,19 @@
 				$array = $DAOFuncionarioEmpresa->getFuncionarioEmpresaLista($_SESSION["codigo"]);
 				
 				foreach($array as $temp){
-					$funcionarioEmpresa = $temp;
-					$_SESSION["empresa"] = $funcionarioEmpresa->empCodigo;
+					$funcionarioEmpresa 		= $temp;
+					$_SESSION["empresa"] 		= $funcionarioEmpresa->empCodigo;
+					$_SESSION["empresaNome"]	 = $funcionarioEmpresa->nome;
 				}
+			}else if($_SESSION["nivel"] == 2){
+				include_once($toRoot."beans/Solicitacao.class.php");
+				include_once($toRoot."dao/DAOSolicitacao.class.php");
+				
+				$solicitacao 	= new Solicitacao();
+				$daoSolicitacao	= new DAOSolicitacao($solicitacao, $conexao);
+				$matriz 		= $daoSolicitacao->getSolicitacaoLista();
+				
+				$_SESSION["solicitacoes"] = sizeof($matriz);
 			}
 			
 			$conexao->fechar();

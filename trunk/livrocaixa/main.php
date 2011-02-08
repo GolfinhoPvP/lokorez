@@ -17,7 +17,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="scripts/css/geral.css" rel="stylesheet" type="text/css" />
 		<link href="scripts/css/main.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" language="javascript" src="scripts/javascript/funcoes.js"></script>
 		<script type="text/javascript" language="javascript">
+			window.onload = function(){
+				setTimeout('esconder("infos")',5000);
+			}
 			function carregarNoIframe(nomeFrame, url){
 				top.frames['telaSistema'].frames[nomeFrame].location.href = url;
 			}
@@ -105,12 +109,12 @@
 		</li>
 			 <li>
 			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Check Saida</div>
-			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Gerar</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesCheckout.php');">Gerar</div>
 		</li>
 		<li>
 			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Pagamentos</div>
 			 	<div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadSolicitacao.php');">Solicitar</div>
-				<div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pagar</div>
+				<div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesSolicitacao.php');">Pagar</div>
 		</li>
 		<li>
 			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Livro Caixa</div>
@@ -126,7 +130,12 @@
 		</li>
 	  </ul>
 </div>
-	<div class="texto3" id="infos">Bem vindo: <span><?php echo($_SESSION["nomeUsuario"]); ?></span></div>
+	<div class="texto3" id="infos">Bem vindo: <?php echo($_SESSION["nomeUsuario"]); if(isset($_SESSION["empresaNome"])) echo(". Empresa: ".$_SESSION["empresaNome"]);?></div>
+	<div id="ajuda" title="Quem sou eu?" onmouseover="javascript: mostrar('infos');" onmouseout="javascript: esconder('infos');" style="cursor:pointer"></div>
+	<?php
+		if($_SESSION["solicitacoes"] > 0)
+			echo('<div id="alerta" title="Há pedido de pagamento pendente!" onclick="javascript: carregarNoIframe(\'conteudo\',\'cruds/pesquisar/pesSolicitacao.php\');" style="cursor:pointer"></div>');
+	?>
 	<iframe id="frameConteudo" name="conteudo" width="940" height="550" frameBorder="0"></iframe>
 </body>
 </html>

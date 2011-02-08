@@ -62,7 +62,7 @@
 		}
 		
 		public function pesquisar($valRef){
-			$sql = "SELECT * FROM empresas WHERE emp_codigo = ".valRefE;
+			$sql = "SELECT * FROM empresas WHERE emp_codigo=".$valRef;
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
 				echo("Não foi possivel selecionar o empresa referência: ".$valRef);
