@@ -48,21 +48,27 @@
 			<div id="pes">
 				<div class="wordsLabel" id="pesSex">
 				  Sexo:
-				  <select name="slSexo" id="slSexo" onchange="javascript: showReference('slSexo','CartRes','M');"  onkeydown="javascript: setaFoco(this, event);" >
+				  <select name="slSexo" id="slSexo" onchange="javascript: showReference('slSexo','CartRes','1');"  onkeydown="javascript: setaFoco(this, event);" >
 					<option value="---" selected="selected">-----------</option>
-					<option value="M">Masculino</option>
-					<option value="F">Feminino</option>
+					<?php
+						$result = $connect->execute("SELECT * FROM sexo");
+						while($row = mysql_fetch_assoc($result)) {
+							echo("<option value=".$row["sex_codigo"].">".utf8_encode($row["sex_descricao"])."</option>");
+						}
+					?>
 				  </select>
 				<span class="alert">* </span>
 			  </div>
 				<div class="wordsLabel" id="pesEstCiv">
 				  Estado civil: 
-				  <select name="slEstadCivi" id="slEstadCivi" onchange="javascript: showReference('slEstadCis','nomConj','C:V');"  onkeydown="javascript: setaFoco(this, event);" >
+				  <select name="slEstadCivi" id="slEstadCivi" onchange="javascript: showReference('slEstadCivi','nomConj','2:4');"  onkeydown="javascript: setaFoco(this, event);" >
 					<option value="---" selected="selected">--------------</option>
-					<option value="S">Solteiro&ordf;</option>
-					<option value="C">Casado&ordf;</option>
-					<option value="D">Divorciado&ordf;</option>
-					<option value="V">Vi&uacute;vo&ordf;</option>
+					<?php
+						$result = $connect->execute("SELECT * FROM estado_civil");
+						while($row = mysql_fetch_assoc($result)) {
+							echo("<option value=".$row["est_civ_codigo"].">".utf8_encode($row["est_civ_descricao"])."</option>");
+						}
+					?>
 				  </select>
 				<span class="alert">* </span>
 			  </div>
@@ -220,12 +226,12 @@
 		  <div class="wordsLabel" id="cartAbilitCat">Categoria: 
 			<select name="slCartAbilitCat" id="slCartAbilitCat" onkeydown="javascript: setaFoco(this, event);" >
 			  <option value="---">----</option>
-			  <option value="1">A</option>
-			  <option value="2">B</option>
-			  <option value="3">AB</option>
-			  <option value="4">C</option>
-			  <option value="5">D</option>
-			  <option value="6">E</option>
+			    <?php
+					$result = $connect->execute("SELECT * FROM categoria");
+					while($row = mysql_fetch_assoc($result)) {
+						echo("<option value=".$row["cat_categoria"].">".$row["cat_categoria"]."</option>");
+					}
+				?>
 		  </select></div>
 		</div>
 		<div id="regProf">

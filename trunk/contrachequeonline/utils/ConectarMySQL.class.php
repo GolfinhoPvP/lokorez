@@ -3,7 +3,7 @@
 		private $hostBanco 		= "localhost";
 		private $usuarioBanco 	= "root";
 		private $senhaBanco 	= "root";
-		private $nomeBanco 		= "consignacao";
+		private $nomeBanco 		= "contrachequeonline";
 		private $conexao;
 		
 		function __construct(){
@@ -48,6 +48,10 @@
 				return false;
 			}			
 			return $resultado;
+		}
+		
+		public function numeroLinhas($resultado){ 
+			return mysqli_num_rows($resultado);
 		}
 		
 		public function commit(){

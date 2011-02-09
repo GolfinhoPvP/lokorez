@@ -1,6 +1,6 @@
 /*
-Created		21/10/2010
-Modified		08/02/2011
+Created		10/21/2010
+Modified		2/9/2011
 Project		
 Model		
 Company		
@@ -374,19 +374,19 @@ Create table funcao (
 
 Create table Local (
 	loc_codigo Serial NOT NULL AUTO_INCREMENT,
-	equipe_psf Varchar(30) NOT NULL,
-	micro_area Varchar(20) NOT NULL,
+	eqp_equipe_psf Varchar(30) NOT NULL,
+	mic_micro_area Varchar(20) NOT NULL,
 	ser_codigo Bigint UNSIGNED NOT NULL,
 	loc_local Varchar(30),
  Primary Key (loc_codigo)) ENGINE = InnoDB;
 
 Create table micro_area (
-	micro_area Varchar(20) NOT NULL AUTO_INCREMENT,
- Primary Key (micro_area)) ENGINE = InnoDB;
+	mic_micro_area Varchar(20) NOT NULL,
+ Primary Key (mic_micro_area)) ENGINE = InnoDB;
 
 Create table equipe_psf (
-	equipe_psf Varchar(30) NOT NULL AUTO_INCREMENT,
- Primary Key (equipe_psf)) ENGINE = InnoDB;
+	eqp_equipe_psf Varchar(30) NOT NULL,
+ Primary Key (eqp_equipe_psf)) ENGINE = InnoDB;
 
 
 Alter table Especialidades add Foreign Key (cargo) references Cargos (cargo) on delete  restrict on update  restrict;
@@ -429,7 +429,5 @@ Alter table Servidor add Foreign Key (vin_codigo) references vinculo (vin_codigo
 Alter table Servidor add Foreign Key (dis_codigo) references disposicao (dis_codigo) on delete  restrict on update cascade;
 Alter table Servidor add Foreign Key (car_con_codigo) references cargo_contratado (car_con_codigo) on delete  restrict on update cascade;
 Alter table Servidor add Foreign Key (fun_codigo) references funcao (fun_codigo) on delete  restrict on update cascade;
-Alter table Local add Foreign Key (micro_area) references micro_area (micro_area) on delete  restrict on update cascade;
-Alter table Local add Foreign Key (equipe_psf) references equipe_psf (equipe_psf) on delete  restrict on update cascade;
-
-
+Alter table Local add Foreign Key (mic_micro_area) references micro_area (mic_micro_area) on delete  restrict on update cascade;
+Alter table Local add Foreign Key (eqp_equipe_psf) references equipe_psf (eqp_equipe_psf) on delete  restrict on update cascade;
