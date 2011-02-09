@@ -16,7 +16,7 @@
 			echo('<option value="'.$bean->codigo.'" >'.$bean->nome.'</option>');
 		}
 	}else{
-		echo('<option value="---" selected="selected" >Não há produtos cadastrados!</option>');
+		echo('<option value="---" selected="selected" >Não há pessoas cadastradas!</option>');
 	}
 	$conexao->fechar();
 ?>
