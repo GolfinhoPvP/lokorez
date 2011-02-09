@@ -2,6 +2,12 @@
 	session_start();
 	$toRoot = "../../";
 	$nivelAcesso = $toRoot.":1";
+	
+	if(!isset($_SESSION["empresa"])){
+		header("Location: ".$toRoot."utils/selecionarEmpresa.php?selecionar=nao");
+		die();
+	}
+	
 	include_once($toRoot."beans/Lancamento.class.php");
 	include_once($toRoot."dao/DAOLancamento.class.php");
 	include_once($toRoot."utils/controladorAcesso.php");

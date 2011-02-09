@@ -15,10 +15,12 @@
 	<body>
 		<?php
 			$cor = "azul";
-			foreach($matriz as $array){
-				$bean = $array;
-				include("pesLancamentoModelo.php");
-				$cor = $cor == "azul" ? "vermelho" : "azul";
+			if(sizeof($matriz) > 0){
+				foreach($matriz as $array){
+					$bean = $array;
+					include("pesLancamentoModelo.php");
+					$cor = $cor == "azul" ? "vermelho" : "azul";
+				}
 			}
 		?>
 	</body>
