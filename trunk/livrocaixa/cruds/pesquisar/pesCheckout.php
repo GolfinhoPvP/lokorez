@@ -13,7 +13,7 @@
 		<script type="text/javascript" language="javascript">
 			<!--
 			width	= 600;
-			height 	= 200;
+			height 	= 210;
 			left 	= 150;
 			top 	= 100;
 			URL 	= "pesCheckoutModelo.php?slTec=<?php echo($slTec); ?>";

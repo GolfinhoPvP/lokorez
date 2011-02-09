@@ -52,7 +52,7 @@
 				foreach($array as $temp){
 					$funcionarioEmpresa 		= $temp;
 					$_SESSION["empresa"] 		= $funcionarioEmpresa->empCodigo;
-					$_SESSION["empresaNome"]	 = $funcionarioEmpresa->nome;
+					$_SESSION["empresaNome"]	= $funcionarioEmpresa->nome;
 				}
 			}else if($_SESSION["nivel"] == 2){
 				include_once($toRoot."beans/Solicitacao.class.php");

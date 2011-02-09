@@ -20,11 +20,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<link href="../../scripts/css/checkout.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" language="javascript">
+			window.onunload = function(){
+				opcao = confirm("Muito cuidado, você deve zerar os checks! aperte OK para zerar!");
+				if(!opcao){
+					alert("Você não zerou os check, eles voltarão a aparecer em consultas futuras!");
+				}
+			}
+		</script>
 	</head>
 	
-	<body onunload="javascript: alert('Blaaa');">
+	<body>
 		<div id="modLan">
-			<div class="textLan1" id="modLanCod">Tecnico: <span class="texto1"><?php echo($bean->tecDescricao); ?></span></div>
+			<div class="textLan1" id="modLanCod">Técnico: <span class="texto1"><?php echo($bean->tecDescricao); ?></span></div>
 			<div class="textLan1" id="modLanDat">Classe: <span class="texto1"><?php echo($bean->claDescricao); ?></span></div>
 			<div class="textLan1" id="modLanPC">Vendas, total: R$ <span class="texto1"><?php echo($bean->sumLanc); ?></span></div>
 			<div class="textLan1" id="modLanPro">Nome completo: <span class="texto1"><?php echo($bean->pesNome); ?></span></div>
