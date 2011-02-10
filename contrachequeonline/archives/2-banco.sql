@@ -1,6 +1,6 @@
 /*
-Created		10/21/2010
-Modified		2/9/2011
+Created		21/10/2010
+Modified		10/02/2011
 Project		
 Model		
 Company		
@@ -193,6 +193,7 @@ Create table Servidor (
 	est_codigo Bigint UNSIGNED NOT NULL,
 	for_codigo Bigint UNSIGNED NOT NULL,
 	fun_codigo Bigint UNSIGNED NOT NULL,
+	loc_codigo Bigint UNSIGNED NOT NULL,
 	cid_codigo Bigint UNSIGNED NOT NULL,
 	sex_codigo Tinyint NOT NULL,
 	vin_codigo Bigint UNSIGNED NOT NULL,
@@ -278,7 +279,7 @@ Create table nit (
  Primary Key (nit_codigo)) ENGINE = InnoDB;
 
 Create table rg2 (
-	rg_codigo Serial NOT NULL AUTO_INCREMENT,
+	rg_codigo Varchar(30) NOT NULL,
 	ser_codigo Bigint UNSIGNED NOT NULL,
 	rg_numero Varchar(20),
 	rg_orgao_expedidor Varchar(10),
@@ -314,7 +315,7 @@ Create table categoria (
  Primary Key (cat_categoria)) ENGINE = InnoDB;
 
 Create table registro_profissional (
-	reg_pro_codigo Serial NOT NULL AUTO_INCREMENT,
+	reg_pro_codigo Varchar(100) NOT NULL,
 	ser_codigo Bigint UNSIGNED NOT NULL,
 	reg_pro_sigla Varchar(20),
 	reg_pro_regiao Varchar(20),
@@ -345,7 +346,7 @@ Create table Banco (
  Primary Key (ban_codigo)) ENGINE = InnoDB;
 
 Create table certidao_civil (
-	cer_civ_codigo Serial NOT NULL AUTO_INCREMENT,
+	cer_civ_codigo Varchar(100) NOT NULL,
 	ser_codigo Bigint UNSIGNED NOT NULL,
 	cer_civ_termo Varchar(20),
 	cer_civ_folha Varchar(20),
@@ -374,19 +375,20 @@ Create table funcao (
 
 Create table Local (
 	loc_codigo Serial NOT NULL AUTO_INCREMENT,
-	eqp_equipe_psf Varchar(30) NOT NULL,
-	mic_micro_area Varchar(20) NOT NULL,
-	ser_codigo Bigint UNSIGNED NOT NULL,
+	eqp_codigo Bigint UNSIGNED NOT NULL,
+	mic_codigo Bigint UNSIGNED NOT NULL,
 	loc_local Varchar(30),
  Primary Key (loc_codigo)) ENGINE = InnoDB;
 
 Create table micro_area (
+	mic_codigo Serial NOT NULL AUTO_INCREMENT,
 	mic_micro_area Varchar(20) NOT NULL,
- Primary Key (mic_micro_area)) ENGINE = InnoDB;
+ Primary Key (mic_codigo)) ENGINE = InnoDB;
 
 Create table equipe_psf (
+	eqp_codigo Serial NOT NULL AUTO_INCREMENT,
 	eqp_equipe_psf Varchar(30) NOT NULL,
- Primary Key (eqp_equipe_psf)) ENGINE = InnoDB;
+ Primary Key (eqp_codigo)) ENGINE = InnoDB;
 
 
 Alter table Especialidades add Foreign Key (cargo) references Cargos (cargo) on delete  restrict on update  restrict;
@@ -399,7 +401,6 @@ Alter table Pessoal add Foreign Key (matricula,codigo_fol) references Cadastros 
 Alter table Calculos add Foreign Key (matricula,fol_codigo) references Cadastros (matricula,codigo_fol) on delete  restrict on update  restrict;
 Alter table Cadastros add Foreign Key (codigo_fol) references Folhas (codigo_fol) on delete  restrict on update  restrict;
 Alter table Administradores add Foreign Key (id_nivel) references Niveis (id_nivel) on delete  restrict on update  restrict;
-Alter table Local add Foreign Key (ser_codigo) references Servidor (ser_codigo) on delete  restrict on update cascade;
 Alter table nit add Foreign Key (ser_codigo) references Servidor (ser_codigo) on delete  restrict on update cascade;
 Alter table carteira_reservista add Foreign Key (ser_codigo) references Servidor (ser_codigo) on delete  restrict on update cascade;
 Alter table carteria_trabalho add Foreign Key (ser_codigo) references Servidor (ser_codigo) on delete  restrict on update cascade;
@@ -429,5 +430,8 @@ Alter table Servidor add Foreign Key (vin_codigo) references vinculo (vin_codigo
 Alter table Servidor add Foreign Key (dis_codigo) references disposicao (dis_codigo) on delete  restrict on update cascade;
 Alter table Servidor add Foreign Key (car_con_codigo) references cargo_contratado (car_con_codigo) on delete  restrict on update cascade;
 Alter table Servidor add Foreign Key (fun_codigo) references funcao (fun_codigo) on delete  restrict on update cascade;
-Alter table Local add Foreign Key (mic_micro_area) references micro_area (mic_micro_area) on delete  restrict on update cascade;
-Alter table Local add Foreign Key (eqp_equipe_psf) references equipe_psf (eqp_equipe_psf) on delete  restrict on update cascade;
+Alter table Servidor add Foreign Key (loc_codigo) references Local (loc_codigo) on delete  restrict on update cascade;
+Alter table Local add Foreign Key (mic_codigo) references micro_area (mic_codigo) on delete  restrict on update cascade;
+Alter table Local add Foreign Key (eqp_codigo) references equipe_psf (eqp_codigo) on delete  restrict on update cascade;
+
+

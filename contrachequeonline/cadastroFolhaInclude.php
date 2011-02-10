@@ -157,9 +157,77 @@
 			$linha = mysqli_fetch_array(resultado);
 			$vinculoCODIGO = $linha["vin_codigo"];
 		}
-//-------------------------------------------------------------------------------------------------------------------------------------------------		
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 		$sqlSEL = "select 
-						ser_codigo, car_con_codigo, dis_codigo, est_civ_codigo, est_codigo, for_codigo, fun_codigo, cid_codigo, sex_codigo, vin_codigo, ser_nome, ser_cpf, ser_data_nascimento, ser_nome_pai, ser_nome_mae, ser_nome_conjuge, ser_data_cadastro
+						eqp_codigo,
+						eqp_equipe_psf
+					from 
+						contrachequeonline.equipe_psf
+					where
+						eqp_equipe_psf='".$tfUnidPSF."'";
+		$resultado = $conexao->executar($sqlSEL);
+		if($conexao->numeroLinhas($resultado) > 0){
+			$linha = mysqli_fetch_array(resultado);
+			$psfCODIGO = $linha["eqp_codigo"];
+		}else{
+			$sqlINS = "insert into contrachequeonline.equipe_psf 
+							(eqp_equipe_psf)
+						values
+							('".$tfUnidPSF."')";
+			$conexao->executar($sqlINS);
+			$resultado = $conexao->executar($sqlSEL);
+			$linha = mysqli_fetch_array(resultado);
+			$psfCODIGO = $linha["eqp_codigo"];
+		}
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlSEL = "select 
+						mic_codigo,
+						mic_micro_area
+					from 
+						contrachequeonline.micro_area 
+					where
+						eqp_equipe_psf='".$tfUnidMicAre."'";
+		$resultado = $conexao->executar($sqlSEL);
+		if($conexao->numeroLinhas($resultado) > 0){
+			$linha = mysqli_fetch_array(resultado);
+			$microCODIGO = $linha["mic_codigo"];
+		}else{
+			$sqlINS = "insert into contrachequeonline.micro_area 
+							(mic_micro_area)
+						values
+							('".$tfUnidMicAre."')";
+			$conexao->executar($sqlINS);
+			$resultado = $conexao->executar($sqlSEL);
+			$linha = mysqli_fetch_array(resultado);
+			$microCODIGO = $linha["mic_codigo"];
+		}
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlSEL = "select 
+						loc_codigo, 
+						eqp_codigo, 
+						mic_codigo, 
+						loc_local
+					from 
+						contrachequeonline.local 
+					where
+						loc_local='".$tfUnid."'";
+		$resultado = $conexao->executar($sqlSEL);
+		if($conexao->numeroLinhas($resultado) > 0){
+			$linha = mysqli_fetch_array(resultado);
+			$localCODIGO = $linha["loc_codigo"];
+		}else{
+			$sqlINS = "insert into contrachequeonline.local 
+							(eqp_equipe_psf, mic_micro_area, loc_local)
+						values
+							(".$psfCODIGO.", ".$microCODIGO.", '".$tfUnid."')";
+			$conexao->executar($sqlINS);
+			$resultado = $conexao->executar($sqlSEL);
+			$linha = mysqli_fetch_array(resultado);
+			$localCODIGO = $linha["loc_codigo"];
+		}
+//-------------------------------------------------------------------------------------------------------------------------------------------------	
+		$sqlSEL = "select 
+						ser_codigo, car_con_codigo, dis_codigo, est_civ_codigo, est_codigo, for_codigo, fun_codigo, loc_codigo, cid_codigo, sex_codigo, vin_codigo, ser_nome, ser_cpf, ser_data_nascimento, ser_nome_pai, ser_nome_mae, ser_nome_conjuge, ser_data_cadastro
 					from 
 						contrachequeonline.servidor  
 					where
@@ -171,9 +239,9 @@
 		}else{
 			$hoje = date("Y-m-d H:i:s");
 			$sqlINS = "insert into contrachequeonline.servidor 
-								(car_con_codigo, dis_codigo, est_civ_codigo, est_codigo, for_codigo, fun_codigo, cid_codigo, sex_codigo, vin_codigo, ser_nome, ser_cpf, ser_data_nascimento, ser_nome_pai, ser_nome_mae, ser_nome_conjuge, ser_data_cadastro)
+								(car_con_codigo, dis_codigo, est_civ_codigo, est_codigo, for_codigo, fun_codigo, loc_codigo, cid_codigo, sex_codigo, vin_codigo, ser_nome, ser_cpf, ser_data_nascimento, ser_nome_pai, ser_nome_mae, ser_nome_conjuge, ser_data_cadastro)
 							values
-								(".$cargContCODIGO.", ".$disposicaoCODIGO.", ".$slEstadCivi.", ".$slTitEleitUF.", ".$formacaoCODIGO.", ".$funcaoCODIGO.", ".$slDatNascNatural.", ".$slSexo.", ".$vinculoCODIGO.", '".$tfNomeServ."', '".$tfCPF."', '".$tfDatNasc."', '".$tfNomePai."', '".$tfNomeMae."', '".$tfNomeConj."', '".$hoje."')";
+								(".$cargContCODIGO.", ".$disposicaoCODIGO.", ".$slEstadCivi.", ".$slTitEleitUF.", ".$formacaoCODIGO.", ".$funcaoCODIGO.", ".$localCODIGO.", ".$slDatNascNatural.", ".$slSexo.", ".$vinculoCODIGO.", '".$tfNomeServ."', '".$tfCPF."', '".$tfDatNasc."', '".$tfNomePai."', '".$tfNomeMae."', '".$tfNomeConj."', '".$hoje."')";
 			$conexao->executar($sqlINS);
 			$resultado = $conexao->executar($sqlSEL);
 			$linha = mysqli_fetch_array(resultado);
@@ -185,7 +253,7 @@
 					values
 						(".$slTitEleitUF.", ".$servidorCODIGO.", '".$tfTitEleit."', '".$tfTitEleitZonSec."')";
 		$conexao->executar($sqlINS);
-//-------------------------------------------------------------------------------------------------------------------------------------------------	
+//-------------------------------------------------------------------------------------------------------------------------------------------------		
 		$sqlINS = "insert into contrachequeonline.carteira_habilitacao 
 						(car_hab_numero, cat_categoria, ser_codigo)
 					values
@@ -226,13 +294,139 @@
 						(".$servidorCODIGO.", ".$bancoCODIGO.", '".$tfBancCont."', '".$tfBancAgen."')";
 		$conexao->executar($sqlINS);
 //-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlINS = "insert into contrachequeonline.rg2 
+						(ser_codigo, rg_numero, rg_orgao_expedidor, rg_emissao)
+					values
+						(".$servidorCODIGO.", '".$tfRG."', '".$tfRGOrgExep."', '".$tfRGDatEmis."')";
+		$conexao->executar($sqlINS);
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 		$sqlINS = "insert into contrachequeonline.certidao_civil 
 						(cer_civ_codigo, ser_codigo, cer_civ_termo, cer_civ_folha, cer_civ_livro)
 					values
 						('".$tfCertCiv."', ".$servidorCODIGO.", '".$tfCertCivTermo."', '".$tfCertCivFolha."', '".$tfCertCivLivro."')";
 		$conexao->executar($sqlINS);
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-		
-		//$, $, $tfEndereco, $, $, , , $, $tfUnid, $, $tfCartTrabSerie, $tfCartResRM, $tfCartResCSM, $, $tfEndTipLog, $tfEndQuad, $tfEndBairro, $, $, $, $tfUnidMicAre, $tfUnidPSF, $tfCartTrab, $tfNIT, $tfRGOrgExep, $, $tfCartRes, $, $, $, $, $, $, $, $, , $tfEndCEP, $tfRG, $, $tfEndFone, $slCartTrabUf, $, $slEstadCivi, $, $slDatNascUF, $, $slEndUF, $slEndCida, $slEndResDesMes, $, $tfCartTrabDatEmis, $tfNITDatEmis, $tfRGDatEmis, $, $tfEndNumCas, $tfEndResDesAno;
+		$sqlINS = "insert into contrachequeonline.nit 
+						(ser_codigo, nit_numero, nit_emissao)
+					values
+						(".$servidorCODIGO.", '".$tfNIT."', '".$tfNITDatEmis."')";
+		$conexao->executar($sqlINS);
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlINS = "insert into contrachequeonline.carteira_reservista 
+						(ser_codigo, car_res_numero, car_res_csm, car_res_rm)
+					values
+						(".$servidorCODIGO.", '".$tfCartRes."', '".$tfCartResCSM."', '".$tfCartResRM."')";
+		$conexao->executar($sqlINS);
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlINS = "insert into contrachequeonline.carteria_trabalho 
+						(est_codigo, ser_codigo, car_tra_numero, car_tra_serie, car_tra_emissao)
+					values
+						(".$slCartTrabUf.", ".$servidorCODIGO.", '".$tfCartTrab."', '".$tfCartTrabSerie."', '".$tfCartTrabDatEmis."')";
+		$conexao->executar($sqlINS);
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlSEL = "select 
+						bai_codigo, 
+						bai_nome
+					from 
+						contrachequeonline.bairros 
+					where
+						bai_nome='".$tfEndBairro."'";
+		$resultado = $conexao->executar($sqlSEL);
+		if($conexao->numeroLinhas($resultado) > 0){
+			$linha = mysqli_fetch_array(resultado);
+			$bairroCODIGO = $linha["ban_codigo"];
+		}else{
+			$sqlINS = "insert into contrachequeonline.bairros 
+							(bai_nome)
+						values
+							('".$tfEndBairro."')";
+			$conexao->executar($sqlINS);
+			$resultado = $conexao->executar($sqlSEL);
+			$linha = mysqli_fetch_array(resultado);
+			$bairroCODIGO = $linha["ban_codigo"];
+		}
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlSEL = "select 
+						tip_codigo, 
+						tip_descricao
+					from 
+						contrachequeonline.tipo_logradouro
+					where
+						tip_descricao='".$tfEndTipLog."'";
+		$resultado = $conexao->executar($sqlSEL);
+		if($conexao->numeroLinhas($resultado) > 0){
+			$linha = mysqli_fetch_array(resultado);
+			$tipLogCODIGO = $linha["tip_codigo"];
+		}else{
+			$sqlINS = "insert into contrachequeonline.tipo_logradouro 
+							(tip_descricao)
+						values
+							('".$tfEndTipLog."')";
+			$conexao->executar($sqlINS);
+			$resultado = $conexao->executar($sqlSEL);
+			$linha = mysqli_fetch_array(resultado);
+			$tipLogCODIGO = $linha["tip_codigo"];
+		}
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlSEL = "select 
+						log_codigo, 
+						log_descricao
+					from 
+						contrachequeonline.logradouros 
+					where
+						log_descricao='".$tfEndereco."'";
+		$resultado = $conexao->executar($sqlSEL);
+		if($conexao->numeroLinhas($resultado) > 0){
+			$linha = mysqli_fetch_array(resultado);
+			$logradouroCODIGO = $linha["log_codigo"];
+		}else{
+			$sqlINS = "insert into contrachequeonline.logradouros 
+							(log_descricao)
+						values
+							('".$tfEndereco."')";
+			$conexao->executar($sqlINS);
+			$resultado = $conexao->executar($sqlSEL);
+			$linha = mysqli_fetch_array(resultado);
+			$logradouroCODIGO = $linha["log_codigo"];
+		}
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlSEL = "select 
+						cep_codigo, 
+						est_codigo, 
+						cid_codigo, 
+						bai_codigo, 
+						tip_codigo, 
+						log_codigo, 
+						cep_cep
+					from 
+						contrachequeonline.cep 
+					where 
+						est_codigo = ".$slEndUF." AND 
+						cid_codigo = ".$slEndCida." AND 
+						bai_codigo = ".$bairroCODIGO." AND 
+						tip_codigo = ".$tipLogCODIGO." AND 
+						log_codigo = ".$logradouroCODIGO;
+		$resultado = $conexao->executar($sqlSEL);
+		if($conexao->numeroLinhas($resultado) > 0){
+			$linha = mysqli_fetch_array(resultado);
+			$cepCODIGO = $linha["cep_codigo"];
+		}else{
+			$sqlINS = "insert into contrachequeonline.cep 
+							(est_codigo, cid_codigo, bai_codigo, tip_codigo, log_codigo, cep_cep)
+						values
+							(".$slEndUF.", ".$slEndCida.", ".$bairroCODIGO.", ".$tipLogCODIGO.", ".$logradouroCODIGO.", '".$tfEndCEP."')";
+			$conexao->executar($sqlINS);
+			$resultado = $conexao->executar($sqlSEL);
+			$linha = mysqli_fetch_array(resultado);
+			$cepCODIGO = $linha["cep_codigo"];
+		}
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$sqlINS = "insert into contrachequeonline.moradia 
+						(ser_codigo, cep_codigo, mor_casa, mor_quadra, mor_fone, mor_reside)
+					values
+						(".$servidorCODIGO.", ".$cepCODIGO.", '".$tfEndNumCas."', '".$tfEndQuad."', '".$tfEndFone."', '".$tfEndResDesAno."-".$slEndResDesMes."-"."01"."')";
+		$conexao->executar($sqlINS);
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+		$conexao->fechar;
 	}
 ?>
