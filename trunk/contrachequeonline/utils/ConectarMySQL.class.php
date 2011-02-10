@@ -31,11 +31,13 @@
 		
 		public function executar($query){	
 			if(empty($query) || ($this->conexao == NULL)){
+				$this->comitar = false;
 				return false;
 			}
 			if(!mysqli_query($this->conexao, $query)){
+				$this->comitar = false;
 				return false;
-			}			
+			}		
 			return true;
 		}
 		
@@ -54,20 +56,32 @@
 			return mysqli_num_rows($resultado);
 		}
 		
+		public function getErro(){
+			return mysql_error($this->conexao);
+		}
+		
 		public function commit(){
 			mysqli_commit($this->conexao);
-			$this->fechar();
+			$this->close();
 		}
 		
 		public function rollback(){
 			mysqli_rollback($this->conexao);
-			$this->fechar();
+			$this->close();
 			die();
 		}
 		
-		public function fechar(){
+		private function close(){
 			mysqli_close($this->conexao);
 			$this->conexao = NULL;
+		}
+		
+		public function fechar(){
+			if($this->comitar){
+				$this->commit();
+			}else{
+				$this->rollback();
+			}
 		}
 	}
 ?>
