@@ -4,6 +4,7 @@
 		
 	class Sigin{
 		//Variables
+		private $nivel;
 		private $userName;
 		private $password;
 		private $password2;
@@ -13,9 +14,10 @@
 			$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
 
 			//receinving and striping the variables
-			$this->userName = $connect->antiInjection(isset($_POST["tfUserName"]) ? $_POST["tfUserName"] : NULL);
-			$this->password = $connect->antiInjection(isset($_POST["tfPassword"]) ? $_POST["tfPassword"] : NULL);
-			$this->password2 = $connect->antiInjection(isset($_POST["tfPassword2"]) ? $_POST["tfPassword2"] : NULL);
+			$this->nivel 		= $connect->antiInjection(isset($_POST["slNivel"]) ? $_POST["slNivel"] : NULL);
+			$this->userName 	= $connect->antiInjection(isset($_POST["tfUserName"]) ? $_POST["tfUserName"] : NULL);
+			$this->password 	= $connect->antiInjection(isset($_POST["tfPassword"]) ? $_POST["tfPassword"] : NULL);
+			$this->password2 	= $connect->antiInjection(isset($_POST["tfPassword2"]) ? $_POST["tfPassword2"] : NULL);
 			
 			if($this->password != $this->password2){
 				header("Location: ../importDocuments.php?sigin=false");
@@ -28,7 +30,7 @@
 			//encoding to md5 hash
 			$this->password = md5($this->password);
 			
-			if(!$connect->execute("INSERT INTO Administradores (usuario, senha) VALUES ('$this->userName', '$this->password')"))
+			if(!$connect->execute("INSERT INTO Administradores (id_nivel, usuario, senha) VALUES ($this->nivel, '$this->userName', '$this->password')"))
 				echo("Impossible to execute MySQL query.");
 			
 			if($connect->counterAffected() > 0){
