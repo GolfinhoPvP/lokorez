@@ -120,9 +120,11 @@
 </div>
 <div id="divLabel" class="wordsLabel">
   <p align="center">Funda&ccedil;&atilde;o Municipal de Saude - FMS</p>
-  <p align="center">Web Developer: aj.alves@live.com, Antonio Jos&eacute; de O. Alves<br />
+  <p align="center">zerokolSoft - www.zerokol.com<br />
+aj.alves@live.com<br />
+Teresina -PI<br />
   &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido</p>
-</div>
+  </div>
 
 
 <div id="divBoxLogged" style="visibility:<?php echo($search); ?>">

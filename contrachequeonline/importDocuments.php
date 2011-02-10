@@ -355,6 +355,17 @@
             </label></td>
           </tr>
           <tr>
+            <td class="words1"><div align="right">N&iacute;vel: 
+              </div></td>
+            <td><label>
+            <select name="slNivel" size="1" id="slNivel">
+              <option value="---" selected="selected">---</option>
+              <option value="1">Contracheque</option>
+              <option value="2">Cadastro</option>
+            </select>
+            </label></td>
+          </tr>
+          <tr>
             <td>&nbsp;</td>
             <td><input name="btSigin" type="submit" id="btSigin" value="Cadastrar" /></td>
           </tr>
@@ -455,9 +466,11 @@
   </div>
   <div id="divLabelAdmin" class="wordsLabel">
   <p align="center">Funda&ccedil;&atilde;o Municipal de Saude - FMS</p>
-  <p align="center">Web Developer: aj.alves@live.com, Antonio Jos&eacute; de O. Alves<br />
+  <p align="center">zerokolSoft - www.zerokol.com<br />
+    aj.alves@live.com<br />
+    Teresina -PI<br />
   &quot;Nenhum sistema &eacute; melhor do que as pessoas que v&atilde;o oper&aacute;-lo&quot; - Autor Desconhecido</p>
-</div>
+  </div>
 </div>
 	</body>
 </html>
