@@ -52,7 +52,9 @@
 			return $resultado;
 		}
 		
-		public function numeroLinhas($resultado){ 
+		public function numeroLinhas($resultado){
+			if($resultado == false)
+				return 0; 
 			return mysqli_num_rows($resultado);
 		}
 		
