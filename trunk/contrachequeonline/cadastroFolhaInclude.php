@@ -1,6 +1,7 @@
 <?php
 	include_once("utils/Connect.class.php");
 	include_once("beans/Variables.class.php");
+	include_once("utils/funcoes.php");
 	
 	$variables = new Variables();
 	$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);

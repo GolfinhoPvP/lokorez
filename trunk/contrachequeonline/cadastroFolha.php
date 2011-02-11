@@ -34,9 +34,9 @@
 				  <select name="slCartTrabUf" id="slCartTrabUf" onkeydown="javascript: setaFoco(this, event);">
 					<option selected="selected" value="---">---</option>
 					<?php
-						$result = $connect->execute("SELECT uf FROM tb_estados");
+						$result = $connect->execute("SELECT * FROM estados");
 						while($row = mysql_fetch_assoc($result)) {
-							echo("<option value=".$row["uf"].">".$row["uf"]."</option>");
+							echo("<option value=".$row["est_codigo"].">".$row["est_sigla"]."</option>");
 						}
 					?>
 				  </select>
