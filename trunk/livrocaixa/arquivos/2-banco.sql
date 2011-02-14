@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		2/8/2011
+Modified		2/14/2011
 Project		
 Model		
 Company		
@@ -10,6 +10,7 @@ Database		mySQL 5
 */
 
 
+drop table IF EXISTS convenios;
 drop table IF EXISTS status;
 drop table IF EXISTS classe;
 drop table IF EXISTS niveis;
@@ -172,6 +173,12 @@ Create table status (
 	sta_descricao Varchar(30) NOT NULL,
  Primary Key (sta_codigo)) ENGINE = InnoDB;
 
+Create table convenios (
+	con_codigo Serial NOT NULL AUTO_INCREMENT,
+	cli_codigo Bigint UNSIGNED NOT NULL,
+	con_descricao Varchar(50),
+ Primary Key (con_codigo)) ENGINE = InnoDB;
+
 
 Alter table clientes add Foreign Key (cli_codigo_pai) references clientes (cli_codigo) on delete  restrict on update  restrict;
 Alter table solicitacoes add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
@@ -181,6 +188,7 @@ Alter table classe add Foreign Key (cli_codigo) references clientes (cli_codigo)
 Alter table forma_pagamento add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table servicos add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table plano_conta add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
+Alter table convenios add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete  restrict on update  restrict;
 Alter table produtos add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table solicitacoes add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table funcionarios add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
