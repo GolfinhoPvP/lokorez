@@ -106,8 +106,10 @@
 }
 #desconectar{
 	position:absolute;
-	left: 810px;
-	top: -1px;
+	left: 837px;
+	top: -2px;
+	height: 52px;
+	z-index: 4;
 }
 #infos{
 	position:absolute;
@@ -122,7 +124,7 @@
 }
 #ajuda{
 	position:absolute;
-	left: 708px;
+	left: 777px;
 	top: 9px;
 	width: 35px;
 	z-index:6;

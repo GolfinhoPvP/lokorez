@@ -2,7 +2,7 @@
 #CadLan{
 	position:absolute;
 	width: 609px;
-	height: 396px;
+	height: 502px;
 	left: 1px;
 	top: 0px;
 }
@@ -36,45 +36,65 @@
 }
 #cadLanValCom{
 	position:absolute;
-	width: 418px;
+	width: 329px;
 	height: 11px;
-	left: 46px;
+	left: 125px;
 	top: 138px;
 }
 #cadLanSer{
 	position:absolute;
 	width: 367px;
 	height: 11px;
-	left: 95px;
-	top: 171px;
+	left: 96px;
+	top: 258px;
+	bottom: -1px;
 }
-#cadLanVal2{
+#cadLanValSer{
 	position:absolute;
 	width: 410px;
 	height: 11px;
-	left: 52px;
-	top: 198px;
+	left: 14px;
+	top: 284px;
+	bottom: -1px;
+}
+#cadLanValTot{
+	position:absolute;
+	width: 410px;
+	height: 11px;
+	left: 53px;
+	top: 384px;
+	bottom: -1px;
 }
 #cadLanQua{
 	position:absolute;
 	width: 390px;
 	height: 11px;
 	left: 69px;
-	top: 231px;
+	top: 171px;
+	bottom: -1px;
+}
+#cadLanValPro{
+	position:absolute;
+	width: 367px;
+	height: 11px;
+	left: 32px;
+	top: 204px;
 }
 #cadLanForPag{
 	position:absolute;
 	width: 445px;
 	height: 11px;
 	left: 7px;
-	top: 264px;
+	top: 358px;
+	bottom: -1px;
 }
 #cadLanTec{
 	position:absolute;
 	width: 367px;
 	height: 11px;
 	left: 92px;
-	top: 290px;
+	top: 318px;
+	bottom: -1px;
 }
 /* ---------------------------- */
 
@@ -82,8 +102,8 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 169px;
-	top: 332px;
+	left: 183px;
+	top: 429px;
 }
 
 /* ---------------------------- */
@@ -153,6 +173,32 @@
 	left: 649px;
 	top: 9px;
 	height: 65px;
+}
+
+#checkAditivo{
+	position:absolute;
+	width: 278px;
+	left: 8px;
+	top: 254px;
+	height: 2px;
+}
+#linhaProduto{
+	position:absolute;
+	width: 523px;
+	left: 5px;
+	top: 40px;
+	height: 193px;
+	border:#000000;
+	border-style:dotted;
+}
+#linhaServico{
+	position:absolute;
+	width: 523px;
+	left: 5px;
+	top: 246px;
+	height: 95px;
+	border:#000000;
+	border-style:dotted;
 }
 
 .textLan1{

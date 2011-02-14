@@ -25,6 +25,8 @@
 		<div id="alterar"></div>
 		<div id="carregando"></div>
 		<div id="confirmar"></div>
+		<div id="linhaProduto"></div>
+		<div id="linhaServico"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadLancamento.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
 		<div id="CadLan">
 			<div class="texto3" id="cadLanCod">Código: 
@@ -47,7 +49,7 @@
 		  <div class="texto3" id="cadLanMod">Modelo: 
 		  <input name="tfMod" type="text" class="textField1" id="tfMod" size="30" maxlength="25" readonly="readonly" />
 		  </div>
-		  <div class="texto3" id="cadLanValCom">Valor de venda: 
+		  <div class="texto3" id="cadLanValCom">R$: 
 		    <input name="tfVal1" type="text" class="textField1" id="tfVal1" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal1');" />
 		  </div>
 		  <div class="texto3" id="cadLanSer">Serviço: 
@@ -57,12 +59,15 @@
 				?>
 		    </select>
 		  </div>
-		  <div class="texto3" id="cadLanVal2">Valor de saida: 
-		    <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal2');"/>
+		  <div class="texto3" id="cadLanValSer">Valor do servi&ccedil;o R$: 
+		    <input name="tfValSer" type="text" class="textField1" id="tfValSer" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal2');"/>
 		  </div>
 		  <div class="texto3" id="cadLanQua">Quantidade: 
 		    <input name="tfQua" type="text" class="textField1" id="tfQua" value="1" size="15" maxlength="15" onkeyup="javascript: validarForm('tfQua');" />
 		  </div>
+		  <div class="texto3" id="cadLanValPro">
+	      Total produto R$:
+	      <input name="tfValPro" type="text" class="textField1" id="tfValPro" size="15" maxlength="15" /></div>
 		  <div class="texto3" id="cadLanForPag">Forma de pagamento: 
 			  <select class="textField1" name="slForPag" id="slForPag">
 				<?php
@@ -70,12 +75,15 @@
 				?>
 		    </select>
 		  </div>
-		  <div class="texto3" id="cadLanTec">Tecnico: 
+		  <div class="texto3" id="cadLanTec">T&eacute;cnico: 
 			  <select class="textField1" name="slTec" id="slTec">
 				<?php
 					include($toRoot."utils/getTecnicoSL.php");
 				?>
 		    </select>
+		  </div>
+		  <div class="texto3" id="cadLanValTot">Valor total RS: 
+		    <input name="tfValTot" type="text" class="textField1" id="tfValTot" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal2');"/>
 		  </div>
 			<div id="cadBut">
 		  <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>

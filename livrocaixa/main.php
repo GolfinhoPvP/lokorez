@@ -95,7 +95,7 @@
 									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pesquisar</div>
 								</div>
 							</div>
-							<div id="niv1">T&eacute;cnico
+							<div id="niv1">Funcion&aacute;rio
 								<div id="nav4">
 									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadTecnico.php');">Cadastrar</div>
 									<div id="niv2" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Alterar</div>
@@ -121,13 +121,18 @@
 			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Livro Caixa</div>
 			 <div id="nav">Lan&ccedil;amento
 			 	<div id="nav2">
-					<div id="niv" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadLancamento.php');">Cadastrar</div>
+					<div id="niv" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadLancamento.php');">Gerar Lan&ccedil;amento</div>
 					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Alterar</div>
 					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Deletar</div>
 					<div id="niv"  onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesLancamento.php');">Ver Lan&ccedil;amentos</div>
 				</div>
 			 </div>
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','utils/selecionarEmpresa.php');">Selecionar Empresa</div>
+		</li>
+		<li>
+			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Sangria</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadSangria.php');">Gerar Sangria</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesSangria.php');">Ver Sangrias</div>
 		</li>
 	  </ul>
 </div>
