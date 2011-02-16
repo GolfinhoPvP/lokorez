@@ -34,12 +34,14 @@ function validarForm(id){
 			case "tfPer" : descricaoExpReg = /^[0-9]{1,30}$/; break;
 		case "tfVal1" :
 			case "tfVal2" :
-			case "tfVal" : descricaoExpReg = /^([0-9]{1,10}\.[0-9]{1,2}|[0-9]{1,10})$/; break;
-		case "tfVen" : descricaoExpReg = /^[0-9]{2,2}\/[0-9]{2,2}\/[0-9]{4,4}$/; break;
+			case "tfVal" : descricaoExpReg = /^([0-9]{1,10},[0-9]{1,2}|[0-9]{1,10})$/; break;
+		case "tfData" :
+			case "tfVen" : descricaoExpReg = /^[0-9]{2,2}\/[0-9]{2,2}\/[0-9]{4,4}$/; break;
 		case "tfBanNomUsu" :
 			case "tfBanNomBan" :
+			case "tfNumEnv" :
 			case "tfBanHos" :
-			case "tfNomUsu" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|_|-|@|\/|:){4,15}$/; break;
+			case "tfNomUsu" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|_|-|@|\/|:){4,100}$/; break;
 		case "tfEmlURL" : descricaoExpReg = /^([ ]{0,}|([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+)$/; break;
 		default : return true;
 	}
@@ -82,4 +84,11 @@ function mostrar(v){
 function esconder(v){
 	camp = document.getElementById(v);
 	camp.style.visibility = 'hidden';
+}
+
+function dataAutoComplete(id){
+	switch(document.getElementById(id).value.length){
+		case 2 :
+		case 5 : document.getElementById(id).value += "/"; 
+	}
 }

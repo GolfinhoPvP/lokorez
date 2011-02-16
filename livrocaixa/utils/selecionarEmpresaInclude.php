@@ -5,6 +5,9 @@
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
+	setVoltar("selecionarEmpresa.php");
+	$voltar = $_SESSION["voltar"];
+	
 	$selecionar = isset($_GET["selecionar"]) ? $_GET["selecionar"] : NULL;	 		
 	
 	if($selecionar == "sim"){

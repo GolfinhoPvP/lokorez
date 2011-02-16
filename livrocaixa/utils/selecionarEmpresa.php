@@ -34,16 +34,19 @@
 		?>
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="selecionarEmpresa.php?selecionar=sim" onsubmit="javascript: return validarForm('slEmp');">
+		<div id="selecionarEmpresa">
 				<div class="texto3" id="selEmpRel">Empresa relacionada: 
 				<select name="slEmp" class="textField1" id="slEmp">
 				<?php
 					include($toRoot."utils/getEmpresaSL.php");
 				?>
-				</select>
-	  	  </div>
-			    <div id="selEmpBut">
-	      <input name="btSel" type="submit" class="botao2" id="btSel" value="Selecionar" />
-	      </div>
+				</select><span style="cursor:pointer" onclick="javascript: location.href = '../cruds/cadastrar/cadEmpresa.php';"><img src="../imagens/add.png" />Cadastrar nova empresa!</span>
+			  </div>
+					<div id="selEmpBut">
+			  <input name="btSel" type="submit" class="botao2" id="btSel" value="Selecionar" />
+			  </div>
+			  <div id="voltar" title="Voltar!" style="cursor:pointer" onclick="javascript: location.href = '<?php echo($voltar); ?>';"><img src="../imagens/voltar.png" /></div>
+			  </div>
 		</form>
 	</body>
 </html>

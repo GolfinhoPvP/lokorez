@@ -24,7 +24,6 @@
 			}
 			function carregarNoIframe(nomeFrame, url){
 				top.frames['telaSistema'].frames[nomeFrame].location.href = url;
-				document.getElementsByTagName("div").style.visibility = "hidden";
 			}
 		</script>
 	</head>

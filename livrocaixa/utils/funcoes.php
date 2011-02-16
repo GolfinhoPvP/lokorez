@@ -47,9 +47,40 @@
 		return $hash;
 	}
 	
+	function getData(){
+		return date("d/m/Y");
+	}
+	
 	function converterData($data){
 		$array 	= explode("/",$data);
 		$data 	= $array[2]."-".$array[1]."-".$array[0];
 		return $data;
+	}
+	
+	function converterValor($valor){
+		$array 	= explode(",",$valor);
+		if(sizeof($array) > 1){
+			$array[1] = str_pad($array[1], 2, "0", STR_PAD_RIGHT);
+			$valor 	= $array[0].".".$array[1];
+		}else{
+			$valor 	= $array[0].".00";
+		}
+		return $valor;
+	}
+	
+	function haEmpresa($toRoot){
+		if(!isset($_SESSION["empresa"])){
+			header("Location: ".$toRoot."utils/selecionarEmpresa.php?selecionar=nao");
+			die();
+		}
+	}
+	
+	function setVoltar($ref){
+		if(stripos($_SERVER['HTTP_REFERER'], $ref) == false){
+			$_SESSION["voltar"] = substr($_SERVER['HTTP_REFERER'], 0, stripos($_SERVER['HTTP_REFERER'], ".php")+4);
+		}
+		if(stripos($_SERVER['HTTP_REFERER'], "main.php") != false){
+			$_SESSION["voltar"] = "#";
+		}
 	}
 ?>

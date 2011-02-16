@@ -5,7 +5,7 @@
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
-	setVoltar("cadEmpresa.php");
+	setVoltar("cadBanco.php");
 	$voltar = $_SESSION["voltar"];
 	
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;	 		
@@ -17,31 +17,20 @@
 		}
 		
 		include_once($toRoot."utils/ConectarMySQL.class.php");
-		include_once($toRoot."beans/Empresa.class.php");
-		include_once($toRoot."beans/Funcionario.class.php");
+		include_once($toRoot."beans/Banco.class.php");
 		include_once($toRoot."beans/Log.class.php");
-		include_once($toRoot."dao/DAOEmpresa.class.php");
-		include_once($toRoot."dao/DAOFuncionario.class.php");
+		include_once($toRoot."dao/DAOBanco.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 		
 		$conexao		= new ConectarMySql($toRoot);
 
-		$empresa 		= new Empresa($tfNomEmp);
-		$daoEmpresa		= new DAOEmpresa($empresa, $conexao);
-		$daoEmpresa->cadastrar();
-		$empresa = $daoEmpresa->getAtual();
+		$tfNomBan 		= strtoupper($tfNomBan);
+		$banco 			= new Banco($tfNomBan);
+		$daoBanco		= new DAOBanco($banco, $conexao);
+		$daoBanco->cadastrar();
 		
-		$log 			= new Log(3, 7, $tfNomEmp." cadastrado!");
+		$log 			= new Log(3, 18, $tfNomBan." cadastrado!");
 		$daoLog			= new DAOLog($log, $conexao);
-		$daoLog->cadastrar();
-		
-		$funcionario 		= new Funcionario($empresa->codigo, $_SESSION["codigo"]);
-		$daoFuncionario		= new DAOFuncionario($funcionario, $conexao);
-		$daoFuncionario->cadastrar();
-		
-		$log->alvCodigo = 6;
-		$log->descricao = "Empresa cadastrado!";
-		$daoLog->setLog($log);
 		$daoLog->cadastrar();
 		
 		$conexao->fechar();

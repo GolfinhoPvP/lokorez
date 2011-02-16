@@ -36,7 +36,7 @@
 		public function cadastrar(){
 			$sql = "INSERT INTO empresas (emp_nome) VALUES ('".$this->empresa->nome."')";
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel salvar o empresa: ".$this->empresa->cliCodigo);
+				echo("Não foi possivel salvar a empresa: ".$this->empresa->cliCodigo);
 				return false;
 			}
 			return true;
@@ -45,7 +45,7 @@
 		public function alterar($valRef){
 			$sql = "UPDATE empresas SET emp_nome='".$this->empresa->nome."' WHERE emp_codigo=".$valRef;
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel alterar o empresa código: ".$valRef);
+				echo("Não foi possivel alterar a empresa código: ".$valRef);
 				return false;
 			}
 			return true;
@@ -55,7 +55,7 @@
 			$sql = "DELETE FROM empresas WHERE emp_codigo=".valRef;
 			echo($sql);
 			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel deletar o empresa código: ".$valRef);
+				echo("Não foi possivel deletar a empresa código: ".$valRef);
 				return false;
 			}
 			return true;
@@ -65,7 +65,7 @@
 			$sql = "SELECT * FROM empresas WHERE emp_codigo=".$valRef;
 			$resultado = $this->conexao->selecionar($sql);
 			if(!$resultado){
-				echo("Não foi possivel selecionar o empresa referência: ".$valRef);
+				echo("Não foi possivel selecionar a empresa referência: ".$valRef);
 			}
 			return $resultado;
 		}

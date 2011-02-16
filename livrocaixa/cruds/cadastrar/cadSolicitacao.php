@@ -28,7 +28,7 @@
 	            <input name="tfDes" type="text" class="textField1" id="tfDes" size="75" maxlength="100" onkeyup="javascript: validarForm('tfDes');"/>
 		    </div>
 			  <div class="texto3" id="cadSolVen">Vencimento: 
-		        <input name="tfVen" type="text" class="textField1" id="tfVen" size="15" maxlength="10" onkeyup="javascript: validarForm('tfVen');"/>
+		        <input name="tfVen" type="text" class="textField1" id="tfVen" size="15" maxlength="10" onkeyup="javascript: dataAutoComplete('tfVen');"/>
 		    </div>
 			  <div class="texto3" id="cadSolVal">Valor: R$
 		        <input name="tfVal" type="text" class="textField1" id="tfVal" size="30" maxlength="15" onkeyup="javascript: validarForm('tfVal');"/>
