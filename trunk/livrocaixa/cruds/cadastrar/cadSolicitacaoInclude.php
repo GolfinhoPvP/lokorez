@@ -2,14 +2,11 @@
 	session_start();
 	$toRoot = "../../";
 	
-	if(!isset($_SESSION["empresa"])){
-		header("Location: ".$toRoot."utils/selecionarEmpresa.php?selecionar=nao");
-		die();
-	}
-	
 	$nivelAcesso = $toRoot.":1";
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
+	
+	haEmpresa($toRoot);
 	
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;	 		
 	
@@ -29,6 +26,7 @@
 		
 		$tfVen = converterData($tfVen);
 		
+		$tfVal = converterValor($tfVal);
 		$solicitacao 	= new Solicitacao(1, $tfDes, $tfVen, $tfVal, $tfCDB, -1);
 		$daoSolicitacao	= new DAOSolicitacao($solicitacao, $conexao);
 		$daoSolicitacao->cadastrar();

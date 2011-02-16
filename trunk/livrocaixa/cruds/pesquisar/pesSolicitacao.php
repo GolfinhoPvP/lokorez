@@ -16,7 +16,6 @@
 		<?php
 			$cor = "azul";
 			if(sizeof($matriz) != 0){
-				echo("bla");
 				foreach($matriz as $array){
 					$bean = $array;
 					include("pesSolicitacaoModelo.php");

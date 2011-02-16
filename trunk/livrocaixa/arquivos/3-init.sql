@@ -2,6 +2,9 @@ INSERT INTO status VALUES (1, "Pendente"),
 				(2, "Quitada"),
 				(3, "Parcialmente paga");
 
+INSERT INTO tipos VALUES (1, "Banco"),
+				(2, "Cofre");
+
 INSERT INTO niveis VALUES (1, "Super Administrdos"),
 				(2, "Administrador"),
 				(3, "Super Funcionário"),
@@ -31,7 +34,9 @@ INSERT INTO alvos VALUES (1, "IN-OUT"),
 				(13, "Serviços"),
 				(14, "Solicitações"),
 				(15, "Tecnicos"),
-				(16, "Produtos");
+				(16, "Produtos"),
+				(17, "Sangrias"),
+				(18, "Bancos");
 
 INSERT INTO pessoas (pes_nome, pes_cpf, pes_rg)
 	VALUES ("Super Administrador", "000.000.000-00", "00000");

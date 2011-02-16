@@ -1,0 +1,54 @@
+/* CSS Document */
+#cadSan{
+	position:absolute;
+	width: 640px;
+	height: 264px;
+	left: 0px;
+	top: 3px;
+}
+#cadSanSelTipo{
+	position:absolute;
+	width: 429px;
+	height: 18px;
+	left: 40px;
+	top: 14px;
+}
+#cadSanNumEnv{
+	position:absolute;
+	width: 608px;
+	height: 11px;
+	left: 6px;
+	top: 46px;
+}
+#cadSanBan{
+	position:absolute;
+	width: 608px;
+	height: 11px;
+	left: 30px;
+	top: 38px;
+}
+#cadSanData{
+	position:absolute;
+	width: 442px;
+	height: 11px;
+	left: 112px;
+	top: 79px;
+}
+#cadSanVal{
+	position:absolute;
+	width: 447px;
+	height: 11px;
+	left: 106px;
+	top: 112px;
+}
+/* ---------------------------- */
+
+#cadEmpBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 159px;
+	top: 160px;
+}
+
+/* ---------------------------- */

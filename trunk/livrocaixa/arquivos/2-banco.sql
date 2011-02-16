@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		2/14/2011
+Modified		2/16/2011
 Project		
 Model		
 Company		
@@ -10,6 +10,11 @@ Database		mySQL 5
 */
 
 
+drop table IF EXISTS tipos;
+drop table IF EXISTS bancos;
+drop table IF EXISTS sangria_banco;
+drop table IF EXISTS sangria_cofre;
+drop table IF EXISTS sangrias;
 drop table IF EXISTS convenios;
 drop table IF EXISTS status;
 drop table IF EXISTS classe;
@@ -92,9 +97,10 @@ Create table lancamentos (
 	pc_codigo Bigint UNSIGNED,
 	ser_codigo Bigint UNSIGNED,
 	for_codigo Bigint UNSIGNED,
-	lan_quantidade_item Smallint NOT NULL DEFAULT 1,
 	lan_datahora Datetime NOT NULL,
-	lan_valor Double NOT NULL,
+	lan_quantidade_item Smallint NOT NULL DEFAULT 1,
+	lan_valor_produto Double NOT NULL,
+	lan_val_servico Varchar(20),
 	lan_checado Bool DEFAULT 0,
  Primary Key (lan_codigo)) ENGINE = InnoDB;
 
@@ -118,9 +124,12 @@ Create table plano_conta (
 
 Create table tecnicos (
 	tec_codigo Serial NOT NULL AUTO_INCREMENT,
+	ban_codigo Bigint UNSIGNED NOT NULL,
 	pes_codigo Bigint UNSIGNED NOT NULL,
 	cla_codigo Bigint UNSIGNED NOT NULL,
 	tec_descricao Varchar(50),
+	tec_numero_agencia Varchar(20),
+	tec_numero_conta Varchar(20),
  Primary Key (tec_codigo)) ENGINE = InnoDB;
 
 Create table operacoes (
@@ -179,6 +188,34 @@ Create table convenios (
 	con_descricao Varchar(50),
  Primary Key (con_codigo)) ENGINE = InnoDB;
 
+Create table sangrias (
+	san_codigo Serial NOT NULL AUTO_INCREMENT,
+	emp_codigo Bigint UNSIGNED NOT NULL,
+	tip_codigo Bigint UNSIGNED NOT NULL,
+	san_data Date,
+	san_valor Double,
+ Primary Key (san_codigo)) ENGINE = InnoDB;
+
+Create table sangria_cofre (
+	san_codigo Bigint UNSIGNED NOT NULL,
+	san_numero_envelope Varchar(100),
+ Primary Key (san_codigo)) ENGINE = InnoDB;
+
+Create table sangria_banco (
+	san_codigo Bigint UNSIGNED NOT NULL,
+	ban_codigo Bigint UNSIGNED NOT NULL,
+ Primary Key (san_codigo)) ENGINE = InnoDB;
+
+Create table bancos (
+	ban_codigo Serial NOT NULL AUTO_INCREMENT,
+	ban_nome Varchar(50),
+ Primary Key (ban_codigo)) ENGINE = InnoDB;
+
+Create table tipos (
+	tip_codigo Serial NOT NULL,
+	tip_descricao Varchar(20),
+ Primary Key (tip_codigo)) ENGINE = InnoDB;
+
 
 Alter table clientes add Foreign Key (cli_codigo_pai) references clientes (cli_codigo) on delete  restrict on update  restrict;
 Alter table solicitacoes add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
@@ -192,6 +229,7 @@ Alter table convenios add Foreign Key (cli_codigo) references clientes (cli_codi
 Alter table produtos add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table solicitacoes add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table funcionarios add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
+Alter table sangrias add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table telefones add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table emails add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table clientes add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
@@ -206,5 +244,10 @@ Alter table lancamentos add Foreign Key (for_codigo) references forma_pagamento 
 Alter table clientes add Foreign Key (niv_codigo) references niveis (niv_codigo) on delete cascade on update cascade;
 Alter table tecnicos add Foreign Key (cla_codigo) references classe (cla_codigo) on delete cascade on update cascade;
 Alter table solicitacoes add Foreign Key (sta_codigo) references status (sta_codigo) on delete cascade on update cascade;
+Alter table sangria_cofre add Foreign Key (san_codigo) references sangrias (san_codigo) on delete cascade on update cascade;
+Alter table sangria_banco add Foreign Key (san_codigo) references sangrias (san_codigo) on delete cascade on update cascade;
+Alter table tecnicos add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete  restrict on update cascade;
+Alter table sangria_banco add Foreign Key (ban_codigo) references bancos (ban_codigo) on delete  restrict on update cascade;
+Alter table sangrias add Foreign Key (tip_codigo) references tipos (tip_codigo) on delete cascade on update cascade;
 
 
