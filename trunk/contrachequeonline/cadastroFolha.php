@@ -34,10 +34,7 @@
 				  <select name="slCartTrabUf" id="slCartTrabUf" onkeydown="javascript: setaFoco(this, event);">
 					<option selected="selected" value="---">---</option>
 					<?php
-						$result = $connect->execute("SELECT * FROM estados");
-						while($row = mysql_fetch_assoc($result)) {
-							echo("<option value=".$row["est_codigo"].">".$row["est_sigla"]."</option>");
-						}
+						include("utils/getEstado.php");
 					?>
 				  </select>
 			   </div>
@@ -66,7 +63,7 @@
 					<?php
 						$result = $connect->execute("SELECT * FROM estado_civil");
 						while($row = mysql_fetch_assoc($result)) {
-							echo("<option value=".$row["est_civ_codigo"].">".utf8_encode($row["est_civ_descricao"])."</option>");
+							echo("<option value=".$row["est_civ_codigo"].">".$row["est_civ_descricao"]."</option>");
 						}
 					?>
 				  </select>
@@ -75,7 +72,7 @@
 		  </div>
 		  
 		  <!-- RESERVISTA -->
-		  <div id="CartRes" class="visible">
+		  <div id="CartRes" class="invisible">
 			<div class="wordsLabel" id="CartResVal">Carteira de reservista: 
 			  <input name="tfCartRes" type="text" id="tfCartRes" size="25" maxlength="25" onkeyup="javascript: validarForm('tfCartRes');" onkeydown="javascript: setaFoco(this, event);" />
 			<span class="alert">* </span></div>
@@ -116,10 +113,7 @@
 			  <select name="slTitEleitUF" id="slTitEleitUF" onkeydown="javascript: setaFoco(this, event);" >
 				<option selected="selected" value="---">---</option>
 				<?php
-					$result = $connect->execute("SELECT uf FROM tb_estados");
-					while($row = mysql_fetch_assoc($result)) {
-						echo("<option value=".$row["uf"].">".$row["uf"]."</option>");
-					}
+						include("utils/getEstado.php");
 				?>
 			  </select>
 			  <span class="alert">*</span></div>
@@ -132,13 +126,10 @@
 			  <input name="tfDatNasc" type="text" id="tfDatNasc" size="10" maxlength="10" onkeyup="javascript: validarForm('tfDatNasc');" onkeydown="javascript: setaFoco(this, event);" />
 			<span class="alert">* ex: 14/04/1988</span></div>
 			<div class="wordsLabel" id="natUF">UF:
-			  <select name="slDatNascUF" id="slDatNascUF" onchange="javascript: getCityes('slUFDatNasc', 'slNatural');" onkeydown="javascript: setaFoco(this, event);" >
+			  <select name="slDatNascUF" id="slDatNascUF" onchange="javascript: getCityes('slDatNascUF', 'slDatNascNatural');" onkeydown="javascript: setaFoco(this, event);" >
 				<option selected="selected" value="---">---</option>
 				<?php
-					$result = $connect->execute("SELECT uf FROM tb_estados");
-					while($row = mysql_fetch_assoc($result)) {
-						echo("<option value=".$row["uf"].">".$row["uf"]."</option>");
-					}
+						include("utils/getEstado.php");
 				?>
 			  </select>
 			  <span class="alert">*</span></div>
@@ -154,20 +145,17 @@
 			<div class="wordsLabel" id="nomMae">Nome da m&atilde;e:
 			<input name="tfNomeMae" type="text" id="tfNomeMae" size="100" maxlength="100" onkeyup="javascript: validarForm('tfNomeMae');" onkeydown="javascript: setaFoco(this, event);" />
 		  <span class="alert">*</span></div>
-		  <div id="nomConj" class="wordsLabel">Nome do c&ocirc;njuge:
-		  <input name="tfNomeConj" type="text" id="tfNomeConj" size="100" maxlength="100" onkeyup="javascript: validarForm('tfNomeConj');" onkeydown="javascript: setaFoco(this, event);" />
+		  <div id="nomConj" class="invisible"><span class="wordsLabel">Nome do c&ocirc;njuge:
+		  <input name="tfNomeConj" type="text" id="tfNomeConj" size="100" maxlength="100" onkeyup="javascript: validarForm('tfNomeConj');" onkeydown="javascript: setaFoco(this, event);" /></span>
 		  </div>
 	
 		  <div id="end">
 			<div class="wordsLabel" id="endUF">UF:
-				<select name="slEndUF" id="slEndUF" onchange="javascript: getCityes('slUFEnd', 'slCidade');" onkeydown="javascript: setaFoco(this, event);" >
+				<select name="slEndUF" id="slEndUF" onchange="javascript: getCityes('slEndUF', 'slEndCida');" onkeydown="javascript: setaFoco(this, event);" >
 				  <option selected="selected" value="---">---</option>
 				  <?php
-					$result = $connect->execute("SELECT uf FROM tb_estados");
-					while($row = mysql_fetch_assoc($result)) {
-						echo("<option value=".$row["uf"].">".$row["uf"]."</option>");
-					}
-				?>
+						include("utils/getEstado.php");
+					?>
 			  </select>
 			<span class="alert">*</span></div>
 				<div class="wordsLabel" id="endCid">Cidade:
