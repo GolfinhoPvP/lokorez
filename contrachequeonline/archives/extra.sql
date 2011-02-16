@@ -4,6 +4,7 @@ Create table estados (
 	est_nome Varchar(30) NOT NULL) ENGINE = InnoDB;
 
 INSERT INTO estados (est_sigla, est_nome) (SELECT distinct uf, nome FROM tb_estados ORDER BY uf);
+DROP TABLE tb_estados;
 
 /* SELECT count(cid_nome),  count(distinct cid_nome)FROM cidades; */
 
@@ -45,9 +46,12 @@ INSERT INTO cidades2 (est_codigo, cid_nome) (SELECT distinct est_codigo, cidade 
 INSERT INTO cidades2 (est_codigo, cid_nome) (SELECT distinct est_codigo, cidade FROM br_estado_sp LEFT JOIN estados ON est_codigo = 26);
 INSERT INTO cidades2 (est_codigo, cid_nome) (SELECT distinct est_codigo, cidade FROM br_estado_to LEFT JOIN estados ON est_codigo = 27);
 
+INSERT INTO cidades2 (est_codigo, cid_nome) (SELECT estado, nome FROM tb_cidades)
+
 /* SELECT count(cid_nome),  count(distinct cid_nome)FROM cidades2; */
 INSERT INTO cidades (est_codigo, cid_nome) (SELECT distinct est_codigo, cid_nome FROM cidades2);
 DROP TABLE cidades2;
+DROP TABLE tb_cidades;
 /* SELECT count(cid_nome),  count(distinct cid_nome)FROM cidades; */
 
 Create table logradouros (

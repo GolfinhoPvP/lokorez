@@ -18,17 +18,17 @@ function hideAutoComplete(time){
 }
 function getSource(source, target){
 	text = document.getElementById(target).value;
-	if(((text.length % 3) == 0) || target == "slCidade"  || target == "slUFEnd"){
-		div = document.getElementById("autoComplete");
-		t = document.getElementById(target);
-		div.style.top =  (findPosY(t)+3)+"px";
-		div.style.left = (findPosX(t)+2)+"px";
-		div.style.visibility = "visible";
-		uf = document.getElementById("slUFEnd").value;
-		cep = document.getElementById("tfCEP").length < 10 ? "%" : document.getElementById("tfCEP").value;
-		bairro = urlencode(document.getElementById("tfBairro").value);
-		logradouro = urlencode(document.getElementById("tfTipoLog").value);
-		cidade = urlencode(document.getElementById("slCidade").value);
+	if(((text.length % 2) == 0) || target == "slCidade"  || target == "slUFEnd"){
+		div 					= document.getElementById("autoComplete");
+		t 						= document.getElementById(target);
+		div.style.top 			=  (findPosY(t)+3)+"px";
+		div.style.left 			= (findPosX(t)+2)+"px";
+		div.style.visibility 	= "visible";
+		uf 						= document.getElementById("slUFEnd").value;
+		cep 					= document.getElementById("tfCEP").length < 10 ? "%" : document.getElementById("tfCEP").value;
+		bairro 					= urlencode(document.getElementById("tfBairro").value);
+		logradouro 				= urlencode(document.getElementById("tfTipoLog").value);
+		cidade 					= urlencode(document.getElementById("slCidade").value);
 		
 		loadContent("utils/"+source+".php?uf="+uf+"&cep="+cep+"&cidade="+cidade+"&bairro="+bairro+"&logradouro="+logradouro+"&text="+text, "autoComplete");
 	}
