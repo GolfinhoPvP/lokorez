@@ -174,7 +174,7 @@ Create table classe (
 	cla_codigo Serial NOT NULL AUTO_INCREMENT,
 	cli_codigo Bigint UNSIGNED NOT NULL,
 	cla_descricao Varchar(30),
-	cla_porcentagem Smallint,
+	cla_porcentagem Double,
  Primary Key (cla_codigo)) ENGINE = InnoDB;
 
 Create table status (
