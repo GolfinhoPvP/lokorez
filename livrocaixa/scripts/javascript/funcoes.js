@@ -30,9 +30,9 @@ function validarForm(id){
 			case "tfSen2" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]){4,15}$/; break;
 		case "tfCod" :
 			case "tfQua" :
-			case "tfPor" :
 			case "tfPer" : descricaoExpReg = /^[0-9]{1,30}$/; break;
 		case "tfVal1" :
+			case "tfPor" :
 			case "tfVal2" :
 			case "tfVal" : descricaoExpReg = /^([0-9]{1,10},[0-9]{1,2}|[0-9]{1,10})$/; break;
 		case "tfData" :

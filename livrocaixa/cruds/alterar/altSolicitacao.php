@@ -48,7 +48,7 @@
 		      <input name="tfCDB" readonly="readonly" type="text" class="textField1" id="tfCDB" size="75" maxlength="200" value="<?php echo($bean->codigoBarras); ?>"/>
 		    </div>
 			<div class="texto3" id="altValPag">Valor pago: R$
-		        <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="30" maxlength="15" onkeyup="javascript: validarForm('tfVal2');" value="<?php echo($bean->valorPago); ?>"/>
+		        <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="30" maxlength="15" onkeyup="javascript: validarForm('tfVal2');" value="<?php echo($bean->valor); ?>"/>
 		    </div>
 			<div id="altSolBut">
 	      <input name="btSol" type="submit" class="botao2" id="btSol" value="Pagar" />
