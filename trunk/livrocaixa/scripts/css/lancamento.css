@@ -1,10 +1,10 @@
 /* CSS Document */
 #CadLan{
 	position:absolute;
-	width: 609px;
+	width: 924px;
 	height: 502px;
 	left: 1px;
-	top: 0px;
+	top: 39px;
 }
 #cadLanCod{
 	position:absolute;
@@ -18,35 +18,35 @@
 	width: 459px;
 	height: 8px;
 	left: 49px;
-	top: 46px;
+	top: 45px;
 }
 #cadLanPro{
 	position:absolute;
 	width: 367px;
 	height: 11px;
 	left: 92px;
-	top: 79px;
+	top: 70px;
 }
 #cadLanMod{
 	position:absolute;
 	width: 367px;
 	height: 13px;
 	left: 92px;
-	top: 106px;
+	top: 95;
 }
 #cadLanValCom{
 	position:absolute;
 	width: 329px;
 	height: 11px;
-	left: 125px;
-	top: 138px;
+	left: 124px;
+	top: 130px;
 }
 #cadLanSer{
 	position:absolute;
 	width: 367px;
 	height: 11px;
-	left: 96px;
-	top: 258px;
+	left: 95px;
+	top: 255px;
 	bottom: -1px;
 }
 #cadLanValSer{
@@ -54,46 +54,46 @@
 	width: 410px;
 	height: 11px;
 	left: 14px;
-	top: 284px;
+	top: 280px;
 	bottom: -1px;
 }
 #cadLanValTot{
 	position:absolute;
 	width: 410px;
 	height: 11px;
-	left: 53px;
-	top: 384px;
+	left: 52px;
+	top: 380px;
 	bottom: -1px;
 }
 #cadLanQua{
 	position:absolute;
 	width: 390px;
 	height: 11px;
-	left: 69px;
-	top: 171px;
+	left: 68px;
+	top: 165px;
 	bottom: -1px;
 }
 #cadLanValPro{
 	position:absolute;
 	width: 367px;
 	height: 11px;
-	left: 32px;
-	top: 204px;
+	left: 31px;
+	top: 200px;
 }
 #cadLanForPag{
 	position:absolute;
 	width: 445px;
 	height: 11px;
 	left: 7px;
-	top: 358px;
+	top: 355px;
 	bottom: -1px;
 }
 #cadLanTec{
 	position:absolute;
 	width: 367px;
 	height: 11px;
-	left: 92px;
-	top: 318px;
+	left: 91px;
+	top: 315px;
 	bottom: -1px;
 }
 /* ---------------------------- */
@@ -184,18 +184,18 @@
 }
 #linhaProduto{
 	position:absolute;
-	width: 523px;
+	width: 745px;
 	left: 5px;
-	top: 40px;
+	top: 78px;
 	height: 193px;
 	border:#000000;
 	border-style:dotted;
 }
 #linhaServico{
 	position:absolute;
-	width: 523px;
+	width: 745px;
 	left: 5px;
-	top: 246px;
+	top: 285px;
 	height: 95px;
 	border:#000000;
 	border-style:dotted;
