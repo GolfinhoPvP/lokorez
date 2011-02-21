@@ -7,10 +7,15 @@
 		public $dbName; // Name of database's Contracheque Online sistem in MySql DB.
 		
 		function __construct(){
-			$this->dbHost = "localhost";
-			$this->dbUser = "root";
-			$this->dbPassword = "root";
-			$this->dbName = "contrachequeonline";		
+			$this->dbHost 	= "localhost";
+			$this->dbUser 		= "root";
+			$this->dbPassword 	= "root";
+			$this->dbName 		= "contrachequeonline";
+			/*
+			$this->dbHost 		= "mysql06.cgsus.saude.ws";
+			$this->dbUser 		= "cgsus5";
+			$this->dbPassword 	= "saude10*";
+			$this->dbName 		= "cgsus5";	*/
 		}
 	}
 ?>
