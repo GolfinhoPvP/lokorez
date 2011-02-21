@@ -17,12 +17,16 @@
 		
 		//Connect to MySQL server
 		public function start(){		
-			if(!($this->connectionStarted = mysql_connect($this->dbHost, $this->dbUser, $this->dbPassword)))
+			if(!($this->connectionStarted = mysql_connect($this->dbHost, $this->dbUser, $this->dbPassword))){
+				echo("Conexão, falha!");
 				return false; // Impossible to connect to server.
+			}
 				
 			//Select the database
-			if(!(mysql_select_db($this->dbName, $this->connectionStarted)))
+			if(!(mysql_select_db($this->dbName, $this->connectionStarted))){
+				echo("Seleção do banco, falha!");
 				return false; // Impossible to select the database.
+			}
 								
 			return true;
 		}

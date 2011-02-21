@@ -6,7 +6,9 @@
 	
 	$variables = new Variables();
 	$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
-	$connect->start();
+	if(!$connect->start()){
+		die("ERRO na conexão com o banco!");
+	}
 
 	$login	= "visible";
 	$search = "hidden";
