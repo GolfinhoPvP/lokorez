@@ -7,6 +7,7 @@
 #menu {
   margin:0;
   font-family:Georgia, "Times New Roman", Times, serif;
+  font-size:14px;
   text-shadow:#666666;
   padding:0; 
   width: auto;
@@ -107,7 +108,7 @@
 #desconectar{
 	position:absolute;
 	left: 837px;
-	top: -2px;
+	top: -3px;
 	height: 52px;
 	z-index: 4;
 }
