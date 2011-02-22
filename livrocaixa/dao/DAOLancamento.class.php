@@ -14,15 +14,11 @@
 				return $this->lancamento = NULL;
 			$linha = mysqli_fetch_array($resultado);
 			$this->lancamento->codigo		= $linha["lan_codigo"];
-			$this->lancamento->tecCodigo	= $linha["tec_codigo"];
-			$this->lancamento->proCodigo	= $linha["pro_codigo"];
+			$this->lancamento->forCodigo	= $linha["for_codigo"];
+			$this->lancamento->tipCodigo	= $linha["tip_codigo"];
 			$this->lancamento->pcCodigo		= $linha["pc_codigo"];
-			$this->lancamento->serCodigo	= $linha["ser_codigo"];
-			$this->lancamento->forCodigo	= $linha["for_nome"];
-			$this->lancamento->quantidade	= $linha["lan_quantidade_item"];
 			$this->lancamento->datahora		= $linha["lan_datahora"];
-			$this->lancamento->valor		= $linha["lan_valor"];
-			$this->lancamento->checado		= $linha["lan_checado"];
+			$this->lancamento->valor		= $linha["lan_valor_total"];
 			return $this->lancamento;
 		}
 		
@@ -33,15 +29,11 @@
 				return $this->lancamento = NULL;
 			$linha = mysqli_fetch_array($resultado);
 			$this->lancamento->codigo		= $linha["lan_codigo"];
-			$this->lancamento->tecCodigo	= $linha["tec_codigo"];
-			$this->lancamento->proCodigo	= $linha["pro_codigo"];
-			$this->lancamento->pcCodigo		= $linha["pc_codigo"];
-			$this->lancamento->serCodigo	= $linha["ser_codigo"];
 			$this->lancamento->forCodigo	= $linha["for_codigo"];
-			$this->lancamento->quantidade	= $linha["lan_quantidade_item"];
+			$this->lancamento->tipCodigo	= $linha["tip_codigo"];
+			$this->lancamento->pcCodigo		= $linha["pc_codigo"];
 			$this->lancamento->datahora		= $linha["lan_datahora"];
-			$this->lancamento->valor		= $linha["lan_valor"];
-			$this->lancamento->checado		= $linha["lan_checado"];
+			$this->lancamento->valor		= $linha["lan_valor_total"];
 			return $this->lancamento;
 		}
 		
@@ -64,7 +56,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO lancamentos (lan_codigo, tec_codigo, pro_codigo, pc_codigo, ser_codigo, for_codigo, lan_quantidade_item, lan_datahora, lan_valor, lan_checado) VALUES ('".$this->lancamento->codigo."', ".$this->lancamento->tecCodigo.", ".$this->lancamento->proCodigo.", ".$this->lancamento->pcCodigo.", ".$this->lancamento->serCodigo.", ".$this->lancamento->forCodigo.", ".$this->lancamento->quantidade.", '".$this->lancamento->datahora."', ".$this->lancamento->valor.", ".$this->lancamento->checado.")";
+			$sql = "INSERT INTO lancamentos (lan_codigo, for_codigo, tip_codigo, pc_codigo, lan_datahora, lan_valor_total) VALUES ('".$this->lancamento->codigo."', ".$this->lancamento->forCodigo.", ".$this->lancamento->tipCodigo.", ".$this->lancamento->pcCodigo.", '".$this->lancamento->datahora."', ".$this->lancamento->valor.")";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o lancamento: ".$this->lancamento->codigo);
 				return false;
@@ -73,22 +65,13 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE lancamentos SET lan_codigo='".$this->lancamento->codigo."', tec_codigo=".$this->lancamento->tecCodigo.", pro_codigo=".$this->lancamento->proCodigo.", pc_codigo=".$this->lancamento->pcCodigo.", ser_codigo=".$this->lancamento->serCodigo.", for_codigo=".$this->lancamento->forCodigo.",  lan_quantidade_item=".$this->lancamento->quantidade.", lan_datahora='".$this->lancamento->datahora."', lan_valor=".$this->lancamento->valor.", lan_checado=".$this->lancamento->checado." WHERE lan_codigo='".$valRef."'";
+			$sql = "UPDATE lancamentos SET lan_codigo='".$this->lancamento->codigo."', for_codigo=".$this->lancamento->forCodigo.", tip_codigo=".$this->lancamento->tipCodigo.", pc_codigo=".$this->lancamento->pcCodigo.", lan_datahora='".$this->lancamento->datahora."', lan_valor_total=".$this->lancamento->valor." WHERE lan_codigo='".$valRef."'";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o lancamento código: ".$valRef);
 				return false;
 			}
 			return true;
 		}
-		
-		public function zerar($valRef){
-			$sql = "UPDATE lancamentos SET lan_checado = 1 WHERE tec_codigo = ".$valRef;
-			if(!$this->conexao->executar($sql)){
-				echo("Não foi possivel zerar o lancamento código: ".$valRef);
-				return false;
-			}
-			return true;
-		} 
 		
 		public function deletar($valRef){
 			$sql = "DELETE FROM lancamentos WHERE lan_codigo='".$valRef."'";

@@ -16,8 +16,8 @@
 	
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;
 	$conexao	= new ConectarMySql($toRoot);
-	$bean		= new Lancamento();
-	$dao 		= new DAOLancamento($bean, $conexao); 		
+	$lancamento	= new Lancamento();
+	$dao 		= new DAOLancamento($lancamento, $conexao); 		
 	
 	if($cadastrar == "sim"){
 		foreach($_POST as $nomeCampo => $valor){
@@ -28,17 +28,40 @@
 		include_once($toRoot."beans/Log.class.php");
 		include_once($toRoot."dao/DAOLog.class.php");
 
-		$bean->codigo 		= $tfCod;
-		$bean->tecCodigo 	= $slTec;
-		$bean->proCodigo 	= $slPro;
-		$bean->pcCodigo 	= $slPlaCon;
-		$bean->serCodigo 	= $slSer;
-		$bean->forCodigo 	= $slForPag;
-		$bean->quantidade 	= $tfQua;
-		$bean->valor 		= $tfVal2;
+		$lancamento->codigo 	= $tfCod;
+		$lancamento->forCodigo 	= $slForPag;
+		if(($slPro != "---") && ($slSer != "---")){
+			$lancamento->tipCodigo = 203;
+		}else if(($slPro != "---") && ($slSer == "---")){
+			$lancamento->tipCodigo = 201;
+		}else if(($slPro == "---") && ($slSer != "---")){
+			$lancamento->tipCodigo = 202;
+		}
+		$lancamento->pcCodigo 	= $slPlaCon;
+		$lancamento->valor 		= $tfValTot;
 		
-		$dao->setLancamento($bean);
+		$dao->setLancamento($lancamento);
 		$dao->cadastrar();
+		
+		if($lancamento->tipCodigo == 201 || $lancamento->tipCodigo == 203){
+			include_once($toRoot."beans/LancamentoProduto.class.php");
+			include_once($toRoot."dao/DAOLancamentoProduto.class.php");
+			
+			$lancamentoProduto	= new LancamentoProduto($tfCod, $slPro, $tfQua, $tfValPro);
+			$dao 				= new DAOLancamentoProduto($lancamentoProduto, $conexao);
+			
+			$dao->cadastrar();
+		}
+		
+		if($lancamento->tipCodigo == 202 || $lancamento->tipCodigo == 203){
+			include_once($toRoot."beans/LancamentoServico.class.php");
+			include_once($toRoot."dao/DAOLancamentoServico.class.php");
+			
+			$lancamentoServico	= new LancamentoServico($tfCod, $slSer, $slTec, $tfValSer);
+			$dao 				= new DAOLancamentoServico($lancamentoServico, $conexao);
+			
+			$dao->cadastrar();
+		}
 		
 		$log 			= new Log(3, 11, $tfCod." cadastrado!");
 		$daoLog			= new DAOLog($log, $conexao);

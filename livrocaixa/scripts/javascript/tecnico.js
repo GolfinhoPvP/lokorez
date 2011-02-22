@@ -3,7 +3,7 @@ function validarCadastro(){
 	if(document.getElementById("cbSel").checked == true){
 		lista = new Array("tfNom", "tfRG", "tfCPF", "tfRG", "tfFonNum", "tfFonNot", "tfEmlURL", "tfEmlNot", "slCla", "tfDes");
 	}else{
-		lista = new Array("slPes", "slCla", "tfDes");
+		lista = new Array("slPes", "slCla", "slBancRef", "tfAgen", "tfCont", "tfDes");
 	}
 	return comum(lista);
 }

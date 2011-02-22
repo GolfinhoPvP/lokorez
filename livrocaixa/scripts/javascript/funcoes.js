@@ -8,6 +8,8 @@ function validarForm(id){
 		case "tfDes" : descricaoExpReg = /^([a-zA-Z0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]|[-_\.\\\/]){4,100}$/; break;
 		case "tfNom" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){4,150}$/; break;
 		case "tfNomEmp" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |[¡·…ÈÕÌ‘Ù⁄˙ ÍÁ„ı]){4,100}$/; break;
+		case "tfCont":
+			case "tfAgen" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|-){4,100}$/; break;
 		case "tfRG" : descricaoExpReg = /^([ ]{0,30}|([0-9]|\.|-){0,30})$/; break;
 		case "tfCPF" : descricaoExpReg = /^([ ]{0,14}|[0-9]{3,3}\.[0-9]{3,3}\.[0-9]{3,3}-[0-9]{2,2})$/; break;
 		case "tfFonNum" : descricaoExpReg = /^([ ]{0,12}|[0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4})$/; break;
@@ -33,7 +35,9 @@ function validarForm(id){
 			case "tfPer" : descricaoExpReg = /^[0-9]{1,30}$/; break;
 		case "tfVal1" :
 			case "tfPor" :
-			case "tfVal2" :
+			case "tfValSer" :
+			case "tfValPro" :
+			case "tfValTot" :
 			case "tfVal" : descricaoExpReg = /^([0-9]{1,10},[0-9]{1,2}|[0-9]{1,10})$/; break;
 		case "tfData" :
 			case "tfVen" : descricaoExpReg = /^[0-9]{2,2}\/[0-9]{2,2}\/[0-9]{4,4}$/; break;
@@ -91,4 +95,34 @@ function dataAutoComplete(id){
 		case 2 :
 		case 5 : document.getElementById(id).value += "/"; 
 	}
+}
+
+function str_pad(number, length, character, direction) {
+	var str = '' + number;
+	while (str.length < length) {
+		if(direction == "STR_PAD_RIGHT"){
+			str = str + character;
+		}else if(direction == "STR_PAD_LEFT"){
+			str = character + str;
+		}
+	}
+	return str;
+}
+
+
+function converterValor(valor){
+	array = valor.split(",");
+	if(array.length > 1){
+		array[1] 	= str_pad(array[1], 2, "0", "STR_PAD_RIGHT");
+		valor 		= array[0]+"."+array[1];
+	}else{
+		valor 	= array[0]+".00";
+	}
+	return valor;
+}
+
+function inverterValor(valor){
+	valor = "" + valor;
+	valor = valor.replace(".", ",");
+	return valor;
 }

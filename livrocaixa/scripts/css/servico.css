@@ -1,14 +1,14 @@
 /* CSS Document */
 #cadSer{
 	position:absolute;
-	width: 640px;
-	height: 63px;
+	width: 925px;
+	height: 117px;
 	left: 0px;
-	top: 0px;
+	top: 41px;
 }
 #cadSerDes{
 	position:absolute;
-	width: 608px;
+	width: 802px;
 	height: 11px;
 	left: 11px;
 	top: 16px;
@@ -19,8 +19,15 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 189px;
-	top: 74px;
+	left: 224px;
+	top: 58px;
 }
 
 /* ---------------------------- */
+#voltar{
+	position:absolute;
+	width: 68px;
+	height: 26px;
+	left: 853px;
+	top: 3px;
+}

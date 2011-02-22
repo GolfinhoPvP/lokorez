@@ -1,27 +1,20 @@
 <?php
 	class Lancamento{
 		private $codigo;
-		private $tecCodigo;
-		private $proCodigo;
-		private $pcCodigo;
-		private $serCodigo;
 		private $forCodigo;
-		private $quantidade;
+		private $tipCodigo;
+		private $pcCodigo;
 		private $datahora;
 		private $valor;
-		private $checado;
 		
-		function __construct($cod = NULL, $tecCod = NULL, $proCod = NULL, $pcCod = NULL, $serCod = NULL, $forCod = NULL, $qua = NULL, $val = NULL){
+		
+		function __construct($cod = NULL, $forCod = NULL, $tipCod = NULL, $pcCod = NULL, $val = NULL){
 			$this->codigo 		= $cod;
-			$this->tecCodigo 	= $tecCod;
-			$this->proCodigo 	= $proCod;
-			$this->pcCodigo 	= $pcCod;
-			$this->serCodigo 	= $serCod;
 			$this->forCodigo 	= $forCod;
-			$this->quantidade 	= $qua;
+			$this->tipCodigo 	= $tipCod;
+			$this->pcCodigo 	= $pcCod;
 			$this->datahora 	= date("Y-m-d H:i:s");
 			$this->valor 		= $val;
-			$this->checado 		= 0;
 		}
  
 		public function __set($nome, $valor) {
@@ -33,7 +26,7 @@
 		}
 		
 		public function __toString(){
-			return $this->datahora;
+			return $this->codigo;
 		}
 	}
 ?>

@@ -24,7 +24,7 @@
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadBanco.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
 		  <div id="cadBan">
-		    <div class="texto3" id="cadBanNom">Nome do banco: 
+		    <div class="texto3" id="cadBanNom">Insira o nome do novo Banco: 
 			    <input name="tfNomBan" type="text" class="textField1" id="tfNomBan" size="50" maxlength="50" onkeyup="javascript: validarForm('tfNomEmp');" />				
 		    </div>
 			<div id="cadBut">

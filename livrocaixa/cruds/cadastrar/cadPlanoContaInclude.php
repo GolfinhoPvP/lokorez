@@ -5,6 +5,9 @@
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
+	setVoltar("cadPlanoConta.php");
+	$voltar = $_SESSION["voltar"];
+	
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;	 		
 	
 	if($cadastrar == "sim"){

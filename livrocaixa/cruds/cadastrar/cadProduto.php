@@ -23,15 +23,18 @@
 		?>
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadProduto.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
-				<div class="texto3" id="cadProEmpRel">Empresa relacionada: 
+			<div id="cadPro">
+			<div class="texto3" id="cadProEmpRel">Selecione a Empresa a qual o produto ser&aacute; relacionado: 
 				<select name="slEmp" class="textField1" id="slEmp">
 				<?php
 					include($toRoot."utils/getEmpresaSL.php");
 				?>
 				</select>
+				<span style="cursor:pointer" onclick="javascript: location.href = 'cadEmpresa.php';"><img src="../../imagens/add.png" />Cadastrar nova empresa!</span>
 	  	  </div>
-			  <div class="texto3" id="cadProDes">Descri&ccedil;&atilde;o do produto: 
-	          <input name="tfDes" type="text" class="textField1" id="tfDes" size="75" maxlength="150" onkeyup="javascript: validarForm('tfDes');" />
+		  <div id="linha">
+			  <div class="texto3" id="cadProDes">Descri&ccedil;&atilde;o do novo produto: 
+	            <input name="tfDes" type="text" class="textField1" id="tfDes" size="75" maxlength="150" onkeyup="javascript: validarForm('tfDes');" />
 		  </div>
 			  <div class="texto3" id="cadProMod">Modelo:
 			    <input name="tfMod" type="text" class="textField1" id="tfMod" size="30" maxlength="25" onkeyup="javascript: validarForm('tfMod');"/>
@@ -39,8 +42,10 @@
 		      <div class="texto3" id="cadProValVen">Valor de venda : 
 		        <input name="tfVal" type="text" class="textField1" id="tfVal" size="30" maxlength="15" onkeyup="javascript: validarForm('tfVal');"/>
 			  </div>
-<div id="cadCliBut">
-	      <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+				<div id="cadCliBut"><input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+			</div>
+			<div id="voltar" title="Voltar!" style="cursor:pointer" onclick="javascript: location.href = '<?php echo($voltar); ?>';"><img src="../../imagens/voltar.png" /></div>
+		  </div>
 		</form>
 	</body>
 </html>
