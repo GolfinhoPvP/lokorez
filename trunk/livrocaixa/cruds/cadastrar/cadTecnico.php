@@ -28,6 +28,7 @@
 		?>
 		<div id="confirmar"></div>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadTecnico.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
+		<div id="cadTecAll">
 			<div class="texto3" id="cadTecNov">Contato novo? 
 			  <input name="cbSel" type="checkbox" class="textField1" id="cbSel" onchange="javascript: alternar();" value="novo" />
 			</div>
@@ -69,13 +70,30 @@
 							include($toRoot."utils/getClasseSL.php");
 					  ?>
 		        </select>
+				<span style="cursor:pointer" onclick="javascript: location.href = 'cadClasse.php';"><img src="../../imagens/add.png" />Cadastrar nova classe!</span>
 			</div>
+			<div class="texto3" id="cadTecBan">
+				Selecione um banco:
+				  <select name="slBancRef" class="textField1" id="slBancRef">
+					<?php
+					include($toRoot."utils/getBancoSL.php");
+					?>
+			    </select> 
+			<span style="cursor:pointer" onclick="javascript: location.href = 'cadBanco.php';"><img src="../../imagens/add.png" />Adicionar novo banco</span> </div>
+			<div class="texto3" id="cadTecAgen">Ag&ecirc;ncia: 
+		      <input name="tfAgen" type="text" class="textField1" id="tfAgen" size="25" maxlength="20" onkeyup="javascript: validarForm('tfAgen');"/>
+		    </div>
+			  <div class="texto3" id="cadTecCont">Conta: 
+		      <input name="tfCont" type="text" class="textField1" id="tfCont" size="25" maxlength="20" onkeyup="javascript: validarForm('tfCont');"/>
+		    </div>
 			  <div class="texto3" id="cadTecDes">Apelido: 
 		        <input name="tfDes" type="text" class="textField1" id="tfDes" size="50" maxlength="50" onkeyup="javascript: validarForm('tfDes');"/>
 		    </div>
 		  </div>
 		  <div id="cadTecBut">
 	      <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+		  <div id="voltar" title="Voltar!" style="cursor:pointer" onclick="javascript: location.href = '<?php echo($voltar); ?>';"><img src="../../imagens/voltar.png" /></div>
+		  </div>
 		</form>
 	</body>
 </html>

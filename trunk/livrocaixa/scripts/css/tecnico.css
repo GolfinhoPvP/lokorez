@@ -1,4 +1,11 @@
 /* CSS Document */
+#cadTecAll{
+	position:absolute;
+	width: 925px;
+	height: 486px;
+	left: 1px;
+	top: 41px;
+}
 #cadTecNov{
 	position:absolute;
 	width: 146px;
@@ -81,8 +88,8 @@
 	position:absolute;
 	width: 286px;
 	height: 11px;
-	left: 35px;
-	top: 3px;
+	left: 37px;
+	top: 2px;
 }
 #cadTecEmlNot{
 	position:absolute;
@@ -97,23 +104,44 @@
 #cadTec{
 	position:absolute;
 	width: 617px;
-	height: 74px;
+	height: 189px;
 	left: 0px;
 	top: 231px;
 }
 #cadTecCla{
 	position:absolute;
-	width: 347px;
+	width: 520px;
 	height: 11px;
-	left: 81px;
-	top: 5px;
+	left: 89px;
+	top: 6px;
+}
+#cadTecBan{
+	position:absolute;
+	width: 603px;
+	height: 11px;
+	left: 4px;
+	top: 46px;
+}
+#cadTecAgen{
+	position:absolute;
+	width: 527px;
+	height: 11px;
+	left: 80px;
+	top: 87px;
+}
+#cadTecCont{
+	position:absolute;
+	width: 515px;
+	height: 11px;
+	left: 94px;
+	top: 120px;
 }
 #cadTecDes{
 	position:absolute;
 	width: 427px;
 	height: 11px;
-	left: 70px;
-	top: 32px;
+	left: 82px;
+	top: 153px;
 }
 
 /* ---------------------------- */
@@ -122,8 +150,8 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 409px;
-	top: 331px;
+	left: 143px;
+	top: 427px;
 }
 
 /* ---------------------------- */
@@ -150,4 +178,12 @@
 	height: 14px;
 	left: 66px;
 	top: 42px;
+}
+/* ---------------------------- */
+#voltar{
+	position:absolute;
+	width: 68px;
+	height: 26px;
+	left: 854px;
+	top: 3px;
 }

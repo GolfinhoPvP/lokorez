@@ -23,11 +23,12 @@
 		?>
 		<form id="cadastrar" name="cadastrar" method="post" action="cadPlanoConta.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
 			<div id="cadSer">
-			  <div class="texto3" id="cadSerDes">Plano de conta  : 
-			    <input name="tfDes" type="text" class="textField1" id="tfDes" size="25" maxlength="50" onkeyup="javascript: validarForm('tfDes');" /></div>
-			  </div>
-		<div id="cadCliBut">
+			  <div class="texto3" id="cadSerDes">Insira o nome do novo Plano de Conta   : 
+		      <input name="tfDes" type="text" class="textField1" id="tfDes" size="25" maxlength="50" onkeyup="javascript: validarForm('tfDes');" /></div>
+				<div id="cadCliBut">
     <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+	<div id="voltar" title="Voltar!" style="cursor:pointer" onclick="javascript: location.href = '<?php echo($voltar); ?>';"><img src="../../imagens/voltar.png" /></div>
+		  </div>
 		</form>
 	</body>
 </html>

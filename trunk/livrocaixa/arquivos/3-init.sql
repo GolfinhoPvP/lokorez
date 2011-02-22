@@ -3,7 +3,10 @@ INSERT INTO status VALUES (1, "Pendente"),
 				(3, "Parcialmente paga");
 
 INSERT INTO tipos VALUES (1, "Banco"),
-				(2, "Cofre");
+				(2, "Cofre"),
+				(101, "Produto"),
+				(102, "Serviço"),
+				(103, "Produto/Serviço");
 
 INSERT INTO niveis VALUES (1, "Super Administrdos"),
 				(2, "Administrador"),

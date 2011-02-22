@@ -25,7 +25,7 @@
 			function carregarNoIframe(nomeFrame, url){
 				top.frames['telaSistema'].frames[nomeFrame].location.href = url;
 				document.getElementById("menu").style.visibility = "hidden";
-				setTimeout('document.getElementById("menu").style.visibility = "visible"', 100);
+				setTimeout('document.getElementById("menu").style.visibility = "visible"', 250);
 			}
 		</script>
 	</head>

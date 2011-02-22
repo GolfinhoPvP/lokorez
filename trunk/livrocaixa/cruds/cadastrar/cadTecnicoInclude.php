@@ -5,6 +5,9 @@
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
+	setVoltar("cadTecnico.php");
+	$voltar = $_SESSION["voltar"];
+	
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;	 		
 	
 	if($cadastrar == "sim"){
@@ -67,7 +70,7 @@
 			$pesReferencia = $slPes;
 		}
 
-		$tecnico 		= new Tecnico($pesReferencia, $slCla, $tfDes);
+		$tecnico 		= new Tecnico($slBancRef, $pesReferencia, $slCla, $tfDes, $tfAgen, $tfCont);
 		$daoTecnico		= new DAOTecnico($tecnico, $conexao);
 		$daoTecnico->cadastrar();
 		

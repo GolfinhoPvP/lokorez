@@ -68,6 +68,10 @@
 		return $valor;
 	}
 	
+	function inverterValor($valor){
+		return $valor = str_replace(".", ",", $valor);
+	}
+	
 	function haEmpresa($toRoot){
 		if(!isset($_SESSION["empresa"])){
 			header("Location: ".$toRoot."utils/selecionarEmpresa.php?selecionar=nao");

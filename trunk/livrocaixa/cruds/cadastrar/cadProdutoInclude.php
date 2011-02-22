@@ -5,6 +5,9 @@
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
+	setVoltar("cadProduto.php");
+	$voltar = $_SESSION["voltar"];
+	
 	$cadastrar = isset($_GET["cadastrar"]) ? $_GET["cadastrar"] : NULL;	 		
 	
 	if($cadastrar == "sim"){
@@ -21,6 +24,7 @@
 		
 		$conexao		= new ConectarMySql($toRoot);
 
+		$tfVal 			= converterValor($tfVal);
 		$produto 		= new Produto($slEmp, $tfDes, $tfMod, $tfVal);
 		$daoProduto		= new DAOProduto($produto, $conexao);
 		$daoProduto->cadastrar();

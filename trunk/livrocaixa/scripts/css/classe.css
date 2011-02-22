@@ -1,10 +1,10 @@
 /* CSS Document */
 #cadCla{
 	position:absolute;
-	width: 640px;
-	height: 104px;
-	left: 0px;
-	top: 0px;
+	width: 927px;
+	height: 151px;
+	left: 1px;
+	top: 42px;
 }
 #cadClaDes{
 	position:absolute;
@@ -26,8 +26,14 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 156px;
-	top: 119px;
+	left: 103px;
+	top: 92px;
 }
-
 /* ---------------------------- */
+#voltar{
+	position:absolute;
+	width: 68px;
+	height: 26px;
+	left: 855px;
+	top: 3px;
+}

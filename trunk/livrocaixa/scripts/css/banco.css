@@ -1,10 +1,10 @@
 /* CSS Document */
 #cadBan{
 	position:absolute;
-	width: 640px;
-	height: 137px;
+	width: 977px;
+	height: 117px;
 	left: 0px;
-	top: 0px;
+	top: 39px;
 }
 #cadBanNom{
 	position:absolute;
@@ -19,8 +19,8 @@
 	position:absolute;
 	width: 113px;
 	height: 44px;
-	left: 149px;
-	top: 73px;
+	left: 212px;
+	top: 55px;
 }
 
 /* ---------------------------- */
@@ -28,6 +28,6 @@
 	position:absolute;
 	width: 68px;
 	height: 26px;
-	left: 579px;
-	top: 6px;
+	left: 906px;
+	top: 3px;
 }

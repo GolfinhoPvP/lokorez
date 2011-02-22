@@ -38,6 +38,7 @@
 					include($toRoot."utils/getPlanoContaSL.php");
 				?>
 			  </select>
+			  <span style="cursor:pointer" onclick="javascript: location.href = 'cadPlanoConta.php';"><img src="../../imagens/add.png" />Cadastrar novo plano conta!</span>
 		  </div>
 			<div class="texto3" id="cadLanPro">Produto: 
 			  <select class="textField1" name="slPro" id="slPro" onchange="javascript: carregarProduto();">
@@ -45,35 +46,30 @@
 					include($toRoot."utils/getProdutoSL.php");
 				?>
 			  </select>
+			  <span style="cursor:pointer" onclick="javascript: location.href = 'cadProduto.php';"><img src="../../imagens/add.png" />Cadastrar novo produto!</span>
 		  </div>
-		  <div class="texto3" id="cadLanMod">Modelo: 
+		  <div class="texto3" id="cadLanModelo">Modelo: 
 		  <input name="tfMod" type="text" class="textField1" id="tfMod" size="30" maxlength="25" readonly="readonly" />
 		  </div>
 		  <div class="texto3" id="cadLanValCom">R$: 
 		    <input name="tfVal1" type="text" class="textField1" id="tfVal1" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal1');" />
-		  </div>
-		  <div class="texto3" id="cadLanSer">Serviço: 
-			  <select class="textField1" name="slSer" id="slSer">
-				<?php
-					include($toRoot."utils/getServicoSL.php");
-				?>
-		    </select>
-		  </div>
-		  <div class="texto3" id="cadLanValSer">Valor do servi&ccedil;o R$: 
-		    <input name="tfValSer" type="text" class="textField1" id="tfValSer" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal2');"/>
 		  </div>
 		  <div class="texto3" id="cadLanQua">Quantidade: 
 		    <input name="tfQua" type="text" class="textField1" id="tfQua" value="1" size="15" maxlength="15" onkeyup="javascript: validarForm('tfQua');" />
 		  </div>
 		  <div class="texto3" id="cadLanValPro">
 	      Total produto R$:
-	      <input name="tfValPro" type="text" class="textField1" id="tfValPro" size="15" maxlength="15" /></div>
-		  <div class="texto3" id="cadLanForPag">Forma de pagamento: 
-			  <select class="textField1" name="slForPag" id="slForPag">
+	      <input name="tfValPro" type="text" class="textField1" id="tfValPro" size="15" maxlength="15" onkeyup="javascript: validarForm('tfValPro');" onfocus="javascript: calcularValorProduto('tfValPro');" /></div>
+		  <div class="texto3" id="cadLanSer">Serviço: 
+			  <select class="textField1" name="slSer" id="slSer">
 				<?php
-					include($toRoot."utils/getFormaPagamentoSL.php");
+					include($toRoot."utils/getServicoSL.php");
 				?>
 		    </select>
+			<span style="cursor:pointer" onclick="javascript: location.href = 'cadServico.php';"><img src="../../imagens/add.png" />Cadastrar novo servi&ccedil;o!</span>
+		  </div>
+		  <div class="texto3" id="cadLanValSer">Valor do servi&ccedil;o R$: 
+		    <input name="tfValSer" type="text" class="textField1" id="tfValSer" size="15" maxlength="15" onkeyup="javascript: validarForm('tfValSer');"/>
 		  </div>
 		  <div class="texto3" id="cadLanTec">T&eacute;cnico: 
 			  <select class="textField1" name="slTec" id="slTec">
@@ -81,9 +77,18 @@
 					include($toRoot."utils/getTecnicoSL.php");
 				?>
 		    </select>
+			<span style="cursor:pointer" onclick="javascript: location.href = 'cadTecnico.php';"><img src="../../imagens/add.png" />Cadastrar novo t&eacute;cnico!</span>
+		  </div>
+		  <div class="texto3" id="cadLanForPag">Forma de pagamento: 
+			  <select class="textField1" name="slForPag" id="slForPag">
+				<?php
+					include($toRoot."utils/getFormaPagamentoSL.php");
+				?>
+		    </select>
+			<span style="cursor:pointer" onclick="javascript: location.href = 'cadFormaPagamento.php';"><img src="../../imagens/add.png" />Cadastrar nova forma de pagamento!</span>
 		  </div>
 		  <div class="texto3" id="cadLanValTot">Valor total RS: 
-		    <input name="tfValTot" type="text" class="textField1" id="tfValTot" size="15" maxlength="15" onkeyup="javascript: validarForm('tfVal2');"/>
+		    <input name="tfValTot" type="text" class="textField1" id="tfValTot" size="15" maxlength="15" onfocus="javascript: calcularValorTotal('tfValTot');" onkeyup="javascript: validarForm('tfValTot');"/>
 		  </div>
 			<div id="cadBut">
 		  <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>

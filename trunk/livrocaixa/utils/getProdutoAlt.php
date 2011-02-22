@@ -18,7 +18,7 @@
 		echo('<div id="B">'.$bean->empCodigo.'</div>');
 		echo('<div id="C">'.utf8_encode($bean->descricao).'</div>');
 		echo('<div id="D">'.utf8_encode($bean->modelo).'</div>');
-		echo('<div id="E">'.$bean->valorVenda.'</div>');
+		echo('<div id="E">'.inverterValor($bean->valorVenda).'</div>');
 	}else{
 		echo("ERRO!");
 	}

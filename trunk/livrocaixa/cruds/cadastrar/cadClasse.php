@@ -28,9 +28,11 @@
 				<div class="texto3" id="cadClaPor">Porcentagem: 
 		      <input name="tfPor" type="text" class="textField1" id="tfPor" onkeyup="javascript: validarForm('tfPor');" value="0" size="8" maxlength="5" />
 			  </div>
-		  </div>
-		<div id="cadCliBut">
+			  <div id="cadCliBut">
     <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+	<div id="voltar" title="Voltar!" style="cursor:pointer" onclick="javascript: location.href = '<?php echo($voltar); ?>';"><img src="../../imagens/voltar.png" /></div>
+		  </div>
+		  </div>
 		</form>
 	</body>
 </html>
