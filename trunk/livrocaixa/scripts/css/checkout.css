@@ -68,7 +68,14 @@
 #modLanTec{
 	position:absolute;
 	left: 129px;
-	top: 123px;
+	top: 106px;
+	width: 303px;
+	height: 6px;
+}
+#modLanAss{
+	position:absolute;
+	left: 16px;
+	top: 163px;
 	width: 303px;
 	height: 6px;
 }
