@@ -31,7 +31,7 @@
 				$_SESSION["senha"] 		= $this->password;
 				$row = mysql_fetch_assoc($result);
 				$_SESSION["nivel"] 		= $row["id_nivel"];
-				$connect->close();
+				//$connect->close();
 				switch($_SESSION["nivel"]){
 					case 1 : header("Location: ../importDocuments.php");
 								break;

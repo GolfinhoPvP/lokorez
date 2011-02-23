@@ -1,6 +1,4 @@
-USE contrachequeonline;
-
-INSERT INTO niveis (descricao_nivel)
+﻿INSERT INTO Niveis (descricao_nivel)
 	VALUES
 		("Master"),
 		("Cadastrador");
@@ -10,7 +8,7 @@ INSERT INTO niveis (descricao_nivel)
 	Starter Admin named "admin" and password "fmssuperadmin"
 */
 INSERT INTO 
-	administradores (id_nivel, usuario, senha) 
+	Administradores (id_nivel, usuario, senha) 
 	VALUES 
 	(1, 'admin', 'ff744c5f4cdf0d3c6dd01178bc595418');
 
