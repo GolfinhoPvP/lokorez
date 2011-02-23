@@ -39,6 +39,7 @@
 			<div class="textLan1" id="modLanSer">CPF: <span class="texto1"><?php echo($bean->pesCPF); ?></span></div>
 			<div class="textLan1" id="modLanFP">Porcentagem: <span class="texto1"><?php echo($bean->claPorcentagem); ?>%</span></div>
 			<div class="textLan1" id="modLanTec">Valor do check: R$ <span class="texto1"><?php echo($bean->valor); ?></span></div>
+			<div class="textLan1" id="modLanAss">Assinatura:______________________________________________________</div>
 	</div>
 	<div id="imprimir" title="Imprimir!" onclick="javascript: window.print();" style="cursor:pointer"></div>
 	<div id="zerar" title="Zerar" onclick="javascript: location.href = '../../utils/zerar.php?valRef=<?php echo($bean->tecCodigo);?>'" style="cursor:pointer"></div>
