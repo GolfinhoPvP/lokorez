@@ -166,7 +166,7 @@
 				<input name="tfEndCEP" type="text" id="tfEndCEP" size="9" maxlength="9" onkeyup="javascript: validarForm('tfEndCEP');" onkeydown="javascript: setaFoco(this, event);" />
 				<span class="alert">*</span>			</div>
 				<div class="wordsLabel" id="endBai">Bairro: 
-				<input name="tfEndBairro" type="text" id="tfEndBairro" size="40" maxlength="60" onkeyup="javascript: getSource('getBairro','tfBairro');" onblur="javascript: hideAutoComplete(300);" onkeydown="javascript: setaFoco(this, event);" />
+				<input name="tfEndBairro" type="text" id="tfEndBairro" size="40" maxlength="60" onkeyup="javascript: getSource('getBairro','tfEndBairro');" onblur="javascript: hideAutoComplete(300);" onkeydown="javascript: setaFoco(this, event);" />
 			<span class="alert">*</span>		</div>
 			<div class="wordsLabel" id="endTPL">Tipo de logradouro: 
 			  <input name="tfEndTipLog" type="text" id="tfEndTipLog" size="40" maxlength="50" onkeyup="javascript: getSource('getLogradouro','tfTipoLog');" onblur="javascript: hideAutoComplete(300);"  autocomplete="off" onkeydown="javascript: setaFoco(this, event);" />
@@ -209,7 +209,7 @@
 		</div>
 		<div id="cartAbilit">
 		  <div class="wordsLabel" id="cartAbilitVal">Carteira de habilitação: 
-			  <input name="tfCartAbilit" type="text" id="tfCartAbilit" size="50" maxlength="50" onkeyup="javascript: validarForm('tfCartAbilit');" onkeydown="javascript: setaFoco(this, event);" />
+			  <input name="tfCartAbilit" type="text" id="tfCartAbilit" size="40" maxlength="50" onkeyup="javascript: validarForm('tfCartAbilit');" onkeydown="javascript: setaFoco(this, event);" />
 		  </div>
 		  <div class="wordsLabel" id="cartAbilitCat">Categoria: 
 			<select name="slCartAbilitCat" id="slCartAbilitCat" onkeydown="javascript: setaFoco(this, event);" >

@@ -11,14 +11,13 @@
 		$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
 		$connect->start();
 		
-		$db = "br_estado_".strtolower($uf);
 		$text .= ".{0,}";
 		
-		$result = $connect->execute("SELECT distinct bairro FROM $db WHERE bairro REGEXP '$text'");
+		$result = $connect->execute("SELECT * FROM bairros WHERE bai_nome REGEXP '$text'");
 		
 		echo("<div id='---'>Selecione um bairro!</div>");
 		while($row = mysql_fetch_assoc($result)) {
-			echo("<div id='".$row["bairro"]."' onclick='javascript: setLogradouto(\"".urlencode($row["bairro"])."\", \"tfBairro\");' style='cursor:pointer'>".utf8_encode($row["bairro"])."</div>");
+			echo("<div id='".$row["bai_codigo"]."' onclick='javascript: setLogradouto(\"".$row["bai_codigo"]."\", \"tfBairro\");' style='cursor:pointer'>".utf8_encode($row["bai_nome"])."</div>");
 		}
 	}else{
 		echo("Digite seu bairro");
