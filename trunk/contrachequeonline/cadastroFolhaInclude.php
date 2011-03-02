@@ -33,9 +33,9 @@
 						contrachequeonline.cargo_contratado
 					where
 						car_con_descricao='".$tfCargCont."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$cargContCODIGO = $linha["car_con_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.cargo_contratado 
@@ -43,8 +43,8 @@
 						values
 							('".$tfCargCont."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$cargContCODIGO = $linha["car_con_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------		
@@ -55,9 +55,9 @@
 						contrachequeonline.disposicao
 					where
 						dis_descricao='".$$tfDispos."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$disposicaoCODIGO = $linha["dis_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.disposicao 
@@ -65,8 +65,8 @@
 						values
 							('".$tfDispos."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$disposicaoCODIGO = $linha["dis_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -77,9 +77,9 @@
 						contrachequeonline.grau_instrucao
 					where
 						gra_ins_descricao='".$slGrauInst."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$grauInstCODIGO = $linha["gra_ins_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.grau_instrucao 
@@ -87,8 +87,8 @@
 							values
 								('".$slGrauInst."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$grauInstCODIGO = $linha["gra_ins_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -100,7 +100,7 @@
 						contrachequeonline.formacao
 					where
 						for_descricao='".$tfFormac."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
 			$linha = mysqli_fetch_array(resultado);
 			$formacaoCODIGO = $linha["for_codigo"];
@@ -110,8 +110,8 @@
 							values
 								(".$grauInstCODIGO.", '".$tfFormac."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$formacaoCODIGO = $linha["for_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -122,7 +122,7 @@
 						contrachequeonline.funcao
 					where
 						fun_descricao='".$tfFuncExer."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
 			$linha = mysqli_fetch_array(resultado);
 			$funcaoCODIGO = $linha["fun_codigo"];
@@ -132,8 +132,8 @@
 							values
 								('".$tfFuncExer."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$funcaoCODIGO = $linha["fun_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -144,7 +144,7 @@
 						contrachequeonline.vinculo 
 					where
 						vin_descricao='".$tfVincFund."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
 			$linha = mysqli_fetch_array(resultado);
 			$vinculoCODIGO = $linha["vin_codigo"];
@@ -154,8 +154,8 @@
 							values
 								('".$tfVincFund."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$vinculoCODIGO = $linha["vin_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -166,7 +166,7 @@
 						contrachequeonline.equipe_psf
 					where
 						eqp_equipe_psf='".$tfUnidPSF."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
 			$linha = mysqli_fetch_array(resultado);
 			$psfCODIGO = $linha["eqp_codigo"];
@@ -176,8 +176,8 @@
 						values
 							('".$tfUnidPSF."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$psfCODIGO = $linha["eqp_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -188,9 +188,9 @@
 						contrachequeonline.micro_area 
 					where
 						eqp_equipe_psf='".$tfUnidMicAre."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$microCODIGO = $linha["mic_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.micro_area 
@@ -198,8 +198,8 @@
 						values
 							('".$tfUnidMicAre."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$microCODIGO = $linha["mic_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -212,9 +212,9 @@
 						contrachequeonline.local 
 					where
 						loc_local='".$tfUnid."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$localCODIGO = $linha["loc_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.local 
@@ -222,8 +222,8 @@
 						values
 							(".$psfCODIGO.", ".$microCODIGO.", '".$tfUnid."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$localCODIGO = $linha["loc_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -233,9 +233,9 @@
 						contrachequeonline.servidor  
 					where
 						ser_nome='".$tfNomeServ."' AND ser_cpf='".$tfCPF."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$servidorCODIGO = $linha["ser_codigo"];
 		}else{
 			$hoje = date("Y-m-d H:i:s");
@@ -244,8 +244,8 @@
 							values
 								(".$cargContCODIGO.", ".$disposicaoCODIGO.", ".$slEstadCivi.", ".$slTitEleitUF.", ".$formacaoCODIGO.", ".$funcaoCODIGO.", ".$localCODIGO.", ".$slDatNascNatural.", ".$slSexo.", ".$vinculoCODIGO.", '".$tfNomeServ."', '".$tfCPF."', '".$tfDatNasc."', '".$tfNomePai."', '".$tfNomeMae."', '".$tfNomeConj."', '".$hoje."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$servidorCODIGO = $linha["ser_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -274,9 +274,9 @@
 						contrachequeonline.banco 
 					where
 						ban_nome='".$tfBanc."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$bancoCODIGO = $linha["ban_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.banco 
@@ -284,8 +284,8 @@
 						values
 							('".$tfBanc."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$bancoCODIGO = $linha["ban_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -332,9 +332,9 @@
 						contrachequeonline.bairros 
 					where
 						bai_nome='".$tfEndBairro."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$bairroCODIGO = $linha["ban_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.bairros 
@@ -342,8 +342,8 @@
 						values
 							('".$tfEndBairro."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$bairroCODIGO = $linha["ban_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -354,9 +354,9 @@
 						contrachequeonline.tipo_logradouro
 					where
 						tip_descricao='".$tfEndTipLog."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$tipLogCODIGO = $linha["tip_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.tipo_logradouro 
@@ -364,8 +364,8 @@
 						values
 							('".$tfEndTipLog."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$tipLogCODIGO = $linha["tip_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -376,9 +376,9 @@
 						contrachequeonline.logradouros 
 					where
 						log_descricao='".$tfEndereco."'";
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$logradouroCODIGO = $linha["log_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.logradouros 
@@ -386,8 +386,8 @@
 						values
 							('".$tfEndereco."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$logradouroCODIGO = $linha["log_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -407,9 +407,9 @@
 						bai_codigo = ".$bairroCODIGO." AND 
 						tip_codigo = ".$tipLogCODIGO." AND 
 						log_codigo = ".$logradouroCODIGO;
-		$resultado = $conexao->executar($sqlSEL);
+		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$cepCODIGO = $linha["cep_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.cep 
@@ -417,8 +417,8 @@
 						values
 							(".$slEndUF.", ".$slEndCida.", ".$bairroCODIGO.", ".$tipLogCODIGO.", ".$logradouroCODIGO.", '".$tfEndCEP."')";
 			$conexao->executar($sqlINS);
-			$resultado = $conexao->executar($sqlSEL);
-			$linha = mysqli_fetch_array(resultado);
+			$resultado = $conexao->selecionar($sqlSEL);
+			$linha = mysqli_fetch_array($resultado);
 			$cepCODIGO = $linha["cep_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
