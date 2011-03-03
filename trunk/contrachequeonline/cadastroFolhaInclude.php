@@ -168,7 +168,7 @@
 						eqp_equipe_psf='".$tfUnidPSF."'";
 		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
-			$linha = mysqli_fetch_array(resultado);
+			$linha = mysqli_fetch_array($resultado);
 			$psfCODIGO = $linha["eqp_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.equipe_psf 
