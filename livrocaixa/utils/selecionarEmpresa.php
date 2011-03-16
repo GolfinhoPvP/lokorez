@@ -41,12 +41,12 @@
 					include($toRoot."utils/getEmpresaSL.php");
 				?>
 				</select><span style="cursor:pointer" onclick="javascript: location.href = '../cruds/cadastrar/cadEmpresa.php';"><img src="../imagens/add.png" />Cadastrar nova empresa!</span>
-			  </div>
+		  </div>
 					<div id="selEmpBut">
 			  <input name="btSel" type="submit" class="botao2" id="btSel" value="Selecionar" />
-			  </div>
+		  </div>
 			  <div id="voltar" title="Voltar!" style="cursor:pointer" onclick="javascript: location.href = '<?php echo($voltar); ?>';"><img src="../imagens/voltar.png" /></div>
-			  </div>
+		  </div>
 		</form>
 	</body>
 </html>
