@@ -13,13 +13,15 @@
 		<script type="text/javascript" language="javascript">
 			<!--
 			width	= 600;
-			height 	= 210;
 			left 	= 150;
 			top 	= 100;
-			URL 	= "pesCheckoutModelo.php?slTec=<?php echo($slTec); ?>";
 			window.onload = function(){
-				<?php if($pesquisar == "sim") 
-						echo('window.open(URL,"promo", "width="+width+", height="+height+", top="+top+", left="+left+", scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no");');
+				<?php
+					if($pesquisar == "sim" && $geral == "nao"){
+						echo('height = 210; URL = "pesCheckoutModelo.php?slTec='.$slTec.'"; window.open(URL,"promo", "width="+width+", height="+height+", top="+top+", left="+left+", scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no");');
+					}else if($pesquisar == "sim" && $geral == "sim"){
+						echo('height = 610; URL = "pesCheckoutModeloGeral.php"; window.open(URL,"promo", "width="+width+", height="+height+", top="+top+", left="+left+", scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no");');
+					}
 				?>
 			}
 		</script>
@@ -27,7 +29,7 @@
 	
 	<body>
 		<div id="confirmar"></div>
-		<form id="cadastrar" name="cadastrar" method="post" action="pesCheckout.php?pesquisar=sim" onsubmit="javascript: return validarPesquisar();">
+		<form id="cadastrar" name="cadastrar" method="post" action="pesCheckout.php?pesquisar=sim&geral=nao" onsubmit="javascript: return validarPesquisar();">
 		  <div id="pesCheckOut">
 		  	<div class="texto3" id="pesCheckOutRef">Tecnico: 
 			  <select class="textField1" name="slTec" id="slTec">
@@ -40,6 +42,11 @@
 	      <input name="btSol" type="submit" class="botao2" id="btSol" value="Gerar Check-Saida" />
 			</div>
 		  </div>
+		</form>
+		<form action="pesCheckout.php?pesquisar=sim&geral=sim" method="get">
+			<div id="pesCheckOutAll">
+				<input name="btSolAll" type="button" class="botao2" id="btSolAll" value="Gerar Check-Saida Geral" />
+			</div>
 		</form>
 	</body>
 </html>

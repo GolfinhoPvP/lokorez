@@ -31,36 +31,36 @@
 		$lancamento->codigo 	= $tfCod;
 		$lancamento->forCodigo 	= $slForPag;
 		if(($slPro != "---") && ($slSer != "---")){
-			$lancamento->tipCodigo = 203;
+			$lancamento->tipCodigo = 103;
 		}else if(($slPro != "---") && ($slSer == "---")){
-			$lancamento->tipCodigo = 201;
+			$lancamento->tipCodigo = 101;
 		}else if(($slPro == "---") && ($slSer != "---")){
-			$lancamento->tipCodigo = 202;
+			$lancamento->tipCodigo = 102;
 		}
 		$lancamento->pcCodigo 	= $slPlaCon;
-		$lancamento->valor 		= $tfValTot;
+		$lancamento->valor 		= converterValor($tfValTot);
 		
 		$dao->setLancamento($lancamento);
 		$dao->cadastrar();
 		
-		if($lancamento->tipCodigo == 201 || $lancamento->tipCodigo == 203){
+		if($lancamento->tipCodigo == 101 || $lancamento->tipCodigo == 103){
 			include_once($toRoot."beans/LancamentoProduto.class.php");
 			include_once($toRoot."dao/DAOLancamentoProduto.class.php");
 			
-			$lancamentoProduto	= new LancamentoProduto($tfCod, $slPro, $tfQua, $tfValPro);
-			$dao 				= new DAOLancamentoProduto($lancamentoProduto, $conexao);
+			$lancamentoProduto	= new LancamentoProduto($tfCod, $slPro, $tfQua, converterValor($tfValPro));
+			$daoP 				= new DAOLancamentoProduto($lancamentoProduto, $conexao);
 			
-			$dao->cadastrar();
+			$daoP->cadastrar();
 		}
 		
-		if($lancamento->tipCodigo == 202 || $lancamento->tipCodigo == 203){
+		if($lancamento->tipCodigo == 102 || $lancamento->tipCodigo == 103){
 			include_once($toRoot."beans/LancamentoServico.class.php");
 			include_once($toRoot."dao/DAOLancamentoServico.class.php");
 			
-			$lancamentoServico	= new LancamentoServico($tfCod, $slSer, $slTec, $tfValSer);
-			$dao 				= new DAOLancamentoServico($lancamentoServico, $conexao);
+			$lancamentoServico	= new LancamentoServico($tfCod, $slSer, $slTec, converterValor($tfValSer));
+			$daoS 				= new DAOLancamentoServico($lancamentoServico, $conexao);
 			
-			$dao->cadastrar();
+			$daoS->cadastrar();
 		}
 		
 		$log 			= new Log(3, 11, $tfCod." cadastrado!");

@@ -1,10 +1,10 @@
 /* CSS Document */
 #pesCheckOut{
 	position:absolute;
-	width: 538px;
-	height: 150px;
-	left: 6px;
-	top: 12px;
+	width: 922px;
+	height: 137px;
+	left: 1px;
+	top: 41px;
 }
 #pesCheckOutRef{
 	position:absolute;
@@ -17,8 +17,8 @@
 
 #pesCheckOutBut{
 	position:absolute;
-	width: 113px;
-	height: 44px;
+	width: 160px;
+	height: 42px;
 	left: 31px;
 	top: 84px;
 }
@@ -103,4 +103,12 @@
 	color: #000000;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
+}
+/* ---------------------------- */
+#pesCheckOutAll{
+	position:absolute;
+	width: 197px;
+	height: 42px;
+	left: 31px;
+	top: 193px;
 }

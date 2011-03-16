@@ -17,7 +17,7 @@
 			$this->lancamentoProduto->serCodigo		= $linha["ser_codigo"];
 			$this->lancamentoProduto->tecCodigo		= $linha["tec_codigo"];
 			$this->lancamentoProduto->valorServico	= $linha["lan_valor_servico"];
-			$this->lancamento->checado				= $linha["lan_checado"];
+			$this->lancamentoProduto->checado		= $linha["lan_checado"];
 			return $this->lancamentoProduto;
 		}
 		
@@ -31,7 +31,7 @@
 			$this->lancamentoProduto->serCodigo		= $linha["ser_codigo"];
 			$this->lancamentoProduto->tecCodigo		= $linha["tec_codigo"];
 			$this->lancamentoProduto->valorServico	= $linha["lan_valor_servico"];
-			$this->lancamento->checado				= $linha["lan_checado"];
+			$this->lancamentoProduto->checado		= $linha["lan_checado"];
 			return $this->lancamentoProduto;
 		}
 		
@@ -40,7 +40,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO lancamentos_servico (lan_codigo, ser_codigo, tec_codigo, lan_valor_servico, lan_checado) VALUES ('".$this->lancamentoProduto->lanCodigo."', ".$this->lancamentoProduto->serCodigo.", ".$this->lancamentoProduto->tecCodigo.", ".$this->lancamentoProduto->valorServico.", ".$this->lancamento->checado.")";
+			$sql = "INSERT INTO lancamentos_servico (lan_codigo, ser_codigo, tec_codigo, lan_valor_servico, lan_checado) VALUES ('".$this->lancamentoProduto->lanCodigo."', ".$this->lancamentoProduto->serCodigo.", ".$this->lancamentoProduto->tecCodigo.", ".$this->lancamentoProduto->valorServico.", ".$this->lancamentoProduto->checado.")";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o Lancamento/Servico: ".$this->lancamentoProduto->lanCodigo);
 				return false;
@@ -49,7 +49,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE lancamentos_servico SET lan_codigo='".$this->lancamentoProduto->lanCodigo."', ser_codigo=".$this->lancamentoProduto->serCodigo.",  tec_codigo=".$this->lancamentoProduto->tecCodigo.", lan_valor_servico=".$this->lancamentoProduto->valorServico.", lan_checado=".$this->lancamento->checado." WHERE lan_codigo='".$valRef."'";
+			$sql = "UPDATE lancamentos_servico SET lan_codigo='".$this->lancamentoProduto->lanCodigo."', ser_codigo=".$this->lancamentoProduto->serCodigo.",  tec_codigo=".$this->lancamentoProduto->tecCodigo.", lan_valor_servico=".$this->lancamentoProduto->valorServico.", lan_checado=".$this->lancamentoProduto->checado." WHERE lan_codigo='".$valRef."'";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o Lancamento/Servico código: ".$valRef);
 				return false;

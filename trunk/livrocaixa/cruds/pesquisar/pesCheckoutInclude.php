@@ -11,7 +11,10 @@
 	include_once($toRoot."utils/controladorAcesso.php");
 	include_once($toRoot."utils/funcoes.php");
 	
-	$pesquisar = isset($_GET["pesquisar"]) ? $_GET["pesquisar"] : NULL;	 		
+	foreach($_GET as $nomeCampo => $valor){
+		$comando = "\$".$nomeCampo."= antiSQL(isset(\$_GET['$nomeCampo']) ? '".$valor."' : NULL);";
+		eval($comando);
+	}		
 	
 	if($pesquisar == "sim"){
 		foreach($_POST as $nomeCampo => $valor){
