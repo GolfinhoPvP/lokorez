@@ -9,12 +9,16 @@
 		}
  
 		public function getCheckout($valRef){
-			$sql = "SELECT tecnicos.tec_descricao, classe.cla_descricao, sum(lancamentos.lan_valor) soma, pessoas.pes_nome, pessoas.pes_cpf, tecnicos.tec_codigo, classe.cla_porcentagem, sum(lancamentos.lan_valor)*(classe.cla_porcentagem/100) chout FROM livrocaixa.lancamentos INNER JOIN livrocaixa.tecnicos ON (lancamentos.tec_codigo = tecnicos.tec_codigo) INNER JOIN livrocaixa.classe ON (tecnicos.cla_codigo = classe.cla_codigo) INNER JOIN livrocaixa.pessoas ON (tecnicos.pes_codigo = pessoas.pes_codigo) WHERE tecnicos.tec_codigo=".$valRef." AND lancamentos.lan_checado=0 GROUP BY tecnicos.tec_descricao";
+			$sql = "SELECT t.tec_descricao, c.cla_descricao, sum(ls.lan_valor_servico) soma, p.pes_nome, p.pes_cpf, t.tec_codigo, c.cla_porcentagem, format(sum(ls.lan_valor_servico)*(c.cla_porcentagem/100), 2) chout FROM lancamentos_servico ls
+		INNER JOIN tecnicos t
+			ON ls.tec_codigo = t.tec_codigo
+		INNER JOIN classe c
+			ON t.cla_codigo = c.cla_codigo
+		INNER JOIN pessoas p
+			On t.pes_codigo = p.pes_codigo
+	WHERE t.tec_codigo = ".$valRef." AND lan_checado == 0";
 			
 			$resultado = $this->conexao->selecionar($sql);
-			if(!$resultado){
-				echo("Não foi possivel selecionar o checkout referência: ".$valRef);
-			}
 			if($resultado == false)
 				return $this->checkout = NULL;
 			$linha = mysqli_fetch_array($resultado);

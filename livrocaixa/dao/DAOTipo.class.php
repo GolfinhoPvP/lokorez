@@ -9,7 +9,7 @@
 		}
 		
 		public function getTipoLista(){
-			$sql = "SELECT * FROM tipos";
+			$sql = "SELECT * FROM tipos WHERE tip_codigo < 100";
 			$resultado = $this->conexao->selecionar($sql);
 			if($resultado == false ||  $this->conexao->numeroLinhas($resultado) == 0)
 				return NULL;
