@@ -1,8 +1,8 @@
 <?php
 	$toRoot = "../";
 	
-	include_once($toRoot."beans/Lancamento.class.php");
-	include_once($toRoot."dao/DAOLancamento.class.php");
+	include_once($toRoot."beans/LancamentoServico.class.php");
+	include_once($toRoot."dao/DAOLancamentoServico.class.php");
 	include_once($toRoot."utils/ConectarMySQL.class.php");	
 	include_once($toRoot."utils/funcoes.php");
 	
@@ -12,8 +12,8 @@
 	}
 	
 	$conexao 	= new ConectarMySql($toRoot);
-	$bean 		= new Lancamento();
-	$dao		= new DAOLancamento($bean, $conexao);
+	$bean 		= new LancamentoServico();
+	$dao		= new DAOLancamentoServico($bean, $conexao);
 	$bean 		= $dao->zerar($valRef);
 	
 	$conexao->fechar();

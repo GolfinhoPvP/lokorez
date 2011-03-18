@@ -15,6 +15,9 @@
 	$bean 		= new Checkout($tfNom, $tfCPF, $tfRG);
 	$dao		= new DAOCheckout($bean, $conexao);
 	$bean 		= $dao->getCheckout($slTec);
+	if($bean == NULL){
+		die("Não há check out pendente para esse funcionário");
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,11 +37,11 @@
 		<div id="modLan">
 			<div class="textLan1" id="modLanCod">Técnico: <span class="texto1"><?php echo($bean->tecDescricao); ?></span></div>
 			<div class="textLan1" id="modLanDat">Classe: <span class="texto1"><?php echo($bean->claDescricao); ?></span></div>
-			<div class="textLan1" id="modLanPC">Vendas, total: R$ <span class="texto1"><?php echo($bean->sumLanc); ?></span></div>
+			<div class="textLan1" id="modLanPC">Vendas, total: R$ <span class="texto1"><?php echo(inverterValor($bean->sumLanc)); ?></span></div>
 			<div class="textLan1" id="modLanPro">Nome completo: <span class="texto1"><?php echo($bean->pesNome); ?></span></div>
 			<div class="textLan1" id="modLanSer">CPF: <span class="texto1"><?php echo($bean->pesCPF); ?></span></div>
-			<div class="textLan1" id="modLanFP">Porcentagem: <span class="texto1"><?php echo($bean->claPorcentagem); ?>%</span></div>
-			<div class="textLan1" id="modLanTec">Valor do check: R$ <span class="texto1"><?php echo($bean->valor); ?></span></div>
+			<div class="textLan1" id="modLanFP">Porcentagem: <span class="texto1"><?php echo(inverterValor($bean->claPorcentagem)); ?>%</span></div>
+			<div class="textLan1" id="modLanTec">Valor do check: R$ <span class="texto1"><?php echo(inverterValor($bean->valor)); ?></span></div>
 			<div class="textLan1" id="modLanAss">Assinatura:______________________________________________________</div>
 	</div>
 	<div id="imprimir" title="Imprimir!" onclick="javascript: window.print();" style="cursor:pointer"></div>

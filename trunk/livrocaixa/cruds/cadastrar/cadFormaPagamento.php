@@ -29,9 +29,10 @@
 			  <div class="texto3" id="cadForPagPer">Per&iacute;odo: 
 		        <input name="tfPer" type="text" class="textField1" id="tfPer" size="5" maxlength="3" onkeyup="javascript: validarForm('tfPer');"/>
 			  </div>
-		      </div>
-		<div id="cadCliBut">
+			  <div id="cadCliBut">
     <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+			<div id="voltar" title="Voltar!" style="cursor:pointer" onclick="javascript: location.href = '<?php echo($voltar); ?>';"><img src="../../imagens/voltar.png" /></div>
+	      </div>
 		</form>
 	</body>
 </html>

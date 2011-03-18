@@ -1,10 +1,10 @@
 /* CSS Document */
 #cadForPag{
 	position:absolute;
-	width: 640px;
-	height: 111px;
-	left: 0px;
-	top: 0px;
+	width: 925px;
+	height: 140px;
+	left: 2px;
+	top: 42px;
 }
 #cadForPagDes{
 	position:absolute;
@@ -24,10 +24,16 @@
 
 #cadCliBut{
 	position:absolute;
-	width: 113px;
-	height: 44px;
-	left: 262px;
-	top: 123px;
+	width: 111px;
+	height: 40px;
+	left: 165px;
+	top: 98px;
 }
-
 /* ---------------------------- */
+#voltar{
+	position:absolute;
+	width: 68px;
+	height: 26px;
+	left: 855px;
+	top: 2px;
+}

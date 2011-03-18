@@ -19,6 +19,7 @@ function validarForm(id){
 			case "slPlaCon" :
 			case "slPro" :
 			case "slPes" :
+			case "slTec" :
 			case "slSer" :
 			case "slSta" :
 			case "slForPag" :
