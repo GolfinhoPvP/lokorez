@@ -12,13 +12,13 @@
 		<script type="text/javascript" language="javascript" src="../../scripts/javascript/checkout.js"></script>
 		<script type="text/javascript" language="javascript">
 			<!--
-			width	= 600;
+			width	= 620;
 			left 	= 150;
 			top 	= 100;
 			window.onload = function(){
 				<?php
 					if($pesquisar == "sim" && $geral == "nao"){
-						echo('height = 210; URL = "pesCheckoutModelo.php?slTec='.$slTec.'"; window.open(URL,"promo", "width="+width+", height="+height+", top="+top+", left="+left+", scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no");');
+						echo('height = 225; URL = "pesCheckoutModelo.php?slTec='.$slTec.'"; window.open(URL,"promo", "width="+width+", height="+height+", top="+top+", left="+left+", scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no");');
 					}else if($pesquisar == "sim" && $geral == "sim"){
 						echo('height = 610; URL = "pesCheckoutModeloGeral.php"; window.open(URL,"promo", "width="+width+", height="+height+", top="+top+", left="+left+", scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no");');
 					}
@@ -43,9 +43,9 @@
 			</div>
 		  </div>
 		</form>
-		<form action="pesCheckout.php?pesquisar=sim&geral=sim" method="get">
+		<form action="pesCheckout.php?pesquisar=sim&geral=sim" method="post">
 			<div id="pesCheckOutAll">
-				<input name="btSolAll" type="button" class="botao2" id="btSolAll" value="Gerar Check-Saida Geral" />
+				<input name="btSolAll" type="submit" class="botao2" id="btSolAll" value="Gerar Check-Saida Geral" />
 			</div>
 		</form>
 	</body>
