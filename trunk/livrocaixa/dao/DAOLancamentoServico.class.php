@@ -76,7 +76,11 @@
 		}
 		
 		public function zerar($valRef){
-			$sql = "UPDATE lancamentos_servico SET lan_checado = 1 WHERE tec_codigo = ".$valRef;
+			if($valRef == 0){
+				$sql = "UPDATE lancamentos_servico SET lan_checado = 1";
+			}else{
+				$sql = "UPDATE lancamentos_servico SET lan_checado = 1 WHERE tec_codigo = ".$valRef;
+			}
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel zerar o lancamento código: ".$valRef);
 				return false;
