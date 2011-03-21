@@ -46,7 +46,7 @@
 		<form action="pesCheckout.php?pesquisar=sim&geral=sim" method="post">
 			<div id="pesCheckOutAll">
 				<input name="btSolAll" type="submit" class="botao2" id="btSolAll" value="Gerar Check-Saida Geral" />
-			</div>
+		  </div>
 		</form>
 	</body>
 </html>

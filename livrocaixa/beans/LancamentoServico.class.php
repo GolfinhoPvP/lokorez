@@ -1,6 +1,7 @@
 <?php
 	class LancamentoServico{
 		private $lanCodigo;
+		private $empCodigo;
 		private $serCodigo;
 		private $tecCodigo;
 		private $valorServico;
@@ -8,6 +9,7 @@
 		
 		function __construct($cod = NULL, $proCod = NULL, $tecCod = NULL, $val = NULL){
 			$this->lanCodigo 	= $cod;
+			$this->empCodigo 	= $_SESSION["empresa"];
 			$this->serCodigo 	= $proCod;
 			$this->tecCodigo 	= $tecCod;
 			$this->valorServico = $val;

@@ -16,7 +16,7 @@
 	<body>
 		<?php
 			if($cadastrar == true){
-				$tipo = "cad";
+				$tipo = "lan";
 				include($toRoot."includes/confirmar.php");
 			}else{
 				echo('<div id="confirmar"></div>');
@@ -31,6 +31,9 @@
 		<div id="CadLan">
 			<div class="texto3" id="cadLanCod">Código: 
 		  <input name="tfCod" type="text" class="textField1" id="tfCod" size="15" value="<?php echo($chave); ?>" maxlength="12" readonly="readonly" />
+		  </div>
+		  <div class="texto3" id="cadLanOrdSer">Ordem de Servi&ccedil;o: 
+		    <input name="tfOrdSer" type="text" class="textField1" id="tfOrdSer" size="25" maxlength="50"  onkeyup="javascript: validarForm('tfOrdSer');"/>
 		  </div>
 			<div class="texto3" id="cadLanPlaCon">Plano de conta: 
 			  <select class="textField1" name="slPlaCon" id="slPlaCon">
@@ -90,8 +93,12 @@
 		  <div class="texto3" id="cadLanValTot">Valor total RS: 
 		    <input name="tfValTot" type="text" class="textField1" id="tfValTot" size="15" maxlength="15" onfocus="javascript: calcularValorTotal('tfValTot');" onkeyup="javascript: validarForm('tfValTot');"/>
 		  </div>
+		  <div class="texto3" id="cadLanDesc">Desconto RS: 
+		    <input name="tfValDesc" type="text" class="textField1" id="tfValDesc" onkeyup="javascript: validarForm('tfValDesc');" value="0" size="15" maxlength="15"/>
+		  </div>
 			<div id="cadBut">
-		  <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
+		  <input name="btCad" type="submit" class="botao2" id="btCad" value="Lan&ccedil;ar" />
+			</div>
 		  </div>
 		</form>
 	</body>

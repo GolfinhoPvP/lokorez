@@ -37,8 +37,10 @@
 		}else if(($slPro == "---") && ($slSer != "---")){
 			$lancamento->tipCodigo = 102;
 		}
-		$lancamento->pcCodigo 	= $slPlaCon;
-		$lancamento->valor 		= converterValor($tfValTot);
+		$lancamento->pcCodigo 		= $slPlaCon;
+		$lancamento->ordemServico 	= $tfOrdSer;
+		$lancamento->valor 			= converterValor($tfValTot);
+		$lancamento->desconto 		= converterValor($tfValDesc);
 		
 		$dao->setLancamento($lancamento);
 		$dao->cadastrar();

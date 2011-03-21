@@ -1,6 +1,6 @@
 /*
 Created		1/19/2011
-Modified		2/22/2011
+Modified		3/21/2011
 Project		
 Model		
 Company		
@@ -94,12 +94,18 @@ Create table servicos (
 
 Create table lancamentos (
 	lan_codigo Varchar(12) NOT NULL,
+	emp_codigo Bigint UNSIGNED NOT NULL,
+	cli_codigo Bigint UNSIGNED NOT NULL,
 	for_codigo Bigint UNSIGNED,
 	tip_codigo Bigint UNSIGNED NOT NULL,
 	pc_codigo Bigint UNSIGNED,
+	lan_ordem_servico Varchar(50),
 	lan_datahora Datetime NOT NULL,
+	lan_desconto Double,
 	lan_valor_total Double,
- Primary Key (lan_codigo)) ENGINE = InnoDB;
+	lan_checado Bool,
+	UNIQUE (lan_ordem_servico),
+ Primary Key (lan_codigo,emp_codigo)) ENGINE = InnoDB;
 
 Create table solicitacoes (
 	sol_codigo Serial NOT NULL AUTO_INCREMENT,
@@ -215,18 +221,21 @@ Create table tipos (
 
 Create table lancamentos_servico (
 	lan_codigo Varchar(12) NOT NULL,
+	emp_codigo Bigint UNSIGNED NOT NULL,
 	ser_codigo Bigint UNSIGNED NOT NULL,
 	tec_codigo Bigint UNSIGNED NOT NULL,
 	lan_valor_servico Double,
-	lan_checado Bool,
- Primary Key (lan_codigo)) ENGINE = InnoDB;
+	lan_ser_checado Bool,
+ Primary Key (lan_codigo,emp_codigo)) ENGINE = InnoDB;
 
 Create table lancamentos_produto (
 	lan_codigo Varchar(12) NOT NULL,
+	emp_codigo Bigint UNSIGNED NOT NULL,
 	pro_codigo Bigint UNSIGNED NOT NULL,
 	lan_quantidade Int,
 	lan_valor_produto Double,
- Primary Key (lan_codigo)) ENGINE = InnoDB;
+	lan_pro_checado Bool,
+ Primary Key (lan_codigo,emp_codigo)) ENGINE = InnoDB;
 
 
 Alter table clientes add Foreign Key (cli_codigo_pai) references clientes (cli_codigo) on delete  restrict on update  restrict;
@@ -238,18 +247,20 @@ Alter table forma_pagamento add Foreign Key (cli_codigo) references clientes (cl
 Alter table servicos add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table plano_conta add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete cascade on update cascade;
 Alter table convenios add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete  restrict on update  restrict;
+Alter table lancamentos add Foreign Key (cli_codigo) references clientes (cli_codigo) on delete  restrict on update  restrict;
 Alter table produtos add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table solicitacoes add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table funcionarios add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table sangrias add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
+Alter table lancamentos add Foreign Key (emp_codigo) references empresas (emp_codigo) on delete cascade on update cascade;
 Alter table telefones add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table emails add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table clientes add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table tecnicos add Foreign Key (pes_codigo) references pessoas (pes_codigo) on delete cascade on update cascade;
 Alter table lancamentos_produto add Foreign Key (pro_codigo) references produtos (pro_codigo) on delete  restrict on update cascade;
 Alter table lancamentos_servico add Foreign Key (ser_codigo) references servicos (ser_codigo) on delete  restrict on update cascade;
-Alter table lancamentos_servico add Foreign Key (lan_codigo) references lancamentos (lan_codigo) on delete cascade on update cascade;
-Alter table lancamentos_produto add Foreign Key (lan_codigo) references lancamentos (lan_codigo) on delete cascade on update cascade;
+Alter table lancamentos_servico add Foreign Key (lan_codigo,emp_codigo) references lancamentos (lan_codigo,emp_codigo) on delete cascade on update cascade;
+Alter table lancamentos_produto add Foreign Key (lan_codigo,emp_codigo) references lancamentos (lan_codigo,emp_codigo) on delete cascade on update cascade;
 Alter table lancamentos add Foreign Key (pc_codigo) references plano_conta (pc_codigo) on delete set null on update cascade;
 Alter table lancamentos_servico add Foreign Key (tec_codigo) references tecnicos (tec_codigo) on delete  restrict on update cascade;
 Alter table logs add Foreign Key (ope_codigo) references operacoes (ope_codigo) on delete cascade on update cascade;
