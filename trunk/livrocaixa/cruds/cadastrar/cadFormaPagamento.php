@@ -26,7 +26,7 @@
 			<div id="cadForPag">
 			  <div class="texto3" id="cadForPagDes">Forma de pagamento : 
 			    <input name="tfDes" type="text" class="textField1" id="tfDes" size="50" maxlength="50" onkeyup="javascript: validarForm('tfDes');" /></div>
-			  <div class="texto3" id="cadForPagPer">Per&iacute;odo: 
+			  <div class="texto3" id="cadForPagPer">Parcelas: 
 		        <input name="tfPer" type="text" class="textField1" id="tfPer" size="5" maxlength="3" onkeyup="javascript: validarForm('tfPer');"/>
 			  </div>
 			  <div id="cadCliBut">

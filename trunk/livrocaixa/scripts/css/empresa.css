@@ -1,10 +1,10 @@
 /* CSS Document */
 #cadEmp{
 	position:absolute;
-	width: 640px;
+	width: 928px;
 	height: 136px;
-	left: 0px;
-	top: 0px;
+	left: -1px;
+	top: 41px;
 }
 #cadEmpNom{
 	position:absolute;
@@ -28,6 +28,6 @@
 	position:absolute;
 	width: 71px;
 	height: 27px;
-	left: 646px;
+	left: 855px;
 	top: 3px;
 }

@@ -2,6 +2,7 @@
 	switch($tipo){
 		case "cad" : $mensagem = "Cadastro efetuado com sucesso!"; break;
 		case "alt" : $mensagem = "Alteração efetuada com sucesso!"; break;
+		case "lsn" : $mensagem = "Lançamento efetuado com sucesso!"; break;
 		case "del" : $mensagem = "Exclusão efetuada com sucesso!"; break;
 		case "sel" : $mensagem = "Empresa selecionada com sucesso!"; break;
 		case "sol" : $mensagem = "Solicitação registrada com sucesso!"; break;

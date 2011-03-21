@@ -27,6 +27,7 @@
 			}
 		?>
 		<div id="confirmar"></div>
+		<div id="cadCliGer">
 		<form id="cadastrar" name="cadastrar" method="post" action="cadCliente.php?cadastrar=sim" onsubmit="javascript: return validarCadastro();">
 			<div class="texto3" id="cadCliNov">Contato novo? 
 			  <input name="cbSel" type="checkbox" class="textField1" id="cbSel" onchange="javascript: alternar();" value="novo" />
@@ -39,7 +40,8 @@
 		  </select>
 		  </div>
 			<div id="cadCliPes">
-			  <div class="texto3" id="cadCliPesNom">Nome: <input name="tfNom" type="text" class="textField1" id="tfNom" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
+			  <div class="texto3" id="cadCliPesNom">Nome: 
+		      <input name="tfNom" type="text" class="textField1" id="tfNom" size="75" maxlength="150" onkeyup="javascript: validarForm('tfNom');" /></div>
 			  <div class="texto3" id="cadCliPesRG">RG: 
 		      <input name="tfRG" type="text" class="textField1" id="tfRG" size="30" maxlength="30" onkeyup="javascript: validarForm('tfRG');"/>
 			  </div>
@@ -96,5 +98,6 @@
 		  <div id="cadCliBut">
 	      <input name="btCad" type="submit" class="botao2" id="btCad" value="Cadastrar" /></div>
 		</form>
+	</div>
 	</body>
 </html>

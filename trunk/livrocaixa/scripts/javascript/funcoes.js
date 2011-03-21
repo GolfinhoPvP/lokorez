@@ -37,6 +37,7 @@ function validarForm(id){
 		case "tfVal1" :
 			case "tfPor" :
 			case "tfValSer" :
+			case "tfValDesc" :
 			case "tfValPro" :
 			case "tfValTot" :
 			case "tfVal" : descricaoExpReg = /^([0-9]{1,10},[0-9]{1,2}|[0-9]{1,10})$/; break;
@@ -45,6 +46,7 @@ function validarForm(id){
 		case "tfBanNomUsu" :
 			case "tfBanNomBan" :
 			case "tfNumEnv" :
+			case "tfOrdSer" :
 			case "tfBanHos" :
 			case "tfNomUsu" : descricaoExpReg = /^([a-z]|[A-Z]|[0-9]| |\.|_|-|@|\/|:){4,100}$/; break;
 		case "tfEmlURL" : descricaoExpReg = /^([ ]{0,}|([0-9a-zA-Z]+([_.-]?[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[0-9,a-z,A-Z,.,-]*(.){1}[a-zA-Z]{2,4})+)$/; break;

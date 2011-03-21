@@ -17,6 +17,7 @@
 			$this->lancamentoProduto->proCodigo		= $linha["pro_codigo"];
 			$this->lancamentoProduto->quantidade	= $linha["lan_quantidade"];
 			$this->lancamentoProduto->valorProduto	= $linha["lan_valor_produto"];
+			$this->lancamentoProduto->checado		= $linha["lan_ser_checado"];
 			return $this->lancamentoProduto;
 		}
 		
@@ -30,6 +31,7 @@
 			$this->lancamentoProduto->proCodigo		= $linha["pro_codigo"];
 			$this->lancamentoProduto->quantidade	= $linha["lan_quantidade"];
 			$this->lancamentoProduto->valorProduto	= $linha["lan_valor_produto"];
+			$this->lancamentoProduto->checado		= $linha["lan_ser_checado"];
 			return $this->lancamentoProduto;
 		}
 		
@@ -38,7 +40,7 @@
 		}
 		
 		public function cadastrar(){
-			$sql = "INSERT INTO lancamentos_produto (lan_codigo, pro_codigo, lan_quantidade, lan_valor_produto) VALUES ('".$this->lancamentoProduto->lanCodigo."', ".$this->lancamentoProduto->proCodigo.", ".$this->lancamentoProduto->quantidade.", ".$this->lancamentoProduto->valorProduto.")";
+			$sql = "INSERT INTO lancamentos_produto (lan_codigo, emp_codigo, pro_codigo, lan_quantidade, lan_valor_produto, lan_pro_checado) VALUES ('".$this->lancamentoProduto->lanCodigo."', ".$this->lancamentoProduto->empCodigo.", ".$this->lancamentoProduto->proCodigo.", ".$this->lancamentoProduto->quantidade.", ".$this->lancamentoProduto->valorProduto.", ".$this->lancamentoProduto->checado.")";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel salvar o Lancamento/Produto: ".$this->lancamentoProduto->lanCodigo);
 				return false;
@@ -47,7 +49,7 @@
 		}
 		
 		public function alterar($valRef){
-			$sql = "UPDATE lancamentos_produto SET lan_codigo='".$this->lancamentoProduto->lanCodigo."', pro_codigo=".$this->lancamentoProduto->proCodigo.",  lan_quantidade=".$this->lancamentoProduto->quantidade.", lan_valor_produto=".$this->lancamentoProduto->valorProduto." WHERE lan_codigo='".$valRef."'";
+			$sql = "UPDATE lancamentos_produto SET lan_codigo='".$this->lancamentoProduto->lanCodigo."', emp_codigo=".$this->lancamentoProduto->empCodigo.", pro_codigo=".$this->lancamentoProduto->proCodigo.",  lan_quantidade=".$this->lancamentoProduto->quantidade.", lan_valor_produto=".$this->lancamentoProduto->valorProduto.", lan_ser_checado=".$this->lancamentoProduto->checado." WHERE lan_codigo='".$valRef."'";
 			if(!$this->conexao->executar($sql)){
 				echo("Não foi possivel alterar o Lancamento/Produto código: ".$valRef);
 				return false;
@@ -71,6 +73,16 @@
 				echo("Não foi possivel selecionar o Lancamento/Produto referência: ".$valRef);
 			}
 			return $resultado;
+		}
+		
+		public function zerar($valRef){
+			$sql = "UPDATE lancamentos_produto SET lan_pro_checado = 1 WHERE lan_codigo = ".$valRef;
+			
+			if(!$this->conexao->executar($sql)){
+				echo("Não foi possivel zerar o lancamento código: ".$valRef);
+				return false;
+			}
+			return true;
 		}
 	}
 ?>

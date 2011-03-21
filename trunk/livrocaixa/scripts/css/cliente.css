@@ -17,14 +17,14 @@
 /* ---------------------------- */
 #cadCliPes{
 	position:absolute;
-	width: 640px;
+	width: 870px;
 	height: 112px;
 	left: 0px;
 	top: 18px;
 }
 #cadCliPesNom{
 	position:absolute;
-	width: 608px;
+	width: 738px;
 	height: 11px;
 	left: 11px;
 	top: 16px;
@@ -48,7 +48,7 @@
 
 #cadCliTel{
 	position:absolute;
-	width: 651px;
+	width: 872px;
 	height: 40px;
 	left: 0px;
 	top: 135px;
@@ -72,7 +72,7 @@
 
 #cadCliEml{
 	position:absolute;
-	width: 657px;
+	width: 871px;
 	height: 40px;
 	left: 0px;
 	top: 183px;
@@ -93,17 +93,23 @@
 }
 
 /* ---------------------------- */
-
+#cadCliGer{
+	position:absolute;
+	width: 978px;
+	height: 417px;
+	left: 0px;
+	top: 41px;
+}
 #cadCli{
 	position:absolute;
-	width: 617px;
+	width: 871px;
 	height: 108px;
 	left: 0px;
 	top: 229px;
 }
 #cadCliNomUsu{
 	position:absolute;
-	width: 581px;
+	width: 814px;
 	height: 11px;
 	left: 13px;
 	top: 5px;
