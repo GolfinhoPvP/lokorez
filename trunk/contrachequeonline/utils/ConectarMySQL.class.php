@@ -5,6 +5,7 @@
 		private $senhaBanco 	= "root";
 		private $nomeBanco 		= "contrachequeonline";
 		private $conexao;
+		private $comitar		= true;
 		
 		function __construct(){
 			if(!$this->conectarSGBD())

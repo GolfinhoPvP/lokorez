@@ -187,7 +187,7 @@
 					from 
 						contrachequeonline.micro_area 
 					where
-						eqp_equipe_psf='".$tfUnidMicAre."'";
+						mic_micro_area='".$tfUnidMicAre."'";
 		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
 			$linha = mysqli_fetch_array($resultado);
@@ -335,7 +335,7 @@
 		$resultado = $conexao->selecionar($sqlSEL);
 		if($conexao->numeroLinhas($resultado) > 0){
 			$linha = mysqli_fetch_array($resultado);
-			$bairroCODIGO = $linha["ban_codigo"];
+			$bairroCODIGO = $linha["bai_codigo"];
 		}else{
 			$sqlINS = "insert into contrachequeonline.bairros 
 							(bai_nome)
@@ -344,7 +344,7 @@
 			$conexao->executar($sqlINS);
 			$resultado = $conexao->selecionar($sqlSEL);
 			$linha = mysqli_fetch_array($resultado);
-			$bairroCODIGO = $linha["ban_codigo"];
+			$bairroCODIGO = $linha["bai_codigo"];
 		}
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 		$sqlSEL = "select 
