@@ -100,54 +100,61 @@ public class SGMotelView extends FrameView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel = new javax.swing.JPanel();
-        menuBar = new javax.swing.JMenuBar();
-        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
-        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
-        statusPanel = new javax.swing.JPanel();
+        TelaPrincipal = new javax.swing.JPanel();
+        BarraMenu = new javax.swing.JMenuBar();
+        javax.swing.JMenu Arquivo = new javax.swing.JMenu();
+        javax.swing.JMenuItem Sair = new javax.swing.JMenuItem();
+        Cadastro = new javax.swing.JMenu();
+        javax.swing.JMenu Ajuda = new javax.swing.JMenu();
+        javax.swing.JMenuItem Sobre = new javax.swing.JMenuItem();
+        barraStatus = new javax.swing.JPanel();
         javax.swing.JSeparator statusPanelSeparator = new javax.swing.JSeparator();
         statusMessageLabel = new javax.swing.JLabel();
         statusAnimationLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
 
-        mainPanel.setName("mainPanel"); // NOI18N
+        TelaPrincipal.setName("TelaPrincipal"); // NOI18N
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        javax.swing.GroupLayout TelaPrincipalLayout = new javax.swing.GroupLayout(TelaPrincipal);
+        TelaPrincipal.setLayout(TelaPrincipalLayout);
+        TelaPrincipalLayout.setHorizontalGroup(
+            TelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 252, Short.MAX_VALUE)
+        TelaPrincipalLayout.setVerticalGroup(
+            TelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 424, Short.MAX_VALUE)
         );
 
-        menuBar.setName("menuBar"); // NOI18N
+        BarraMenu.setName("BarraMenu"); // NOI18N
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(sgmotel.SGMotelApp.class).getContext().getResourceMap(SGMotelView.class);
-        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
-        fileMenu.setName("fileMenu"); // NOI18N
+        Arquivo.setText(resourceMap.getString("Arquivo.text")); // NOI18N
+        Arquivo.setName("Arquivo"); // NOI18N
 
         javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(sgmotel.SGMotelApp.class).getContext().getActionMap(SGMotelView.class, this);
-        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
-        exitMenuItem.setName("exitMenuItem"); // NOI18N
-        fileMenu.add(exitMenuItem);
+        Sair.setAction(actionMap.get("quit")); // NOI18N
+        Sair.setText(resourceMap.getString("Sair.text")); // NOI18N
+        Sair.setName("Sair"); // NOI18N
+        Arquivo.add(Sair);
 
-        menuBar.add(fileMenu);
+        BarraMenu.add(Arquivo);
 
-        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
-        helpMenu.setName("helpMenu"); // NOI18N
+        Cadastro.setText(resourceMap.getString("Cadastro.text")); // NOI18N
+        Cadastro.setName("Cadastro"); // NOI18N
+        BarraMenu.add(Cadastro);
 
-        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
-        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
-        helpMenu.add(aboutMenuItem);
+        Ajuda.setText(resourceMap.getString("Ajuda.text")); // NOI18N
+        Ajuda.setName("Ajuda"); // NOI18N
 
-        menuBar.add(helpMenu);
+        Sobre.setAction(actionMap.get("showAboutBox")); // NOI18N
+        Sobre.setText(resourceMap.getString("Sobre.text")); // NOI18N
+        Sobre.setName("Sobre"); // NOI18N
+        Ajuda.add(Sobre);
 
-        statusPanel.setName("statusPanel"); // NOI18N
+        BarraMenu.add(Ajuda);
+
+        barraStatus.setName("barraStatus"); // NOI18N
 
         statusPanelSeparator.setName("statusPanelSeparator"); // NOI18N
 
@@ -158,44 +165,45 @@ public class SGMotelView extends FrameView {
 
         progressBar.setName("progressBar"); // NOI18N
 
-        javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
-        statusPanel.setLayout(statusPanelLayout);
-        statusPanelLayout.setHorizontalGroup(
-            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addGroup(statusPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout barraStatusLayout = new javax.swing.GroupLayout(barraStatus);
+        barraStatus.setLayout(barraStatusLayout);
+        barraStatusLayout.setHorizontalGroup(
+            barraStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addGroup(barraStatusLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
                 .addContainerGap())
         );
-        statusPanelLayout.setVerticalGroup(
-            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statusPanelLayout.createSequentialGroup()
+        barraStatusLayout.setVerticalGroup(
+            barraStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barraStatusLayout.createSequentialGroup()
                 .addComponent(statusPanelSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(barraStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(statusMessageLabel)
                     .addComponent(statusAnimationLabel)
                     .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3))
         );
 
-        setComponent(mainPanel);
-        setMenuBar(menuBar);
-        setStatusBar(statusPanel);
+        setComponent(TelaPrincipal);
+        setMenuBar(BarraMenu);
+        setStatusBar(barraStatus);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.JMenu Cadastro;
+    private javax.swing.JPanel TelaPrincipal;
+    private javax.swing.JPanel barraStatus;
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel statusAnimationLabel;
     private javax.swing.JLabel statusMessageLabel;
-    private javax.swing.JPanel statusPanel;
     // End of variables declaration//GEN-END:variables
 
     private final Timer messageTimer;
