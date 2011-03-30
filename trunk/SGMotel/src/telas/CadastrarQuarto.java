@@ -12,11 +12,14 @@
 package telas;
 
 import beans.Quarto;
+import java.awt.Container;
+import java.awt.Graphics;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+import org.jdesktop.application.SingleFrameApplication;
 
 /**
  *
