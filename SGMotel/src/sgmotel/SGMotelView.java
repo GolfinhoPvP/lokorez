@@ -4,6 +4,7 @@
 
 package sgmotel;
 
+import java.awt.BorderLayout;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
@@ -102,6 +103,7 @@ public class SGMotelView extends FrameView {
     private void initComponents() {
 
         telaPrincipal = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
         javax.swing.JMenu Arquivo = new javax.swing.JMenu();
         javax.swing.JMenuItem Sair = new javax.swing.JMenuItem();
@@ -119,20 +121,29 @@ public class SGMotelView extends FrameView {
 
         telaPrincipal.setName("telaPrincipal"); // NOI18N
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(sgmotel.SGMotelApp.class).getContext().getResourceMap(SGMotelView.class);
+        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
+        jLabel1.setName("jLabel1"); // NOI18N
+
         javax.swing.GroupLayout telaPrincipalLayout = new javax.swing.GroupLayout(telaPrincipal);
         telaPrincipal.setLayout(telaPrincipalLayout);
         telaPrincipalLayout.setHorizontalGroup(
             telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(telaPrincipalLayout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(jLabel1)
+                .addContainerGap(442, Short.MAX_VALUE))
         );
         telaPrincipalLayout.setVerticalGroup(
             telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGroup(telaPrincipalLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(jLabel1)
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
         BarraMenu.setName("BarraMenu"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(sgmotel.SGMotelApp.class).getContext().getResourceMap(SGMotelView.class);
         Arquivo.setText(resourceMap.getString("Arquivo.text")); // NOI18N
         Arquivo.setName("Arquivo"); // NOI18N
 
@@ -155,7 +166,7 @@ public class SGMotelView extends FrameView {
         cadTipQaurto.setName("cadTipQaurto"); // NOI18N
         cadastrar.add(cadTipQaurto);
 
-        cadQuarto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        cadQuarto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         cadQuarto.setText(resourceMap.getString("cadQuarto.text")); // NOI18N
         cadQuarto.setName("cadQuarto"); // NOI18N
         cadQuarto.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +233,10 @@ public class SGMotelView extends FrameView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadQuartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadQuartoActionPerformed
-        telaPrincipal = new CadastrarQuarto();
+        CadastrarQuarto qc = new CadastrarQuarto();
+        telaPrincipal.add(qc);
+        telaPrincipal.repaint();
+        telaPrincipal.setVisible(false);
     }//GEN-LAST:event_cadQuartoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -232,6 +246,7 @@ public class SGMotelView extends FrameView {
     private javax.swing.JMenuItem cadQuarto;
     private javax.swing.JMenuItem cadTipQaurto;
     private javax.swing.JMenu cadastrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel statusAnimationLabel;
     private javax.swing.JLabel statusMessageLabel;
