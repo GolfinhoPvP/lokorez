@@ -4,7 +4,6 @@
 
 package sgmotel;
 
-import java.awt.BorderLayout;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
@@ -16,7 +15,6 @@ import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import telas.CadastrarQuarto;
 
 /**
  * The application's main frame.
@@ -103,7 +101,6 @@ public class SGMotelView extends FrameView {
     private void initComponents() {
 
         telaPrincipal = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
         javax.swing.JMenu Arquivo = new javax.swing.JMenu();
         javax.swing.JMenuItem Sair = new javax.swing.JMenuItem();
@@ -118,32 +115,33 @@ public class SGMotelView extends FrameView {
         statusMessageLabel = new javax.swing.JLabel();
         statusAnimationLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
+        telaCadQuarto = new javax.swing.JPanel();
+        jlTelCadQuaTitulo = new javax.swing.JLabel();
+        jlTelCadQuaLabel1 = new javax.swing.JLabel();
+        slTipo = new javax.swing.JComboBox();
+        btCadQuaAddNovoTipo = new javax.swing.JButton();
+        jlTelCadQuaLabel2 = new javax.swing.JLabel();
+        tfCadQuaNome = new javax.swing.JTextField();
+        btCadQuaCadastrar = new javax.swing.JButton();
 
         telaPrincipal.setName("telaPrincipal"); // NOI18N
-
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(sgmotel.SGMotelApp.class).getContext().getResourceMap(SGMotelView.class);
-        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
-        jLabel1.setName("jLabel1"); // NOI18N
 
         javax.swing.GroupLayout telaPrincipalLayout = new javax.swing.GroupLayout(telaPrincipal);
         telaPrincipal.setLayout(telaPrincipalLayout);
         telaPrincipalLayout.setHorizontalGroup(
             telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaPrincipalLayout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jLabel1)
-                .addContainerGap(442, Short.MAX_VALUE))
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         telaPrincipalLayout.setVerticalGroup(
             telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(telaPrincipalLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabel1)
-                .addContainerGap(285, Short.MAX_VALUE))
+            .addGap(0, 424, Short.MAX_VALUE)
         );
+
+        telaPrincipal.getAccessibleContext().setAccessibleParent(telaCadQuarto);
 
         BarraMenu.setName("BarraMenu"); // NOI18N
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(sgmotel.SGMotelApp.class).getContext().getResourceMap(SGMotelView.class);
         Arquivo.setText(resourceMap.getString("Arquivo.text")); // NOI18N
         Arquivo.setName("Arquivo"); // NOI18N
 
@@ -209,7 +207,7 @@ public class SGMotelView extends FrameView {
             .addGroup(barraStatusLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -227,30 +225,108 @@ public class SGMotelView extends FrameView {
                 .addGap(3, 3, 3))
         );
 
+        telaCadQuarto.setName("telaCadQuarto"); // NOI18N
+
+        jlTelCadQuaTitulo.setFont(resourceMap.getFont("jlTelCadQuaTitulo.font")); // NOI18N
+        jlTelCadQuaTitulo.setText(resourceMap.getString("jlTelCadQuaTitulo.text")); // NOI18N
+        jlTelCadQuaTitulo.setName("jlTelCadQuaTitulo"); // NOI18N
+
+        jlTelCadQuaLabel1.setFont(resourceMap.getFont("jlTelCadQuaLabel1.font")); // NOI18N
+        jlTelCadQuaLabel1.setText(resourceMap.getString("jlTelCadQuaLabel1.text")); // NOI18N
+        jlTelCadQuaLabel1.setName("jlTelCadQuaLabel1"); // NOI18N
+
+        slTipo.setFont(resourceMap.getFont("slTipo.font")); // NOI18N
+        slTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        slTipo.setName("slTipo"); // NOI18N
+
+        btCadQuaAddNovoTipo.setIcon(resourceMap.getIcon("btCadQuaAddNovoTipo.icon")); // NOI18N
+        btCadQuaAddNovoTipo.setText(resourceMap.getString("btCadQuaAddNovoTipo.text")); // NOI18N
+        btCadQuaAddNovoTipo.setName("btCadQuaAddNovoTipo"); // NOI18N
+
+        jlTelCadQuaLabel2.setFont(resourceMap.getFont("jlTelCadQuaLabel2.font")); // NOI18N
+        jlTelCadQuaLabel2.setText(resourceMap.getString("jlTelCadQuaLabel2.text")); // NOI18N
+        jlTelCadQuaLabel2.setName("jlTelCadQuaLabel2"); // NOI18N
+
+        tfCadQuaNome.setFont(resourceMap.getFont("tfCadQuaNome.font")); // NOI18N
+        tfCadQuaNome.setText(resourceMap.getString("tfCadQuaNome.text")); // NOI18N
+        tfCadQuaNome.setName("tfCadQuaNome"); // NOI18N
+
+        btCadQuaCadastrar.setIcon(resourceMap.getIcon("btCadQuaCadastrar.icon")); // NOI18N
+        btCadQuaCadastrar.setText(resourceMap.getString("btCadQuaCadastrar.text")); // NOI18N
+        btCadQuaCadastrar.setName("btCadQuaCadastrar"); // NOI18N
+
+        javax.swing.GroupLayout telaCadQuartoLayout = new javax.swing.GroupLayout(telaCadQuarto);
+        telaCadQuarto.setLayout(telaCadQuartoLayout);
+        telaCadQuartoLayout.setHorizontalGroup(
+            telaCadQuartoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaCadQuartoLayout.createSequentialGroup()
+                .addGroup(telaCadQuartoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(telaCadQuartoLayout.createSequentialGroup()
+                        .addGroup(telaCadQuartoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jlTelCadQuaLabel2)
+                            .addComponent(jlTelCadQuaLabel1))
+                        .addGap(12, 12, 12)
+                        .addGroup(telaCadQuartoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfCadQuaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(telaCadQuartoLayout.createSequentialGroup()
+                                .addComponent(slTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btCadQuaAddNovoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btCadQuaCadastrar)))
+                    .addGroup(telaCadQuartoLayout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jlTelCadQuaTitulo)))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        telaCadQuartoLayout.setVerticalGroup(
+            telaCadQuartoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaCadQuartoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlTelCadQuaTitulo)
+                .addGap(26, 26, 26)
+                .addGroup(telaCadQuartoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlTelCadQuaLabel1)
+                    .addComponent(slTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCadQuaAddNovoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(telaCadQuartoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlTelCadQuaLabel2)
+                    .addComponent(tfCadQuaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btCadQuaCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(240, Short.MAX_VALUE))
+        );
+
+        telaCadQuarto.getAccessibleContext().setAccessibleParent(telaPrincipal);
+
         setComponent(telaPrincipal);
         setMenuBar(BarraMenu);
         setStatusBar(barraStatus);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadQuartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadQuartoActionPerformed
-        CadastrarQuarto qc = new CadastrarQuarto();
-        telaPrincipal.add(qc);
-        telaPrincipal.repaint();
-        telaPrincipal.setVisible(false);
+        this.setComponent(telaCadQuarto);
     }//GEN-LAST:event_cadQuartoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.JMenu Cadastro;
     private javax.swing.JPanel barraStatus;
+    private javax.swing.JButton btCadQuaAddNovoTipo;
+    private javax.swing.JButton btCadQuaCadastrar;
     private javax.swing.JMenuItem cadQuarto;
     private javax.swing.JMenuItem cadTipQaurto;
     private javax.swing.JMenu cadastrar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlTelCadQuaLabel1;
+    private javax.swing.JLabel jlTelCadQuaLabel2;
+    private javax.swing.JLabel jlTelCadQuaTitulo;
     private javax.swing.JProgressBar progressBar;
+    private javax.swing.JComboBox slTipo;
     private javax.swing.JLabel statusAnimationLabel;
     private javax.swing.JLabel statusMessageLabel;
+    private javax.swing.JPanel telaCadQuarto;
     private javax.swing.JPanel telaPrincipal;
+    private javax.swing.JTextField tfCadQuaNome;
     // End of variables declaration//GEN-END:variables
 
     private final Timer messageTimer;
