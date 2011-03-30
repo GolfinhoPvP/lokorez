@@ -15,6 +15,7 @@ import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import telas.CadastrarQuarto;
 
 /**
  * The application's main frame.
@@ -100,11 +101,14 @@ public class SGMotelView extends FrameView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TelaPrincipal = new javax.swing.JPanel();
+        telaPrincipal = new javax.swing.JPanel();
         BarraMenu = new javax.swing.JMenuBar();
         javax.swing.JMenu Arquivo = new javax.swing.JMenu();
         javax.swing.JMenuItem Sair = new javax.swing.JMenuItem();
         Cadastro = new javax.swing.JMenu();
+        cadastrar = new javax.swing.JMenu();
+        cadTipQaurto = new javax.swing.JMenuItem();
+        cadQuarto = new javax.swing.JMenuItem();
         javax.swing.JMenu Ajuda = new javax.swing.JMenu();
         javax.swing.JMenuItem Sobre = new javax.swing.JMenuItem();
         barraStatus = new javax.swing.JPanel();
@@ -113,17 +117,17 @@ public class SGMotelView extends FrameView {
         statusAnimationLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
 
-        TelaPrincipal.setName("TelaPrincipal"); // NOI18N
+        telaPrincipal.setName("telaPrincipal"); // NOI18N
 
-        javax.swing.GroupLayout TelaPrincipalLayout = new javax.swing.GroupLayout(TelaPrincipal);
-        TelaPrincipal.setLayout(TelaPrincipalLayout);
-        TelaPrincipalLayout.setHorizontalGroup(
-            TelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout telaPrincipalLayout = new javax.swing.GroupLayout(telaPrincipal);
+        telaPrincipal.setLayout(telaPrincipalLayout);
+        telaPrincipalLayout.setHorizontalGroup(
+            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 640, Short.MAX_VALUE)
         );
-        TelaPrincipalLayout.setVerticalGroup(
-            TelaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
+        telaPrincipalLayout.setVerticalGroup(
+            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 432, Short.MAX_VALUE)
         );
 
         BarraMenu.setName("BarraMenu"); // NOI18N
@@ -142,6 +146,27 @@ public class SGMotelView extends FrameView {
 
         Cadastro.setText(resourceMap.getString("Cadastro.text")); // NOI18N
         Cadastro.setName("Cadastro"); // NOI18N
+
+        cadastrar.setText(resourceMap.getString("cadastrar.text")); // NOI18N
+        cadastrar.setName("cadastrar"); // NOI18N
+
+        cadTipQaurto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        cadTipQaurto.setText(resourceMap.getString("cadTipQaurto.text")); // NOI18N
+        cadTipQaurto.setName("cadTipQaurto"); // NOI18N
+        cadastrar.add(cadTipQaurto);
+
+        cadQuarto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        cadQuarto.setText(resourceMap.getString("cadQuarto.text")); // NOI18N
+        cadQuarto.setName("cadQuarto"); // NOI18N
+        cadQuarto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadQuartoActionPerformed(evt);
+            }
+        });
+        cadastrar.add(cadQuarto);
+
+        Cadastro.add(cadastrar);
+
         BarraMenu.add(Cadastro);
 
         Ajuda.setText(resourceMap.getString("Ajuda.text")); // NOI18N
@@ -173,7 +198,7 @@ public class SGMotelView extends FrameView {
             .addGroup(barraStatusLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -191,19 +216,26 @@ public class SGMotelView extends FrameView {
                 .addGap(3, 3, 3))
         );
 
-        setComponent(TelaPrincipal);
+        setComponent(telaPrincipal);
         setMenuBar(BarraMenu);
         setStatusBar(barraStatus);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cadQuartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadQuartoActionPerformed
+        telaPrincipal = new CadastrarQuarto();
+    }//GEN-LAST:event_cadQuartoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.JMenu Cadastro;
-    private javax.swing.JPanel TelaPrincipal;
     private javax.swing.JPanel barraStatus;
+    private javax.swing.JMenuItem cadQuarto;
+    private javax.swing.JMenuItem cadTipQaurto;
+    private javax.swing.JMenu cadastrar;
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel statusAnimationLabel;
     private javax.swing.JLabel statusMessageLabel;
+    private javax.swing.JPanel telaPrincipal;
     // End of variables declaration//GEN-END:variables
 
     private final Timer messageTimer;

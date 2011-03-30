@@ -7,7 +7,10 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost/sgmotel</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
     
     <mapping class="beans.Quarto" package="beans"/>
+    <mapping class="beans.Tipo" package="beans"/>
   </session-factory>
 </hibernate-configuration>

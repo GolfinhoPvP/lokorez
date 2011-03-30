@@ -2,9 +2,9 @@
 
 <Form version="1.5" maxVersion="1.7">
   <NonVisualComponents>
-    <Container class="javax.swing.JPanel" name="TelaPrincipal">
+    <Container class="javax.swing.JPanel" name="telaPrincipal">
       <Properties>
-        <Property name="name" type="java.lang.String" value="TelaPrincipal" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="telaPrincipal" noResource="true"/>
       </Properties>
 
       <Layout>
@@ -15,7 +15,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="432" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -59,6 +59,37 @@
             <Property name="text" type="java.lang.String" resourceKey="Cadastro.text"/>
             <Property name="name" type="java.lang.String" value="Cadastro" noResource="true"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="cadastrar">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="cadastrar.text"/>
+                <Property name="name" type="java.lang.String" value="cadastrar" noResource="true"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="cadTipQaurto">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Ctrl+T"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="cadTipQaurto.text"/>
+                    <Property name="name" type="java.lang.String" value="cadTipQaurto" noResource="true"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="cadQuarto">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Ctrl+Q"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="cadQuarto.text"/>
+                    <Property name="name" type="java.lang.String" value="cadQuarto" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadQuartoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="Ajuda">
           <Properties>
@@ -99,7 +130,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusMessageLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="454" max="32767" attributes="0"/>
+                  <EmptySpace pref="466" max="32767" attributes="0"/>
                   <Component id="progressBar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusAnimationLabel" min="-2" max="-2" attributes="0"/>
@@ -153,7 +184,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="component" type="javax.swing.JComponent" editor="org.netbeans.modules.form.ComponentChooserEditor">
-      <ComponentRef name="TelaPrincipal"/>
+      <ComponentRef name="telaPrincipal"/>
     </Property>
     <Property name="menuBar" type="javax.swing.JMenuBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
       <ComponentRef name="BarraMenu"/>
