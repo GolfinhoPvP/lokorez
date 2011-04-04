@@ -39,7 +39,7 @@
 	            <input name="tfDes" readonly="readonly" type="text" class="textField1" id="tfDes" size="75" maxlength="100" value="<?php echo($bean->descricao); ?>"/>
 		    </div>
 			  <div class="texto3" id="cadSolVen">Vencimento: 
-		        <input name="tfVen" readonly="readonly" type="text" class="textField1" id="tfVen" size="15" maxlength="10" value="<?php echo($bean->vencimento); ?>"/>
+		        <input name="tfVen" readonly="readonly" type="text" class="textField1" id="tfVen" size="15" maxlength="10" value="<?php echo(inverterData($bean->vencimento)); ?>"/>
 		    </div>
 			  <div class="texto3" id="cadSolVal">Valor: R$
 		        <input name="tfVal" readonly="readonly" type="text" class="textField1" id="tfVal" size="30" maxlength="15" value="<?php echo($bean->valor); ?>"/>
@@ -51,7 +51,7 @@
 		        <input name="tfVal2" type="text" class="textField1" id="tfVal2" size="30" maxlength="15" onkeyup="javascript: validarForm('tfVal2');" value="<?php echo($bean->valor); ?>"/>
 		    </div>
 			<div id="altSolBut">
-	      <input name="btSol" type="submit" class="botao2" id="btSol" value="Pagar" />
+	      <input name="btSol" type="submit" class="botao2" id="btSol" value="Confirmar" />
 			</div>
 		  </div>
 		</form>

@@ -57,6 +57,12 @@
 		return $data;
 	}
 	
+	function inverterData($data){
+		$array 	= explode("-",$data);
+		$data 	= $array[2]."/".$array[1]."/".$array[0];
+		return $data;
+	}
+	
 	function converterValor($valor){
 		$array 	= explode(",",$valor);
 		if(sizeof($array) > 1){
