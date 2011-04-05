@@ -9,4 +9,14 @@ drop table IF EXISTS carteira_habilitacao;
 drop table IF EXISTS categoria;
 drop table IF EXISTS titulo_eleitoral;
 
-show WARNINGS
+
+truncate table especialidades;
+truncate table pessoal;
+truncate table rg;
+truncate table inf_bancaria;
+truncate table cadastros;
+truncate table lotacoes;
+truncate table eventos;
+truncate table calculos;
+truncate table cargos;
+

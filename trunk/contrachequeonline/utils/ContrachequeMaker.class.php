@@ -10,8 +10,10 @@
 		private $date2;
 		private $month1;
 		private $month2;
-		function __construct(){
+		private $xkey = "fmsfmsfms";
 		
+		function __construct(){
+			ini_set('memory_limit','32M');
 			$variables = new Variables();
 			$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
 			$result;
@@ -66,14 +68,14 @@
 				
 				$row = mysql_fetch_array($result);
 				$infos["x"] 					= "***";
-				$infos["nome"] 					= $row["nome"];
-				$infos["matricula"] 			= $row["matricula"];
+				$infos["nome"] 					= zkl($this->xkey, $row["nome"]);
+				$infos["matricula"] 			= zkl($this->xkey, $row["matricula"]);
 				$infos["lotacao"] 				= $row["lotacao"];
-				$infos["descricao_secretaria"] 	= $row["descricao_lotacao"];
-				$infos["descricao_cargo"] 		= $row["descricao_cargo"];
+				$infos["descricao_secretaria"] 	= zkl($this->xkey, $row["descricao_lotacao"]);
+				$infos["descricao_cargo"] 		= zkl($this->xkey, $row["descricao_cargo"]);
 				$infos["nivel"] 				= $row["nivel"];
-				$infos["CPF"] 					= $row["CPF"];
-				$infos["PIS_PASEP"] 			= $row["PIS_PASEP"];
+				$infos["CPF"] 					= zkl($this->xkey, $row["CPF"]);
+				$infos["PIS_PASEP"] 			= zkl($this->xkey, $row["PIS_PASEP"]);
 				$infos["data_nascimento"] 		= $row["data_nascimento"];
 				$infos["data_admissao"] 		= $row["data_admissao"];
 				$infos["dp_sal_fan"] 			= $row["dp_sal_fan"];
@@ -82,7 +84,7 @@
 				$infos["descontos"] 			= 0;
 				$infos["liquido"] 				= 0;
 				$infos[0]		 				= $row["eve_codigo"];
-				$infos[1]		 				= $row["descricao_evento"];
+				$infos[1]		 				= zkl($this->xkey, $row["descricao_evento"]);
 				$infos[2]		 				= $row["valor"];
 				$today = getdate();
 				$infos["date"] = $today["mday"]."/".$today["mon"]."/".$today["year"];
@@ -91,7 +93,7 @@
 				$loop = 1;
 				while($row = mysql_fetch_array($result)){
 					$infos[$z++] = $row["eve_codigo"];
-					$infos[$z++] = $row["descricao_evento"];
+					$infos[$z++] = zkl($this->xkey, $row["descricao_evento"]);
 					$infos[$z++] = $row["valor"];
 					$loop++;
 				}

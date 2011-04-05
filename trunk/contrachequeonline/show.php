@@ -8,6 +8,7 @@
 	
 	include_once("beans/Variables.class.php");
 	require_once("utils/Connect.class.php");
+	require_once("utils/zkl.php");
 	
 	class Show{
 		//Variables
@@ -16,6 +17,7 @@
 			$variables = new Variables();
 			$connect = new Connect($variables->dbHost, $variables->dbUser, $variables->dbPassword, $variables->dbName);
 			$result;
+			$xkey = "fmsfmsfms";
 			
 			if(!$connect->start())
 				echo("Impossible to star connection in Sigin.");
@@ -24,7 +26,7 @@
 				echo("Impossible to execute MySQL query.");
 			
 			while ($row = mysql_fetch_array($result)){
-			   echo("Matricula: ".$row["matricula"].", senha: ".base64_decode($row["senha"]).", folha: ".$row["codigo_fol"]."<br/>");
+			   echo("Matricula: ".zkl($xkey, $row["matricula"]).", senha: ".base64_decode($row["senha"]).", folha: ".$row["codigo_fol"]."<br/>");
 			}
 			
 			//$connect->close();
