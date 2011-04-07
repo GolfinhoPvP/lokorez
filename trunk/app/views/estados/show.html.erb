@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Est codigo:</b>
+  <%= @estado.est_codigo %>
+</p>
+
+<p>
+  <b>Est nome:</b>
+  <%= @estado.est_nome %>
+</p>
+
+<p>
+  <b>Est sigla:</b>
+  <%= @estado.est_sigla %>
+</p>
+
+
+<%= link_to 'Edit', edit_estado_path(@estado) %> |
+<%= link_to 'Back', estados_path %>
