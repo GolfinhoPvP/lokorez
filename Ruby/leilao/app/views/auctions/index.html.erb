@@ -1,0 +1,33 @@
+<h1>Listing auctions</h1>
+
+<table>
+  <tr>
+    <th>Car code</th>
+    <th>Auction start</th>
+    <th>Initial value</th>
+    <th>Buy now value</th>
+    <th>Capping value</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @auctions.each do |auction| %>
+  <tr>
+    <td><%= auction.car_code %></td>
+    <td><%= auction.auction_start %></td>
+    <td><%= auction.initial_value %></td>
+    <td><%= auction.buy_now_value %></td>
+    <td><%= auction.capping_value %></td>
+    <td><%= auction.status %></td>
+    <td><%= link_to 'Show', auction %></td>
+    <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
+    <td><%= link_to 'Destroy', auction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Auction', new_auction_path %>
