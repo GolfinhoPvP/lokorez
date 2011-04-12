@@ -2498,3 +2498,594 @@ Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe
   [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
 Rendered cars/index.html.erb within layouts/application (55.3ms)
 Completed 200 OK in 77ms (Views: 58.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 12:25:20 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 53ms (Views: 7.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 12:25:21 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 20ms (Views: 12.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 12:25:24 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 39ms (Views: 29.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 12:25:29 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered cars/index.html.erb within layouts/application (65.6ms)
+Completed 200 OK in 88ms (Views: 68.6ms | ActiveRecord: 1.3ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+  [1m[35mSQL (103.0ms)[0m  CREATE TABLE `cars_optionals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `car_id` int(11), `optional_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (49.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412154318')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-12 12:50:56 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+Completed   in 12ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (cars_optionals).):
+  app/models/car.rb:5:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/cars_controller.rb:27:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (30.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 12:54:23 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_optionals`[0m
+Completed   in 13ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (cars_optionals).):
+  app/models/car.rb:5:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/cars_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/estates" for 127.0.0.1 at 2011-04-12 12:54:32 -0300
+
+ActionController::RoutingError (No route matches "/estates"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/estats" for 127.0.0.1 at 2011-04-12 12:54:37 -0300
+
+ActionController::RoutingError (No route matches "/estats"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-12 12:54:44 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 12:54:48 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+Completed   in 42ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (cars_optionals).):
+  app/models/car.rb:5:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/cars_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.7ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 12:54:54 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Completed   in 6ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (cars_optionals).):
+  app/models/optional.rb:2:in `<class:Optional>'
+  app/models/optional.rb:1:in `<top (required)>'
+  app/controllers/optionals_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.6ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (106.9ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (191.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+  [1m[35mSQL (103.6ms)[0m  CREATE TABLE `states` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `acronym` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (49.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131113')[0m
+Migrating to CreateCities (20110411131229)
+  [1m[35mSQL (109.4ms)[0m  CREATE TABLE `cities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `est_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (249.1ms)[0m  CREATE INDEX `index_cities_on_est_code` ON `cities` (`est_code`)
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131229')[0m
+Migrating to CreateClients (20110411132102)
+  [1m[35mSQL (107.9ms)[0m  CREATE TABLE `clients` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `cpf` varchar(255), `cit_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411132102')[0m
+Migrating to CreateAuctions (20110411134553)
+  [1m[35mSQL (131.1ms)[0m  CREATE TABLE `auctions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `car_code` int(11), `auction_start` datetime, `initial_value` decimal, `buy_now_value` decimal, `capping_value` decimal, `status` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (224.2ms)[0m  CREATE INDEX `index_auctions_on_car_code` ON `auctions` (`car_code`)
+  [1m[36mSQL (32.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411134553')[0m
+Migrating to CreateCars (20110411140258)
+  [1m[35mSQL (113.6ms)[0m  CREATE TABLE `cars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `mod_code` int(11), `engine` varchar(255), `plate` varchar(255), `colour` varchar(255), `mileage` int(11), `manufacture_year` int(11), `model_year` int(11), `comments` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140258')[0m
+Migrating to CreateFuels (20110411140559)
+  [1m[35mSQL (88.8ms)[0m  CREATE TABLE `fuels` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140559')[0m
+Migrating to CreateOptionals (20110412113911)
+  [1m[35mSQL (105.9ms)[0m  CREATE TABLE `optionals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412113911')[0m
+Migrating to CreateModels (20110412114347)
+  [1m[35mSQL (106.3ms)[0m  CREATE TABLE `models` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114347')[0m
+Migrating to CreateAssemblers (20110412114542)
+  [1m[35mSQL (115.6ms)[0m  CREATE TABLE `assemblers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114542')[0m
+Migrating to AddAssCodeToModels (20110412133644)
+  [1m[35mSQL (223.0ms)[0m  ALTER TABLE `models` ADD `ass_code` int(11)
+  [1m[36mSQL (32.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412133644')[0m
+Migrating to AddCarsAndOptionals (20110412154318)
+  [1m[35mSQL (105.6ms)[0m  CREATE TABLE `cars_optionals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `car_id` int(11), `optional_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412154318')[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 13:01:59 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.3ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 13:02:01 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Completed   in 41ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (cars_optionals).):
+  app/models/car.rb:5:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/cars_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.3ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (116.2ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (183.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+  [1m[35mSQL (111.2ms)[0m  CREATE TABLE `states` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `acronym` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131113')[0m
+Migrating to CreateCities (20110411131229)
+  [1m[35mSQL (125.7ms)[0m  CREATE TABLE `cities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `est_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (240.7ms)[0m  CREATE INDEX `index_cities_on_est_code` ON `cities` (`est_code`)
+  [1m[36mSQL (42.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131229')[0m
+Migrating to CreateClients (20110411132102)
+  [1m[35mSQL (98.0ms)[0m  CREATE TABLE `clients` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `cpf` varchar(255), `cit_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (49.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411132102')[0m
+Migrating to CreateAuctions (20110411134553)
+  [1m[35mSQL (114.5ms)[0m  CREATE TABLE `auctions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `car_code` int(11), `auction_start` datetime, `initial_value` decimal, `buy_now_value` decimal, `capping_value` decimal, `status` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (216.0ms)[0m  CREATE INDEX `index_auctions_on_car_code` ON `auctions` (`car_code`)
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411134553')[0m
+Migrating to CreateCars (20110411140258)
+  [1m[35mSQL (122.7ms)[0m  CREATE TABLE `cars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `mod_code` int(11), `engine` varchar(255), `plate` varchar(255), `colour` varchar(255), `mileage` int(11), `manufacture_year` int(11), `model_year` int(11), `comments` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140258')[0m
+Migrating to CreateFuels (20110411140559)
+  [1m[35mSQL (283.7ms)[0m  CREATE TABLE `fuels` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (52.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140559')[0m
+Migrating to CreateOptionals (20110412113911)
+  [1m[35mSQL (98.1ms)[0m  CREATE TABLE `optionals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412113911')[0m
+Migrating to CreateModels (20110412114347)
+  [1m[35mSQL (97.3ms)[0m  CREATE TABLE `models` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (34.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114347')[0m
+Migrating to CreateAssemblers (20110412114542)
+  [1m[35mSQL (105.8ms)[0m  CREATE TABLE `assemblers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114542')[0m
+Migrating to AddAssCodeToModels (20110412133644)
+  [1m[35mSQL (222.4ms)[0m  ALTER TABLE `models` ADD `ass_code` int(11)
+  [1m[36mSQL (40.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412133644')[0m
+Migrating to AddCarsAndOptionals (20110412154318)
+  [1m[35mSQL (123.0ms)[0m  CREATE TABLE `cars_optionals` (`car_id` int(11), `optional_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412154318')[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 13:04:38 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.2ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 53ms (Views: 34.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 13:04:41 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 6.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 13:04:43 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.3ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-12 13:04:44 -0300
+  Processing by AssemblersController#new as HTML
+Rendered assemblers/_form.html.erb (4.7ms)
+Rendered assemblers/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 58ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assemblers" for 127.0.0.1 at 2011-04-12 13:04:46 -0300
+  Processing by AssemblersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "assembler"=>{"name"=>"Chevrolet"}, "commit"=>"Create Assembler"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'Chevrolet') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `assemblers` (`name`, `created_at`, `updated_at`) VALUES ('Chevrolet', '2011-04-12 16:04:47', '2011-04-12 16:04:47')
+  [1m[36mSQL (28.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/assemblers/1
+Completed 302 Found in 49ms
+
+
+Started GET "/assemblers/1" for 127.0.0.1 at 2011-04-12 13:04:47 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered assemblers/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 19ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 13:04:49 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 50ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-12 13:04:50 -0300
+  Processing by AssemblersController#new as HTML
+Rendered assemblers/_form.html.erb (4.7ms)
+Rendered assemblers/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assemblers" for 127.0.0.1 at 2011-04-12 13:04:57 -0300
+  Processing by AssemblersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "assembler"=>{"name"=>"Toyota"}, "commit"=>"Create Assembler"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'Toyota') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `assemblers`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `assemblers` (`name`, `created_at`, `updated_at`) VALUES ('Toyota', '2011-04-12 16:04:57', '2011-04-12 16:04:57')[0m
+  [1m[35mSQL (42.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/assemblers/2
+Completed 302 Found in 60ms
+
+
+Started GET "/assemblers/2" for 127.0.0.1 at 2011-04-12 13:04:57 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered assemblers/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 48ms (Views: 9.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 13:04:58 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 20ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-12 13:04:59 -0300
+  Processing by AssemblersController#new as HTML
+Rendered assemblers/_form.html.erb (4.7ms)
+Rendered assemblers/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 22ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assemblers" for 127.0.0.1 at 2011-04-12 13:05:02 -0300
+  Processing by AssemblersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "assembler"=>{"name"=>"Wolksvagem"}, "commit"=>"Create Assembler"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAssembler Load (0.3ms)[0m  SELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'Wolksvagem') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `assemblers` (`name`, `created_at`, `updated_at`) VALUES ('Wolksvagem', '2011-04-12 16:05:02', '2011-04-12 16:05:02')
+  [1m[36mSQL (31.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/assemblers/3
+Completed 302 Found in 48ms
+
+
+Started GET "/assemblers/3" for 127.0.0.1 at 2011-04-12 13:05:02 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+Rendered assemblers/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 20ms (Views: 10.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 13:05:03 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 22ms (Views: 12.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 13:05:08 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.3ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 15ms (Views: 6.7ms | ActiveRecord: 104.8ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 13:05:09 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (47.8ms)
+Rendered models/new.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 64ms (Views: 54.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-12 13:05:15 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "model"=>{"ass_code"=>"1", "name"=>"Celta"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mModel Load (0.3ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Celta') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  describe `models`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `models` (`name`, `created_at`, `updated_at`, `ass_code`) VALUES ('Celta', '2011-04-12 16:05:15', '2011-04-12 16:05:15', 1)[0m
+  [1m[35mSQL (38.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/models/1
+Completed 302 Found in 57ms
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 13:05:15 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/show.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 35ms (Views: 25.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 13:05:16 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.3ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 34ms (Views: 26.1ms | ActiveRecord: 40.2ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 13:05:18 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (21.1ms)
+Rendered models/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 37ms (Views: 28.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-12 13:05:22 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "model"=>{"ass_code"=>"3", "name"=>"Gol"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Gol') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `models`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `models` (`name`, `created_at`, `updated_at`, `ass_code`) VALUES ('Gol', '2011-04-12 16:05:22', '2011-04-12 16:05:22', 3)[0m
+  [1m[35mSQL (45.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/models/2
+Completed 302 Found in 62ms
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-12 13:05:22 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+Rendered models/show.html.erb within layouts/application (50.5ms)
+Completed 200 OK in 63ms (Views: 53.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 13:05:24 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.4ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 64ms (Views: 54.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 13:05:25 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 25ms (Views: 6.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-12 13:05:27 -0300
+  Processing by CarsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered cars/_form.html.erb (54.9ms)
+Rendered cars/new.html.erb within layouts/application (59.2ms)
+Completed 200 OK in 81ms (Views: 62.1ms | ActiveRecord: 47.4ms)
+
+
+Started POST "/cars" for 127.0.0.1 at 2011-04-12 13:05:44 -0300
+  Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "car"=>{"mod_code"=>"1", "engine"=>"1.0", "plate"=>"nww-2713", "colour"=>"Prata", "mileage"=>"2000", "manufacture_year"=>"2011", "model_year"=>"2011", "comments"=>"Nenhuma"}, "commit"=>"Create Car"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mCar Load (0.2ms)[0m  [1mSELECT `cars`.`id` FROM `cars` WHERE (`cars`.`plate` = BINARY 'nww-2713') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `cars` (`mod_code`, `engine`, `plate`, `colour`, `mileage`, `manufacture_year`, `model_year`, `comments`, `created_at`, `updated_at`) VALUES (1, '1.0', 'nww-2713', 'Prata', 2000, 2011, 2011, 'Nenhuma', '2011-04-12 16:05:44', '2011-04-12 16:05:44')[0m
+  [1m[35mSQL (43.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/cars/1
+Completed 302 Found in 111ms
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2011-04-12 13:05:44 -0300
+  Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.2ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+Rendered cars/show.html.erb within layouts/application (54.3ms)
+Completed 200 OK in 76ms (Views: 57.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 13:05:45 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+Rendered cars/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 78ms (Views: 32.7ms | ActiveRecord: 1.7ms)
