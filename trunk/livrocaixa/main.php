@@ -135,6 +135,13 @@
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadSangria.php');">Gerar Sangria</div>
 			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/pesquisar/pesSangria.php');">Ver Sangrias</div>
 		</li>
+		<li>
+			<div alt="Livro Caixa" width="100px" height="100px" title="Livro Caixa">Conv&ecirc;nios</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','cruds/cadastrar/cadConvenio.php');">Cad. Conv&ecirc;nio</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Alt. Conv&ecirc;nio</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Del. Conv&ecirc;nio</div>
+			 <div id="nav" onclick="javascript: carregarNoIframe('conteudo','emDesenvolvimento.php');">Pes. Conv&ecirc;nio</div>
+		</li>
 	  </ul>
 </div>
 	<div class="texto3" id="infos">Bem vindo: <?php echo($_SESSION["nomeUsuario"]); if(isset($_SESSION["empresaNome"])) echo(". Empresa: ".$_SESSION["empresaNome"]);?></div>

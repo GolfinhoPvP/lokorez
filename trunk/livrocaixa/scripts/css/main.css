@@ -99,15 +99,15 @@
 /**/
 #divMenu {
 	position:absolute;
-	left:4px;
+	left:1px;
 	top:7px;
-	width:798px;
+	width:917px;
 	height:21px;
 	z-index:6;
 }
 #desconectar{
 	position:absolute;
-	left: 837px;
+	left: 825px;
 	top: -3px;
 	height: 52px;
 	z-index: 4;
@@ -125,8 +125,8 @@
 }
 #ajuda{
 	position:absolute;
-	left: 777px;
-	top: 9px;
+	left: 920px;
+	top: 47px;
 	width: 35px;
 	z-index:6;
 	background-image:url(../../imagens/ajuda.png);
