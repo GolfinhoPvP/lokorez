@@ -1,0 +1,23 @@
+<h1>Listing optionals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @optionals.each do |optional| %>
+  <tr>
+    <td><%= optional.name %></td>
+    <td><%= link_to 'Show', optional %></td>
+    <td><%= link_to 'Edit', edit_optional_path(optional) %></td>
+    <td><%= link_to 'Destroy', optional, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Optional', new_optional_path %>
