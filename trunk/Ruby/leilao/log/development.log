@@ -206,3 +206,754 @@ Started GET "/states/1" for 127.0.0.1 at 2011-04-11 11:47:30 -0300
   [1m[35mState Load (0.2ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
 Rendered states/show.html.erb within layouts/application (6.4ms)
 Completed 200 OK in 21ms (Views: 9.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/states/1" for 127.0.0.1 at 2011-04-12 08:35:42 -0300
+  Processing by StatesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mState Load (12.1ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+Rendered states/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 130ms (Views: 10.6ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-12 08:35:45 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.3ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 21ms (Views: 11.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/states/new" for 127.0.0.1 at 2011-04-12 08:35:48 -0300
+  Processing by StatesController#new as HTML
+Rendered states/_form.html.erb (40.1ms)
+Rendered states/new.html.erb within layouts/application (43.2ms)
+Completed 200 OK in 58ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+  [1m[35mSQL (127.0ms)[0m  CREATE TABLE `optionals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412113911')[0m
+Migrating to CreateModels (20110412114347)
+  [1m[35mSQL (113.7ms)[0m  CREATE TABLE `models` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (54.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114347')[0m
+Migrating to CreateAssemblers (20110412114542)
+  [1m[35mSQL (129.2ms)[0m  CREATE TABLE `assemblers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114542')[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 08:53:30 -0300
+
+ActionController::RoutingError (No route matches "/leilao"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/leilaos" for 127.0.0.1 at 2011-04-12 08:53:40 -0300
+
+ActionController::RoutingError (No route matches "/leilaos"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 08:53:43 -0300
+
+ActionController::RoutingError (No route matches "/leilao"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 08:54:33 -0300
+
+SyntaxError (/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:3: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:3: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:3: syntax error, unexpected $end, expecting keyword_end
+		render :text => "Leilão On-Line"
+		                       ^):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.8ms)
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 08:56:53 -0300
+
+SyntaxError (/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:5: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:5: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:5: syntax error, unexpected $end, expecting keyword_end
+		render :text => "Leilão On-Line"
+		                       ^):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 08:56:54 -0300
+
+SyntaxError (/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:5: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:5: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:5: syntax error, unexpected $end, expecting keyword_end
+		render :text => "Leilão On-Line"
+		                       ^):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 08:59:57 -0300
+
+SyntaxError (/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:4: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:4: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:4: syntax error, unexpected $end, expecting keyword_end
+		render :text => "Leilão On-Line"
+		                       ^):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 08:59:58 -0300
+
+SyntaxError (/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:4: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:4: invalid multibyte char (US-ASCII)
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/leilao_controller.rb:4: syntax error, unexpected $end, expecting keyword_end
+		render :text => "Leilão On-Line"
+		                       ^):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started GET "/leilao" for 127.0.0.1 at 2011-04-12 09:00:10 -0300
+  Processing by LeilaoController#index as HTML
+Rendered text template (0.0ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/main" for 127.0.0.1 at 2011-04-12 09:10:43 -0300
+
+ActionController::RoutingError (No route matches "/main"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/main" for 127.0.0.1 at 2011-04-12 09:11:00 -0300
+
+AbstractController::ActionNotFound (The action 'index' could not be found for MainController):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.7ms)
+
+
+Started GET "/main" for 127.0.0.1 at 2011-04-12 09:13:20 -0300
+  Processing by MainController#index as HTML
+Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/main" for 127.0.0.1 at 2011-04-12 09:14:47 -0300
+  Processing by MainController#index as HTML
+Rendered text template (0.0ms)
+Completed   in 2ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/main_controller.rb:4:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/main" for 127.0.0.1 at 2011-04-12 09:15:13 -0300
+  Processing by MainController#index as HTML
+Completed   in 13ms
+
+ActionView::MissingTemplate (Missing template main/index with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths "/home/acelerador01/Projetos/Ruby/leilao/app/views"):
+  app/controllers/main_controller.rb:3:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.7ms)
+
+
+Started GET "/main" for 127.0.0.1 at 2011-04-12 09:16:14 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+Completed   in 32ms
+
+ArgumentError (You need to supply at least one validation):
+  app/models/car.rb:14:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/main_controller.rb:3:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.2ms)
+
+
+Started GET "/main/index" for 127.0.0.1 at 2011-04-12 09:16:29 -0300
+
+AbstractController::ActionNotFound (The action 'show' could not be found for MainController):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.7ms)
+
+
+Started GET "/main" for 127.0.0.1 at 2011-04-12 09:16:34 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.9ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+Completed   in 20ms
+
+ArgumentError (You need to supply at least one validation):
+  app/models/car.rb:14:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/main_controller.rb:3:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (30.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.9ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-12 09:17:07 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.3ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 24ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 09:17:12 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:17:13 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.3ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 28ms (Views: 6.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:17:14 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.8ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+Completed   in 20ms
+
+ArgumentError (You need to supply at least one validation):
+  app/models/car.rb:14:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/cars_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.7ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-12 09:17:26 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-12 09:17:26 -0300
+  Processing by ClientsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.3ms)[0m  SELECT `clients`.* FROM `clients`
+Rendered clients/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 53ms (Views: 6.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 09:17:27 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 28ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 09:17:28 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 09:17:28 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mOptional Load (0.3ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 41ms (Views: 6.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-12 09:17:29 -0300
+  Processing by StatesController#index as HTML
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered states/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 21ms (Views: 12.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:17:31 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+Completed   in 17ms
+
+ArgumentError (You need to supply at least one validation):
+  app/models/car.rb:14:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/cars_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:20:19 -0300
+  Processing by CarsController#index as HTML
+Completed   in 4ms
+
+SyntaxError (/home/acelerador01/Projetos/Ruby/leilao/app/models/car.rb:7: syntax error, unexpected '=', expecting keyword_end
+	=begin validates :mod_code, :presence => true
+	 ^
+/home/acelerador01/Projetos/Ruby/leilao/app/models/car.rb:15: syntax error, unexpected '=', expecting keyword_end
+	=end
+	 ^):
+  app/controllers/cars_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:20:46 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.6ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 49ms (Views: 34.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:20:48 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.3ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 22ms (Views: 7.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:20:58 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.7ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 22ms (Views: 7.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:01 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 50ms (Views: 6.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:06 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 21ms (Views: 6.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:07 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 21ms (Views: 6.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:21:08 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 20ms (Views: 6.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:09 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.6ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 49ms (Views: 6.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:21:14 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 19ms (Views: 6.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:14 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 22ms (Views: 6.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 09:21:20 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 16ms (Views: 6.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:21 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 22ms (Views: 6.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:27 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 23ms (Views: 7.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:21:27 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 20ms (Views: 6.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:28 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 51ms (Views: 6.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 09:21:34 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:35 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 6.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 09:21:42 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 14ms (Views: 6.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:43 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 53ms (Views: 34.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 09:21:50 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:51 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+Completed   in 17ms
+
+ArgumentError (You need to supply at least one validation):
+  app/models/car.rb:14:in `<class:Car>'
+  app/models/car.rb:1:in `<top (required)>'
+  app/controllers/cars_controller.rb:5:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:56 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 51ms (Views: 7.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:21:58 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 53ms (Views: 6.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:21:59 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.9ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 22ms (Views: 7.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 09:21:59 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:22:00 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 6.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 09:22:00 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 54ms (Views: 35.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-12 09:22:01 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.9ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 18ms (Views: 6.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 09:22:01 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-12 09:22:02 -0300
+  Processing by StatesController#index as HTML
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered states/index.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 49ms (Views: 39.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 09:22:03 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 09:22:03 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 09:22:04 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 43ms (Views: 33.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-12 09:22:04 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 15ms (Views: 6.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:22:05 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 21ms (Views: 7.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 09:22:05 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 41ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 09:22:06 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 21ms (Views: 6.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 09:22:07 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-12 09:22:08 -0300
+  Processing by StatesController#index as HTML
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered states/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 50ms (Views: 12.2ms | ActiveRecord: 0.1ms)
