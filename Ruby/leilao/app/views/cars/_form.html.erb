@@ -12,35 +12,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :mod_code %><br />
-    <%= f.text_field :mod_code %>
+    <%= f.label :"Selecione um modelo" %><br />
+    <%= select :car, :mod_code, Model.find(:all).collect{|m| [m.name, m.id]} %>
   </div>
   <div class="field">
-    <%= f.label :engine %><br />
+    <%= f.label :Motor %><br />
     <%= f.text_field :engine %>
   </div>
   <div class="field">
-    <%= f.label :plate %><br />
+    <%= f.label :Placa %><br />
     <%= f.text_field :plate %>
   </div>
   <div class="field">
-    <%= f.label :colour %><br />
+    <%= f.label :Cor %><br />
     <%= f.text_field :colour %>
   </div>
   <div class="field">
-    <%= f.label :mileage %><br />
+    <%= f.label :Quilometragem %><br />
     <%= f.text_field :mileage %>
   </div>
   <div class="field">
-    <%= f.label :manufacture_year %><br />
+    <%= f.label :"Ano de fabricação" %><br />
     <%= f.text_field :manufacture_year %>
   </div>
   <div class="field">
-    <%= f.label :model_year %><br />
+    <%= f.label :"Ano do modelo" %><br />
     <%= f.text_field :model_year %>
   </div>
   <div class="field">
-    <%= f.label :comments %><br />
+    <%= f.label :"Observações" %><br />
     <%= f.text_area :comments %>
   </div>
   <div class="actions">

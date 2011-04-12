@@ -1,45 +1,45 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Mod code:</b>
-  <%= @car.mod_code %>
+  <b>Modelo do carro:</b>
+  <%= Model.find(@car.mod_code).name %>
 </p>
 
 <p>
-  <b>Engine:</b>
+  <b>Motor:</b>
   <%= @car.engine %>
 </p>
 
 <p>
-  <b>Plate:</b>
+  <b>Placa:</b>
   <%= @car.plate %>
 </p>
 
 <p>
-  <b>Colour:</b>
+  <b>Cor:</b>
   <%= @car.colour %>
 </p>
 
 <p>
-  <b>Mileage:</b>
+  <b>Quilometragem:</b>
   <%= @car.mileage %>
 </p>
 
 <p>
-  <b>Manufacture year:</b>
+  <b>Ano de fabricação:</b>
   <%= @car.manufacture_year %>
 </p>
 
 <p>
-  <b>Model year:</b>
+  <b>Ano do modelo:</b>
   <%= @car.model_year %>
 </p>
 
 <p>
-  <b>Comments:</b>
+  <b>Observações:</b>
   <%= @car.comments %>
 </p>
 
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Editar', edit_car_path(@car) %> |
+<%= link_to 'Voltar', cars_path %>
