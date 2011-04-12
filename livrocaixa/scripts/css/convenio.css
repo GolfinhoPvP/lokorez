@@ -1,0 +1,111 @@
+/* CSS Document */
+/* ---------------------------- */
+#cadCliPes{
+	position:absolute;
+	width: 870px;
+	height: 112px;
+	left: 1px;
+	top: 68px;
+}
+#cadCliPesNom{
+	position:absolute;
+	width: 738px;
+	height: 11px;
+	left: 11px;
+	top: 16px;
+}
+#cadCliPesCPF{
+	position:absolute;
+	width: 596px;
+	height: 11px;
+	left: 23px;
+	top: 78px;
+}
+#cadCliPesRG{
+	position:absolute;
+	width: 591px;
+	height: 11px;
+	left: 28px;
+	top: 47px;
+}
+
+/* ---------------------------- */
+
+#cadCliTel{
+	position:absolute;
+	width: 872px;
+	height: 40px;
+	left: 1px;
+	top: 185px;
+}
+#cadCliTelNum{
+	position:absolute;
+	width: 304px;
+	height: 11px;
+	left: 19px;
+	top: 3px;
+}
+#cadCliTelNot{
+	position:absolute;
+	width: 298px;
+	height: 11px;
+	left: 338px;
+	top: 3px;
+}
+
+/* ---------------------------- */
+
+#cadCliEml{
+	position:absolute;
+	width: 871px;
+	height: 40px;
+	left: 1px;
+	top: 233px;
+}
+#cadCliEmlURL{
+	position:absolute;
+	width: 286px;
+	height: 11px;
+	left: 35px;
+	top: 3px;
+}
+#cadCliEmlNot{
+	position:absolute;
+	width: 300px;
+	height: 11px;
+	left: 338px;
+	top: 3px;
+}
+/* ---------------------------- */
+#cadCliGer{
+	position:absolute;
+	width: 978px;
+	height: 339px;
+	left: 0px;
+	top: 41px;
+}
+#cadCli{
+	position:absolute;
+	width: 871px;
+	height: 43px;
+	left: -4px;
+	top: -47px;
+}
+#cadCliNomUsu{
+	position:absolute;
+	width: 814px;
+	height: 11px;
+	left: 31px;
+	top: 6px;
+}
+/* ---------------------------- */
+
+#cadCliBut{
+	position:absolute;
+	width: 113px;
+	height: 44px;
+	left: 285px;
+	top: 285px;
+}
+
+/* ---------------------------- */
