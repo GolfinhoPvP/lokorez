@@ -957,3 +957,36 @@ Started GET "/states" for 127.0.0.1 at 2011-04-12 09:22:08 -0300
   [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
 Rendered states/index.html.erb within layouts/application (9.1ms)
 Completed 200 OK in 50ms (Views: 12.2ms | ActiveRecord: 0.1ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
