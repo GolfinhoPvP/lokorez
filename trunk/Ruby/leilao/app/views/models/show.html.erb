@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Montadora:</b>
+  <%= Assembler.find(@model.ass_code).name %>
+</p>
+
+<p>
+  <b>Nome:</b>
   <%= @model.name %>
 </p>
 
 
-<%= link_to 'Edit', edit_model_path(@model) %> |
-<%= link_to 'Back', models_path %>
+<%= link_to 'Editar', edit_model_path(@model) %> |
+<%= link_to 'Voltar', models_path %>

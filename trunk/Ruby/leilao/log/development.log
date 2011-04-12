@@ -990,3 +990,1511 @@ Migrating to CreateAssemblers (20110412114542)
   [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
   [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
   [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+  [1m[35mSQL (243.3ms)[0m  ALTER TABLE `models` ADD `ass_code` int(11)
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412133644')[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 10:40:11 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 54ms (Views: 6.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 10:40:11 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.9ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 60ms (Views: 6.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 10:40:14 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:40:15 -0300
+  Processing by ModelsController#new as HTML
+Rendered models/_form.html.erb (7.1ms)
+Rendered models/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 24ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (94.5ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (174.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+  [1m[35mSQL (97.0ms)[0m  CREATE TABLE `states` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `acronym` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131113')[0m
+Migrating to CreateCities (20110411131229)
+  [1m[35mSQL (92.9ms)[0m  CREATE TABLE `cities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `est_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (215.3ms)[0m  CREATE INDEX `index_cities_on_est_code` ON `cities` (`est_code`)
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131229')[0m
+Migrating to CreateClients (20110411132102)
+  [1m[35mSQL (114.6ms)[0m  CREATE TABLE `clients` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `cpf` varchar(255), `cit_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411132102')[0m
+Migrating to CreateAuctions (20110411134553)
+  [1m[35mSQL (114.4ms)[0m  CREATE TABLE `auctions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `car_code` int(11), `auction_start` datetime, `initial_value` decimal, `buy_now_value` decimal, `capping_value` decimal, `status` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (199.4ms)[0m  CREATE INDEX `index_auctions_on_car_code` ON `auctions` (`car_code`)
+  [1m[36mSQL (32.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411134553')[0m
+Migrating to CreateCars (20110411140258)
+  [1m[35mSQL (114.0ms)[0m  CREATE TABLE `cars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `mod_code` int(11), `engine` varchar(255), `plate` varchar(255), `colour` varchar(255), `mileage` int(11), `manufacture_year` int(11), `model_year` int(11), `comments` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140258')[0m
+Migrating to CreateFuels (20110411140559)
+  [1m[35mSQL (89.5ms)[0m  CREATE TABLE `fuels` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140559')[0m
+Migrating to CreateOptionals (20110412113911)
+  [1m[35mSQL (91.5ms)[0m  CREATE TABLE `optionals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412113911')[0m
+Migrating to CreateModels (20110412114347)
+  [1m[35mSQL (105.9ms)[0m  CREATE TABLE `models` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114347')[0m
+Migrating to CreateAssemblers (20110412114542)
+  [1m[35mSQL (98.1ms)[0m  CREATE TABLE `assemblers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (32.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114542')[0m
+Migrating to AddAssCodeToModels (20110412133644)
+  [1m[35mSQL (206.6ms)[0m  ALTER TABLE `models` ADD `ass_code` int(11)
+  [1m[36mSQL (32.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412133644')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 10:42:42 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.5ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 17ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 10:42:45 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 10:42:46 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:42:48 -0300
+  Processing by ModelsController#new as HTML
+Rendered models/_form.html.erb (5.3ms)
+Rendered models/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 49ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 10:48:30 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:48:31 -0300
+  Processing by ModelsController#new as HTML
+Rendered models/_form.html.erb (15.8ms)
+Rendered models/new.html.erb within layouts/application (17.2ms)
+Completed   in 29ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.find):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione uma montadora" %><br />
+    16:     <%= f.select :ass_code, :name, @assemblers.find(:all).collect {|a| [ a.name, a.id ] } %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :name %><br />
+  app/views/models/_form.html.erb:16:in `block in _app_views_models__form_html_erb___221654772228087882_20462500_2326325310851293573'
+  app/views/models/_form.html.erb:1:in `_app_views_models__form_html_erb___221654772228087882_20462500_2326325310851293573'
+  app/views/models/new.html.erb:3:in `_app_views_models_new_html_erb__4599120913221098499_20502160_1413850278972442045'
+  app/controllers/models_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.0ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 10:48:59 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.3ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-12 10:49:01 -0300
+  Processing by AssemblersController#new as HTML
+Rendered assemblers/_form.html.erb (4.8ms)
+Rendered assemblers/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 22ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assemblers" for 127.0.0.1 at 2011-04-12 10:49:03 -0300
+  Processing by AssemblersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "assembler"=>{"name"=>"Chevrolet"}, "commit"=>"Create Assembler"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'Chevrolet') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `assemblers`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `assemblers` (`name`, `created_at`, `updated_at`) VALUES ('Chevrolet', '2011-04-12 13:49:03', '2011-04-12 13:49:03')[0m
+  [1m[35mSQL (37.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/assemblers/1
+Completed 302 Found in 68ms
+
+
+Started GET "/assemblers/1" for 127.0.0.1 at 2011-04-12 10:49:03 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+Rendered assemblers/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 19ms (Views: 9.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 10:49:06 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 15ms (Views: 7.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:49:08 -0300
+  Processing by ModelsController#new as HTML
+Rendered models/_form.html.erb (6.3ms)
+Rendered models/new.html.erb within layouts/application (7.6ms)
+Completed   in 19ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.find):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione uma montadora" %><br />
+    16:     <%= f.select :ass_code, :name, @assemblers.find(:all).collect {|a| [ a.name, a.id ] } %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :name %><br />
+  app/views/models/_form.html.erb:16:in `block in _app_views_models__form_html_erb___221654772228087882_20045380_2326325310851293573'
+  app/views/models/_form.html.erb:1:in `_app_views_models__form_html_erb___221654772228087882_20045380_2326325310851293573'
+  app/views/models/new.html.erb:3:in `_app_views_models_new_html_erb__4599120913221098499_20096440_1413850278972442045'
+  app/controllers/models_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:50:03 -0300
+  Processing by ModelsController#new as HTML
+Rendered models/_form.html.erb (4.7ms)
+Rendered models/new.html.erb within layouts/application (5.9ms)
+Completed   in 17ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione uma montadora" %><br />
+    16:     <%= f.select :ass_code, :name, @assemblers.collect {|a| [ a.name, a.id ] } %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :name %><br />
+  app/views/models/_form.html.erb:16:in `block in _app_views_models__form_html_erb___221654772228087882_21894720_2326325310851293573'
+  app/views/models/_form.html.erb:1:in `_app_views_models__form_html_erb___221654772228087882_21894720_2326325310851293573'
+  app/views/models/new.html.erb:3:in `_app_views_models_new_html_erb__4599120913221098499_21925360_1413850278972442045'
+  app/controllers/models_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.6ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:53:35 -0300
+  Processing by ModelsController#new as HTML
+Rendered models/_form.html.erb (31.7ms)
+Rendered models/new.html.erb within layouts/application (32.9ms)
+Completed   in 45ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.map):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione uma montadora" %><br />
+    16:     <%= select_tag( :ass_code, options_for_select(@assemblers, params[:name].to_i) ) %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :name %><br />
+  app/views/models/_form.html.erb:16:in `block in _app_views_models__form_html_erb___221654772228087882_9406880_2326325310851293573'
+  app/views/models/_form.html.erb:1:in `_app_views_models__form_html_erb___221654772228087882_9406880_2326325310851293573'
+  app/views/models/new.html.erb:3:in `_app_views_models_new_html_erb__4599120913221098499_9665980_1413850278972442045'
+  app/controllers/models_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:58:55 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (49.9ms)
+Rendered models/new.html.erb within layouts/application (54.3ms)
+Completed 200 OK in 67ms (Views: 57.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 10:59:10 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 16ms (Views: 6.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 10:59:11 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 10:59:14 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (48.5ms)
+Rendered models/new.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 64ms (Views: 55.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-12 11:01:38 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "ass_code"=>{"id"=>"1"}, "model"=>{"name"=>"Celta"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Celta') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (48.7ms)
+Rendered models/new.html.erb within layouts/application (53.1ms)
+Completed 200 OK in 75ms (Views: 55.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-12 11:02:51 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "ass_code"=>{"id"=>"1"}, "model"=>{"name"=>"Celta"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Celta') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (49.0ms)
+Rendered models/new.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 76ms (Views: 56.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:02:53 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 15ms (Views: 7.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:02:55 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 11:02:56 -0300
+  Processing by ModelsController#new as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (21.4ms)
+Rendered models/new.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 67ms (Views: 56.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-12 11:02:59 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "ass_code"=>{"ass_code"=>"1"}, "model"=>{"name"=>"Celta"}, "commit"=>"Create Model"}
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Celta') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (46.7ms)
+Rendered models/new.html.erb within layouts/application (50.9ms)
+Completed 200 OK in 72ms (Views: 53.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 11:03:50 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 15ms (Views: 6.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:03:51 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 11:03:52 -0300
+  Processing by ModelsController#new as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (20.3ms)
+Rendered models/new.html.erb within layouts/application (21.5ms)
+Completed   in 60ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 3)):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione uma montadora" %><br />
+    16:     <%= select :ass_code, Assembler.find(:all).collect{|a| [a.name, a.id]}%>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :name %><br />
+  app/views/models/_form.html.erb:16:in `block in _app_views_models__form_html_erb___221654772228087882_22278680_2326325310851293573'
+  app/views/models/_form.html.erb:1:in `_app_views_models__form_html_erb___221654772228087882_22278680_2326325310851293573'
+  app/views/models/new.html.erb:3:in `_app_views_models_new_html_erb__4599120913221098499_22304960_1413850278972442045'
+  app/controllers/models_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 11:05:05 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (21.1ms)
+Rendered models/new.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 73ms (Views: 28.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 11:06:24 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (1.1ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 36.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:06:24 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 11:06:25 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (21.4ms)
+Rendered models/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 37ms (Views: 28.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-12 11:06:28 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "model"=>{"ass_code"=>"1", "name"=>"Celta"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Celta') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `models`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `models` (`name`, `created_at`, `updated_at`, `ass_code`) VALUES ('Celta', '2011-04-12 14:06:28', '2011-04-12 14:06:28', 1)[0m
+  [1m[35mSQL (36.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/models/1
+Completed 302 Found in 55ms
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:06:28 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (0.9ms)
+Completed   in 14ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <b>Montadora:</b>
+    5:   <%= @model.assemblers.name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/models/show.html.erb:5:in `_app_views_models_show_html_erb__2862632010194425228_18638540_1413850278972442045'
+  app/controllers/models_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:07:45 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+ERROR: compiling _app_views_models_show_html_erb__2862632010194425228_20013240_1413850278972442045 RAISED /home/acelerador01/Projetos/Ruby/leilao/app/views/models/show.html.erb:5: syntax error, unexpected tIVAR
+...fer.append= ( @model.@assembler.name );@output_buffer.safe_c...
+...                               ^
+Function body:           def _app_views_models_show_html_erb__2862632010194425228_20013240_1413850278972442045(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "models/show";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<p id="notice">');@output_buffer.append= ( notice );@output_buffer.safe_concat('</p>
+
+<p>
+  <b>Montadora:</b>
+  ');@output_buffer.append= ( @model.@assembler.name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+
+<p>
+  <b>Nome:</b>
+  ');@output_buffer.append= ( @model.name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+
+
+');@output_buffer.append= ( link_to 'Editar', edit_model_path(@model) );@output_buffer.safe_concat(' |
+');@output_buffer.append= ( link_to 'Voltar', models_path );@output_buffer.safe_concat('
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `module_eval'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/usr/local/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/models_controller.rb:18:in `show'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:435:in `_run__1680790945368953369__process_action__211388324067559088__callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `block in action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:89:in `optimized_each'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered models/show.html.erb within layouts/application (0.8ms)
+Completed   in 13ms
+
+ActionView::Template::Error (/home/acelerador01/Projetos/Ruby/leilao/app/views/models/show.html.erb:5: syntax error, unexpected tIVAR
+...fer.append= ( @model.@assembler.name );@output_buffer.safe_c...
+...                               ^):
+    2: 
+    3: <p>
+    4:   <b>Montadora:</b>
+    5:   <%= @model.@assembler.name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/controllers/models_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:07:58 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 48ms (Views: 10.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:08:09 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.3ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 21ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:12:16 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 21ms (Views: 11.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:12:18 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 19ms (Views: 11.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/1/edit" for 127.0.0.1 at 2011-04-12 11:12:19 -0300
+  Processing by ModelsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (48.6ms)
+Rendered models/edit.html.erb within layouts/application (53.4ms)
+Completed 200 OK in 66ms (Views: 56.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:12:24 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-12 11:12:26 -0300
+  Processing by AssemblersController#new as HTML
+Rendered assemblers/_form.html.erb (7.2ms)
+Rendered assemblers/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 27ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assemblers" for 127.0.0.1 at 2011-04-12 11:12:46 -0300
+  Processing by AssemblersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "assembler"=>{"name"=>"wolksvagem"}, "commit"=>"Create Assembler"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'wolksvagem') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `assemblers`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `assemblers` (`name`, `created_at`, `updated_at`) VALUES ('wolksvagem', '2011-04-12 14:12:46', '2011-04-12 14:12:46')[0m
+  [1m[35mSQL (38.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/assemblers/2
+Completed 302 Found in 56ms
+
+
+Started GET "/assemblers/2" for 127.0.0.1 at 2011-04-12 11:12:46 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered assemblers/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 20ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:12:47 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 20ms (Views: 11.8ms | ActiveRecord: 39.7ms)
+
+
+Started GET "/assemblers/2/edit" for 127.0.0.1 at 2011-04-12 11:12:50 -0300
+  Processing by AssemblersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered assemblers/_form.html.erb (5.7ms)
+Rendered assemblers/edit.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 63ms (Views: 13.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/assemblers/2" for 127.0.0.1 at 2011-04-12 11:12:54 -0300
+  Processing by AssemblersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "assembler"=>{"name"=>"Wolksvagem"}, "commit"=>"Update Assembler", "id"=>"2"}
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAssembler Load (0.4ms)[0m  SELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'Wolksvagem') AND (`assemblers`.id <> 2) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE `assemblers` SET `name` = 'Wolksvagem', `updated_at` = '2011-04-12 14:12:54' WHERE `assemblers`.`id` = 2[0m
+  [1m[35mSQL (31.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/assemblers/2
+Completed 302 Found in 50ms
+
+
+Started GET "/assemblers/2" for 127.0.0.1 at 2011-04-12 11:12:54 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered assemblers/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 19ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:12:55 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.4ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 47ms (Views: 37.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:12:58 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 19ms (Views: 11.2ms | ActiveRecord: 32.4ms)
+
+
+Started GET "/models/1/edit" for 127.0.0.1 at 2011-04-12 11:13:11 -0300
+  Processing by ModelsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (21.3ms)
+Rendered models/edit.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 38ms (Views: 28.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:13:16 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 11:13:24 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.3ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 50ms (Views: 6.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:13:24 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.7ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.2ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 50ms (Views: 32.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-12 11:13:25 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.9ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 19ms (Views: 6.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:13:25 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 19ms (Views: 11.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 11:13:25 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 41ms (Views: 32.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 11:13:26 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-12 11:13:26 -0300
+  Processing by ClientsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.1ms)[0m  SELECT `clients`.* FROM `clients`
+Rendered clients/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 18ms (Views: 6.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:13:27 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 47ms (Views: 38.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 11:13:27 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 19ms (Views: 6.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:13:27 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 24ms (Views: 6.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-12 11:13:28 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.2ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 16ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-12 11:13:28 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 18ms (Views: 6.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 11:13:28 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.8ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 6.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:13:29 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 19ms (Views: 11.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 11:13:29 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 18ms (Views: 7.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-12 11:13:29 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.2ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:13:41 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 20ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:13:48 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 21ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 11:13:49 -0300
+  Processing by ModelsController#new as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (20.9ms)
+Rendered models/new.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 38ms (Views: 28.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:13:54 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 21ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/1/edit" for 127.0.0.1 at 2011-04-12 11:13:56 -0300
+  Processing by ModelsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (21.6ms)
+Rendered models/edit.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 38ms (Views: 29.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:14:00 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 20ms (Views: 11.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-12 11:14:01 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (49.7ms)
+Rendered models/new.html.erb within layouts/application (54.1ms)
+Completed 200 OK in 66ms (Views: 56.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-12 11:14:05 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "model"=>{"ass_code"=>"1", "name"=>"Gol"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Gol') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `models`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `models` (`name`, `created_at`, `updated_at`, `ass_code`) VALUES ('Gol', '2011-04-12 14:14:05', '2011-04-12 14:14:05', 1)[0m
+  [1m[35mSQL (47.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/models/2
+Completed 302 Found in 65ms
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-12 11:14:05 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 19ms (Views: 10.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:14:07 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.3ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 50ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models/2/edit" for 127.0.0.1 at 2011-04-12 11:14:10 -0300
+  Processing by ModelsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (62.6ms)
+Rendered models/edit.html.erb within layouts/application (67.6ms)
+Completed 200 OK in 81ms (Views: 70.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/models/2" for 127.0.0.1 at 2011-04-12 11:14:12 -0300
+  Processing by ModelsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "model"=>{"ass_code"=>"2", "name"=>"Gol"}, "commit"=>"Update Model", "id"=>"2"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mModel Load (0.6ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Gol') AND (`models`.id <> 2) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `models` SET `ass_code` = 2, `updated_at` = '2011-04-12 14:14:13' WHERE `models`.`id` = 2
+  [1m[36mSQL (34.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/models/2
+Completed 302 Found in 55ms
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-12 11:14:13 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1
+Rendered models/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 20ms (Views: 10.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:14:14 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.3ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 47ms (Views: 38.5ms | ActiveRecord: 35.8ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:17:43 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 21ms (Views: 13.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-12 11:17:44 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.2ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 20ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:17:44 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 25ms (Views: 7.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-12 11:17:45 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 42ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-12 11:17:46 -0300
+  Processing by ClientsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.2ms)[0m  SELECT `clients`.* FROM `clients`
+Rendered clients/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-12 11:17:46 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 15ms (Views: 6.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:17:47 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (37.2ms)
+Completed 200 OK in 49ms (Views: 40.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-12 11:17:48 -0300
+  Processing by StatesController#index as HTML
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered states/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 16ms (Views: 6.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-12 11:17:49 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 16ms (Views: 6.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 11:17:49 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.8ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 43ms (Views: 6.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-12 11:17:50 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:17:51 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 21ms (Views: 12.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-12 11:18:46 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (4.4ms)
+Completed   in 17ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.find):
+    2: 
+    3: <p>
+    4:   <b>Montadora:</b>
+    5:   <%= @assembler.find @model.ass_code, :name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/models/show.html.erb:5:in `_app_views_models_show_html_erb__2862632010194425228_22208500_1413850278972442045'
+  app/controllers/models_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:18:49 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+Rendered models/show.html.erb within layouts/application (4.7ms)
+Completed   in 18ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.find):
+    2: 
+    3: <p>
+    4:   <b>Montadora:</b>
+    5:   <%= @assembler.find @model.ass_code, :name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/models/show.html.erb:5:in `_app_views_models_show_html_erb__2862632010194425228_14241220_1413850278972442045'
+  app/controllers/models_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:21:37 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/show.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 34ms (Views: 24.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:21:42 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 22ms (Views: 12.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:21:43 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 35ms (Views: 25.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:21:45 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 21ms (Views: 12.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-12 11:21:46 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+Rendered models/show.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 67ms (Views: 55.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:21:49 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered models/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 21ms (Views: 12.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-12 11:23:06 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 36ms (Views: 25.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:23:07 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (11.2ms)
+Completed   in 23ms
+
+ActionView::Template::Error (undefined method `ass_code' for nil:NilClass):
+    11: 
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(@model.ass_code).name %></td>
+    15:     <td><%= model.name %></td>
+    16:     <td><%= link_to 'Mostrar', model %></td>
+    17:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:14:in `block in _app_views_models_index_html_erb___1935453871485905450_20107660_1413850278972442045'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb___1935453871485905450_20107660_1413850278972442045'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:23:29 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 37ms (Views: 28.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:23:34 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 20ms (Views: 12.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:23:38 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (51.9ms)
+Completed 200 OK in 64ms (Views: 54.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models/1/edit" for 127.0.0.1 at 2011-04-12 11:23:45 -0300
+  Processing by ModelsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (49.6ms)
+Rendered models/edit.html.erb within layouts/application (54.7ms)
+Completed 200 OK in 68ms (Views: 58.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:23:48 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (1.0ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+Rendered models/index.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 64ms (Views: 54.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-12 11:23:50 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+Rendered models/show.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 61ms (Views: 51.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-12 11:27:54 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 21ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-12 11:27:55 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+Rendered models/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 37ms (Views: 27.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:29:36 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 25ms (Views: 6.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-12 11:29:41 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+Rendered cars/_form.html.erb (8.1ms)
+Rendered cars/new.html.erb within layouts/application (9.3ms)
+Completed   in 30ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.find):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione um modelo" %><br />
+    16:     <%= f.select :mod_code, :name, @models.find(:all).collect {|m| [ m.name, m.id ] } %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :engine %><br />
+  app/views/cars/_form.html.erb:16:in `block in _app_views_cars__form_html_erb__794918730040348703_20494220_2326325310851293573'
+  app/views/cars/_form.html.erb:1:in `_app_views_cars__form_html_erb__794918730040348703_20494220_2326325310851293573'
+  app/views/cars/new.html.erb:3:in `_app_views_cars_new_html_erb__1928668620329643292_20521140_1413850278972442045'
+  app/controllers/cars_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-12 11:31:41 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered cars/_form.html.erb (27.6ms)
+Rendered cars/new.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 54ms (Views: 34.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/cars" for 127.0.0.1 at 2011-04-12 11:32:33 -0300
+  Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYVmDW9UVU+5O9fJtRuy7MyDWd2Y4vbFA8xWuoOPLbE=", "car"=>{"mod_code"=>"1", "engine"=>"1.0", "plate"=>"nww-2713", "colour"=>"Prata", "mileage"=>"2000", "manufacture_year"=>"2011", "model_year"=>"2011", "comments"=>"Nenhum"}, "commit"=>"Create Car"}
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (1.0ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.`id` FROM `cars` WHERE (`cars`.`plate` = BINARY 'nww-2713') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `cars` (`mod_code`, `engine`, `plate`, `colour`, `mileage`, `manufacture_year`, `model_year`, `comments`, `created_at`, `updated_at`) VALUES (1, '1.0', 'nww-2713', 'Prata', 2000, 2011, 2011, 'Nenhum', '2011-04-12 14:32:33', '2011-04-12 14:32:33')
+  [1m[36mSQL (52.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cars/1
+Completed 302 Found in 88ms
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2011-04-12 11:32:33 -0300
+  Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+Rendered cars/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 34ms (Views: 13.7ms | ActiveRecord: 56.4ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:32:44 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 33ms (Views: 14.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-12 11:33:40 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+Rendered cars/_form.html.erb (27.6ms)
+Rendered cars/new.html.erb within layouts/application (59.6ms)
+Completed 200 OK in 81ms (Views: 62.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:37:10 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mCar Load (0.2ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+Rendered cars/index.html.erb within layouts/application (59.3ms)
+Completed 200 OK in 85ms (Views: 62.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-12 11:37:14 -0300
+  Processing by CarsController#new as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+Rendered cars/_form.html.erb (28.5ms)
+Rendered cars/new.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 85ms (Views: 35.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:37:17 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (1.0ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered cars/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 51ms (Views: 30.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2011-04-12 11:37:19 -0300
+  Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered cars/show.html.erb within layouts/application (53.6ms)
+Completed 200 OK in 75ms (Views: 56.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-12 11:37:25 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Mysql2::Error: Table 'leilao_development.cars_optionals' doesn't exist: describe `cars_optionals`
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered cars/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 77ms (Views: 58.3ms | ActiveRecord: 1.3ms)
