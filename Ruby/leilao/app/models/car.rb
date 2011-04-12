@@ -1,6 +1,8 @@
 class Car < ActiveRecord::Base
 	belongs_to :auctions
+	has_many :models
 	has_and_belongs_to_many :fuels
+	has_and_belongs_to_many :optionals
 
 	validates :mod_code, :presence => true
 	validates :engine, :presence => true
@@ -9,5 +11,4 @@ class Car < ActiveRecord::Base
 	validates :mileage, :presence => true, :format => { :with => /^[0-9]+$/ }
 	validates :manufacture_year, :presence => true, :format => { :with => /^[0-9]{4,4}/ }
 	validates :model_year, :presence => true, :format => { :with => /^[0-9]{4,4}$/ }
-	validates :comments
 end
