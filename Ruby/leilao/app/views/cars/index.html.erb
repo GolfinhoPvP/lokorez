@@ -5,6 +5,7 @@
     <th>Modelo</th>
     <th>Motor</th>
     <th>Placa</th>
+    <th>Compustíveis</th>
     <th>Cor</th>
     <th>Quilometragem</th>
     <th>Ano de fabricação</th>
@@ -20,6 +21,13 @@
     <td><%= Model.find(car.model_id).name %></td>
     <td><%= car.engine %></td>
     <td><%= car.plate %></td>
+    <td>
+	<% if car.fuels.all.length > 1 %>
+		<%= 'Flex' %>
+	<% else %>
+		<%= @car.fuels.all.each.name %>
+	<% end %>
+    </td>
     <td><%= car.colour %></td>
     <td><%= car.mileage %></td>
     <td><%= car.manufacture_year %></td>

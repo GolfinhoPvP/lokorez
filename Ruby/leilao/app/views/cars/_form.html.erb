@@ -23,6 +23,14 @@
     <%= f.label :Placa %><br />
     <%= f.text_field :plate %>
   </div>
+
+	<% Fuel.all.each do |fuel| %>
+		<div class="field">
+		    	<%= check_box_tag 'car[fuel][]', fuel.id, @car.fuels.include?(fuel) %>
+			<%= fuel.name %><br />
+	  	</div>
+	<% end %>
+
   <div class="field">
     <%= f.label :Cor %><br />
     <%= f.text_field :colour %>
