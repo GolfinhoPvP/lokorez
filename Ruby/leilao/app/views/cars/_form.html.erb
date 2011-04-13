@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :"Selecione um modelo" %><br />
-    <%= select :car, :model_id, Model.find(:all).collect{|m| [m.name, m.id]} %>
+    <%= select :car, :model_id, Model.all.collect{|m| [m.name, m.id]} %>
   </div>
   <div class="field">
     <%= f.label :Motor %><br />
@@ -23,14 +23,15 @@
     <%= f.label :Placa %><br />
     <%= f.text_field :plate %>
   </div>
-
+  <div class="field">
+    <%= f.label :"Selecione os combustíveis" %><br />
 	<% Fuel.all.each do |fuel| %>
 		<div class="field">
-		    	<%= check_box_tag 'car[fuel][]', fuel.id, @car.fuels.include?(fuel) %>
+		    	<%= check_box_tag 'car[fuel_ids][]', fuel.id, @car.fuels.include?(fuel) %>
 			<%= fuel.name %><br />
 	  	</div>
 	<% end %>
-
+  </div>
   <div class="field">
     <%= f.label :Cor %><br />
     <%= f.text_field :colour %>
@@ -46,6 +47,15 @@
   <div class="field">
     <%= f.label :"Ano do modelo" %><br />
     <%= f.text_field :model_year %>
+  </div>
+  <div class="field">
+    <%= f.label :"Selecione os opcionais" %><br />
+	<% Optional.all.each do |optional| %>
+		<div class="field">
+		    	<%= check_box_tag 'car[optional_ids][]', optional.id, @car.optionals.include?(optional) %>
+			<%= optional.name %><br />
+	  	</div>
+	<% end %>
   </div>
   <div class="field">
     <%= f.label :"Observações" %><br />

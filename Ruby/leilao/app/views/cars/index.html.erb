@@ -10,6 +10,7 @@
     <th>Quilometragem</th>
     <th>Ano de fabricação</th>
     <th>Ano do modelo</th>
+    <th>Opcionais</th>
     <th>Observações</th>
     <th></th>
     <th></th>
@@ -25,13 +26,14 @@
 	<% if car.fuels.all.length > 1 %>
 		<%= 'Flex' %>
 	<% else %>
-		<%= @car.fuels.all.each.name %>
+		<%= car.fuels.find(1).name %>
 	<% end %>
     </td>
     <td><%= car.colour %></td>
     <td><%= car.mileage %></td>
     <td><%= car.manufacture_year %></td>
     <td><%= car.model_year %></td>
+    <td><%= car.optionals.all.length %></td>
     <td><%= car.comments %></td>
     <td><%= link_to 'Mostrar', car %></td>
     <td><%= link_to 'Editar', edit_car_path(car) %></td>

@@ -18,7 +18,7 @@
 <p>
 	<b>Combustíveis:</b>
 	<% @car.fuels.all.each do |fuel| %>
-		<%= fuel.name+', ' %>
+		<%= fuel.name+' ' %>
 	<% end %>
 </p>
 
@@ -40,6 +40,13 @@
 <p>
   <b>Ano do modelo:</b>
   <%= @car.model_year %>
+</p>
+
+<p>
+	<b>Opcionais:</b>
+	<% @car.optionals.all.each do |optional| %>
+		<%= optional.name+' ' %>
+	<% end %>
 </p>
 
 <p>
