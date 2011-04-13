@@ -9,7 +9,7 @@
 	 * @return string
 	 */
 		 
-	ini_set('memory_limit','32M');
+	//ini_set('memory_limit','32M');
 	
 	function zkl($key, $data){
 		// Armazena os vetores "S" já calculados
