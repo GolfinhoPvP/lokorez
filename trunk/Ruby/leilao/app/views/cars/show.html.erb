@@ -16,6 +16,13 @@
 </p>
 
 <p>
+	<b>Combustíveis:</b>
+	<% @car.fuels.all.each do |fuel| %>
+		<%= fuel.name+', ' %>
+	<% end %>
+</p>
+
+<p>
   <b>Cor:</b>
   <%= @car.colour %>
 </p>
