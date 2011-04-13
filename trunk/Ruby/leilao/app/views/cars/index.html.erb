@@ -17,7 +17,7 @@
 
 <% @cars.each do |car| %>
   <tr>
-    <td><%= Model.find(car.mod_code).name %></td>
+    <td><%= Model.find(car.model_id).name %></td>
     <td><%= car.engine %></td>
     <td><%= car.plate %></td>
     <td><%= car.colour %></td>

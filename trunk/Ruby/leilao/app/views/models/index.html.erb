@@ -11,7 +11,7 @@
 
 <% @models.each do |model| %>
   <tr>
-    <td><%= Assembler.find(model.ass_code).name %></td>
+    <td><%= Assembler.find(model.assembler_id).name %></td>
     <td><%= model.name %></td>
     <td><%= link_to 'Mostrar', model %></td>
     <td><%= link_to 'Editar', edit_model_path(model) %></td>

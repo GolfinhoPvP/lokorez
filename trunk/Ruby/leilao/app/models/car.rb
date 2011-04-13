@@ -1,10 +1,10 @@
 class Car < ActiveRecord::Base
-	belongs_to :auctions
+	has_one :auctions
 	has_many :models
 	has_and_belongs_to_many :fuels
 	has_and_belongs_to_many :optionals
 
-	validates :mod_code, :presence => true
+	validates :model_id, :presence => true
 	validates :engine, :presence => true
 	validates :plate, :presence => true, :uniqueness => true,  :format => { :with => /^[a-zA-Z]{3,3}-[0-9]{4,4}$/ }
 	validates :colour, :presence => true

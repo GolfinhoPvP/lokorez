@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :"Selecione uma montadora" %>
-    <%= select :model, :ass_code, Assembler.find(:all).collect{|a| [a.name, a.id]} %>
+    <%= select :model, :assembler_id, Assembler.find(:all).collect{|a| [a.name, a.id]} %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
