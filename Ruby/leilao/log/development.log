@@ -3089,3 +3089,1407 @@ Mysql2::Error: Table 'leilao_development.cars_fuels' doesn't exist: describe `ca
   [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
 Rendered cars/index.html.erb within layouts/application (29.5ms)
 Completed 200 OK in 78ms (Views: 32.7ms | ActiveRecord: 1.7ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (8.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+  [1m[35mSQL (113.9ms)[0m  CREATE TABLE `cars_fuels` (`car_id` int(11), `fuel_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110413132207')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars_fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/cidades" for 127.0.0.1 at 2011-04-13 10:23:29 -0300
+
+ActionController::RoutingError (No route matches "/cidades"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-13 10:23:33 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.3ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 116ms (Views: 15.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 10:23:38 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 31ms (Views: 16.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/fuels/new" for 127.0.0.1 at 2011-04-13 10:23:40 -0300
+  Processing by FuelsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Rendered fuels/_form.html.erb (35.4ms)
+Rendered fuels/new.html.erb within layouts/application (39.8ms)
+Completed 200 OK in 79ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/fuels" for 127.0.0.1 at 2011-04-13 10:24:12 -0300
+  Processing by FuelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "fuel"=>{"name"=>"Gasolina"}, "commit"=>"Create Fuel"}
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` WHERE (`fuels`.`name` = BINARY 'Gasolina') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO `fuels` (`name`, `created_at`, `updated_at`) VALUES ('Gasolina', '2011-04-13 13:24:12', '2011-04-13 13:24:12')
+  [1m[36mSQL (40.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/fuels/1
+Completed 302 Found in 79ms
+
+
+Started GET "/fuels/1" for 127.0.0.1 at 2011-04-13 10:24:12 -0300
+  Processing by FuelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.3ms)[0m  [1mSELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` = 1 LIMIT 1[0m
+Rendered fuels/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 20ms (Views: 10.0ms | ActiveRecord: 43.0ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 10:24:24 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.3ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 49ms (Views: 11.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels/new" for 127.0.0.1 at 2011-04-13 10:24:28 -0300
+  Processing by FuelsController#new as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_fuels`
+Rendered fuels/_form.html.erb (4.4ms)
+Rendered fuels/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 22ms (Views: 11.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/fuels" for 127.0.0.1 at 2011-04-13 10:24:34 -0300
+  Processing by FuelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "fuel"=>{"name"=>"Diesel"}, "commit"=>"Create Fuel"}
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` WHERE (`fuels`.`name` = BINARY 'Diesel') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `fuels`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `fuels` (`name`, `created_at`, `updated_at`) VALUES ('Diesel', '2011-04-13 13:24:34', '2011-04-13 13:24:34')[0m
+  [1m[35mSQL (36.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/fuels/2
+Completed 302 Found in 55ms
+
+
+Started GET "/fuels/2" for 127.0.0.1 at 2011-04-13 10:24:34 -0300
+  Processing by FuelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` = 2 LIMIT 1
+Rendered fuels/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 19ms (Views: 9.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 10:24:35 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.4ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 23ms (Views: 12.2ms | ActiveRecord: 39.1ms)
+
+
+Started GET "/fuels/new" for 127.0.0.1 at 2011-04-13 10:24:37 -0300
+  Processing by FuelsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Rendered fuels/_form.html.erb (4.5ms)
+Rendered fuels/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 20ms (Views: 11.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/fuels" for 127.0.0.1 at 2011-04-13 10:24:42 -0300
+  Processing by FuelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "fuel"=>{"name"=>"Álcool"}, "commit"=>"Create Fuel"}
+  [1m[35mSQL (0.8ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` WHERE (`fuels`.`name` = BINARY 'Álcool') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `fuels` (`name`, `created_at`, `updated_at`) VALUES ('Álcool', '2011-04-13 13:24:42', '2011-04-13 13:24:42')
+  [1m[36mSQL (29.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/fuels/3
+Completed 302 Found in 50ms
+
+
+Started GET "/fuels/3" for 127.0.0.1 at 2011-04-13 10:24:42 -0300
+  Processing by FuelsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` = 3 LIMIT 1[0m
+Rendered fuels/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 19ms (Views: 9.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 10:24:43 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.3ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 48ms (Views: 12.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels/new" for 127.0.0.1 at 2011-04-13 10:24:44 -0300
+  Processing by FuelsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Rendered fuels/_form.html.erb (4.5ms)
+Rendered fuels/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 21ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/fuels" for 127.0.0.1 at 2011-04-13 10:24:51 -0300
+  Processing by FuelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "fuel"=>{"name"=>"Gás"}, "commit"=>"Create Fuel"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` WHERE (`fuels`.`name` = BINARY 'Gás') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `fuels`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `fuels` (`name`, `created_at`, `updated_at`) VALUES ('Gás', '2011-04-13 13:24:51', '2011-04-13 13:24:51')[0m
+  [1m[35mSQL (40.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/fuels/4
+Completed 302 Found in 57ms
+
+
+Started GET "/fuels/4" for 127.0.0.1 at 2011-04-13 10:24:51 -0300
+  Processing by FuelsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` = 4 LIMIT 1
+Rendered fuels/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 19ms (Views: 9.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 10:24:53 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 22ms (Views: 13.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-13 10:50:14 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-13 10:50:16 -0300
+  Processing by CitiesController#new as HTML
+Rendered cities/_form.html.erb (31.4ms)
+Rendered cities/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 56ms (Views: 47.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-13 10:50:23 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.3ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 30ms (Views: 16.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:50:26 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.3ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 55ms (Views: 31.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-13 10:50:28 -0300
+  Processing by ModelsController#new as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (20.6ms)
+Rendered models/new.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 51ms (Views: 42.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:50:30 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 36ms (Views: 27.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:51:03 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+Rendered models/index.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 40ms (Views: 31.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 10:51:08 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.3ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 55ms (Views: 42.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:51:08 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 66ms (Views: 56.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:51:34 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+Rendered models/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 39ms (Views: 28.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:51:36 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 37ms (Views: 28.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 10:51:37 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 22ms (Views: 13.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-13 10:51:38 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 51ms (Views: 7.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:51:39 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+Rendered models/index.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 66ms (Views: 56.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-13 10:51:41 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+Rendered models/show.html.erb within layouts/application (35.7ms)
+Completed   in 48ms
+
+ActionView::Template::Error (undefined method `assembler_ids' for #<Model:0x000000024f8ec0>):
+    2: 
+    3: <p>
+    4:   <b>Montadora:</b>
+    5:   <%= Assembler.find(@model.assembler_ids).name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/models/show.html.erb:5:in `_app_views_models_show_html_erb__2247804921851399851_19336000_3668079684610270015'
+  app/controllers/models_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.4ms)
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-13 10:51:49 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1
+Rendered models/show.html.erb within layouts/application (15.2ms)
+Completed   in 28ms
+
+ActionView::Template::Error (undefined method `assembler_id' for #<Model:0x000000025e8218>):
+    2: 
+    3: <p>
+    4:   <b>Montadora:</b>
+    5:   <%= Assembler.find(@model.assembler_id).name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/models/show.html.erb:5:in `_app_views_models_show_html_erb__2247804921851399851_19830000_3668079684610270015'
+  app/controllers/models_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+
+
+Started GET "/models/2" for 127.0.0.1 at 2011-04-13 10:53:14 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+Rendered models/show.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 34ms (Views: 24.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 10:53:17 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 36ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:01:05 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 22ms (Views: 13.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:01:05 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.3ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (44.7ms)
+Completed   in 56ms
+
+ActionView::Template::Error (undefined method `assembler' for #<Model:0x00000001a0e118>):
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.ass_code).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+    18:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:15:in `block in _app_views_models_index_html_erb__148078017516314296_10355580_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_10355580_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+  [1m[35mSQL (0.4ms)[0m  SHOW COLUMNS FROM `models` LIKE 'ass_code'
+  [1m[36mSQL (247.2ms)[0m  [1mALTER TABLE `models` CHANGE `ass_code` `assembler_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (32.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110413140333')
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `assemblers`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `assemblers`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `auctions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cities`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `clients`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `clients`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `fuels`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `models`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `models`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `states`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `states`[0m
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:05:41 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (41.9ms)
+Completed   in 56ms
+
+ActionView::Template::Error (undefined method `ass_code' for #<Model:0x00000001bac880>):
+    11: 
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.ass_code).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+  app/views/models/index.html.erb:14:in `block in _app_views_models_index_html_erb__148078017516314296_14311980_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_14311980_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:06:04 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (45.4ms)
+Completed   in 57ms
+
+ActionView::Template::Error (undefined method `assembler' for #<Model:0x00000002436870>):
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.assembler_id).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+    18:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:15:in `block in _app_views_models_index_html_erb__148078017516314296_18958120_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_18958120_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:09:07 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (19.2ms)
+Completed   in 31ms
+
+ActionView::Template::Error (undefined method `assembler' for #<Model:0x000000024e1c20>):
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.assembler_id).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+    18:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:15:in `block in _app_views_models_index_html_erb__148078017516314296_19293420_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_19293420_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:09:08 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (19.6ms)
+Completed   in 31ms
+
+ActionView::Template::Error (undefined method `assembler' for #<Model:0x000000025aaad0>):
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.assembler_id).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+    18:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:15:in `block in _app_views_models_index_html_erb__148078017516314296_19710760_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_19710760_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:09:09 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (19.2ms)
+Completed   in 32ms
+
+ActionView::Template::Error (undefined method `assembler' for #<Model:0x000000026681c0>):
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.assembler_id).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+    18:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:15:in `block in _app_views_models_index_html_erb__148078017516314296_20059840_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_20059840_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:09:14 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 22ms (Views: 13.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:09:15 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (20.1ms)
+Completed   in 32ms
+
+ActionView::Template::Error (undefined method `assembler' for #<Model:0x00000002b4be08>):
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.assembler_id).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+    18:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:15:in `block in _app_views_models_index_html_erb__148078017516314296_22652180_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_22652180_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:10:07 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 51ms (Views: 13.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:10:09 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (46.8ms)
+Completed   in 59ms
+
+ActionView::Template::Error (undefined method `assembler' for #<Model:0x0000000240c548>):
+    12: <% @models.each do |model| %>
+    13:   <tr>
+    14:     <td><%= Assembler.find(model.assembler_id).name %></td>
+    15:     <td><%= model.assembler.name %></td>
+    16:     <td><%= model.name %></td>
+    17:     <td><%= link_to 'Mostrar', model %></td>
+    18:     <td><%= link_to 'Editar', edit_model_path(model) %></td>
+  app/views/models/index.html.erb:15:in `block in _app_views_models_index_html_erb__148078017516314296_16372840_3668079684610270015'
+  app/views/models/index.html.erb:12:in `each'
+  app/views/models/index.html.erb:12:in `_app_views_models_index_html_erb__148078017516314296_16372840_3668079684610270015'
+  app/controllers/models_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `models` LIKE 'assembler_id'
+  [1m[36mSQL (249.0ms)[0m  [1mALTER TABLE `models` CHANGE `assembler_id` `ass_code` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (40.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110413141328')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `assemblers`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `assemblers`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `auctions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cars_optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cities`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `clients`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `clients`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `fuels`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `fuels`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `models`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `models`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `states`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `states`[0m
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:14:54 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.4ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 66ms (Views: 55.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-13 11:18:39 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.3ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered cars/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 92ms (Views: 62.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-13 11:18:40 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.4ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 26ms (Views: 14.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-13 11:18:40 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 21ms (Views: 12.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-13 11:18:42 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 16ms (Views: 6.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:18:42 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 50ms (Views: 41.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-13 11:18:43 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.4ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 25ms (Views: 15.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-13 11:18:43 -0300
+  Processing by StatesController#index as HTML
+  [1m[35mState Load (0.3ms)[0m  SELECT `states`.* FROM `states`
+Rendered states/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 6.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-13 11:18:44 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 40ms (Views: 6.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:18:44 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 62ms (Views: 53.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:18:45 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 22ms (Views: 13.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-13 11:18:45 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 6.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-13 11:18:45 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 49ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-13 11:18:46 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+Rendered cars/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 76ms (Views: 58.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-13 11:18:46 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.3ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 45ms (Views: 32.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-13 11:18:47 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 21ms (Views: 13.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-13 11:18:48 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+Rendered auctions/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 19ms (Views: 6.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-13 11:18:48 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 41ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:18:48 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 64ms (Views: 55.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-13 11:18:49 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:18:50 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 22ms (Views: 13.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-13 11:18:50 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered cars/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 49ms (Views: 30.5ms | ActiveRecord: 1.1ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+  [1m[35mSQL (2.2ms)[0m  SHOW COLUMNS FROM `auctions` LIKE 'car_code'
+  [1m[36mSQL (215.3ms)[0m  [1mALTER TABLE `auctions` CHANGE `car_code` `car_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `cars` LIKE 'mod_code'
+  [1m[36mSQL (306.1ms)[0m  [1mALTER TABLE `cars` CHANGE `mod_code` `model_id` int(11) DEFAULT NULL[0m
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `models` LIKE 'ass_code'
+  [1m[36mSQL (270.8ms)[0m  [1mALTER TABLE `models` CHANGE `ass_code` `assembler_id` int(11) DEFAULT NULL[0m
+  [1m[35mAREL (40.5ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20110413141328'
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `assemblers`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `assemblers`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `auctions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cities`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `clients`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `clients`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `fuels`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `models`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `models`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `states`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `states`[0m
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `models` LIKE 'assembler_id'
+  [1m[36mSQL (264.1ms)[0m  [1mALTER TABLE `models` CHANGE `assembler_id` `ass_code` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (40.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110413141328')
+Migrating to RenameAllForeignKey (20110413142753)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (102.1ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (183.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+  [1m[35mSQL (111.2ms)[0m  CREATE TABLE `states` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `acronym` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (36.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131113')[0m
+Migrating to CreateCities (20110411131229)
+  [1m[35mSQL (121.8ms)[0m  CREATE TABLE `cities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `est_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (217.6ms)[0m  CREATE INDEX `index_cities_on_est_code` ON `cities` (`est_code`)
+  [1m[36mSQL (40.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411131229')[0m
+Migrating to CreateClients (20110411132102)
+  [1m[35mSQL (130.2ms)[0m  CREATE TABLE `clients` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `cpf` varchar(255), `cit_code` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (49.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411132102')[0m
+Migrating to CreateAuctions (20110411134553)
+  [1m[35mSQL (131.0ms)[0m  CREATE TABLE `auctions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `car_code` int(11), `auction_start` datetime, `initial_value` decimal, `buy_now_value` decimal, `capping_value` decimal, `status` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (199.4ms)[0m  CREATE INDEX `index_auctions_on_car_code` ON `auctions` (`car_code`)
+  [1m[36mSQL (48.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411134553')[0m
+Migrating to CreateCars (20110411140258)
+  [1m[35mSQL (139.3ms)[0m  CREATE TABLE `cars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `mod_code` int(11), `engine` varchar(255), `plate` varchar(255), `colour` varchar(255), `mileage` int(11), `manufacture_year` int(11), `model_year` int(11), `comments` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140258')[0m
+Migrating to CreateFuels (20110411140559)
+  [1m[35mSQL (122.9ms)[0m  CREATE TABLE `fuels` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110411140559')[0m
+Migrating to CreateOptionals (20110412113911)
+  [1m[35mSQL (131.0ms)[0m  CREATE TABLE `optionals` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412113911')[0m
+Migrating to CreateModels (20110412114347)
+  [1m[35mSQL (115.2ms)[0m  CREATE TABLE `models` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114347')[0m
+Migrating to CreateAssemblers (20110412114542)
+  [1m[35mSQL (130.8ms)[0m  CREATE TABLE `assemblers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412114542')[0m
+Migrating to AddAssCodeToModels (20110412133644)
+  [1m[35mSQL (250.1ms)[0m  ALTER TABLE `models` ADD `ass_code` int(11)
+  [1m[36mSQL (40.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412133644')[0m
+Migrating to AddCarsAndOptionals (20110412154318)
+  [1m[35mSQL (106.1ms)[0m  CREATE TABLE `cars_optionals` (`car_id` int(11), `optional_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (32.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110412154318')[0m
+Migrating to AddCarsAndFuels (20110413132207)
+  [1m[35mSQL (114.6ms)[0m  CREATE TABLE `cars_fuels` (`car_id` int(11), `fuel_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (32.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110413132207')[0m
+Migrating to RenameModelColumnAssCode (20110413140333)
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `models` LIKE 'ass_code'
+  [1m[36mSQL (206.1ms)[0m  [1mALTER TABLE `models` CHANGE `ass_code` `assembler_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (63.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110413140333')
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW COLUMNS FROM `models` LIKE 'assembler_id'[0m
+  [1m[35mSQL (237.8ms)[0m  ALTER TABLE `models` CHANGE `assembler_id` `ass_code` int(11) DEFAULT NULL
+  [1m[36mSQL (32.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110413141328')[0m
+Migrating to RenameAllForeignKey (20110413142753)
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `auctions` LIKE 'car_code'
+  [1m[36mSQL (213.6ms)[0m  [1mALTER TABLE `auctions` CHANGE `car_code` `car_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `cars` LIKE 'mod_code'
+  [1m[36mSQL (206.8ms)[0m  [1mALTER TABLE `cars` CHANGE `mod_code` `model_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `cities` LIKE 'est_code'
+  [1m[36mSQL (232.0ms)[0m  [1mALTER TABLE `cities` CHANGE `est_code` `estate_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `clients` LIKE 'cit_code'
+  [1m[36mSQL (215.3ms)[0m  [1mALTER TABLE `clients` CHANGE `cit_code` `city_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW COLUMNS FROM `models` LIKE 'ass_code'
+  [1m[36mSQL (217.1ms)[0m  [1mALTER TABLE `models` CHANGE `ass_code` `assembler_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (32.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110413142753')
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `assemblers`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `assemblers`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `auctions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_fuels`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cities`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `clients`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `clients`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `models`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `models`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `states`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `states`[0m
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-13 11:45:47 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars`
+Rendered cars/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 24ms (Views: 6.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-13 11:45:49 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-13 11:45:51 -0300
+  Processing by AssemblersController#new as HTML
+Rendered assemblers/_form.html.erb (4.6ms)
+Rendered assemblers/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 36ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assemblers" for 127.0.0.1 at 2011-04-13 11:45:53 -0300
+  Processing by AssemblersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "assembler"=>{"name"=>"Chevrolet"}, "commit"=>"Create Assembler"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'Chevrolet') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `assemblers`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `assemblers` (`name`, `created_at`, `updated_at`) VALUES ('Chevrolet', '2011-04-13 14:45:53', '2011-04-13 14:45:53')[0m
+  [1m[35mSQL (33.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/assemblers/1
+Completed 302 Found in 51ms
+
+
+Started GET "/assemblers/1" for 127.0.0.1 at 2011-04-13 11:45:53 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+Rendered assemblers/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 53ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-13 11:45:54 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.5ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 20ms (Views: 11.0ms | ActiveRecord: 34.4ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-13 11:45:55 -0300
+  Processing by AssemblersController#new as HTML
+Rendered assemblers/_form.html.erb (4.6ms)
+Rendered assemblers/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 20ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assemblers" for 127.0.0.1 at 2011-04-13 11:45:58 -0300
+  Processing by AssemblersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "assembler"=>{"name"=>"Wolksvagem"}, "commit"=>"Create Assembler"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.`id` FROM `assemblers` WHERE (`assemblers`.`name` = BINARY 'Wolksvagem') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO `assemblers` (`name`, `created_at`, `updated_at`) VALUES ('Wolksvagem', '2011-04-13 14:45:58', '2011-04-13 14:45:58')
+  [1m[36mSQL (38.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/assemblers/2
+Completed 302 Found in 54ms
+
+
+Started GET "/assemblers/2" for 127.0.0.1 at 2011-04-13 11:45:58 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+Rendered assemblers/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 19ms (Views: 10.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-13 11:45:59 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:46:01 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.3ms)[0m  SELECT `models`.* FROM `models`
+Rendered models/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-13 11:46:02 -0300
+  Processing by ModelsController#new as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered models/_form.html.erb (49.1ms)
+Rendered models/new.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 65ms (Views: 56.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-13 11:46:05 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "model"=>{"assembler_id"=>"1", "name"=>"Celta"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+Completed   in 13ms
+
+NoMethodError (undefined method `ass_code' for #<Model:0x0000000246a9b8>):
+  app/controllers/models_controller.rb:46:in `block in create'
+  app/controllers/models_controller.rb:45:in `create'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (29.8ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.8ms)
+
+
+Started POST "/models" for 127.0.0.1 at 2011-04-13 11:48:09 -0300
+  Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "model"=>{"assembler_id"=>"1", "name"=>"Celta"}, "commit"=>"Create Model"}
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mModel Load (0.3ms)[0m  [1mSELECT `models`.`id` FROM `models` WHERE (`models`.`name` = BINARY 'Celta') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  describe `models`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `models` (`name`, `created_at`, `updated_at`, `assembler_id`) VALUES ('Celta', '2011-04-13 14:48:09', '2011-04-13 14:48:09', 1)[0m
+  [1m[35mSQL (43.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/models/1
+Completed 302 Found in 64ms
+
+
+Started GET "/models/1" for 127.0.0.1 at 2011-04-13 11:48:09 -0300
+  Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/show.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 62ms (Views: 25.5ms | ActiveRecord: 45.3ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-13 11:48:10 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+Rendered models/index.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 64ms (Views: 55.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:48:15 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 21ms (Views: 10.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/fuels/new" for 127.0.0.1 at 2011-04-13 11:48:16 -0300
+  Processing by FuelsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+Rendered fuels/_form.html.erb (4.5ms)
+Rendered fuels/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 21ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/fuels" for 127.0.0.1 at 2011-04-13 11:48:19 -0300
+  Processing by FuelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "fuel"=>{"name"=>"Gasolina"}, "commit"=>"Create Fuel"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` WHERE (`fuels`.`name` = BINARY 'Gasolina') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mAREL (0.7ms)[0m  INSERT INTO `fuels` (`name`, `created_at`, `updated_at`) VALUES ('Gasolina', '2011-04-13 14:48:19', '2011-04-13 14:48:19')
+  [1m[36mSQL (22.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/fuels/1
+Completed 302 Found in 40ms
+
+
+Started GET "/fuels/1" for 127.0.0.1 at 2011-04-13 11:48:19 -0300
+  Processing by FuelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` = 1 LIMIT 1[0m
+Rendered fuels/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 19ms (Views: 9.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:48:20 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 20ms (Views: 10.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/fuels/new" for 127.0.0.1 at 2011-04-13 11:48:22 -0300
+  Processing by FuelsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Rendered fuels/_form.html.erb (4.6ms)
+Rendered fuels/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 21ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/fuels" for 127.0.0.1 at 2011-04-13 11:48:25 -0300
+  Processing by FuelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "fuel"=>{"name"=>"Álcool"}, "commit"=>"Create Fuel"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mFuel Load (0.3ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` WHERE (`fuels`.`name` = BINARY 'Álcool') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  describe `fuels`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `fuels` (`name`, `created_at`, `updated_at`) VALUES ('Álcool', '2011-04-13 14:48:25', '2011-04-13 14:48:25')[0m
+  [1m[35mSQL (32.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/fuels/2
+Completed 302 Found in 77ms
+
+
+Started GET "/fuels/2" for 127.0.0.1 at 2011-04-13 11:48:25 -0300
+  Processing by FuelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` = 2 LIMIT 1
+Rendered fuels/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 19ms (Views: 9.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-13 11:48:26 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 21ms (Views: 11.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-13 11:48:30 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+Rendered cars/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 54ms (Views: 6.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-13 11:48:32 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models`
+Rendered cars/_form.html.erb (55.5ms)
+Rendered cars/new.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 81ms (Views: 62.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-13 11:49:54 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.3ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 50ms (Views: 6.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/auctions/new" for 127.0.0.1 at 2011-04-13 11:49:55 -0300
+  Processing by AuctionsController#new as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+Rendered auctions/_form.html.erb (63.0ms)
+Rendered auctions/new.html.erb within layouts/application (67.8ms)
+Completed 200 OK in 86ms (Views: 70.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/auctions" for 127.0.0.1 at 2011-04-13 11:50:38 -0300
+  Processing by AuctionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "auction"=>{"car_id"=>"", "auction_start(1i)"=>"2011", "auction_start(2i)"=>"4", "auction_start(3i)"=>"13", "auction_start(4i)"=>"14", "auction_start(5i)"=>"49", "initial_value"=>"", "buy_now_value"=>"", "capping_value"=>"4d5d", "status"=>"0"}, "commit"=>"Create Auction"}
+  [1m[35mSQL (0.8ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+Rendered auctions/_form.html.erb (12.8ms)
+Rendered auctions/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 84ms (Views: 21.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/auctions" for 127.0.0.1 at 2011-04-13 11:50:44 -0300
+  Processing by AuctionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IM8fwE/sWHuHSqbnC0FtZseVr4jIxMPp1pnDlG37oBU=", "auction"=>{"car_id"=>"", "auction_start(1i)"=>"2011", "auction_start(2i)"=>"4", "auction_start(3i)"=>"13", "auction_start(4i)"=>"14", "auction_start(5i)"=>"49", "initial_value"=>"", "buy_now_value"=>"", "capping_value"=>"22", "status"=>"0"}, "commit"=>"Create Auction"}
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+Rendered auctions/_form.html.erb (13.2ms)
+Rendered auctions/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 87ms (Views: 20.6ms | ActiveRecord: 0.8ms)

@@ -13,7 +13,7 @@
 <% @clients.each do |client| %>
   <tr>
     <td><%= client.cpf %></td>
-    <td><%= client.cit_code %></td>
+    <td><%= client.city_id %></td>
     <td><%= client.name %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412154318) do
+ActiveRecord::Schema.define(:version => 20110413142753) do
 
   create_table "assemblers", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110412154318) do
   end
 
   create_table "auctions", :force => true do |t|
-    t.integer  "car_code"
+    t.integer  "car_id"
     t.datetime "auction_start"
     t.decimal  "initial_value", :precision => 10, :scale => 0
     t.decimal  "buy_now_value", :precision => 10, :scale => 0
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20110412154318) do
     t.datetime "updated_at"
   end
 
-  add_index "auctions", ["car_code"], :name => "index_auctions_on_car_code"
+  add_index "auctions", ["car_id"], :name => "index_auctions_on_car_code"
 
   create_table "cars", :force => true do |t|
-    t.integer  "mod_code"
+    t.integer  "model_id"
     t.string   "engine"
     t.string   "plate"
     t.string   "colour"
@@ -44,23 +44,28 @@ ActiveRecord::Schema.define(:version => 20110412154318) do
     t.datetime "updated_at"
   end
 
+  create_table "cars_fuels", :id => false, :force => true do |t|
+    t.integer "car_id"
+    t.integer "fuel_id"
+  end
+
   create_table "cars_optionals", :id => false, :force => true do |t|
     t.integer "car_id"
     t.integer "optional_id"
   end
 
   create_table "cities", :force => true do |t|
-    t.integer  "est_code"
+    t.integer  "estate_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "cities", ["est_code"], :name => "index_cities_on_est_code"
+  add_index "cities", ["estate_id"], :name => "index_cities_on_est_code"
 
   create_table "clients", :force => true do |t|
     t.string   "cpf"
-    t.integer  "cit_code"
+    t.integer  "city_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -76,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20110412154318) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "ass_code"
+    t.integer  "assembler_id"
   end
 
   create_table "optionals", :force => true do |t|

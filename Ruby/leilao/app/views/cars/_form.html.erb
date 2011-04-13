@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :"Selecione um modelo" %><br />
-    <%= select :car, :mod_code, Model.find(:all).collect{|m| [m.name, m.id]} %>
+    <%= select :car, :model_id, Model.find(:all).collect{|m| [m.name, m.id]} %>
   </div>
   <div class="field">
     <%= f.label :Motor %><br />
