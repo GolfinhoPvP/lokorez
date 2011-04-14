@@ -28,7 +28,7 @@
 	<% if car.fuels.all.length > 1 %>
 		<%= 'Flex' %>
 	<% else %>
-		<%= car.fuels.find(1).name %>
+		<%= car.fuels.all.first.name %>
 	<% end %>
     </td>
     <td><%= car.colour %></td>

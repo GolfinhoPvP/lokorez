@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :car_id %><br />
-    <%= f.text_field :car_id %>
+    <%= f.label :'Selecine o carro' %><br />
+    <%= select :auction, :car_id, Car.all.collect{|c| [Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :auction_start %><br />
@@ -27,10 +27,12 @@
     <%= f.label :buy_now_value %><br />
     <%= f.text_field :buy_now_value %>
   </div>
+<!--
   <div class="field">
     <%= f.label :capping_value %><br />
     <%= f.text_field :capping_value %>
   </div>
+-->
   <div class="field">
     <%= f.label :status %><br />
     <%= f.check_box :status %>
