@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Car code</th>
+    <th>Carro</th>
     <th>Auction start</th>
     <th>Initial value</th>
     <th>Buy now value</th>
@@ -15,7 +15,8 @@
 
 <% @auctions.each do |auction| %>
   <tr>
-    <td><%= auction.car_id %></td>
+	<% c = Car.find(auction.car_id) %>
+    <td><%= Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour %></td>
     <td><%= auction.auction_start %></td>
     <td><%= auction.initial_value %></td>
     <td><%= auction.buy_now_value %></td>

@@ -1,4 +1,6 @@
 Leilao::Application.routes.draw do
+  resources :bids
+
   resources :concessionaires
 
   resources :assemblers

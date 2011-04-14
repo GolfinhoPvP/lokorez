@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Car code:</b>
-  <%= @auction.car_id %>
+  <b>Carro:</b>
+  <% c = Car.find(@auction.car_id) %>
+  <%= Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour %>
 </p>
 
 <p>
