@@ -2,6 +2,8 @@
 
 <table>
   <tr>
+    <th>Leilão</th>
+    <th>Cliente</th>
     <th>Value</th>
     <th></th>
     <th></th>
@@ -10,6 +12,8 @@
 
 <% @bids.each do |bid| %>
   <tr>
+    <td><%= bid.auction_id %></td>
+    <td><%= bid.cliene_id %></td>
     <td><%= bid.value %></td>
     <td><%= link_to 'Show', bid %></td>
     <td><%= link_to 'Edit', edit_bid_path(bid) %></td>

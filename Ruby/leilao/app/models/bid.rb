@@ -4,5 +4,5 @@ class Bid < ActiveRecord::Base
 
 	validates :client_id, :presence => true
 	validates :auction_id, :presence => true
-	validates :value, :presence => true, :format => { :with => /^[0-9]+\,[0-9]{1,2}$/ }
+	validates :value, :presence => true
 end

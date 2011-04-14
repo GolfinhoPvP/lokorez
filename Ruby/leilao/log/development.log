@@ -12580,3 +12580,1214 @@ Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: descri
   [1m[35mCACHE (0.0ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
 Rendered auctions/index.html.erb within layouts/application (108.9ms)
 Completed 200 OK in 125ms (Views: 110.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-14 11:31:05 -0300
+  Processing by BidsController#index as HTML
+  [1m[36mBid Load (0.3ms)[0m  [1mSELECT `bids`.* FROM `bids`[0m
+Rendered bids/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 18ms (Views: 7.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:31:07 -0300
+  Processing by BidsController#new as HTML
+Rendered bids/_form.html.erb (5.1ms)
+Rendered bids/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 22ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-14 11:33:15 -0300
+  Processing by BidsController#index as HTML
+  [1m[35mBid Load (0.1ms)[0m  SELECT `bids`.* FROM `bids`
+Rendered bids/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 49ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-14 11:37:50 -0300
+  Processing by BidsController#index as HTML
+  [1m[36mBid Load (0.1ms)[0m  [1mSELECT `bids`.* FROM `bids`[0m
+Rendered bids/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:37:52 -0300
+  Processing by BidsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+Rendered bids/_form.html.erb (102.4ms)
+Rendered bids/new.html.erb within layouts/application (103.6ms)
+Completed   in 115ms
+
+ActionView::Template::Error (undefined method `round' for " = ":String):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [Auction.find(c.id).auction_start+' = '+Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/_form.html.erb:16:in `block (2 levels) in _app_views_bids__form_html_erb___4081601368257016412_70132757630640_3742549325190161787'
+  app/views/bids/_form.html.erb:16:in `collect'
+  app/views/bids/_form.html.erb:16:in `block in _app_views_bids__form_html_erb___4081601368257016412_70132757630640_3742549325190161787'
+  app/views/bids/_form.html.erb:1:in `_app_views_bids__form_html_erb___4081601368257016412_70132757630640_3742549325190161787'
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_70132757691180_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:40:13 -0300
+  Processing by BidsController#new as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1[0m
+Rendered bids/_form.html.erb (94.8ms)
+Rendered bids/new.html.erb within layouts/application (96.0ms)
+Completed   in 108ms
+
+ActionView::Template::Error (undefined method `round' for " = ":String):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [Auction.find(c.id).auction_start+" = "+Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/_form.html.erb:16:in `block (2 levels) in _app_views_bids__form_html_erb___4081601368257016412_32300180_3742549325190161787'
+  app/views/bids/_form.html.erb:16:in `collect'
+  app/views/bids/_form.html.erb:16:in `block in _app_views_bids__form_html_erb___4081601368257016412_32300180_3742549325190161787'
+  app/views/bids/_form.html.erb:1:in `_app_views_bids__form_html_erb___4081601368257016412_32300180_3742549325190161787'
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_32378460_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.7ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:40:36 -0300
+  Processing by BidsController#new as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+Rendered bids/_form.html.erb (95.3ms)
+Rendered bids/new.html.erb within layouts/application (96.6ms)
+Completed   in 108ms
+
+ActionView::Template::Error (undefined method `round' for " - ":String):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [Auction.find(c.id).auction_start+' - '+Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/_form.html.erb:16:in `block (2 levels) in _app_views_bids__form_html_erb___4081601368257016412_70132758665840_3742549325190161787'
+  app/views/bids/_form.html.erb:16:in `collect'
+  app/views/bids/_form.html.erb:16:in `block in _app_views_bids__form_html_erb___4081601368257016412_70132758665840_3742549325190161787'
+  app/views/bids/_form.html.erb:1:in `_app_views_bids__form_html_erb___4081601368257016412_70132758665840_3742549325190161787'
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_70132758696000_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:41:28 -0300
+  Processing by BidsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAuction Load (0.2ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 2 LIMIT 1
+Rendered bids/_form.html.erb (131.5ms)
+Rendered bids/new.html.erb within layouts/application (132.7ms)
+Completed   in 144ms
+
+ActionView::Template::Error (Couldn't find Auction with ID=2):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/_form.html.erb:16:in `block (2 levels) in _app_views_bids__form_html_erb___4081601368257016412_33588000_3742549325190161787'
+  app/views/bids/_form.html.erb:16:in `collect'
+  app/views/bids/_form.html.erb:16:in `block in _app_views_bids__form_html_erb___4081601368257016412_33588000_3742549325190161787'
+  app/views/bids/_form.html.erb:1:in `_app_views_bids__form_html_erb___4081601368257016412_33588000_3742549325190161787'
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_33639720_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.6ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:42:47 -0300
+  Processing by BidsController#new as HTML
+ERROR: compiling _app_views_bids__form_html_erb___4081601368257016412_42300120_3742549325190161787 RAISED /home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ',', expecting keyword_end
+...model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} );@o...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ']', expecting keyword_end
+....colour, Auction.find(c.id).id]} );@output_buffer.safe_conca...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:30: syntax error, unexpected tIVAR, expecting ']'
+@output_buffer.to_s
+              ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting '}'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting '}'
+Function body:           def _app_views_bids__form_html_erb___4081601368257016412_42300120_3742549325190161787(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "bids/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@bid) do |f| @output_buffer.safe_concat('
+');   if @bid.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@bid.errors.count, "error") );@output_buffer.safe_concat(' prohibited this bid from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @bid.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :'Selecine o leilão' );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( select :bid, :auction_id, Car.all.collect{|c| [if Auction.find(c.id).id then Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `module_eval'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:262:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:260:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:31:in `render'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_42311020_1780921912085443089'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:135:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/usr/local/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/bids_controller.rb:29:in `new'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:435:in `_run__1930039779909323781__process_action__3682796224943154383__callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `block in action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered bids/_form.html.erb (1.1ms)
+Rendered bids/new.html.erb within layouts/application (2.2ms)
+Completed   in 14ms
+
+ActionView::Template::Error (/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ',', expecting keyword_end
+...model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} );@o...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ']', expecting keyword_end
+....colour, Auction.find(c.id).id]} );@output_buffer.safe_conca...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:30: syntax error, unexpected tIVAR, expecting ']'
+@output_buffer.to_s
+              ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting '}'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting '}'):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [if Auction.find(c.id).id then Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_42311020_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.7ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:43:23 -0300
+  Processing by BidsController#new as HTML
+ERROR: compiling _app_views_bids__form_html_erb___4081601368257016412_27180520_3742549325190161787 RAISED /home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ']', expecting keyword_then or ';' or '\n'
+...our end, Auction.find(c.id).id]} );@output_buffer.safe_conca...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:29: syntax error, unexpected keyword_end, expecting '}'
+'); end 
+       ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting '}'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting '}'
+Function body:           def _app_views_bids__form_html_erb___4081601368257016412_27180520_3742549325190161787(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "bids/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@bid) do |f| @output_buffer.safe_concat('
+');   if @bid.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@bid.errors.count, "error") );@output_buffer.safe_concat(' prohibited this bid from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @bid.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :'Selecine o leilão' );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( select :bid, :auction_id, Car.all.collect{|c| [if Auction.find(c.id).id begin Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour end, Auction.find(c.id).id]} );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `module_eval'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:262:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:260:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:31:in `render'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_27302560_1780921912085443089'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:135:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/usr/local/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/bids_controller.rb:29:in `new'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:435:in `_run__1930039779909323781__process_action__3682796224943154383__callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `block in action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered bids/_form.html.erb (1.1ms)
+Rendered bids/new.html.erb within layouts/application (2.4ms)
+Completed   in 14ms
+
+ActionView::Template::Error (/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ']', expecting keyword_then or ';' or '\n'
+...our end, Auction.find(c.id).id]} );@output_buffer.safe_conca...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:29: syntax error, unexpected keyword_end, expecting '}'
+'); end 
+       ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting '}'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting '}'):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [if Auction.find(c.id).id begin Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour end, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_27302560_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (36.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (40.8ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:43:44 -0300
+  Processing by BidsController#new as HTML
+ERROR: compiling _app_views_bids__form_html_erb___4081601368257016412_43150040_3742549325190161787 RAISED /home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ']', expecting keyword_then or ';' or '\n'
+....colour, Auction.find(c.id).id]} );@output_buffer.safe_conca...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:29: syntax error, unexpected keyword_end, expecting '}'
+'); end 
+       ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting '}'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting '}'
+Function body:           def _app_views_bids__form_html_erb___4081601368257016412_43150040_3742549325190161787(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "bids/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@bid) do |f| @output_buffer.safe_concat('
+');   if @bid.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@bid.errors.count, "error") );@output_buffer.safe_concat(' prohibited this bid from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @bid.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :'Selecine o leilão' );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( select :bid, :auction_id, Car.all.collect{|c| [if Auction.find(c.id).id Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `module_eval'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:262:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:260:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:31:in `render'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_43578060_1780921912085443089'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:135:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/usr/local/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/bids_controller.rb:29:in `new'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:435:in `_run__1930039779909323781__process_action__3682796224943154383__callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `block in action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered bids/_form.html.erb (1.0ms)
+Rendered bids/new.html.erb within layouts/application (2.2ms)
+Completed   in 14ms
+
+ActionView::Template::Error (/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ']', expecting keyword_then or ';' or '\n'
+....colour, Auction.find(c.id).id]} );@output_buffer.safe_conca...
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:29: syntax error, unexpected keyword_end, expecting '}'
+'); end 
+       ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting '}'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting '}'):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [if Auction.find(c.id).id Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_43578060_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.6ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:44:23 -0300
+  Processing by BidsController#new as HTML
+ERROR: compiling _app_views_bids__form_html_erb___4081601368257016412_28353020_3742549325190161787 RAISED /home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...lour, Auction.find(c.id).id]} );@output_buffer.safe_concat('
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:29: syntax error, unexpected keyword_end, expecting ')'
+'); end 
+       ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+Function body:           def _app_views_bids__form_html_erb___4081601368257016412_28353020_3742549325190161787(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "bids/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@bid) do |f| @output_buffer.safe_concat('
+');   if @bid.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@bid.errors.count, "error") );@output_buffer.safe_concat(' prohibited this bid from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @bid.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :'Selecine o leilão' );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( select :bid, :auction_id, if Auction.find(c.id).id Car.all.collect{|c| [Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :value );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :value );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `module_eval'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:255:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:262:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:260:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:31:in `render'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_28828180_1780921912085443089'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:135:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/usr/local/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/acelerador01/Projetos/Ruby/leilao/app/controllers/bids_controller.rb:29:in `new'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:435:in `_run__1930039779909323781__process_action__3682796224943154383__callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `block in instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `block in action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/usr/local/lib/ruby/gems/1.9.1/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered bids/_form.html.erb (1.1ms)
+Rendered bids/new.html.erb within layouts/application (2.2ms)
+Completed   in 14ms
+
+ActionView::Template::Error (/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:16: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...lour, Auction.find(c.id).id]} );@output_buffer.safe_concat('
+...                               ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:29: syntax error, unexpected keyword_end, expecting ')'
+'); end 
+       ^
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+/home/acelerador01/Projetos/Ruby/leilao/app/views/bids/_form.html.erb:33: syntax error, unexpected keyword_end, expecting ')'):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, if Auction.find(c.id).id Car.all.collect{|c| [Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_28828180_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.7ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-14 11:44:34 -0300
+  Processing by BidsController#new as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 2 LIMIT 1
+Rendered bids/_form.html.erb (142.0ms)
+Rendered bids/new.html.erb within layouts/application (143.1ms)
+Completed   in 155ms
+
+ActionView::Template::Error (Couldn't find Auction with ID=2):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'Selecine o leilão' %><br />
+    16:     <%= select :bid, :auction_id, Car.all.collect{|c| [Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :value %><br />
+  app/views/bids/_form.html.erb:16:in `block (2 levels) in _app_views_bids__form_html_erb___4081601368257016412_36679560_3742549325190161787'
+  app/views/bids/_form.html.erb:16:in `collect'
+  app/views/bids/_form.html.erb:16:in `block in _app_views_bids__form_html_erb___4081601368257016412_36679560_3742549325190161787'
+  app/views/bids/_form.html.erb:1:in `_app_views_bids__form_html_erb___4081601368257016412_36679560_3742549325190161787'
+  app/views/bids/new.html.erb:3:in `_app_views_bids_new_html_erb__3760094533772304038_36760140_1780921912085443089'
+  app/controllers/bids_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.7ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-14 11:59:50 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers`[0m
+Rendered assemblers/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 21ms (Views: 13.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-14 11:59:53 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 70ms (Views: 61.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-14 11:59:55 -0300
+  Processing by ModelsController#new as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (55.7ms)
+Rendered models/new.html.erb within layouts/application (60.4ms)
+Completed 200 OK in 74ms (Views: 63.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 12:00:00 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )[0m
+Rendered cars/index.html.erb within layouts/application (105.4ms)
+Completed 200 OK in 127ms (Views: 106.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-14 12:00:02 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.0ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+  [1m[36mOptional Load (0.3ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = NULL ) LIMIT 1
+Rendered cars/_form.html.erb (140.8ms)
+Rendered cars/new.html.erb within layouts/application (145.1ms)
+Completed 200 OK in 167ms (Views: 145.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-14 12:00:11 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 56ms (Views: 12.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/optionals/new" for 127.0.0.1 at 2011-04-14 12:00:12 -0300
+  Processing by OptionalsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+Rendered optionals/_form.html.erb (4.8ms)
+Rendered optionals/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 22ms (Views: 12.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/optionals" for 127.0.0.1 at 2011-04-14 12:00:14 -0300
+  Processing by OptionalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "optional"=>{"name"=>"werwe"}, "commit"=>"Create Optional"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` WHERE (`optionals`.`name` = BINARY 'werwe') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `optionals` (`name`, `created_at`, `updated_at`) VALUES ('werwe', '2011-04-14 15:00:14', '2011-04-14 15:00:14')
+  [1m[36mSQL (30.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/optionals/3
+Completed 302 Found in 47ms
+
+
+Started GET "/optionals/3" for 127.0.0.1 at 2011-04-14 12:00:14 -0300
+  Processing by OptionalsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals` WHERE `optionals`.`id` = 3 LIMIT 1[0m
+Rendered optionals/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 21ms (Views: 10.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-14 12:00:16 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 22ms (Views: 13.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/fuels/new" for 127.0.0.1 at 2011-04-14 12:00:18 -0300
+  Processing by FuelsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+Rendered fuels/_form.html.erb (4.9ms)
+Rendered fuels/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 23ms (Views: 13.3ms | ActiveRecord: 32.9ms)
+
+
+Started POST "/fuels" for 127.0.0.1 at 2011-04-14 12:00:21 -0300
+  Processing by FuelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "fuel"=>{"name"=>"sfsdfs"}, "commit"=>"Create Fuel"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` WHERE (`fuels`.`name` = BINARY 'sfsdfs') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `fuels`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `fuels` (`name`, `created_at`, `updated_at`) VALUES ('sfsdfs', '2011-04-14 15:00:21', '2011-04-14 15:00:21')[0m
+  [1m[35mSQL (36.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/fuels/5
+Completed 302 Found in 54ms
+
+
+Started GET "/fuels/5" for 127.0.0.1 at 2011-04-14 12:00:21 -0300
+  Processing by FuelsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` = 5 LIMIT 1
+Rendered fuels/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 21ms (Views: 10.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 12:00:23 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.3ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.3ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )
+  [1m[36mOptional Load (0.3ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )[0m
+Rendered cars/index.html.erb within layouts/application (119.2ms)
+Completed 200 OK in 142ms (Views: 119.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-14 12:00:24 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.3ms)[0m  SELECT `fuels`.* FROM `fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 5 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.3ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = NULL ) LIMIT 1
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 3 AND (`cars_optionals`.car_id = NULL ) LIMIT 1
+Rendered cars/_form.html.erb (143.4ms)
+Rendered cars/new.html.erb within layouts/application (147.8ms)
+Completed 200 OK in 203ms (Views: 147.1ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 12:00:29 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )[0m
+Rendered cars/index.html.erb within layouts/application (77.4ms)
+Completed 200 OK in 134ms (Views: 78.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2011-04-14 12:00:40 -0300
+  Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires`[0m
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 5 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = 1 ) LIMIT 1
+  [1m[36mOptional Load (0.3ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 3 AND (`cars_optionals`.car_id = 1 ) LIMIT 1[0m
+Rendered cars/_form.html.erb (145.8ms)
+Rendered cars/edit.html.erb within layouts/application (150.7ms)
+Completed 200 OK in 174ms (Views: 150.2ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/cars/1" for 127.0.0.1 at 2011-04-14 12:00:45 -0300
+  Processing by CarsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "car"=>{"concessionaire_id"=>"2", "model_id"=>"1", "engine"=>"1.0", "plate"=>"nww-2713", "fuel_ids"=>["1", "2", "3", "4", "5"], "colour"=>"Prata", "mileage"=>"2000", "manufacture_year"=>"2011", "model_year"=>"2012", "optional_ids"=>["1", "2"], "comments"=>""}, "commit"=>"Update Car", "id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` IN (1, 2, 3, 4, 5)[0m
+  [1m[35mFuel Load (0.3ms)[0m  SELECT * FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `cars_fuels` (`car_id`, `fuel_id`) VALUES (1, 1)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `cars_fuels` (`car_id`, `fuel_id`) VALUES (1, 3)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `cars_fuels` (`car_id`, `fuel_id`) VALUES (1, 5)[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals` WHERE `optionals`.`id` IN (1, 2)[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT * FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.`id` FROM `cars` WHERE (`cars`.`plate` = BINARY 'nww-2713') AND (`cars`.id <> 1) LIMIT 1[0m
+  [1m[35mSQL (49.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/cars/1
+Completed 302 Found in 115ms
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2011-04-14 12:00:45 -0300
+  Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.3ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+Rendered cars/show.html.erb within layouts/application (107.9ms)
+Completed 200 OK in 131ms (Views: 109.1ms | ActiveRecord: 40.7ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-14 12:00:48 -0300
+  Processing by BidsController#index as HTML
+  [1m[36mBid Load (0.1ms)[0m  [1mSELECT `bids`.* FROM `bids`[0m
+Rendered bids/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 17ms (Views: 8.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-14 12:00:53 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+Rendered auctions/index.html.erb within layouts/application (107.4ms)
+Completed 200 OK in 123ms (Views: 109.2ms | ActiveRecord: 2.0ms)
