@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <b>Cit code:</b>
-  <%= @client.city_id %>
+  <b>Cidade:</b>
+  <%= City.find(@client.city_id).name %>
 </p>
 
 <p>

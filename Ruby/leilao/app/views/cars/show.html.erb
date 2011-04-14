@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Concessionária:</b>
+  <%= Concessionaire.find(@car.concessionaire_id).name %>
+</p>
+
+<p>
   <b>Modelo do carro:</b>
   <%= Model.find(@car.model_id).name %>
 </p>

@@ -16,8 +16,8 @@
     <%= f.text_field :cpf %>
   </div>
   <div class="field">
-    <%= f.label :city_id %><br />
-    <%= f.text_field :cit_code %>
+    <%= f.label :Cidade %><br />
+    <%= select :client, :city_id, City.all.collect{|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :name %><br />

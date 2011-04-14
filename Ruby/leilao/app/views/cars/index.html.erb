@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Concessionária</th>
     <th>Modelo</th>
     <th>Motor</th>
     <th>Placa</th>
@@ -19,6 +20,7 @@
 
 <% @cars.each do |car| %>
   <tr>
+    <td><%= Concessionaire.find(car.concessionaire_id).name %></td>
     <td><%= Model.find(car.model_id).name %></td>
     <td><%= car.engine %></td>
     <td><%= car.plate %></td>
