@@ -8149,3 +8149,1953 @@ Started GET "/cars/new" for 127.0.0.1 at 2011-04-13 19:09:58 -0300
 Rendered cars/_form.html.erb (110.9ms)
 Rendered cars/new.html.erb within layouts/application (116.3ms)
 Completed 200 OK in 144ms (Views: 119.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 08:10:29 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (6.3ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 142ms (Views: 28.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-14 08:10:34 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 31ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-14 08:10:37 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.3ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 50ms (Views: 7.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 08:10:38 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.3ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/index.html.erb within layouts/application (86.5ms)
+Completed 200 OK in 112ms (Views: 87.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 08:10:39 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 08:10:40 -0300
+  Processing by ClientsController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.3ms)[0m  SELECT `clients`.* FROM `clients`
+Rendered clients/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 19ms (Views: 6.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-14 08:10:41 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.3ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 24ms (Views: 13.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-14 08:10:41 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 28ms (Views: 19.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-14 08:10:43 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.5ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (53.1ms)
+Completed 200 OK in 67ms (Views: 56.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-14 08:10:45 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+Rendered optionals/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 16ms (Views: 7.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/optionals/new" for 127.0.0.1 at 2011-04-14 08:10:48 -0300
+  Processing by OptionalsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+Rendered optionals/_form.html.erb (6.8ms)
+Rendered optionals/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 33ms (Views: 23.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/optionals" for 127.0.0.1 at 2011-04-14 08:10:56 -0300
+  Processing by OptionalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "optional"=>{"name"=>"Vidro elétrico"}, "commit"=>"Create Optional"}
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` WHERE (`optionals`.`name` = BINARY 'Vidro elétrico') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  describe `optionals`
+  [1m[36mAREL (13.5ms)[0m  [1mINSERT INTO `optionals` (`name`, `created_at`, `updated_at`) VALUES ('Vidro elétrico', '2011-04-14 11:10:57', '2011-04-14 11:10:57')[0m
+  [1m[35mSQL (38.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/optionals/1
+Completed 302 Found in 125ms
+
+
+Started GET "/optionals/1" for 127.0.0.1 at 2011-04-14 08:10:57 -0300
+  Processing by OptionalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.4ms)[0m  SELECT `optionals`.* FROM `optionals` WHERE `optionals`.`id` = 1 LIMIT 1
+Rendered optionals/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 23ms (Views: 12.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-14 08:10:59 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 19ms (Views: 10.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/optionals/new" for 127.0.0.1 at 2011-04-14 08:11:00 -0300
+  Processing by OptionalsController#new as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_optionals`[0m
+Rendered optionals/_form.html.erb (4.6ms)
+Rendered optionals/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 48ms (Views: 11.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/optionals" for 127.0.0.1 at 2011-04-14 08:11:05 -0300
+  Processing by OptionalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "optional"=>{"name"=>"Alarme"}, "commit"=>"Create Optional"}
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mOptional Load (0.3ms)[0m  SELECT `optionals`.`id` FROM `optionals` WHERE (`optionals`.`name` = BINARY 'Alarme') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `optionals` (`name`, `created_at`, `updated_at`) VALUES ('Alarme', '2011-04-14 11:11:05', '2011-04-14 11:11:05')
+  [1m[36mSQL (53.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/optionals/2
+Completed 302 Found in 74ms
+
+
+Started GET "/optionals/2" for 127.0.0.1 at 2011-04-14 08:11:05 -0300
+  Processing by OptionalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals` WHERE `optionals`.`id` = 2 LIMIT 1[0m
+Rendered optionals/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 21ms (Views: 10.0ms | ActiveRecord: 54.8ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 08:11:07 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (8.0ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/index.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 110ms (Views: 55.8ms | ActiveRecord: 65.3ms)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2011-04-14 08:11:12 -0300
+  Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = 1 ) LIMIT 1
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = 1 ) LIMIT 1[0m
+Rendered cars/_form.html.erb (104.6ms)
+Rendered cars/edit.html.erb within layouts/application (109.2ms)
+Completed 200 OK in 145ms (Views: 124.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 08:11:25 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/index.html.erb within layouts/application (50.5ms)
+Completed 200 OK in 71ms (Views: 52.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2011-04-14 08:12:34 -0300
+  Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = 1 ) LIMIT 1
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = 1 ) LIMIT 1[0m
+Rendered cars/_form.html.erb (102.4ms)
+Rendered cars/edit.html.erb within layouts/application (106.9ms)
+Completed 200 OK in 129ms (Views: 108.7ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/cars/1" for 127.0.0.1 at 2011-04-14 08:12:38 -0300
+  Processing by CarsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "car"=>{"model_id"=>"1", "engine"=>"1.0", "plate"=>"nww-2713", "fuel_ids"=>["1", "2"], "colour"=>"Prata", "mileage"=>"2000", "manufacture_year"=>"2011", "model_year"=>"2011", "optional_ids"=>["1"], "comments"=>""}, "commit"=>"Update Car", "id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` IN (1, 2)[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT * FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.* FROM `optionals` WHERE `optionals`.`id` = 1 LIMIT 1
+  [1m[36mOptional Load (1.6ms)[0m  [1mSELECT * FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cars_optionals` (`car_id`, `optional_id`) VALUES (1, 1)
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.`id` FROM `cars` WHERE (`cars`.`plate` = BINARY 'nww-2713') AND (`cars`.id <> 1) LIMIT 1[0m
+  [1m[35mSQL (41.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/cars/1
+Completed 302 Found in 130ms
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2011-04-14 08:12:38 -0300
+  Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.3ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+Rendered cars/show.html.erb within layouts/application (84.7ms)
+Completed 200 OK in 107ms (Views: 86.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 08:12:41 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+Rendered cars/index.html.erb within layouts/application (51.1ms)
+Completed 200 OK in 102ms (Views: 53.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-14 08:13:00 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 20ms (Views: 7.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 08:13:01 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (1.0ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+Rendered cars/index.html.erb within layouts/application (79.2ms)
+Completed 200 OK in 99ms (Views: 79.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 08:13:02 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 08:13:06 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 18ms (Views: 6.6ms | ActiveRecord: 47.1ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-14 08:13:07 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 52ms (Views: 14.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-14 08:13:09 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+Rendered models/index.html.erb within layouts/application (54.1ms)
+Completed 200 OK in 65ms (Views: 56.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-14 08:13:10 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-14 08:13:11 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.3ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 6.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-14 08:13:13 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 20ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-14 08:13:14 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.2ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 46ms (Views: 6.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 08:13:15 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+Rendered cars/index.html.erb within layouts/application (50.4ms)
+Completed 200 OK in 98ms (Views: 79.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 08:13:16 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 15ms (Views: 6.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 08:13:17 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 46ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-14 08:13:17 -0300
+  Processing by FuelsController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+Rendered fuels/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 23ms (Views: 13.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-14 08:13:18 -0300
+  Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1
+Rendered models/index.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 36ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-14 08:13:19 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 21ms (Views: 12.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-14 08:13:20 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 16ms (Views: 6.4ms | ActiveRecord: 0.1ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+  [1m[35mSQL (139.8ms)[0m  CREATE TABLE `concessionaires` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110414115548')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_fuels`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `concessionaires`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `concessionaires`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+Migrating to AddConcessionaireIdToCars (20110414120227)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+Migrating to AddConcessionaireIdToCars (20110414120227)
+  [1m[35mSQL (268.5ms)[0m  ALTER TABLE `cars` ADD `concessionaire_id` int(11)
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110414120227')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars_fuels`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `concessionaires`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `concessionaires`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+Migrating to AddConcessionaireIdToCars (20110414120227)
+Migrating to AddCarsAndConcessionaires (20110414121028)
+  [1m[35mSQL (129.2ms)[0m  CREATE TABLE `cars_concessionaires` (`car_id` int(11), `concessionaires_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (40.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110414121028')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_concessionaires`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_concessionaires`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_fuels`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `concessionaires`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `concessionaires`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-14 09:13:37 -0300
+  Processing by StatesController#index as HTML
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered states/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-14 09:14:35 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.2ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 46ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/concessionaires" for 127.0.0.1 at 2011-04-14 09:14:36 -0300
+  Processing by ConcessionairesController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_concessionaires`
+  [1m[36mConcessionaire Load (0.3ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires`[0m
+Rendered concessionaires/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 18ms (Views: 6.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/concessionaires/new" for 127.0.0.1 at 2011-04-14 09:14:37 -0300
+  Processing by ConcessionairesController#new as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `cars_concessionaires`
+Rendered concessionaires/_form.html.erb (4.7ms)
+Rendered concessionaires/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 24ms (Views: 12.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/concessionaires" for 127.0.0.1 at 2011-04-14 09:14:55 -0300
+  Processing by ConcessionairesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "concessionaire"=>{"name"=>"Alemanha"}, "commit"=>"Create Concessionaire"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_concessionaires`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mConcessionaire Load (0.2ms)[0m  SELECT `concessionaires`.`id` FROM `concessionaires` WHERE (`concessionaires`.`name` = BINARY 'Alemanha') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `concessionaires`[0m
+  [1m[35mAREL (0.1ms)[0m  INSERT INTO `concessionaires` (`name`, `created_at`, `updated_at`) VALUES ('Alemanha', '2011-04-14 12:14:55', '2011-04-14 12:14:55')
+  [1m[36mSQL (40.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/concessionaires/1
+Completed 302 Found in 57ms
+
+
+Started GET "/concessionaires/1" for 127.0.0.1 at 2011-04-14 09:14:55 -0300
+  Processing by ConcessionairesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.4ms)[0m  describe `cars_concessionaires`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mConcessionaire Load (0.2ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1
+Rendered concessionaires/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 49ms (Views: 39.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/concessionaires" for 127.0.0.1 at 2011-04-14 09:14:59 -0300
+  Processing by ConcessionairesController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_concessionaires`[0m
+  [1m[35mConcessionaire Load (0.3ms)[0m  SELECT `concessionaires`.* FROM `concessionaires`
+Rendered concessionaires/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 22ms (Views: 12.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/concessionaires/new" for 127.0.0.1 at 2011-04-14 09:15:03 -0300
+  Processing by ConcessionairesController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_concessionaires`[0m
+Rendered concessionaires/_form.html.erb (4.6ms)
+Rendered concessionaires/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 22ms (Views: 12.0ms | ActiveRecord: 42.3ms)
+
+
+Started POST "/concessionaires" for 127.0.0.1 at 2011-04-14 09:15:12 -0300
+  Processing by ConcessionairesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "concessionaire"=>{"name"=>"Canada"}, "commit"=>"Create Concessionaire"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_concessionaires`
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mConcessionaire Load (0.2ms)[0m  [1mSELECT `concessionaires`.`id` FROM `concessionaires` WHERE (`concessionaires`.`name` = BINARY 'Canada') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `concessionaires`
+  [1m[36mAREL (0.1ms)[0m  [1mINSERT INTO `concessionaires` (`name`, `created_at`, `updated_at`) VALUES ('Canada', '2011-04-14 12:15:12', '2011-04-14 12:15:12')[0m
+  [1m[35mSQL (50.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/concessionaires/2
+Completed 302 Found in 67ms
+
+
+Started GET "/concessionaires/2" for 127.0.0.1 at 2011-04-14 09:15:12 -0300
+  Processing by ConcessionairesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_concessionaires`[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mConcessionaire Load (0.2ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+Rendered concessionaires/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 21ms (Views: 10.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/concessionaires" for 127.0.0.1 at 2011-04-14 09:15:14 -0300
+  Processing by ConcessionairesController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_concessionaires`
+  [1m[36mConcessionaire Load (0.4ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires`[0m
+Rendered concessionaires/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 22ms (Views: 12.0ms | ActiveRecord: 52.5ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 09:15:16 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_concessionaires`
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+Rendered cars/index.html.erb within layouts/application (81.6ms)
+Completed 200 OK in 105ms (Views: 83.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-14 09:18:41 -0300
+  Processing by CarsController#new as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_concessionaires`[0m
+Rendered cars/_form.html.erb (37.9ms)
+Rendered cars/new.html.erb within layouts/application (39.2ms)
+Completed   in 103ms
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Concecinaire):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione a concessionária" %><br />
+    16:     <%= select :car, :concecionaire_id, Concecinaire.all.collect{|c| [c.name, c.id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :"Selecione um modelo" %><br />
+  app/views/cars/_form.html.erb:16:in `block in _app_views_cars__form_html_erb__2218101650390851068_34997100_3742549325190161787'
+  app/views/cars/_form.html.erb:1:in `_app_views_cars__form_html_erb__2218101650390851068_34997100_3742549325190161787'
+  app/views/cars/new.html.erb:3:in `_app_views_cars_new_html_erb___983270301266244328_35027500_1780921912085443089'
+  app/controllers/cars_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-14 09:18:57 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `cars_concessionaires`
+Rendered cars/_form.html.erb (21.6ms)
+Rendered cars/new.html.erb within layouts/application (22.8ms)
+Completed   in 48ms
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Concecionaire):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :"Selecione a concessionária" %><br />
+    16:     <%= select :car, :concecionaire_id, Concecionaire.all.collect{|c| [c.name, c.id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :"Selecione um modelo" %><br />
+  app/views/cars/_form.html.erb:16:in `block in _app_views_cars__form_html_erb__2218101650390851068_32291820_3742549325190161787'
+  app/views/cars/_form.html.erb:1:in `_app_views_cars__form_html_erb__2218101650390851068_32291820_3742549325190161787'
+  app/views/cars/new.html.erb:3:in `_app_views_cars_new_html_erb___983270301266244328_32333720_1780921912085443089'
+  app/controllers/cars_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-14 09:19:33 -0300
+  Processing by CarsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_concessionaires`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_concessionaires`
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+  [1m[36mFuel Load (0.3ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.2ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = NULL ) LIMIT 1
+Rendered cars/_form.html.erb (152.6ms)
+Rendered cars/new.html.erb within layouts/application (157.0ms)
+Completed 200 OK in 181ms (Views: 156.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 09:20:51 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_concessionaires`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_concessionaires`[0m
+Rendered cars/index.html.erb within layouts/application (20.6ms)
+Completed   in 76ms
+
+ActionView::Template::Error (Couldn't find Concessionaire without an ID):
+    20: 
+    21: <% @cars.each do |car| %>
+    22:   <tr>
+    23:     <td><%= Concessionaire.find(car.concessionaire_id).name %></td>
+    24:     <td><%= Model.find(car.model_id).name %></td>
+    25:     <td><%= car.engine %></td>
+    26:     <td><%= car.plate %></td>
+  app/views/cars/index.html.erb:23:in `block in _app_views_cars_index_html_erb__3996392481187439161_35022220_1780921912085443089'
+  app/views/cars/index.html.erb:21:in `each'
+  app/views/cars/index.html.erb:21:in `_app_views_cars_index_html_erb__3996392481187439161_35022220_1780921912085443089'
+  app/controllers/cars_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.7ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 09:21:39 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_concessionaires`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_concessionaires`
+Rendered cars/index.html.erb within layouts/application (20.6ms)
+Completed   in 74ms
+
+ActionView::Template::Error (Couldn't find Concessionaire without an ID):
+    20: 
+    21: <% @cars.each do |car| %>
+    22:   <tr>
+    23:     <td><%= Concessionaire.find(car.concessionaire_id).name %></td>
+    24:     <td><%= Model.find(car.model_id).name %></td>
+    25:     <td><%= car.engine %></td>
+    26:     <td><%= car.plate %></td>
+  app/views/cars/index.html.erb:23:in `block in _app_views_cars_index_html_erb__3996392481187439161_33915180_1780921912085443089'
+  app/views/cars/index.html.erb:21:in `each'
+  app/views/cars/index.html.erb:21:in `_app_views_cars_index_html_erb__3996392481187439161_33915180_1780921912085443089'
+  app/controllers/cars_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.3ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 09:21:42 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.9ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_concessionaires`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `cars_concessionaires`[0m
+Rendered cars/index.html.erb within layouts/application (24.6ms)
+Completed   in 50ms
+
+ActionView::Template::Error (Couldn't find Concessionaire without an ID):
+    20: 
+    21: <% @cars.each do |car| %>
+    22:   <tr>
+    23:     <td><%= Concessionaire.find(car.concessionaire_id).name %></td>
+    24:     <td><%= Model.find(car.model_id).name %></td>
+    25:     <td><%= car.engine %></td>
+    26:     <td><%= car.plate %></td>
+  app/views/cars/index.html.erb:23:in `block in _app_views_cars_index_html_erb__3996392481187439161_32525880_1780921912085443089'
+  app/views/cars/index.html.erb:21:in `each'
+  app/views/cars/index.html.erb:21:in `_app_views_cars_index_html_erb__3996392481187439161_32525880_1780921912085443089'
+  app/controllers/cars_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (31.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.7ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+Migrating to AddConcessionaireIdToCars (20110414120227)
+Migrating to AddCarsAndConcessionaires (20110414121028)
+Migrating to RemoveCarsAndConcessionaires (20110414122812)
+  [1m[35mSQL (58.2ms)[0m  DROP TABLE `cars_concessionaires`
+  [1m[36mSQL (49.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110414122812')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `assemblers`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `assemblers`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `auctions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars_fuels`
+  [1m[36mSQL (0.2ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cars_optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `cities`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `clients`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `clients`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `concessionaires`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `concessionaires`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `fuels`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `fuels`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `models`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `models`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `optionals`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `optionals`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `states`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `states`
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 09:30:56 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.5ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/index.html.erb within layouts/application (97.9ms)
+Completed 200 OK in 121ms (Views: 99.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2011-04-14 09:31:06 -0300
+  Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+  [1m[36mOptional Load (0.2ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = 1 ) LIMIT 1
+Rendered cars/_form.html.erb (121.3ms)
+Rendered cars/edit.html.erb within layouts/application (126.1ms)
+Completed 200 OK in 149ms (Views: 127.1ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/cars/1" for 127.0.0.1 at 2011-04-14 09:31:11 -0300
+  Processing by CarsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "car"=>{"concessionaire_id"=>"1", "model_id"=>"1", "engine"=>"1.0", "plate"=>"nww-2713", "fuel_ids"=>["1", "2"], "colour"=>"Prata", "mileage"=>"2000", "manufacture_year"=>"2011", "model_year"=>"2011", "optional_ids"=>["1"], "comments"=>""}, "commit"=>"Update Car", "id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` IN (1, 2)
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT * FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` WHERE `optionals`.`id` = 1 LIMIT 1[0m
+  [1m[35mOptional Load (0.3ms)[0m  SELECT * FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mCar Load (0.2ms)[0m  [1mSELECT `cars`.`id` FROM `cars` WHERE (`cars`.`plate` = BINARY 'nww-2713') AND (`cars`.id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE `cars` SET `concessionaire_id` = 1, `updated_at` = '2011-04-14 12:31:11' WHERE `cars`.`id` = 1
+  [1m[36mSQL (39.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cars/1
+Completed 302 Found in 133ms
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2011-04-14 09:31:11 -0300
+  Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/show.html.erb within layouts/application (87.2ms)
+Completed 200 OK in 110ms (Views: 89.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 09:31:14 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.3ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mConcessionaire Load (1.5ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/index.html.erb within layouts/application (102.8ms)
+Completed 200 OK in 124ms (Views: 102.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/cars/1/edit" for 127.0.0.1 at 2011-04-14 09:31:17 -0300
+  Processing by CarsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.6ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires`[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = 1 ) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = 1 ) LIMIT 1[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = 1 ) LIMIT 1
+Rendered cars/_form.html.erb (119.2ms)
+Rendered cars/edit.html.erb within layouts/application (124.0ms)
+Completed 200 OK in 146ms (Views: 125.2ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/cars/1" for 127.0.0.1 at 2011-04-14 09:32:17 -0300
+  Processing by CarsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "car"=>{"concessionaire_id"=>"2", "model_id"=>"1", "engine"=>"1.0", "plate"=>"nww-2713", "fuel_ids"=>["1", "2"], "colour"=>"Prata", "mileage"=>"2000", "manufacture_year"=>"2011", "model_year"=>"2011", "optional_ids"=>["1"], "comments"=>""}, "commit"=>"Update Car", "id"=>"1"}
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` WHERE `fuels`.`id` IN (1, 2)
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT * FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` WHERE `optionals`.`id` = 1 LIMIT 1[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT * FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.`id` FROM `cars` WHERE (`cars`.`plate` = BINARY 'nww-2713') AND (`cars`.id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE `cars` SET `concessionaire_id` = 2, `updated_at` = '2011-04-14 12:32:17' WHERE `cars`.`id` = 1
+  [1m[36mSQL (37.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cars/1
+Completed 302 Found in 131ms
+
+
+Started GET "/cars/1" for 127.0.0.1 at 2011-04-14 09:32:17 -0300
+  Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/show.html.erb within layouts/application (103.1ms)
+Completed 200 OK in 156ms (Views: 104.6ms | ActiveRecord: 42.8ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 09:32:22 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.3ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+Rendered cars/index.html.erb within layouts/application (96.9ms)
+Completed 200 OK in 149ms (Views: 98.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-14 09:32:30 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = NULL ) LIMIT 1
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = NULL ) LIMIT 1[0m
+Rendered cars/_form.html.erb (146.4ms)
+Rendered cars/new.html.erb within layouts/application (150.8ms)
+Completed 200 OK in 174ms (Views: 152.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-14 09:35:51 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 52ms (Views: 12.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-14 09:35:54 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+Rendered auctions/index.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 50ms (Views: 35.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-14 09:35:56 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+Rendered models/index.html.erb within layouts/application (54.9ms)
+Completed 200 OK in 66ms (Views: 57.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2011-04-14 09:36:00 -0300
+  Processing by ModelsController#new as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered models/_form.html.erb (50.4ms)
+Rendered models/new.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 104ms (Views: 95.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:38:41 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 46ms (Views: 6.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-14 09:38:42 -0300
+  Processing by CitiesController#new as HTML
+Rendered cities/_form.html.erb (7.0ms)
+Rendered cities/new.html.erb within layouts/application (20.1ms)
+Completed   in 35ms
+
+ActionView::Template::Error (undefined method `est_code' for #<City:0x00000003623bf0>):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :estate_id %><br />
+    16:     <%= f.text_field :est_code %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :name %><br />
+  app/views/cities/_form.html.erb:16:in `block in _app_views_cities__form_html_erb__3834531376625768212_27987080_3742549325190161787'
+  app/views/cities/_form.html.erb:1:in `_app_views_cities__form_html_erb__3834531376625768212_27987080_3742549325190161787'
+  app/views/cities/new.html.erb:3:in `_app_views_cities_new_html_erb__4443527313173455165_28108740_1780921912085443089'
+  app/controllers/cities_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.3ms)
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-14 09:40:22 -0300
+  Processing by CitiesController#new as HTML
+Rendered cities/_form.html.erb (5.6ms)
+Rendered cities/new.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 53ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:40:29 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 17ms (Views: 7.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:40:32 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 16ms (Views: 6.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-14 09:40:35 -0300
+  Processing by CitiesController#new as HTML
+Rendered cities/_form.html.erb (5.7ms)
+Rendered cities/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 23ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:40:36 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-14 09:40:38 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.2ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 46ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/states/new" for 127.0.0.1 at 2011-04-14 09:40:39 -0300
+  Processing by StatesController#new as HTML
+Rendered states/_form.html.erb (5.7ms)
+Rendered states/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 25ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/states" for 127.0.0.1 at 2011-04-14 09:40:52 -0300
+  Processing by StatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "state"=>{"name"=>"Piauí", "acronym"=>"PI"}, "commit"=>"Create State"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mState Load (0.2ms)[0m  [1mSELECT `states`.`id` FROM `states` WHERE (`states`.`name` = BINARY 'Piauí') LIMIT 1[0m
+  [1m[35mState Load (0.2ms)[0m  SELECT `states`.`id` FROM `states` WHERE (`states`.`acronym` = BINARY 'PI') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `states`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `states` (`name`, `acronym`, `created_at`, `updated_at`) VALUES ('Piauí', 'PI', '2011-04-14 12:40:52', '2011-04-14 12:40:52')
+  [1m[36mSQL (40.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/states/1
+Completed 302 Found in 62ms
+
+
+Started GET "/states/1" for 127.0.0.1 at 2011-04-14 09:40:52 -0300
+  Processing by StatesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mState Load (0.4ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+Rendered states/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 26ms (Views: 11.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-14 09:40:55 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.3ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 21ms (Views: 11.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:42:51 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-14 09:42:53 -0300
+  Processing by CitiesController#new as HTML
+Rendered cities/_form.html.erb (46.8ms)
+Rendered cities/new.html.erb within layouts/application (48.0ms)
+Completed   in 63ms
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Estate):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :Estado %><br />
+    16:     <%= select :city, :estate_id, Estate.all.collect{|e| [e.name, e.id]} %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :Nome %><br />
+  app/views/cities/_form.html.erb:16:in `block in _app_views_cities__form_html_erb__3834531376625768212_22837920_3742549325190161787'
+  app/views/cities/_form.html.erb:1:in `_app_views_cities__form_html_erb__3834531376625768212_22837920_3742549325190161787'
+  app/views/cities/new.html.erb:3:in `_app_views_cities_new_html_erb__4443527313173455165_23333800_1780921912085443089'
+  app/controllers/cities_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.2ms)
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-14 09:44:31 -0300
+  Processing by CitiesController#new as HTML
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered cities/_form.html.erb (23.6ms)
+Rendered cities/new.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 78ms (Views: 31.6ms | ActiveRecord: 0.1ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+Migrating to AddConcessionaireIdToCars (20110414120227)
+Migrating to AddCarsAndConcessionaires (20110414121028)
+Migrating to RemoveCarsAndConcessionaires (20110414122812)
+Migrating to RenameStateForeignKeyFromCities (20110414124547)
+  [1m[35mSQL (0.3ms)[0m  SHOW COLUMNS FROM `cities` LIKE 'estate_id'
+  [1m[36mSQL (220.9ms)[0m  [1mALTER TABLE `cities` CHANGE `estate_id` `state_id` int(11) DEFAULT NULL[0m
+  [1m[35mSQL (40.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110414124547')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `assemblers`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `assemblers`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `auctions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cars`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_fuels`[0m
+  [1m[35mSQL (0.2ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cars_optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cities`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `clients`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `clients`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `concessionaires`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `concessionaires`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `fuels`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `fuels`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `models`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `models`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `optionals`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `states`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `states`[0m
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-14 09:48:36 -0300
+  Processing by CitiesController#new as HTML
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered cities/_form.html.erb (23.9ms)
+Rendered cities/new.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 41ms (Views: 31.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:48:39 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.4ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered cities/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 16ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cities/new" for 127.0.0.1 at 2011-04-14 09:48:40 -0300
+  Processing by CitiesController#new as HTML
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered cities/_form.html.erb (23.8ms)
+Rendered cities/new.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 41ms (Views: 31.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/cities" for 127.0.0.1 at 2011-04-14 09:50:25 -0300
+  Processing by CitiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "city"=>{"state_id"=>"1", "name"=>"Teresinaaaa"}, "commit"=>"Create City"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cities`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `cities` (`state_id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Teresinaaaa', '2011-04-14 12:50:25', '2011-04-14 12:50:25')[0m
+  [1m[35mSQL (39.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/cities/1
+Completed 302 Found in 56ms
+
+
+Started GET "/cities/1" for 127.0.0.1 at 2011-04-14 09:50:26 -0300
+  Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (0.2ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1[0m
+Rendered cities/show.html.erb within layouts/application (34.4ms)
+Completed   in 48ms
+
+ActionView::Template::Error (undefined method `estate_id' for #<City:0x00000002ae98e8>):
+    2: 
+    3: <p>
+    4:   <b>Est code:</b>
+    5:   <%= @city.estate_id %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/cities/show.html.erb:5:in `_app_views_cities_show_html_erb__2022363031031529780_21379600_1780921912085443089'
+  app/controllers/cities_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.2ms)
+
+
+Started GET "/cities/1" for 127.0.0.1 at 2011-04-14 09:51:11 -0300
+  Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1
+Rendered cities/show.html.erb within layouts/application (42.7ms)
+Completed   in 62ms
+
+ActionView::Template::Error (undefined method `state_id' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <b>Estado:</b>
+    5:   <%= State.find(@car.state_id).name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/cities/show.html.erb:5:in `_app_views_cities_show_html_erb__2022363031031529780_27458660_1780921912085443089'
+  app/controllers/cities_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.3ms)
+
+
+Started POST "/cities" for 127.0.0.1 at 2011-04-14 09:51:16 -0300
+  Processing by CitiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "city"=>{"state_id"=>"1", "name"=>"Teresinaaaa"}, "commit"=>"Create City"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cities`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `cities` (`state_id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Teresinaaaa', '2011-04-14 12:51:16', '2011-04-14 12:51:16')[0m
+  [1m[35mSQL (38.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/cities/2
+Completed 302 Found in 57ms
+
+
+Started GET "/cities/2" for 127.0.0.1 at 2011-04-14 09:51:16 -0300
+  Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCity Load (0.2ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 2 LIMIT 1[0m
+Rendered cities/show.html.erb within layouts/application (12.7ms)
+Completed   in 26ms
+
+ActionView::Template::Error (undefined method `state_id' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <b>Estado:</b>
+    5:   <%= State.find(@car.state_id).name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/cities/show.html.erb:5:in `_app_views_cities_show_html_erb__2022363031031529780_32693840_1780921912085443089'
+  app/controllers/cities_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/cities/2" for 127.0.0.1 at 2011-04-14 09:52:07 -0300
+  Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 2 LIMIT 1
+Rendered cities/show.html.erb within layouts/application (15.2ms)
+Completed   in 29ms
+
+ActionView::Template::Error (undefined method `state_id' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <b>Estado:</b>
+    5:   <%= State.find(@car.state_id).name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/cities/show.html.erb:5:in `_app_views_cities_show_html_erb__2022363031031529780_32710360_1780921912085443089'
+  app/controllers/cities_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.7ms)
+
+
+Started POST "/cities" for 127.0.0.1 at 2011-04-14 09:52:41 -0300
+  Processing by CitiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "city"=>{"state_id"=>"1", "name"=>"Teresinaaaa"}, "commit"=>"Create City"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cities`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `cities` (`state_id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Teresinaaaa', '2011-04-14 12:52:41', '2011-04-14 12:52:41')[0m
+  [1m[35mSQL (38.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/cities/3
+Completed 302 Found in 56ms
+
+
+Started GET "/cities/3" for 127.0.0.1 at 2011-04-14 09:52:41 -0300
+  Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCity Load (0.2ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 3 LIMIT 1[0m
+Rendered cities/show.html.erb within layouts/application (13.1ms)
+Completed   in 57ms
+
+ActionView::Template::Error (undefined method `state_id' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <b>Estado:</b>
+    5:   <%= State.find(@car.state_id).name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/cities/show.html.erb:5:in `_app_views_cities_show_html_erb__2022363031031529780_35283660_1780921912085443089'
+  app/controllers/cities_controller.rb:18:in `show'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started POST "/cities" for 127.0.0.1 at 2011-04-14 09:53:27 -0300
+  Processing by CitiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "city"=>{"state_id"=>"1", "name"=>"Teresinaaaa"}, "commit"=>"Create City"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cities`[0m
+  [1m[35mAREL (0.2ms)[0m  INSERT INTO `cities` (`state_id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Teresinaaaa', '2011-04-14 12:53:27', '2011-04-14 12:53:27')
+  [1m[36mSQL (33.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cities/4
+Completed 302 Found in 83ms
+
+
+Started GET "/cities/4" for 127.0.0.1 at 2011-04-14 09:53:27 -0300
+  Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCity Load (0.2ms)[0m  SELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 4 LIMIT 1
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1[0m
+Rendered cities/show.html.erb within layouts/application (54.4ms)
+Completed 200 OK in 68ms (Views: 57.4ms | ActiveRecord: 34.4ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:53:31 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.3ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered cities/index.html.erb within layouts/application (49.6ms)
+Completed   in 63ms
+
+ActionView::Template::Error (undefined local variable or method `car' for #<#<Class:0x000000034cb578>:0x000000034af7b0>):
+    11: 
+    12: <% @cities.each do |city| %>
+    13:   <tr>
+    14:     <td><%= State.find(car.state_id).name %></td>
+    15:     <td><%= city.name %></td>
+    16:     <td><%= link_to 'Mostrar', city %></td>
+    17:     <td><%= link_to 'Editar', edit_city_path(city) %></td>
+  app/views/cities/index.html.erb:14:in `block in _app_views_cities_index_html_erb__4287136137897089740_27588620_1780921912085443089'
+  app/views/cities/index.html.erb:12:in `each'
+  app/views/cities/index.html.erb:12:in `_app_views_cities_index_html_erb__4287136137897089740_27588620_1780921912085443089'
+  app/controllers/cities_controller.rb:7:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:53:45 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1[0m
+Rendered cities/index.html.erb within layouts/application (58.4ms)
+Completed 200 OK in 72ms (Views: 61.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/cities/2" for 127.0.0.1 at 2011-04-14 09:53:50 -0300
+  Processing by CitiesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "id"=>"2"}
+  [1m[35mCity Load (0.3ms)[0m  SELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM `cities` WHERE `cities`.`id` = 2
+  [1m[36mSQL (35.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cities
+Completed 302 Found in 105ms
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:53:50 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.3ms)[0m  SELECT `cities`.* FROM `cities`
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1[0m
+Rendered cities/index.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 72ms (Views: 61.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cities/3" for 127.0.0.1 at 2011-04-14 09:53:52 -0300
+  Processing by CitiesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "id"=>"3"}
+  [1m[35mCity Load (0.5ms)[0m  SELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM `cities` WHERE `cities`.`id` = 3
+  [1m[36mSQL (39.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/cities
+Completed 302 Found in 61ms
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:53:52 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.2ms)[0m  SELECT `cities`.* FROM `cities`
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+Rendered cities/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 39ms (Views: 30.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/cities/4" for 127.0.0.1 at 2011-04-14 09:53:54 -0300
+  Processing by CitiesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "id"=>"4"}
+  [1m[36mCity Load (0.2ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM `cities` WHERE `cities`.`id` = 4[0m
+  [1m[35mSQL (47.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/cities
+Completed 302 Found in 64ms
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:53:54 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.3ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+Rendered cities/index.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 41ms (Views: 30.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cities/1/edit" for 127.0.0.1 at 2011-04-14 09:53:56 -0300
+  Processing by CitiesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (0.2ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1[0m
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states`
+Rendered cities/_form.html.erb (23.9ms)
+Rendered cities/edit.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/cities/1" for 127.0.0.1 at 2011-04-14 09:54:01 -0300
+  Processing by CitiesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "city"=>{"state_id"=>"1", "name"=>"Teresina"}, "commit"=>"Update City", "id"=>"1"}
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE `cities` SET `name` = 'Teresina', `updated_at` = '2011-04-14 12:54:01' WHERE `cities`.`id` = 1[0m
+  [1m[35mSQL (34.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/cities/1
+Completed 302 Found in 53ms
+
+
+Started GET "/cities/1" for 127.0.0.1 at 2011-04-14 09:54:01 -0300
+  Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (0.2ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1[0m
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+Rendered cities/show.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 40ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 09:54:03 -0300
+  Processing by CitiesController#index as HTML
+  [1m[36mCity Load (0.3ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+  [1m[35mState Load (0.1ms)[0m  SELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1
+Rendered cities/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 38ms (Views: 29.0ms | ActiveRecord: 35.3ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 09:54:07 -0300
+  Processing by ClientsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.1ms)[0m  SELECT `clients`.* FROM `clients`
+Rendered clients/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 19ms (Views: 6.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2011-04-14 09:54:37 -0300
+  Processing by ClientsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+Rendered clients/_form.html.erb (6.3ms)
+Rendered clients/new.html.erb within layouts/application (7.7ms)
+Completed   in 23ms
+
+ActionView::Template::Error (undefined method `cit_code' for #<Client:0x00000003ee59a0>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :city_id %><br />
+    20:     <%= f.text_field :cit_code %>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :name %><br />
+  app/views/clients/_form.html.erb:20:in `block in _app_views_clients__form_html_erb__3111048163769470144_32778900_3742549325190161787'
+  app/views/clients/_form.html.erb:1:in `_app_views_clients__form_html_erb__3111048163769470144_32778900_3742549325190161787'
+  app/views/clients/new.html.erb:3:in `_app_views_clients_new_html_erb___4097739627617639116_32809540_1780921912085443089'
+  app/controllers/clients_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.2ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2011-04-14 09:58:33 -0300
+  Processing by ClientsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+Rendered clients/_form.html.erb (6.1ms)
+Rendered clients/new.html.erb within layouts/application (7.3ms)
+Completed   in 22ms
+
+ActionView::Template::Error (undefined method `cit_code' for #<Client:0x00000003e63fb8>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :city_id %><br />
+    20:     <%= f.text_field :cit_code %>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :name %><br />
+  app/views/clients/_form.html.erb:20:in `block in _app_views_clients__form_html_erb__3111048163769470144_32562960_3742549325190161787'
+  app/views/clients/_form.html.erb:1:in `_app_views_clients__form_html_erb__3111048163769470144_32562960_3742549325190161787'
+  app/views/clients/new.html.erb:3:in `_app_views_clients_new_html_erb___4097739627617639116_32591340_1780921912085443089'
+  app/controllers/clients_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+Migrating to AddConcessionaireIdToCars (20110414120227)
+Migrating to AddCarsAndConcessionaires (20110414121028)
+Migrating to RemoveCarsAndConcessionaires (20110414122812)
+Migrating to RenameStateForeignKeyFromCities (20110414124547)
+Migrating to RenameCityForeignKeyFromClients (20110414130029)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2011-04-14 10:04:26 -0300
+  Processing by ClientsController#new as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+Rendered clients/_form.html.erb (6.2ms)
+Rendered clients/new.html.erb within layouts/application (7.4ms)
+Completed   in 23ms
+
+ActionView::Template::Error (undefined method `cit_code' for #<Client:0x00000003e22fe0>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :city_id %><br />
+    20:     <%= f.text_field :cit_code %>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :name %><br />
+  app/views/clients/_form.html.erb:20:in `block in _app_views_clients__form_html_erb__3111048163769470144_32472360_3742549325190161787'
+  app/views/clients/_form.html.erb:1:in `_app_views_clients__form_html_erb__3111048163769470144_32472360_3742549325190161787'
+  app/views/clients/new.html.erb:3:in `_app_views_clients_new_html_erb___4097739627617639116_32505000_1780921912085443089'
+  app/controllers/clients_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2011-04-14 10:04:27 -0300
+  Processing by ClientsController#new as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+Rendered clients/_form.html.erb (6.1ms)
+Rendered clients/new.html.erb within layouts/application (7.4ms)
+Completed   in 22ms
+
+ActionView::Template::Error (undefined method `cit_code' for #<Client:0x00000003dfde98>):
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :city_id %><br />
+    20:     <%= f.text_field :cit_code %>
+    21:   </div>
+    22:   <div class="field">
+    23:     <%= f.label :name %><br />
+  app/views/clients/_form.html.erb:20:in `block in _app_views_clients__form_html_erb__3111048163769470144_32332020_3742549325190161787'
+  app/views/clients/_form.html.erb:1:in `_app_views_clients__form_html_erb__3111048163769470144_32332020_3742549325190161787'
+  app/views/clients/new.html.erb:3:in `_app_views_clients_new_html_erb___4097739627617639116_32419140_1780921912085443089'
+  app/controllers/clients_controller.rb:29:in `new'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.3ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2011-04-14 10:05:18 -0300
+  Processing by ClientsController#new as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+Rendered clients/_form.html.erb (6.4ms)
+Rendered clients/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 27ms (Views: 14.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 10:05:22 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered clients/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 18ms (Views: 6.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2011-04-14 10:05:27 -0300
+  Processing by ClientsController#new as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+Rendered clients/_form.html.erb (6.4ms)
+Rendered clients/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 25ms (Views: 13.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2011-04-14 10:06:22 -0300
+  Processing by ClientsController#new as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mCity Load (0.2ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered clients/_form.html.erb (27.9ms)
+Rendered clients/new.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 49ms (Views: 36.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/clients" for 127.0.0.1 at 2011-04-14 10:06:39 -0300
+  Processing by ClientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "client"=>{"cpf"=>"45654566", "city_id"=>"1", "name"=>"AJ"}, "commit"=>"Create Client"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT `clients`.`id` FROM `clients` WHERE (`clients`.`cpf` = BINARY '45654566') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+  [1m[36mCity Load (0.3ms)[0m  [1mSELECT `cities`.* FROM `cities`[0m
+Rendered clients/_form.html.erb (57.8ms)
+Rendered clients/new.html.erb within layouts/application (63.8ms)
+Completed 200 OK in 89ms (Views: 66.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/clients" for 127.0.0.1 at 2011-04-14 10:06:45 -0300
+  Processing by ClientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "client"=>{"cpf"=>"456545667888", "city_id"=>"1", "name"=>"AJ"}, "commit"=>"Create Client"}
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT `clients`.`id` FROM `clients` WHERE (`clients`.`cpf` = BINARY '456545667888') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered clients/_form.html.erb (22.1ms)
+Rendered clients/new.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 80ms (Views: 30.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/clients" for 127.0.0.1 at 2011-04-14 10:06:55 -0300
+  Processing by ClientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "client"=>{"cpf"=>"123.123.123-65", "city_id"=>"1", "name"=>"AJ"}, "commit"=>"Create Client"}
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT `clients`.`id` FROM `clients` WHERE (`clients`.`cpf` = BINARY '123.123.123-65') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `clients`
+  [1m[36mAREL (0.2ms)[0m  [1mINSERT INTO `clients` (`cpf`, `city_id`, `name`, `created_at`, `updated_at`) VALUES ('123.123.123-65', 1, 'AJ', '2011-04-14 13:06:55', '2011-04-14 13:06:55')[0m
+  [1m[35mSQL (37.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/clients/1
+Completed 302 Found in 60ms
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2011-04-14 10:06:55 -0300
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.2ms)[0m  SELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1
+Rendered clients/show.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 55ms (Views: 42.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 10:06:57 -0300
+  Processing by ClientsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.2ms)[0m  SELECT `clients`.* FROM `clients`
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1[0m
+Rendered clients/index.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 71ms (Views: 59.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/clients/1/edit" for 127.0.0.1 at 2011-04-14 10:07:01 -0300
+  Processing by ClientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1[0m
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+Rendered clients/_form.html.erb (25.3ms)
+Rendered clients/edit.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 77ms (Views: 62.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/clients/1" for 127.0.0.1 at 2011-04-14 10:07:45 -0300
+  Processing by ClientsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v9Va8zEhiFJXCiQguox8pwjXsQ7wzNodzzW77A1khuI=", "client"=>{"cpf"=>"123.123.123-65", "city_id"=>"1", "name"=>"AJ Alves"}, "commit"=>"Update Client", "id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.1ms)[0m  SELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT `clients`.`id` FROM `clients` WHERE (`clients`.`cpf` = BINARY '123.123.123-65') AND (`clients`.id <> 1) LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE `clients` SET `name` = 'AJ Alves', `updated_at` = '2011-04-14 13:07:45' WHERE `clients`.`id` = 1[0m
+  [1m[35mSQL (47.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/clients/1
+Completed 302 Found in 69ms
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2011-04-14 10:07:45 -0300
+  Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.2ms)[0m  SELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1[0m
+Rendered clients/show.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 71ms (Views: 57.6ms | ActiveRecord: 50.1ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 10:07:48 -0300
+  Processing by ClientsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1
+Rendered clients/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 73ms (Views: 29.5ms | ActiveRecord: 0.9ms)

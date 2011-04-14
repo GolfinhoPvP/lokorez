@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :"Selecione a concessionária" %><br />
+    <%= select :car, :concessionaire_id, Concessionaire.all.collect{|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
     <%= f.label :"Selecione um modelo" %><br />
     <%= select :car, :model_id, Model.all.collect{|m| [m.name, m.id]} %>
   </div>

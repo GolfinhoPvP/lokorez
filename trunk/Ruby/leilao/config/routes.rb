@@ -1,4 +1,6 @@
 Leilao::Application.routes.draw do
+  resources :concessionaires
+
   resources :assemblers
 
   resources :models

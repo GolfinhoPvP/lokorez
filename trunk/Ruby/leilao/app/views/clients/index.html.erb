@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th>Cpf</th>
-    <th>Cit code</th>
-    <th>Name</th>
+    <th>Cidade</th>
+    <th>Nome</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,7 +13,7 @@
 <% @clients.each do |client| %>
   <tr>
     <td><%= client.cpf %></td>
-    <td><%= client.city_id %></td>
+    <td><%= City.find(client.city_id).name %></td>
     <td><%= client.name %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>

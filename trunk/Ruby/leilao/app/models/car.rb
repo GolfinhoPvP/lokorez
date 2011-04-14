@@ -3,6 +3,7 @@ class Car < ActiveRecord::Base
 	has_many :models
 	has_and_belongs_to_many :fuels
 	has_and_belongs_to_many :optionals
+	has_one :concessionaires
 
 	validates :model_id, :presence => true
 	validates :engine, :presence => true

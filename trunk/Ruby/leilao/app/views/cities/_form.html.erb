@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :estate_id %><br />
-    <%= f.text_field :est_code %>
+    <%= f.label :Estado %><br />
+    <%= select :city, :state_id, State.all.collect{|e| [e.name, e.id]} %>
   </div>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :Nome %><br />
     <%= f.text_field :name %>
   </div>
   <div class="actions">

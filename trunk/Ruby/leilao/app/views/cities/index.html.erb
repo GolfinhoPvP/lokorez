@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Est code</th>
-    <th>Name</th>
+    <th>Estado</th>
+    <th>Nome</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,15 +11,15 @@
 
 <% @cities.each do |city| %>
   <tr>
-    <td><%= city.estate_id %></td>
+    <td><%= State.find(city.state_id).name %></td>
     <td><%= city.name %></td>
-    <td><%= link_to 'Show', city %></td>
-    <td><%= link_to 'Edit', edit_city_path(city) %></td>
-    <td><%= link_to 'Destroy', city, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', city %></td>
+    <td><%= link_to 'Editar', edit_city_path(city) %></td>
+    <td><%= link_to 'Excluir', city, :confirm => 'Você tem certeza disso?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New City', new_city_path %>
+<%= link_to 'Incluir cidade', new_city_path %>
