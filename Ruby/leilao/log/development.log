@@ -13920,3 +13920,183 @@ ActionView::Template::Error (Couldn't find Auction with ID=2):
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.9ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-14 12:17:53 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers`
+Rendered assemblers/index.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 51ms (Views: 42.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-14 12:17:54 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+Rendered auctions/index.html.erb within layouts/application (102.8ms)
+Completed 200 OK in 118ms (Views: 104.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-14 12:17:55 -0300
+  Processing by BidsController#index as HTML
+  [1m[36mBid Load (0.1ms)[0m  [1mSELECT `bids`.* FROM `bids`[0m
+Rendered bids/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 16ms (Views: 8.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cities" for 127.0.0.1 at 2011-04-14 12:17:56 -0300
+  Processing by CitiesController#index as HTML
+  [1m[35mCity Load (0.1ms)[0m  SELECT `cities`.* FROM `cities`
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states` WHERE `states`.`id` = 1 LIMIT 1[0m
+Rendered cities/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 38ms (Views: 28.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 12:17:57 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )[0m
+Rendered cars/index.html.erb within layouts/application (117.3ms)
+Completed 200 OK in 139ms (Views: 118.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/concessionaires" for 127.0.0.1 at 2011-04-14 12:17:57 -0300
+  Processing by ConcessionairesController#index as HTML
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires`
+Rendered concessionaires/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 46ms (Views: 11.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2011-04-14 12:17:58 -0300
+  Processing by ClientsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.1ms)[0m  SELECT `clients`.* FROM `clients`
+  [1m[36mCity Load (0.1ms)[0m  [1mSELECT `cities`.* FROM `cities` WHERE `cities`.`id` = 1 LIMIT 1[0m
+Rendered clients/index.html.erb within layouts/application (53.8ms)
+Completed 200 OK in 70ms (Views: 56.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/concessionaires" for 127.0.0.1 at 2011-04-14 12:17:59 -0300
+  Processing by ConcessionairesController#index as HTML
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires`
+Rendered concessionaires/index.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 46ms (Views: 37.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/fuels" for 127.0.0.1 at 2011-04-14 12:18:00 -0300
+  Processing by FuelsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.2ms)[0m  SELECT `fuels`.* FROM `fuels`
+Rendered fuels/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 24ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2011-04-14 12:18:01 -0300
+  Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+Rendered models/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 39ms (Views: 30.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/optionals" for 127.0.0.1 at 2011-04-14 12:18:02 -0300
+  Processing by OptionalsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.2ms)[0m  SELECT `optionals`.* FROM `optionals`
+Rendered optionals/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 24ms (Views: 12.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/states" for 127.0.0.1 at 2011-04-14 12:18:02 -0300
+  Processing by StatesController#index as HTML
+  [1m[36mState Load (0.1ms)[0m  [1mSELECT `states`.* FROM `states`[0m
+Rendered states/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 21ms (Views: 11.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 12:18:03 -0300
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )[0m
+Rendered cars/index.html.erb within layouts/application (101.2ms)
+Completed 200 OK in 122ms (Views: 103.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/cars/new" for 127.0.0.1 at 2011-04-14 12:18:04 -0300
+  Processing by CarsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires`
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models`[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 1 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 2 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 3 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 4 AND (`cars_fuels`.car_id = NULL ) LIMIT 1
+  [1m[36mFuel Load (0.0ms)[0m  [1mSELECT `fuels`.`id` FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE `fuels`.`id` = 5 AND (`cars_fuels`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals`[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 1 AND (`cars_optionals`.car_id = NULL ) LIMIT 1
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 2 AND (`cars_optionals`.car_id = NULL ) LIMIT 1[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.`id` FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE `optionals`.`id` = 3 AND (`cars_optionals`.car_id = NULL ) LIMIT 1
+Rendered cars/_form.html.erb (149.1ms)
+Rendered cars/new.html.erb within layouts/application (153.5ms)
+Completed 200 OK in 205ms (Views: 154.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-14 12:18:18 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mFuel Load (0.1ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mOptional Load (0.1ms)[0m  [1mSELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 LIMIT 1[0m
+  [1m[35mFuel Load (0.1ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )
+Rendered cars/index.html.erb within layouts/application (102.6ms)
+Completed 200 OK in 124ms (Views: 104.1ms | ActiveRecord: 2.4ms)
