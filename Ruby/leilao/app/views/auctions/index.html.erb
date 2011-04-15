@@ -16,7 +16,7 @@
 <% @auctions.each do |auction| %>
   <tr>
 	<% c = Car.find(auction.car_id) %>
-    <td><%= Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour %></td>
+    <td><%= Concessionaire.find(Car.find(c.id).concessionaire_id).name+' - '+Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour %></td>
     <td><%= auction.auction_start %></td>
     <td><%= auction.initial_value %></td>
     <td><%= auction.buy_now_value %></td>
