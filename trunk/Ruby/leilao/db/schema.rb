@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414133412) do
+ActiveRecord::Schema.define(:version => 20110415130240) do
 
   create_table "assemblers", :force => true do |t|
     t.string   "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20110414133412) do
 
   add_index "auctions", ["car_id"], :name => "index_auctions_on_car_code"
 
-  create_table "bids", :id => false, :force => true do |t|
+  create_table "bids", :force => true do |t|
     t.integer  "auction_id"
     t.integer  "client_id"
     t.decimal  "value",      :precision => 10, :scale => 0

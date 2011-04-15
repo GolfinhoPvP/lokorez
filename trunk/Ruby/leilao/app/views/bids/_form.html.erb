@@ -13,12 +13,11 @@
 
   <div class="field">
     <%= f.label :'Selecine o leilão' %><br />
-    <%= select :bid, :auction_id, Car.all.collect{|c| [Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
-    <%= select :bid, :auction_id, Car.all.collect{|c| [Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour, Auction.find(c.id).id]} %>
+    <%= select :bid, :auction_id, Auction.all.collect{|a| [Concessionaire.find(Car.find(a.car_id).concessionaire_id).name+' - '+Assembler.find(Model.find(Car.find(a.car_id).model_id).assembler_id).name+' - '+Model.find(Car.find(a.car_id).model_id).name+' - '+Car.find(a.car_id).plate+' - '+Car.find(a.car_id).manufacture_year.to_s+'/'+Car.find(a.car_id).model_year.to_s+' - '+Car.find(a.car_id).colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s, a.id]} %>
   </div>
   <div class="field">
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
+    <%= f.label :Cliente %><br />
+    <%= select :bid, :client_id, Client.all.collect{|c| [c.name+' - '+c.cpf, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :value %><br />
