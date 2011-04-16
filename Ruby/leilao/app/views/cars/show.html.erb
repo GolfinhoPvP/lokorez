@@ -22,9 +22,7 @@
 
 <p>
 	<b>Combustíveis:</b>
-	<% @car.fuels.all.each do |fuel| %>
-		<%= fuel.name+' ' %>
-	<% end %>
+	<%= @car.fuels.collect{|f| [f.name]}.join(", ") %>
 </p>
 
 <p>
@@ -49,9 +47,7 @@
 
 <p>
 	<b>Opcionais:</b>
-	<% @car.optionals.all.each do |optional| %>
-		<%= optional.name+' ' %>
-	<% end %>
+	<%= @car.optionals.collect{|o| [o.name]}.join(", ") %>
 </p>
 
 <p>
