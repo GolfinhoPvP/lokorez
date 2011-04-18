@@ -2,9 +2,9 @@
 
 <p>
   <b>Leilão:</b>
-  <% a = Auction.find(@bid.auction_id) %>
-  <% c = Client.find(@bid.client_id) %>
-  <%= Concessionaire.find(Car.find(a.car_id).concessionaire_id).name+' - '+Assembler.find(Model.find(Car.find(a.car_id).model_id).assembler_id).name+' - '+Model.find(Car.find(a.car_id).model_id).name+' - '+Car.find(a.car_id).plate+' - '+Car.find(a.car_id).manufacture_year.to_s+'/'+Car.find(a.car_id).model_year.to_s+' - '+Car.find(a.car_id).colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s %>
+  <% a = @bid.auction %>
+  <% c = @bid.client %>
+  <%= a.car.concessionaire.name+' - '+a.car.model.assembler.name+' - '+a.car.model.name+' - '+a.car.plate+' - '+a.car.manufacture_year.to_s+'/'+a.car.model_year.to_s+' - '+a.car.colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s %>
 </p>
 <p>
   <b>Cliente:</b>

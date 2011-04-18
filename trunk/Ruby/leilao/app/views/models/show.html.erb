@@ -2,14 +2,14 @@
 
 <p>
   <b>Montadora:</b>
-  <%= Assembler.find(@model.assembler_id).name %>
+  <%= @model.assembler.name %>
 </p>
 
 <p>
-  <b>Nome:</b>
+  <b>Name:</b>
   <%= @model.name %>
 </p>
 
 
-<%= link_to 'Editar', edit_model_path(@model) %> |
-<%= link_to 'Voltar', models_path %>
+<%= link_to 'Edit', edit_model_path(@model) %> |
+<%= link_to 'Back', models_path %>

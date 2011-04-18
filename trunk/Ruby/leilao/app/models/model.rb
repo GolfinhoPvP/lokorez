@@ -1,6 +1,6 @@
 class Model < ActiveRecord::Base
-	belongs_to :assemblers
-	belongs_to :cars
+	belongs_to :assembler
+	has_many :cars
 
 	validates :assembler_id, :presence => true
 	validates :name, :presence => true, :uniqueness => true

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :'Selecine o leilão' %><br />
-    <%= select :bid, :auction_id, Auction.all.collect{|a| [Concessionaire.find(Car.find(a.car_id).concessionaire_id).name+' - '+Assembler.find(Model.find(Car.find(a.car_id).model_id).assembler_id).name+' - '+Model.find(Car.find(a.car_id).model_id).name+' - '+Car.find(a.car_id).plate+' - '+Car.find(a.car_id).manufacture_year.to_s+'/'+Car.find(a.car_id).model_year.to_s+' - '+Car.find(a.car_id).colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s, a.id]} %>
+    <%= select :bid, :auction_id, Auction.all.collect{|a| [a.car.concessionaire.name+' - '+a.car.model.assembler.name+' - '+a.car.model.name+' - '+a.car.plate+' - '+a.car.manufacture_year.to_s+'/'+a.car.model_year.to_s+' - '+a.car.colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s, a.id]} %>
   </div>
   <div class="field">
     <%= f.label :Cliente %><br />

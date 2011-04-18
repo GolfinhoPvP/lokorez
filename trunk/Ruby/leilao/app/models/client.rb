@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-	belongs_to :cities
+	belongs_to :city
 	has_and_belongs_to_many :auctions
 	has_many :bids
 

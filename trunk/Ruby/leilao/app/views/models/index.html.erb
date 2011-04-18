@@ -11,15 +11,15 @@
 
 <% @models.each do |model| %>
   <tr>
-    <td><%= Assembler.find(model.assembler_id).name %></td>
+    <td><%= model.assembler.name %></td>
     <td><%= model.name %></td>
-    <td><%= link_to 'Mostrar', model %></td>
-    <td><%= link_to 'Editar', edit_model_path(model) %></td>
-    <td><%= link_to 'Excluir', model, :confirm => 'Você está certo diso?', :method => :delete %></td>
+    <td><%= link_to 'Show', model %></td>
+    <td><%= link_to 'Edit', edit_model_path(model) %></td>
+    <td><%= link_to 'Destroy', model, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Incluir novo modelo', new_model_path %>
+<%= link_to 'New model', new_model_path %>
