@@ -1,6 +1,5 @@
 class Client < ActiveRecord::Base
 	belongs_to :city
-	has_and_belongs_to_many :auctions
 	has_many :bids
 
 	validates :cpf, :presence => true, :uniqueness => true, :length => {:minimum => 14, :maximum => 14 }
