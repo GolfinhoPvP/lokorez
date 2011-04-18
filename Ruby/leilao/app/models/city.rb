@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-	belongs_to :states
+	belongs_to :state
 	has_many :clients
 	
 	validates :state_id, :presence => true

@@ -11,7 +11,7 @@
 
 <% @cities.each do |city| %>
   <tr>
-    <td><%= State.find(city.state_id).name %></td>
+    <td><%= city.state.name %></td>
     <td><%= city.name %></td>
     <td><%= link_to 'Mostrar', city %></td>
     <td><%= link_to 'Editar', edit_city_path(city) %></td>

@@ -2,8 +2,8 @@
 
 <p>
   <b>Carro:</b>
-  <% c = Car.find(@auction.car_id) %>
-  <%= Concessionaire.find(Car.find(c.id).concessionaire_id).name+' - '+Assembler.find(Model.find(c.model_id).assembler_id).name+' - '+Model.find(c.model_id).name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour %>
+  <% c = @auction.car %>
+  <%= c.concessionaire.name+' - '+c.model.assembler.name+' - '+c.model.name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour %>
 </p>
 
 <p>

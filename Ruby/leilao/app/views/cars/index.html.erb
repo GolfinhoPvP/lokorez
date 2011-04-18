@@ -20,8 +20,8 @@
 
 <% @cars.each do |car| %>
   <tr>
-    <td><%= Concessionaire.find(car.concessionaire_id).name %></td>
-    <td><%= Model.find(car.model_id).name %></td>
+    <td><%= car.concessionaire.name %></td>
+    <td><%= car.model.name %></td>
     <td><%= car.engine %></td>
     <td><%= car.plate %></td>
     <td>
@@ -37,9 +37,9 @@
     <td><%= car.model_year %></td>
     <td><%= car.optionals.all.length %></td>
     <td><%= car.comments %></td>
-    <td><%= link_to 'Mostrar', car %></td>
-    <td><%= link_to 'Editar', edit_car_path(car) %></td>
-    <td><%= link_to 'Excluir', car, :confirm => 'Você tem certeza disso?', :method => :delete %></td>
+    <td><%= link_to 'Show', car %></td>
+    <td><%= link_to 'Edit', edit_car_path(car) %></td>
+    <td><%= link_to 'Destroy', car, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

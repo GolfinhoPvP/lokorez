@@ -12,9 +12,9 @@
 
 <% @bids.each do |bid| %>
   <tr>
-	<% a = Auction.find(bid.auction_id) %>
-	<% c = Client.find(bid.client_id) %>
-    <td><%= Concessionaire.find(Car.find(a.car_id).concessionaire_id).name+' - '+Assembler.find(Model.find(Car.find(a.car_id).model_id).assembler_id).name+' - '+Model.find(Car.find(a.car_id).model_id).name+' - '+Car.find(a.car_id).plate+' - '+Car.find(a.car_id).manufacture_year.to_s+'/'+Car.find(a.car_id).model_year.to_s+' - '+Car.find(a.car_id).colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s %></td>
+	<% a = bid.auction %>
+	<% c = bid.client %>
+    <td><%= a.car.concessionaire.name+' - '+a.car.model.assembler.name+' - '+a.car.model.name+' - '+a.car.plate+' - '+a.car.manufacture_year.to_s+'/'+a.car.model_year.to_s+' - '+a.car.colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s %></td>
     <td><%= c.name+' - '+c.cpf %></td>
     <td><%= bid.value %></td>
     <td><%= link_to 'Show', bid %></td>

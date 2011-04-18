@@ -2,12 +2,12 @@
 
 <p>
   <b>Concessionária:</b>
-  <%= Concessionaire.find(@car.concessionaire_id).name %>
+  <%= @car.concessionaire.name %>
 </p>
 
 <p>
   <b>Modelo do carro:</b>
-  <%= Model.find(@car.model_id).name %>
+  <%= @car.model.name %>
 </p>
 
 <p>
