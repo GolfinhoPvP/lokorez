@@ -1,0 +1,49 @@
+<h1>Lista de carros</h1>
+
+<table>
+  <tr>
+    <th>Concessionária</th>
+    <th>Modelo</th>
+    <th>Motor</th>
+    <th>Placa</th>
+    <th>Compustíveis</th>
+    <th>Cor</th>
+    <th>Quilometragem</th>
+    <th>Ano de fabricação</th>
+    <th>Ano do modelo</th>
+    <th>Opcionais</th>
+    <th>Observações</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cars.each do |car| %>
+  <tr>
+    <td><%= car.concessionaire.name %></td>
+    <td><%= car.model.name %></td>
+    <td><%= car.engine %></td>
+    <td><%= car.plate %></td>
+    <td>
+	<% if car.fuels.all.length > 1 %>
+		<%= 'Flex' %>
+	<% elsif car.fuels.all.length == 1 %>
+		<%= car.fuels.all.first.name %>
+	<% end %>
+    </td>
+    <td><%= car.colour %></td>
+    <td><%= car.mileage %></td>
+    <td><%= car.manufacture_year %></td>
+    <td><%= car.model_year %></td>
+    <td><%= car.optionals.all.length %></td>
+    <td><%= car.comments %></td>
+    <td><%= link_to 'Show', car %></td>
+    <td><%= link_to 'Edit', edit_car_path(car) %></td>
+    <td><%= link_to 'Destroy', car, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Incluir novo carro', new_car_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Leilão:</b>
+  <% a = @bid.auction %>
+  <% c = @bid.client %>
+  <%= a.car.concessionaire.name+' - '+a.car.model.assembler.name+' - '+a.car.model.name+' - '+a.car.plate+' - '+a.car.manufacture_year.to_s+'/'+a.car.model_year.to_s+' - '+a.car.colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s %>
+</p>
+<p>
+  <b>Cliente:</b>
+  <%= c.name+' - '+c.cpf %>
+</p>
+<p>
+  <b>Value:</b>
+  <%= @bid.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_bid_path(@bid) %> |
+<%= link_to 'Back', bids_path %>

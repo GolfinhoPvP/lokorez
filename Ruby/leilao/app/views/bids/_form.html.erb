@@ -1,0 +1,29 @@
+<%= form_for(@bid) do |f| %>
+  <% if @bid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
+
+      <ul>
+      <% @bid.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Selecine o leilão' %><br />
+    <%= select :bid, :auction_id, Auction.all.collect{|a| [a.car.concessionaire.name+' - '+a.car.model.assembler.name+' - '+a.car.model.name+' - '+a.car.plate+' - '+a.car.manufacture_year.to_s+'/'+a.car.model_year.to_s+' - '+a.car.colour+' - '+a.auction_start.to_s+' - R$'+a.initial_value.to_s, a.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :Cliente %><br />
+    <%= select :bid, :client_id, Client.all.collect{|c| [c.name+' - '+c.cpf, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
