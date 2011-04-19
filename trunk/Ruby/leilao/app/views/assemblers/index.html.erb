@@ -1,0 +1,23 @@
+<h1>Lista de montadoras</h1>
+
+<table>
+  <tr>
+    <th>Nome da montadora</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @assemblers.each do |assembler| %>
+  <tr>
+    <td><%= assembler.name %></td>
+    <td><%= link_to 'Mostrar', assembler %></td>
+    <td><%= link_to 'Editar', edit_assembler_path(assembler) %></td>
+    <td><%= link_to 'Excluir', assembler, :confirm => 'Você tem certeza disso?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Incluir nova montadora', new_assembler_path %>

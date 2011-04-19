@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Carro:</b>
+  <% c = @auction.car %>
+  <%= c.concessionaire.name+' - '+c.model.assembler.name+' - '+c.model.name+' - '+c.plate+' - '+c.manufacture_year.to_s+'/'+c.model_year.to_s+' - '+c.colour %>
+</p>
+
+<p>
+  <b>Auction start:</b>
+  <%= @auction.auction_start %>
+</p>
+
+<p>
+  <b>Initial value:</b>
+  <%= @auction.initial_value %>
+</p>
+
+<p>
+  <b>Buy now value:</b>
+  <%= @auction.buy_now_value %>
+</p>
+
+<p>
+  <b>Capping value:</b>
+  <%= @auction.capping_value %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @auction.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_auction_path(@auction) %> |
+<%= link_to 'Back', auctions_path %>

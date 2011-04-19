@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @assembler.name %>
+</p>
+
+
+<%= link_to 'Editar', edit_assembler_path(@assembler) %> |
+<%= link_to 'Voltar', assemblers_path %>

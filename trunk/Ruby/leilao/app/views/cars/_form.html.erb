@@ -1,0 +1,71 @@
+<%= form_for(@car) do |f| %>
+  <% if @car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+      <% @car.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :"Selecione a concessionária" %><br />
+    <%= select :car, :concessionaire_id, Concessionaire.all.collect{|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :"Selecione um modelo" %><br />
+    <%= select :car, :model_id, Model.all.collect{|m| [m.assembler.name+' - '+m.name, m.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :Motor %><br />
+    <%= f.text_field :engine %>
+  </div>
+  <div class="field">
+    <%= f.label :Placa %><br />
+    <%= f.text_field :plate %>
+  </div>
+  <div class="field">
+    <%= f.label :"Selecione os combustíveis" %><br />
+	<% Fuel.all.each do |fuel| %>
+		<div class="field">
+		    	<%= check_box_tag 'car[fuel_ids][]', fuel.id, @car.fuels.include?(fuel) %>
+			<%= fuel.name %><br />
+	  	</div>
+	<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :Cor %><br />
+    <%= f.text_field :colour %>
+  </div>
+  <div class="field">
+    <%= f.label :Quilometragem %><br />
+    <%= f.text_field :mileage %>
+  </div>
+  <div class="field">
+    <%= f.label :"Ano de fabricação" %><br />
+    <%= f.text_field :manufacture_year %>
+  </div>
+  <div class="field">
+    <%= f.label :"Ano do modelo" %><br />
+    <%= f.text_field :model_year %>
+  </div>
+  <div class="field">
+    <%= f.label :"Selecione os opcionais" %><br />
+	<% Optional.all.each do |optional| %>
+		<div class="field">
+		    	<%= check_box_tag 'car[optional_ids][]', optional.id, @car.optionals.include?(optional) %>
+			<%= optional.name %><br />
+	  	</div>
+	<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :"Observações" %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
