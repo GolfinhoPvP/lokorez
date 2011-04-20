@@ -20742,3 +20742,200 @@ Started GET "/cars" for 127.0.0.1 at 2011-04-19 10:55:57 -0300
   [1m[35mOptional Load (0.1ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )
 Rendered cars/index.html.erb within layouts/application (114.4ms)
 Completed 200 OK in 218ms (Views: 115.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/cars" for 127.0.0.1 at 2011-04-20 12:37:27 -0300
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mConcessionaire Load (0.2ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mFuel Load (1.0ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 1 )
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mOptional Load (0.3ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 1 )
+  [1m[36mConcessionaire Load (0.2ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1[0m
+  [1m[35mModel Load (0.2ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 2 ORDER BY name ASC LIMIT 1
+  [1m[36mFuel Load (0.4ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `fuels`.* FROM `fuels` INNER JOIN `cars_fuels` ON `fuels`.id = `cars_fuels`.fuel_id WHERE (`cars_fuels`.car_id = 2 )[0m
+  [1m[35mOptional Load (0.3ms)[0m  SELECT `optionals`.* FROM `optionals` INNER JOIN `cars_optionals` ON `optionals`.id = `cars_optionals`.optional_id WHERE (`cars_optionals`.car_id = 2 )
+Rendered cars/index.html.erb within layouts/application (122.7ms)
+Completed 200 OK in 288ms (Views: 122.1ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-20 12:37:30 -0300
+  Processing by BidsController#index as HTML
+  [1m[36mBid Load (0.3ms)[0m  [1mSELECT `bids`.* FROM `bids`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.2ms)[0m  [1mSELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mAssembler Load (0.2ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+Rendered bids/index.html.erb within layouts/application (188.4ms)
+Completed 200 OK in 201ms (Views: 188.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-20 12:37:34 -0300
+  Processing by BidsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.3ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered bids/_form.html.erb (198.1ms)
+Rendered bids/new.html.erb within layouts/application (202.8ms)
+Completed 200 OK in 216ms (Views: 203.7ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/bids" for 127.0.0.1 at 2011-04-20 12:38:18 -0300
+  Processing by BidsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5TnkLpp6I9loDfwZDXULrsQKxdhjkKa9AkBF7ZsAXF8=", "bid"=>{"auction_id"=>"1", "client_id"=>"1", "value"=>"200"}, "commit"=>"Criar Bid"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `bids`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `bids` (`auction_id`, `client_id`, `value`, `created_at`, `updated_at`) VALUES (1, 1, 200, '2011-04-20 15:38:19', '2011-04-20 15:38:19')
+  [1m[36mSQL (58.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/bids/3
+Completed 302 Found in 76ms
+
+
+Started GET "/bids/3" for 127.0.0.1 at 2011-04-20 12:38:19 -0300
+  Processing by BidsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBid Load (0.2ms)[0m  SELECT `bids`.* FROM `bids` WHERE `bids`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.1ms)[0m  SELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1
+Rendered bids/show.html.erb within layouts/application (189.1ms)
+Completed 200 OK in 202ms (Views: 189.5ms | ActiveRecord: 62.7ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-20 12:38:23 -0300
+  Processing by BidsController#index as HTML
+  [1m[36mBid Load (0.3ms)[0m  [1mSELECT `bids`.* FROM `bids`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+Rendered bids/index.html.erb within layouts/application (195.6ms)
+Completed 200 OK in 208ms (Views: 196.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-20 12:38:26 -0300
+  Processing by BidsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.1ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT `clients`.* FROM `clients`[0m
+Rendered bids/_form.html.erb (159.4ms)
+Rendered bids/new.html.erb within layouts/application (195.7ms)
+Completed 200 OK in 208ms (Views: 196.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/bids" for 127.0.0.1 at 2011-04-20 12:38:38 -0300
+  Processing by BidsController#index as HTML
+  [1m[35mBid Load (0.2ms)[0m  SELECT `bids`.* FROM `bids`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.1ms)[0m  SELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `auctions`.* FROM `auctions` WHERE `auctions`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `clients`.* FROM `clients` WHERE `clients`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1
+Rendered bids/index.html.erb within layouts/application (194.3ms)
+Completed 200 OK in 207ms (Views: 195.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/bids/new" for 127.0.0.1 at 2011-04-20 12:38:46 -0300
+  Processing by BidsController#new as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.1ms)[0m  SELECT `auctions`.* FROM `auctions`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mConcessionaire Load (0.1ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mClient Load (0.1ms)[0m  SELECT `clients`.* FROM `clients`
+Rendered bids/_form.html.erb (187.3ms)
+Rendered bids/new.html.erb within layouts/application (191.8ms)
+Completed 200 OK in 203ms (Views: 192.2ms | ActiveRecord: 2.7ms)
