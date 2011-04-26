@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import url(reset.css);
+
+html {background:#b3ccd6 url(../images/bg-azul.jpg) top center no-repeat;}
+body {}
+
+.title-1{font-weight:normal; font-size:2.5em; display:block;}
+#top-title {border-bottom:#eee solid 5px; padding-bottom:5px; margin-bottom:15px;}
+
+
+#header, #content, #footer-content{width:980px; margin:0 auto;}
+
+#header {background:url(../images/bg-menu-topo.png) bottom center no-repeat; height:205px; position:relative;}
+	#header h1 a{display:block; width:262px; height:185px; text-indent:-900em; background:url(../images/logo-topo.png) top left no-repeat; position:absolute; top:20px; left:20px;}
+	#menu-top {position:absolute; top:124px; right:10px;}
+		#menu-top ul{display:block; float:right;}
+			#menu-top ul li{display:inline; list-style:none;}
+				#menu-top ul li a{display:block; padding:32px 15px; float:left; text-transform:uppercase; font-size:1.5em; color:#333;}
+				#menu-top ul li a.active, #menu-top ul li a:hover{background:url(../images/bg-menu-item-topo-hover.png) bottom center no-repeat; text-decoration:none;}
+				#menu-top ul li a.active{background-image:url(../images/bg-menu-item-topo-active.png);}
+			
+	#login-topo	{background:url(../images/bg-login.png) bottom center no-repeat; width:437px; height:41px; position:absolute; top:0; right:0px;}
+	#login-topo	form{display:block; margin:5px 0 0 10px;}
+	#timenow{position:absolute; top:52px; right:0px; background:url(../images/bg-timenow.png) top left no-repeat; width:200px; height:60px}
+		#timenow #ur{font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; color:#FFF; font-size:3em; display:block; margin:20px 0 0 60px; letter-spacing:-3px;}
+
+
+#content {width:950px; background:#FFF url(../images/bg-content.png) top center no-repeat; padding:40px 15px 15px 15px; border-top:#FFF solid 1px;}
+
+#footer{background:url(../images/bg-content-bottom.png) top center no-repeat; padding-top:50px; clear:both; overflow:hidden;}
+#footer-content{background:url(../images/bg-footer.png) top center no-repeat; margin:20px 0; width:980px; margin:0 auto; text-align:center;}
+#footer-content p{display:block; margin:5px 0;}
