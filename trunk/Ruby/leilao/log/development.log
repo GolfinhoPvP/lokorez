@@ -26762,3 +26762,1653 @@ ActionController::RoutingError (No route matches "/users/images/redes-sociais.pn
   
 
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Mysql2::Error: Table 'leilao_development.roles_users' doesn't exist: describe `roles_users`
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (5.7ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+Migrating to CreateStates (20110411131113)
+Migrating to CreateCities (20110411131229)
+Migrating to CreateClients (20110411132102)
+Migrating to CreateAuctions (20110411134553)
+Migrating to CreateCars (20110411140258)
+Migrating to CreateFuels (20110411140559)
+Migrating to CreateOptionals (20110412113911)
+Migrating to CreateModels (20110412114347)
+Migrating to CreateAssemblers (20110412114542)
+Migrating to AddAssCodeToModels (20110412133644)
+Migrating to AddCarsAndOptionals (20110412154318)
+Migrating to AddCarsAndFuels (20110413132207)
+Migrating to RenameModelColumnAssCode (20110413140333)
+Migrating to RenameModelColumnAssemblerId (20110413141328)
+Migrating to RenameAllForeignKey (20110413142753)
+Migrating to CreateConcessionaires (20110414115548)
+Migrating to AddConcessionaireIdToCars (20110414120227)
+Migrating to AddCarsAndConcessionaires (20110414121028)
+Migrating to RemoveCarsAndConcessionaires (20110414122812)
+Migrating to RenameStateForeignKeyFromCities (20110414124547)
+Migrating to RenameCityForeignKeyFromClients (20110414130029)
+Migrating to CreateBids (20110414133412)
+Migrating to ReCreateBids (20110415130240)
+Migrating to DeviseCreateUsers (20110425124417)
+Migrating to CreateRoles (20110426113802)
+  [1m[36mSQL (174.3ms)[0m  [1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (40.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110426113802')
+Migrating to AddRolesAndUsers (20110426114010)
+  [1m[36mSQL (122.7ms)[0m  [1mCREATE TABLE `roles_users` (`role_id` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (49.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110426114010')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `assemblers`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `assemblers`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `auctions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `auctions`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `bids`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `bids`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cars`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_fuels`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `cars_optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `cities`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `cities`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `clients`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `clients`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `concessionaires`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `concessionaires`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `fuels`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `fuels`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `models`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `models`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `optionals`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `optionals`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `roles`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `roles`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `roles_users`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `states`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `states`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `users`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `users`[0m
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:42:20 -0300
+  Processing by MainController#index as HTML
+Rendered main/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:42:26 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 109ms (Views: 86.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:42:26 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:42:30 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Completed   in 26ms
+
+NoMethodError (undefined method `role?' for #<User:0x000000038e0d20>):
+  app/models/ability.rb:30:in `initialize'
+  app/controllers/users/registrations_controller.rb:6:in `check_permissions'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (234.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (262.9ms)
+
+
+Started GET "/roles" for 127.0.0.1 at 2011-04-26 09:43:17 -0300
+  Processing by RolesController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+Rendered roles/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 114ms (Views: 19.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/roles/new" for 127.0.0.1 at 2011-04-26 09:43:20 -0300
+  Processing by RolesController#new as HTML
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `roles_users`[0m
+Completed   in 13ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:43:20 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 33ms (Views: 11.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:43:20 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:43:20 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:47:31 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Completed   in 24ms
+
+NoMethodError (undefined method `role?' for #<User:0x00000003818050>):
+  app/models/ability.rb:30:in `initialize'
+  app/controllers/users/registrations_controller.rb:6:in `check_permissions'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (230.9ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (236.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:47:54 -0300
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sa+c1rp6eI/SG+CU3dEo3wif8PvYXJ79/Tg1Eojr3EM=", "user"=>{"email"=>"wga_aj@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'wga_aj@hotmail.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2011-04-25 16:04:12', `current_sign_in_at` = '2011-04-26 12:47:54', `sign_in_count` = 6, `updated_at` = '2011-04-26 12:47:54' WHERE `users`.`id` = 1
+  [1m[36mSQL (39.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/roles/new
+Completed 302 Found in 265ms
+
+
+Started GET "/roles/new" for 127.0.0.1 at 2011-04-26 09:47:54 -0300
+  Processing by RolesController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  describe `roles_users`
+Rendered roles/_form.html.erb (4.7ms)
+Rendered roles/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 78ms (Views: 11.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/roles/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:47:54 -0300
+
+ActionController::RoutingError (No route matches "/roles/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/roles/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:47:54 -0300
+
+ActionController::RoutingError (No route matches "/roles/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/roles" for 127.0.0.1 at 2011-04-26 09:47:58 -0300
+  Processing by RolesController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered roles/index.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 79ms (Views: 69.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/roles/1" for 127.0.0.1 at 2011-04-26 09:48:00 -0300
+  Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered roles/show.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 42ms (Views: 32.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/roles/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:48:00 -0300
+
+ActionController::RoutingError (No route matches "/roles/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/roles" for 127.0.0.1 at 2011-04-26 09:48:02 -0300
+  Processing by RolesController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered roles/index.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 44ms (Views: 34.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/roles/1/edit" for 127.0.0.1 at 2011-04-26 09:48:26 -0300
+  Processing by RolesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1
+Rendered roles/_form.html.erb (5.8ms)
+Rendered roles/edit.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 45ms (Views: 13.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/roles/1/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:48:26 -0300
+
+ActionController::RoutingError (No route matches "/roles/1/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/roles/1" for 127.0.0.1 at 2011-04-26 09:48:31 -0300
+  Processing by RolesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sa+c1rp6eI/SG+CU3dEo3wif8PvYXJ79/Tg1Eojr3EM=", "role"=>{"name"=>"super_admin"}, "commit"=>"Update Role", "id"=>"1"}
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `roles` SET `name` = 'super_admin', `updated_at` = '2011-04-26 12:48:31' WHERE `roles`.`id` = 1
+  [1m[36mSQL (35.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/roles/1
+Completed 302 Found in 109ms
+
+
+Started GET "/roles/1" for 127.0.0.1 at 2011-04-26 09:48:31 -0300
+  Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered roles/show.html.erb within layouts/application (63.9ms)
+Completed 200 OK in 77ms (Views: 66.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/roles/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:48:32 -0300
+
+ActionController::RoutingError (No route matches "/roles/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/roles" for 127.0.0.1 at 2011-04-26 09:48:34 -0300
+  Processing by RolesController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.4ms)[0m  [1mSELECT `roles`.* FROM `roles`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered roles/index.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 47ms (Views: 36.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-04-26 09:50:47 -0300
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:50:47 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.7ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:50:50 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 68ms (Views: 47.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:50:50 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:50:52 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (1.8ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 73ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:50:52 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:50:54 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 68ms (Views: 11.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:50:55 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:50:56 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 72ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:50:56 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-26 09:51:02 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[36mAssembler Load (0.3ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` ORDER BY name ASC[0m
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered assemblers/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 51ms (Views: 29.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assemblers/new" for 127.0.0.1 at 2011-04-26 09:51:04 -0300
+  Processing by AssemblersController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Completed   in 46ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:51:04 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 32ms (Views: 11.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:51:04 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:51:05 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 37ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:51:06 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:53:07 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.8ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 71ms (Views: 12.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:53:08 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:53:08 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:53:09 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Completed   in 58ms
+
+NoMethodError (undefined method `role?' for #<User:0x0000000350aa98>):
+  app/models/ability.rb:30:in `initialize'
+  app/controllers/users/registrations_controller.rb:6:in `check_permissions'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (201.8ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (207.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:54:17 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 37ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:54:17 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:54:22 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 32ms (Views: 10.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:54:22 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2011-04-26 09:54:23 -0300
+  Processing by Devise::PasswordsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/passwords/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 31ms (Views: 18.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/password/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:54:24 -0300
+
+ActionController::RoutingError (No route matches "/users/password/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:54:27 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 74ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:54:27 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-26 09:54:29 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mAuction Load (0.3ms)[0m  SELECT `auctions`.* FROM `auctions`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `cars_optionals`
+  [1m[36mCar Load (0.2ms)[0m  [1mSELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  [1m[35mConcessionaire Load (0.2ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered auctions/index.html.erb within layouts/application (136.2ms)
+Completed 200 OK in 168ms (Views: 149.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/auctions/new" for 127.0.0.1 at 2011-04-26 09:55:30 -0300
+  Processing by AuctionsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+Completed   in 12ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:55:31 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 33ms (Views: 11.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:55:31 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:55:49 -0300
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GUJ9l7vGei3xMCSnVQSGAhEx4Ft223NwKwWU7FZivxI=", "user"=>{"email"=>"wga_aj@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'wga_aj@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2011-04-26 12:47:54', `current_sign_in_at` = '2011-04-26 12:55:49', `sign_in_count` = 7, `updated_at` = '2011-04-26 12:55:49' WHERE `users`.`id` = 1[0m
+  [1m[35mSQL (41.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/auctions/new
+Completed 302 Found in 199ms
+
+
+Started GET "/auctions/new" for 127.0.0.1 at 2011-04-26 09:55:49 -0300
+  Processing by AuctionsController#new as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `auctions_clients`[0m
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.6ms)[0m  SELECT `cars`.* FROM `cars`
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mConcessionaire Load (0.3ms)[0m  SELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 1 LIMIT 1
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT `models`.* FROM `models` WHERE `models`.`id` = 2 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 ORDER BY name ASC LIMIT 1
+Rendered auctions/_form.html.erb (136.7ms)
+Rendered auctions/new.html.erb within layouts/application (140.1ms)
+Completed 200 OK in 188ms (Views: 149.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/auctions/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:55:50 -0300
+
+ActionController::RoutingError (No route matches "/auctions/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/auctions/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:55:50 -0300
+
+ActionController::RoutingError (No route matches "/auctions/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:56:11 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = 1 ) LIMIT 1
+Completed   in 40ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:56:11 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered main/index.html.erb within layouts/application (64.8ms)
+Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-04-26 09:58:13 -0300
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:58:14 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:58:16 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 75ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:58:16 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 19ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-26 09:58:26 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.2ms)[0m  SELECT `assemblers`.* FROM `assemblers` ORDER BY name ASC
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `roles_users`[0m
+Rendered assemblers/index.html.erb within layouts/application (57.7ms)
+Completed 200 OK in 70ms (Views: 60.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assemblers/2" for 127.0.0.1 at 2011-04-26 09:58:29 -0300
+  Processing by AssemblersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 ORDER BY name ASC LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+Rendered assemblers/show.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 32ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assemblers/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:58:29 -0300
+
+ActionController::RoutingError (No route matches "/assemblers/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-26 09:58:30 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` ORDER BY name ASC
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered assemblers/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 72ms (Views: 24.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assemblers/2/edit" for 127.0.0.1 at 2011-04-26 09:58:32 -0300
+  Processing by AssemblersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Completed   in 11ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:58:32 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 32ms (Views: 11.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:58:32 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:58:43 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 75ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:58:44 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:59:13 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 38ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:59:13 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:59:15 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 36ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:59:15 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (52.1ms)
+Completed 200 OK in 56ms (Views: 54.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:59:16 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.0ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 36ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:59:16 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 09:59:17 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 70ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 09:59:17 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:59:18 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 36ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 09:59:18 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 09:59:40 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 74ms
+
+NameError (undefined local variable or method `root_url_' for #<Users::RegistrationsController:0x000000034260f0>):
+  app/controllers/application_controller.rb:7:in `block in <class:ApplicationController>'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (217.2ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (251.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:00:38 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 37ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:00:38 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:00:40 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 77ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:00:40 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:00:42 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 72ms (Views: 11.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:00:42 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:00:46 -0300
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0dvIPG76pZTmtp2lhzRu6GkTaglPklKf9GZ6kfjZhfI=", "user"=>{"email"=>"wga_aj@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'wga_aj@hotmail.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2011-04-26 12:55:49', `current_sign_in_at` = '2011-04-26 13:00:47', `sign_in_count` = 8, `updated_at` = '2011-04-26 13:00:47' WHERE `users`.`id` = 1
+  [1m[36mSQL (35.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/assemblers/2/edit
+Completed 302 Found in 160ms
+
+
+Started GET "/assemblers/2/edit" for 127.0.0.1 at 2011-04-26 10:00:47 -0300
+  Processing by AssemblersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 2 ORDER BY name ASC LIMIT 1
+Rendered assemblers/_form.html.erb (6.3ms)
+Rendered assemblers/edit.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 57ms (Views: 23.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assemblers/2/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:00:47 -0300
+
+ActionController::RoutingError (No route matches "/assemblers/2/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:01:03 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = 1 ) LIMIT 1
+Completed   in 77ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:01:03 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered main/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-04-26 10:02:44 -0300
+  Processing by Devise::SessionsController#destroy as HTML
+Completed   in 3ms
+
+SyntaxError (/home/acelerador01/Projetos/Ruby/leilaoTeste/app/models/user.rb:14: syntax error, unexpected keyword_return, expecting ')'
+		return !!self.roles.find_by_name(role.to_s.camelize)
+		      ^):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (187.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (221.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-04-26 10:02:55 -0300
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:02:55 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (54.6ms)
+Completed 200 OK in 58ms (Views: 57.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:02:58 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 38ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:02:58 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:03:20 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 75ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:03:21 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:03:22 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 78ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:03:22 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:03:23 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.8ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 72ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:03:23 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:03:25 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 37ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:03:25 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:05:59 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 38ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:10:05 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'super_admin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'product_admin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'product_team' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 37ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:10:05 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 60ms (Views: 59.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:10:08 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 33ms (Views: 11.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:10:08 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:10:12 -0300
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eV4gswPKKFe/q8dK9wbbHS6XwgRgudhbXhn6bOYnHAU=", "user"=>{"email"=>"wga_aj@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'wga_aj@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2011-04-26 13:00:47', `current_sign_in_at` = '2011-04-26 13:10:12', `sign_in_count` = 9, `updated_at` = '2011-04-26 13:10:12' WHERE `users`.`id` = 1[0m
+  [1m[35mSQL (54.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 174ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:10:12 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered main/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:10:17 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'super_admin' AND (`roles_users`.user_id = 1 ) LIMIT 1
+Completed   in 42ms
+
+ActionView::MissingTemplate (Missing template users/registrations/new with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths "/home/acelerador01/Projetos/Ruby/leilaoTeste/app/views", "/usr/local/lib/ruby/gems/1.9.1/gems/devise-1.3.1/app/views"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:10:39 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = 1 ) LIMIT 1
+Completed   in 82ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:10:39 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered main/index.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/roles" for 127.0.0.1 at 2011-04-26 10:11:38 -0300
+  Processing by RolesController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered roles/index.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 45ms (Views: 35.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/roles/1/edit" for 127.0.0.1 at 2011-04-26 10:11:40 -0300
+  Processing by RolesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1
+Rendered roles/_form.html.erb (5.6ms)
+Rendered roles/edit.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 89ms (Views: 12.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/roles/1/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:11:40 -0300
+
+ActionController::RoutingError (No route matches "/roles/1/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/roles/1" for 127.0.0.1 at 2011-04-26 10:11:49 -0300
+  Processing by RolesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eV4gswPKKFe/q8dK9wbbHS6XwgRgudhbXhn6bOYnHAU=", "role"=>{"name"=>"superAdmin"}, "commit"=>"Update Role", "id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `roles` SET `name` = 'superAdmin', `updated_at` = '2011-04-26 13:11:49' WHERE `roles`.`id` = 1
+  [1m[36mSQL (37.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/roles/1
+Completed 302 Found in 77ms
+
+
+Started GET "/roles/1" for 127.0.0.1 at 2011-04-26 10:11:49 -0300
+  Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered roles/show.html.erb within layouts/application (29.9ms)
+Completed 200 OK in 82ms (Views: 32.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/roles/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:11:49 -0300
+
+ActionController::RoutingError (No route matches "/roles/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/roles/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:11:49 -0300
+
+ActionController::RoutingError (No route matches "/roles/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/roles" for 127.0.0.1 at 2011-04-26 10:11:50 -0300
+  Processing by RolesController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered roles/index.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 46ms (Views: 37.0ms | ActiveRecord: 40.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:11:57 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.8ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1[0m
+Completed   in 46ms
+
+ActionView::MissingTemplate (Missing template users/registrations/new with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths "/home/acelerador01/Projetos/Ruby/leilaoTeste/app/views", "/usr/local/lib/ruby/gems/1.9.1/gems/devise-1.3.1/app/views"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:14:47 -0300
+  [1m[35mSQL (1.2ms)[0m  describe `roles_users`
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:14:47 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered main/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:14:55 -0300
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 61ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:14:55 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered main/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-04-26 10:15:05 -0300
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 63ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:15:05 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:15:06 -0300
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.8ms)
+Rendered devise/registrations/new.html.erb within layouts/application (56.2ms)
+Completed 200 OK in 89ms (Views: 75.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:15:07 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:15:09 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 32ms (Views: 11.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:15:09 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:31:28 -0300
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 22ms (Views: 11.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:31:28 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:31:28 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:31:35 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 40ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:31:35 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-26 10:31:37 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 50ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:31:37 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-26 10:31:39 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 50ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:31:39 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:31:44 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 32ms (Views: 11.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:31:44 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:31:49 -0300
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7SqpP8lEqfW63+UhaYZp7tPw5T1pjdNASkxJY6+SIDk=", "user"=>{"email"=>"wga_aj@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'wga_aj@hotmail.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2011-04-26 13:10:12', `current_sign_in_at` = '2011-04-26 13:31:49', `sign_in_count` = 10, `updated_at` = '2011-04-26 13:31:49' WHERE `users`.`id` = 1
+  [1m[36mSQL (37.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 158ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:31:49 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered main/index.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assemblers" for 127.0.0.1 at 2011-04-26 10:31:50 -0300
+  Processing by AssemblersController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1[0m
+  [1m[35mAssembler Load (0.1ms)[0m  SELECT `assemblers`.* FROM `assemblers` ORDER BY name ASC
+Rendered assemblers/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 63ms (Views: 13.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-04-26 10:32:28 -0300
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:32:28 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:32:30 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 75ms (Views: 11.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:32:30 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:32:32 -0300
+  Processing by Users::RegistrationsController#new as HTML
+Completed   in 129ms
+
+NameError (undefined local variable or method `check_permissions' for #<Users::RegistrationsController:0x0000000383f7e0>):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (176.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (182.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:36:11 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 39ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:36:11 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered main/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:36:13 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 34ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:36:13 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:36:15 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductAdmin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'ProductTeam' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 39ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:36:15 -0300
+  Processing by MainController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+Rendered main/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:36:17 -0300
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+Rendered devise/shared/_links.erb (1.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 34ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/images/redes-sociais.png" for 127.0.0.1 at 2011-04-26 10:36:17 -0300
+
+ActionController::RoutingError (No route matches "/users/images/redes-sociais.png"):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2011-04-26 10:36:22 -0300
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HAGWDrrgI7+mrBpK61lOUJAo+Yaf6TNfnc/JiGo/QcU=", "user"=>{"email"=>"wga_aj@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'wga_aj@hotmail.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2011-04-26 13:31:49', `current_sign_in_at` = '2011-04-26 13:36:23', `sign_in_count` = 11, `updated_at` = '2011-04-26 13:36:23' WHERE `users`.`id` = 1
+  [1m[36mSQL (107.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 227ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 10:36:23 -0300
+  Processing by MainController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered main/index.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/auctions" for 127.0.0.1 at 2011-04-26 10:36:26 -0300
+  Processing by AuctionsController#index as HTML
+  [1m[35mSQL (0.6ms)[0m  describe `auctions_clients`
+Mysql2::Error: Table 'leilao_development.auctions_clients' doesn't exist: describe `auctions_clients`
+  [1m[36mAuction Load (0.2ms)[0m  [1mSELECT `auctions`.* FROM `auctions`[0m
+  [1m[35mSQL (0.7ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1
+  [1m[36mConcessionaire Load (0.1ms)[0m  [1mSELECT `concessionaires`.* FROM `concessionaires` WHERE `concessionaires`.`id` = 2 LIMIT 1[0m
+  [1m[35mModel Load (0.1ms)[0m  SELECT `models`.* FROM `models` WHERE `models`.`id` = 1 ORDER BY name ASC LIMIT 1
+  [1m[36mAssembler Load (0.1ms)[0m  [1mSELECT `assemblers`.* FROM `assemblers` WHERE `assemblers`.`id` = 1 ORDER BY name ASC LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered auctions/index.html.erb within layouts/application (144.5ms)
+Completed 200 OK in 162ms (Views: 146.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-04-26 10:36:38 -0300
+  Processing by Users::RegistrationsController#new as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `roles_users`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'SuperAdmin' AND (`roles_users`.user_id = 1 ) LIMIT 1[0m
+Completed   in 42ms
+
+NameError (uninitialized constant Registration):
+  
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (179.5ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (214.8ms)

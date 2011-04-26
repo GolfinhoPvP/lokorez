@@ -1,5 +1,8 @@
 Leilao::Application.routes.draw do
-  devise_for :users
+  resources :roles
+
+  #devise_for :users
+  devise_for :users,  :controllers => { :registrations => "users/registrations" }
 
   resources :bids
 
