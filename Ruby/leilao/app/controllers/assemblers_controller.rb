@@ -1,4 +1,5 @@
 class AssemblersController < ApplicationController
+  load_and_authorize_resource
   # GET /assemblers
   # GET /assemblers.xml
   def index
