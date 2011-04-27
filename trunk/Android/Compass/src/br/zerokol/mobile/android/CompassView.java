@@ -7,8 +7,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class CompassView extends View{
-	private float bearing;
+public class CompassView{
+/*	private float bearing;
 	private	Paint markerPaint;
 	private	Paint textPaint;
 	private	Paint circlePaint;
@@ -16,28 +16,10 @@ public class CompassView extends View{
 	private	String eastString;
 	private	String southString;
 	private	String westString;
-	private	int textHeight;
-
-	public CompassView(Context context) {
-		super(context);
-		initCompassView();
-		// TODO Auto-generated constructor stub
-	}
-
-	public CompassView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		initCompassView();
-		// TODO Auto-generated constructor stub
-	}
-
-	public CompassView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		initCompassView();
-		// TODO Auto-generated constructor stub
-	}
+	private	int textHeight;*/
 	
 	protected void initCompassView() {
-		setFocusable(true);
+/*		setFocusable(true);
 		Resources r = this.getResources();
 		circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		circlePaint.setColor(r.getColor(R.color.background_color));
@@ -51,9 +33,9 @@ public class CompassView extends View{
 		textPaint.setColor(r.getColor(R.color.text_color));
 		textHeight = (int)textPaint.measureText("yY");
 		markerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		markerPaint.setColor(r.getColor(R.color.marker_color));
+		markerPaint.setColor(r.getColor(R.color.marker_color));*/
 	}
-	
+/*	
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		// The compass is a circle that fills as much space as possible.
@@ -63,9 +45,9 @@ public class CompassView extends View{
 		int measuredHeight = measure(heightMeasureSpec);
 		int d = Math.min(measuredWidth, measuredHeight);
 		setMeasuredDimension(d, d);
-	}
+	}*/
 	
-	private int measure(int measureSpec) {
+/*	private int measure(int measureSpec) {
 		int result = 0;
 		// Decode the measurement specifications.
 		int specMode = MeasureSpec.getMode(measureSpec);
@@ -79,16 +61,8 @@ public class CompassView extends View{
 			result = specSize;
 		}
 		return result;
-	}
-
-	public float getBearing() {
-		return bearing;
-	}
-
-	public void setBearing(float bearing) {
-		this.bearing = bearing;
-	}
-
+	}*/
+/*
 	@Override
 	protected void onDraw(Canvas canvas) {
 		int px = getMeasuredWidth() / 2;
@@ -139,5 +113,5 @@ public class CompassView extends View{
 			canvas.rotate(15, px, py);
 		}
 		canvas.restore();
-	}
+	}*/
 }

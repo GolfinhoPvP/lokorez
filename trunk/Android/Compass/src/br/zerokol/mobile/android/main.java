@@ -8,8 +8,6 @@ public class main extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CompassView cv = new CompassView(this);
-        setContentView(cv);
-        cv.setBearing(145);
+        setContentView(R.layout.main);
     }
 }
