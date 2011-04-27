@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, main!</string>
+    <string name="app_name">Compass</string>
+    <string name="cardinal_north">N</string>
+    <string name="cardinal_east">L</string>
+    <string name="cardinal_south">S</string>
+    <string name="cardinal_west">O</string>
+    <color name="background_color">#F555</color>
+    <color name="marker_color">#AFFF</color>
+    <color name="text_color">#AFFF</color>
+</resources>
