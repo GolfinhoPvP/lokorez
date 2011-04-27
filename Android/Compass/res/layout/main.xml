@@ -4,5 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-    <br.zerokol.mobile.android.CompassView android:id="@+id/compassView" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <!--
+    <br.zerokol.mobile.android.CompassView android:id="@+id/compassView" android:layout_width="fill_parent" android:layout_height="fill_parent"></br.zerokol.mobile.android.CompassView>
+	-->
 </LinearLayout>
