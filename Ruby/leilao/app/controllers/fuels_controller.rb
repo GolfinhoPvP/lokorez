@@ -1,4 +1,5 @@
 class FuelsController < ApplicationController
+  load_and_authorize_resource
   # GET /fuels
   # GET /fuels.xml
   def index

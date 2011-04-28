@@ -1,4 +1,5 @@
 class OptionalsController < ApplicationController
+  load_and_authorize_resource
   # GET /optionals
   # GET /optionals.xml
   def index

@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+  load_and_authorize_resource
   # GET /auctions
   # GET /auctions.xml
   def index
