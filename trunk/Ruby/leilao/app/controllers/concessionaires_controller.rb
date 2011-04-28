@@ -1,4 +1,5 @@
 class ConcessionairesController < ApplicationController
+  load_and_authorize_resource
   # GET /concessionaires
   # GET /concessionaires.xml
   def index

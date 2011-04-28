@@ -29,10 +29,11 @@ class Ability
 
 		if user.role? :super_admin
 			can :manage, :all
-		elsif user.role? :product_admin
+		elsif user.role? :admin
 			can :manage, [Assembler, Model, Car]
-		elsif user.role? :product_team
-			can :read, :all
+			#assembler auction bid car city client concessionaire fuel model optional roles state
+		elsif user.role? :normal
+			can :update, :all
 		end
 	end
 end

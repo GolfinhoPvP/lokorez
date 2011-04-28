@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  load_and_authorize_resource
   # GET /cars
   # GET /cars.xml
   def index

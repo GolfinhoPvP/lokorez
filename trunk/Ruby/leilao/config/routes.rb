@@ -1,8 +1,6 @@
 Leilao::Application.routes.draw do
-  resources :roles
-
-  #devise_for :users
-  devise_for :users,  :controllers => { :registrations => "users/registrations" }
+  devise_for :users
+  #devise_for :users,  :controllers => { :registrations => "users/registrations" }
 
   resources :bids
 
@@ -18,6 +16,8 @@ Leilao::Application.routes.draw do
 
   resources :cars
 
+  resources :roles
+
   resources :auctions
 
   resources :clients
@@ -27,6 +27,8 @@ Leilao::Application.routes.draw do
   resources :states
 
   resources :main
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

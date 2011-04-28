@@ -12,6 +12,14 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
+	<p><%= f.label :admin_level %>
+	<% Role.all.each do |role| %>
+		<p>
+		    	<%= check_box_tag 'user[role_ids][]', role.id, @user.roles.include?(role) %>
+			<%= role.name %><br />
+	  	</p>
+	<% end %>
+
   <p><%= f.submit "Sign up" %></p>
 <% end %>
 

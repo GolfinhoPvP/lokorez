@@ -1,4 +1,4 @@
-class AddRolesAndUsers < ActiveRecord::Migration
+class ReDoAddRolesToCars < ActiveRecord::Migration
 	def self.up
 		create_table :roles_users, :id => false do |t|
 			t.references :role, :user
