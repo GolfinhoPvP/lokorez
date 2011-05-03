@@ -33640,3 +33640,65 @@ NameError (undefined local variable or method `get_user' for #<UsersController:0
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (172.3ms)
 Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (208.0ms)
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
+
+
+Started GET "/cars" for 127.0.0.1 at Sun May 01 18:05:42 -0300 2011
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.4ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'super admin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'admin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'normal' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 122ms
+Redirected to http://localhost:3000/
+
+
+Started GET "/user" for 127.0.0.1 at Sun May 01 18:05:49 -0300 2011
+
+ActionController::RoutingError (No route matches "/user"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sun May 01 18:05:53 -0300 2011
+  Processing by UsersController#index as HTML
+Completed   in 218ms
+
+NameError (undefined local variable or method `get_user' for #<UsersController:0x7f8fec99d788>):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (462.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (526.5ms)
+
+
+Started GET "/cars" for 127.0.0.1 at Sun May 01 18:53:19 -0300 2011
+  Processing by CarsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `cars_fuels`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `cars_optionals`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `roles_users`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `roles_users`
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'super admin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'admin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'normal' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+Completed   in 117ms
+Redirected to http://localhost:3000/
+  [1m[36mSQL (3020.9ms)[0m  [1mdescribe `roles_users`[0m
+
+
+Started GET "/cars" for 127.0.0.1 at Mon May 02 08:16:17 -0300 2011
+  Processing by CarsController#index as HTML
+  [1m[35mSQL (0.5ms)[0m  describe `cars_fuels`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `cars_optionals`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles_users`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'super admin' AND (`roles_users`.user_id = NULL ) LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'admin' AND (`roles_users`.user_id = NULL ) LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.id = `roles_users`.role_id WHERE `roles`.`name` = 'normal' AND (`roles_users`.user_id = NULL ) LIMIT 1
+Completed   in 196ms
+Redirected to http://localhost:3000/
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `roles_users`[0m
