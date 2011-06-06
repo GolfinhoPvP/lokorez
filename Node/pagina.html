@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Chat Teste</title>
+		<style type="text/css">
+			#conteudo{
+				height: 200px;
+				width: 400px;
+				overflow: auto;
+			}
+			.botao{
+				cursor: pointer;
+			}
+		</style>
+		<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var objSocket = new io.Socket(null, {port: 8080});
+			objSocket.connect();
+			
+			objSocket.on("connect", function(){
+				//console.log("Isso é um log");
+				//console.warn("isso foi um aviso");
+				//console.error("isso foi um erro");
+				//console.dir(socket);
+				/*console.time('100-elements');
+				for(i = 0; i < 10; i++) {
+					console.log("Isso é um log");
+				}
+				console.timeEnd('100-elements');*/
+				//console.trace();
+				//console.assert();
+			});
+			
+			objSocket.on("message", function(msg){
+				var conteudo = document.getElementById("conteudo");
+				conteudo.innerHTML = conteudo.innerHTML + "<p>"+msg+"</p>";
+				conteudo.scrollTop = conteudo.scrollHeight;
+				document.getElementById("mensagem").value = "";
+			});
+			
+			objSocket.on("disconnect", function(){
+				console.warn("Você foi desconectado do servidor!");
+				objSocket.disconnect();
+			});
+			
+			window.onload = function(){
+				document.getElementById("enviar").onclick = function(){
+					objSocket.send(document.getElementById("mensagem").value);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="conteudo"></div>
+		<div>
+			Mensagem: <input id="mensagem" type="text" name="mensagem" />
+		</div>
+		</br>
+		<div id="enviar" class="botao">enviar</div>
+	</body>
+</html>
