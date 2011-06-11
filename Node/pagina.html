@@ -4,8 +4,8 @@
 		<title>Chat Teste</title>
 		<style type="text/css">
 			#conteudo{
-				height: 200px;
-				width: 400px;
+				height: 500px;
+				width: 600px;
 				overflow: auto;
 			}
 			.botao{
@@ -35,7 +35,6 @@
 				var conteudo = document.getElementById("conteudo");
 				conteudo.innerHTML = conteudo.innerHTML + "<p>"+msg+"</p>";
 				conteudo.scrollTop = conteudo.scrollHeight;
-				document.getElementById("mensagem").value = "";
 			});
 			
 			objSocket.on("disconnect", function(){
@@ -46,6 +45,7 @@
 			window.onload = function(){
 				document.getElementById("enviar").onclick = function(){
 					objSocket.send(document.getElementById("mensagem").value);
+					document.getElementById("mensagem").value = "";
 				};
 			};
 		</script>

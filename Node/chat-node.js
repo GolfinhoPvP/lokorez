@@ -63,11 +63,11 @@ objListener.on("connection", function(objClient){
 			objClient.send("Bem vindo "+nick);
 			objListener.broadcast(nick+" conectou-se!", objClient.sessionId);
 		}else{
-			objListener.broadcast(nick+" disse:"+mensagem);
+			objListener.broadcast(nick+" disse: "+mensagem);
 		}
 	});
 	objClient.on("disconnect", function(){
-		objListener.broadcast(nick+" desconectouse-se!", objClient.sessionId);
+		objListener.broadcast(nick+" desconectou-se!", objClient.sessionId);
 	});
 });
 
