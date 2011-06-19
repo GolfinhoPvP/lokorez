@@ -21,11 +21,6 @@ import edu.dhbw.andar.ARToolkit;
 import edu.dhbw.andar.AndARActivity;
 import edu.dhbw.andar.exceptions.AndARException;
 
-/**
- * Example of an application that makes use of the AndAR toolkit.
- * @author Tobi
- *
- */
 public class MainActivity extends AndARActivity implements SurfaceHolder.Callback {
 	private Model model;
 	private Model3D model3d;
