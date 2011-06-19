@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="value">Valor: </string>
+    <string name="app_name">Exercício 1 - Opt. I</string>
+    <string name="select">Selecione um tipo:</string>
+    <string-array name="select_list">
+        <item id = "0">Km para Milha</item>
+        <item id = "1">Milha para Km</item>
+        <item id = "2">°F para ° C</item>
+        <item id = "3">°C para °F</item>
+        <item id = "4">Metro para Polegadas</item>
+        <item id = "5">Polegadas para Metro</item>
+    </string-array>
+    <string name="button">Calcular</string>
+    <string name="result">Resulatado:</string>
+</resources>
