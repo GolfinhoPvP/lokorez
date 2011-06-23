@@ -4,4 +4,9 @@
 	<string name="loading">Loading. Please wait...</string>
 	<string name="main_manu_navigate_text">Navigate</string>
 	<string name="main_manu_help_text">Help</string>
+	<string name="rotate">rotate</string>
+	<string name="take_screenshot">screenshot</string>
+	<string name="point_list">points</string>
+	<string name="screenshot_saved">Screenshot Saved!</string>
+	<string name="screenshot_failed">Screenshot failure!</string>
 </resources>
