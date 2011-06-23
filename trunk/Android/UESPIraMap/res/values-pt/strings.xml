@@ -4,4 +4,9 @@
 	<string name="loading">Carregando. Por favor aguarde...</string>
 	<string name="main_manu_navigate_text">Navegar</string>
 	<string name="main_manu_help_text">Ajuda</string>
+	<string name="rotate">girar</string>
+	<string name="take_screenshot">fotografar</string>
+	<string name="point_list">pontos</string>
+	<string name="screenshot_saved">Foto salva com sucesso!</string>
+	<string name="screenshot_failed">Erro ao salvar a foto!</string>
 </resources>

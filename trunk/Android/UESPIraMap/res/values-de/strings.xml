@@ -4,4 +4,9 @@
 	<string name="loading">Lädt...</string>
 	<string name="main_manu_navigate_text">Navigieren</string>
 	<string name="main_manu_help_text">Hilfe</string>
+	<string name="rotate"></string>
+	<string name="take_screenshot"></string>
+	<string name="point_list"></string>
+	<string name="screenshot_saved"></string>
+	<string name="screenshot_failed"></string>
 </resources>
