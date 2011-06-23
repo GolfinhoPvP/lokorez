@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">Uespi RA Map</string>
 	<string name="loading">Loading. Please wait...</string>
+	<string name="main_manu_navigate_text">Navigate</string>
+	<string name="main_manu_help_text">Help</string>
 </resources>

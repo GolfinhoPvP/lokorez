@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent" android:orientation="horizontal" android:layout_width="fill_parent">
+    
+    <RelativeLayout android:id="@+id/relativeLayout1" 
+    		android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@drawable/background">
+    	
+    	<TableLayout android:layout_height="wrap_content" 
+    			android:id="@+id/tableLayout" 
+    			android:layout_alignParentLeft="true" android:layout_width="fill_parent">
+    		
+    		<Button android:textStyle="bold" 
+    				android:textSize="15px" 
+    				android:text="@string/main_manu_navigate_text" android:id="@+id/main_menu_navigate_button" android:drawableLeft="@drawable/starthere" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    		</Button>
+    		
+    		<Button android:layout_height="wrap_content" 
+    				android:textStyle="bold" 
+    				android:textSize="15px" 
+    				android:id="@+id/main_menu_help_button" android:text="@string/main_manu_help_text" android:drawableLeft="@drawable/help_icon" android:layout_width="fill_parent">
+    		</Button>
+    	
+    	</TableLayout>
+    </RelativeLayout>
+</LinearLayout>
