@@ -3,6 +3,7 @@ class CreateAuctions < ActiveRecord::Migration
     create_table :auctions do |t|
       t.string :name
       t.decimal :value
+      t.datetime :finish_at
 
       t.timestamps
     end
