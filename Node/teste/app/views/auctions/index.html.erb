@@ -1,0 +1,60 @@
+<script src="http://127.0.0.1:8080/socket.io/socket.io.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var objSocket = new io.Socket("127.0.0.1", {port: 8080});
+	objSocket.connect();
+	
+	objSocket.on("connect", function(){
+		console.warn("Bem vindo ao servidor");
+	});
+	
+	objSocket.on("message", function(msg){
+		var leilao = document.getElementById("auction_"+msg.id);
+		leilao.innerHTML = msg.valor;
+	});
+	
+	objSocket.on("disconnect", function(){
+		console.warn("Você foi desconectado do servidor!");
+		objSocket.disconnect();
+	});
+	
+	function darlance(id){
+		objSocket.send(id);
+	}
+	
+	var ids = "<%= @auctions_ids %>".split(",");
+	setInterval(function(){
+		for(var i=0; i < ids.length; i++){
+			elemento = document.getElementById("auction_tempo_"+ids[i]);
+			elemento.innerHTML = parseInt(elemento.innerHTML) - 1;
+		}
+	}, 1000);
+</script>
+<h1>Listing auctions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th></th>
+    <th>Tempo restante</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @auctions.each do |auction| %>
+  <tr>
+    <td><%= auction.name %></td>
+    <td id="auction_<%= auction.id %>"><%= auction.value %></td>
+    <td><input onclick="javascript: darlance(<%= auction.id %>);" type="button" value="Dar lance!"></input></td>
+    <td id="auction_tempo_<%= auction.id %>"><%= auction.finish_at.to_i - Time.now.to_i %></td>
+    <td><%= link_to 'Show', auction %></td>
+    <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
+    <td><%= link_to 'Destroy', auction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Auction', new_auction_path %>
