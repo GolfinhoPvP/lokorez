@@ -8,5 +8,5 @@ void setup(){
 void loop(){
   Serial.print("valor voltagem: ");
   Serial.println(digitalRead(pin));
-  delay(100);
+  delay(1000);
 }
