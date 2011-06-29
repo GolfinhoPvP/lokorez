@@ -14,7 +14,8 @@ ActiveRecord::Schema.define(:version => 20110623223604) do
 
   create_table "auctions", :force => true do |t|
     t.string   "name"
-    t.decimal  "value",      :precision => 10, :scale => 0
+    t.decimal  "value",      :precision => 10, :scale => 2
+    t.datetime "finish_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
