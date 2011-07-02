@@ -12,9 +12,9 @@
 				cursor: pointer;
 			}
 		</style>
-		<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+		<script src="http://node-server:8080/socket.io/socket.io.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			var objSocket = new io.Socket(null, {port: 8080});
+			var objSocket = new io.Socket("node-server", {port: 8080});
 			objSocket.connect();
 			
 			objSocket.on("connect", function(){
