@@ -1,5 +1,5 @@
 int inPin = 2;
-int ledPin_1 = 4;
+int ledPin_1 = 13;
 int ledPin_2 = 5;
 int val = 0;
 int counter = 0;

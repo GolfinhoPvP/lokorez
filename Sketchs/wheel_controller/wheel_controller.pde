@@ -40,6 +40,7 @@ void setup(){
 }
 
 void loop(){
+  delay(5000);
   forward(45);
   delay(1000);
   rigthBend(90);
@@ -47,7 +48,7 @@ void loop(){
   backward(45);
   delay(1000);
   rigthBend(90);
-  setMoviment(FORWARD);
+  forward(45);
   leftBend(90);
   delay(1000);
   backward(45);
@@ -237,10 +238,6 @@ void spin(int degree, int speed){
 void debugMode(boolean mode){
   Serial.println("Debug mode is ON!");
   _debug = mode;
-}
-
-void setMoviment(int moviment){
-  _direction = moviment;
 }
 
 int getSpeed(int speed, int wheel){
