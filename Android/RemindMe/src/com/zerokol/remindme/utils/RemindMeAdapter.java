@@ -9,7 +9,7 @@ import android.util.Log;
 /*
  * Class to implement my adapter to hold the database requests
  * */
-public class Connection {
+public class RemindMeAdapter {
 	// Constants
 	private static final String DATABASE_NAME = "RemindMe.db";
 	private static final int DATABASE_VERSION = 1;
@@ -17,7 +17,7 @@ public class Connection {
 	private OpenHelper open;
 	private SQLiteDatabase db = null;
 
-	public Connection(Context ctx) {
+	public RemindMeAdapter(Context ctx) {
 		this.open = new OpenHelper(ctx);
 		Log.i("RemindMe", "RemindMe's Data Base Connection was opened.");
 	}
