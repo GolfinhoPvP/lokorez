@@ -3,11 +3,13 @@ package com.zerokol.remindme.activities;
 import java.util.Calendar;
 
 import com.zerokol.remindme.R;
-
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -15,7 +17,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class CreateNoteActivity extends Activity {
-	private TextView finishAtTextfield;
+	private TextView finishAtTextfield,frequencyTextfield;
 	private int mYear;
 	private int mMonth;
 	private int mDay;
@@ -23,9 +25,9 @@ public class CreateNoteActivity extends Activity {
 	private int mhour;
 	private int mminute;
 
-	static final int TIME_DIALOG_ID = 1;
-
-	static final int DATE_DIALOG_ID = 0;
+	static final int TIME_DIALOG_ID = 0;
+	static final int DATE_DIALOG_ID = 1;
+	static final int GET_FREQUENCY = 2;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -34,6 +36,7 @@ public class CreateNoteActivity extends Activity {
 		setContentView(R.layout.create_note);
 
 		finishAtTextfield = (TextView) findViewById(R.id.create_note_textfield_finish_at);
+		frequencyTextfield = (TextView) findViewById(R.id.create_note_textfield_frequency);
 
 		// Pick time's click event listener
 		finishAtTextfield.setOnClickListener(new View.OnClickListener() {
@@ -49,14 +52,21 @@ public class CreateNoteActivity extends Activity {
 		mDay = c.get(Calendar.DAY_OF_MONTH);
 		mhour = c.get(Calendar.HOUR_OF_DAY);
 		mminute = c.get(Calendar.MINUTE);
-
+		
+		frequencyTextfield.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showDialog(GET_FREQUENCY);
+			}
+		});
 	}
 
 	private void updateDate() {
 		finishAtTextfield.setText(new StringBuilder()
 				// Month is 0 based so add 1
 				.append(mDay).append("/").append(mMonth + 1).append("/")
-				.append(mYear).append(" ").append(finishAtTextfield.getText().toString()));
+				.append(mYear).append(" ").append(
+						finishAtTextfield.getText().toString()));
 	}
 
 	public void updatetime() {
@@ -99,6 +109,17 @@ public class CreateNoteActivity extends Activity {
 		case TIME_DIALOG_ID:
 			return new TimePickerDialog(this, mTimeSetListener, mhour, mminute,
 					false);
+		case GET_FREQUENCY:
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Selecione o Meio de Pagamento:");
+			builder.setItems(R.menu.create_note_frequency_menu,
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int item) {
+							frequencyTextfield.setText(item);
+						}
+					});
+			final AlertDialog alert = builder.create();
+			alert.show();
 		}
 		return null;
 	}
