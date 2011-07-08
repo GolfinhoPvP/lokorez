@@ -35,7 +35,7 @@ public class CreateNoteActivity extends Activity {
 		setContentView(R.layout.create_note);
 
 		finishAtTextfield = (TextView) findViewById(R.id.create_note_textfield_finish_at);
-		frequencyTextfield = (TextView) findViewById(R.id.create_note_textfield_frequency);
+		frequencyTextfield = (TextView) findViewById(R.id.create_note_text_frequency);
 
 		// Pick time's click event listener
 		finishAtTextfield.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +111,7 @@ public class CreateNoteActivity extends Activity {
 		case GET_FREQUENCY:
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Selecione o Meio de Pagamento:");
-			builder.setItems(R.menu.create_note_frequency_menu,
+			builder.setItems(R.id.create_note_menu_opt_day,
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int item) {
 							frequencyTextfield.setText(item);
