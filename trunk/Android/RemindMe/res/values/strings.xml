@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, main!</string>
-    <string name="app_name">Remind Me</string>
+    <string name="app_name">RemindMe</string>
+    <string name="label_main_button_create_note">Create Note!</string>
+    <string name="label_tillt_button_manage_service_off">start Reminder!</string>
+    <string name="label_tillt_button_manage_service_on">stop Reminder!</string>
+    <string name="label_main_button_manager_reminder">Manage Reminder!</string>
+    <string name="label_create_note_text">What to remind: </string>
+    <string name="label_create_note_text_finish_at">When does it will happens?</string>
 </resources>
