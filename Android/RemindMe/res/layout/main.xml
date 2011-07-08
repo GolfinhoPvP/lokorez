@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@drawable/background" android:gravity="center">
+	<TableLayout android:id="@+id/tableLayout1"
+		android:layout_height="wrap_content" android:layout_width="match_parent">
+		<Button android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/main_button_create_note"
+			android:text="@string/label_main_button_create_note" android:textSize="20sp"></Button>
+		<Button android:layout_height="wrap_content" android:textSize="20sp" android:id="@+id/main_button_manage_reminder" android:layout_width="wrap_content" android:text="@string/label_main_button_manager_reminder"></Button>
+	</TableLayout>
+	<ToggleButton android:text="ToggleButton"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:id="@+id/tillt_button_manage_service" android:textOff="@string/label_tillt_button_manage_service_off"
+	android:textOn="@string/label_tillt_button_manage_service_on"></ToggleButton>
 </LinearLayout>
