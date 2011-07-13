@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string-array name="main_frequence">
+		<item name="label_create_note_menu_opt_minute">Minutes</item>
+		<item name="label_create_note_menu_opt_hour">Hours</item>
+		<item name="label_create_note_menu_opt_day">Days</item>
+		<item name="label_create_note_menu_opt_week">Weeks</item>
+		<item name="label_create_note_menu_opt_month">Months</item>
+	</string-array>
+	<string-array name="minutes">
+		<item name="label_create_note_menu_opt_minute_1">1 minute</item>
+		<item name="label_create_note_menu_opt_minute_2">2 minutes</item>
+		<item name="label_create_note_menu_opt_minute_5">5 minutes</item>
+		<item name="label_create_note_menu_opt_minute_10">10 minutes</item>
+		<item name="label_create_note_menu_opt_minute_15">15 minutes</item>
+		<item name="label_create_note_menu_opt_minute_20">20 minutes</item>
+		<item name="label_create_note_menu_opt_minute_30">30 minutes</item>
+		<item name="label_create_note_menu_opt_minute_45">45 minutes</item>
+	</string-array>
+	<string-array name="hours">
+		<item name="label_create_note_menu_opt_hour_1">1 hour</item>
+		<item name="label_create_note_menu_opt_hour_2">2 hours</item>
+		<item name="label_create_note_menu_opt_hour_3">3 hours</item>
+		<item name="label_create_note_menu_opt_hour_4">4 hours</item>
+		<item name="label_create_note_menu_opt_hour_5">5 hours</item>
+		<item name="label_create_note_menu_opt_hour_6">6 hours</item>
+		<item name="label_create_note_menu_opt_hour_10">10 hours</item>
+		<item name="label_create_note_menu_opt_hour_12">12 hours</item>
+	</string-array>
+	<string-array name="days">
+		<item name="label_create_note_menu_opt_day_1">1 day</item>
+		<item name="label_create_note_menu_opt_day_2">2 days</item>
+		<item name="label_create_note_menu_opt_day_3">3 days</item>
+		<item name="label_create_note_menu_opt_day_4">4 days</item>
+		<item name="label_create_note_menu_opt_day_5">5 days</item>
+		<item name="label_create_note_menu_opt_day_6">6 days</item>
+	</string-array>
+	<string-array name="weeks">
+		<item name="label_create_note_menu_opt_week_1">1 week</item>
+		<item name="label_create_note_menu_opt_week_2">2 weeks</item>
+		<item name="label_create_note_menu_opt_week_3">3 weeks</item>
+	</string-array>
+	<string-array name="months">
+		<item name="label_create_note_menu_opt_month_1">1 month</item>
+		<item name="label_create_note_menu_opt_month_2">2 months</item>
+		<item name="label_create_note_menu_opt_month_3">3 months</item>
+		<item name="label_create_note_menu_opt_month_4">4 months</item>
+		<item name="label_create_note_menu_opt_month_5">5 months</item>
+		<item name="label_create_note_menu_opt_month_6">6 months</item>
+	</string-array>
+</resources>
