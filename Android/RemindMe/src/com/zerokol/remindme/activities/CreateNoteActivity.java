@@ -9,6 +9,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -16,13 +17,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class CreateNoteActivity extends Activity {
-	private TextView finishAtTextfield,frequencyTextfield;
+	private TextView finishAtTextfield, frequencyTextfield;
 	private int mYear;
 	private int mMonth;
 	private int mDay;
 
 	private int mhour;
 	private int mminute;
+	private Resources resources;
 
 	static final int TIME_DIALOG_ID = 0;
 	static final int DATE_DIALOG_ID = 1;
@@ -33,9 +35,11 @@ public class CreateNoteActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_note);
+		
+		resources = getResources();
 
 		finishAtTextfield = (TextView) findViewById(R.id.create_note_textfield_finish_at);
-		frequencyTextfield = (TextView) findViewById(R.id.create_note_text_frequency);
+		frequencyTextfield = (TextView) findViewById(R.id.create_note_textfield_frequency);
 
 		// Pick time's click event listener
 		finishAtTextfield.setOnClickListener(new View.OnClickListener() {
@@ -109,17 +113,19 @@ public class CreateNoteActivity extends Activity {
 			return new TimePickerDialog(this, mTimeSetListener, mhour, mminute,
 					false);
 		case GET_FREQUENCY:
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("Selecione o Meio de Pagamento:");
-			builder.setItems(R.id.create_note_menu_opt_day,
+			AlertDialog.Builder builderMainFrequency = new AlertDialog.Builder(this);
+			builderMainFrequency.setTitle("Select The Frequency:");
+			final String[] mainFrequency = resources.getStringArray(R.array.main_frequence);
+			builderMainFrequency.setItems(mainFrequency ,
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int item) {
-							frequencyTextfield.setText(item);
+							frequencyTextfield.setText(mainFrequency[item]);
 						}
 					});
-			final AlertDialog alert = builder.create();
+			final AlertDialog alert = builderMainFrequency.create();
+			
 			alert.show();
 		}
-		return null;
+		return super.onCreateDialog(id);
 	}
 }
