@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" android:layout_width="wrap_content"
+	android:paddingBottom="10px" android:paddingTop="10px"
+	android:paddingLeft="3px">
+	<LinearLayout android:id="@+id/linearLayout1"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical" android:layout_width="fill_parent">
+		<TextView android:layout_width="50dip" android:layout_height="50dip"
+			android:id="@+id/place_icon" android:background="@drawable/user_icon">
+		</TextView>
+		<TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:textSize="15dip" android:textStyle="bold"
+			android:paddingLeft="20dip" android:id="@+id/TextView01">
+		</TextView>
+	</LinearLayout>
+	<TextView android:layout_width="200dip" android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip" android:textSize="13dip"
+		android:textStyle="bold" android:id="@+id/TextView02">
+	</TextView>
+</TableLayout>
+
