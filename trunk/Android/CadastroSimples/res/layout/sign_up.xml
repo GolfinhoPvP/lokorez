@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@color/white">
+	<RelativeLayout android:id="@+id/relativeLayout"
+		android:layout_height="fill_parent" android:layout_width="fill_parent"
+		android:gravity="center">
+		<TableLayout android:id="@+id/tableLayout1"
+			android:layout_alignParentLeft="true" android:layout_height="wrap_content"
+			android:layout_width="wrap_content">
+			<TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<ImageView android:layout_width="wrap_content" android:id="@+id/imageView1"
+					android:layout_height="wrap_content"></ImageView>
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:textColor="@color/black"
+					android:textSize="18dp" android:id="@+id/sign_up_header_label"
+					android:text="@string/sign_up_heade_text"></TextView>
+			</TableRow>
+			<TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content"
+					android:typeface="serif" android:layout_height="wrap_content"
+					android:textColor="@color/black" android:id="@+id/sign_up_name_label"
+					android:text="@string/sign_up_name_label_text"></TextView>
+				<EditText android:layout_height="wrap_content"
+					android:layout_width="200dip" android:editable="false"
+					android:id="@+id/sign_up_name_text_field" android:text="@string/none">
+				</EditText>
+			</TableRow>
+			<TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content"
+					android:typeface="serif" android:layout_height="wrap_content"
+					android:textColor="@color/black" android:id="@+id/sign_up_age_label"
+					android:text="@string/sign_up_age_label_text"></TextView>
+				<EditText android:layout_height="wrap_content"
+					android:inputType="numberDecimal" android:layout_width="150dip"
+					android:id="@+id/sign_up_age_text_field" android:text="@string/none"></EditText>
+			</TableRow>
+			<TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<TextView android:layout_width="wrap_content"
+					android:typeface="serif" android:layout_height="wrap_content"
+					android:id="@+id/description_label" android:textColor="@color/black"
+					android:text="@string/sign_up_email_label_text"></TextView>
+				<EditText android:layout_height="wrap_content"
+					android:layout_width="150dip" android:inputType="text"
+					android:id="@+id/sign_up_email_text_field" android:text="@string/none"></EditText>
+			</TableRow>
+			<TableRow android:id="@+id/tableRow5" android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+			</TableRow>
+			<TableRow android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:id="@+id/table_row_input_button"
+				android:gravity="center_horizontal">
+				<Button android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:id="@+id/sign_up_button"
+					android:text="@string/sign_up_button_text"></Button>
+			</TableRow>
+		</TableLayout>
+	</RelativeLayout>
+</LinearLayout>

@@ -1,7 +1,5 @@
 package br.com.bloum.optativa.cadastrosimples;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,8 +28,10 @@ public class MainActivity extends Activity {
 	private static class EfficientAdapter extends BaseAdapter {
 		private LayoutInflater mInflater;
 		private MyProvider myProvider = new MyProvider();
-		private String[] columns = {MyProvider.KEY_ID, MyProvider.KEY_NAME, MyProvider.KEY_AGE, MyProvider.KEY_EMAIL};
-		private Cursor users = myProvider.query(MyProvider.CONTENT_URI, columns, null, null, null);
+		private String[] columns = { MyProvider.KEY_ID, MyProvider.KEY_NAME,
+				MyProvider.KEY_AGE, MyProvider.KEY_EMAIL };
+		private Cursor users = myProvider.query(MyProvider.CONTENT_URI,
+				columns, null, null, null);
 
 		public EfficientAdapter(Context context) {
 			mInflater = LayoutInflater.from(context);
@@ -60,14 +59,12 @@ public class MainActivity extends Activity {
 						.findViewById(R.id.TextView01);
 				holder.text2 = (TextView) convertView
 						.findViewById(R.id.TextView02);
-
 				convertView.setTag(holder);
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
-			place = usersArray.get(position);
-			holder.text1.setText("Nome: " + place.getName() + "\n");
-			holder.text2.setText("Descrição: " + place.getDescription() + "\n");
+			holder.text1.setText("Nome: " + users.getString(MyProvider.NAME_COLUMN) + "\n");
+			holder.text2.setText("Descrição: " + users.getString(MyProvider.EMAIL_COLUMN) + "\n");
 
 			return convertView;
 		}

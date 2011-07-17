@@ -32,6 +32,7 @@ public class MyProvider extends ContentProvider {
 	public static final String KEY_EMAIL = "email";
 
 	// Column indexes
+	public static final int ID_COLUMN = 0;
 	public static final int NAME_COLUMN = 1;
 	public static final int AGE_COLUMN = 2;
 	public static final int EMAIL_COLUMN = 3;
