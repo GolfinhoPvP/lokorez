@@ -2,4 +2,11 @@
 <resources>
     <string name="app_name">Cadastro Simples</string>
     <color name="white">#ffffff</color>
+    <string name="sign_up_name_label_text">Nome</string>
+    <string name="sign_up_age_label_text">Idade</string>
+    <string name="sign_up_email_label_text">email</string>
+    <string name="none"></string>
+    <string name="sign_up_button_text">Cadastrar</string>
+    <string name="sign_up_heade_text">Cadstro de Pessoa</string>
+    <color name="black">#000000</color>
 </resources>
