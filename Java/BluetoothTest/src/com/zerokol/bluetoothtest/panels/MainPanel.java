@@ -3,11 +3,16 @@ package com.zerokol.bluetoothtest.panels;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.io.IOException;
+import java.util.Vector;
 
 import javax.bluetooth.BluetoothStateException;
 import javax.bluetooth.DeviceClass;
 import javax.bluetooth.DiscoveryAgent;
+import javax.bluetooth.DiscoveryListener;
 import javax.bluetooth.LocalDevice;
+import javax.bluetooth.RemoteDevice;
+import javax.bluetooth.ServiceRecord;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -18,7 +23,6 @@ public class MainPanel extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@SuppressWarnings("unused")
 	private Container container = null;
 
 	private JLabel bluetoothDeviceMode = new JLabel("The Bluetooth mode is: ");
@@ -27,9 +31,7 @@ public class MainPanel extends JPanel {
 	private JLabel bluetoothMinorClass = new JLabel("Minor class value: ");
 	private JLabel bluetoothMajorClass = new JLabel("Major class value: ");
 
-	private String[][] values = new String[][] { { "1", "SP", "Sao Paulo" },
-			{ "2", "RJ", "Rio de Janeiro" },
-			{ "3", "RN", "Rio Grande do Norte" }, { "4", "PR", "Parana" } };
+	private String[][] values = null;
 	private String[] columns = new String[] { "Number", "Remote Address",
 			"Remote Friend Name" };
 	private DefaultTableModel tableModel = new DefaultTableModel(values,
@@ -38,6 +40,7 @@ public class MainPanel extends JPanel {
 
 	private LocalDevice localDevice = null;
 	private DeviceClass localDeviceClass = null;
+	private DiscoveryAgent discoveryAgent = null;
 
 	public MainPanel(Container cont, final Dimension d) {
 		this.container = cont;
@@ -93,7 +96,17 @@ public class MainPanel extends JPanel {
 				+ localDeviceClass.getMajorDeviceClass());
 		this.add(bluetoothMajorClass);
 
+		remoteDeviceTable.setPreferredSize(new Dimension(400, 300));
 		this.add(remoteDeviceTable);
+
+		discoveryAgent = localDevice.getDiscoveryAgent();
+
+		try {
+			getRemoteDevices();
+		} catch (BluetoothStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void paintComponent(Graphics g) {
@@ -105,6 +118,45 @@ public class MainPanel extends JPanel {
 		bluetoothMinorClass.setLocation(10, 200);
 		bluetoothMajorClass.setLocation(10, 225);
 
-		remoteDeviceTable.setLocation(400, 100);
+		remoteDeviceTable.setLocation(300, 100);
+
+		container.repaint();
+	}
+
+	private void getRemoteDevices() throws BluetoothStateException {
+		discoveryAgent.startInquiry(DiscoveryAgent.GIAC,
+				new DiscoveryListener() {
+					@Override
+					public void deviceDiscovered(RemoteDevice remoteDevice,
+							DeviceClass remoteDeviceClass) {
+						Vector<String> vector = new Vector<String>();
+						vector.add(String.valueOf(remoteDeviceTable
+								.getRowCount() + 1));
+						vector.add(remoteDevice.getBluetoothAddress());
+						try {
+							vector.add(remoteDevice.getFriendlyName(true));
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						tableModel.addRow(vector);
+					}
+
+					@Override
+					public void inquiryCompleted(int arg0) {
+						// TODO Auto-generated method stub
+					}
+
+					@Override
+					public void serviceSearchCompleted(int arg0, int arg1) {
+						// TODO Auto-generated method stub
+					}
+
+					@Override
+					public void servicesDiscovered(int arg0,
+							ServiceRecord[] arg1) {
+						// TODO Auto-generated method stub
+					}
+				});
 	}
 }
