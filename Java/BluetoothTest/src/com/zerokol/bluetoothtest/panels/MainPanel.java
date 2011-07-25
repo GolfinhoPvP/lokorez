@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import com.zerokol.bluetoothtest.beans.Bluetooth;
+
 public class MainPanel extends JPanel {
 	/**
 	 * 
@@ -39,8 +41,9 @@ public class MainPanel extends JPanel {
 	private JTable remoteDeviceTable = new JTable(tableModel);
 
 	private LocalDevice localDevice = null;
-	private DeviceClass localDeviceClass = null;
 	private DiscoveryAgent discoveryAgent = null;
+
+	private Bluetooth myBluetooth = null;
 
 	public MainPanel(Container cont, final Dimension d) {
 		this.container = cont;
@@ -64,36 +67,26 @@ public class MainPanel extends JPanel {
 			e.printStackTrace();
 		}
 
-		switch (localDevice.getDiscoverable()) {
-		case 0:
-			bluetoothDeviceMode.setText(bluetoothDeviceMode.getText()
-					+ "NOT_DISCOVERABLE");
-			break;
-		case 10390272:
-			bluetoothDeviceMode.setText(bluetoothDeviceMode.getText() + "LIAC");
-			break;
-		case 10390323:
-			bluetoothDeviceMode.setText(bluetoothDeviceMode.getText() + "GIAC");
-			break;
-		}
+		myBluetooth = new Bluetooth(localDevice);
+
+		bluetoothDeviceMode.setText(bluetoothDeviceMode.getText()
+				+ myBluetooth.getNamedDeviceMode());
 		this.add(bluetoothDeviceMode);
 
 		bluetoothAddress.setText(bluetoothAddress.getText()
-				+ localDevice.getBluetoothAddress());
+				+ myBluetooth.getAddress());
 		this.add(bluetoothAddress);
 
 		bluetoothFriendlyName.setText(bluetoothFriendlyName.getText()
-				+ localDevice.getFriendlyName());
+				+ myBluetooth.getFriendName());
 		this.add(bluetoothFriendlyName);
 
-		localDeviceClass = localDevice.getDeviceClass();
-
 		bluetoothMinorClass.setText(bluetoothMinorClass.getText()
-				+ localDeviceClass.getMinorDeviceClass());
+				+ myBluetooth.getNamedMinorClass());
 		this.add(bluetoothMinorClass);
 
 		bluetoothMajorClass.setText(bluetoothMajorClass.getText()
-				+ localDeviceClass.getMajorDeviceClass());
+				+ myBluetooth.getNamedMajorClass());
 		this.add(bluetoothMajorClass);
 
 		remoteDeviceTable.setPreferredSize(new Dimension(400, 300));

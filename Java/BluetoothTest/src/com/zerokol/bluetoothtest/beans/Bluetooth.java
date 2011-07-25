@@ -1,13 +1,26 @@
 package com.zerokol.bluetoothtest.beans;
 
+import javax.bluetooth.DeviceClass;
+import javax.bluetooth.LocalDevice;
+
 public class Bluetooth {
 	private int deviceMode = -1;
 	private String address = null;
 	private String friendName = null;
 	private int minorClass = -1;
 	private int majorClass = -1;
+	
+	private DeviceClass deviceClass = null;
 
-	public Bluetooth() {
+	public Bluetooth(LocalDevice ld) {
+		this.deviceMode = ld.getDiscoverable();
+		this.address = ld.getBluetoothAddress();
+		this.friendName = ld.getFriendlyName();
+		
+		deviceClass = ld.getDeviceClass();
+		
+		this.minorClass = deviceClass.getMinorDeviceClass();
+		this.majorClass = deviceClass.getMajorDeviceClass();
 	}
 
 	public int getDeviceMode() {
