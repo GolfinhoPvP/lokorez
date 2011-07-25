@@ -1,12 +1,15 @@
 package com.zerokol.bluetoothtest.beans;
 
+import java.io.IOException;
+
 import javax.bluetooth.DeviceClass;
 import javax.bluetooth.LocalDevice;
+import javax.bluetooth.RemoteDevice;
 
 public class Bluetooth {
 	private int deviceMode = -1;
 	private String address = null;
-	private String friendName = null;
+	private String friendlyName = null;
 	private int minorClass = -1;
 	private int majorClass = -1;
 	
@@ -15,12 +18,22 @@ public class Bluetooth {
 	public Bluetooth(LocalDevice ld) {
 		this.deviceMode = ld.getDiscoverable();
 		this.address = ld.getBluetoothAddress();
-		this.friendName = ld.getFriendlyName();
+		this.friendlyName = ld.getFriendlyName();
 		
 		deviceClass = ld.getDeviceClass();
 		
 		this.minorClass = deviceClass.getMinorDeviceClass();
 		this.majorClass = deviceClass.getMajorDeviceClass();
+	}
+	
+	public Bluetooth(RemoteDevice rd) {
+		this.address = rd.getBluetoothAddress();
+		try {
+			this.friendlyName = rd.getFriendlyName(false);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public int getDeviceMode() {
@@ -51,12 +64,12 @@ public class Bluetooth {
 		this.address = address;
 	}
 
-	public String getFriendName() {
-		return friendName;
+	public String getFriendlyName() {
+		return friendlyName;
 	}
 
-	public void setFriendName(String friendName) {
-		this.friendName = friendName;
+	public void setFriendlyName(String friendlyName) {
+		this.friendlyName = friendlyName;
 	}
 
 	public int getMinorClass() {
