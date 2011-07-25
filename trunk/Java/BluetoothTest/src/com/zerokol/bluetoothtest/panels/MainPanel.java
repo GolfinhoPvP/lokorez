@@ -95,7 +95,40 @@ public class MainPanel extends JPanel {
 		discoveryAgent = localDevice.getDiscoveryAgent();
 
 		try {
-			getRemoteDevices();
+			discoveryAgent.startInquiry(DiscoveryAgent.GIAC,
+					new DiscoveryListener() {
+						@Override
+						public void deviceDiscovered(RemoteDevice remoteDevice,
+								DeviceClass remoteDeviceClass) {
+							Vector<String> vector = new Vector<String>();
+							vector.add(String.valueOf(remoteDeviceTable
+									.getRowCount() + 1));
+							vector.add(remoteDevice.getBluetoothAddress());
+							try {
+								vector.add(remoteDevice.getFriendlyName(true));
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							tableModel.addRow(vector);
+						}
+
+						@Override
+						public void inquiryCompleted(int arg0) {
+							// TODO Auto-generated method stub
+						}
+
+						@Override
+						public void serviceSearchCompleted(int arg0, int arg1) {
+							// TODO Auto-generated method stub
+						}
+
+						@Override
+						public void servicesDiscovered(int arg0,
+								ServiceRecord[] arg1) {
+							// TODO Auto-generated method stub
+						}
+					});
 		} catch (BluetoothStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -114,42 +147,5 @@ public class MainPanel extends JPanel {
 		remoteDeviceTable.setLocation(300, 100);
 
 		container.repaint();
-	}
-
-	private void getRemoteDevices() throws BluetoothStateException {
-		discoveryAgent.startInquiry(DiscoveryAgent.GIAC,
-				new DiscoveryListener() {
-					@Override
-					public void deviceDiscovered(RemoteDevice remoteDevice,
-							DeviceClass remoteDeviceClass) {
-						Vector<String> vector = new Vector<String>();
-						vector.add(String.valueOf(remoteDeviceTable
-								.getRowCount() + 1));
-						vector.add(remoteDevice.getBluetoothAddress());
-						try {
-							vector.add(remoteDevice.getFriendlyName(true));
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						tableModel.addRow(vector);
-					}
-
-					@Override
-					public void inquiryCompleted(int arg0) {
-						// TODO Auto-generated method stub
-					}
-
-					@Override
-					public void serviceSearchCompleted(int arg0, int arg1) {
-						// TODO Auto-generated method stub
-					}
-
-					@Override
-					public void servicesDiscovered(int arg0,
-							ServiceRecord[] arg1) {
-						// TODO Auto-generated method stub
-					}
-				});
 	}
 }
