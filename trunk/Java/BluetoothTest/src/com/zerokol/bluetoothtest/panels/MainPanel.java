@@ -3,7 +3,7 @@ package com.zerokol.bluetoothtest.panels;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.bluetooth.BluetoothStateException;
@@ -44,6 +44,7 @@ public class MainPanel extends JPanel {
 	private DiscoveryAgent discoveryAgent = null;
 
 	private Bluetooth myBluetooth = null;
+	private ArrayList<Bluetooth> remoteDevices = new ArrayList<Bluetooth>();
 
 	public MainPanel(Container cont, final Dimension d) {
 		this.container = cont;
@@ -78,7 +79,7 @@ public class MainPanel extends JPanel {
 		this.add(bluetoothAddress);
 
 		bluetoothFriendlyName.setText(bluetoothFriendlyName.getText()
-				+ myBluetooth.getFriendName());
+				+ myBluetooth.getFriendlyName());
 		this.add(bluetoothFriendlyName);
 
 		bluetoothMinorClass.setText(bluetoothMinorClass.getText()
@@ -100,16 +101,13 @@ public class MainPanel extends JPanel {
 						@Override
 						public void deviceDiscovered(RemoteDevice remoteDevice,
 								DeviceClass remoteDeviceClass) {
+							Bluetooth b = new Bluetooth(remoteDevice);
+							remoteDevices.add(b);
 							Vector<String> vector = new Vector<String>();
 							vector.add(String.valueOf(remoteDeviceTable
 									.getRowCount() + 1));
 							vector.add(remoteDevice.getBluetoothAddress());
-							try {
-								vector.add(remoteDevice.getFriendlyName(true));
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+							vector.add(b.getFriendlyName());
 							tableModel.addRow(vector);
 						}
 
