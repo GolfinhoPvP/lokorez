@@ -22,6 +22,10 @@ unsigned long distance = 0;
 
 Fuzzy fuzzy(1);
 
+FuzzySet perto(0, 0, 25, 50);
+FuzzySet medio(25, 50, 50, 75);
+FuzzySet longe(50, 75, 100, 100);
+
 //setup
 void setup() {
   // initialize the serial port, lets you view the distances being pinged if connected to computer
@@ -34,10 +38,6 @@ void setup() {
   for (int thisReading = 0; thisReading < numOfReadings; thisReading++) {
     readings[thisReading] = 0;
   }
-  
-  FuzzySet perto(0, 0, 25, 50);
-  FuzzySet medio(25, 50, 50, 75);
-  FuzzySet longe(50, 75, 100, 100);
   
   fuzzy.setFuzzySetsInput(0, 0, &perto);   //Set 1
   fuzzy.setFuzzySetsInput(0, 1, &medio);   //Set 2
@@ -73,7 +73,7 @@ void loop() {
     // calculate the average distance
     averageDistance = total / numOfReadings;
     
-    fuzzy.setInputs(0, 10);
+    fuzzy.setInputs(0, averageDistance);
    
     fuzzy.fuzzify(0);
    
