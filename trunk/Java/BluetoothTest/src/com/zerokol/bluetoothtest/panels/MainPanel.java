@@ -3,6 +3,9 @@ package com.zerokol.bluetoothtest.panels;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -15,6 +18,9 @@ import javax.bluetooth.LocalDevice;
 import javax.bluetooth.RemoteDevice;
 import javax.bluetooth.ServiceRecord;
 import javax.bluetooth.UUID;
+import javax.microedition.io.Connector;
+import javax.microedition.io.StreamConnection;
+import javax.microedition.io.StreamConnectionNotifier;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -52,6 +58,13 @@ public class MainPanel extends JPanel {
 	private Vector<String> serviceFound = new Vector<String>();
 	private UUID OBEX_FILE_TRANSFER = new UUID(0x1106);
 	private UUID SERIAL_PORT = new UUID(0x1101);
+
+	StreamConnectionNotifier notifier = null;
+	StreamConnection con = null;
+	ServiceRecord servicerecord = null;
+
+	InputStream input;
+	OutputStream output;
 
 	public MainPanel(Container cont, final Dimension d) {
 		this.container = cont;
@@ -126,7 +139,7 @@ public class MainPanel extends JPanel {
 							vector.add("OF");
 							vector.add("SEARCH");
 							tableModel.addRow(vector);
-							for(int x = 0; x < bluetoothRemoteDevices.size(); x++){
+							for (int x = 0; x < bluetoothRemoteDevices.size(); x++) {
 								getService(x);
 							}
 						}
@@ -145,6 +158,24 @@ public class MainPanel extends JPanel {
 						}
 					});
 		} catch (BluetoothStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// let's create a URLusing Bluetooth for a variety of platforms. This
+		// has a very low chanceservices, highlights of security anything
+		String url = "btspp://localhost:00112233445566778899AABBCCDDEEFF;name=serialconn";
+		// let's open the connection with the URL and cast it into a
+		// StreamConnectionNotifier Table of Contents
+		try {
+			notifier = (StreamConnectionNotifier) Connector.open(url);
+
+			con = notifier.acceptAndOpen();
+
+			input = con.openInputStream();
+
+			output = con.openOutputStream();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
