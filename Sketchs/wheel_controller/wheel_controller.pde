@@ -40,26 +40,26 @@ void setup(){
 }
 
 void loop(){
-  delay(5000);
+  delay(10000);
   forward(45);
-  delay(1000);
+  delay(4000);
   rigthBend(90);
-  delay(1000);
+  delay(4000);
   backward(45);
-  delay(1000);
+  delay(4000);
   rigthBend(90);
   forward(45);
   leftBend(90);
-  delay(1000);
+  delay(4000);
   backward(45);
-  delay(1000);
+  delay(4000);
   leftBend(90);
-  delay(1000);
+  delay(4000);
   stopWheels();
-  forward(45, 30);
-  backward(45, 10);
+  forward(45, 100);
+  backward(45, 40);
   spin(180);
-  forward(45, 20);
+  forward(45, 60);
   spin(-180);
   delay(100000000);
 }
