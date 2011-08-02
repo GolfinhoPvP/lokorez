@@ -142,6 +142,19 @@ void backward(int speed, double distance){
   }
 }
 
+void bend(int degree){
+  if(degree > 0){
+    rigthBend(degree);
+  }else if(degree < 0){
+    degree *= -1;
+    leftBend(degree);
+  }
+  if(_debug){
+    Serial.print("bend(int degree) -> Radians: ");
+    Serial.println(degree);
+  }
+}
+
 void rigthBend(int degree){
   if(degree < 0){
     degree = 0;
