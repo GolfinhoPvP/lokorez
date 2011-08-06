@@ -53,9 +53,9 @@ while True:
 	temperature = float(response[0])
 	voltage = float(response[1])
 
-	sql = "insert into temperatures (date, temperature, voltage) values ('%s', %d, %d)" % (formated_data, temperature, voltage)
+	sql = "insert into temperatures (date, temperature, voltage) values ('%s', %d, %f)" % (formated_data, temperature, voltage)
 	cursor.execute(sql)
 	db_connection.commit()
 
-	print "Temperatura: %f C e Tensão: %f" % (temperature, voltage)
+	print "Temperatura: %d C e Tensão: %f" % (temperature, voltage)
 
