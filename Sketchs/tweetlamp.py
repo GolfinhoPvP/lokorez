@@ -18,7 +18,6 @@ def turn_light_on():
     arduino.write('H')
     arduino.flush()
 
-
 def turn_light_off():
     arduino.write('L')
     arduino.flush()
